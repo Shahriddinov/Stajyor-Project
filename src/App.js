@@ -6,6 +6,7 @@ import systemActions from "store/actions/system";
 import config from "config";
 import { helpers } from "services";
 import { withRouter } from "utils";
+import Navigation from "pages/NonAuth";
 
 function App({ children }) {
 	const dispatch = useDispatch();

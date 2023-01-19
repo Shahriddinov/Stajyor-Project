@@ -7,14 +7,4 @@ import UploadFile from "./UploadFile";
 import File from "./File";
 import Skeleton from "./Skeleton";
 import CustomChartBar from "./Skeleton";
-export {
-	Spinner,
-	Layout,
-
-	UploadFile,
-	File,
-	Button,
-	NetworkError,
-	Skeleton,
-	CustomChartBar,
-};
+export { Spinner, Layout, UploadFile, File, Button, NetworkError, Skeleton, CustomChartBar };

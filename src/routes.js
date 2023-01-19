@@ -6,14 +6,14 @@ import { getBaseName } from "./utils";
 
 import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
+import NonAuth from "pages/NonAuth/NonAuth";
 
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/404"));
 
 const routes = [
 	{ path: "/", element: Home },
-
-
+	{ path: "/non-auth", element: NonAuth }
 ];
 
 const RoutesContainer = () => (

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
-const Header = () => {
+// const Header = () => {
 
 
-	return (
-		<div>
-			<h1>Header</h1>
-		</div>
-	);
-};
+// 	return (
+// 		<div>
+// 			<h1>Header</h1>
+// 		</div>
+// 	);
+// };
 
-export default Header;
+// export default Header;

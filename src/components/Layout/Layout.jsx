@@ -3,6 +3,10 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { useLocation } from "react-router";
 import { NetworkError } from "components";
+import AboutYourself from "pages/About-Yourself/AboutYourself";
+// import PersonalInformation from "pages/Personal-Information/PersonalInformation";
+// import Address from "pages/Address/Address";
+// import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 const Layout = props => {
 	const { pathname } = useLocation();

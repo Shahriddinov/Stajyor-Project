@@ -49,10 +49,12 @@ function Background() {
 			<div>
 				<img src={blue} alt="blue image" />
 				<img className={classes.automative} src={logo} alt="Automative logo" />
-				<Round />
+				<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
+					<Round />
+				</div>
 			</div>
 		</div>
 	);
 }
-
+// ? classes.round2 : "" ? step3 ? classes.round3 : "" ? step4 ? classes.round4 : ""
 export default Background;

@@ -1,0 +1,45 @@
+.navBox {
+	position: absolute;
+	margin-left: 48rem;
+	margin-top: 70px;
+	display: grid;
+	grid-template-columns: 5fr 2fr;
+	gap: 6rem;
+}
+
+.navLinks {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid white;
+}
+
+.navLinks h2 {
+	color: #1d71b8;
+	font-family: "Montserrat";
+	font-weight: 500;
+	font-size: 23px;
+	line-height: 28.04px;
+}
+
+.logButton {
+	display: flex;
+	gap: 2rem;
+}
+.logButton button {
+	width: 7rem;
+	height: 3rem;
+	font-family: "Montserrat";
+	margin-top: 0.45rem;
+	padding: 0 20px;
+	border: 1px solid #1d71b8;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24.38px;
+	color: #1d71b8;
+}
+
+.logButton button:first-of-type {
+	color: white;
+	background-color: #1d71b8;
+}

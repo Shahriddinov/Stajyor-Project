@@ -28,12 +28,13 @@ const Layout = props => {
 		<>
 			<NetworkError />
 			<div className={pathname === "/" ? "page-wrapper1" : "page-wrapper2"}>
-				<Header speaker={speaker} changeSpeakSwitcher={changeSpeakSwitcher} />
 				<div className="page-content">{children}</div>
-				<Footer />
 			</div>
 		</>
 	);
 };
 
 export default Layout;
+
+// <Header speaker={speaker} changeSpeakSwitcher={changeSpeakSwitcher} />
+// <Footer />

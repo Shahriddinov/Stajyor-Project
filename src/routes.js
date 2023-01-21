@@ -23,8 +23,6 @@ const routes = [
 const auth_path = window.location.pathname.split("/")[2]
 
 const RoutesContainer = () => (
-
-
 	<Router {...{ history }} basename={`/${getBaseName()}`}>
 		<App>
 				{

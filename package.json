@@ -87,18 +87,5 @@
     "redux-logger": "^3.0.6",
     "require-context.macro": "^1.2.2",
     "sass": "^1.49.11"
-  },
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Shahriddinov/Stajyor-Project.git"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Shahriddinov/Stajyor-Project/issues"
-  },
-  "homepage": "https://github.com/Shahriddinov/Stajyor-Project#readme"
+  }
 }

@@ -6,7 +6,6 @@ import { getBaseName } from "./utils";
 
 import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
-import NonAuth from "pages/NonAuth/NonAuth";
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -16,14 +15,8 @@ const Signup = lazy(() => import('./pages/Sign/Signup/Signup'))
 const NonAuth = lazy(() => import("./pages/NonAuth"));
 
 const routes = [
-	{ path: "", element: Home }
-
-	{ path: "/", element: Home },
-
-
 	{ path: "", element: Home },
 	{ path: "/auth", element: NonAuth },
-	{ path: "/non-auth", element: NonAuth }
 ];
 
 

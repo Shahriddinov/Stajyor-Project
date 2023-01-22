@@ -1,0 +1,82 @@
+
+.menu{
+	position: absolute;
+	display: flex;
+	top: 90px;
+	left: 50rem;
+	width: 60rem;
+	height: 70px;
+	align-items: center;
+	justify-content: space-between;
+	.menu__links{
+		margin: 0;
+		padding-left: 0;
+		width: 600px;
+		height:100%;
+		display: flex;
+		align-items: center;
+		list-style-type: none;
+		justify-content: space-between;
+		z-index: 6;
+		.menu__link{
+			cursor: pointer;
+			font-family: "Montserrat",sans-serif;
+			font-weight: 500;
+			font-size: 20px;
+			color: #1d71b8;
+		    height:50%;
+			display: flex;
+			align-items: center;
+			&:hover{
+				border-bottom: 5px solid #1d71b8;
+			}
+		}
+		
+	}
+
+
+
+	.menu__buttons{
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 20rem;
+		height: 100%;
+		
+		.menu__login{
+			cursor: pointer;
+			width: 103px;
+			height: 44px;
+			font-size: 20px;
+			font-weight: 500;
+			border: 1px solid #1d71b8;
+			background-color: #1d71b8;
+			border-radius: 8px;
+			color: #fff;
+			line-height: 24px;
+		}
+
+		.menu__signup{
+			cursor: pointer;
+			border-radius: 8px;
+			border: 1px solid #1d71b8;
+			width: 118px;
+			height: 44px;
+			color: #1d71b8;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 24px;
+		}
+	}
+}
+
+.menu__underline{
+	position: absolute;
+	top: 140px;
+	left: 50rem;
+	width: 37.5rem;
+	height: 5px;
+	background: #fff;
+	border-radius: 5px;
+ 
+}

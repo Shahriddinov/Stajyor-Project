@@ -1,0 +1,30 @@
+.languageCard {
+	background: white;
+	height: 433px;
+	width: 750px;
+	padding: 3rem;
+	padding-right: 4.5rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	border-radius: 10px;
+}
+
+.yourselfCard button {
+	border: none;
+	border-radius: 8px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	color: #323232;
+	background: #ffffff;
+	padding: 1rem 2rem;
+	margin-top: 3rem;
+}
+
+.nextButton {
+	border: 1px solid #1d71b8 !important;
+}
+
+.backButton {
+	margin-left: 32rem;
+}

@@ -5,6 +5,8 @@ import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import Photo from "../cards/Photo.jsx";
 import CareerSlider from "../CareerSlider/CareerSlider";
+import Yourself from "../cards/Yourself";
+import Language from "../cards/Language";
 
 function Background() {
 	return (
@@ -19,7 +21,9 @@ function Background() {
 				</div>
 			</div>
 			<div className={classes.cards}>
-				<Photo />
+				{/* <Photo /> */}
+				{/* <Yourself /> */}
+				<Language />
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />

@@ -3,19 +3,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
+import Photo from "../cards/Photo.jsx";
 
 function Background() {
 	return (
-		<div>
+		<div className={classes.allBackground}>
 			<div className={classes.backSign}>
 				<Link to="./">
 					<img src={back} alt="back sign" />
 					Back
 				</Link>
+				<div className={classes.round}>
+					<Round />
+				</div>
 			</div>
-			<div className={classes.round}>
-				<Round />
+			<div className={classes.cards}>
+				<Photo />
 			</div>
+			<div className={classes.test}>test</div>
 		</div>
 	);
 }

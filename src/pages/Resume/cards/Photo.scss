@@ -1,0 +1,81 @@
+.photoCard {
+	background: white;
+	height: 514px;
+	width: 750px;
+	padding: 2rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+	border-radius: 10px;
+}
+
+.imageUp {
+	margin: auto;
+	width: 5rem;
+	height: 5rem;
+	background-image: url("../../../assets/images/Resume/image.svg");
+	background-position: center;
+	background-color: #f5f5f7;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	border: 1px solid #cdcdcd;
+	padding: 1rem 1.2rem 1rem 1rem;
+	&:hover {
+		background-image: url("../../../assets/images/Resume/image2.svg");
+	}
+}
+
+.photoCard {
+	text-align: center;
+}
+
+.photoCard h3 {
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #808080;
+	margin-top: 1rem;
+}
+
+.inputBox {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+.inputBox input {
+	width: 80%;
+	padding: 1rem;
+	border-radius: 5px;
+	border: 1px solid #cdcdcd;
+}
+
+.inputBox input::placeholder {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 24px;
+	color: #808080;
+}
+
+.inputBox h5 {
+	text-align: left;
+	margin-left: 1.4rem;
+	margin-top: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.photoCard button {
+	margin-right: -38rem;
+	border: 1px solid #1d71b8;
+	border-radius: 8px;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	color: #323232;
+	background: #ffffff;
+	padding: 1rem 2rem;
+	margin-top: 4rem;
+}

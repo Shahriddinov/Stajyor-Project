@@ -8,19 +8,18 @@ import Page2 from "./Page2";
 import Page3 from "./Page3";
 import Page4 from "./Page4";
 import { useState } from "react";
-import lineV from "../../assets/images/lineV.png";
 import classesNav from "./Navigation.module.scss";
-import Talants from "./Talants";
+import Talants from "./pages/talants/Talants";
 import CircleSlider from "./CircleSlider";
 import Jobs from "./Jobs";
 import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
+import { Link } from "react-router-dom";
 
 function Background() {
 	const [count, setCount] = useState(1);
 
-	let step0 = false,
-		step1 = false,
+	let step1 = false,
 		step2 = false,
 		step3 = false,
 		step4 = false,
@@ -82,8 +81,12 @@ function Background() {
 				</ul>
 
 				<div className={classesNav.menu__buttons}>
-					<button className={classesNav.menu__login}>Log in</button>
-					<button className={classesNav.menu__signup}>Sign up</button>
+					<Link to="/login">
+						<button className={classesNav.menu__login}>Log in</button>
+					</Link>
+					<Link to="/signup">
+						<button className={classesNav.menu__signup}>Sign up</button>
+					</Link>
 				</div>
 			</div>
 			<div className={classesNav.menu__underline}></div>
@@ -95,8 +98,10 @@ function Background() {
 			{step6 && <Jobs />}
 			{step7 && <Aboutus />}
 			{step8 && <Contactus />}
-		
-			<div>
+
+			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} setCount={setCount} />
+
+			<div className={classes.backgroundCircles}>
 				<img src={blue} alt="blue" />
 				<img className={classes.automative} src={logo} alt="Automative logo" />
 				<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>

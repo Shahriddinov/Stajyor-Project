@@ -1,4 +1,3 @@
-import Navigation from "./Navigation";
 import Background from "./Background";
 import React from "react";
 import classes from "./index.module.scss";

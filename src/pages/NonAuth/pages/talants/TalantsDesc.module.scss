@@ -1,0 +1,46 @@
+.talantsDesc{
+    width: 850px;
+    height: 100%;
+    border-radius: 12px;
+  
+    .talantsSearch{
+        width: 100%;
+        height: 60px;
+        margin-bottom: 20px;
+        border: 1px solid lightblue;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        .talantsSearchInput{
+            width: 500px;
+            height: 50px;
+            border: 1px solid #1d71b8;
+            border-radius: 12px;
+        }
+        .talantsSearchBtn{
+            width: 80px;
+            height: 50px;
+            background: #1d71b8;
+            border: 1px solid #1d71b8;
+            border-radius: 8px;
+            color: #FFFFFF;
+        }
+    }
+    .talantsBlock{
+        width: 100%;
+        height: 252px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        margin-top: 2.2rem;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    
+        .jobDesc{
+            width: 100%;
+            height: 8rem;
+          
+            
+        }
+    }
+}

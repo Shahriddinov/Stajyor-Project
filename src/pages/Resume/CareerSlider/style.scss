@@ -1,12 +1,13 @@
 .mycareer {
+	margin-top: -25rem;
+	margin-left: -10rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 90vh;
 	position: relative;
 
 	&__image {
-		width: 10%;
+		width: 100%;
 		object-fit: cover;
 	}
 

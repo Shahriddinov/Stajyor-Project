@@ -4,7 +4,6 @@
 	width: 750px;
 	padding: 2rem;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
 	border-radius: 10px;
 }
 
@@ -19,9 +18,15 @@
 	border-radius: 50%;
 	border: 1px solid #cdcdcd;
 	padding: 1rem 1.2rem 1rem 1rem;
-	&:hover {
-		background-image: url("../../../assets/images/Resume/image2.svg");
-	}
+}
+
+.imageUpload:hover .title {
+	color: #1d71b8;
+}
+
+.imageUpload:hover .imageUp {
+	background-image: url("../../../assets/images/Resume/image2.svg");
+	background-color: #dfe8f1;
 }
 
 .photoCard {
@@ -44,6 +49,7 @@
 	grid-template-columns: 1fr 1fr;
 	gap: 1rem;
 }
+
 .inputBox input {
 	width: 80%;
 	padding: 1rem;

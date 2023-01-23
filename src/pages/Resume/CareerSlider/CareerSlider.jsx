@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import MyCareerLogo from "../../../assets/images/Resume/my-career.svg";
 
-function MyCareer() {
+function CareerSlider() {
 	const moveBtn = e => {
 		e.preventDefault();
 		const btns = document.getElementsByClassName("mycareer__round");
@@ -41,11 +41,9 @@ function MyCareer() {
 						<div className="mycareer__round"></div>
 					</div>
 				</div>
-
-				<button type="submit">Next</button>
 			</form>
 		</div>
 	);
 }
 
-export default MyCareer;
+export default CareerSlider;

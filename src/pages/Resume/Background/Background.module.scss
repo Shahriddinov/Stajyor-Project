@@ -4,7 +4,7 @@
 	padding: 0;
 	height: 100vh;
 	position: relative;
-	z-index: -2;
+	z-index: 0;
 	display: grid;
 	grid-template-columns: 1fr 3fr 1fr;
 	justify-content: center;
@@ -40,5 +40,9 @@
 }
 
 .cards {
+	align-self: center;
+}
+
+.career {
 	align-self: center;
 }

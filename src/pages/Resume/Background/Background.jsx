@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import Photo from "../cards/Photo.jsx";
+import CareerSlider from "../CareerSlider/CareerSlider";
 
 function Background() {
 	return (
@@ -20,7 +21,9 @@ function Background() {
 			<div className={classes.cards}>
 				<Photo />
 			</div>
-			<div className={classes.test}>test</div>
+			<div className={classes.career}>
+				<CareerSlider />
+			</div>
 		</div>
 	);
 }

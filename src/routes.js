@@ -12,6 +12,7 @@ const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import("./pages/Sign/Login/Login"));
 const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
+const Resume = lazy(() => import("./pages/Resume/Background/Background"));
 
 const routes = [{ path: "", element: Home }];
 
@@ -27,6 +28,10 @@ const RoutesContainer = () => (
 			) : auth_path === "signup" ? (
 				<Routes>
 					<Route path="signup" element={<Signup />} />
+				</Routes>
+			) : auth_path === "resume" ? (
+				<Routes>
+					<Route path="resume" element={<Resume />} />
 				</Routes>
 			) : auth_path === "auth" ? (
 				<Routes>

@@ -6,6 +6,8 @@ import back from "../../../assets/images/Resume/back.png";
 import Photo from "../cards/Photo.jsx";
 import CareerSlider from "../CareerSlider/CareerSlider";
 import Country from "../cards/Country";
+import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
+import MyWork from "../cards/WorkExperience/MyWork/MyWork";
 
 function Background() {
 	return (
@@ -24,7 +26,8 @@ function Background() {
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />
-			</div>
+			</div>{" "}
+			*
 		</div>
 	);
 }

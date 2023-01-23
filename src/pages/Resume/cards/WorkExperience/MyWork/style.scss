@@ -1,0 +1,97 @@
+.mywork {
+	background: white;
+	height: 650px;
+	width: 750px;
+	padding: 2rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	border-radius: 10px;
+
+	&__text {
+		margin: 0;
+		font-family: "Montserrat", sans-serif;
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 37px;
+		color: #323232;
+		margin-bottom: 30px;
+	}
+
+	&__input {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px;
+		width: 94%;
+		margin-bottom: 20px;
+	}
+
+	&__checkbox {
+		margin-bottom: 30px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__inputCheckbox {
+		margin-right: 10px;
+	}
+
+	&__labelCheckbox {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #323232;
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		margin-bottom: 30px;
+		gap: 30px;
+	}
+
+	&__wrapperDate {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	&__label {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #323232;
+		margin-bottom: 8px;
+	}
+
+	&__inputDate {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+		width: 88%;
+	}
+
+	&__descriptionWrapper {
+		margin-bottom: 30px;
+	}
+
+	&__description {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px 100px 20px;
+		width: 708px;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+	}
+}

@@ -29,10 +29,6 @@
 	background-color: #dfe8f1;
 }
 
-.photoCard {
-	text-align: center;
-}
-
 .photoCard h3 {
 	font-family: "Montserrat";
 	font-style: normal;
@@ -73,7 +69,6 @@
 }
 
 .photoCard button {
-	margin-right: -38rem;
 	border: 1px solid #1d71b8;
 	border-radius: 8px;
 	font-style: normal;
@@ -84,4 +79,112 @@
 	background: #ffffff;
 	padding: 1rem 2rem;
 	margin-top: 4rem;
+}
+
+.country {
+	&__title {
+		margin: 0;
+		font-family: "Montserrat", sans-serif;
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 37px;
+		color: #323232;
+		margin-bottom: 10px;
+	}
+
+	&__text {
+		margin: 0;
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #808080;
+		margin-bottom: 30px;
+	}
+
+	&__subtitle {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #323232;
+		margin-bottom: 8px;
+	}
+
+	&__input {
+		font-family: "Montserrat", sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px;
+		width: 86%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: 20px;
+		gap: 20px;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__inputStreet {
+		font-family: "Montserrat", sans-serif;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px;
+		width: 94%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__next {
+		border: 1px solid #1d71b8 !important;
+		border: none;
+		border-radius: 8px;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		background: #ffffff;
+		padding: 1rem 2rem;
+		margin-top: 3rem;
+	}
+
+	&__back {
+		margin-left: 32rem;
+		border: none;
+		border-radius: 8px;
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		background: #ffffff;
+		padding: 1rem 2rem;
+		margin-top: 3rem;
+		margin-right: 20px;
+	}
 }

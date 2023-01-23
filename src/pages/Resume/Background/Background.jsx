@@ -5,6 +5,7 @@ import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import Photo from "../cards/Photo.jsx";
 import CareerSlider from "../CareerSlider/CareerSlider";
+import Country from "../cards/Country";
 
 function Background() {
 	return (

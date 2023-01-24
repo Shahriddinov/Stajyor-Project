@@ -10,6 +10,10 @@ import Language from "../cards/Language";
 import Country from "../cards/Country";
 import SocialMedia from "../cards/SocialMedia";
 import SelectResume from "../cards/SelectResume";
+import Educations from "../cards/Educations/Educations/Educations";
+import AddEducations from "../cards/Educations/AddEducations/AddEducations";
+import MyWork from "../cards/WorkExperience/MyWork/MyWork";
+import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
 
 function Background() {
 	return (
@@ -25,11 +29,15 @@ function Background() {
 			</div>
 			<div className={classes.cards}>
 				{/* <Photo /> */}
-				{/* <Yourself /> */}
 				{/* <Country /> */}
+				{/* <Yourself /> */}
 				{/* <Language /> */}
+				<WorkExperience />
+				{/* <MyWork /> */}
+				{/* <Educations /> */}
+				{/* <AddEducations /> */}
 				{/* <SocialMedia /> */}
-				<SelectResume />
+				{/* <SelectResume /> */}
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />

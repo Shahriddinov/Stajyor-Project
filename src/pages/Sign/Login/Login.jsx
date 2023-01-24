@@ -1,7 +1,6 @@
 import React from 'react';
 import './Login.scss'
 import sign_logo from '../../../assets/images/Sign/sign_logo.svg'
-// import login_circle from '../../../assets/images/Sign/login_circle.png'
 import login_ellipse from '../../../assets/images/Sign/Ellipse-6.png'
 
 
@@ -15,7 +14,7 @@ import Carusel from '../component/Carusel';
 
 const Login = () => {
 
-    const [ frilanc ] = useState(true)
+    const [ frilanc ] = useState(false)
 
     return (
         <section className='login' >

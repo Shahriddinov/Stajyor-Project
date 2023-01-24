@@ -63,7 +63,7 @@ function Background() {
 		<div className={classes.background}>
 			<div className={classesNav.menu}>
 				<ul className={classesNav.menu__links}>
-					<li className={`${classesNav.menu__link} active`} onClick={() => setCount(1)}>
+					<li className={`${classesNav.menu__link} classes.active`} onClick={() => setCount(1)}>
 						Home
 					</li>
 					<li className={classesNav.menu__link} onClick={() => setCount(5)}>
@@ -113,13 +113,3 @@ function Background() {
 }
 
 export default Background;
-
-// {/*<div className={classes.circleSlider}>
-// 			<div className={step1 ? classes.dotactive : classes.dot} onClick={() => setCount(1)}></div>
-// 			<img src={lineV} alt="line vertical" />
-// 			<div className={step2 ? classes.dotactive : classes.dot} onClick={() => setCount(2)}></div>
-// 			<img src={lineV} alt="line vertical" />
-// 			<div className={step3 ? classes.dotactive : classes.dot} onClick={() => setCount(3)}></div>
-// 			<img src={lineV} alt="line vertical" />
-// 			<div className={step4 ? classes.dotactive : classes.dot} onClick={() => setCount(4)}></div>
-// </div>*/}

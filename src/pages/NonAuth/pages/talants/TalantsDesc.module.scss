@@ -5,42 +5,170 @@
   
     .talantsSearch{
         width: 100%;
-        height: 60px;
-        margin-bottom: 20px;
-        border: 1px solid lightblue;
+        height: 50px;
+        margin-top: 20px;
+        
         border-radius: 12px;
         display: flex;
         align-items: center;
-        .talantsSearchInput{
-            width: 500px;
-            height: 50px;
-            border: 1px solid #1d71b8;
-            border-radius: 12px;
-        }
-        .talantsSearchBtn{
-            width: 80px;
-            height: 50px;
-            background: #1d71b8;
+      
+       
+        input {
+            background: #ffffff;
             border: 1px solid #1d71b8;
             border-radius: 8px;
-            color: #FFFFFF;
+            padding: 16px;
+            padding-top: 18px;
+            width: 46rem;
         }
+        
+         input::placeholder {
+            font-size: 20px;
+            padding-left: 0.5rem;
+        }
+        
+         button {
+            border: none;
+            background-color: #1d71b8;
+            border-radius: 8px;
+            padding: 14px 32px 18px 32px;
+            margin-left: -8px;
+            
+            img {
+                margin-bottom: -5px;
+            }
+        }
+      
     }
     .talantsBlock{
+       width: 100%;
+       margin-top: 1.5rem;
+       height: 255px;
+       position: relative;
+       .talantsDescItem{
         width: 100%;
-        height: 252px;
+        height:100%;
         background: #FFFFFF;
         box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
         border-radius: 12px;
-        margin-top: 2.2rem;
-        border-bottom-left-radius: 2px;
-        border-bottom-right-radius: 2px;
-    
-        .jobDesc{
-            width: 100%;
-            height: 8rem;
-          
-            
+       
+       
+        .talantsLine{
+            height: 50px;
+            opacity: 0.5;
+            border-left: 1px solid #cdcdcd;
         }
+            .talantsDescItemHeader{
+                width: 100%;
+                height: 80px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+               
+                p{
+                    font-family: "Montserrat", sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 24px;
+                    text-align: center;
+                    color: #323232;
+                }
+                span{
+                    font-family: "Montserrat", sans-serif;
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 20px;
+                    text-align: center;
+                    color: #808080;
+                }
+
+                .imgName{
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0px 0.2rem;
+                    .namePro{
+                       margin-left: 0.5rem;     
+                    }
+                }
+                .liked{
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    cursor: pointer;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: #fff;
+                    box-shadow: 0px 0px 10px
+                    rgba(29,113,184,0.5);
+                    display: flex;
+                    align-items: center;
+                   
+                    img{
+                        margin-left: 0.5rem;
+                    }
+                    
+                }
+            }
+            .blockLine{
+                width: 98%;
+                margin: 5px 0px 0px 10px;
+                opacity: 0.5;
+                border-bottom: 2px solid #cdcdcd;
+            }
+            .description{
+            display: flex;
+            }
+            .skills{
+                width: 100%;
+                height: 50px;
+                border: 1px solid black;
+                display: flex;
+                align-items: center;
+                justify-content:start;
+                gap: 2rem;
+            }
+            .expLocation{
+                width: 100%;
+                height: 30px;
+                border: 1px solid black;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .exp{
+                    width: 50%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding-left: 10px;
+                    font-family: "Montserrat",sans-serif;
+                    font-weight: 400;
+                    size: 16px;
+                    color: #808080;
+                    line-height: 20px;
+                    span{
+                        font-family: "Montserrat",sans-serif;
+                        font-weight: 400;
+                        size: 16px;
+                        color: #1d71b8;
+                        line-height: 20px;
+                    }
+                }
+                .location{
+                    width: 22%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    border: 1px solid black;
+                    justify-content: space-around;
+                }
+            }
+        }
+       }
+       
     }
-}

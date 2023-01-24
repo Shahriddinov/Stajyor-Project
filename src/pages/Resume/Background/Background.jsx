@@ -7,6 +7,9 @@ import Photo from "../cards/Photo.jsx";
 import CareerSlider from "../CareerSlider/CareerSlider";
 import Yourself from "../cards/Yourself";
 import Language from "../cards/Language";
+import Country from "../cards/Country";
+import SocialMedia from "../cards/SocialMedia";
+import SelectResume from "../cards/SelectResume";
 
 function Background() {
 	return (
@@ -23,7 +26,10 @@ function Background() {
 			<div className={classes.cards}>
 				{/* <Photo /> */}
 				{/* <Yourself /> */}
-				<Language />
+				{/* <Country /> */}
+				{/* <Language /> */}
+				{/* <SocialMedia /> */}
+				<SelectResume />
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />

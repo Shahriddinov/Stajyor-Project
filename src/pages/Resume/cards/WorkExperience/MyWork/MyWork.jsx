@@ -17,8 +17,8 @@ function MyWork() {
 					</div>
 
 					<div className="mywork__checkbox">
-						<input className="mywork__inputCheckbox" type="checkbox" id="work" name="work" />
-						<label className="mywork__labelCheckbox" for="work">
+						<input className="mywork__inputCheckbox" type="checkbox" id="checkbox" />
+						<label className="mywork__labelCheckbox" for="checkbox">
 							I am currently working in this role
 						</label>
 					</div>
@@ -43,9 +43,9 @@ function MyWork() {
 						<input className="mywork__description" type="text" placeholder="Description" />
 					</div>
 
-					<div className="experience__button">
-						<button className="experience__back">Cancel</button>
-						<button className="experience__next">Save</button>
+					<div className="mywork__button">
+						<button className="mywork__back">Cancel</button>
+						<button className="mywork__next">Save</button>
 					</div>
 				</form>
 			</div>

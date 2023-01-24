@@ -1,12 +1,12 @@
-.mywork {
+.addEducations {
 	background: white;
-	height: 650px;
+	height: 601px;
 	width: 750px;
 	padding: 2rem;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	border-radius: 10px;
 
-	&__text {
+	&__title {
 		margin: 0;
 		font-family: "Montserrat", sans-serif;
 		font-weight: 700;
@@ -16,37 +16,56 @@
 		margin-bottom: 30px;
 	}
 
-	&__input {
+	&__inputName {
 		font-family: "Montserrat", sans-serif;
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 24px;
 		color: #808080;
 		padding: 15px 20px;
-		width: 94%;
 		margin-bottom: 20px;
+		width: 94%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
 	}
 
-	&__checkbox {
-		margin-bottom: 30px;
-		display: flex;
-		align-items: center;
-	}
-
-	&__inputCheckbox {
-		margin-right: 10px;
-		width: 24px;
-		height: 24px;
-		border: 1px solid #1d71b8;
-		border-radius: 6px;
-	}
-
-	&__labelCheckbox {
+	&__inputSelect {
 		font-family: "Montserrat", sans-serif;
 		font-weight: 500;
-		font-size: 18px;
-		line-height: 22px;
+		font-size: 20px;
+		line-height: 24px;
 		color: #323232;
+		padding: 15px 20px;
+		margin-bottom: 20px;
+		width: 94%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+	}
+
+	&__inputStudy {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		padding: 15px 20px;
+		margin-bottom: 20px;
+		width: 94%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
+	}
+
+	&__inputLocation {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		padding: 15px 20px;
+		margin-bottom: 20px;
+		width: 94%;
+		border: 1px solid #cdcdcd;
+		border-radius: 8px;
 	}
 
 	&__wrapper {
@@ -83,25 +102,25 @@
 		width: 88%;
 	}
 
-	&__descriptionWrapper {
-		margin-bottom: 30px;
+	&__checkbox {
+		display: flex;
+		align-items: center;
 	}
 
-	&__description {
+	&__inputCheckbox {
+		margin-right: 10px;
+		width: 24px;
+		height: 24px;
+		border: 1px solid #1d71b8;
+		border-radius: 6px;
+	}
+
+	&__labelCheckbox {
 		font-family: "Montserrat", sans-serif;
 		font-weight: 500;
-		font-size: 20px;
-		line-height: 24px;
-		color: #808080;
-		padding: 15px 20px 100px 20px;
-		width: 708px;
-		border: 1px solid #cdcdcd;
-		border-radius: 8px;
-	}
-
-	&__button {
-		display: flex;
-		justify-content: flex-end;
+		font-size: 18px;
+		line-height: 22px;
+		color: #323232;
 	}
 
 	&__next {
@@ -126,5 +145,11 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+	}
+
+	&__checkboxWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 }

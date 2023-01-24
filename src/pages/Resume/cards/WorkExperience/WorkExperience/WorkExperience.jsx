@@ -8,8 +8,9 @@ function WorkExperience() {
 				<form>
 					<h2 className="experience__title">Work Experience</h2>
 					<p className="experience__text">
-						Freelancers who add their experience are twice as likely to win work. But if you’re just starting out, you can still create a great
-						profile. Just head on to the next page.
+						<span className="experience__textSpan">Freelancers who add their experience are twice as likely to win work.</span>
+						<span className="experience__textSpan">But if you're just starting out, you can still create a great profile.</span>
+						<span className="experience__textSpan">Just head on to the next page.</span>
 					</p>
 
 					<div className="experience__content">

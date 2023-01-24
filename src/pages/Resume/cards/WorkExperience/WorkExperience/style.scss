@@ -1,6 +1,6 @@
 .experience {
 	background: white;
-	height: 514px;
+	height: 465px;
 	width: 750px;
 	padding: 2rem;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -24,6 +24,10 @@
 		line-height: 22px;
 		color: #808080;
 		margin-bottom: 30px;
+	}
+
+	&__textSpan {
+		display: block;
 	}
 
 	&__content {

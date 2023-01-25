@@ -28,11 +28,11 @@ function Background() {
 				</div>
 			</div>
 			<div className={classes.cards}>
-				{/* <Photo /> */}
+				<Photo />
 				{/* <Country /> */}
 				{/* <Yourself /> */}
 				{/* <Language /> */}
-				<WorkExperience />
+				{/* <WorkExperience /> */}
 				{/* <MyWork /> */}
 				{/* <Educations /> */}
 				{/* <AddEducations /> */}

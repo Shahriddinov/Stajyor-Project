@@ -21,21 +21,20 @@ import "./assets/styles/ui.scss";
 import "./assets/styles/header.scss";
 import "./assets/styles/footer.scss";
 import "./assets/styles/fonts.css";
+import store from "reduxToolkit/store";
 
-const store = configureStore();
-store.subscribe(() => {
-	api.subscribe(store);
-});
+// const store = configureStore();
+// store.subscribe(() => {
+// 	api.subscribe(store);
+// });
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-	<Provider {...{ store }}>
-		<Suspense fallback="">
-			<I18nextProvider i18n={i18n()}>
-				<Routes />
-			</I18nextProvider>
-		</Suspense>
+	<Provider store={store}>
+		<I18nextProvider i18n={i18n()}>
+			<Routes />
+		</I18nextProvider>
 	</Provider>
 );

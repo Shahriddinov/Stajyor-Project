@@ -1,11 +1,51 @@
 .aboutus{
+    padding:37px;
     position: absolute;
-    width: 1520px;
-    height: 636px;
+    width: 1455px;
+    height: 545px;
     left: 220px;
     top: 214px;
     z-index: 7;
     background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+}
+.mainAbout{
+  display:flex;
+        width: 1458px;
+        height: 536px;
+        .Video{
+            border-radius: 12px;
+        }
+        .TextsMain{
+          margin-left:40px; 
+          border-left: 2px solid #808080;
+          .IconsMain{
+            margin-right:34px;
+            display: flex;
+            justify-content:flex-end;
+            height: 55px;
+            & p{
+              margin-right: 107px;
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 700;
+              font-size: 30px;
+              line-height: 0px;  
+              color: #323232;
+            }
+          }
+        }
+        .text{
+          margin: 4px 42px;
+          width: 400px;
+          height: 426px;
+          font-family: 'Montserrat';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 24px;
+          text-align: justify;
+          color: #323232;
+        }
 }

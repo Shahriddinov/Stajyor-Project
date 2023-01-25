@@ -1,6 +1,9 @@
 import React from "react";
 import classes from "./JobsDesc.module.scss";
 import searchIcon from "../../../../assets/images/searchIcon.png";
+import checkImg from "../../../../assets/images/checkImg.png";
+import heartLiked from "../../../../assets/images/heartLiked.png";
+import jobsData from "./jobsData";
 
 function JobsDesc(props) {
 	return (
@@ -12,6 +15,18 @@ function JobsDesc(props) {
 						<img src={searchIcon} alt="Search Icnon" />
 					</button>
 				</form>
+			</div>
+			<div className={classes.jobsCard}>
+                { 
+                    jobsData.map((item, index) => (
+                        <div className={classes.jobsCardItem}
+                            key={index}
+                            id={index}
+                        >
+                            <p>{ item.title}</p>
+                        </div>
+                    ))
+                }
 			</div>
 		</div>
 	);

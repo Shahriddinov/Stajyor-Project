@@ -9,3 +9,68 @@
     box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
 }
+.telegramContact{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 135px;
+        gap: 20px;
+        position: absolute;
+        width: 330px;
+        height: 40px;
+        left: calc(50% - 312px - 418px);
+        top: calc(50% - 162px - 65px);    
+        background: #FFFFFF;
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 8px  
+}
+.whatsappContact{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 135px;
+    gap: 20px;
+    position: absolute;
+    width: 330px;
+    height: 40px;
+    left: calc(50% - 310px - 420px);
+    top: calc(50% - 163px + 65px);   
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 8px  
+}
+.contactUs{
+    display: block;
+    position: absolute;
+    padding: 50px;
+    width: 690px;
+    height: 520px;
+    left: 975px;
+    top: 230px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    z-index: 9;
+    input{
+        font-size: 23px;
+        width:683px;
+        height:50px;
+        background: #FFFFFF;
+        border: 1px solid #CDCDCD;
+        border-radius: 8px;
+        margin-top:20px;
+    }
+    .textMessage{
+        height:120px;
+    }
+    p{
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        color: #808080;
+    }
+}

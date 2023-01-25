@@ -3,7 +3,6 @@ import "./Login.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
 import login_ellipse from "../../../assets/images/Sign/Ellipse-6.png";
-
 import apple from "../../../assets/images/Sign/apple.svg";
 import google from "../../../assets/images/Sign/google.svg";
 import github from "../../../assets/images/Sign/github.svg";
@@ -18,7 +17,6 @@ import { logInRequest } from "reduxToolkit/LoginSlice";
 const Login = () => {
 	const email = useRef("");
 	const password = useRef("");
-	const [frilanc] = useState(true);
 	const dispatch = useDispatch();
 	const logIn = useSelector(state => state.login.loggedIn);
 
@@ -34,10 +32,10 @@ const Login = () => {
 	return (
 		<section className="login">
 			<div className="login_container">
-				{frilanc ? <Carusel /> : null}
+				{!logIn ? <Carusel /> : null}
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
-					{frilanc ? (
+					{!logIn ? (
 						<>
 							<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
 							<form className="login_form" method="POST">

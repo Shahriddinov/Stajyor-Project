@@ -13,7 +13,7 @@ import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
 
 const Signup = () => {
-	const [checkemail] = useState(true);
+	const [checkemail] = useState(false);
 	// const logIn = useSelector(state => state.LoginSlice.logIn);
 	// console.log(logIn);
 	return (

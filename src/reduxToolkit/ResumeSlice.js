@@ -1,47 +1,42 @@
-// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { PHOTO } from "./URLS";
 
-// const initialState = {
-// 	loading: false,
-// 	image: [],
-// 	imageBirthday: [],
-// 	error: "",
-// 	data: []
-// };
+const initialState = {
+	loading: false,
+	error: "",
+	data: []
+};
 
-// export const fetchImages = createAsyncThunk("images/fetchImages", async () => {
-// 	return axios.get("https://octopus-app-iohhm.ondigitalocean.app/image").then(response => {
-// 		return response.data;
-// 	});
-// });
+export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
+	const token = window.localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: PHOTO,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		console.log(response.data);
+		return response.data;
+	});
+});
 
-// const imageSlice = createSlice({
-// 	name: "image",
-// 	initialState,
-// 	extraReducers: builder => {
-// 		builder.addCase(fetchImages.pending, state => {
-// 			state.loading = true;
-// 		});
-// 		builder.addCase(fetchImages.fulfilled, (state, action) => {
-// 			state.loading = false;
-// 			let wedding = [];
-// 			let birthday = [];
-// 			for (let i = 0; i < action.payload.length; i++) {
-// 				if (action.payload[i][0].length > 1) {
-// 					birthday.push(action.payload[i]);
-// 				} else {
-// 					wedding.push(action.payload[i]);
-// 				}
-// 			}
-// 			state.image = wedding;
-// 			state.imageBirthday = birthday;
-// 		});
-// 		builder.addCase(fetchImages.rejected, (state, action) => {
-// 			state.loading = false;
-// 			state.error = action.error.message;
-// 		});
-// 	}
-// });
+const resumeSlice = createSlice({
+	name: "image",
+	initialState,
+	extraReducers: builder => {
+		builder.addCase(photoUpload.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(photoUpload.fulfilled, (state, action) => {});
+		builder.addCase(photoUpload.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+	}
+});
 
-// export const { imageTransfer } = imageSlice.actions;
-// export default imageSlice.reducer;
+export default resumeSlice.reducer;

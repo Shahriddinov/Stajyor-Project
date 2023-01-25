@@ -4,11 +4,8 @@ import { LOG_IN } from "./URLS";
 
 const initialState = {
 	loading: false,
-	image: [],
-	imageBirthday: [],
 	error: "",
-	data: [],
-	loggedIn: "not logged in"
+	loggedIn: false
 };
 
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {

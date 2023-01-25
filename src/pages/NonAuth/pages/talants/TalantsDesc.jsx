@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import searchIcon from "../../../../assets/images/searchIcon.png";
 import heartLiked from "../../../../assets/images/heartLiked.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
+import { FaChevronDown } from "react-icons/fa";
 import talantsData from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
 function TalantsDesc(props) {
+
 	return (
 		<div className={classes.talantsDesc}>
 			<div className={classes.talantsSearch}>
@@ -16,7 +18,7 @@ function TalantsDesc(props) {
 					</button>
 				</form>
 			</div>
-			<div className={classes.talantsBlock}>
+			<div className={classes.talantsCard}>
 				{talantsData.map((item, index) => (
 					<div className={classes.talantsDescItem} key={index} id={index}>
 						<div className={classes.talantsDescItemHeader}>
@@ -53,7 +55,10 @@ function TalantsDesc(props) {
 						</div>
 						<div className={classes.blockLine}></div>
 						<div className={classes.description}>
-							<p>{item.description}</p>
+							<p className={classes.descContent}>{item.description}</p>
+							<span className={classes.faChevronDown}>
+								<FaChevronDown />
+							</span>
 						</div>
 						<div className={classes.blockLine}></div>
 						<div className={classes.skills}>
@@ -62,7 +67,7 @@ function TalantsDesc(props) {
 									<span key={index}>{skillItem}</span>
 								))}
 							</p>
-							<div className={classes.selectLavel}>
+							<div className={classes.selectLevel}>
 								<label htmlFor="level">Level:</label>
 								<select name="levels" id="levels">
 									<option value="junior">Junior</option>

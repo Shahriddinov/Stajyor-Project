@@ -2,6 +2,7 @@
     width: 850px;
     height: 100%;
     border-radius: 12px;
+
   
     .talantsSearch{
         width: 100%;
@@ -40,9 +41,10 @@
         }
       
     }
-    .talantsBlock{
+    .talantsCard{
        width: 100%;
        margin-top: 1.5rem;
+       
        height: 255px;
        position: relative;
        .talantsDescItem{
@@ -51,6 +53,7 @@
         background: #FFFFFF;
         box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
         border-radius: 12px;
+        margin: 28px 0px;
        
        
         .talantsLine{
@@ -120,22 +123,92 @@
                 opacity: 0.5;
                 border-bottom: 2px solid #cdcdcd;
             }
+
+            /*---------------Description----------*/
             .description{
+                width: 100%;
+                height: 80px;
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+           
+            .descContent{
+                width: 95%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding-left: 1rem;
             }
+            .faChevronDown{
+                width: 5%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                
+                padding-left: 1rem;
+                cursor: pointer;
+            }
+            
+              
+            }
+
+              /*---------------Description END----------*/
             .skills{
                 width: 100%;
                 height: 50px;
-                border: 1px solid black;
+               
                 display: flex;
                 align-items: center;
-                justify-content:start;
-                gap: 2rem;
+                justify-content:space-between;
+              p {
+                width: 70%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+               
+                 span{
+                    margin: 10px;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 4px 8px;
+                    gap: 6px;
+                    background: #fff;
+                    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+                    border-radius: 6px;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 22px;
+                    color: #1d71b8;
+                 }
+               } 
+               .selectLevel{
+                 width: 20%;
+                 height: 100%;
+                 display: flex;
+                 align-items: center;
+                 justify-content: space-around;
+                
+                 select{
+                    border: none;
+                    outline: none;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 24px;
+                    padding: 0px 5px 0px 0px;
+                    font-family: "Motserrat", sans-serif;
+                    option{
+                       
+                    }
+                 }  
+               }
             }
             .expLocation{
                 width: 100%;
                 height: 30px;
-                border: 1px solid black;
+              
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -164,7 +237,7 @@
                     height: 100%;
                     display: flex;
                     align-items: center;
-                    border: 1px solid black;
+                   
                     justify-content: space-around;
                 }
             }

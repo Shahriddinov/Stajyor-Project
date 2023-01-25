@@ -13,6 +13,21 @@ const talantsData = [
 		experience: 3,
 		level: "Middle",
 		location: "Tashkent, Uzbekistan"
+	},
+	{
+		id: "123xysv",
+		userImg: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
+		userName: "Kristina S",
+		userPro: "Web-design UI/UX",
+		jobSuccess: "70%",
+		hourly: "10$",
+		completedJobs: 453,
+		description:
+			"Lorem ipsum dolor sit amet consectetur adipisicing  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam iste maiores culpa aut ea optio fugit nam, amet maxime molestiae.	",
+		skills: ["Figma", "html", "AdobePhotoShop"],
+		experience: 5,
+		level: "Senior",
+		location: "Berlin, Germany"
 	}
 ];
 export default talantsData;

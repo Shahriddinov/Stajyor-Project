@@ -11,7 +11,7 @@ import { useState } from "react";
 import classesNav from "./Navigation.module.scss";
 import Talants from "./pages/talants/Talants";
 import CircleSlider from "./CircleSlider";
-import Jobs from "./Jobs";
+import Jobs from "./pages/jobs/Jobs";
 import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
 import { Link } from "react-router-dom";
@@ -63,7 +63,7 @@ function Background() {
 		<div className={classes.background}>
 			<div className={classesNav.menu}>
 				<ul className={classesNav.menu__links}>
-					<li className={`${classesNav.menu__link} classes.active`} onClick={() => setCount(1)}>
+					<li className={`classesNav.menu__link ${classesNav.active}`} onClick={() => setCount(1)}>
 						Home
 					</li>
 					<li className={classesNav.menu__link} onClick={() => setCount(5)}>

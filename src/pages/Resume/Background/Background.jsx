@@ -14,21 +14,24 @@ import Educations from "../cards/Educations/Educations/Educations";
 import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import MyWork from "../cards/WorkExperience/MyWork/MyWork";
 import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
+import PersonalInformation from "../company/PersonalInformation/PersonalInformation";
+import YourCompany from "../company/YourCompany/YourCompany";
+import AboutYourCompany from "../company/AboutYourCompany/AboutYourCompany";
 
 function Background() {
 	return (
 		<div className={classes.allBackground}>
 			<div className={classes.backSign}>
-				<Link to="./">
+				{/* <Link to="./">
 					<img src={back} alt="back sign" />
 					Back
-				</Link>
-				<div className={classes.round}>
+				</Link> */}
+				{/* <div className={classes.round}>
 					<Round />
-				</div>
+				</div> */}
 			</div>
 			<div className={classes.cards}>
-				<Photo />
+				{/* <Photo /> */}
 				{/* <Country /> */}
 				{/* <Yourself /> */}
 				{/* <Language /> */}
@@ -38,10 +41,14 @@ function Background() {
 				{/* <AddEducations /> */}
 				{/* <SocialMedia /> */}
 				{/* <SelectResume /> */}
+				{/* <PersonalInformation /> */}
+				{/* <YourCompany /> */}
+				{/* <AboutYourCompany /> */}
+				{/* <SocialMedia /> */}
 			</div>
-			<div className={classes.career}>
+			{/* <div className={classes.career}>
 				<CareerSlider />
-			</div>
+			</div> */}
 		</div>
 	);
 }

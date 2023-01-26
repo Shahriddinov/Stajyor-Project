@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./JobsDesc.module.scss";
 import searchIcon from "../../../../assets/images/searchIcon.png";
 import { FaChevronDown } from "react-icons/fa";
-
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 import checkImg from "../../../../assets/images/checkImg.png";
-import heartLiked from "../../../../assets/images/heartLiked.png";
 import jobsData from "./jobsData";
 
 function JobsDesc(props) {
+	const [likes, setLikes] = useState([]);
+	const onClickLike = item => {
+		let index = likes.findIndex(x => x === item.id);
+		if (index >= 0) likes.splice(index, 1);
+		else likes.push(item.id);
+		setLikes([...likes]);
+	};
 	return (
 		<div className={classes.jobsDesc}>
 			<div className={classes.jobsSearch}>
@@ -36,12 +42,16 @@ function JobsDesc(props) {
 									<option value="senior">Senior</option>
 								</select>
 							</div>
-							<p className={classes.liked}>
-								<img src={heartLiked} alt="Like Heart" />
-							</p>
+							<div className={classes.liked} onClick={onClickLike.bind(this, item)}>
+								{likes.findIndex(x => x === item.id) >= 0 ? (
+									<BsHeartFill className={classes.bsheartfill} />
+								) : (
+									<BsHeart className={classes.bsheart} />
+								)}
+							</div>
 						</div>
 						<div className={classes.jobsCardHorLine}></div>
-					
+
 						<div className={classes.description}>
 							<p className={classes.descContent}>{item.jobDescription}</p>
 							<span className={classes.faChevronDown}>

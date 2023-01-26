@@ -72,10 +72,10 @@ function TalantsDesc(props) {
 							</div>
 
 							<div className={classes.liked} onClick={onClickLike.bind(this, item)}>
-								{likes.findIndex(x => x === item.id) <= 0 ? (
-									<BsHeart className={classes.bsheart} />
-								) : (
+								{likes.findIndex(x => x === item.id) >= 0 ? (
 									<BsHeartFill className={classes.bsheartfill} />
+								) : (
+									<BsHeart className={classes.bsheart} />
 								)}
 							</div>
 						</div>

@@ -97,7 +97,7 @@ function Background() {
 			{step6 && <Jobs />}
 			{step7 && <Aboutus />}
 			{step8 && <Contactus />}
-			if(step5){}
+
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} setCount={setCount} />
 			<div className={classes.backgroundCircles}>
 				<img src={blue} alt="blue" />

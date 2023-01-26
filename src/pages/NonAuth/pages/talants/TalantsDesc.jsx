@@ -6,7 +6,28 @@ import checkImg from "../../../../assets/images/checkImg.png";
 import { FaChevronDown } from "react-icons/fa";
 import talantsData from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
+
+import { BsHeart, BsHeartFill } from "react-icons/bs";
+
 function TalantsDesc(props) {
+	// const [like, setLike] = useState({});
+
+	// const handleClick = index => () => {
+	// 	setLike(state => ({
+	// 		...state,
+	// 		[index]: !state[index]
+	// 	}));
+	// 	setLike(index);
+	// };
+
+	const [likes, setLikes] = useState([]);
+	const onClickLike = item => {
+		let index = likes.findIndex(x => x === item.id);
+		if (index >= 0) likes.splice(index, 1);
+		else likes.push(item.id);
+		setLikes([...likes]);
+	};
+
 	return (
 		<div className={classes.talantsDesc}>
 			<div className={classes.talantsSearch}>
@@ -50,10 +71,12 @@ function TalantsDesc(props) {
 								<span>Completed jobs</span>
 							</div>
 
-							<div>
-								<div className={classes.liked}>
-									<img src={heartLiked} alt="Heart Liked" />
-								</div>
+							<div className={classes.liked} onClick={onClickLike.bind(this, item)}>
+								{likes.findIndex(x => x === item.id) <= 0 ? (
+									<BsHeart className={classes.bsheart} />
+								) : (
+									<BsHeartFill className={classes.bsheartfill} />
+								)}
 							</div>
 						</div>
 						<div className={classes.blockLine}></div>

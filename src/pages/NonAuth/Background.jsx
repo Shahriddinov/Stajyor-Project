@@ -63,23 +63,22 @@ function Background() {
 		<div className={classes.background}>
 			<div className={classesNav.menu}>
 				<ul className={classesNav.menu__links}>
-					<li className={`classesNav.menu__link ${classesNav.active}`} onClick={() => setCount(1)}>
+					<li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
 						Home
 					</li>
-					<li className={classesNav.menu__link} onClick={() => setCount(5)}>
+					<li className={step5 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(5)}>
 						Talants
 					</li>
-					<li className={classesNav.menu__link} onClick={() => setCount(6)}>
+					<li className={step6 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(6)}>
 						Jobs
 					</li>
-					<li className={classesNav.menu__link} onClick={() => setCount(7)}>
+					<li className={step7 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(7)}>
 						About us
 					</li>
-					<li className={classesNav.menu__link} onClick={() => setCount(8)}>
+					<li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
 						Contact us
 					</li>
 				</ul>
-
 				<div className={classesNav.menu__buttons}>
 					<Link to="/login">
 						<button className={classesNav.menu__login}>Log in</button>
@@ -90,17 +89,16 @@ function Background() {
 				</div>
 			</div>
 			<div className={classesNav.menu__underline}></div>
-			{step1 ? <MyCareer /> : ""}
-			{step2 ? <Page2 /> : ""}
+			{step1 && <MyCareer />}
+			{step2 && <Page2 />}
 			{step3 && <Page3 />}
 			{step4 && <Page4 />}
-			{step5 && <Talants />}
+			{step5 ? <Talants /> : ""}
 			{step6 && <Jobs />}
 			{step7 && <Aboutus />}
 			{step8 && <Contactus />}
-
+			if(step5){}
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} setCount={setCount} />
-
 			<div className={classes.backgroundCircles}>
 				<img src={blue} alt="blue" />
 				<img className={classes.automative} src={logo} alt="Automative logo" />

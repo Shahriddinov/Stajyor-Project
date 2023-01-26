@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./CircleSlider.module.scss";
 import lineV from "../../assets/images/lineV.png";
 

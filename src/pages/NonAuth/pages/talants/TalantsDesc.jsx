@@ -7,7 +7,6 @@ import { FaChevronDown } from "react-icons/fa";
 import talantsData from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
 function TalantsDesc(props) {
-
 	return (
 		<div className={classes.talantsDesc}>
 			<div className={classes.talantsSearch}>
@@ -34,6 +33,10 @@ function TalantsDesc(props) {
 							<div className={classes.talantsLine}></div>
 							<div className={classes.jobSuccess}>
 								<p>{item.jobSuccess}</p>
+								<div className={classes.blueLine}>
+									<div className={classes.blueLine1}></div>
+									<div className={classes.blueLine2}></div>
+								</div>
 								<span>Job Success</span>
 							</div>
 							<div className={classes.talantsLine}></div>
@@ -78,7 +81,7 @@ function TalantsDesc(props) {
 						</div>
 						<div className={classes.expLocation}>
 							<p className={classes.exp}>
-								<span>{item.experience} years </span> <></>of experience{" "}
+								<span>{item.experience} years &nbsp;</span> <> </> of experience{" "}
 							</p>
 							<p className={classes.location}>
 								<img src={locImg} alt="LocationImg" />

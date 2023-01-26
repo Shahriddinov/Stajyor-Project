@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Aboutus.module.scss";
-import TelegramIcon from "../../assets/images/icons/InstagramIcon.svg";
+import TelegramIcon from "../../assets/images/icons/TelegramIcon.svg";
 import FacebookIcon from "../../assets/images/icons/FacebookIcon.svg";
 import InstagramIcon from "../../assets/images/icons/InstagramIcon.svg";
 

@@ -14,8 +14,15 @@ import Educations from "../cards/Educations/Educations/Educations";
 import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import MyWork from "../cards/WorkExperience/MyWork/MyWork";
 import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
+import PersonalInformation from "../company/PersonalInformation/PersonalInformation";
+import YourCompany from "../company/YourCompany/YourCompany";
+import AboutYourCompany from "../company/AboutYourCompany/AboutYourCompany";
+import { useSelector } from "react-redux";
+import { CSSTransition } from "react-transition-group";
+import "./Background.scss";
 
 function Background() {
+	const resumeSteps = useSelector(state => state.resume);
 	return (
 		<div className={classes.allBackground}>
 			<div className={classes.backSign}>
@@ -28,9 +35,16 @@ function Background() {
 				</div>
 			</div>
 			<div className={classes.cards}>
-				<Photo />
-				{/* <Country /> */}
-				{/* <Yourself /> */}
+				<CSSTransition in={resumeSteps.photoPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Photo />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.countryPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Country />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.yourselfPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Yourself />
+				</CSSTransition>
+
 				{/* <Language /> */}
 				{/* <WorkExperience /> */}
 				{/* <MyWork /> */}
@@ -38,6 +52,10 @@ function Background() {
 				{/* <AddEducations /> */}
 				{/* <SocialMedia /> */}
 				{/* <SelectResume /> */}
+				{/* <PersonalInformation /> */}
+				{/* <YourCompany /> */}
+				{/* <AboutYourCompany /> */}
+				{/* <SocialMedia /> */}
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />

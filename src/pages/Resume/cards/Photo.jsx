@@ -2,7 +2,7 @@ import React from "react";
 import "./Photo.scss";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { photoUpload } from "../../../reduxToolkit/ResumeSlice";
+import { photoUpload, countryList } from "../../../reduxToolkit/ResumeSlice";
 import { useState } from "react";
 
 function Photo() {
@@ -31,6 +31,7 @@ function Photo() {
 		formdatas.append("Email", email.current.value);
 		formdatas.append("Phone", phoneNumber.current.value);
 		formdatas.append("Image", fileUploaded);
+		dispatch(countryList());
 		dispatch(photoUpload(formdatas));
 		event.preventDefault();
 	};

@@ -7,6 +7,14 @@
 	border-radius: 10px;
 }
 
+.countryCard {
+	background: white;
+	width: 750px;
+	padding: 2rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	border-radius: 10px;
+}
+
 .imageUp {
 	margin: auto;
 	width: 5rem;
@@ -175,7 +183,6 @@
 	}
 
 	&__back {
-		margin-left: 32rem;
 		border: none;
 		border-radius: 8px;
 		font-style: normal;
@@ -186,7 +193,6 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-top: 3rem;
-		margin-right: 20px;
 	}
 }
 
@@ -195,4 +201,8 @@
 	margin-left: -0.9rem;
 	margin-top: -1rem;
 	border-radius: 50%;
+}
+
+.mySelect__value-container {
+	height: 52px;
 }

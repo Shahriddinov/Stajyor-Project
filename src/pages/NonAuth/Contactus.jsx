@@ -23,6 +23,7 @@ function Contactus(props) {
 				<input type="email" placeholder="E-mail" />
 				<input type="text" placeholder="+998 99 999 99 99" min="1" max="13" />
 				<input className={classes.textMessage} type="text" placeholder="Text message" />
+				<button>Send</button>
 			</div>
 		</>
 	);

@@ -13,7 +13,8 @@ const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import('./pages/Sign/Login/Login'))
 const Signup = lazy(() => import('./pages/Sign/Signup/Signup'))
 const NonAuth = lazy(() => import("./pages/NonAuth"));
-
+const Abautus = lazy(() => import("./pages/Freelancer/About_us/Abautus"));
+const Contactus = lazy(() => import("./pages/Freelancer/Contact_us/Contact"));
 const routes = [
 	{ path: "", element: Home },
 	{ path: "/auth", element: NonAuth },
@@ -33,6 +34,14 @@ const RoutesContainer = () => (
 			auth_path === 'signup' ?
 			<Routes>
 				<Route path="signup" element={ <Signup /> } />
+			</Routes> :
+			auth_path === 'aboutus' ?
+			<Routes>
+				<Route path="aboutus" element={ <Abautus /> } />
+			</Routes> :
+            auth_path === 'contactus' ?
+			<Routes>
+				<Route path="contactus" element={ <Contactus /> } />
 			</Routes> :
 
 

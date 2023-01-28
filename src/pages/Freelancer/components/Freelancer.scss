@@ -1,0 +1,28 @@
+@import "../../../assets/styles/ui.scss";
+.Freelancer{
+position: relative;
+    .Input{
+      padding: 15px 20px;
+      gap: 10px;
+      width: 930px;
+      height: 54px;
+      font-size: 20px;
+      background: #FFFFFF;
+      font-family: $font-family-montosserat;
+      border: 1px solid #1D71B8;
+      border-radius: 8px;
+      &:focus{
+        border: 1px solid #1D71B8;
+        outline: none;
+       }
+    }
+  }
+  .Search_icon{
+    width: 90px;
+    height: 54px;
+    background: #1D71B8;
+    border: 1px solid #1D71B8;
+    border-radius: 8px;
+    position: absolute;
+    right: 0;
+  }

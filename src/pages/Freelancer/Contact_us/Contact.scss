@@ -1,0 +1,103 @@
+@import "../../../assets/styles/ui.scss";
+.Contact{
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin-top: 85px;
+    .Network{
+        margin-top: 75px;
+        .Telegram{
+            padding: 25px 150px;
+            width: 570px;
+            height: 90px;
+            background: #FFFFFF;
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 30px;
+            .Go_Telegram{
+                font-family:$font-family-montosserat;
+                font-weight: 700;
+                font-size: 25px;
+                line-height: 37px;
+                color: #323232;
+                position: relative;
+                left: 60px;
+                bottom: 35px;
+            }
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.08);
+                transition: 0.3s;
+            }
+        }
+    }
+    .Login{
+        width: 690px;
+        height: 620px;
+        background: #FFFFFF;
+        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        .Contact_us{
+            margin-left: 50px;
+            margin-top: 50px;
+            font-family:$font-family-montosserat;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 30px;
+            line-height: 37px;
+            color: #323232;
+                    }
+                    .Text{
+                        font-family:$font-family-montosserat;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 17px;
+                        line-height: 21px;
+                        color: #808080;
+                        margin-left: 50px;
+                    }
+                    .Email{
+                        margin-left: 50px;
+                        display: flex;
+                        flex-direction: row;
+                        padding: 15px 20px;
+                        font-family:$font-family-montosserat;
+                        margin-top: 20px;
+                        font-size: 20px;
+                        width: 590px;
+                        height: 54px;
+                        background: #FFFFFF;
+                        border: 1px solid #CDCDCD;
+                        border-radius: 8px;
+                    }
+                    .Textarea{
+                        margin-left: 50px;
+                        margin-top: 20px;
+                        padding: 15px 20px;
+                        width: 590px;
+                        font-family:$font-family-montosserat;
+                        height: 126px;
+                        border: 1px solid #CDCDCD;
+                        border-radius: 8px;
+                        font-size: 20px;
+                    }
+                    .Send{
+                        padding: 7px;
+                        margin-top: 30px;
+                        margin-left: 550px;
+                        width: 92px;
+                        background-color: #FFFFFF;
+                        height: 44px;
+                        border: 1px solid #1D71B8;
+                        border-radius: 8px;
+                        font-family:$font-family-montosserat;
+                        font-weight: 500;
+                        font-size: 20px;
+                        color: #323232;
+                        &:hover{
+                            background-color: #1D71B8;
+                            color: #FFFFFF;
+                        }
+                    }
+    }
+}

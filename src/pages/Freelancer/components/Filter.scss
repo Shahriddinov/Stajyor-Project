@@ -1,0 +1,151 @@
+@import "../../../assets/styles/ui.scss";
+.Filter{
+    padding: 30px;
+    width: 450px;
+    height: 960px;
+    background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+      .name{
+      font-family:$font-family-montosserat;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 37px;
+      text-align: center;
+      }
+      .Payment{
+        margin-top: 20px;
+            .Payment_amount{
+            font-family: $font-family-montosserat;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24px;
+            color: #323232;
+           }
+            .Form{
+           width: 230px;
+           margin-top: 5px;
+           height: 18px;
+           display: flex;
+           justify-content: space-between;
+                p{
+                font-family:$font-family-montosserat;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 22px;
+                color: #323232;
+                }
+            }
+            .Input{
+              margin-top: 10px;
+              display: flex;
+              justify-content: space-between;  
+                  input{
+                   padding: 15px 20px;
+                   width: 180px;
+                   height: 54px;
+                   font-size: 20px;
+                   background: #FFFFFF;
+                   border: 1px solid #CDCDCD;
+                   border-radius: 8px;
+                  &:focus{
+                    border: 1px solid rgb(0, 153, 255);
+                    outline: none;
+                   }
+                  }
+                  .select{
+                   width: 180px;
+                   height: 54px;
+                   border: 1px solid #CDCDCD;
+                   border-radius: 8px;
+                   font-family: $font-family-montosserat;
+                   font-weight: 500;
+                   font-size: 20px;
+                   line-height: 24px;
+                   color: #323232;
+                   
+                  }
+                  .More{
+                   padding: 10px;
+                   font-size: 20px;
+                   width: 100%;
+                   height: 54px;
+                   background: #FFFFFF;
+                   border: 1px solid #CDCDCD;
+                   border-radius: 8px;
+                  }
+              }
+              .form-check{
+               font-size: 19px;
+               margin-left: 100px;
+               margin-top: 15px;
+               font-family: $font-family-montosserat;
+               font-weight: 500;
+               color: #323232;
+                   .form-check-input{
+                    border: 1px solid #1D71B8;
+                   }
+              }
+              .Input_Region{
+              padding-left: 20px;
+              width: 100%;
+              height: 54px;
+              font-size: 20px;
+              background: #FFFFFF;
+              border: 1px solid #CDCDCD;
+              box-shadow: inset -15px 0px 10px #FFFFFF;
+              border-radius: 8px;
+              &:focus{
+                border: 1px solid rgb(0, 153, 255);
+                outline: none;
+               }
+                   form {
+                     margin-top: 20px;
+                   }
+                   select {
+                     width: 300px;
+                   }
+              }
+              .btn-outline-primary{
+               width: 130px;
+               height: 54px;
+               border-radius: 8px;
+               font-size: 18px;
+               font-weight: 500;
+               line-height: 24px;
+               color: #1D71B8;
+               padding: 5px;
+               margin-left: 125px;
+               margin-top: 25px;
+               border: 1px solid #1D71B8;
+               &:hover{
+                background-color: #1D71B8;
+                color: #FFFFFF;
+               }
+                }
+              	.mantine-MultiSelect-value	{
+                background-color: #1D71B8;
+                height: 34px;
+                padding: 10px;
+                margin: 10px;
+                color: #FFFFFF;
+                display: flex;
+                }	
+                .mantine-MultiSelect-values{
+                   display: flex;
+                   height: 54px;
+                }
+                .mantine-MultiSelect-searchInput{
+                  overflow: hidden;
+                }
+                .mantine-MultiSelect-defaultValueRemove{
+                  color: #ffff;
+                }
+                // .mantine-MultiSelect-required{
+                //   background-color: red;
+                //   color: blue;
+                //   display: flex;
+                // }
+
+          }
+    }

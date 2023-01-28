@@ -3,7 +3,7 @@ import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import { useLocation } from "react-router";
 import NetworkError from "../NetworkError";
-
+import Talants from '../../pages/Freelancer/Talants/Talants'
 
 const Layout = props => {
 	const { pathname } = useLocation();
@@ -30,6 +30,7 @@ const Layout = props => {
 			<NetworkError />
 			<div className={pathname === "/" ? "page-wrapper1" : "page-wrapper2"}>
 				<Header speaker={speaker} changeSpeakSwitcher={changeSpeakSwitcher} />
+				<Talants speaker={speaker} changeSpeakSwitcher={changeSpeakSwitcher} />
 				<div className="page-content">{children}</div>
 				<Footer />
 			</div>

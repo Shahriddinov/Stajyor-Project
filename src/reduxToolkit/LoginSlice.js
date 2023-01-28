@@ -29,8 +29,7 @@ const logInSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(logInRequest.fulfilled, (state, action) => {
-			localStorage.setItem("token", action.payload.token);
-			localStorage.setItem("token2", "test");
+			window.localStorage.setItem("token", action.payload.token);
 			state.loggedIn = true;
 		});
 		builder.addCase(logInRequest.rejected, (state, action) => {

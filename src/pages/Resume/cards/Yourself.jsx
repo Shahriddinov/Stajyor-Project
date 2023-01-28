@@ -2,7 +2,7 @@ import React from "react";
 import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./Yourself.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { hobbies, positions, positionUpload } from "reduxToolkit/ResumeSlice";
+import { hobbies, positions, temporary, languages } from "reduxToolkit/ResumeSlice";
 import Select from "react-select";
 import { useState } from "react";
 import { useRef } from "react";
@@ -35,14 +35,15 @@ function Yourself() {
 	}
 
 	const handleSubmit = event => {
-		let payload = {
-			description: description.current.value,
-			positionId: userChoice[0],
-			freelancerHobbies: hobby,
-			freelancerSkills: userChoice2
-		};
+		// let payload = {
+		// 	description: description.current.value,
+		// 	positionId: userChoice[0],
+		// 	freelancerHobbies: hobby,
+		// 	freelancerSkills: userChoice2
+		// };
 
-		dispatch(positionUpload(payload));
+		dispatch(temporary());
+		dispatch(languages());
 		event.preventDefault();
 	};
 

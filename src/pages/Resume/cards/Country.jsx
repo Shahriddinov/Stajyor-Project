@@ -50,7 +50,7 @@ function Country() {
 							</div>
 							<div className="country__info">
 								<Select
-									classNamePrefix="mySelectSkills"
+									classNamePrefix="mySelect"
 									options={optionsRegionList}
 									placeholder="Region*"
 									onChange={choice => setUserChoice2(choice.value)}

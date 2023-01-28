@@ -69,7 +69,7 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<input ref={phoneNumber} type="tel" placeholder="+XXX (XX) XXX-XX-XX" required />
+						<input ref={phoneNumber} type="number" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
 				<button>Next</button>

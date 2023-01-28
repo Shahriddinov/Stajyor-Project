@@ -9,11 +9,15 @@ import ScrollTop from "./hoc/ScrollTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/404"));
+const Login = lazy(() => import("./pages/Sign/Login/Login"));
+const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
 
 const routes = [
 	{ path: "", element: Home },
-	{ path: "/auth", element: NonAuth }
+	{ path: "/auth", element: NonAuth },
+	{ path: "/login", element: Login },
+	{ path: "/signup", element: Signup }
 ];
 
 const RoutesContainer = () => (

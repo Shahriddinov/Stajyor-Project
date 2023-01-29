@@ -3,24 +3,36 @@ import searchIcon from "../../../../assets/images/searchIcon.png";
 import heartLiked from "../../../../assets/images/heartLiked.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import talantsData from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
 
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 
 function TalantsDesc(props) {
-	// const [like, setLike] = useState({});
-
-	// const handleClick = index => () => {
-	// 	setLike(state => ({
-	// 		...state,
-	// 		[index]: !state[index]
-	// 	}));
-	// 	setLike(index);
-	// };
-
 	const [likes, setLikes] = useState([]);
+	const [isActive, setIsActive] = useState([]);
+
+	const [searchField, setSearchField] = useState("");
+	const [talants, setTalants] = useState([]);
+	const [filteredTalants, setFilterTalants] = useState(talants);
+
+	useEffect(() => {
+		setTalants(talantsData);
+	}, []);
+
+	useEffect(() => {
+		const newFilteredTalants = talants.filter(talant => {
+			return talant.name?.toLocaleLowerCase().includes(searchField);
+		});
+		setFilterTalants(newFilteredTalants);
+	}, [talants, searchField]);
+
+	const onSearchChange = event => {
+		const searchFieldString = event.target.value?.toLocaleLowerCase();
+		setSearchField(searchFieldString);
+	};
+
 	const onClickLike = item => {
 		let index = likes.findIndex(x => x === item.id);
 		if (index >= 0) likes.splice(index, 1);
@@ -28,25 +40,32 @@ function TalantsDesc(props) {
 		setLikes([...likes]);
 	};
 
+	const onClickAccordion = item => {
+		let index = isActive.findIndex(x => x === item.id);
+		if (index >= 0) isActive.splice(index, 1);
+		else isActive.push(item.id);
+		setIsActive([...isActive]);
+	};
+
 	return (
 		<div className={classes.talantsDesc}>
 			<div className={classes.talantsSearch}>
 				<form action="submit">
-					<input type="text" placeholder="Title, keywords..." />
+					<input type="search" placeholder="Title, keywords..." onChange={onSearchChange} />
 					<button type="submit">
 						<img src={searchIcon} alt="Search Icnon" />
 					</button>
 				</form>
 			</div>
 			<div className={classes.talantsCard}>
-				{talantsData.map((item, index) => (
+				{filteredTalants.map((item, index) => (
 					<div className={classes.talantsDescItem} key={index} id={index}>
 						<div className={classes.talantsDescItemHeader}>
 							<div className={classes.imgName}>
 								<img src={item.userImg} alt="UserLogo" />
 								<div className={classes.namePro}>
 									<h3>
-										{item.userName} <img src={checkImg} alt="CheckImg" />
+										{item.name} <img src={checkImg} alt="CheckImg" />
 									</h3>
 									<span>{item.userPro}</span>
 								</div>
@@ -80,11 +99,22 @@ function TalantsDesc(props) {
 							</div>
 						</div>
 						<div className={classes.blockLine}></div>
-						<div className={classes.description}>
-							<p className={classes.descContent}>{item.description}</p>
-							<span className={classes.faChevronDown}>
-								<FaChevronDown />
-							</span>
+						<div className={classes.description} onClick={onClickAccordion.bind(this, item)}>
+							{isActive.findIndex(x => x === item.id) >= 0 ? (
+								<>
+									<p className={classes.descContent}>{item.description}</p>
+									<span className={classes.faChevronDown}>
+										<FaChevronUp />
+									</span>
+								</>
+							) : (
+								<>
+									<p className={classes.descContent}>{item.description.substring(0, 100)}</p>
+									<span className={classes.faChevronDown}>
+										<FaChevronDown />
+									</span>
+								</>
+							)}
 						</div>
 						<div className={classes.blockLine}></div>
 						<div className={classes.skills}>
@@ -119,3 +149,9 @@ function TalantsDesc(props) {
 }
 
 export default TalantsDesc;
+
+// {<p className={classes.descContent}>{item.description.substring(0,100)}</p>}
+// 							{isActive && <p className={classes.descContent}>{item.description}</p>}
+// 							<span className={classes.faChevronDown} onClick={() => setIsActive(!isActive)}>
+// 								{isActive ? <FaChevronUp /> : <FaChevronDown />}
+// 							</span>

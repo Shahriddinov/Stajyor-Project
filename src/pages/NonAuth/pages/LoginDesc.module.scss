@@ -50,13 +50,15 @@
             grid-template-columns: 1fr;
             
             input{
-                font-size: 18px;
+                font-size: 20px;
                 padding-left: 1rem;
+                
             }
            
             .formSubmitName{
                 width: 100%;
                 height: 50px;
+                font-size: 20px;
                 background: #fff;
                 border: 1px solid #cdcdcd;
                 border-radius: 8px;
@@ -65,6 +67,7 @@
             .formSubmitPassword{
                 width: 100%;
                 height: 50px;
+                font-size: 20px;
                 background: #fff;
                 border: 1px solid #cdcdcd;
                 border-radius: 8px;

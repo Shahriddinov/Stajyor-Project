@@ -1,31 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./JobsDesc.module.scss";
 import searchIcon from "../../../../assets/images/searchIcon.png";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 import checkImg from "../../../../assets/images/checkImg.png";
 import jobsData from "./jobsData";
 
 function JobsDesc(props) {
 	const [likes, setLikes] = useState([]);
+	const [isActive, setIsActive] = useState([]);
+	const [searchField, setSearchField] = useState("");
+	const [jobs, setJobs] = useState([]);
+	const [filteredJobs, setFilterJobs] = useState(jobs);
+
+	useEffect(() => {
+		setJobs(jobsData);
+	}, []);
+
+	useEffect(() => {
+		const newFilteredJobs = jobs.filter(job => {
+			return job.title?.toLocaleLowerCase().includes(searchField);
+		});
+		setFilterJobs(newFilteredJobs);
+	}, [jobs, searchField]);
+
+	const onSearchChange = event => {
+		const searchFieldString = event.target.value?.toLocaleLowerCase();
+		setSearchField(searchFieldString);
+	};
+
 	const onClickLike = item => {
 		let index = likes.findIndex(x => x === item.id);
 		if (index >= 0) likes.splice(index, 1);
 		else likes.push(item.id);
 		setLikes([...likes]);
 	};
+
+	const onClickAccordion = item => {
+		let index = isActive.findIndex(x => x === item.id);
+		if (index >= 0) isActive.splice(index, 1);
+		else isActive.push(item.id);
+		setIsActive([...isActive]);
+	};
+
 	return (
 		<div className={classes.jobsDesc}>
 			<div className={classes.jobsSearch}>
 				<form action="submit">
-					<input type="text" placeholder="Job title, keywords..." />
+					<input type="text" placeholder="Job title, keywords..." onChange={onSearchChange} />
 					<button type="submit">
 						<img src={searchIcon} alt="Search Icnon" />
 					</button>
 				</form>
 			</div>
 			<div className={classes.jobsCard}>
-				{jobsData.map((item, index) => (
+				{filteredJobs.map((item, index) => (
 					<div className={classes.jobsCardItem} key={index} id={index}>
 						<div className={classes.jobsCardItemHeader}>
 							<p className={classes.title}>{item.title}</p>
@@ -52,11 +81,22 @@ function JobsDesc(props) {
 						</div>
 						<div className={classes.jobsCardHorLine}></div>
 
-						<div className={classes.description}>
-							<p className={classes.descContent}>{item.jobDescription}</p>
-							<span className={classes.faChevronDown}>
-								<FaChevronDown />
-							</span>
+						<div className={classes.description} onClick={onClickAccordion.bind(this, item)}>
+							{isActive.findIndex(x => x === item.id) >= 0 ? (
+								<>
+									<p className={classes.descContent}>{item.jobDescription}</p>
+									<span className={classes.faChevronDown}>
+										<FaChevronUp />
+									</span>
+								</>
+							) : (
+								<>
+									<p className={classes.descContent}>{item.jobDescription.substring(0,100)}</p>
+									<span className={classes.faChevronDown}>
+										<FaChevronDown />
+									</span>
+								</>
+							)}
 						</div>
 						<div className={classes.jobsCardHorLine}></div>
 						<div className={classes.skills}>

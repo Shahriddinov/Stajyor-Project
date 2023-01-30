@@ -5,12 +5,31 @@ import { MultiSelect } from '@mantine/core';
 import { ChevronDown } from 'tabler-icons-react';
 
 function Filter() {
-      const [active, setActive] = useState(false);
-      const handleClick = () => {
-        setActive(!active);
-      };
+      const [num, setNum] = useState('');
+      const handleNumChange = event => {
+            const limit = 4;
+            setNum(event.target.value.slice(0, limit));
+          };
+          const [nums, setNums] = useState('');
+          const handleNumChanges = event => {
+            const limit = 7;
+            setNums(event.target.value.slice(0, limit));
+          };
+          (() => {
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+              form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+                }
+          
+              })
+            })
+          })()
   return (
      <div className='Filter'>
+      <form className=" needs-validation" novalidate>
      <p className='name'>Filter</p>
      {/* Payment amount */}
      <div className='Payment'>
@@ -20,15 +39,27 @@ function Filter() {
            <p>To</p>
      </div>
          <div className='Input'>
-            <input type="text" placeholder='10$' />
-            <input type="text" placeholder='20$' />
+            <input type="number"
+        name="num"
+        value={num}
+        onChange={handleNumChange} 
+        placeholder='10$'
+        id="validationTooltip01"  required
+        />
+            <input type="number"
+        name="num"
+        value={nums}
+        onChange={handleNumChanges} 
+        placeholder='20$'
+        id="validationTooltip01"  required
+        />
          </div>
      </div>
      {/* Job success */}
      <div className='Payment'>
            <p className='Payment_amount'>Job success</p>
            <div className='Input'>
-                 <input className='More' type="text" placeholder='More than 80%' />
+           <input type="text" className="More" placeholder='More than 80%' id="validationTooltip01"  required/>
            </div>
      </div>
      {/* Required level */}
@@ -65,14 +96,14 @@ function Filter() {
            size='54'
            fz={20}
            radius={8}
-          
+           maxDropdownHeight={100}
          />
      </div>
      </div>
      {/* Completed jobs (minimum) */}
      <div className='Payment'>
             <p className='Payment_amount'>Completed jobs (minimum)</p>
-            <input className='Input_Region' type="text" placeholder='10' />
+            <input className='Input_Region' type="text" placeholder='10' id="validationTooltip01"  required/>
      </div>
      {/* Required skills */}
      <div className='Payment'>
@@ -84,10 +115,12 @@ function Filter() {
            size='54'
            radius={8}
            fz={20}
+           maxDropdownHeight={160}
          />
      </div>
-            <button type="button" onClick={handleClick} className='btn-outline-primary'>{ active ?  "Reset filter" : "Apply filter" }</button>
+            <button type="submit" className='btn-outline-primary'>Reset filter</button>
      </div>
+     </form>
    </div>
    
   )

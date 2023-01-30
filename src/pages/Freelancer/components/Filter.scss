@@ -63,7 +63,6 @@
                    font-size: 20px;
                    line-height: 24px;
                    color: #323232;
-                   
                   }
                   .More{
                    padding: 10px;
@@ -129,23 +128,14 @@
                 padding: 10px;
                 margin: 10px;
                 color: #FFFFFF;
-                display: flex;
-                }	
+                position: relative;
+              }	
                 .mantine-MultiSelect-values{
-                   display: flex;
                    height: 54px;
-                }
-                .mantine-MultiSelect-searchInput{
-                  overflow: hidden;
                 }
                 .mantine-MultiSelect-defaultValueRemove{
                   color: #ffff;
                 }
-                // .mantine-MultiSelect-required{
-                //   background-color: red;
-                //   color: blue;
-                //   display: flex;
-                // }
 
           }
     }

@@ -5,6 +5,7 @@ function Freelancer() {
   return (
     <div>
     <Searchicon/>
+    
   
     </div>
   )

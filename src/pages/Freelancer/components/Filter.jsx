@@ -118,7 +118,7 @@ function Filter() {
            maxDropdownHeight={160}
          />
      </div>
-            <button type="submit" className='btn-outline-primary'>Reset filter</button>
+            <button type="submit" className='btn-outline-primary'>Apply filter</button>
      </div>
      </form>
    </div>

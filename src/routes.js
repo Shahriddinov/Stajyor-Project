@@ -7,48 +7,49 @@ import { getBaseName } from "./utils";
 import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
 
-
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/404"));
-const Login = lazy(() => import('./pages/Sign/Login/Login'))
-const Signup = lazy(() => import('./pages/Sign/Signup/Signup'))
+const Login = lazy(() => import("./pages/Sign/Login/Login"));
+const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
+const Resume = lazy(() => import("./pages/Resume/Background/Background"));
 
-const routes = [
-	{ path: "", element: Home },
-	{ path: "/auth", element: NonAuth },
-];
+const routes = [{ path: "", element: Home }];
 
-
-const auth_path = window.location.pathname.split("/")[2]
+const auth_path = window.location.pathname.split("/")[2];
 
 const RoutesContainer = () => (
 	<Router {...{ history }} basename={`/${getBaseName()}`}>
 		<App>
-				{
-					auth_path === 'login' ?
-			<Routes>
-				<Route path="login" element={ <Login /> } />
-			</Routes> :
-			auth_path === 'signup' ?
-			<Routes>
-				<Route path="signup" element={ <Signup /> } />
-			</Routes> :
-
-
-
-					 <Layout>
-						<Suspense fallback={<Spinner position="full" />}>
-					<Routes>
-						{routes.map((route, key) => {
-							const RouteComponent = ScrollTop(route.element);
-							return <Route key={key} path={route.path} element={<RouteComponent />} />;
-						})}
-						<Route path="*" element={<NotFound />} />
+			{auth_path === "login" ? (
+				<Routes>
+					<Route path="login" element={<Login />} />
+				</Routes>
+			) : auth_path === "signup" ? (
+				<Routes>
+					<Route path="signup" element={<Signup />} />
+				</Routes>
+			) : auth_path === "resume" ? (
+				<Routes>
+					<Route path="resume" element={<Resume />} />
+				</Routes>
+			) : auth_path === "auth" ? (
+				<Routes>
+					<Route path="auth" element={<NonAuth />} />
+				</Routes>
+			) : (
+				<Layout>
+					<Suspense fallback={<Spinner position="full" />}>
+						<Routes>
+							{routes.map((route, key) => {
+								const RouteComponent = ScrollTop(route.element);
+								return <Route key={key} path={route.path} element={<RouteComponent />} />;
+							})}
+							<Route path="*" element={<NotFound />} />
 						</Routes>
-						</Suspense>
-					</Layout>
-				}
+					</Suspense>
+				</Layout>
+			)}
 		</App>
 	</Router>
 );

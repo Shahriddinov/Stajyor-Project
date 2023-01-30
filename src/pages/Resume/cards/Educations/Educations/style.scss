@@ -1,0 +1,136 @@
+.educations {
+	background: white;
+	height: 465px;
+	width: 750px;
+	padding: 2rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	border-radius: 10px;
+
+	&__title {
+		margin: 0;
+		font-family: "Montserrat", sans-serif;
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 37px;
+		color: #323232;
+		margin-bottom: 10px;
+	}
+
+	&__text {
+		margin: 0;
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #808080;
+		margin-bottom: 30px;
+	}
+
+	&__textSpan {
+		display: block;
+	}
+
+	&__content {
+		border: 1px solid #cdcdcd;
+		border-radius: 10px;
+		padding: 15px 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 30px;
+	}
+
+	&__texts {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__subtitle {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		margin-bottom: 10px;
+	}
+
+	&__span {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 20px;
+		color: #808080;
+		margin-right: 45px;
+	}
+
+	&__telecommunication {
+		font-family: "Montserrat", sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 20px;
+		color: #808080;
+	}
+
+	&__icon--create {
+		border: 1px solid #1d71b8;
+		border-radius: 6px;
+		padding: 13px 14px;
+		font-size: 30px;
+		margin-right: 10px;
+	}
+
+	&__icon--delete {
+		border: 1px solid #1d71b8;
+		border-radius: 6px;
+		padding: 14px 16px;
+		font-size: 30px;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__next {
+		border: 1px solid #1d71b8 !important;
+		border: none;
+		border-radius: 8px;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		background: #ffffff;
+		padding: 1rem 2rem;
+	}
+
+	&__back {
+		border: none;
+		border-radius: 8px;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #323232;
+		background: #ffffff;
+		padding: 1rem 2rem;
+		margin-right: 20px;
+	}
+
+	&__wrapper {
+		margin-bottom: 30px;
+	}
+
+	&__buttonAdd {
+		font-family: "Montserrat", sans-serif;
+		border: none;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		text-align: center;
+		color: #1d71b8;
+		background: #ffffff;
+		border: 1px solid #1d71b8;
+		border-radius: 8px;
+		width: 750px;
+		padding: 15px 20px;
+	}
+}

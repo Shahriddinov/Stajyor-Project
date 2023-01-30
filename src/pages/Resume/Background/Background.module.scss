@@ -1,0 +1,50 @@
+.allBackground {
+	background: #e5e5e5;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	position: relative;
+	z-index: 0;
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+	justify-content: center;
+	justify-items: center;
+}
+
+.round {
+	position: fixed;
+	margin-left: -83rem;
+	margin-top: 8rem;
+	z-index: -1;
+	left: 3%;
+	top: 40%;
+}
+
+.backSign {
+	padding-top: 5rem;
+	margin-left: 10rem;
+	margin-bottom: -15rem;
+}
+
+.backSign a {
+	color: rgb(50, 50, 50);
+	font-style: normal;
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	text-align: right;
+}
+
+.backSign img {
+	margin-right: 0.5rem;
+}
+
+.cards {
+	align-self: center;
+}
+
+.career {
+	position: absolute;
+	margin-left: 100rem;
+	margin-top: 33rem;
+}

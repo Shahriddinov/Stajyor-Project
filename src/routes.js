@@ -12,7 +12,7 @@ const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import("./pages/Sign/Login/Login"));
 const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
-const Chat = lazy(() => import("./pages/Chat/Chat"));
+const Chat = lazy(() => import("./pages/Chat/ChatForCompany"));
 
 const routes = [
 	{ path: "", element: Home },

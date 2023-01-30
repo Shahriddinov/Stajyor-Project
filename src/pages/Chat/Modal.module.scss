@@ -62,14 +62,14 @@
     height: 100%;
     display: flex;
     justify-content: space-around;
-    border: 1px solid black;
+   
 
     /*------------Left ------------*/
     .modalChatUsers{
       width: 40%;
       height: 96%;
       margin: 1rem auto;
-      border: 1px solid black;
+      
       /*--------------------Search--------------*/
       .modalChatUsersSearch{
 
@@ -102,24 +102,138 @@ button img {
 }
       }
       .modalChatUsersList{
+        margin-top: 1rem;
+        width: 100%;
+        height: auto;
+       
+        :hover{
+          transition: all 0.3ms ease-in;
+          background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+        }
 
+
+        .userBlock{
+          width: 100%;
+          height: 80px;
+          display: flex;
+          margin-top: 1rem;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 1px solid #cdcdcd;
+          border-bottom: 1px solid #cdcdcd;
+          cursor: pointer;
+
+         
+          .userNameDescription{
+            display: grid;
+            height: 80%;
+                    
+            .userName{
+              font-family: "Montserrat";
+              font-weight: 700;
+              font-size: 22px;
+              line-height: 20px;
+              color: #323232;  
+              margin-top: 10px;
+            }
+            .userDescription{
+              font-family: "Montserrat";
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 18px;
+              margin-top: 4px;
+              color: #323232; 
+            }
+          }
+          .userActiveTime{
+            width: 60px;
+            height: 100%;
+            display: grid;
+            align-items: center;
+           
+            .userTime{
+              margin-left: 1rem;
+            }
+            img{
+              margin-left: 2.8rem;  
+            }
+          }
+        }
       }
+  
+        
     }
     /*---------Right------------*/
     .modalChatContent{
       width: 55%;
       height: 96%;
       margin: 1rem auto;
-      border: 1px solid black;
+     
       .modalChatContentHeader{
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+
+        .userInfo{
+          width: 310px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          line-height: 20px;
+          justify-content: space-between;
+          
+          .userNameAndStatus{
+            display: grid;
+            align-items: center;
+            .userName{
+              span{
+                font-weight: 700;
+                font-size: 25px;
+                line-height: 20px;
+                font-family: "Montserrat";
+                color: #323232;
+              }
+            }
+            .userStatus{
+              font-weight: 400;
+              font-size: 18px;
+                line-height: 12px;
+                font-family: "Montserrat";
+                color: #323232;
+            }
+          }
+         
+        }
+        .threeDots{
+          font-size: 30px;
+          color: #323232;
+          line-height: 20px;
+          cursor: pointer;
+        }
 
       }
-      .modalChatContentMessages{
+      .modalMessageAndWrite{
+        position: relative;
+        width: 100%;
+        height: 91.8%;
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+        border: 1px solid #1d71b8;
+        border-radius: 12px;
 
-      }
-      .modalChatContentWriteMessage{
 
+        .modalChatContentMessages{
+
+        }
+        .modalChatContentWriteMessage{
+  
+        }
       }
+      
     }
   }
   

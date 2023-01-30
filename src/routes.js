@@ -12,12 +12,14 @@ const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import("./pages/Sign/Login/Login"));
 const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
+const Chat = lazy(() => import("./pages/Chat/Chat"));
 
 const routes = [
 	{ path: "", element: Home },
 	{ path: "/auth", element: NonAuth },
 	{ path: "/login", element: Login },
-	{ path: "/signup", element: Signup }
+	{ path: "/signup", element: Signup },
+	{ path: "/chat", element: Chat }
 ];
 
 const RoutesContainer = () => (

@@ -9,27 +9,27 @@ import { withRouter } from "utils";
 import Navigation from "pages/NonAuth";
 
 function App({ children }) {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	// const setLanguage = () => {
-	// 	const pathname = window.location.pathname;
-	// 	const locationLang = pathname.split("/")[1];
+	const setLanguage = () => {
+		const pathname = window.location.pathname;
+		const locationLang = pathname.split("/")[1];
 
-	// 	if (helpers.isEnableLang(locationLang)) {
-	// 		i18next.changeLanguage(locationLang);
-	// 		dispatch(systemActions.ChangeLanguage(locationLang));
-	// 	} else {
-	// 		i18next.changeLanguage(config.DEFAULT_LANGUAGE);
-	// 		dispatch(systemActions.ChangeLanguage(config.DEFAULT_LANGUAGE));
-	// 	}
-	// };
+		if (helpers.isEnableLang(locationLang)) {
+			i18next.changeLanguage(locationLang);
+			dispatch(systemActions.ChangeLanguage(locationLang));
+		} else {
+			i18next.changeLanguage(config.DEFAULT_LANGUAGE);
+			dispatch(systemActions.ChangeLanguage(config.DEFAULT_LANGUAGE));
+		}
+	};
 
-	// useEffect(() => {
-	// 	setLanguage();
-	// 	dispatch(systemActions.GetMenu());
-	// 	dispatch(systemActions.GetSettings());
-	// 	//eslint-disable-next-line
-	// }, []);
+	useEffect(() => {
+		setLanguage();
+		dispatch(systemActions.GetMenu());
+		dispatch(systemActions.GetSettings());
+		//eslint-disable-next-line
+	}, []);
 
 	return <div>{children}</div>;
 }

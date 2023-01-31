@@ -7,12 +7,13 @@ import { getBaseName } from "./utils";
 import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
 
+
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import("./pages/Sign/Login/Login"));
 const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
-// const Non = lazy(() => import("./pages/NonAuth/NonAuth"));
+const Chat = lazy(() => import("./pages/Chat/ChatForCompany"));
 const Resume = lazy(() => import("./pages/Resume/Background/Background"));
 
 const routes = [{ path: "", element: Home }];
@@ -22,7 +23,7 @@ const auth_path = window.location.pathname.split("/")[2];
 const RoutesContainer = () => (
 	<Router {...{ history }} basename={`/${getBaseName()}`}>
 		<App>
-			{auth_path === "login" || auth_path === "auth/login" ? (
+			{auth_path === "login" ? (
 				<Routes>
 					<Route path="login" element={<Login />} />
 				</Routes>
@@ -38,7 +39,11 @@ const RoutesContainer = () => (
 				<Routes>
 					<Route path="auth" element={<NonAuth />} />
 				</Routes>
-			) : (
+						) : auth_path === "chat" ? (
+							<Routes>
+							<Route path="chat" element={<Chat />} />
+						</Routes>
+			): (
 				<Layout>
 					<Suspense fallback={<Spinner position="full" />}>
 						<Routes>

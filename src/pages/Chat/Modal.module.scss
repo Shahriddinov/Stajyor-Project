@@ -73,29 +73,29 @@
       /*--------------------Search--------------*/
       .modalChatUsersSearch{
 
+           
+        input {
+          background: #ffffff;
+          border: 1px solid #1d71b8;
+          border-radius: 8px;
+          padding: 16px;
+          padding-top: 18px;
+          width: 28.25rem;
+          font-size: 18px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: 500;
+          color: #808080;
+        }
         
-input {
-  background: #ffffff;
-  border: 1px solid #1d71b8;
-  border-radius: 8px;
-  padding: 16px;
-  padding-top: 18px;
-  width: 28.25rem;
-  font-size: 18px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  color: #808080;
-}
-
-
-
-button {
-  border: none;
-  background-color: #1d71b8;
-  border-radius: 8px;
-  padding: 16px 32px 18px 32px;
-  margin-left: -10px;
-}
+        
+        
+        button {
+          border: none;
+          background-color: #1d71b8;
+          border-radius: 8px;
+          padding: 16px 32px 18px 32px;
+          margin-left: -10px;
+        }
 
 button img {
   margin-bottom: -5px;
@@ -122,6 +122,7 @@ button img {
           border-top: 1px solid #cdcdcd;
           border-bottom: 1px solid #cdcdcd;
           cursor: pointer;
+        
 
          
           .userNameDescription{
@@ -178,20 +179,22 @@ button img {
        
 
         .userInfo{
-          width: 310px;
-          height: 100%;
+          width: 340px;
           display: flex;
           align-items: center;
           line-height: 20px;
+          padding-bottom: 5px;
           justify-content: space-between;
           
           .userNameAndStatus{
             display: grid;
+            margin-left: 1rem;
+           
             align-items: center;
             .userName{
               span{
                 font-weight: 700;
-                font-size: 25px;
+                font-size: 22px;
                 line-height: 20px;
                 font-family: "Montserrat";
                 color: #323232;
@@ -212,6 +215,11 @@ button img {
           color: #323232;
           line-height: 20px;
           cursor: pointer;
+          :hover{
+            color: #1d71b8;
+            font-weight: 500;
+            transition: 0.3ms ease-in-out;
+          }
         }
 
       }
@@ -226,12 +234,12 @@ button img {
         border-radius: 12px;
 
 
-        .modalChatContentMessages{
+        // .modalChatContentMessages{
 
-        }
-        .modalChatContentWriteMessage{
+        // }
+        // .modalChatContentWriteMessage{
   
-        }
+        // }
       }
       
     }

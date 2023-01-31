@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import classes from "./ChatForCompany.module.scss";
+import ThreeDotsContent from "./components/threeDots/ThreeDotsContent";
 import Modal from "./Modal";
 function ChatForCompany(props) {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
+	const [dotsContent, setDotsContent] = useState(false);
 	return (
 		<>
-			<button className={classes.primaryBtn} onClick={() => setIsOpen(true)}>
-				Open Chat
-			</button>
 			{isOpen && <Modal setIsOpen={setIsOpen} />}
+			{dotsContent && <ThreeDotsContent setDotsContent={setDotsContent} />}
 		</>
 	);
 }

@@ -14,8 +14,8 @@
        
         .loginTitleSubtitle{
             width: 100%;
-            height: 150px;
-          
+            height: 120px;
+            display: grid;
             .login{
                font-family: "Montserrat", sans-serif;
                font-style: normal;
@@ -23,6 +23,7 @@
                font-size: 30px;
                line-height: 20px;
                color: #323232; 
+             
                
             }
             .subtitle{
@@ -102,7 +103,7 @@
             }
         }
         .bySocialApp{
-            padding: 0;
+          padding: 0;
           width: 100%;
           height: 100px;
           margin-top: 3rem;
@@ -115,11 +116,13 @@
                 color: #808080;
                 display: flex;
                 justify-content: center;
+               
               
           }
           .socialLinks{
             cursor: pointer;
             display: flex;
+            margin-top: 2rem;
             justify-content: space-around;
           
 

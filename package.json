@@ -2,8 +2,8 @@
 	"name": "client",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Shaffofyul",
-	"author": "Yahyo",
+	"description": "Stajyor",
+	"author": "Murod",
 	"dependencies": {
 		"@react-leaflet/core": "^1.1.1",
 		"@reduxjs/toolkit": "^1.9.1",

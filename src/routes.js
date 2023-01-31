@@ -12,8 +12,9 @@ const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import("./pages/Sign/Login/Login"));
 const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
+// const Non = lazy(() => import("./pages/NonAuth/NonAuth"));
 const Resume = lazy(() => import("./pages/Resume/Background/Background"));
-/**sdkfjhdfksdfksjhfd */
+
 const routes = [{ path: "", element: Home }];
 
 const auth_path = window.location.pathname.split("/")[2];
@@ -21,7 +22,7 @@ const auth_path = window.location.pathname.split("/")[2];
 const RoutesContainer = () => (
 	<Router {...{ history }} basename={`/${getBaseName()}`}>
 		<App>
-			{auth_path === "login" ? (
+			{auth_path === "login" || auth_path === "auth/login" ? (
 				<Routes>
 					<Route path="login" element={<Login />} />
 				</Routes>

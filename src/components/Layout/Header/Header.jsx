@@ -35,8 +35,8 @@ const Header = () => {
 					</li>
 					<span className="header_container_list_span"></span>
 				</ul>
-						<Dropdown />
-						<LangDrop />
+						<Dropdown/>
+						<LangDrop/>
 
 				</div>
 

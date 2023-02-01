@@ -17,5 +17,5 @@ const FreelanceSlice = createSlice({
 		}
 	}
 });
-export const { sidePage } = resumeSlice.actions;
+export const { sidePage } = FreelanceSlice.actions; /*resumeSlice.actions*/
 export default FreelanceSlice.reducer;

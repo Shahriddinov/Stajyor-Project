@@ -8,15 +8,21 @@ import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
 
 
+
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/404"));
 const Login = lazy(() => import('./pages/Sign/Login/Login'))
 const Signup = lazy(() => import('./pages/Sign/Signup/Signup'))
 const NonAuth = lazy(() => import("./pages/NonAuth"));
-
+const Freelancer = lazy(() => import('./pages/Freelancer/Freelancer'))
+const UserFreelancer = lazy(() => import('./pages/Freelancer/UserFreelancer') )
+const FreelancerProfile = lazy(() => import('./pages/FreelancerProfile/Profile'))
 const routes = [
 	{ path: "", element: Home },
 	{ path: "/auth", element: NonAuth },
+	{ path: "/freelancer", element: Freelancer },
+	{ path: '/freelancer-user', element: UserFreelancer },
+	{ path: '/freelancer-profile', element: FreelancerProfile }
 ];
 
 

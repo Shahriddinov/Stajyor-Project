@@ -1,8 +1,8 @@
 import React from "react";
 import './Header.scss'
 
-import header_logo from '../../../assets/images/Freelancer/Freelancer_logo.svg'
-import header_logo_bg from '../../../assets/images/Freelancer/frilancer_ellipse.png'
+import header_logo from '../../../assets/images/header/logo.svg'
+import header_logo_bg from '../../../assets/images/header/ellipse.png'
 import Dropdown from "./components/Dropdown";
 import LangDrop from "./components/LangDrop";
 
@@ -27,12 +27,13 @@ const Header = () => {
 					</li>
 					
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">Contact us</a>
+						<a href="/" className="header_container_list_item">About us</a>
 					</li>
 					
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">About us</a>
+						<a href="/" className="header_container_list_item">Contact us</a>
 					</li>
+					
 					<span className="header_container_list_span"></span>
 				</ul>
 						<Dropdown />

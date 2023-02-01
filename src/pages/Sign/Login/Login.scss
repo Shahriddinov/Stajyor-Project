@@ -1,6 +1,9 @@
 @import "../../../assets/styles/ui.scss";
 
 .login {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
     
     & .login_container {
     position: relative;
@@ -14,7 +17,6 @@
             left: 0;
             z-index: -10001;
             width: 748px;
-            // height: 988px;
         }
 
         & .login_container_wrapper {

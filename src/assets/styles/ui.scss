@@ -56,7 +56,7 @@ body {
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
-    overflow: hidden;
+    // overflow: hidden;
     background-color: #F5F5F7;
 
 }
@@ -345,4 +345,10 @@ body {
 
 .rc-slider-track {
     background-color: var(--dark-blue);
+}
+
+.nobody {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }

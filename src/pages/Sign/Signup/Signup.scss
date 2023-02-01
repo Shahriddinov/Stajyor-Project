@@ -2,7 +2,9 @@
 
 .login {
     
-    
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
     & .login_container {
     position: relative;
     max-width: 1410px;

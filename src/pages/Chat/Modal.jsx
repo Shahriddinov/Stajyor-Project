@@ -8,14 +8,15 @@ import checkImg from "../../assets/images/chat_img/checkImg.png";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { RiCloseLine } from "react-icons/ri";
 import DefaultMessageBlock from "./components/DefaultMessageBlock";
+import ThreeDotsContent from "./components/threeDots/ThreeDotsContent";
 
-function ChatModal({ setIsOpen, setDotsContent }) {
+function ChatModal({ setIsOpen }) {
 	var userActiveTime = new Date().getHours() + ":" + new Date().getMinutes();
 
 	const [searchField, setSearchField] = useState("");
 	const [talants, setTalants] = useState([]);
 	const [filteredTalants, setFilterTalants] = useState(talants);
-
+	const [threeDots, setOpenThreeDots] = useState(false);
 	useEffect(() => {
 		setTalants(usersData);
 	}, []);
@@ -31,6 +32,10 @@ function ChatModal({ setIsOpen, setDotsContent }) {
 		const searchFieldString = event.target.value?.toLocaleLowerCase();
 		setSearchField(searchFieldString);
 	};
+
+	function openDotsContent(event) {
+		setOpenThreeDots(current => !current);
+	}
 
 	return (
 		<div className={classes.mainModal}>
@@ -83,9 +88,10 @@ function ChatModal({ setIsOpen, setDotsContent }) {
 										<span className={classes.userStatus}>online</span>
 									</div>
 								</div>
-								<div className={classes.threeDots} onClick={() => setDotsContent(true)}>
+								<div className={classes.threeDots} onClick={openDotsContent}>
 									<BsThreeDotsVertical />
 								</div>
+								{threeDots ? <ThreeDotsContent /> : threeDots && null}
 							</div>
 							<div className={classes.modalMessageAndWrite}>
 								<DefaultMessageBlock />

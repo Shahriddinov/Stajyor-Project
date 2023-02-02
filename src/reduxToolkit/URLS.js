@@ -7,3 +7,4 @@ export const POSITIONS = `${BASE_URL}/api/GetInformation/Positions`;
 export const HOBBIES = `${BASE_URL}/api/GetInformation/Hobbies`;
 export const POSITION_POST = `${BASE_URL}/api/Freelancer/Position`;
 export const LANGUAGES = `${BASE_URL}/api/GetInformation/Languages`;
+export const LANGUAGESUPLOAD = `${BASE_URL}/api/FreelancerLanguage`;

@@ -3,13 +3,15 @@ import classes from "./ChatForCompany.module.scss";
 
 import Modal from "./Modal";
 function ChatForCompany(props) {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<>
-			<button className={classes.testBtn} onClick={() => setIsOpen(true)}>OpenModal</button>
+		<div>
+			<button className={classes.testBtn} onClick={() => setIsOpen(true)}>
+				OpenModal
+			</button>
 			{isOpen && <Modal setIsOpen={setIsOpen} />}
-		</>
+		</div>
 	);
 }
 

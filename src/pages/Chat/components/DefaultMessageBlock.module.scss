@@ -8,20 +8,39 @@
   background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
   border: 1px solid #1d71b8;
   border-radius: 12px;
-
-.container{
-position: relative;
+  border: 1px solid black;
+  
 
 .messageContainer{
-  position: absolute;
-  margin: 1rem 50px;
-  width: 90%;
-  height: auto;
-  .message{
+  margin: 1rem auto;
+  width: 95%;
+  height: 100%;
   
-   width: 100%;
-   height: auto;
-   border: 1px solid black;
+  .message{
+  cursor: pointer;
+  width: 80%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  
+   span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background: #1d71b8;
+    padding: 10px 15px;
+    border-radius: 20px 20px 0px 20px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    color: #fff;
+    margin-top: 1rem;
+   ;
+   }
   }
 }
 
@@ -73,4 +92,4 @@ input {
 
 }
 
-}
+

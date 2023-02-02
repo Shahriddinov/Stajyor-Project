@@ -7,9 +7,12 @@ function DefaultMessageBlock() {
 			<div className={classes.container}>
 				<div className={classes.messageContainer}>
 					<div className={classes.message}>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis hic eveniet tenetur atque quo dignissimos officiis cumque neque, alias
-						ipsa! Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestias iste tempore ipsum saepe tempora ad. Ut tenetur
-						possimus voluptatem deserunt consequuntur blanditiis adipisci corporis. Dolor neque officia optio. Aliquid?
+						<span>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis hic eveniet tenetur atque quo dignissimos officiis cumque neque,
+							alias ipsa! Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestias iste tempore ipsum saepe tempora ad. Ut
+							tenetur possimus voluptatem deserunt consequuntur blanditiis adipisci corporis. Dolor neque officia optio. Aliquid?
+						</span>
+						
 					</div>
 				</div>
 				<div className={classes.modalChatUsersSearch}>

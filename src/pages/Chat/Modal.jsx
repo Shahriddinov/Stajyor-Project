@@ -126,8 +126,8 @@ function ChatModal({ setIsOpen }) {
 							<div className={classes.modalMessageContainer}>
 								{step1 && <DefaultMessageBlock />}
 								{step2 && <Media setCount={setCount} openDotsContent={openDotsContent} />}
-								{step3 && <Files />}
-								{step4 && <Links />}
+								{step3 && <Files setCount={setCount} openDotsContent={openDotsContent} />}
+								{step4 && <Links setCount={setCount} openDotsContent={openDotsContent} />}
 							</div>
 						</div>
 					</div>

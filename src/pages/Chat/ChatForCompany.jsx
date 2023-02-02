@@ -7,8 +7,8 @@ function ChatForCompany(props) {
 
 	return (
 		<>
+			<button className={classes.testBtn} onClick={() => setIsOpen(true)}>OpenModal</button>
 			{isOpen && <Modal setIsOpen={setIsOpen} />}
-		
 		</>
 	);
 }

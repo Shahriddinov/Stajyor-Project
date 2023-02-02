@@ -12,6 +12,20 @@
 .container{
 position: relative;
 
+.messageContainer{
+  position: absolute;
+  margin: 1rem 50px;
+  width: 90%;
+  height: auto;
+  .message{
+  
+   width: 100%;
+   height: auto;
+   border: 1px solid black;
+  }
+}
+
+
 .writeAndSendMessage{
 top: 39rem;
 position: absolute;

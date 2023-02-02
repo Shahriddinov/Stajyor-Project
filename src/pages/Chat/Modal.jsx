@@ -9,6 +9,9 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { RiCloseLine } from "react-icons/ri";
 import DefaultMessageBlock from "./components/DefaultMessageBlock";
 import ThreeDotsContent from "./components/threeDots/ThreeDotsContent";
+import Media from "./components/threeDots/media/Media";
+import Files from "./components/threeDots/files/Files";
+import Links from "./components/threeDots/links/Links";
 
 function ChatModal({ setIsOpen }) {
 	var userActiveTime = new Date().getHours() + ":" + new Date().getMinutes();
@@ -37,19 +40,46 @@ function ChatModal({ setIsOpen }) {
 		setOpenThreeDots(current => !current);
 	}
 
+	const [count, setCount] = useState(1);
+
+	let step1 = false,
+		step2 = false,
+		step3 = false,
+		step4 = false;
+
+	switch (count) {
+		case 1:
+			step1 = true;
+			break;
+		case 2:
+			step2 = true;
+			break;
+		case 3:
+			step3 = true;
+			break;
+		case 4:
+			step4 = true;
+			break;
+
+		default:
+			step1 = true;
+	}
+
 	return (
 		<div className={classes.mainModal}>
 			<div className={classes.darkBG} />
 			<div className={classes.centered}>
 				<div className={classes.modal}>
-					<div className={classes.closeBtnCon}></div>
-					<button className={classes.closeBtn} onClick={() => setIsOpen(false)}>
-						<RiCloseLine />
-					</button>
+					<div className={classes.closeBtnCon}>
+						<button className={classes.closeBtn} onClick={() => setIsOpen(false)}>
+							<RiCloseLine />
+						</button>
+					</div>
+
 					<div className={classes.modalContent}>
 						<div className={classes.modalChatUsers}>
 							<div className={classes.modalChatUsersSearch}>
-								<form action="sibmit">
+								<form action="submit">
 									<input type="text" placeholder="Search..." required onChange={onSearchChange} />
 									<button type="submit">
 										<img src={searchIcon} alt="search Icon" />
@@ -88,13 +118,16 @@ function ChatModal({ setIsOpen }) {
 										<span className={classes.userStatus}>online</span>
 									</div>
 								</div>
-								<div className={classes.threeDots} onClick={openDotsContent}>
+								<div className={classes.threeDots} onClick={() => openDotsContent()}>
 									<BsThreeDotsVertical />
 								</div>
-								{threeDots ? <ThreeDotsContent /> : threeDots && null}
+								{threeDots ? <ThreeDotsContent step2={step2} step3={step3} step4={step4} setCount={setCount} /> : threeDots && null}
 							</div>
-							<div className={classes.modalMessageAndWrite}>
-								<DefaultMessageBlock />
+							<div className={classes.modalMessageContainer}>
+								{step1 && <DefaultMessageBlock />}
+								{step2 && <Media setCount={setCount} openDotsContent={openDotsContent} />}
+								{step3 && <Files />}
+								{step4 && <Links />}
 							</div>
 						</div>
 					</div>

@@ -34,6 +34,7 @@ function Background() {
 					<Round />
 				</div>
 			</div>
+
 			<div className={classes.cards}>
 				<CSSTransition in={resumeSteps.photoPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
 					<Photo />
@@ -47,10 +48,18 @@ function Background() {
 				<CSSTransition in={resumeSteps.languagePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
 					<Language />
 				</CSSTransition>
-				{/* <WorkExperience /> */}
-				{/* <MyWork /> */}
-				{/* <Educations /> */}
-				{/* <AddEducations /> */}
+				<CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<WorkExperience />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<MyWork />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Educations />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<AddEducations />
+				</CSSTransition>
 				{/* <SocialMedia /> */}
 				{/* <SelectResume /> */}
 				{/* <PersonalInformation /> */}

@@ -14,7 +14,9 @@ const Signup = lazy(() => import("./pages/Sign/Signup/Signup"));
 const NonAuth = lazy(() => import("./pages/NonAuth"));
 const Resume = lazy(() => import("./pages/Resume/Background/Background"));
 
-const routes = [{ path: "", element: Home }];
+const routes = [
+	{ path: "", element: Home }
+];
 
 const auth_path = window.location.pathname.split("/")[2];
 

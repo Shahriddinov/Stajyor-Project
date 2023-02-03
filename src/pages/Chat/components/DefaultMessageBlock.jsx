@@ -2,10 +2,19 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import fileAttachImg from "../../../assets/images/chat_img/fileAttachImg.png";
 import classes from "./DefaultMessageBlock.module.scss";
-function DefaultMessageBlock() {
+function DefaultMessageBlock(props) {
+	const hiddenFileInput = useRef(null);
 	const [value, setValue] = useState("");
 	const inputReset = useRef(null);
 	const [arr, setArr] = useState([]);
+
+	const handleClickFileUpload = () => {
+		hiddenFileInput.current.click();
+	};
+	const handleChange = event => {
+		const fileUploaded = event.target.files[0];
+		props.handleFile(fileUploaded);
+	};
 
 	const submitValue = e => {
 		const userMessage = {
@@ -35,8 +44,8 @@ function DefaultMessageBlock() {
 					/>
 					<button onClick={submitValue}>Send</button>
 				</form>
-				<div className={classes.fileAttach}>
-					
+				<div className={classes.fileAttach} onClick={handleClickFileUpload}>
+					<input type="file" ref={hiddenFileInput} onChange={handleChange} />
 					<img type="file" src={fileAttachImg} alt="File Attach Img" />
 				</div>
 			</div>

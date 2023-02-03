@@ -66,13 +66,14 @@
 
     /*------------Left ------------*/
     .modalChatUsers{
-      width: 40%;
-      height: 96%;
+      width: 40%; 
+      height:96%;
       margin: 1rem auto;
+      
       
       /*--------------------Search--------------*/
       .modalChatUsersSearch{
-
+       
            
         input {
           background: #ffffff;
@@ -97,14 +98,17 @@
           margin-left: -10px;
         }
 
-button img {
-  margin-bottom: -5px;
-}
+        button img {
+                margin-bottom: -5px;
+              }
       }
       .modalChatUsersList{
-        margin-top: 1rem;
-        width: 100%;
-        height: auto;
+        // margin-top: 1rem;
+        width: 104%;
+        height: 90%;
+        
+        overflow-x: hidden;
+        overflow-y: scroll;
         .userBlock{
           width: 100%;
           height: 80px;
@@ -116,12 +120,10 @@ button img {
           border-bottom: 1px solid #cdcdcd;
           cursor: pointer;
         
-
          
           .userNameDescription{
             display: grid;
-            height: 80%;
-                    
+            height: 80%;         
             .userName{
               font-family: "Montserrat";
               font-weight: 700;
@@ -157,9 +159,7 @@ button img {
             background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
         }
         }
-      }
-  
-        
+      }  
     }
     /*---------Right------------*/
     .modalChatContent{
@@ -173,8 +173,6 @@ button img {
         display: flex;
         align-items: center;
         justify-content: space-between;
-       
-
         .userInfo{
           width: 340px;
           display: flex;
@@ -231,3 +229,20 @@ button img {
     }
   }
   
+
+  ::-webkit-scrollbar { 
+    width: 8px; 
+  
+  } 
+   
+
+  ::-webkit-scrollbar-track { 
+    border-radius: 5px; 
+    margin-top:12px; 
+    background-color: #fff; 
+  } 
+    
+  ::-webkit-scrollbar-thumb { 
+    background: #1d71b8;  
+    border-radius: 10px; 
+  }

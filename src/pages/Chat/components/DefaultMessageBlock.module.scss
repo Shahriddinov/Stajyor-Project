@@ -79,13 +79,21 @@
     cursor: pointer;
   }
   .fileAttach{
+    width: 30px;
+    height: 50px;
     position: fixed;
     color: #1d71b8;
     font-size: 30px;
     font-weight: 500;
     cursor: pointer; 
     right: 9.2rem;
-    bottom: 1.9rem;
+    bottom: 1.65rem;
+    display: flex;
+    align-items: center;
+    // border: 1px solid black;
+    input{
+      display: none;
+    }
   }
  
 }

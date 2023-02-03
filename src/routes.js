@@ -35,9 +35,9 @@ const RoutesContainer = () => (
 				<Routes>
 					<Route path="resume" element={<Resume />} />
 				</Routes>
-			) : auth_path === "auth" ? (
+			) : auth_path === "" ? (
 				<Routes>
-					<Route path="auth" element={<NonAuth />} />
+					<Route path="" element={<NonAuth />} />
 				</Routes>
 						) : auth_path === "chat" ? (
 							<Routes>

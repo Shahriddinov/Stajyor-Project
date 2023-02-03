@@ -12,8 +12,8 @@ export const getBaseName = () => {
 			storage.set("language", base);
 		}
 	} else if (window.location.pathname === "/") {
-		window.location.pathname = "uz";
-		base = "uz";
+		window.location.pathname = "uz/";
+		base = "uz/";
 	} else {
 		window.location.pathname = `${currentLangCode}/` + window.location.pathname.slice(base.length + 2);
 		base = currentLangCode;

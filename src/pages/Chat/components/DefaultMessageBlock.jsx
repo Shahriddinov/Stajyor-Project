@@ -1,30 +1,43 @@
 import React, { useState } from "react";
+import { useRef } from "react";
 import fileAttachImg from "../../../assets/images/chat_img/fileAttachImg.png";
 import classes from "./DefaultMessageBlock.module.scss";
 function DefaultMessageBlock() {
+	const [value, setValue] = useState("");
+	const inputReset = useRef(null);
+	const [arr, setArr] = useState([]);
+
+	const submitValue = e => {
+		const userMessage = {
+			message: value
+		};
+		setArr(prevArr => [...prevArr, userMessage]);
+		inputReset.current.value = "";
+	};
 	return (
 		<div className={classes.modalMessageAndWrite}>
-			<div className={classes.container}>
-				<div className={classes.messageContainer}>
-					<div className={classes.message}>
-						<span>
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis hic eveniet tenetur atque quo dignissimos officiis cumque neque,
-							alias ipsa! Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam molestias iste tempore ipsum saepe tempora ad. Ut
-							tenetur possimus voluptatem deserunt consequuntur blanditiis adipisci corporis. Dolor neque officia optio. Aliquid?
-						</span>
-						
-					</div>
+			<div className={classes.messageContainer}>
+				<div className={classes.message}>
+					{arr.map(({ message, index }) => (
+						<span key={index}>{message}</span>
+					))}
 				</div>
-				<div className={classes.modalChatUsersSearch}>
-					<div className={classes.writeAndSendMessage}>
-						<form>
-							<input type="text" placeholder="Text message..." required />
-							<button>Send</button>
-						</form>
-						<div className={classes.fileAttach}>
-							<img src={fileAttachImg} alt="File Attach Img" />
-						</div>
-					</div>
+			</div>
+			<div className={classes.writeAndSendMessage}>
+				<form>
+					<input
+						className={classes.writeMessage}
+						ref={inputReset}
+						onChange={e => setValue(e.target.value)}
+						required
+						type="text"
+						placeholder="Text message..."
+					/>
+					<button onClick={submitValue}>Send</button>
+				</form>
+				<div className={classes.fileAttach}>
+					
+					<img type="file" src={fileAttachImg} alt="File Attach Img" />
 				</div>
 			</div>
 		</div>

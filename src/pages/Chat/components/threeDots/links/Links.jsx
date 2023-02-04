@@ -10,6 +10,8 @@ function Links({ setCount, openDotsContent }) {
 		new Date().toLocaleDateString("en-us", { month: "long" }) +
 		" " +
 		new Date().getMonth() +
+		new Date().getDay() +
+		" " +
 		" | " +
 		new Date().getHours() +
 		":" +

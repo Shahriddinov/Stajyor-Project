@@ -1,21 +1,28 @@
 import React, { useState } from "react";
+
 import { useRef } from "react";
 import fileAttachImg from "../../../assets/images/chat_img/fileAttachImg.png";
 import classes from "./DefaultMessageBlock.module.scss";
 function DefaultMessageBlock(props) {
 	const hiddenFileInput = useRef(null);
+	const [arr, setArr] = useState([]);
 	const [value, setValue] = useState("");
 	const inputReset = useRef(null);
-	const [arr, setArr] = useState([]);
+	const inputReset2 = useRef(null);
 
-	const handleClickFileUpload = () => {
-		hiddenFileInput.current.click();
+	const [picture, setPicture] = useState(null);
+	const [imgData, setImgData] = useState(null);
+	const onChangePicture = e => {
+		if (e.target.files[0]) {
+			console.log("picture: ", e.target.files);
+			setPicture(e.target.files[0]);
+			const reader = new FileReader();
+			reader.addEventListener("load", () => {
+				setImgData(reader.result);
+			});
+			reader.readAsDataURL(e.target.files[0]);
+		}
 	};
-	const handleChange = event => {
-		const fileUploaded = event.target.files[0];
-		props.handleFile(fileUploaded);
-	};
-
 	const submitValue = e => {
 		const userMessage = {
 			message: value
@@ -23,12 +30,16 @@ function DefaultMessageBlock(props) {
 		setArr(prevArr => [...prevArr, userMessage]);
 		inputReset.current.value = "";
 	};
+
 	return (
 		<div className={classes.modalMessageAndWrite}>
 			<div className={classes.messageContainer}>
 				<div className={classes.message}>
 					{arr.map(({ message, index }) => (
-						<span key={index}>{message}</span>
+						<span key={index} className={classes.sentMessage}>
+						{	/*<img src={imgData} alt="Sent" />*/}
+							{message}
+						</span>
 					))}
 				</div>
 			</div>
@@ -44,8 +55,8 @@ function DefaultMessageBlock(props) {
 					/>
 					<button onClick={submitValue}>Send</button>
 				</form>
-				<div className={classes.fileAttach} onClick={handleClickFileUpload}>
-					<input type="file" ref={hiddenFileInput} onChange={handleChange} />
+				<div className={classes.fileAttach} onChange={onChangePicture}>
+					<input type="file" ref={hiddenFileInput} ref={inputReset2}  multiple accept="image/*" />
 					<img type="file" src={fileAttachImg} alt="File Attach Img" />
 				</div>
 			</div>

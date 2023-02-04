@@ -8,7 +8,7 @@ const usersData = [
 	{
 		id: "cvs033",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674649225/compLogo_n1fn1h.png",
-		userName: "Oybek Akhmadjonov",
+		userName: "Padimarah Nidagundi",
 		description: "The company offers services to improve the..."
 	},
 	{
@@ -26,31 +26,31 @@ const usersData = [
 	{
 		id: "cvs036",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
-		userName: "Solena Bernard",
+		userName: "Erika Nazaruka",
 		description: "The company offers services to improve the..."
 	},
 	{
 		id: "jghjghj",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
-		userName: "Kristina Berkova",
+		userName: "Ilze Anderzone",
 		description: "The company offers services to improve the..."
 	},
 	{
 		id: "werwe",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1675082916/Subtract_vgbfrg.png",
-		userName: "Umid Abdusattorov",
+		userName: "John Doe",
 		description: "The company offers services to improve the..."
 	},
 	{
 		id: "dfgdfg",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674649225/compLogo_n1fn1h.png",
-		userName: "Oybek Akhmadjonov",
+		userName: "Chatur Padamarah",
 		description: "The company offers services to improve the..."
 	},
 	{
 		id: "dfgfgd",
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
-		userName: "Solena Bernard",
+		userName: "Sima Bath Bhab",
 		description: "The company offers services to improve the..."
 	}
 ];

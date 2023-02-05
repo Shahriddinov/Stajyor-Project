@@ -47,7 +47,10 @@ function Background() {
 				<CSSTransition in={resumeSteps.languagePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
 					<Language />
 				</CSSTransition>
-				{/* <WorkExperience /> */}
+				<CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					{/* <WorkExperience /> */}
+					<SocialMedia />
+				</CSSTransition>
 				{/* <MyWork /> */}
 				{/* <Educations /> */}
 				{/* <AddEducations /> */}

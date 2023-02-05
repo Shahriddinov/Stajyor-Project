@@ -111,7 +111,6 @@ export const languageUpload = createAsyncThunk("token/languageUpload", async pay
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
-		console.log(response.data);
 		return response.data;
 	});
 });
@@ -121,7 +120,6 @@ const resumeSlice = createSlice({
 	initialState,
 	reducers: {
 		temporary: state => {
-			console.log("tem working");
 			state.yourselfPage = false;
 			state.languagePage = true;
 		}
@@ -198,6 +196,19 @@ const resumeSlice = createSlice({
 			state.languageList = action.payload.data;
 		});
 		builder.addCase(languages.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+		//Languages upload reducer
+		builder.addCase(languageUpload.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(languageUpload.fulfilled, (state, action) => {
+			state.languagePage = false;
+			state.experiencePage = true;
+		});
+		builder.addCase(languageUpload.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
 		});

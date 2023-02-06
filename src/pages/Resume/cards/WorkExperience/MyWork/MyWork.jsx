@@ -13,11 +13,17 @@ function MyWork() {
 	})
 
 	const dispatch = useDispatch()
-
-
+	
+	let data = new FormData()
+	data.append("companyName", experience.companyName)
+	data.append("Job", experience.job)
+	data.append("CurrentWorking", experience.currentWorking)
+	data.append("Descripeion", experience.descripeion)
+	
+	
 	const handleClick = (e) => {
 		e.preventDefault();
-		dispatch(exsperiencePost(JSON.stringify(experience)))
+		dispatch(exsperiencePost(data))
 	}
 
 	const changePage = (e) => {
@@ -55,7 +61,7 @@ function MyWork() {
 						className="mywork__inputCheckbox" 
 						type="checkbox" id="checkbox" 
 						checked={experience.currentWorking}
-						onChange={() => setExperience(prev => ({...prev, currentWorking: !prev.role}))}
+						onChange={() => setExperience(prev => ({...prev, currentWorking: !prev.currentWorking}))}
 						/>
 						<label className="mywork__labelCheckbox" htmlFor="checkbox">
 							I am currently working in this role

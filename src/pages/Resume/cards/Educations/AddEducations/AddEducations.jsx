@@ -16,10 +16,17 @@ function AddEducations() {
 	)
 
 	const dispatch = useDispatch()
+	let data = new FormData()
+	data.append("schoolName", post.schoolName)
+	data.append("educationDegree", post.educationDegree)
+	data.append("typeStudy", post.typeStudy)
+	data.append("location", post.location)
+	data.append("currentStudy", post.currentStudy)
 
 	const submitHandler = (e) => {
 		e.preventDefault()
-		dispatch(educationPost(JSON.stringify(post)))
+		console.log(post);
+		dispatch(educationPost(data))
 	}
 
 	const changeEducationPage = (e) => {

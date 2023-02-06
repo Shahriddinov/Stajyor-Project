@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
-import { temporary6,temporary7, educationDelete, educationGet, temporary4 } from "reduxToolkit/ResumeSlice";
+import { temporary6,temporary7, educationDelete, educationGet, temporary4, temporary8 } from "reduxToolkit/ResumeSlice";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -32,11 +32,16 @@ function Educations() {
 		e.preventDefault()
 		dispatch(temporary4())
 	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		dispatch(temporary8())
+	}
 	
 	return (
 		<div className="educations">
 			<div className="educations__inner">
-						<form>
+						<form onSubmit={handleSubmit}>
 							<h2 className="educations__title">Educations</h2>
 							<p className="educations__text">
 								<span className="educations__textSpan">Freelancers who add their experience are twice as likely to win work.</span>
@@ -46,7 +51,7 @@ function Educations() {
 							<div className="educations__box">
 								{
 									educationList.map(el => (
-										<div className="educations__content">
+										<div className="educations__content" key = {el.id}>
 											<div className="educations__texts">
 												<span className="educations__subtitle">{el.schoolName}</span>
 												<div className="educations__study">

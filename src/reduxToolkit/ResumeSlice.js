@@ -114,7 +114,7 @@ export const exsperiencePost = createAsyncThunk("post/exsperiencePost", async pa
 		url: EXPERIENCE,
 		data: payload,
 		headers: {
-			"Content-Type": `application/json`,
+			"Content-Type": `multipart/form-data;`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
@@ -142,7 +142,7 @@ export const exsperienceGet = createAsyncThunk("post/exsperienceGet", async payl
 
 ////////////////////////////Experience Delete//////////
 
-export const exsperienceDelete = createAsyncThunk("post/exsperienceDelete", async payload => {
+export const  exsperienceDelete = createAsyncThunk("post/exsperienceDelete", async payload => {
 	const token = window.localStorage.getItem("token");
 
 	console.log(payload);
@@ -169,7 +169,7 @@ export const educationPost = createAsyncThunk("freelancer/educationPost", async 
 		url: EDUCATION,
 		data: payload,
 		headers: {
-			"Content-Type": `application/json`,
+			"Content-Type": `multipart/form-data`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
@@ -251,9 +251,14 @@ const resumeSlice = createSlice({
 			state.createEducationPage = true
 		},
 		temporary7: state => {
-			console.log("aducation page none, add education page activa")
+			console.log("aducation page active, add education page none")
 			state.educationPage = true;
 			state.createEducationPage = false;
+		},
+		temporary8: state => {
+			console.log("aducation page none, resume page activa")
+			state.educationPage = false;
+			state.resumePage = true;
 		}
 
 	},
@@ -425,5 +430,5 @@ const resumeSlice = createSlice({
 		});
 	}
 });
-export const { temporary,temporary2,temporary3,temporary4,temporary5,temporary6,temporary7} = resumeSlice.actions;
+export const { temporary,temporary2,temporary3,temporary4,temporary5,temporary6,temporary7,temporary8} = resumeSlice.actions;
 export default resumeSlice.reducer;

@@ -61,7 +61,9 @@ function Background() {
 					<AddEducations />
 				</CSSTransition>
 				{/* <SocialMedia /> */}
-				{/* <SelectResume /> */}
+				<CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<SelectResume />
+				</CSSTransition>
 				{/* <PersonalInformation /> */}
 				{/* <YourCompany /> */}
 				{/* <AboutYourCompany /> */}

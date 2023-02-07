@@ -26,7 +26,7 @@
 }
 
 .socialMedia input {
-	margin: 1.5rem 0;
+	margin: 0.5rem 0;
 	width: 100%;
 	background: #ffffff;
 	border: 1px solid #cdcdcd;
@@ -89,11 +89,10 @@
 
 .socialInput {
 	display: grid;
-	grid-template-columns: 16fr 1fr;
+	grid-template-columns: 100fr 1fr 1fr;
 }
 
 .socialInputIn {
-	border: 1px solid #cdcdcd;
 	border-radius: 8px;
 	display: flex;
 	padding: 0.3rem;
@@ -109,16 +108,19 @@
 	margin: 0.5rem;
 }
 
-.socialInputIn img {
-	margin: 0.5rem;
-	margin-left: 20rem;
-	height: 1.5rem;
+.insideIconImage {
+	height: 2rem;
+	margin-top: 1.4rem;
+	margin-left: -3.5rem;
 }
 
-.socialInput button {
+.cancelButton {
+	width: 4rem;
+	height: 3.2rem;
+	background-color: white;
 	margin-left: 1rem;
 	margin-right: -2rem;
 	border: 1px solid #cdcdcd;
 	border-radius: 8px;
-	background-color: white;
+	margin-top: 0.8rem;
 }

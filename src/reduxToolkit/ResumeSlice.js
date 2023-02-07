@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES } from "./URLS";
+import { PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, LANGUAGESUPLOAD, CONTACTSUPLOAD } from "./URLS";
 
 const initialState = {
 	loading: false,
@@ -100,12 +100,41 @@ export const languages = createAsyncThunk("get/languages", async () => {
 	});
 });
 
+export const languageUpload = createAsyncThunk("token/languageUpload", async payload => {
+	const token = window.localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: LANGUAGESUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+export const contactUpload = createAsyncThunk("token/contactUpload", async payload => {
+	const token = window.localStorage.getItem("token");
+	return axios({
+		method: "put",
+		url: CONTACTSUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
 const resumeSlice = createSlice({
 	name: "resume",
 	initialState,
 	reducers: {
 		temporary: state => {
-			console.log("tem working");
 			state.yourselfPage = false;
 			state.languagePage = true;
 		}
@@ -182,6 +211,19 @@ const resumeSlice = createSlice({
 			state.languageList = action.payload.data;
 		});
 		builder.addCase(languages.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+		//Languages upload reducer
+		builder.addCase(languageUpload.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(languageUpload.fulfilled, (state, action) => {
+			state.languagePage = false;
+			state.experiencePage = true;
+		});
+		builder.addCase(languageUpload.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
 		});

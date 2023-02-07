@@ -16,7 +16,6 @@ $font-family-montosserat: 'Montserrat', sans-serif;
 
 * {
     font-family: $font-family-montosserat;
-    // box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -58,6 +57,7 @@ body {
     padding: 0;
     -webkit-tap-highlight-color: transparent;
     overflow: hidden;
+    background-color: #F5F5F7;
 
 }
 

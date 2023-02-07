@@ -1,0 +1,239 @@
+
+.darkBG {
+    background-color: #eeeeee;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+  }
+  
+  .modal {
+    width: 1410px;
+    height: 800px;
+    margin:  0 auto;
+    background: white;
+    z-index: 10;
+    border-radius: 12px 0px 12px 12px;
+    
+  }
+  .closeBtnCon{
+    position: absolute;
+    width: 96px;
+    height: 84px;
+    border-radius: 0px 12px 12px 0px;
+    background: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right: -6rem;
+
+  }
+  .closeBtn {
+    width: 54px;
+    height: 54px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid #1d71b8;
+    font-size: 22px;
+    color: #1d71b8;
+    background: white;
+    font-weight: 500;
+    position: absolute;
+    right: -4.8rem;
+    top: 1.1rem;
+    padding-top: 5px;
+  }
+  
+  /*--------------Modal Content--------*/
+
+  .modalContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+   
+
+    /*------------Left ------------*/
+    .modalChatUsers{
+      width: 40%;
+      height: 96%;
+      margin: 1rem auto;
+      
+      /*--------------------Search--------------*/
+      .modalChatUsersSearch{
+
+        
+input {
+  background: #ffffff;
+  border: 1px solid #1d71b8;
+  border-radius: 8px;
+  padding: 16px;
+  padding-top: 18px;
+  width: 28.25rem;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #808080;
+}
+
+
+
+button {
+  border: none;
+  background-color: #1d71b8;
+  border-radius: 8px;
+  padding: 16px 32px 18px 32px;
+  margin-left: -10px;
+}
+
+button img {
+  margin-bottom: -5px;
+}
+      }
+      .modalChatUsersList{
+        margin-top: 1rem;
+        width: 100%;
+        height: auto;
+       
+        :hover{
+          transition: all 0.3ms ease-in;
+          background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+        }
+
+
+        .userBlock{
+          width: 100%;
+          height: 80px;
+          display: flex;
+          margin-top: 1rem;
+          align-items: center;
+          justify-content: space-between;
+          border-top: 1px solid #cdcdcd;
+          border-bottom: 1px solid #cdcdcd;
+          cursor: pointer;
+
+         
+          .userNameDescription{
+            display: grid;
+            height: 80%;
+                    
+            .userName{
+              font-family: "Montserrat";
+              font-weight: 700;
+              font-size: 22px;
+              line-height: 20px;
+              color: #323232;  
+              margin-top: 10px;
+            }
+            .userDescription{
+              font-family: "Montserrat";
+              font-weight: 400;
+              font-size: 18px;
+              line-height: 18px;
+              margin-top: 4px;
+              color: #323232; 
+            }
+          }
+          .userActiveTime{
+            width: 60px;
+            height: 100%;
+            display: grid;
+            align-items: center;
+           
+            .userTime{
+              margin-left: 1rem;
+            }
+            img{
+              margin-left: 2.8rem;  
+            }
+          }
+        }
+      }
+  
+        
+    }
+    /*---------Right------------*/
+    .modalChatContent{
+      width: 55%;
+      height: 96%;
+      margin: 1rem auto;
+     
+      .modalChatContentHeader{
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+
+        .userInfo{
+          width: 310px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          line-height: 20px;
+          justify-content: space-between;
+          
+          .userNameAndStatus{
+            display: grid;
+            align-items: center;
+            .userName{
+              span{
+                font-weight: 700;
+                font-size: 25px;
+                line-height: 20px;
+                font-family: "Montserrat";
+                color: #323232;
+              }
+            }
+            .userStatus{
+              font-weight: 400;
+              font-size: 18px;
+                line-height: 12px;
+                font-family: "Montserrat";
+                color: #323232;
+            }
+          }
+         
+        }
+        .threeDots{
+          font-size: 30px;
+          color: #323232;
+          line-height: 20px;
+          cursor: pointer;
+        }
+
+      }
+      .modalMessageAndWrite{
+        position: relative;
+        width: 100%;
+        height: 91.8%;
+        margin-top: 0.5rem;
+        box-sizing: border-box;
+        background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+        border: 1px solid #1d71b8;
+        border-radius: 12px;
+
+
+        .modalChatContentMessages{
+
+        }
+        .modalChatContentWriteMessage{
+  
+        }
+      }
+      
+    }
+  }
+  

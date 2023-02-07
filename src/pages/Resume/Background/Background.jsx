@@ -54,8 +54,22 @@ function Background() {
 				{/* <MyWork /> */}
 				{/* <Educations /> */}
 				{/* <AddEducations /> */}
+				<CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<WorkExperience />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<MyWork />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Educations />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<AddEducations />
+				</CSSTransition>
 				{/* <SocialMedia /> */}
-				{/* <SelectResume /> */}
+				<CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<SelectResume />
+				</CSSTransition>
 				{/* <PersonalInformation /> */}
 				{/* <YourCompany /> */}
 				{/* <AboutYourCompany /> */}

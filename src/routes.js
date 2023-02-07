@@ -6,6 +6,7 @@ import { getBaseName } from "./utils";
 
 import App from "./App";
 import ScrollTop from "./hoc/ScrollTop";
+import Contract from "pages/contract";
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -16,7 +17,10 @@ const NonAuth = lazy(() => import("./pages/NonAuth"));
 const Chat = lazy(() => import("./pages/Chat/ChatForCompany"));
 const Resume = lazy(() => import("./pages/Resume/Background/Background"));
 
-const routes = [{ path: "", element: Home }];
+const routes = [
+	{ path: "", element: Home },
+	{path: "contract", element: Contract}
+];
 
 const auth_path = window.location.pathname.split("/")[2];
 
@@ -61,3 +65,8 @@ const RoutesContainer = () => (
 );
 
 export default RoutesContainer;
+
+
+
+
+

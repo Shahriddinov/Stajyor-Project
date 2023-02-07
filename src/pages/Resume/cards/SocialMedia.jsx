@@ -9,8 +9,12 @@ import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
 import { useState } from "react";
+import { contactUpload } from "../../../reduxToolkit/ResumeSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function SocialMedia() {
+	const dispatch = useDispatch();
+	const [website, setWebsite] = [];
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
 		{ icon: whatsUppIcon, name: "Whats app" },
@@ -47,10 +51,18 @@ function SocialMedia() {
 		setSocials([...socials, { icon: icon, name: name }]);
 	};
 
+	const handleSubmit = event => {
+		// let formdatas = new FormData();
+		// formdatas.append("LanguageId", userLang[i]);
+		// formdatas.append("Level", userLevel[i]);
+		// dispatch(languageUpload(formdatas));
+		event.preventDefault();
+	};
+
 	return (
 		<div className={classes.socialMedia}>
 			<h2>Contacts</h2>
-			<form action="submit" className={classes.socialForm}>
+			<form action="submit" className={classes.socialForm} onSubmit={handleSubmit}>
 				<input type="text" placeholder="Provide a link to your website " />
 				{icons &&
 					icons.map(item => (

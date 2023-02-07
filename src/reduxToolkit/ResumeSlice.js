@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, LANGUAGESUPLOAD } from "./URLS";
+import { PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, LANGUAGESUPLOAD, CONTACTSUPLOAD } from "./URLS";
 
 const initialState = {
 	loading: false,
@@ -105,6 +105,21 @@ export const languageUpload = createAsyncThunk("token/languageUpload", async pay
 	return axios({
 		method: "post",
 		url: LANGUAGESUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+export const contactUpload = createAsyncThunk("token/contactUpload", async payload => {
+	const token = window.localStorage.getItem("token");
+	return axios({
+		method: "put",
+		url: CONTACTSUPLOAD,
 		data: payload,
 		headers: {
 			"Content-Type": `multipart/form-data;`,

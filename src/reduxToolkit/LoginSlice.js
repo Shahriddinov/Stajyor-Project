@@ -24,6 +24,15 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 const logInSlice = createSlice({
 	name: "image",
 	initialState,
+	reducers: {
+		removeToken: (state, {type,payload}) => {
+			state.loggedIn = null
+		},
+		resumeFinish: (state,{type,payload}) => {
+			localStorage.setItem("resume",payload)
+			state.resume = payload
+		}
+	},
 	extraReducers: builder => {
 		builder.addCase(logInRequest.pending, (state, action) => {
 			state.loading = true;
@@ -39,4 +48,5 @@ const logInSlice = createSlice({
 	}
 });
 
+export const {removeToken,resumeFinish} = logInSlice.actions
 export default logInSlice.reducer;

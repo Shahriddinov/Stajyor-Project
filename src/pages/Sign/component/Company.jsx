@@ -11,19 +11,28 @@ import facebook_icon from "../../../assets/images/Sign/white-facebook.svg";
 
 import "./Company.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { removeToken } from "reduxToolkit/LoginSlice";
 
 const Company = () => {
+
+	const len = useSelector(state => state.lenguage.lenguage)
+
+	const handleClick = () => {
+		localStorage.removeItem("token")
+		dispatchEvent(removeToken())
+	}
 	return (
 		<div className="login_company">
 			<div className="login_company_wrapper">
 				<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-				<h3 className="login_company_wrapper_back">
+				<Link to={`/${len}/resume`} className="login_company_wrapper_back" onClick={handleClick}>
 					{" "}
 					<img src={left_arrow} alt="left arrow icon" /> Back
-				</h3>
+				</Link>
 			</div>
 			<div className="login_company_wrapper1">
-				<Link to="../resume">
+				<Link to={`/${len}/resume`}>
 					<div className="login_company_wrapper1_frilanc">
 						<h4 className="login_company_wrapper1_frilanc_title">
 							<img src={user} alt="user icon" /> Freelancer

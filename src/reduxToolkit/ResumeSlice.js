@@ -290,7 +290,6 @@ const resumeSlice = createSlice({
 			state.educationPage = false;
 			state.resumePage = true;
 		}
-
 	},
 	extraReducers: builder => {
 		builder.addCase(photoUpload.pending, (state, action) => {
@@ -346,6 +345,7 @@ const resumeSlice = createSlice({
 			state.loading = false;
 			state.error = action.error.message;
 		});
+
 		//Positions Upload List reducer
 		// builder.addCase(positionUpload.pending, (state, action) => {
 		// 	state.loading = true;

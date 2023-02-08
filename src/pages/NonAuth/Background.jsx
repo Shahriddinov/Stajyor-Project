@@ -15,9 +15,11 @@ import Jobs from "./pages/jobs/Jobs";
 import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Background() {
 	const [count, setCount] = useState(1);
+	const len = useSelector(state => state.lenguage.lenguage)
 
 	let step1 = false,
 		step2 = false,
@@ -80,10 +82,10 @@ function Background() {
 					</li>
 				</ul>
 				<div className={classesNav.menu__buttons}>
-					<Link to="/login">
+					<Link to={`/${len}/login`}>
 						<button className={classesNav.menu__login}>Log in</button>
 					</Link>
-					<Link to="/signup">
+					<Link to={`/${len}/signup`}>
 						<button className={classesNav.menu__signup}>Sign up</button>
 					</Link>
 				</div>

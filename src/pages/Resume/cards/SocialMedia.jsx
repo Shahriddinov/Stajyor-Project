@@ -9,19 +9,27 @@ import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
 import { useState } from "react";
-import { contactUpload } from "../../../reduxToolkit/ResumeSlice";
+import { contactUpload, temporary10 } from "../../../reduxToolkit/ResumeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useRef } from "react";
 
 function SocialMedia() {
+	// const WebSite = useRef("");
+	// const WatsApp = useRef("");
+	// const Facebook = useRef("");
+	// const Telegram = useRef("");
+	// const GitHub = useRef("");
+	// const Twitter = useRef("");
+	// const Instagram = useRef("");
 	const dispatch = useDispatch();
 	const [website, setWebsite] = [];
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
-		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "WatsApp" },
 		{ icon: facebookIcon, name: "Facebook" },
 		{ icon: instagramIcon, name: "Instagram" },
 		{ icon: whatsUppIcon, name: "Telegram" },
-		{ icon: githubIcon, name: "Github" },
+		{ icon: githubIcon, name: "GitHub" },
 		{ icon: twitterIcon, name: "Twitter" }
 	]);
 
@@ -51,9 +59,22 @@ function SocialMedia() {
 		setSocials([...socials, { icon: icon, name: name }]);
 	};
 
+	const handleChangeInput = event => {
+		// for (let i = 0; i < icons.length; i++) {
+		// 	if (icons[i].name !== test) {
+		// 		filteredIcons.push(icons[i]);
+		// 	}
+		// }
+		// setMessage(event.target.value);
+	};
+
 	const handleSubmit = event => {
+		dispatch(temporary10());
 		// let formdatas = new FormData();
-		// formdatas.append("LanguageId", userLang[i]);
+		// for (let i = 0; i < icons.length; i++) {
+		// 	formdatas.append(socials[i].name);
+		// }
+		// formdatas.append("WebSite", userLang[i]);
 		// formdatas.append("Level", userLevel[i]);
 		// dispatch(languageUpload(formdatas));
 		event.preventDefault();
@@ -68,7 +89,7 @@ function SocialMedia() {
 					icons.map(item => (
 						<div key={item.name} className={classes.socialInput}>
 							<div className={classes.socialInputIn}>
-								<input type="url" placeholder={`Provide a link to your ${item.name} account`} />
+								<input type="url" placeholder={`Provide a link to your ${item.name} account`} onChange={handleChangeInput} />
 							</div>
 							<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
 							<button

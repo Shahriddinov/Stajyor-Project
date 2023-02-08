@@ -29,7 +29,6 @@ function Country() {
 		formdatas.append("RegionId", userChoice2);
 		formdatas.append("Home", street.current.value);
 		dispatch(countryUpload(formdatas));
-		console.log(formdatas);
 		dispatch(positions());
 		dispatch(hobbies());
 		event.preventDefault();

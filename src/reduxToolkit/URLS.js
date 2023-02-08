@@ -11,3 +11,5 @@ export const EXPERIENCE = `${BASE_URL}/api/FreelancerExperience`;
 export const EXPERIENCEDELETE = `${BASE_URL}/api/FreelancerExperience/`;
 export const EDUCATION = `${BASE_URL}/api/FreelancerEducation`;
 export const EDUCATIONDELETE = `${BASE_URL}/api/FreelancerEducation/`;
+export const LANGUAGESUPLOAD = `${BASE_URL}api/FreelancerLanguage`;
+export const CONTACTSUPLOAD = `${BASE_URL}/api/Freelancer/Contact`;

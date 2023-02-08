@@ -1,8 +1,7 @@
 .selectResume {
 	background: white;
 	width: 750px;
-	padding: 3rem;
-	padding-right: 4.5rem;
+	padding:40px 30px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	border-radius: 10px;
 	overflow: hidden;
@@ -19,7 +18,13 @@
 
 .eachResume {
 	width: 100%;
+	display: flex;	
+	transition: all 0.2s linear;
+}
+
+.socialForm {
 	display: flex;
+	align-items: center;
 }
 
 .nextButton,
@@ -33,13 +38,58 @@
 	color: #323232;
 	background: #ffffff;
 	padding: 1rem 2rem;
-	margin-top: 3rem;
 }
 
 .nextButton {
 	border: 1px solid #1d71b8 !important;
 }
 
-.backButton {
-	margin-left: 32rem;
+.resume__footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 30px;
+	padding-left: 120px;
 }
+
+.pagination__box {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+.pagination__arrow {
+	display: inline-block;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.pagination_dots {
+	display: flex;
+	align-items: center;
+	background: #EDEDED;
+	border-radius: 5px;
+}
+
+.pagination_dot {
+	width: 42px;
+	height: 10px;
+	background: #EDEDED;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.active {
+	background: #1D71B8;
+}
+
+.slide {
+	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+	border-radius: 12px;
+}
+
+.slide__active {
+	border: 3px solid #1D71B8;
+}
+

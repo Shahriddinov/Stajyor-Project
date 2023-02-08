@@ -1,6 +1,6 @@
 .experience {
 	background: white;
-	height: 465px;
+	height: max-content;
 	width: 750px;
 	padding: 2rem;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -28,6 +28,12 @@
 
 	&__textSpan {
 		display: block;
+	}
+
+	&__box{
+		max-height: 250px;
+		border: 1px soolid red;
+		overflow-y: auto;
 	}
 
 	&__content {

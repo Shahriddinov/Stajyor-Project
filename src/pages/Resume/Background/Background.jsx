@@ -48,18 +48,23 @@ function Background() {
 					<Language />
 				</CSSTransition>
 				<CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					{/* <WorkExperience /> */}
+					<WorkExperience />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<MyWork />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<Educations />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<AddEducations />
+				</CSSTransition>
+				<CSSTransition in={resumeSteps.contactsPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
 					<SocialMedia />
 				</CSSTransition>
-				{/* <MyWork /> */}
-				{/* <Educations /> */}
-				{/* <AddEducations /> */}
-				{/* <SocialMedia /> */}
-				{/* <SelectResume /> */}
-				{/* <PersonalInformation /> */}
-				{/* <YourCompany /> */}
-				{/* <AboutYourCompany /> */}
-				{/* <SocialMedia /> */}
+				<CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+					<SelectResume />
+				</CSSTransition>
 			</div>
 			<div className={classes.career}>
 				<CareerSlider />

@@ -1,8 +1,10 @@
 import React from "react";
 import "./style.scss";
 import MyCareerLogo from "../../../assets/images/Resume/my-career.svg";
+import { useSelector } from "react-redux";
 
 function CareerSlider() {
+	const resumeSteps = useSelector(state => state.resume);
 	const moveBtn = e => {
 		e.preventDefault();
 		const btns = document.getElementsByClassName("mycareer__round");
@@ -21,6 +23,26 @@ function CareerSlider() {
 		btns[1].style.background = "#f6f8fa";
 		btns[1].style.border = "10px solid #1d71b8";
 	};
+
+	const pageInfo = [
+		{ photoPage: "Personal information" },
+		{ countryPage: "Address" },
+		{ yourselfPage: "About yourself and skills" },
+		{ languagePage: "Language" },
+		{ experiencePage: "Experience" },
+		{ newExperiencePage: "Experience" },
+		{ educationPage: "Educations" },
+		{ createEducationPage: "Educations" },
+		{ contactsPage: "Contacts" },
+		{ resumePage: "Resume" },
+		{ resumeFinishPage: "Resume" }
+	];
+
+	for (let i = 0; i < pageInfo.length; i++) {
+		if (pageInfo[i] === resumeSteps) {
+			console.log(resumeSteps);
+		}
+	}
 
 	return (
 		<div>

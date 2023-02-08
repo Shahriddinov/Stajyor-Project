@@ -1,45 +1,92 @@
-.navBox {
+
+.menu{
 	position: absolute;
-	margin-left: 48rem;
-	margin-top: 70px;
-	display: grid;
-	grid-template-columns: 5fr 2fr;
-	gap: 6rem;
-}
-
-.navLinks {
 	display: flex;
+	top: 90px;
+	left: 50rem;
+	width: 60rem;
+	height: 70px;
+	align-items: center;
 	justify-content: space-between;
-	border-bottom: 2px solid white;
+	.menu__links{
+		margin: 0;
+		padding-left: 0;
+		width: 600px;
+		height:100%;
+		display: flex;
+		align-items: center;
+		list-style-type: none;
+		justify-content: space-between;
+		z-index: 6;
+		cursor: pointer;
+		.menu__link{
+			cursor: pointer;
+			font-family: "Montserrat",sans-serif;
+			font-weight: 500;
+			font-size: 23px;
+			color: #1d71b8;
+		    height:50%;
+			display: flex;
+			align-items: center;
+			
+		}
+		.active{
+			cursor: pointer;
+			font-family: "Montserrat",sans-serif;
+			font-weight: 500;
+			font-size: 20px;
+			color: #1d71b8;
+		    height:50%;
+			display: flex;
+			align-items: center;
+			border-bottom: 5px solid #1d71b8;
+		}
+		
+	}
+
+
+
+	.menu__buttons{
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 20rem;
+		height: 100%;
+		
+		.menu__login{
+			cursor: pointer;
+			width: 103px;
+			height: 44px;
+			font-size: 20px;
+			font-weight: 500;
+			border: 1px solid #1d71b8;
+			background-color: #1d71b8;
+			border-radius: 8px;
+			color: #fff;
+			line-height: 24px;
+		}
+
+		.menu__signup{
+			cursor: pointer;
+			border-radius: 8px;
+			border: 1px solid #1d71b8;
+			width: 118px;
+			height: 44px;
+			color: #1d71b8;
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 24px;
+		}
+	}
 }
 
-.navLinks h2 {
-	color: #1d71b8;
-	font-family: "Montserrat";
-	font-weight: 500;
-	font-size: 23px;
-	line-height: 28.04px;
-}
-
-.logButton {
-	display: flex;
-	gap: 2rem;
-}
-.logButton button {
-	width: 7rem;
-	height: 3rem;
-	font-family: "Montserrat";
-	margin-top: 0.45rem;
-	padding: 0 20px;
-	border: 1px solid #1d71b8;
+.menu__underline{
+	position: absolute;
+	top: 140px;
+	left: 50rem;
+	width: 37.5rem;
+	height: 5px;
+	background: #fff;
 	border-radius: 5px;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 24.38px;
-	color: #1d71b8;
-}
-
-.logButton button:first-of-type {
-	color: white;
-	background-color: #1d71b8;
+ 
 }

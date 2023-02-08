@@ -18,10 +18,14 @@ import Available from './components/Available';
 import { useContext } from 'react';
 import Context from 'components/Context/Context';
 import AddProject from './components/AddProject';
+import AddProfilePhoto from './components/AddProfilePhoto';
+// import Country from 'pages/Resume/cards/Country';
+// import Language from 'pages/Resume/cards/Language';
+// import SocialMedia from 'pages/Resume/cards/SocialMedia';
 
 const Profile = () => {
 
-    const { isAvialable, setIsAvialable, isPortfolio, setIsPortfolio } = useContext(Context)
+    const { isAvialable, setIsAvialable, isPortfolio, setIsPortfolio , isAddPortfolio, setAddIsPortfolio} = useContext(Context)
 
     const AviableFunc = (bol) => {
         setIsAvialable(bol)
@@ -31,6 +35,10 @@ const Profile = () => {
         setIsPortfolio(bol)
     }
 
+    const AddPortfolioFunc = (bol) => { 
+        setAddIsPortfolio(bol)
+    }
+
 
     
 
@@ -38,18 +46,18 @@ const Profile = () => {
 
     return (<>
             {
-                isAvialable || isPortfolio ? <div className="freelancer_black"  > </div> : null
+                isAvialable || isPortfolio || isAddPortfolio ? <div className="freelancer_black"  > </div> : null
             }
    <div className="freelancer_container">
         { isAvialable ? <Available /> : null}
         { isPortfolio ? <AddProject /> : null }
+        { isAddPortfolio ?   <AddProfilePhoto /> : null}
              <div className='freelancer_container_round'>
                     <Round />
                 </div>
-
         <div className='userfreelancermodal' >
-
-
+            {/* <SocialMedia /> */}
+            {/* <Country /> */}
             <div className="userfreelancermodal_left">
                 <ul className="userfreelancermodal_left_list">
                     <li className="userfreelancermodal_left_list_item userfreelancermodal_left_list_item1">
@@ -69,7 +77,7 @@ const Profile = () => {
                         <p className="userfreelancermodal_left_list_item_info"> Hourly </p>
                     </li>
                     <li className="userfreelancermodal_left_list_item">
-                        <div className="userfreelancermodal_left_list_item_wrapper"  >
+                        <div className="userfreelancermodal_left_list_item_wrapper" onClick={() => AddPortfolioFunc(true)}  >
 
                         </div>
                     </li>
@@ -134,7 +142,7 @@ const Profile = () => {
 
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4> Verifications</h4>
-                            <h5>ID: <span>More than 40 hrs/week</span> <img src={ticked} alt="" /></h5>
+                            <h5>ID: <span>Verified</span> <img src={ticked} alt="" /></h5>
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
@@ -168,7 +176,7 @@ const Profile = () => {
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4>Skills <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
-                            <div style={{"display":"flex", "gap":"10px"}} >
+                            <div style={{"display":"flex", "gap":"10px", 'max-width':'350px', 'flex-wrap':'wrap'}} >
                             <b>Figma</b>
                             <b>html</b>
                             <b>Adobe PhotoShop</b>
@@ -195,6 +203,7 @@ const Profile = () => {
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4>Member since</h4>
                             <span>June 9, 2022</span>
+                            <button className='userfreelancermodal_right_mainlist_item_btn' >Resume</button>
                         </li>
 
                     </ul>

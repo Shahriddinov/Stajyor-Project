@@ -6,17 +6,19 @@ import systemActions from "store/actions/system";
 import config from "config";
 import { helpers } from "services";
 import { withRouter } from "utils";
-import Navigation from "pages/NonAuth";
+// import Navigation from "pages/NonAuth";
 import Context from "components/Context/Context";
 
 function App({ children }) {
 
 	const [ isActive, setIsActive ] = useState(false)
-
 	const [ isAvialable, setIsAvialable ] = useState(false)
 	const [ isPortfolio, setIsPortfolio ] = useState(false)
+	const [ isAddPortfolio, setAddIsPortfolio ] = useState(false)
+	const [ heartClick, setHeartClick ] = useState(false)
 
-	const obj = {  isActive, setIsActive, isAvialable, setIsAvialable , isPortfolio, setIsPortfolio }
+	const obj = {  isActive, setIsActive, isAvialable, setIsAvialable , isPortfolio, setIsPortfolio,
+					isAddPortfolio, setAddIsPortfolio, heartClick, setHeartClick }
 
 	
 	const dispatch = useDispatch();
@@ -42,7 +44,7 @@ function App({ children }) {
 	}, []);
 
 	return  <Context.Provider value={obj} >
-			<div className={`${ isActive || isAvialable || isPortfolio ? 'nobody' : null }`} >{children}</div>
+			<div className={`${  isAvialable || isPortfolio || isAddPortfolio ? 'nobody' : null }`} >{children}</div>
 	</Context.Provider> 
 }
 

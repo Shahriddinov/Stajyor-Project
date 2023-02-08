@@ -5,8 +5,8 @@ import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
-import { i18n, api } from "services";
-import { configure as configureStore } from "store";
+import { i18n } from "services";
+// import { configure as configureStore } from "store";
 
 import Routes from "./routes";
 
@@ -21,11 +21,14 @@ import "./assets/styles/ui.scss";
 import "./assets/styles/header.scss";
 import "./assets/styles/footer.scss";
 import "./assets/styles/fonts.css";
+import store from "reduxToolkit/store";
 
-const store = configureStore();
-store.subscribe(() => {
-	api.subscribe(store);
-});
+// import "bootstrap/dist/css/bootstrap.min.css"
+
+// const store = configureStore();
+// store.subscribe(() => {
+// 	api.subscribe(store);
+// });
 
 const container = document.getElementById("root");
 const root = createRoot(container);

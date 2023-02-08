@@ -8,10 +8,14 @@ import LangDrop from "./components/LangDrop";
 
 const Header = () => {
 
+	const auth_path = window.location.pathname.split('/')[1]
+
+	console.log(auth_path);
+
 	return (
 		<header className="header" >
 			<div className="header_container">
-				<img src={header_logo} alt="" />
+				<img src={header_logo} className='header_container_bg_logo' alt="" />
 				<img src={header_logo_bg} className='header_container_bg_img'  alt="header bg img" />
 
 				
@@ -19,25 +23,25 @@ const Header = () => {
 
 				<ul className="header_container_list">
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">Jobs</a>
+						<a href={`${auth_path}/jobs`} className="header_container_list_item">Jobs</a>
 					</li>
 					
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">Talants</a>
+						<a href={`${auth_path}/talants`} className="header_container_list_item">Talants</a>
 					</li>
 					
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">About us</a>
+						<a href={`${auth_path}/about_us`} className="header_container_list_item">About us</a>
 					</li>
 					
 					<li className="header_container_list_item">
-						<a href="/" className="header_container_list_item">Contact us</a>
+						<a href={`${auth_path}/contact_us`} className="header_container_list_item">Contact us</a>
 					</li>
 					
 					<span className="header_container_list_span"></span>
 				</ul>
-						<Dropdown />
-						<LangDrop />
+						<Dropdown/>
+						<LangDrop/>
 
 				</div>
 

@@ -31,7 +31,7 @@ function App() {
 							<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
 						</Routes>
 					)
-					: 
+					:
 					!resume
 					?(
 						<Routes>

@@ -85,7 +85,7 @@ function Background() {
 					<Link to={`/${len}/login`}>
 						<button className={classesNav.menu__login}>Log in</button>
 					</Link>
-					<Link to={`/${len}/signup`}>
+					<Link to={`/${len}/sign-up`}>
 						<button className={classesNav.menu__signup}>Sign up</button>
 					</Link>
 				</div>

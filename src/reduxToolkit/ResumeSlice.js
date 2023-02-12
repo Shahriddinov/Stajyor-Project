@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import {
 	PHOTO,
 	COUNTRYLIST,
@@ -13,8 +14,10 @@ import {
 	EDUCATION,
 	EDUCATIONDELETE,
 	LANGUAGESUPLOAD,
-	CONTACTSUPLOAD
+	CONTACTSUPLOAD,
+	RESUMESELECT
 } from "./URLS";
+import { resumeSelect } from "./extraReducers";
 
 const initialState = {
 	loading: false,
@@ -36,7 +39,7 @@ const initialState = {
 	createEducationPage: false,
 	contactsPage: false,
 	resumePage: false,
-	resumeFinishPage: false
+	resumeDetails: "",
 };
 
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
@@ -370,7 +373,7 @@ const resumeSlice = createSlice({
 		// 	state.loading = false;
 		// 	state.error = action.error.message;
 		// });
-
+ 
 		//Languages List reducer
 		builder.addCase(languages.pending, (state, action) => {
 			state.loading = true;
@@ -473,6 +476,22 @@ const resumeSlice = createSlice({
 			state.loading = false;
 		});
 		builder.addCase(educationDelete.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+
+		///////////////////////////RESUMESELECT POST REDUCER//////////
+		builder.addCase(resumeSelect.pending, (state, action) => {
+			state.loading = true;
+		});
+
+		builder.addCase(resumeSelect.fulfilled, (state, { type, payload }) => {
+			state.loading = false;	
+			state.resumeDetails = payload.data;	
+		});
+		
+		builder.addCase(resumeSelect.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
 		});

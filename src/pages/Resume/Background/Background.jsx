@@ -22,57 +22,55 @@ import { CSSTransition } from "react-transition-group";
 import "./Background.scss";
 
 function Background() {
-	const resumeSteps = useSelector(state => state.resume);
-	return (
-		<div className={classes.allBackground}>
-			<div className={classes.backSign}>
-				<Link to="./">
-					<img src={back} alt="back sign" />
-					Back
-				</Link>
-				<div className={classes.round}>
-					<Round />
-				</div>
-			</div>
-			<div className={classes.cards}>
-				<CSSTransition in={resumeSteps.photoPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<Photo />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.countryPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<Country />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.yourselfPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<Yourself />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.languagePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<Language />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<WorkExperience />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<MyWork />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<Educations />
-				</CSSTransition>
-				<CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<AddEducations />
-				</CSSTransition>
-				{/* <SocialMedia /> */}
-				<CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-					<SelectResume />
-				</CSSTransition>
-				{/* <PersonalInformation /> */}
-				{/* <YourCompany /> */}
-				{/* <AboutYourCompany /> */}
-				{/* <SocialMedia /> */}
-			</div>
-			<div className={classes.career}>
-				<CareerSlider />
-			</div>
-		</div>
-	);
+ const resumeSteps = useSelector(state => state.resume);
+ return (
+  <div className={classes.allBackground}>
+   <div className={classes.backSign}>
+    <Link to="./">
+     <img src={back} alt="back sign" />
+     Back
+    </Link>
+    <div className={classes.round}>
+     <Round />
+    </div>
+   </div>
+   <div className={classes.cards}>
+    <CSSTransition in={resumeSteps.photoPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <Photo />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.countryPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <Country />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.yourselfPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <Yourself />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.languagePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <Language />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <WorkExperience />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <MyWork />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <Educations />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <AddEducations />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.contactsPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <SocialMedia />
+    </CSSTransition>
+    <CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
+     <SelectResume />
+    </CSSTransition>
+   </div>
+   <div className={classes.career}>
+    <CareerSlider />
+   </div>
+  </div>
+ );
 }
 
 export default Background;

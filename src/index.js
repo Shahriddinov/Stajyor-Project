@@ -1,13 +1,14 @@
 import "react-app-polyfill/ie9";
 import "react-app-polyfill/ie11";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
 import { I18nextProvider } from "react-i18next";
 
 import { i18n} from "services";
 
+import Routes from "./routes";
 
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.css";

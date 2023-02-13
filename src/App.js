@@ -21,7 +21,7 @@ function App() {
 	return(
 		<BrowserRouter>
 			<div className="App">
-				{   
+				{
 					!auth
 					?(
 						<Routes>
@@ -49,7 +49,7 @@ function App() {
 								<Route path={`/${len}/talants`} element={<Talants/>}/>
 								<Route path={`/${len}/contact`} element={<Home/>}/>
 								<Route path="*" element={<NotFound/>}/>
-							</Routes>	
+							</Routes>
 						</>
 					)
 				}
@@ -58,4 +58,4 @@ function App() {
 	)
 }
 
-export default App;
+export default withRouter(App);

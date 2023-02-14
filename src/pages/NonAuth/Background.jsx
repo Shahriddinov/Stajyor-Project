@@ -19,7 +19,7 @@ import { useSelector } from "react-redux";
 
 function Background() {
 	const [count, setCount] = useState(1);
-	const len = useSelector(state => state.lenguage.lenguage)
+	const len = useSelector(state => state.lenguage.lenguage);
 
 	let step1 = false,
 		step2 = false,
@@ -95,7 +95,7 @@ function Background() {
 			{step2 && <Page2 />}
 			{step3 && <Page3 />}
 			{step4 && <Page4 />}
-			{step5 ? <Talants /> : ""}
+			{step5 && <Talants />}
 			{step6 && <Jobs />}
 			{step7 && <Aboutus />}
 			{step8 && <Contactus />}

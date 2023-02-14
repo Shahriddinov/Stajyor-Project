@@ -11,11 +11,25 @@ import { useState } from "react";
 import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
+import { registerRequest } from "reduxToolkit/extraReducers";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
-	const [checkemail] = useState(false);
-	// const logIn = useSelector(state => state.LoginSlice.logIn);
-	// console.log(logIn);
+	const [data,setData] = useState({
+		email: "",
+		password:"",
+		confirmPassword: "",
+	})
+	const len = useSelector(state => state.lenguage.lenguage)	
+	const {checkEmail, bodyErrors} = useSelector(state => state.login)
+	const dispatch = useDispatch()
+
+	const handlerSubmit = (e) => {
+		e.preventDefault()
+		dispatch(registerRequest(data))
+	}
+
 	return (
 		<section className="login">
 			<div className="login_container">
@@ -23,16 +37,68 @@ const Signup = () => {
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
 					<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-					{checkemail ? (
-						<form className="login_form" method="POST">
+					{!checkEmail ? (
+						<form className="login_form" onSubmit={handlerSubmit}>
 							<h3 className="login_form_title">Sign up</h3>
+
 							<p className="login_form_info">
-								Do you have an account? <a href="/signup">Log in </a>now!
+								Do you have an account? <Link to={`/${len}/login`}>Log in </Link>now!
 							</p>
-							<input required className="login_form_inp" type="email" placeholder="Email" name="email" />
-							<input required className="login_form_inp login_form_inp2" type="password" placeholder="Password" name="password" />
-							<input required className="login_form_inp login_form_inp2" type="password" placeholder="Confirm password" name="confirm_password" />
-							<button className="login_form_btn">Continue</button>
+
+							<input
+							required 
+							className={`login_form_inp ${bodyErrors?.EmailError?.length  ? "register-danger-input "  : bodyErrors ? "register-success" : ""}`} 
+							type="email" 
+							placeholder="Email" 
+							name="email" 
+							value={data.email}
+							onChange={e => setData(prev => ({...prev, email: e.target.value}))}
+							autoComplete="off"
+							/>
+							{
+								bodyErrors?.EmailError
+								&&
+								<p className="register-danger-text">{bodyErrors?.EmailError}</p>
+							}
+
+							<input
+							required 
+							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
+							type="password" 
+							placeholder="Password" 
+							name="password" 
+							value={data.password}
+							onChange={e => setData(prev => ({...prev, password: e.target.value}))}
+							autoComplete="off"
+							/>
+							{
+								bodyErrors?.PasswordError
+								&&
+								bodyErrors?.PasswordError?.map ((el,i) => (
+									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
+								))
+							}
+
+							<input
+							required
+							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
+							type="password" 
+							placeholder="Confirm password" 
+							name="confirm_password" 
+							value={data.confirmPassword}
+							onChange={e => setData(prev => ({...prev, confirmPassword: e.target.value}))}
+							autoComplete="off"
+							/>
+							{
+								bodyErrors?.PasswordConfirmError
+								&&
+								bodyErrors?.PasswordConfirmError?.map ((el,i) => (
+									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
+								))
+							}
+
+							<button className="login_form_btn" type="submit">Continue</button>
+
 							<div className="login_form_wrapper">
 								<p className="login_form_wrapper_info">Or continue with</p>
 

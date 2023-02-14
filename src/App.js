@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { BrowserRouter, Route, Routes,Navigate,} from "react-router-dom";
+import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
 import Home from "pages/Home";
 import Aboutus from "pages/NonAuth/Aboutus";
 import Talants from "pages/NonAuth/pages/talants/Talants";
@@ -11,51 +11,64 @@ import NotFound from "pages/404";
 import Header from "components/Layout/Header/Header";
 import PageBackground from "pages/NonAuth/Background";
 import Background from "pages/Resume/Background/Background";
+import ResumeFinish from "pages/Resume/ResumeFinish"
+import Contract from "pages/contract";
+import Contactus from "pages/NonAuth/Contactus";
+import { useEffect } from "react";
 
 function App() {
 
 	const auth = useSelector(state => state.login.loggedIn)
 	const len = useSelector(state => state.lenguage.lenguage)
 	const resume = useSelector(state => state.login.resume)
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		navigate(`/${len}/`)
+	},[len])
+
+	const pathName =  window.location.pathname
 
 	return(
-		<BrowserRouter>
-			<div className="App">
-				{
-					!auth
-					?(
+		<div className="App">
+			{
+				!auth
+				?(
+					<Routes>
+						<Route path={`/${len}/`} element={<PageBackground/>}/>
+						<Route path={`/${len}/login`} element={<Login/>}/>
+						<Route path={`/${len}/sign-up`} element={<Signup/>}/>
+						<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
+					</Routes>
+				)
+				:
+				!resume
+				?(
+					<Routes>
+						<Route path={`/${len}/company`} element={<Login/>}/>
+						<Route path={`/${len}/resume`} element={<Background/>}/>
+						<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish/>}/>
+						<Route path="*" element={<Navigate to={`/${len}/company`}/>}/>
+					</Routes>
+				)
+				:(
+					<>
+						<Header/>
 						<Routes>
-							<Route path={`/${len}/`} element={<PageBackground/>}/>
-							<Route path={`/${len}/login`} element={<Login/>}/>
-							<Route path={`/${len}/sign-up`} element={<Signup/>}/>
-							<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
+							<Route path={`/${len}/jobs`} element={<Jobs/>}/>
+							<Route path= {`/${len}/about`} element={<Aboutus/>}/>
+							<Route path={`/${len}/talants`} element={<Talants/>}/>
+							<Route path={`/${len}/contact`} element={<Contactus/>}/>
+							<Route path={`/${len}/contracts`} element={<Contract/>}/>
+							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
+							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
+							<Route path={`/${len}/*`} element={<NotFound/>}/>
 						</Routes>
-					)
-					:
-					!resume
-					?(
-						<Routes>
-							<Route path={`/${len}/company`} element={<Login/>}/>
-							<Route path={`/${len}/resume`} element={<Background/>}/>
-							<Route path="*" element={<Navigate to={`/${len}/company`}/>}/>
-						</Routes>
-					)
-					:(
-						<>
-							<Header/>
-							<Routes>
-								<Route path= {`/${len}/about`} element={<Aboutus/>}/>
-								<Route path={`/${len}/jobs`} element={<Jobs/>}/>
-								<Route path={`/${len}/talants`} element={<Talants/>}/>
-								<Route path={`/${len}/contact`} element={<Home/>}/>
-								<Route path="*" element={<NotFound/>}/>
-							</Routes>
-						</>
-					)
-				}
-			</div>
-		</BrowserRouter>
+					</>
+				)
+			}
+		</div>
 	)
 }
 
-export default withRouter(App);
+export default App;

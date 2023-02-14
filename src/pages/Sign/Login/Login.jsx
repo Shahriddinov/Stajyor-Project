@@ -7,52 +7,72 @@ import apple from "../../../assets/images/Sign/apple.svg";
 import google from "../../../assets/images/Sign/google.svg";
 import github from "../../../assets/images/Sign/github.svg";
 import facebook from "../../../assets/images/Sign/facebook.svg";
-import { useState } from "react";
 import Company from "../component/Company";
 import Carusel from "../component/Carusel";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { logInRequest } from "reduxToolkit/LoginSlice";
+import { logInRequest } from "reduxToolkit/extraReducers";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	const email = useRef("");
 	const password = useRef("");
 	const dispatch = useDispatch();
-	const logIn = useSelector(state => state.login.loggedIn);
+	const {loginResponseError,loggedIn} = useSelector(state => state.login);
+	const len = useSelector(state => state.lenguage.lenguage)
 
 	const handleSubmit = event => {
+		event.preventDefault();
 		let payload = {
 			email: email.current.value,
 			password: password.current.value
 		};
 		dispatch(logInRequest(payload));
-		event.preventDefault();
 	};
 
 	return (
 		<section className="login">
 			<div className="login_container">
-				{!logIn ? <Carusel /> : null}
+				{!loggedIn ? <Carusel /> : null}
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
-					{!logIn ? (
+					{!loggedIn ? (
 						<>
 							<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-							<form className="login_form" method="POST">
+							<form className="login_form" onSubmit={handleSubmit}>
 								<h3 className="login_form_title">Log in</h3>
 								<p className="login_form_info">
-									Still don't have an account? <a href="/signup">Sign up</a> now!
+									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
 								</p>
-								<input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" />
+								<input 
+								ref={email} 
+								required 
+								className={`login_form_inp ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
+								type="email" 
+								placeholder="Email" 
+								name="email" 
+								autoComplete="off"
+								/>
+								{
+									loginResponseError
+									&&
+									<p className="register-danger-text">{loginResponseError}</p>
+								}
 								<input
 									ref={password}
 									required
-									className="login_form_inp login_form_inp2"
+									className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
 									type="password"
 									placeholder="Password"
 									name="password"
+									autoComplete="off"
 								/>
-								<button onClick={handleSubmit} className="login_form_btn">
+								{
+									loginResponseError
+									&&
+									<p className="register-danger-text">{loginResponseError}</p>
+								}
+								<button type="submit" className="login_form_btn">
 									Continue
 								</button>
 								<div className="login_form_wrapper">

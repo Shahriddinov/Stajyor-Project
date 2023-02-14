@@ -22,6 +22,7 @@ import "./assets/styles/footer.scss";
 import "./assets/styles/fonts.css";
 import store from "reduxToolkit/store";
 import App from "App";
+import { BrowserRouter } from "react-router-dom";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -29,7 +30,9 @@ const root = createRoot(container);
 root.render(
 	<Provider store={store}>
 		<I18nextProvider i18n={i18n()}>
+		<BrowserRouter>
 			<App/>
+		</BrowserRouter>
 		</I18nextProvider>
 	</Provider>
 );

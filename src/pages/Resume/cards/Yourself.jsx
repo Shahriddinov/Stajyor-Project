@@ -20,18 +20,18 @@ function Yourself() {
 	const [hobby, setHobby] = useState([]);
 	let options = [];
 	let skills = [];
-	for (let i = 0; i < positionList.length; i++) {
-		options.push({ value: [positionList[i].id, positionList.indexOf(positionList[i])], label: positionList[i].name });
-		skills.push(positionList[i].skills);
+	for (let i = 0; i < positionList?.length; i++) {
+		options?.push({ value: [positionList[i]?.id, positionList?.indexOf(positionList[i])], label: positionList[i]?.name });
+		skills?.push(positionList[i]?.skills);
 	}
 
 	let skillsList = [];
-	for (let i = 0; i < skills[userChoice[1]].length; i++) {
-		skillsList.push({ value: skills[userChoice[1]][i].id, label: skills[userChoice[1]][i].name });
+	for (let i = 0; i < skills[userChoice[1]]?.length; i++) {
+		skillsList?.push({ value: skills[userChoice[1]][i].id, label: skills[userChoice[1]][i].name });
 	}
 	let hobbiesList = [];
-	for (let i = 0; i < hobbies.length; i++) {
-		hobbiesList.push({ value: hobbies[i].name, label: hobbies[i].name });
+	for (let i = 0; i < hobbies?.length; i++) {
+		hobbiesList?.push({ value: hobbies[i].name, label: hobbies[i].name });
 	}
 
 	const handleSubmit = event => {

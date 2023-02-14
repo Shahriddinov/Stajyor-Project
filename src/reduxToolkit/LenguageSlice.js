@@ -6,16 +6,16 @@ const initialState = {
 }
 
 const lenguageSlice = createSlice({
-	name: "image",
+	name: "Lenguage",
 	initialState,
     reducers:{
-        changeLenguage: (state, {type,payload}) => {
+        lenguageChange: (state, {type,payload}) => {
             localStorage.setItem("lenguage", payload)
             state.lenguage = payload
         }
     }
 });
 
-export const {changeLenguage} = lenguageSlice.actions
+export const {lenguageChange} = lenguageSlice.actions
 
 export default lenguageSlice.reducer

@@ -1,18 +1,32 @@
 import React from "react";
 import classes from "./SelectResume.module.scss";
-import resume1 from "../../../assets/images/Resume/resume1.png";
-import resume2 from "../../../assets/images/Resume/resume-img1.png";
-import resume3 from "../../../assets/images/Resume/resume-img2.png";
-import resume4 from "../../../assets/images/Resume/resume-img3.png";
-import resume5 from "../../../assets/images/Resume/resume-img4.png";
+import resume1 from "../../../assets/images/Resume/resume-img1.png";
+import resume2 from "../../../assets/images/Resume/resume-img2.png";
+import resume3 from "../../../assets/images/Resume/resume-img3.png";
+import resume4 from "../../../assets/images/Resume/resume-img4.png";
+import resume5 from "../../../assets/images/Resume/resume1.png";
 import resume6 from "../../../assets/images/Resume/resume-img5.png";
 import arrowleft from "../../../assets/images/arrow-left.svg"
 import arrowright from "../../../assets/images/arrow-right.svg"
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { resumeSelect } from "reduxToolkit/extraReducers";
+import {useNavigate} from "react-router-dom"
+import { useEffect } from "react";
+import { useMemo } from "react";
+import { resumeFinishPost } from "reduxToolkit/LoginSlice";
 
 function SelectResume() {
 	const [activeDot,setActiveDot] = useState(1)
 	const [translate,setTranslate] = useState(0)
+	const [resumeId, setResumeId] = useState(1)
+
+	const len = useSelector(state => state.lenguage.lenguage)
+
+
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
 	
 	const resume = [
 		{ id: 1, img: resume1 },
@@ -39,6 +53,7 @@ function SelectResume() {
 
 	const handleDotClick = (num) => {
 		setActiveDot(num)
+		setResumeId(num)
 		if(num === 1) {
 			setTranslate(0)
 		}else if(num > 1) {
@@ -51,13 +66,26 @@ function SelectResume() {
 		}
 	}
 
+	const handleSubmit = () => {
+		navigate(`/${len}/resume-finish/${resumeId}`)
+		const data = new FormData()
+		data.append("resume", resumeId)
+		dispatch(resumeSelect(data))
+	}
+
+	
+
 	return (
 		<div className={classes.selectResume}>
 			<h2>Select your resume design</h2>
 			<p>Your resume is ready! You need to choose one of this templates and all your info will be filled in it already.</p>
 			<div className={classes.eachResume} style={{transform: `translateX(${translate}px)`}}>
 				{resume.map((eachResume, i) => (
-					<div key={eachResume.id} className={`${classes.slide} ${activeDot === (i + 1) ? classes.slide__active : ""}`}>
+					<div 
+					key={eachResume.id} 
+					className={`${classes.slide} ${activeDot === (i + 1) ? classes.slide__active : ""}`}
+					onClick={() => handleDotClick(eachResume.id)}
+					>
 						<img src={eachResume.img} alt="Resume image" />
 					</div>
 				))}
@@ -83,7 +111,7 @@ function SelectResume() {
 						<img src={arrowright} alt="" />
 					</button>
 				</div>
-				<form action="submit" className={classes.socialForm}>
+				<div className={classes.socialForm}>
 					<button 
 					className={classes.backButton}
 					>
@@ -92,10 +120,11 @@ function SelectResume() {
 
 					<button 
 					className={classes.nextButton}
+					onClick={handleSubmit}
 					>
 						Next
 					</button>
-				</form>
+				</div>
 			</div>
 			
 		</div>

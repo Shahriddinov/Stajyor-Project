@@ -1,8 +1,9 @@
 .careerBox {
 	margin-top: 0;
 	position: absolute;
-	top: 280px;
+	top: 15%;
 	left: 220px;
+	border: 1px solid black;
 }
 
 .power {
@@ -42,9 +43,7 @@
 	width: 38rem;
 }
 
-.careerBox input::placeholder {
-	font-size: 20px;
-}
+
 
 .careerBox button {
 	border: none;

@@ -1,92 +1,109 @@
-
-.menu{
-	position: absolute;
+.menu {
+	position: fixed;
+	width: 80%;
+	top: 40px;
+	left: 10%;
+	height: 80px;
 	display: flex;
-	top: 90px;
-	left: 50rem;
-	width: 60rem;
-	height: 70px;
+	justify-content: space-around;
 	align-items: center;
-	justify-content: space-between;
-	.menu__links{
+	z-index: 111;
+	margin: 0 auto;
+	border: 1px solid black;
+
+	.automative {
+		width: 25%;
+		height: 100%;
+		margin-top: 2rem;
+		
+	}
+
+	.menu__links {
 		margin: 0;
 		padding-left: 0;
-		width: 600px;
-		height:100%;
+		width: 35%;
+		height: 100%;
 		display: flex;
 		align-items: center;
 		list-style-type: none;
 		justify-content: space-between;
-		z-index: 6;
 		cursor: pointer;
-		.menu__link{
-			cursor: pointer;
-			font-family: "Montserrat",sans-serif;
-			font-weight: 500;
-			font-size: 23px;
-			color: #1d71b8;
-		    height:50%;
-			display: flex;
-			align-items: center;
-			
-		}
-		.active{
-			cursor: pointer;
-			font-family: "Montserrat",sans-serif;
-			font-weight: 500;
-			font-size: 20px;
-			color: #1d71b8;
-		    height:50%;
-			display: flex;
-			align-items: center;
-			border-bottom: 5px solid #1d71b8;
-		}
 		
+
+		.menu__link {
+			cursor: pointer;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 500;
+			font-size: 18px;
+			color: #1d71b8;
+			height: 50%;
+			display: flex;
+			align-items: center;
+			border-bottom: 4px solid #fff;
+		}
+		.active {
+			cursor: pointer;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 500;
+			font-size: 18px;
+			color: #1d71b8;
+			height: 50%;
+			width: auto;
+			display: flex;
+			align-items: center;
+			z-index: 10;
+			border-bottom: 4px solid #1d71b8;
+		}
 	}
 
-
-
-	.menu__buttons{
+	.menu__buttons {
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
-		width: 20rem;
+		width: 18%;
 		height: 100%;
 		
-		.menu__login{
+
+		.menu__login {
 			cursor: pointer;
-			width: 103px;
-			height: 44px;
-			font-size: 20px;
-			font-weight: 500;
-			border: 1px solid #1d71b8;
+			width: 90px;
+			height: 35px;
+			font-size: 16px;
+			font-weight: 400;
 			background-color: #1d71b8;
 			border-radius: 8px;
 			color: #fff;
-			line-height: 24px;
+			line-height: 20px;
+			border: none;
 		}
 
-		.menu__signup{
+		.menu__signup {
 			cursor: pointer;
 			border-radius: 8px;
 			border: 1px solid #1d71b8;
-			width: 118px;
-			height: 44px;
+			width: 110px;
+			height: 35px;
 			color: #1d71b8;
-			font-size: 20px;
-			font-weight: 500;
-			line-height: 24px;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 20px;
+			background-color: #f5f5f7;
+			
+			&:hover{
+				background-color: #1d71b8;
+				color: #fff;
+			}
 		}
 	}
 }
 
-.menu__underline{
+.menu__underline {
 	position: absolute;
-	top: 140px;
-	left: 50rem;
-	width: 37.5rem;
-	height: 5px;
+	top: 58px;
+	width: 30%;
+	height: 4px;
 	background: #fff;
-	border-radius: 5px;
- 
+	border-radius: 8px;
+	margin-left: 6.5rem;
+	z-index: 0;
 }

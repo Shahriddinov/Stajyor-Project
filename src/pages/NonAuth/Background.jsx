@@ -64,7 +64,11 @@ function Background() {
 
 	return (
 		<div className={classes.background}>
+			<div className={classes.blueCircle}>
+				<img src={blue} alt="blue" />
+			</div>
 			<div className={classesNav.menu}>
+				<img className={classesNav.automative} src={logo} alt="Automative logo" />
 				<ul className={classesNav.menu__links}>
 					<li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
 						Home
@@ -81,7 +85,9 @@ function Background() {
 					<li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
 						Contact us
 					</li>
+					
 				</ul>
+				<div className={classesNav.menu__underline}></div>
 				<div className={classesNav.menu__buttons}>
 					<Link to={`/${len}/login`}>
 						<button className={classesNav.menu__login}>Log in</button>
@@ -90,8 +96,9 @@ function Background() {
 						<button className={classesNav.menu__signup}>Sign up</button>
 					</Link>
 				</div>
+			
 			</div>
-			<div className={classesNav.menu__underline}></div>
+
 			{step1 && <MyCareer />}
 			{step2 && <Page2 />}
 			{step3 && <Page3 />}
@@ -102,12 +109,11 @@ function Background() {
 			{step8 && <Contactus />}
 
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
-			<div className={classes.backgroundCircles}>
-				<img src={blue} alt="blue" />
-				<img className={classes.automative} src={logo} alt="Automative logo" />
-				<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
-					<Round />
-				</div>
+
+			<div
+				style={{ "z-index": "-1000" }}
+				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
+				<Round />
 			</div>
 		</div>
 	);

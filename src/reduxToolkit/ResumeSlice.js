@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import {LANGUAGESUPLOAD, CONTACTSUPLOAD, PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, EXPERIENCE, EXPERIENCEDELETE, EDUCATION, EDUCATIONDELETE } from "./URLS";
 

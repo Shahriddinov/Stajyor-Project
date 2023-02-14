@@ -17,7 +17,7 @@ import Contactus from "pages/NonAuth/Contactus";
 import { useEffect } from "react";
 
 function App() {
-
+	
 	const auth = useSelector(state => state.login.loggedIn)
 	const len = useSelector(state => state.lenguage.lenguage)
 	const resume = useSelector(state => state.login.resume)
@@ -31,7 +31,7 @@ function App() {
 
 	return(
 		<div className="App">
-			{
+			{   
 				!auth
 				?(
 					<Routes>
@@ -41,7 +41,7 @@ function App() {
 						<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
 					</Routes>
 				)
-				:
+				: 
 				!resume
 				?(
 					<Routes>
@@ -63,7 +63,7 @@ function App() {
 							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/*`} element={<NotFound/>}/>
-						</Routes>
+						</Routes>	
 					</>
 				)
 			}

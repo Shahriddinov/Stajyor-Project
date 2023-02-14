@@ -19,8 +19,8 @@
 
   transform: rotate(15deg);
   position: absolute;
-  width: 1000px;
-  left:900px;
+  // width: 1000px;
+  right: 310px;
 }
 .carusel_items{
   display: grid;
@@ -32,7 +32,8 @@
   animation: carusels 40s linear infinite;
 }
 .carusel_img{
-filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.1));
+
+  filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.1));
   display: block;
   object-fit: cover;
   padding: 20px;
@@ -47,4 +48,29 @@ filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.1));
   100%{
     transform: translateY(-500px);
   }
+}
+
+@media ( min-width: 1920px ) {
+
+.carusel{
+  transform: rotate(15deg);
+  position: absolute;
+  right:-20px;
+}
+.carusel2{
+
+  transform: rotate(15deg);
+  position: absolute;
+  right: 410px;
+}
+
+.carusel_img{
+
+  filter: drop-shadow(20px 20px 20px rgba(0, 0, 0, 0.1));
+  display: block;
+  object-fit: cover;
+  padding: 20px;
+  width: 380px;
+
+}
 }

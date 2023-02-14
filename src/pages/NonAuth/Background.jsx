@@ -61,6 +61,7 @@ function Background() {
 			step1 = true;
 	}
 
+
 	return (
 		<div className={classes.background}>
 			<div className={classesNav.menu}>

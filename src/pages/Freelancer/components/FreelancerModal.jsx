@@ -24,6 +24,9 @@ const FreelancerModal = () => {
     }
 
 
+    const path = window.location.pathname.split('/')[1] // uz or ru or en
+
+
 
     return (
         <div className='freelancermodal' >
@@ -85,8 +88,8 @@ const FreelancerModal = () => {
 
 
             <div className="freelancermodal_right">
-                <a href="/uz/freelancer-user" target='_blank' className='freelancermodal_right_link'>
-                    <img src={link} alt="" />
+                <a href={`${path}/freelancer-user`} target='_blank' rel='noreferrer' className='freelancermodal_right_link'> 
+                    <img className='freelancermodal_right_img' src={link} alt="" />
                     Open in a new window</a>
 
                    < ul className="freelancermodal_right_list">

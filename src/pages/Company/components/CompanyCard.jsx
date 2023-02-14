@@ -18,7 +18,7 @@ const CompanyCard = () => {
                 </div>
                 <h4 className='company_card_star_title' >Aug 5, 2021 - Oct 21, 2021</h4>
             </div>
-            <CompanyColasible />
+            <CompanyColasible  text={'qwertyuiopplkjhgfdsazxcvbnm'} />
 
             <div className="company_card_wrapper">
                 <div className="company_card_wrapper_left">
@@ -34,12 +34,12 @@ const CompanyCard = () => {
                             <p>Hourly</p>
                         </li>
                         <li className="company_card_wrapper_list_item company_card_wrapper_list_item1">
-                            <h4>5$</h4>
-                            <p>Hourly</p>
+                            <h4>10</h4>
+                            <p>Hours</p>
                         </li>
                         <li className="company_card_wrapper_list_item">
-                            <h4>5$</h4>
-                            <p>Hourly</p>
+                            <h4>50</h4>
+                            <p>Totally paid</p>
                         </li>
                     </ul>
                 </div>

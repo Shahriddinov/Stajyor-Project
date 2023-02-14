@@ -59,6 +59,7 @@
     }
 
     & .login_form_inp {
+        width: 92%;
         padding: 10px 15px;
         font-family: $font-family-montosserat;
         font-style: normal;
@@ -72,6 +73,8 @@
     }
 
     & .login_form_inp2 {
+        width: 92%;
+
         margin-top: 8px;
     }
 
@@ -123,4 +126,17 @@
         }
     }
     
+}
+
+.password_span {
+    cursor: pointer;
+    padding: 3px;
+    // border: 1px solid #000;
+    top: 15px;
+    // width: 10px;
+    // height: 10px;
+    border-radius: 50%;
+    right: 15px;
+    position: absolute;
+    color: #808080;
 }

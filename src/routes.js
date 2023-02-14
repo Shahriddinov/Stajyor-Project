@@ -4,8 +4,10 @@ import { history } from "store";
 import { Spinner, Layout } from "components";
 import { getBaseName } from "./utils";
 
-import App from "./App";
+import App from "./Provider";
 import ScrollTop from "./hoc/ScrollTop";
+import Contract from "pages/contract";
+
 
 
 
@@ -17,14 +19,19 @@ const NonAuth = lazy(() => import("./pages/NonAuth"));
 const Freelancer = lazy(() => import('./pages/Freelancer/Freelancer'))
 const UserFreelancer = lazy(() => import('./pages/Freelancer/UserFreelancer') )
 const FreelancerProfile = lazy(() => import('./pages/FreelancerProfile/Profile'))
+const Resume = lazy(() => import("./pages/Resume/Background/Background"));
+
+
 const routes = [
 	{ path: "", element: Home },
 	{ path: "/auth", element: NonAuth },
 	{ path: "/freelancer", element: Freelancer },
 	{ path: '/freelancer-user', element: UserFreelancer },
 	{ path: '/freelancer-profile', element: FreelancerProfile }
+	// {path: "contract", element: Contract}
 ];
-const Resume = lazy(() => import("./pages/Resume/Background/Background"));
+
+const Chat = lazy(() => import("./pages/Chat/ChatForCompany"));
 
 
 const auth_path = window.location.pathname.split("/")[2];
@@ -44,11 +51,15 @@ const RoutesContainer = () => (
 				<Routes>
 					<Route path="resume" element={<Resume />} />
 				</Routes>
-			) : auth_path === "auth" ? (
+			) : auth_path === "" ? (
 				<Routes>
-					<Route path="auth" element={<NonAuth />} />
+					<Route path="" element={<NonAuth />} />
 				</Routes>
-			) : (
+						) : auth_path === "chat" ? (
+							<Routes>
+							<Route path="chat" element={<Chat />} />
+						</Routes>
+			): (
 				<Layout>
 					<Suspense fallback={<Spinner position="full" />}>
 						<Routes>
@@ -66,3 +77,8 @@ const RoutesContainer = () => (
 );
 
 export default RoutesContainer;
+
+
+
+
+

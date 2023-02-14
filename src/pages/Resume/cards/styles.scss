@@ -14,3 +14,9 @@
 .mySelectLang__value-container {
 	height: 52px;
 }
+
+#test {
+	display: grid;
+	grid-template-columns: 5fr 5fr 1fr;
+	margin-right: -2rem;
+}

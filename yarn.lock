@@ -1242,7 +1242,7 @@
   "resolved" "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.8.0.tgz"
   "version" "0.8.0"
 
-"@emotion/react@^11.1.1", "@emotion/react@>=11.9.0":
+"@emotion/react@^11.8.1", "@emotion/react@>=11.9.0":
   "integrity" "sha512-K6z9zlHxxBXwN8TcpwBKcEsBsOw4JWCCmR+BeeOWgqp8GIU1yA2Odd41bwdAAr0ssbQrbJbVnndvv7oiv1bZeQ=="
   "resolved" "https://registry.npmjs.org/@emotion/react/-/react-11.10.0.tgz"
   "version" "11.10.0"
@@ -1306,7 +1306,7 @@
   "resolved" "https://registry.npmjs.org/@floating-ui/core/-/core-1.1.0.tgz"
   "version" "1.1.0"
 
-"@floating-ui/dom@^1.1.0":
+"@floating-ui/dom@^1.0.1", "@floating-ui/dom@^1.1.0":
   "integrity" "sha512-TSogMPVxbRe77QCj1dt8NmRiJasPvuc+eT5jnJ6YpLqgOD2zXc5UA3S1qwybN+GVCDNdKfpKy1oj8RpzLJvh6A=="
   "resolved" "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.1.0.tgz"
   "version" "1.1.0"
@@ -5896,11 +5896,6 @@
   dependencies:
     "tslib" "^2.0.3"
 
-"file-uri-to-path@1.0.0":
-  "integrity" "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw=="
-  "resolved" "https://registry.npmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz"
-  "version" "1.0.0"
-
 "filelist@^1.0.1":
   "integrity" "sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q=="
   "resolved" "https://registry.npmjs.org/filelist/-/filelist-1.0.4.tgz"
@@ -8852,10 +8847,10 @@
   dependencies:
     "fs-monkey" "^1.0.3"
 
-"memoize-one@^5.0.0":
-  "integrity" "sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q=="
-  "resolved" "https://registry.npmjs.org/memoize-one/-/memoize-one-5.2.1.tgz"
-  "version" "5.2.1"
+"memoize-one@^6.0.0":
+  "integrity" "sha512-rkpe71W0N0c0Xz6QD0eJETuWAJGnJ9afsl1srmwPrI+yBCkge5EycXXbYRyvL29zZVUWQCY7InPRCv3GDXuZNw=="
+  "resolved" "https://registry.npmjs.org/memoize-one/-/memoize-one-6.0.0.tgz"
+  "version" "6.0.0"
 
 "merge-descriptors@1.0.1":
   "integrity" "sha512-cCi6g3/Zr1iqQi6ySbseM1Xvooa98N0w31jzUYrXPX2xqObmFGHJ0tQ5u74H3mVh7wLouTseZyYIq39g8cNp1w=="
@@ -10752,18 +10747,20 @@
     "react-is-mounted-hook" "^1.1.2"
     "sleep-promise" "^9.1.0"
 
-"react-select@^5.0.0", "react-select@^5.2.2":
-  "integrity" "sha512-GM6Fbv1+X+kb3e5Fc4oNeyOJkCIesY/D4NBiReKlGY4RxoeztFYm3J0KREgwMaIKQqwTiuLqTlpUBY3SYw5goQ=="
-  "resolved" "https://registry.npmjs.org/react-select/-/react-select-5.3.0.tgz"
-  "version" "5.3.0"
+"react-select@^5.0.0", "react-select@^5.7.0":
+  "integrity" "sha512-lJGiMxCa3cqnUr2Jjtg9YHsaytiZqeNOKeibv6WF5zbK/fPegZ1hg3y/9P1RZVLhqBTs0PfqQLKuAACednYGhQ=="
+  "resolved" "https://registry.npmjs.org/react-select/-/react-select-5.7.0.tgz"
+  "version" "5.7.0"
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
-    "@emotion/react" "^11.1.1"
+    "@emotion/react" "^11.8.1"
+    "@floating-ui/dom" "^1.0.1"
     "@types/react-transition-group" "^4.4.0"
-    "memoize-one" "^5.0.0"
+    "memoize-one" "^6.0.0"
     "prop-types" "^15.6.0"
     "react-transition-group" "^4.3.0"
+    "use-isomorphic-layout-effect" "^1.1.2"
 
 "react-textarea-autosize@8.3.4":
   "integrity" "sha512-CdtmP8Dc19xL8/R6sWvtknD/eCXkQr30dtvC4VmGInhRsfF8X/ihXCq6+9l9qbxmKRiq407/7z5fxE7cVWQNgQ=="
@@ -12700,7 +12697,7 @@
   "resolved" "https://registry.npmjs.org/use-debounce/-/use-debounce-7.0.1.tgz"
   "version" "7.0.1"
 
-"use-isomorphic-layout-effect@^1.1.1":
+"use-isomorphic-layout-effect@^1.1.1", "use-isomorphic-layout-effect@^1.1.2":
   "integrity" "sha512-49L8yCO3iGT/ZF9QttjwLF/ZD9Iwto5LnH5LmEdk/6cFmXddqi2ulF0edxTwjj+7mqvpVVGQWvbXZdn32wRSHA=="
   "resolved" "https://registry.npmjs.org/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.2.tgz"
   "version" "1.1.2"

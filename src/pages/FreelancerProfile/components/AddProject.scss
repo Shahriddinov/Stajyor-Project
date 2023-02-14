@@ -1,6 +1,6 @@
 .add_project {
     position: absolute;
-    top: -160px;
+    top: -175px;
     right: 600px;
     z-index: 2;
     box-sizing: border-box;
@@ -135,7 +135,7 @@
 @media ( max-width: 1700px ) {
 .add_project {
     position: absolute;
-    top: -115px;
+    top: -120px;
     right: 600px;
     z-index: 2;
     box-sizing: border-box;
@@ -283,4 +283,9 @@
     }
 }
 
+}
+
+@media ( max-width: 1700px ) {
+
+    
 }

@@ -11,13 +11,26 @@ import { useState } from "react";
 import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
+import { Eye, EyeOff } from 'tabler-icons-react';
 
 const Signup = () => {
-	const [checkemail] = useState(false);
+	const [checkemail] = useState(true);
 	// const logIn = useSelector(state => state.LoginSlice.logIn);
 	// console.log(logIn);
 
 	const auth_path = window.location.pathname.split("/")[1];
+
+		const [ passwordEye, setPasswordEye ] = useState('password')
+		const [ passwordEye1, setPasswordEye1 ] = useState('password')
+
+	const PasswordFunc = () => {
+		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+	}
+
+	
+	const PasswordFunc1 = () => {
+		setPasswordEye1( passwordEye1 === 'password' ? 'text' : 'password' )
+	}
 
 	return (
 		<section className="login">
@@ -33,8 +46,21 @@ const Signup = () => {
 								Do you have an account? <a href={`${auth_path}/signup`}>Log in </a>now!
 							</p>
 							<input required className="login_form_inp" type="email" placeholder="Email" name="email" />
-							<input required className="login_form_inp login_form_inp2" type="password" placeholder="Password" name="password" />
-							<input required className="login_form_inp login_form_inp2" type="password" placeholder="Confirm password" name="confirm_password" />
+							<div style={{'position':"relative"}}>
+								<input required className="login_form_inp login_form_inp2" type={`${passwordEye}`} placeholder="Password" name="password" />
+								<span className="password_span" onClick={()=> PasswordFunc()} >
+									{
+										passwordEye === 'password' ? <EyeOff /> : <Eye /> 
+									}
+								</span>
+							</div>
+							<div style={{'position':"relative"}}>
+								<input required className="login_form_inp login_form_inp2" type={`${passwordEye1}`} placeholder="Confirm password" name="confirm_password" />
+								<span className="password_span" onClick={()=> PasswordFunc1()} >
+																		{
+										passwordEye1 === 'password' ? <EyeOff /> : <Eye /> 
+									}</span>
+							</div>
 							<button className="login_form_btn">Continue</button>
 							<div className="login_form_wrapper">
 								<p className="login_form_wrapper_info">Or continue with</p>

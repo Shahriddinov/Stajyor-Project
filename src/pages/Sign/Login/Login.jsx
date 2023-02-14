@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
@@ -12,8 +12,16 @@ import Carusel from "../component/Carusel";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { logInRequest } from "reduxToolkit/LoginSlice";
+import { Eye, EyeOff } from 'tabler-icons-react';
 
 const Login = () => {
+	const [ passwordEye, setPasswordEye ] = useState('password')
+
+	const PasswordFunc = () => {
+		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+	}
+
+
 	const email = useRef("");
 	const password = useRef("");
 	const dispatch = useDispatch();
@@ -45,14 +53,19 @@ return (
 									Still don't have an account? <a href={`${auth_path}/signup`}>Sign up</a> now!
 								</p>
 								<input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" />
-								<input
+								<div style={{'position':'relative'}} >
+									<input
 									ref={password}
 									required
 									className="login_form_inp login_form_inp2"
-									type="password"
+									type={`${passwordEye}`}
 									placeholder="Password"
 									name="password"
 								/>
+								<span className="password_span" onClick={() => PasswordFunc()} >{
+								passwordEye === 'password' ? <EyeOff /> : <Eye /> 
+								}</span>
+								</div>
 								<button onClick={handleSubmit} className="login_form_btn">
 									Continue
 								</button>

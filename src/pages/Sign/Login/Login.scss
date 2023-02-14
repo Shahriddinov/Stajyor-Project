@@ -138,3 +138,30 @@
     position: absolute;
     color: #808080;
 }
+
+.password_span {
+    cursor: pointer;
+    padding: 3px;
+    // border: 1px solid #000;
+    top: 15px;
+    // width: 10px;
+    // height: 10px;
+    border-radius: 50%;
+    right: 15px;
+    position: absolute;
+    color: #808080;
+.register-danger-text {
+    color: red;
+    border-color: red;
+    font-weight: 500;
+}
+
+.register-danger-input {
+    color: red !important;
+    border:1px solid  red !important;
+}
+
+.register-success {
+    border: 1px solid green !important;
+    color: green !important;
+}}

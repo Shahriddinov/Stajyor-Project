@@ -128,6 +128,7 @@
     
 }
 
+<<<<<<<<< Temporary merge branch 1
 .password_span {
     cursor: pointer;
     padding: 3px;
@@ -139,4 +140,19 @@
     right: 15px;
     position: absolute;
     color: #808080;
+}
+.register-danger-text {
+    color: red;
+    border-color: red;
+    font-weight: 500;
+}
+
+.register-danger-input {
+    color: red !important;
+    border:1px solid  red !important;
+}
+
+.register-success {
+    border: 1px solid green !important;
+    color: green !important;
 }

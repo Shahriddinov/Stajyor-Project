@@ -7,7 +7,6 @@ import apple from "../../../assets/images/Sign/apple.svg";
 import google from "../../../assets/images/Sign/google.svg";
 import github from "../../../assets/images/Sign/github.svg";
 import facebook from "../../../assets/images/Sign/facebook.svg";
-import { useState } from "react";
 import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
@@ -16,12 +15,12 @@ import { registerRequest } from "reduxToolkit/extraReducers";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
-	const [checkemail] = useState(true);
-	// const logIn = useSelector(state => state.LoginSlice.logIn);
-	// console.log(logIn);
 
-	const auth_path = window.location.pathname.split("/")[1];
+import { registerRequest } from "reduxToolkit/extraReducers";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
+const Signup = () => {
 
 		const [ passwordEye, setPasswordEye ] = useState('password')
 		const [ passwordEye1, setPasswordEye1 ] = useState('password')
@@ -30,9 +29,22 @@ const Signup = () => {
 		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
 	}
 
-
+	
 	const PasswordFunc1 = () => {
 		setPasswordEye1( passwordEye1 === 'password' ? 'text' : 'password' )
+	}
+	const [data,setData] = useState({
+		email: "",
+		password:"",
+		confirmPassword: "",
+	})
+	const len = useSelector(state => state.lenguage.lenguage)
+	const {checkEmail, bodyErrors} = useSelector(state => state.login)
+	const dispatch = useDispatch()
+
+	const handlerSubmit = (e) => {
+		e.preventDefault()
+		dispatch(registerRequest(data))
 	}
 
 	return (
@@ -42,29 +54,82 @@ const Signup = () => {
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
 					<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-					{checkemail ? (
-						<form className="login_form" method="POST">
+					{!checkEmail ? (
+						<form className="login_form" onSubmit={handlerSubmit}>
 							<h3 className="login_form_title">Sign up</h3>
+
 							<p className="login_form_info">
-								Do you have an account? <a href={`${auth_path}/signup`}>Log in </a>now!
+								Do you have an account? <Link to={`/${len}/login`}>Log in </Link>now!
 							</p>
-							<input required className="login_form_inp" type="email" placeholder="Email" name="email" />
-							<div style={{'position':"relative"}}>
-								<input required className="login_form_inp login_form_inp2" type={`${passwordEye}`} placeholder="Password" name="password" />
+
+
+							<input
+							required
+							className={`login_form_inp ${bodyErrors?.EmailError?.length  ? "register-danger-input "  : bodyErrors ? "register-success" : ""}`}
+							type="email"
+							placeholder="Email"
+							name="email"
+							value={data.email}
+							onChange={e => setData(prev => ({...prev, email: e.target.value}))}
+							autoComplete="off"
+							/>
+							{
+								bodyErrors?.EmailError
+								&&
+								<p className="register-danger-text">{bodyErrors?.EmailError}</p>
+							}
+
+							<div style={{'position':"relative"}} >
+								<input
+							required
+							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
+							type={passwordEye1}
+							placeholder="Password"
+							name="password"
+							value={data.password}
+							onChange={e => setData(prev => ({...prev, password: e.target.value}))}
+							autoComplete="off"
+							/>
+															<span className="password_span" onClick={()=> PasswordFunc1()} >
+																		{
+										passwordEye1 === 'password' ? <EyeOff /> : <Eye />
+									}</span>
+							</div>
+							{
+								bodyErrors?.PasswordError
+								&&
+								bodyErrors?.PasswordError?.map ((el,i) => (
+									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
+								))
+							}
+
+							<div style={{'position':"relative"}} >
+								<input
+							required
+							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
+							type={passwordEye}
+							placeholder="Confirm password"
+							name="confirm_password"
+							value={data.confirmPassword}
+							onChange={e => setData(prev => ({...prev, confirmPassword: e.target.value}))}
+							autoComplete="off"
+							/>
 								<span className="password_span" onClick={()=> PasswordFunc()} >
 									{
 										passwordEye === 'password' ? <EyeOff /> : <Eye />
 									}
 								</span>
 							</div>
-							<div style={{'position':"relative"}}>
-								<input required className="login_form_inp login_form_inp2" type={`${passwordEye1}`} placeholder="Confirm password" name="confirm_password" />
-								<span className="password_span" onClick={()=> PasswordFunc1()} >
-																		{
-										passwordEye1 === 'password' ? <EyeOff /> : <Eye />
-									}</span>
-							</div>
-							<button className="login_form_btn">Continue</button>
+							{
+								bodyErrors?.PasswordConfirmError
+								&&
+								bodyErrors?.PasswordConfirmError?.map ((el,i) => (
+									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
+								))
+							}
+
+							<button className="login_form_btn" type="submit">Continue</button>
+
 							<div className="login_form_wrapper">
 								<p className="login_form_wrapper_info">Or continue with</p>
 

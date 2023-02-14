@@ -1,12 +1,12 @@
 .add_project {
     position: absolute;
-    top: -125px;
+    top: -175px;
     right: 600px;
     z-index: 2;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 30px;
     border-radius: 12px;
-    width: 750px;
+    width: 730px;
     background: #FFFFFF;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
 
@@ -23,13 +23,12 @@
 
     &_input {
         box-sizing: border-box;
-        padding: 47px 202px;
+        padding: 40px 202px;
         font-family: 'Montserrat';
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
         line-height: 130%;
-        // width: 650px;
         color: #808080;
         background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%231D71B8FF' stroke-width='2' stroke-dasharray='25%2c5' stroke-dashoffset='20' stroke-linecap='butt'/%3e%3c/svg%3e");
         border-radius: 12px;
@@ -41,20 +40,20 @@
     }
 
     &_listimages {
-        margin-top: 20px;
+        margin-top: 15px;
         display: flex;
         align-items: center;
         gap: 5px;
 
         &_item {
-            padding: 30px 65px;
+            padding: 30px 66px;
             border: 1px solid #CDCDCD;
             border-radius: 8px;
         }
     }
 
     &_list {
-        margin-top: 30px;
+        margin-top: 20px;
         margin-bottom: 30px;
         display: flex;
         flex-direction: column;
@@ -133,3 +132,160 @@
 }
 
 
+@media ( max-width: 1700px ) {
+.add_project {
+    position: absolute;
+    top: -120px;
+    right: 600px;
+    z-index: 2;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 12px;
+    width: 600px;
+    background: #FFFFFF;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+
+    &_title {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #323232;
+        margin-bottom: 20px;
+
+    }
+
+    &_input {
+        box-sizing: border-box;
+        padding: 30px 132px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 100%;
+        color: #808080;
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='12' ry='12' stroke='%231D71B8FF' stroke-width='2' stroke-dasharray='25%2c5' stroke-dashoffset='20' stroke-linecap='butt'/%3e%3c/svg%3e");
+        border-radius: 12px;
+
+        & span {
+            color: #1D71B8;
+            cursor: pointer;
+        }
+    }
+
+    &_listimages {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &_item {
+            padding: 20px 52px;
+            border: 1px solid #CDCDCD;
+            border-radius: 8px;
+        }
+    }
+
+    &_list {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            &_title {
+                font-family: 'Montserrat';
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #323232;
+            }
+
+            &_input {
+                width: 515px;
+                padding: 10px 15px;
+                font-family: 'Montserrat';
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20px;
+                color: #808080;
+                background: #FFFFFF;
+                border: 1px solid #CDCDCD;
+                border-radius: 8px;
+                cursor: pointer;
+
+            }
+            & textarea {
+                overflow: auto;
+                resize:  none;
+                vertical-align: top;
+            }
+
+            &_wrapper {
+                position: relative;
+
+                &_div {
+                    position: absolute;
+                    top: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(29, 113, 184, 0.1);
+                    border-radius: 6px;
+                    right: 20px;
+                    cursor: pointer;
+                    width: 24px;
+                    height: 24px;
+
+                    &:hover &_img {
+                        transform: rotate(180deg);
+                        transition: 0.3s;
+                    }
+                }
+                &_img {
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    cursor: pointer;
+           
+                }
+
+                &_img:hover {
+                    transform: rotate(180deg);
+                    transition: 0.3s;
+                }
+            }
+        }
+
+    }
+}
+
+.freelanceravailable_wrapper {
+    padding-top: 0px;
+    margin-top: 0px;
+
+    &_btn  {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+    
+    &_btn1 {
+        
+        margin-right: -29px;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+}
+
+}
+
+@media ( max-width: 1700px ) {
+
+    
+}

@@ -6,6 +6,7 @@ import './Freelancer.scss';
 import Fillter from './components/Fillter'
 import { useContext } from 'react';
 import Context from 'components/Context/Context';
+import serach_icon from '../../assets/images/Freelancer/serach_inp.svg'
 
 
 const Freelancer = () => {
@@ -20,11 +21,15 @@ const Freelancer = () => {
         if(isActive){
         const freelancerWin = document.querySelector(".freelancermodal");
         const modal_height = freelancerWin.clientHeight;
+        console.log(modal_height);
         setBlackHeight(modal_height);
         }
     }, [isActive]);
-    console.log(isActive);
-    console.log(blackHeight , 'saaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    
+    const handleSubmit = (e) => {
+        console.log("object click! ");
+        e.preventDefault()
+    }
 
 
     return (
@@ -36,7 +41,11 @@ const Freelancer = () => {
             
             <div className="freelancer_container">
                 
-                <div className='freelancer_container_outline'></div>
+                <div>
+                    <form className='freelancer_container_outline' onSubmit={(e) => handleSubmit(e)} >
+                        <input type="text" placeholder='Title, keywords...' className='freelancer_container_outline_inp' />
+                        <button type='submit' className='freelancer_container_outline_btn' ><img src={serach_icon} alt="search icon" /></button>
+                    </form>
                 <Cart />
                 <Cart />
                 <Cart />
@@ -44,6 +53,7 @@ const Freelancer = () => {
     
                 <div className='freelancer_container_round'>
                     <Round />
+                </div>
                 </div>
                 <Fillter />
                 {

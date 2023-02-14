@@ -4,13 +4,18 @@ import './Cart.scss'
 import user_img from '../../../assets/images/Freelancer/girl_img.svg'
 import ticked from '../../../assets/images/Freelancer/ticked.svg'
 import location from '../../../assets/images/Freelancer/location.svg'
+import { ReactComponent as Heart} from '../../../assets/images/Freelancer/hheart.svg'
 import Colasible from './Colasible';
 import { useContext } from 'react';
 import Context from 'components/Context/Context';
 
 const Cart = () => {
 
-    const { isActive, setIsActive } = useContext(Context)
+    const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
+
+    const HeartClickFunc = () => {
+        setHeartClick(!heartClick)
+    }
 
     const cursorHandle = () => {
         setIsActive(!isActive)
@@ -53,7 +58,8 @@ const Cart = () => {
                 </li>
 
             </ul>
-            <Colasible />
+                <div  className='freelancer_cart_list_wrapper' onClick={() => HeartClickFunc()} > <Heart className={`${ heartClick ? 'freelancer_cart_list_wrapper_svg' : null}`}   /> </div>
+            <Colasible  text={'qwertyuioplkjhgfdsazxcvbnm'} />
             <div onClick={()=> cursorHandle() } className="freelancer_cart_skill">
                 <div className="freelancer_cart_skill_skills">
                     <h4>Figma</h4>

@@ -47,7 +47,7 @@ function Photo() {
 			{uploaded && (
 				<div onClick={handleClick} className="imageUpload">
 					<div className="imageUp">
-						<img className="uploadedImage" src={URL.createObjectURL(uploaded)} alt="uploaded image" />
+						<img className="uploadedImage" src={URL.createObjectURL(uploaded)} alt="uploaded images" />
 					</div>
 					<h3 className="title">Change your profile photo</h3>
 				</div>

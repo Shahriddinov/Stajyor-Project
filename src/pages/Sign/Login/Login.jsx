@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
@@ -11,68 +11,62 @@ import Company from "../component/Company";
 import Carusel from "../component/Carusel";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { logInRequest } from "reduxToolkit/extraReducers";
-import { Link } from "react-router-dom";
+import { logInRequest } from "reduxToolkit/LoginSlice";
+import { Eye, EyeOff } from 'tabler-icons-react';
 
 const Login = () => {
+	const [ passwordEye, setPasswordEye ] = useState('password')
+
+	const PasswordFunc = () => {
+		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+	}
+
+
 	const email = useRef("");
 	const password = useRef("");
 	const dispatch = useDispatch();
-	const {loginResponseError,loggedIn} = useSelector(state => state.login);
-	const len = useSelector(state => state.lenguage.lenguage)
+	const logIn = useSelector(state => state.login.loggedIn);
 
 	const handleSubmit = event => {
-		event.preventDefault();
 		let payload = {
 			email: email.current.value,
 			password: password.current.value
 		};
 		dispatch(logInRequest(payload));
+		event.preventDefault();
 	};
 
-	return (
+	const auth_path = window.location.pathname.split("/")[1];
+
+return (
 		<section className="login">
 			<div className="login_container">
-				{!loggedIn ? <Carusel /> : null}
+				{!logIn ? <Carusel /> : null}
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
-					{!loggedIn ? (
+					{!logIn ? (
 						<>
 							<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-							<form className="login_form" onSubmit={handleSubmit}>
+							<form className="login_form" method="POST">
 								<h3 className="login_form_title">Log in</h3>
 								<p className="login_form_info">
-									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
+									Still don't have an account? <a href={`${auth_path}/signup`}>Sign up</a> now!
 								</p>
-								<input 
-								ref={email} 
-								required 
-								className={`login_form_inp ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
-								type="email" 
-								placeholder="Email" 
-								name="email" 
-								autoComplete="off"
-								/>
-								{
-									loginResponseError
-									&&
-									<p className="register-danger-text">{loginResponseError}</p>
-								}
-								<input
+								<input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" />
+								<div style={{'position':'relative'}} >
+									<input
 									ref={password}
 									required
-									className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
-									type="password"
+									className="login_form_inp login_form_inp2"
+									type={`${passwordEye}`}
 									placeholder="Password"
 									name="password"
-									autoComplete="off"
 								/>
-								{
-									loginResponseError
-									&&
-									<p className="register-danger-text">{loginResponseError}</p>
-								}
-								<button type="submit" className="login_form_btn">
+								<span className="password_span" onClick={() => PasswordFunc()} >{
+								passwordEye === 'password' ? <EyeOff /> : <Eye />
+								}</span>
+								</div>
+								<button onClick={handleSubmit} className="login_form_btn">
 									Continue
 								</button>
 								<div className="login_form_wrapper">
@@ -107,3 +101,4 @@ const Login = () => {
 };
 
 export default Login;
+

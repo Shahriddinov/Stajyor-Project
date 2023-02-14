@@ -8,7 +8,7 @@ import Context from 'components/Context/Context';
 
 const AddProject = () => {
 
-    const { isPortfolio, setIsPortfolio } = useContext(Context)
+    const {  setIsPortfolio } = useContext(Context)
 
     const PortfolioFunc = (bol) => {
         setIsPortfolio(bol)
@@ -43,7 +43,7 @@ const AddProject = () => {
                 </li>
                 <li className="add_project_list_item">
                     <h3 className="add_project_list_item_title">Description</h3>
-                    <textarea className="add_project_list_item_input" cols="30" rows="5" placeholder='Describe your project to a buyers'></textarea>
+                    <textarea className="add_project_list_item_input" cols="30" rows="4" placeholder='Describe your project to a buyers'></textarea>
                 </li>
                 <li className="add_project_list_item">
                     <h3 className="add_project_list_item_title">Tools</h3>

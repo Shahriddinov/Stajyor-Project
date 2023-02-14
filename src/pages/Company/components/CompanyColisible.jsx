@@ -3,7 +3,7 @@ import './CompanyColisible.scss'
 import arrow from '../../../assets/images/header/down_arrow.svg'
 import { useState } from 'react';
 
-const CompanyColasible = () => {
+const CompanyColasible = ({text}) => {
 
     const [ anime, setAnime ] = useState(false)
 

@@ -6,7 +6,7 @@ import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { languageUpload } from "../../../reduxToolkit/ResumeSlice";
+import { languageUpload, temporary9 } from "../../../reduxToolkit/ResumeSlice";
 
 function Language() {
 	const dispatch = useDispatch();
@@ -42,12 +42,13 @@ function Language() {
 	};
 
 	const handleSubmit = event => {
+		let formdatas = new FormData();
 		for (let i = 0; i < theArray.length; i++) {
-			let formdatas = new FormData();
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);
-			dispatch(languageUpload(formdatas));
 		}
+		dispatch(languageUpload(formdatas));
+		dispatch(temporary9());
 		event.preventDefault();
 	};
 

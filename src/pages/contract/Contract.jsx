@@ -187,7 +187,7 @@ const Contract = () => {
                     </ul>
                 </div>
 
-                <div className={`${classes.contract__details_info} ${classes.requisites}`}>
+                {/* <div className={`${classes.contract__details_info} ${classes.requisites}`}>
                     <div className={classes.requisites__box}>
                         <div className={classes.requisites__details}>
                             <h3 className={classes.contract__title}>Реквизиты исполнителя</h3>
@@ -357,9 +357,9 @@ const Contract = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> */}
 
-                {/* <div className={`${classes.contract__details} ${classes.details}`}>
+                <div className={`${classes.contract__details} ${classes.details}`}>
                     <h3 className={classes.contract__title}>About job</h3>
 
                     <form id='form' className={classes.details__form} onSubmit={formik.handleSubmit}>
@@ -509,7 +509,7 @@ const Contract = () => {
                     <div className={classes.apply__btns}>
                         <button className={classes.contract__apply_btn}  form='form' type='submit'>Apply</button>
                     </div>
-                </div> */}
+                </div>
             </div>
         </div>
     </div>

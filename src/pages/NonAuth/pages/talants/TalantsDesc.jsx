@@ -1,4 +1,4 @@
-import React, { useState,  useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import searchIcon from "../../../../assets/images/searchIcon.png";
 // import heartLiked from "../../../../assets/images/heartLiked.png";
 import locImg from "../../../../assets/images/locImg.png";
@@ -50,12 +50,12 @@ function TalantsDesc(props) {
 	return (
 		<div className={classes.talantsDesc}>
 			<div className={classes.talantsSearch}>
-				<form action="submit">
+				<div className={classes.talantsSearchForm}>
 					<input type="search" placeholder="Title, keywords..." onChange={onSearchChange} />
 					<button type="submit">
 						<img src={searchIcon} alt="Search Icnon" />
 					</button>
-				</form>
+				</div>
 			</div>
 			<div className={classes.talantsCard}>
 				{filteredTalants.map((item, index) => (
@@ -89,7 +89,7 @@ function TalantsDesc(props) {
 								<p>{item.completedJobs}</p>
 								<span>Completed jobs</span>
 							</div>
-
+							<div className={classes.talantsLine}></div>
 							<div className={classes.liked} onClick={onClickLike.bind(this, item)}>
 								{likes.findIndex(x => x === item.id) >= 0 ? (
 									<BsHeartFill className={classes.bsheartfill} />

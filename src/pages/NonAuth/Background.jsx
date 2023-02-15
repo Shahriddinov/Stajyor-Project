@@ -112,7 +112,7 @@ function Background() {
 
 			<div
 				style={{ "z-index": "-1000" }}
-				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
+				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
 				<Round />
 			</div>
 		</div>

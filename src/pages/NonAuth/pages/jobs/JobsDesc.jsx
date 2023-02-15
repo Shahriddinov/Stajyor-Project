@@ -46,12 +46,12 @@ function JobsDesc(props) {
 	return (
 		<div className={classes.jobsDesc}>
 			<div className={classes.jobsSearch}>
-				<form action="submit">
+				<div className={classes.jobsSearchForm}>
 					<input type="text" placeholder="Job title, keywords..." onChange={onSearchChange} />
 					<button type="submit">
 						<img src={searchIcon} alt="Search Icnon" />
 					</button>
-				</form>
+				</div>
 			</div>
 			<div className={classes.jobsCard}>
 				{filteredJobs.map((item, index) => (
@@ -91,7 +91,7 @@ function JobsDesc(props) {
 								</>
 							) : (
 								<>
-									<p className={classes.descContent}>{item.jobDescription.substring(0,100)}</p>
+									<p className={classes.descContent}>{item.jobDescription.substring(0, 100)}</p>
 									<span className={classes.faChevronDown}>
 										<FaChevronDown />
 									</span>

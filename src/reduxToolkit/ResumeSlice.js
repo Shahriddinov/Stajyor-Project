@@ -2,6 +2,10 @@
 import axios from "axios";
 import {LANGUAGESUPLOAD, CONTACTSUPLOAD, PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, EXPERIENCE, EXPERIENCEDELETE, EDUCATION, EDUCATIONDELETE } from "./URLS";
 
+
+
+import { resumeSelect } from "./extraReducers";
+
 const initialState = {
 	loading: false,
 	error: "",
@@ -17,12 +21,12 @@ const initialState = {
 	yourselfPage: false,
 	languagePage: false,
 	experiencePage: false,
-	newExperiencePage:false,
+	newExperiencePage: false,
 	educationPage: false,
 	createEducationPage: false,
 	contactsPage: false,
 	resumePage: false,
-	resumeFinishPage: false
+	resumeDetails: "",
 };
 
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
@@ -152,7 +156,6 @@ export const exsperiencePost = createAsyncThunk("post/exsperiencePost", async pa
 	});
 });
 
-
 ////////////////////////////Experience get//////////
 
 export const exsperienceGet = createAsyncThunk("post/exsperienceGet", async payload => {
@@ -168,7 +171,6 @@ export const exsperienceGet = createAsyncThunk("post/exsperienceGet", async payl
 		return response.data;
 	});
 });
-
 
 ////////////////////////////Experience Delete//////////
 
@@ -188,7 +190,6 @@ export const  exsperienceDelete = createAsyncThunk("post/exsperienceDelete", asy
 	});
 });
 
-
 ///////////////////////////EDUCATION POST//////////
 
 export const educationPost = createAsyncThunk("freelancer/educationPost", async payload => {
@@ -207,12 +208,10 @@ export const educationPost = createAsyncThunk("freelancer/educationPost", async 
 	});
 });
 
-
 ///////////////////////////EDUCATION GET//////////
 
 export const educationGet = createAsyncThunk("freelancer/educationGet", async payload => {
 	const token = window.localStorage.getItem("token");
-
 	return axios({
 		method: "GET",
 		url: EDUCATION,
@@ -224,7 +223,6 @@ export const educationGet = createAsyncThunk("freelancer/educationGet", async pa
 		return response.data;
 	});
 });
-
 
 ///////////////////////////EDUCATION DELETE//////////
 
@@ -249,7 +247,6 @@ const resumeSlice = createSlice({
 	initialState,
 	reducers: {
 		temporary: state => {
-			console.log("tem working");
 			state.yourselfPage = false;
 			state.languagePage = true;
 		},
@@ -290,7 +287,6 @@ const resumeSlice = createSlice({
 			state.educationPage = false;
 			state.resumePage = true;
 		}
-
 	},
 	extraReducers: builder => {
 		builder.addCase(photoUpload.pending, (state, action) => {
@@ -346,6 +342,7 @@ const resumeSlice = createSlice({
 			state.loading = false;
 			state.error = action.error.message;
 		});
+
 		//Positions Upload List reducer
 		// builder.addCase(positionUpload.pending, (state, action) => {
 		// 	state.loading = true;
@@ -355,15 +352,13 @@ const resumeSlice = createSlice({
 		// 	state.loading = false;
 		// 	state.error = action.error.message;
 		// });
-
+ 
 		//Languages List reducer
 		builder.addCase(languages.pending, (state, action) => {
 			state.loading = true;
 		});
 		builder.addCase(languages.fulfilled, (state, action) => {
 			state.languageList = action.payload.data;
-			state.languagePage = false;
-			state.experiencePage = true
 		});
 		builder.addCase(languages.rejected, (state, action) => {
 			state.loading = false;
@@ -375,6 +370,7 @@ const resumeSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(languageUpload.fulfilled, (state, action) => {
+			console.log("working");
 			state.languagePage = false;
 			state.experiencePage = true;
 		});
@@ -384,14 +380,12 @@ const resumeSlice = createSlice({
 		});
 
 		//Experiens post reducer
-
 		builder.addCase(exsperiencePost.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(exsperiencePost.fulfilled, (state, {type,payload}) => {
+		builder.addCase(exsperiencePost.fulfilled, (state, { type, payload }) => {
 			state.experiencePage = true;
 			state.newExperiencePage = false;
-
 		});
 		builder.addCase(exsperiencePost.rejected, (state, action) => {
 			state.loading = false;
@@ -399,27 +393,24 @@ const resumeSlice = createSlice({
 		});
 
 		//Experiens get reducer
-
 		builder.addCase(exsperienceGet.pending, (state, action) => {
 			state.loading = true;
 		});
 		builder.addCase(exsperienceGet.fulfilled, (state, {type,payload}) => {
 			state.experienceList = payload.data
 			state.loading = false;
-
 		});
 		builder.addCase(exsperienceGet.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
-			state.experienceList = []
+			state.experienceList = [];
 		});
 
 		//Experiens delete reducer
-
 		builder.addCase(exsperienceDelete.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(exsperienceDelete.fulfilled, (state, {type,payload}) => {
+		builder.addCase(exsperienceDelete.fulfilled, (state, { type, payload }) => {
 			state.loading = false;
 		});
 		builder.addCase(exsperienceDelete.rejected, (state, action) => {
@@ -427,16 +418,13 @@ const resumeSlice = createSlice({
 			state.error = action.error.message;
 		});
 
-
-////////////////////////////////////EDUCATION POST REDUCER//////////////////////
+		////////////////////////////////////EDUCATION POST REDUCER//////////////////////
 		builder.addCase(educationPost.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(educationPost.fulfilled, (state, {type,payload}) => {
+		builder.addCase(educationPost.fulfilled, (state, { type, payload }) => {
 			state.createEducationPage = false;
 			state.educationPage = true;
-			console.log(payload);
-
 		});
 		builder.addCase(educationPost.rejected, (state, action) => {
 			state.loading = false;
@@ -449,14 +437,13 @@ const resumeSlice = createSlice({
 			state.loading = true;
 		});
 
-		builder.addCase(educationGet.fulfilled, (state, {type,payload}) => {
-			state.educationList = payload.data
-
+		builder.addCase(educationGet.fulfilled, (state, { type, payload }) => {
+			state.educationList = payload.data;
 		});
 		builder.addCase(educationGet.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
-			state.educationList = []
+			state.educationList = [];
 		});
 
 		////////////////////////////////////EDUCATION DELETE REDUCER//////////////////////
@@ -464,14 +451,30 @@ const resumeSlice = createSlice({
 		builder.addCase(educationDelete.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(educationDelete.fulfilled, (state, {type,payload}) => {
+		builder.addCase(educationDelete.fulfilled, (state, { type, payload }) => {
 			state.loading = false;
 		});
 		builder.addCase(educationDelete.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
 		});
+
+
+		///////////////////////////RESUMESELECT POST REDUCER//////////
+		builder.addCase(resumeSelect.pending, (state, action) => {
+			state.loading = true;
+		});
+
+		builder.addCase(resumeSelect.fulfilled, (state, { type, payload }) => {
+			state.loading = false;	
+			state.resumeDetails = payload.data;	
+		});
+		
+		builder.addCase(resumeSelect.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
 	}
 });
-export const { temporary,temporary2,temporary3,temporary4,temporary5,temporary6,temporary7,temporary8} = resumeSlice.actions;
+export const { temporary, temporary2, temporary3, temporary4, temporary5, temporary6, temporary7, temporary8, temporary9, temporary10 } = resumeSlice.actions;
 export default resumeSlice.reducer;

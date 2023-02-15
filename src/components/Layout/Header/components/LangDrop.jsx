@@ -3,11 +3,8 @@ import './LangDrop.scss'
 import arrow_down from '../../../../assets/images/header/down_arrow.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { lenguageChange } from 'reduxToolkit/LenguageSlice';
+import i18next from 'i18next';
 const LangDrop = () => {
-
-
-  const path = window.location.pathname.split('/')[2]
-  console.log(path, 'asdasadasd');
 
   const data = [
     {id:1,type:"en", label: "En"},
@@ -19,7 +16,8 @@ const LangDrop = () => {
   const dispatch = useDispatch()
 
   const handleClick = (value) => {
-    dispatch(lenguageChange(value))
+    dispatch(lenguageChange(value));
+    i18next.changeLanguage(value);
   }
 
   return (

@@ -34,7 +34,7 @@ function App() {
 
 	return(
 		<div className="App">
-			{/* {
+			{
 				!auth
 				?(
 					<Routes>
@@ -54,7 +54,7 @@ function App() {
 						<Route path="*" element={<Navigate to={`/${len}/company`}/>}/>
 					</Routes>
 				)
-				:( */}
+				:(
 					<>
 						<Header/>
 						<Routes>
@@ -65,14 +65,11 @@ function App() {
 							<Route path={`/${len}/contracts`} element={<Contract/>}/>
 							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
-							<Route path={`/${len}/freelancer`} element={<Freelancer/>}/>
-							<Route path={`/${len}/profile`} element={<Profile/>}/>
-							<Route path={`/${len}/freelancer-user`} element={<UserFreelancer/>}/>
 							<Route path={`/${len}/*`} element={<NotFound/>}/>
 						</Routes>
 					</>
-				{/* ) */}
-			{/* } */}
+				)
+			}
 		</div>
 	)
 }

@@ -51,7 +51,7 @@
 
 .careerBox .myCareerSearch {
 	width: 52%;
-	height: 8vh;
+	height: 54px;
 	margin-top: 1rem;
 	position: relative;
 	display: flex;
@@ -63,7 +63,6 @@
 	border-radius: 8px;
 	padding: 16px;
 	width: 100%;
-
 	font-size: 18px;
 }
 
@@ -73,11 +72,12 @@
 	border-radius: 8px;
 	position: absolute;
 	right: 0;
+	height: 54px;
 	padding: 14px 32px 18px 32px;
 }
 
 .careerBox h3 {
-	margin-top: 4rem;
+	margin-top: 3rem;
 	font-family: "Montserrat";
 	font-style: normal;
 	font-weight: 700;
@@ -90,6 +90,7 @@
 .marketBox {
 	display: flex;
 	gap: 1.2rem;
+	margin-top: 1rem;
 }
 
 .eachBox {

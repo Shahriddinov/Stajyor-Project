@@ -89,21 +89,15 @@ return (
 									name="password"
 									autoComplete="off"
 								/>
-<<<<<<<<< Temporary merge branch 1
 								<span className="password_span" onClick={() => PasswordFunc()} >{
 								passwordEye === 'password' ? <EyeOff /> : <Eye /> 
 								}</span>
 								</div>
-
-
-								{/* <button onClick={handleSubmit} className="login_form_btn"> */}
 								{
 									loginResponseError
 									&&
 									<p className="register-danger-text">{loginResponseError}</p>
 								}
-								{/* </button> */}
-
 
 								<button type="submit" className="login_form_btn">
 									Continue

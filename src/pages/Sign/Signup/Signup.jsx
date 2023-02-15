@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
@@ -11,11 +11,6 @@ import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
 import { Eye, EyeOff } from 'tabler-icons-react';
-import { registerRequest } from "reduxToolkit/extraReducers";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-
-
 import { registerRequest } from "reduxToolkit/extraReducers";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -90,10 +85,11 @@ const Signup = () => {
 							onChange={e => setData(prev => ({...prev, password: e.target.value}))}
 							autoComplete="off"
 							/>
-															<span className="password_span" onClick={()=> PasswordFunc1()} >
-																		{
-										passwordEye1 === 'password' ? <EyeOff /> : <Eye />
-									}</span>
+							<span className="password_span" onClick={()=> PasswordFunc1()} >
+								{
+									passwordEye1 === 'password' ? <EyeOff /> : <Eye />
+								}
+							</span>
 							</div>
 							{
 								bodyErrors?.PasswordError

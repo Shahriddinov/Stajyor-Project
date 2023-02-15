@@ -1,45 +1,48 @@
 
 .menu{
-	position: absolute;
 	display: flex;
-	top: 90px;
-	left: 50rem;
-	width: 60rem;
-	height: 70px;
+	margin-top:6%;
+	// width: 60rem;
+	// height: 70px;
 	align-items: center;
-	justify-content: space-between;
+	// justify-content: space-between;
 	.menu__links{
-		margin: 0;
-		padding-left: 0;
-		width: 600px;
-		height:100%;
-		display: flex;
-		align-items: center;
-		list-style-type: none;
-		justify-content: space-between;
-		z-index: 6;
-		cursor: pointer;
+	    /* margin: 0; */
+    /* padding-left: 0; */
+    margin-top: -2%;
+    width: 44%;
+    margin-left: 9%;
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    z-index: 6;
+    cursor: pointer;
+	
 		.menu__link{
 			cursor: pointer;
 			font-family: "Montserrat",sans-serif;
 			font-weight: 500;
-			font-size: 23px;
+			font-size: 110%;
 			color: #1d71b8;
-		    height:50%;
+		    // height:50%;
 			display: flex;
 			align-items: center;
-			
+			justify-content: space-around;
+			// border-bottom: 4px solid #fff;
 		}
 		.active{
 			cursor: pointer;
 			font-family: "Montserrat",sans-serif;
 			font-weight: 500;
-			font-size: 20px;
+			font-size: 110%;
 			color: #1d71b8;
 		    height:50%;
 			display: flex;
+			// margin-top: -2%;
 			align-items: center;
-			border-bottom: 5px solid #1d71b8;
+			border-bottom: 3px solid #1d71b8;
 		}
 		
 	}
@@ -47,20 +50,23 @@
 
 
 	.menu__buttons{
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		width: 20rem;
-		height: 100%;
-		
+	    display: flex;
+    margin-left: 9px;
+    align-items: center;
+    width: 18%;
+    margin-left: 4%;
+    margin-top: -2%;
+    justify-content: space-around;
+    // justify-content: space-around;		
 		.menu__login{
 			cursor: pointer;
-			width: 103px;
-			height: 44px;
-			font-size: 20px;
+			// width: 103px;
+			// height: 44px;
+			font-size: 1.2rem;
 			font-weight: 500;
 			border: 1px solid #1d71b8;
 			background-color: #1d71b8;
+			padding: 3px 2px 7px 2px;
 			border-radius: 8px;
 			color: #fff;
 			line-height: 24px;
@@ -70,23 +76,23 @@
 			cursor: pointer;
 			border-radius: 8px;
 			border: 1px solid #1d71b8;
-			width: 118px;
-			height: 44px;
+			// width: 118px;
+			// height: 44px;
 			color: #1d71b8;
-			font-size: 20px;
+			font-size: 1.2rem;
 			font-weight: 500;
+			padding: 3px 2px 7px 2px;
 			line-height: 24px;
 		}
 	}
 }
 
 .menu__underline{
-	position: absolute;
-	top: 140px;
-	left: 50rem;
-	width: 37.5rem;
-	height: 5px;
-	background: #fff;
-	border-radius: 5px;
+    margin-top: 0.1%;
+    width: 44%;
+    margin-left: -66%;
+    height: 4px;
+    background: #fff;
+    border-radius: 5px;
  
 }

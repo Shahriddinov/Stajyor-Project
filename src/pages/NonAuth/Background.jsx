@@ -62,38 +62,10 @@ function Background() {
 	}
 
 	return (
-		<>
-		<div className={classes.container}>
-              <div className={classesNav.menu}>
-				<ul className={classesNav.menu__links}>
-					<li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
-						Home
-					</li>
-					<li className={step5 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(5)}>
-						Talants
-					</li>
-					<li className={step6 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(6)}>
-						Jobs
-					</li>
-					<li className={step7 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(7)}>
-						About us
-					</li>
-					<li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
-						Contact us
-					</li>
-				</ul>
-				<div className={classesNav.menu__buttons}>
-					<Link to={`/${len}/login`}>
-						<button className={classesNav.menu__login}>Log in</button>
-					</Link>
-					<Link to={`/${len}/sign-up`}>
-						<button className={classesNav.menu__signup}>Sign up</button>
-					</Link>
-				</div>
-			</div>
-		</div>
+	<div className={classes.container}>
 		<div className={classes.background}>
 			<div className={classesNav.menu}>
+				<img className={classes.automative} src={logo} alt="Automative logo" />
 				<ul className={classesNav.menu__links}>
 					<li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
 						Home
@@ -119,8 +91,9 @@ function Background() {
 						<button className={classesNav.menu__signup}>Sign up</button>
 					</Link>
 				</div>
+				<div className={classesNav.menu__underline}></div>
 			</div>
-			<div className={classesNav.menu__underline}></div>
+			
 			{step1 && <MyCareer />}
 			{step2 && <Page2 />}
 			{step3 && <Page3 />}
@@ -132,15 +105,13 @@ function Background() {
 
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
 			<div className={classes.backgroundCircles}>
-				<img src={blue} alt="blue" />
-				<img className={classes.automative} src={logo} alt="Automative logo" />
 				<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
-					<Round />
+					{/* <Round /> */}
 				</div>
 			</div>
 		</div>
-		</>
-			);
+	</div>
+  );
 }
 
 export default Background;

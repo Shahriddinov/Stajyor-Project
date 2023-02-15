@@ -1,22 +1,27 @@
+body{
+	background-image: url('../../assets/images/blueRound.png');
+	background-repeat: no-repeat;
+	background-size: 37%;
+}
 .container {
-   border:2px solid red;
-   width: 80%;
+//    border:2px solid red;
+   width: 73%;
    margin:0 auto;
-//    display:flex;
+   height: 60%;
+//    display:flex;	
 }
 
-.automative {
-	position: absolute;
-	z-index: 2;
-	margin-left: -30rem;
-	margin-top: 5.5rem;
+.background{
+	display:block;
 }
-
+.automative{
+	width:26%;
+}
 .career {
-	position: absolute;
-	z-index: 2;
-	margin-left: -30rem;
-	margin-top: 17rem;
+	// position: absolute;
+	// z-index: 2;
+	// margin-left: -30rem;
+	// margin-top: 17rem;
 }
 
 .circleSlider {

@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState,  useEffect } from "react";
 import searchIcon from "../../../../assets/images/searchIcon.png";
-import heartLiked from "../../../../assets/images/heartLiked.png";
+// import heartLiked from "../../../../assets/images/heartLiked.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";

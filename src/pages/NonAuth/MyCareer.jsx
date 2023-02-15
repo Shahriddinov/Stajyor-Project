@@ -7,16 +7,21 @@ import apple from "../../assets/images/apple.png";
 
 function MyCareer() {
 	return (
-			<div className={classes.careerBox}>
-			  <img className={classes.career} src={career} alt="My career" />
-			    <div className={classes.power}>Powerful platform for your career</div>
-			      <p>Find your dream jobs in our powerful career company.</p>
-			       <form action="submit">
-			     	<input type="text" placeholder="Job title, keywords..." />
-				      <button type="submit">
-					<img src={searchIcon} alt="search Icon" />
-				   </button>
-			   </form>
+		<div className={classes.careerBox}>
+			<div className={classes.career}>
+				{" "}
+				<img src={career} alt="My career" />
+			</div>
+			<div className={classes.power}>Powerful platform for your career</div>
+			<p>Find your dream jobs in our powerful career company.</p>
+			<form action="submit">
+				<div className={classes.myCareerSearch}>
+					<input type="text" placeholder="Job title, keywords..." />
+					<button type="submit">
+						<img src={searchIcon} alt="search Icon" />
+					</button>
+				</div>
+			</form>
 			<h3>Download mobile App</h3>
 			<div className={classes.marketBox}>
 				<div className={classes.eachBox}>

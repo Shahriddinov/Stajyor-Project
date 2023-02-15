@@ -1,43 +1,43 @@
 .outerBox {
-	margin-top: -8rem;
-	margin-left: 78rem;
-	position: relative;
-	
+	position: absolute;
+	z-index: -10;
+	right: -100px;
+	top: 230px;
 }
 
 .roundOne {
-	border: 110px solid #f9fcfd;
+	border: 95px solid #f9fcfd;
 	border-radius: 50%;
-	width: 520px;
-	height: 520px;
-	z-index: 86;
-	filter: drop-shadow(0px 0px 8.81879px rgba(0, 0, 0, 0.25));
+	width: 490px;
+	height: 500px;
+
+	filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.22));
 }
 
 .roundBack {
 	position: absolute;
-	border: 223px solid #f9fcfd;
+	border: 202px solid #f9fcfd;
 	border-radius: 50%;
-	width: 294px;
-	height: 282px;
+	width: 270px;
+	height: 275px;
 	z-index: 0;
 	filter: drop-shadow(0px 0px 8.81879px rgba(0, 0, 0, 0.25));
 }
 
 .roundTwoBox {
 	position: absolute;
-	top: 37px;
-	left: 38px;
-	width: 440px;
-	height: 440px;
+	top: 29px;
+	left: 30px;
+	width: 430px;
+	height: 430px;
 	border-radius: 100%;
 	-webkit-animation: spin-right 30s linear infinite;
 	animation: spin-right 30s linear infinite;
 }
 .roundThreeBox {
 	position: absolute;
-	top: 37px;
-	left: 38px;
+	top: 35px;
+	left: 35px;
 	width: 440px;
 	height: 440px;
 	border-radius: 100%;
@@ -55,20 +55,21 @@
 
 .roundThree {
 	width: 300px;
-	height: 360px;
+	height: 350px;
 	margin-top: 3rem;
 	transform: rotate(20deg);
 }
 
 .firstLayer {
 	display: flex;
-	gap: 11rem;
+	gap: 10rem;
 }
 
 .round79 {
-	height: 200px;
-	margin-top: -1.6rem;
-	margin-left: 5rem;
+	height: 185px;
+
+	margin-top: -1.5rem;
+	margin-left: 5.5rem;
 	transform: rotate(-28deg);
 }
 
@@ -103,10 +104,10 @@
 
 .roundFourBox {
 	position: relative;
-	top: 160px;
-	left: 158px;
-	width: 200px;
-	height: 200px;
+	top: 165px;
+	left: 160px;
+	width: 180px;
+	height: 180px;
 	border-radius: 100%;
 	-webkit-animation: spin-right 30s linear infinite;
 	animation: spin-right 30s linear infinite;

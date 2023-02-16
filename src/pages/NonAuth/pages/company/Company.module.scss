@@ -168,6 +168,7 @@ html {
         box-shadow: 0 2px 6px 0 rgba($color: #000000, $alpha: 0.25);
         padding: 20px 30px;
         margin-bottom: 7.5px;
+        box-sizing: border-box;
 
         .companyClientJobRow {
             display: flex;
@@ -175,10 +176,9 @@ html {
             position: relative;
 
             p {
-                color: #808080;
                 align-self: center;
                 font-size: 12px;
-                line-height: px;
+                color: #808080;
             }
         }
 
@@ -186,6 +186,21 @@ html {
             display: flex;
             font-family: 'Montserrat';
             gap: 15px;
+            text-align: center;
+
+            .successRate {
+                width: 100%;
+                height: 3px;
+                border-radius: 1.5px;
+                background-color: #CDCDCD;
+
+                .rateBar {
+                    width: 80%;
+                    height: 100%;
+                    background-color: #1D71B8;
+                    border-radius: 1.5px;
+                }
+            }
 
             h3 {
                 font-size: 19px;

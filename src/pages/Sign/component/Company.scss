@@ -21,11 +21,11 @@
          & .login_company_wrapper_back {
              display: flex;
              align-items: center;
-             font-family: $font-family-montosserat;
+             font-family: 'Montserrat';
              font-weight: 500;
              font-size: 20px;
              line-height: 30px;
-             color: $color-black;
+             color: #000;
              gap: 8px;
              background-color: transparent;
              border: 0;
@@ -64,14 +64,13 @@
         & .login_company_wrapper1_frilanc_title {
             display: flex;
             align-items: center;
-            font-family: $font-family-montosserat;
+        
             font-family: "Montserrat", sans-serif;
-            font-family: $font-family-montosserat;
-            font-family: "Montserrat", sans-serif;
+            
             font-weight: 700;
             font-size: 24px;
             line-height: 27px;
-            color: $color-black;
+            color: #000;
             margin-bottom: 17px;
 
             & img {
@@ -83,13 +82,12 @@
 
         & .login_company_wrapper1_frilanc_info {
             max-width: 495px;
-            font-family: $font-family-montosserat;
-            font-family: "Montserrat", sans-serif;
+         
             font-family: "Montserrat", sans-serif;
             font-weight: 300;
             font-size: 14px;
             line-height: 18px;
-            color:  $color-32;
+            color:  #323232;
 
         }
 

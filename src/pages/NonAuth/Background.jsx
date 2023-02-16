@@ -61,7 +61,6 @@ function Background() {
 			step1 = true;
 	}
 
-
 	return (
 		<div className={classes.background}>
 			<div className={classes.blueCircle}>
@@ -85,7 +84,6 @@ function Background() {
 					<li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
 						Contact us
 					</li>
-					
 				</ul>
 				<div className={classesNav.menu__underline}></div>
 				<div className={classesNav.menu__buttons}>
@@ -96,7 +94,6 @@ function Background() {
 						<button className={classesNav.menu__signup}>Sign up</button>
 					</Link>
 				</div>
-			
 			</div>
 
 			{step1 && <MyCareer />}
@@ -109,10 +106,7 @@ function Background() {
 			{step8 && <Contactus />}
 
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
-
-			<div
-				
-				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
+			<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
 				<Round />
 			</div>
 		</div>

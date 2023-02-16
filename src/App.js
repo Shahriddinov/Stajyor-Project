@@ -32,7 +32,7 @@ function App() {
 	const pathName = window.location.pathname;
 
 	return (
-		<div className="App">
+		<div className="App" style={{ height: "100vh" }}>
 			{!auth ? (
 				<Routes>
 					<Route path={`/${len}/`} element={<PageBackground />} />

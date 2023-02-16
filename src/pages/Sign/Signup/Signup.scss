@@ -40,15 +40,15 @@
     border-radius: 10px;
 
     & .login_form_title {
-        font-family: $font-family-montosserat;
+        font-family: 'Montserrat';
         font-weight: 700;
         font-size: 25px;
         line-height: 35px;
-        color: $color-32;
+        color: #323232;
     }
 
     & .login_form_info {
-        font-family: $font-family-montosserat;
+        font-family: 'Montserrat';
         font-weight: 500;
         font-size: 15px;
         line-height: 18px;
@@ -61,7 +61,7 @@
     & .login_form_inp {
         width: 92%;
         padding: 10px 15px;
-        font-family: $font-family-montosserat;
+        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
@@ -79,7 +79,7 @@
     }
 
     & .login_form_btn {
-        font-family: $font-family-montosserat;
+        font-family: 'Montserrat';
         align-self: flex-end;
         font-style: normal;
         font-weight: 500;
@@ -106,7 +106,7 @@
 
 
         & .login_form_wrapper_info {
-            font-family: $font-family-montosserat;
+            font-family: 'Montserrat';
             font-style: normal;
             font-weight: 500;
             font-size: 16px;
@@ -131,10 +131,9 @@
 .password_span {
     cursor: pointer;
     padding: 3px;
-    // border: 1px solid #000;
+   
     top: 15px;
-    // width: 10px;
-    // height: 10px;
+   
     border-radius: 50%;
     right: 15px;
     position: absolute;

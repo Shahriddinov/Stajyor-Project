@@ -11,8 +11,8 @@ function MyCareer() {
 			<div className={classes.career}>
 				{" "}
 				<img src={career} alt="My career" />
+				<div className={classes.power}>Powerful platform for your career</div>
 			</div>
-			<div className={classes.power}>Powerful platform for your career</div>
 			<p>Find your dream jobs in our powerful career company.</p>
 			<form action="submit">
 				<div className={classes.myCareerSearch}>
@@ -27,14 +27,14 @@ function MyCareer() {
 				<div className={classes.eachBox}>
 					<img src={googlePlay} alt="google play icon" />
 					<div>
-						<p>Available at</p>
+						<p>доступно в</p>
 						<h2>GooglePlay</h2>
 					</div>
 				</div>
 				<div className={classes.eachBox}>
 					<img className={classes.apple} src={apple} alt="apple market icon" />
 					<div>
-						<p>Available at</p>
+						<p>загрузите в</p>
 						<h2>AppStore</h2>
 					</div>
 				</div>

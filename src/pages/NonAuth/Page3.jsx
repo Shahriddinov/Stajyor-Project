@@ -15,7 +15,7 @@ function Page3(props) {
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum repudiandae obcaecati natus soluta accusamus autem reprehenderit ad,
 				</p>
 				<Link to="/auth">
-					<button className={classes.post}>Post</button>
+					<button className={classes.post}>Post job</button>
 				</Link>
 			</div>
 		</div>

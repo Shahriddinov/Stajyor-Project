@@ -20,8 +20,8 @@ const Company = () => {
         </div>
         <Nav />
         <Routes>
-            <Route path='/company' element={<CompanyInfo />}/>
-            <Route path='jobAd' element={<JobAd />}/>
+            <Route path='/companyInfo' element={<CompanyInfo />}/>
+            <Route path='/jobAd' element={<JobAd />}/>
         </Routes></>
 
 )

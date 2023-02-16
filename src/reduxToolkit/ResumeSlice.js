@@ -286,6 +286,14 @@ const resumeSlice = createSlice({
 			console.log("aducation page none, resume page activa")
 			state.educationPage = false;
 			state.resumePage = true;
+		},
+		temporary9: state => {
+			state.languagePage = false;
+			state.experiencePage = true;
+		},
+		temporary10: state => {
+			state.contactsPage = false;
+			state.resumePage = true;
 		}
 	},
 	extraReducers: builder => {

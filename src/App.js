@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
 import Home from "pages/Home";
@@ -27,7 +27,7 @@ function App() {
 	const resume = useSelector(state => state.login.resume)
 	const navigate = useNavigate();
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		navigate(`/${len}/`)
 	},[len])
 

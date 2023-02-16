@@ -2,7 +2,7 @@ const { createSlice } = require("@reduxjs/toolkit");
 
 
 const initialState = {
-    lenguage: localStorage.getItem("lengage") ? localStorage.getItem("lengage") : "uz"
+    lenguage: localStorage.getItem("lenguage") ? localStorage.getItem("lenguage") : "en"
 }
 
 const lenguageSlice = createSlice({

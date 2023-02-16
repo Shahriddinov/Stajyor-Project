@@ -111,7 +111,7 @@ function Background() {
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
 
 			<div
-				style={{ "z-index": "-1000" }}
+				
 				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
 				<Round />
 			</div>

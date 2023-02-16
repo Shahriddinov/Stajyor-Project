@@ -1,7 +1,9 @@
 .background {
+	width: 100%;
+	height: 100%;
 	position: relative;
-	z-index: 1;
-	box-sizing: border-box;
+	z-index: -101;
+	overflow: hidden;
 
 	.blueCircle {
 		width: 75%;
@@ -22,9 +24,9 @@
 
 	.circleSlider {
 		position: absolute;
-		right: 90px;
+		right: 10%;
 		top: 350px;
-		z-index: 2;
+		z-index: 10;
 	}
 
 	.circleSlider img {
@@ -55,6 +57,7 @@
 		transition: 1s all;
 		right: 40%;
 		top: 55%;
+		
 	}
 
 	.round2 {

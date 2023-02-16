@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
@@ -11,10 +11,18 @@ import Company from "../component/Company";
 import Carusel from "../component/Carusel";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { logInRequest } from "reduxToolkit/extraReducers";
+import { logInRequest } from "../../../reduxToolkit/extraReducers.js";
+import { Eye, EyeOff } from 'tabler-icons-react';
 import { Link } from "react-router-dom";
 
 const Login = () => {
+	const [ passwordEye, setPasswordEye ] = useState('password')
+
+	const PasswordFunc = () => {
+		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+	}
+
+
 	const email = useRef("");
 	const password = useRef("");
 	const dispatch = useDispatch();
@@ -30,7 +38,9 @@ const Login = () => {
 		dispatch(logInRequest(payload));
 	};
 
-	return (
+	// const auth_path = window.location.pathname.split("/")[1];
+	
+return (
 		<section className="login">
 			<div className="login_container">
 				{!loggedIn ? <Carusel /> : null}
@@ -44,13 +54,23 @@ const Login = () => {
 								<p className="login_form_info">
 									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
 								</p>
-								<input 
-								ref={email} 
-								required 
-								className={`login_form_inp ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
-								type="email" 
-								placeholder="Email" 
-								name="email" 
+								{/* <input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" /> */}
+									{/* <input
+									ref={password}
+									required
+									className="login_form_inp login_form_inp2"
+									type={`${passwordEye}`}/> */}
+
+									{/* <p>
+									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
+								</p> */}
+								<input
+								ref={email}
+								required
+								className={`login_form_inp ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`}
+								type="email"
+								placeholder="Email"
+								name="email"
 								autoComplete="off"
 								/>
 								{
@@ -58,23 +78,31 @@ const Login = () => {
 									&&
 									<p className="register-danger-text">{loginResponseError}</p>
 								}
+								<div style={{'position':'relative'}} >
+
 								<input
 									ref={password}
 									required
-									className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`} 
-									type="password"
+									className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`}
+									type={passwordEye}
 									placeholder="Password"
 									name="password"
 									autoComplete="off"
 								/>
+								<span className="password_span" onClick={() => PasswordFunc()} >{
+								passwordEye === 'password' ? <EyeOff /> : <Eye /> 
+								}</span>
+								</div>
 								{
 									loginResponseError
 									&&
 									<p className="register-danger-text">{loginResponseError}</p>
 								}
+
 								<button type="submit" className="login_form_btn">
 									Continue
 								</button>
+
 								<div className="login_form_wrapper">
 									<p className="login_form_wrapper_info">Or continue with</p>
 

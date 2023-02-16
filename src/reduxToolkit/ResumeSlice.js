@@ -1,22 +1,9 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import {LANGUAGESUPLOAD, CONTACTSUPLOAD, PHOTO, COUNTRYLIST, COUNTRY_LIST_UPLOAD, POSITIONS, HOBBIES, POSITION_POST, LANGUAGES, EXPERIENCE, EXPERIENCEDELETE, EDUCATION, EDUCATIONDELETE } from "./URLS";
 
-import {
-	PHOTO,
-	COUNTRYLIST,
-	COUNTRY_LIST_UPLOAD,
-	POSITIONS,
-	HOBBIES,
-	POSITION_POST,
-	LANGUAGES,
-	EXPERIENCE,
-	EXPERIENCEDELETE,
-	EDUCATION,
-	EDUCATIONDELETE,
-	LANGUAGESUPLOAD,
-	CONTACTSUPLOAD,
-	RESUMESELECT
-} from "./URLS";
+
+
 import { resumeSelect } from "./extraReducers";
 
 const initialState = {
@@ -187,7 +174,7 @@ export const exsperienceGet = createAsyncThunk("post/exsperienceGet", async payl
 
 ////////////////////////////Experience Delete//////////
 
-export const exsperienceDelete = createAsyncThunk("post/exsperienceDelete", async payload => {
+export const  exsperienceDelete = createAsyncThunk("post/exsperienceDelete", async payload => {
 	const token = window.localStorage.getItem("token");
 
 	console.log(payload);
@@ -264,41 +251,41 @@ const resumeSlice = createSlice({
 			state.languagePage = true;
 		},
 		temporary2: state => {
-			console.log("experiens page none, new experience page active");
+			console.log("experiens page none, new experience page active")
 			state.experiencePage = false;
 			state.newExperiencePage = true;
 			state.educationPage = false;
 			state.createEducationPage = false;
 		},
 		temporary3: state => {
-			console.log("experiens page none, aducation page active");
+			console.log("experiens page none, aducation page active")
 			state.experiencePage = false;
 			state.educationPage = true;
 		},
 		temporary4: state => {
-			console.log("experiens page true, aducation page false");
+			console.log("experiens page true, aducation page false")
 			state.experiencePage = true;
 			state.educationPage = false;
 		},
 		temporary5: state => {
-			console.log("experiens page active, new experience page none");
+			console.log("experiens page active, new experience page none")
 			state.experiencePage = true;
 			state.newExperiencePage = false;
 		},
 		temporary6: state => {
-			console.log("education page none, add education page activa");
+			console.log("aducation page none, add education page activa")
 			state.educationPage = false;
-			state.createEducationPage = true;
+			state.createEducationPage = true
 		},
 		temporary7: state => {
-			console.log("education page active, add education page none");
+			console.log("aducation page active, add education page none")
 			state.educationPage = true;
 			state.createEducationPage = false;
 		},
 		temporary8: state => {
-			console.log("education page none, resume page activ");
+			console.log("aducation page none, resume page activa")
 			state.educationPage = false;
-			state.contactsPage = true;
+			state.resumePage = true;
 		},
 		temporary9: state => {
 			state.languagePage = false;
@@ -417,8 +404,8 @@ const resumeSlice = createSlice({
 		builder.addCase(exsperienceGet.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(exsperienceGet.fulfilled, (state, { type, payload }) => {
-			state.experienceList = payload.data;
+		builder.addCase(exsperienceGet.fulfilled, (state, {type,payload}) => {
+			state.experienceList = payload.data
 			state.loading = false;
 		});
 		builder.addCase(exsperienceGet.rejected, (state, action) => {

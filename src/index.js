@@ -1,14 +1,10 @@
 import "react-app-polyfill/ie9";
 import "react-app-polyfill/ie11";
 
-import React, { Suspense } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { I18nextProvider } from "react-i18next";
-
-import { i18n} from "services";
-
-import Routes from "./routes";
+import { BrowserRouter } from "react-router-dom";
 
 import "swiper/swiper.min.css";
 import "swiper/swiper-bundle.css";
@@ -21,18 +17,18 @@ import "./assets/styles/header.scss";
 import "./assets/styles/footer.scss";
 import "./assets/styles/fonts.css";
 import store from "reduxToolkit/store";
-import App from "App";
-import { BrowserRouter } from "react-router-dom";
+
+import App from "./App";
+import i18 from "./services/i18";
+
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
 	<Provider store={store}>
-		<I18nextProvider i18n={i18n()}>
 		<BrowserRouter>
 			<App/>
 		</BrowserRouter>
-		</I18nextProvider>
 	</Provider>
 );

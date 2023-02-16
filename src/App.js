@@ -15,6 +15,10 @@ import ResumeFinish from "pages/Resume/ResumeFinish"
 import Contract from "pages/contract";
 import Contactus from "pages/NonAuth/Contactus";
 import { useEffect } from "react";
+import Freelancer from "pages/Freelancer/Freelancer";
+import Profile from "pages/FreelancerProfile/Profile";
+import UserFreelancer from "pages/Freelancer/UserFreelancer";
+
 
 function App() {
 
@@ -60,6 +64,9 @@ function App() {
 							<Route path={`/${len}/talants`} element={<Talants/>}/>
 							<Route path={`/${len}/contact`} element={<Contactus/>}/>
 							<Route path={`/${len}/contracts`} element={<Contract/>}/>
+							<Route path={`/${len}/freelancer`} element={<Freelancer/>}/>
+							<Route path={`/${len}/profile`} element={<Profile/>}/>
+							<Route path={`/${len}/freelancer-user`} element={<UserFreelancer/>}/>
 							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/*`} element={<NotFound/>}/>

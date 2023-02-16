@@ -13,10 +13,11 @@ function Page3(props) {
 				<h3 className={classes.title}>Search talants!</h3>
 				<p className={classes.subtitle}> 
 				Ipsum harum assumenda in eum vel eveniet
-				<br/> 
-				numquam, cumque vero vitae enim cupiditate 
 				<br/>
+				numquam, cumque vero vitae enim cupiditate
+				<br/> 
 				deserunt eligendi officia modi consectetur.
+				<br/>
 				</p>
 				<Link to="/auth">
 					<button className={classes.post}>Post</button>

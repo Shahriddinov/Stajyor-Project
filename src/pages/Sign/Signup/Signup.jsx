@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.scss";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 // import login_circle from '../../../assets/images/Sign/login_circle.png'
@@ -7,21 +7,33 @@ import apple from "../../../assets/images/Sign/apple.svg";
 import google from "../../../assets/images/Sign/google.svg";
 import github from "../../../assets/images/Sign/github.svg";
 import facebook from "../../../assets/images/Sign/facebook.svg";
-import { useState } from "react";
 import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
+import { Eye, EyeOff } from 'tabler-icons-react';
 import { registerRequest } from "reduxToolkit/extraReducers";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Signup = () => {
+
+		const [ passwordEye, setPasswordEye ] = useState('password')
+		const [ passwordEye1, setPasswordEye1 ] = useState('password')
+
+	const PasswordFunc = () => {
+		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+	}
+
+	
+	const PasswordFunc1 = () => {
+		setPasswordEye1( passwordEye1 === 'password' ? 'text' : 'password' )
+	}
 	const [data,setData] = useState({
 		email: "",
 		password:"",
 		confirmPassword: "",
 	})
-	const len = useSelector(state => state.lenguage.lenguage)	
+	const len = useSelector(state => state.lenguage.lenguage)
 	const {checkEmail, bodyErrors} = useSelector(state => state.login)
 	const dispatch = useDispatch()
 
@@ -45,12 +57,13 @@ const Signup = () => {
 								Do you have an account? <Link to={`/${len}/login`}>Log in </Link>now!
 							</p>
 
+
 							<input
-							required 
-							className={`login_form_inp ${bodyErrors?.EmailError?.length  ? "register-danger-input "  : bodyErrors ? "register-success" : ""}`} 
-							type="email" 
-							placeholder="Email" 
-							name="email" 
+							required
+							className={`login_form_inp ${bodyErrors?.EmailError?.length  ? "register-danger-input "  : bodyErrors ? "register-success" : ""}`}
+							type="email"
+							placeholder="Email"
+							name="email"
 							value={data.email}
 							onChange={e => setData(prev => ({...prev, email: e.target.value}))}
 							autoComplete="off"
@@ -61,16 +74,23 @@ const Signup = () => {
 								<p className="register-danger-text">{bodyErrors?.EmailError}</p>
 							}
 
-							<input
-							required 
+							<div style={{'position':"relative"}} >
+								<input
+							required
 							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
-							type="password" 
-							placeholder="Password" 
-							name="password" 
+							type={passwordEye1}
+							placeholder="Password"
+							name="password"
 							value={data.password}
 							onChange={e => setData(prev => ({...prev, password: e.target.value}))}
 							autoComplete="off"
 							/>
+							<span className="password_span" onClick={()=> PasswordFunc1()} >
+								{
+									passwordEye1 === 'password' ? <EyeOff /> : <Eye />
+								}
+							</span>
+							</div>
 							{
 								bodyErrors?.PasswordError
 								&&
@@ -79,16 +99,23 @@ const Signup = () => {
 								))
 							}
 
-							<input
+							<div style={{'position':"relative"}} >
+								<input
 							required
 							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
-							type="password" 
-							placeholder="Confirm password" 
-							name="confirm_password" 
+							type={passwordEye}
+							placeholder="Confirm password"
+							name="confirm_password"
 							value={data.confirmPassword}
 							onChange={e => setData(prev => ({...prev, confirmPassword: e.target.value}))}
 							autoComplete="off"
 							/>
+								<span className="password_span" onClick={()=> PasswordFunc()} >
+									{
+										passwordEye === 'password' ? <EyeOff /> : <Eye />
+									}
+								</span>
+							</div>
 							{
 								bodyErrors?.PasswordConfirmError
 								&&

@@ -1,8 +1,15 @@
 .circleSlider {
+<<<<<<< HEAD
 	position: fixed;
 	right: 3%;
 	top: 40%;
 	z-index: 25;
+=======
+	position: absolute;
+	right: 3%;
+	z-index: 100;
+	top: 42.5vh;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	cursor: pointer;
 }
 .circleSliderHide {
@@ -22,6 +29,7 @@
 	border: 4px solid #1d71b8;
 	margin-top: -4px;
 	transition: 0.6s all;
+	cursor: pointer;
 }
 
 .dotactive {
@@ -32,26 +40,5 @@
 	margin-top: -8px;
 	margin-bottom: -4px;
 	margin-left: -10px;
-}
-
-.round1 {
-	transition: 1s all;
-}
-
-.round2 {
-	transition: 1s all;
-	margin-left: -22rem;
-	margin-top: 8rem;
-}
-
-.round3 {
-	transition: 1s all;
-	margin-left: -30rem;
-	margin-top: 7rem;
-}
-
-.round4 {
-	transition: 1s all;
-	margin-left: 0rem;
-	margin-top: 10rem;
+	cursor: pointer;
 }

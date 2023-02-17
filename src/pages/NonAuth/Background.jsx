@@ -61,7 +61,6 @@ function Background() {
 			step1 = true;
 	}
 
-
 	return (
 		<div className={classes.background}>
 			<div className={classes.blueCircle}>
@@ -109,10 +108,14 @@ function Background() {
 			{step8 && <Contactus />}
 
 			<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
+<<<<<<< HEAD
 
 			<div
 				style={{ "z-index": "-1000" }}
 				className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : ""}>
+=======
+			<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 				<Round />
 			</div>
 		</div>

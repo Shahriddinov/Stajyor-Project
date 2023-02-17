@@ -1,16 +1,28 @@
 .background {
+	width: 100%;
+	height: 100%;
 	position: relative;
+<<<<<<< HEAD
 	z-index: 1;
 
 	.blueCircle {
 		width: 75%;
 		height: 75%;
 		z-index: -20;
+=======
+	z-index: 0;
+	overflow: hidden;
+
+	.blueCircle {
+		width: 75%;
+		z-index: -100;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 		img {
 			width: 50%;
 			height: 50%;
 		}
 	}
+<<<<<<< HEAD
 
 	.career {
 		position: absolute;
@@ -74,5 +86,35 @@
 		transition: 1s all;
 		margin-left: 8rem;
 		margin-top: 13rem;
+=======
+	.round1 {
+		position: absolute;
+		transition: 1s all;
+		right: 35%;
+		top: 40vh;
+	}
+
+	.round2 {
+		transition: 1s all;
+		position: absolute;
+		right: 50%;
+		top: 60vh;
+		padding: 4rem;
+	}
+
+	.round3 {
+		position: absolute;
+		transition: 1s all;
+		left: 15%;
+		top: 69vh;
+	}
+
+	.round4 {
+		position: absolute;
+		transition: 1s all;
+		margin-left: 8rem;
+		right: 30%;
+		top: 57vh;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	}
 }

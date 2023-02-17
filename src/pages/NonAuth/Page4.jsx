@@ -8,15 +8,17 @@ import instagram from "../../assets/images/icons/icon3.png";
 function Page4() {
 	return (
 		<div className={classes.page4Box}>
-			<div>
-				<img src={business4} alt="business environment" />
+			<div className={classes.businessIcons}>
+				<div className={classes.page4BoxBigImg}>
+					<img src={business4} alt="business environment" />
+				</div>
 				<div className={classes.icons}>
 					<img src={telegram} alt="telegram icon" />
 					<img src={facebook} alt="facebook icon" />
 					<img src={instagram} alt="instagram icon" />
 				</div>
 			</div>
-			<div>
+			<div className={classes.thousandWorkers}>
 				<h2>THOUSANDS!!!</h2>
 				<p>
 					Thousands of <strong>workers</strong> and <strong>employer</strong> employers <br /> are already waiting for you!.

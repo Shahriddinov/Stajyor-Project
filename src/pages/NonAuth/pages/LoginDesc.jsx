@@ -1,4 +1,4 @@
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./LoginDesc.module.scss";
 import google from "../../../assets/images/google.png";
@@ -6,29 +6,29 @@ import facebook from "../../../assets/images/facebook.png";
 import github from "../../../assets/images/github.png";
 import macplay from "../../../assets/images/mac.png";
 function LoginDesc(props) {
-	
 	return (
 		<div className={classes.loginDesc}>
 			<div className={classes.loginDescContent}>
 				<div className={classes.loginTitleSubtitle}>
 					<h3 className={classes.login}>Log in</h3>
-					<p className={classes.subtitle}>Still don't have an account</p>
+					<p className={classes.subtitle}>Still don't have an account?</p>
 					<Link className={classes.signupLink} to="/signup">
 						Sign up now!
 					</Link>
 				</div>
 				<form action="/signup" className={classes.formSubmit}>
+					<input type="text" name="email" placeholder="Email" required className={classes.formSubmitName} />
 					<input
-						
-						type="text" name="email" placeholder="Email" required className={classes.formSubmitName} />
-					<input
-						style={{WebkitTextSecurity: 'disc'}}
-						type="text" 
-						name="password" placeholder="Password" required className={classes.formSubmitPassword} />
+						style={{ WebkitTextSecurity: "disc" }}
+						type="text"
+						name="password"
+						placeholder="Password"
+						required
+						className={classes.formSubmitPassword}
+					/>
 					<div className={classes.continue}>
 						<button type="submit">Continue</button>
 					</div>
-					<div className={classes.signupLine}></div>
 				</form>
 				<div className={classes.bySocialApp}>
 					<h3 className={classes.socialAppTitle}>Or continue with</h3>

@@ -1,20 +1,35 @@
 .menu {
+<<<<<<< HEAD
 	position: fixed;
 	width: 80%;
 	top: 40px;
 	left: 10%;
 	height: 80px;
+=======
+	position: absolute;
+	width: 80vw;
+	top: 20px;
+	left: 10%;
+	height: 11vh;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	z-index: 111;
 	margin: 0 auto;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	.automative {
 		width: 25%;
 		height: 100%;
 		margin-top: 2rem;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	}
 
 	.menu__links {
@@ -27,7 +42,10 @@
 		list-style-type: none;
 		justify-content: space-between;
 		cursor: pointer;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 
 		.menu__link {
 			cursor: pointer;
@@ -61,7 +79,10 @@
 		justify-content: space-around;
 		width: 18%;
 		height: 100%;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 
 		.menu__login {
 			cursor: pointer;
@@ -87,8 +108,13 @@
 			font-weight: 400;
 			line-height: 20px;
 			background-color: #f5f5f7;
+<<<<<<< HEAD
 			
 			&:hover{
+=======
+
+			&:hover {
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 				background-color: #1d71b8;
 				color: #fff;
 			}

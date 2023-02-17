@@ -20,7 +20,7 @@ function Page3(props) {
 				<br/>
 				</p>
 				<Link to="/auth">
-					<button className={classes.post}>Post</button>
+					<button className={classes.post}>Post job</button>
 				</Link>
 			</div>
 		</div>

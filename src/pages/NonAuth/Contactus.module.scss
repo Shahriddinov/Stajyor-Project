@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .contactus{ 
     position: absolute; 
     width: 1520px; 
@@ -113,3 +114,116 @@
     }  
      
 }
+=======
+.contactContainer {
+	position: absolute;
+	width: 74vw;
+	height: 70vh;
+	left: 13%;
+	top: 20vh;
+	border: 1px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	.mainContacts {
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		border: 1px solid black;
+		.telegramContact {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 30px 135px;
+			gap: 20px;
+			position: absolute;
+			width: 50%;
+			height: 40px;
+
+			background: #ffffff;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.08);
+				transition: 0.3s;
+			}
+		}
+		.whatsappContact {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			padding: 30px 135px;
+			gap: 20px;
+			position: absolute;
+			width: 50%;
+			height: 40px;
+
+			background: #ffffff;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.08);
+				transition: 0.3s;
+			}
+		}
+	}
+	.contactUs {
+		display: block;
+		position: absolute;
+		width: 50%;
+		height: 100%;
+		border: 1px solid black;
+		background: #ffffff;
+		box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+		border-radius: 12px;
+
+		input {
+			font-size: 23px;
+			padding-left: 10px;
+			width: 100%;
+			height: 50px;
+			background: #ffffff;
+			border: 1px solid #cdcdcd;
+			border-radius: 8px;
+			margin-top: 20px;
+		}
+		.textMessage {
+			padding-bottom: 70px;
+		}
+		p {
+			font-family: "Montserrat";
+			font-style: normal;
+			font-weight: 500;
+			font-size: 17px;
+			line-height: 21px;
+			color: #808080;
+		}
+		button {
+			cursor: pointer;
+			// margin: 20px 595px;
+			width: 92px;
+			height: 44px;
+			border: 1px solid #1d71b8;
+			background: #ffffff;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			font-family: "Montserrat", sans-serif;
+			font-size: 20px;
+			line-height: 24px;
+			color: #323232;
+			font-weight: 500;
+		}
+		& button:hover {
+			background-color: #1d71b8;
+			color: #fff;
+		}
+	}
+}
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c

@@ -1,9 +1,17 @@
 .careerBox {
 	width: 76.8%;
+<<<<<<< HEAD
 	height: 100%;
 	position: absolute;
 	top: 50%;
 	left: 200px;
+=======
+	height: 60vh;
+	position: absolute;
+	top: 30vh;
+	left: 200px;
+	z-index: 10;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 }
 
 .power {
@@ -11,6 +19,7 @@
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
 	width: 45%;
+<<<<<<< HEAD
 	height: 50px;
 	display: flex;
 	align-items: center;
@@ -46,11 +55,50 @@
 	font-weight: 500;
 	font-size: 22px;
 	line-height: 30px;
+=======
+	height: 45px;
+	display: flex;
+	align-items: center;
+	margin-top: 2rem;
+	top: 8px;
+	font-family: "Montserrat";
+	font-weight: 500;
+	font-size: 25px;
+	line-height: 30px;
+	color: #1d71b8;
+	padding: 10px 10px;
+	letter-spacing: 3px;
+}
+
+.career {
+	width: 100%;
+	height: 25%;
+
+	img {
+		width: 22%;
+	}
+}
+
+.careerBox p {
+	margin-top: 6rem;
+	width: 100%;
+	height: 20px;
+	padding-bottom: 1rem;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 23px;
+	line-height: 40px;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	color: #323232;
 }
 
 .careerBox .myCareerSearch {
+<<<<<<< HEAD
 	width: 52%;
+=======
+	width: 54%;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 	height: 54px;
 	margin-top: 1rem;
 	position: relative;
@@ -73,7 +121,11 @@
 	position: absolute;
 	right: 0;
 	height: 54px;
+<<<<<<< HEAD
 	padding: 14px 32px 18px 32px;
+=======
+	padding: 14px 30px 18px 30px;
+>>>>>>> 6ad429c6ff10c61d3b54925f65af1c182a38cf8c
 }
 
 .careerBox h3 {
@@ -98,9 +150,9 @@
 	background-color: black;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
-	width: 8.5rem;
-	border-radius: 7px;
-	padding-bottom: 3px;
+	width: 10vw;
+	border-radius: 5px;
+	padding-bottom: 5px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 

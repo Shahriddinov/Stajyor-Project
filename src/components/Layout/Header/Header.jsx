@@ -13,10 +13,6 @@ const Header = () => {
 	const len = useSelector(state => state.lenguage.lenguage)
 	const {t} = useTranslation()
 
-	const auth_path = window.location.pathname.split('/')[1]
-
-	console.log(auth_path);
-
 	return (
 		<header className="header" >
 			<div className="header_container">

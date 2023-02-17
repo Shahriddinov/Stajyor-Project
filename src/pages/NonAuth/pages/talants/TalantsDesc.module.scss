@@ -1,19 +1,18 @@
 .talantsDesc {
-	width: 65%;
+	width: 46vw;
 	height: 100%;
 	border-radius: 12px;
 
 	.talantsSearch {
 		width: 100%;
-		height: 54px;
+		height: 50px;
 		margin-top: 20px;
 		border-radius: 12px;
-		display: flex;
-		align-items: center;
 
 		.talantsSearchForm {
 			width: 100%;
 			height: 50px;
+			font-size: 18px;
 			display: flex;
 			position: relative;
 
@@ -21,9 +20,8 @@
 				background: transparent;
 				border: 1px solid #1d71b8;
 				border-radius: 8px;
-				padding-left: 16px;
+				padding-left: 18px;
 				width: 100%;
-				font-size: 18px;
 			}
 
 			button {
@@ -32,7 +30,7 @@
 				border: none;
 				background-color: #1d71b8;
 				border-radius: 8px;
-				padding: 14px 32px 18px 32px;
+				padding: 14px 28px 18px 25px;
 				margin-left: -8px;
 				height: 50px;
 				img {
@@ -42,18 +40,17 @@
 		}
 	}
 	.talantsCard {
-		padding: 0px;
 		width: 100%;
-		height: 230px;
+		height: auto;
 		position: relative;
 
 		.talantsDescItem {
 			width: 100%;
-			height: 100%;
+			height: auto;
 			background: #ffffff;
 			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 			border-radius: 12px;
-			margin: 28px 0px;
+			margin: 1rem auto;
 
 			.talantsLine {
 				height: 50px;
@@ -62,7 +59,7 @@
 			}
 			.talantsDescItemHeader {
 				width: 100%;
-				height: 60px;
+				height: 8vh;
 				display: flex;
 				padding-top: 0.25rem;
 				align-items: center;
@@ -72,7 +69,7 @@
 					font-family: "Montserrat", sans-serif;
 					font-style: normal;
 					font-weight: 600;
-					font-size: 14px;
+					font-size: 12px;
 					line-height: 20px;
 					text-align: center;
 					color: #323232;
@@ -81,7 +78,7 @@
 					font-family: "Montserrat", sans-serif;
 					font-style: normal;
 					font-weight: 500;
-					font-size: 14px;
+					font-size: 11px;
 					line-height: 20px;
 					text-align: center;
 					color: #808080;
@@ -95,6 +92,7 @@
 					padding: 0px 0.2rem;
 					margin-left: 10px;
 					.namePro {
+						font-size: 14px;
 						margin-left: 0.5rem;
 					}
 				}
@@ -162,11 +160,12 @@
 			/*---------------Description----------*/
 			.description {
 				width: 100%;
-				height: 50px;
+				height: auto;
+				min-height: 5vh;
 				display: flex;
 				align-items: center;
 				z-index: 10;
-                font-size: 14px;
+				font-size: 14px;
 				padding: 0.5rem 0 0.5rem 0;
 				cursor: pointer;
 				justify-content: space-between;
@@ -192,7 +191,7 @@
 			/*---------------Description END----------*/
 			.skills {
 				width: 100%;
-				height: 50px;
+				height: 52px;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
@@ -215,7 +214,7 @@
 						border-radius: 6px;
 						font-family: "Montserrat", sans-serif;
 						font-weight: 500;
-						font-size: 14px;
+						font-size: 12px;
 						line-height: 22px;
 						color: #1d71b8;
 					}
@@ -230,7 +229,7 @@
 					select {
 						border: none;
 						outline: none;
-						font-size: 14px;
+						font-size: 12px;
 						font-weight: 600;
 						line-height: 24px;
 						padding: 0px 5px 0px 0px;
@@ -254,32 +253,28 @@
 					padding-left: 10px;
 					font-family: "Montserrat", sans-serif;
 					font-weight: 400;
-					font-size: 14px;
+					font-size: 12px;
 					color: #808080;
 					line-height: 20px;
 					span {
 						font-family: "Montserrat", sans-serif;
 						font-weight: 400;
-						font-size: 14px;
+						font-size: 12px;
 						color: #1d71b8;
 						line-height: 20px;
 					}
 				}
 				.location {
-					width: 24%;
+					width: 22%;
 					height: 100%;
 					display: flex;
 					align-items: center;
-					margin-right: 0.5rem;
-					font-size: 14px;
-					justify-content: space-around;
+					margin-right: 1.5rem;
+					font-size: 12px;
+					gap: 0.5rem;
+					justify-content: flex-end;
 				}
 			}
-		}
-		.talantsDescItem:nth-child(2) {
-			box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
-			border-bottom-right-radius: 2px;
-			border-bottom-left-radius: 2px;
 		}
 	}
 }

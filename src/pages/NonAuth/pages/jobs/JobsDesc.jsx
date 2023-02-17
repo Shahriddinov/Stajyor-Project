@@ -108,7 +108,7 @@ function JobsDesc(props) {
 						</div>
 						<div className={classes.cardItemBottom}>
 							<div className={classes.imgCompName}>
-								<img src={item.compLogo} alt="Company Logo" />
+								<img src={item.compLogo} alt="Company Logo" className={classes.compImgLogo} />
 								<div className={classes.compNamecheckImg}>
 									<p>{item.compName}</p>
 									<span>

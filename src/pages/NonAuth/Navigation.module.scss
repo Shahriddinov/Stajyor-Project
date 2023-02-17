@@ -36,7 +36,7 @@
 			height: 50%;
 			display: flex;
 			align-items: center;
-			border-bottom: 4px solid #fff;
+			// border-bottom: 4px solid #fff;
 		}
 		.active {
 			cursor: pointer;
@@ -96,10 +96,10 @@
 .menu__underline {
 	position: absolute;
 	top: 58px;
-	width: 30%;
+	width: 33.1%;
 	height: 4px;
 	background: #fff;
 	border-radius: 8px;
-	margin-left: 6.5rem;
+	margin-left: 3.8rem;
 	z-index: 0;
 }

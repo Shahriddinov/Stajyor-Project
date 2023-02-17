@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
 import Home from "pages/Home";
 import Aboutus from "pages/NonAuth/Aboutus";
 import Talants from "pages/NonAuth/pages/talants/Talants";
@@ -25,9 +25,9 @@ function App() {
 	const resume = useSelector(state => state.login.resume);
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		navigate(`/${len}/`);
-	}, [len]);
+	useLayoutEffect(() => {
+		navigate(`/${len}/`)
+	},[len])
 
 	const pathName = window.location.pathname;
 
@@ -66,7 +66,7 @@ function App() {
 				</>
 			)}
 		</div>
-	);
+	)
 }
 
 export default App;

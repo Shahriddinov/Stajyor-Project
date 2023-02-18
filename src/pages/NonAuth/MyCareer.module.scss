@@ -1,17 +1,24 @@
 .careerBox {
-	width: 76.8%;
-	height: 60vh;
-	position: absolute;
-	top: 30vh;
-	left: 200px;
-	z-index: 10;
+	// width: 76.8%;
+	// height: 60vh;
+	// position: absolute;
+	// top: 30vh;
+	// left: 200px;
+	// z-index: 10;
+	width: 100%;
+}
+.careerBoxContainer {
+	width: 90%;
+	max-width: 1450px;
+	margin: 150px auto;
+	padding: 0 20px;
 }
 
 .power {
 	background-color: white;
 	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
-	width: 45%;
+	width: 48%;
 	height: 45px;
 	display: flex;
 	align-items: center;

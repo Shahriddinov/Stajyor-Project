@@ -3,43 +3,40 @@
 	height: 100%;
 	position: relative;
 	z-index: 0;
+	background-image: url("../../assets//images/home-header-bg.png");
+	background-repeat: no-repeat;
+	background-position: calc(50% - 620px) -300px;
 	overflow: hidden;
 
-	.blueCircle {
-		width: 75%;
-		z-index: -100;
-		img {
-			width: 50%;
-			height: 50%;
+	.roundContainer {
+		.round1 {
+			position: absolute;
+			transition: 1s all;
+			right: 35%;
+			top: 40vh;
 		}
-	}
-	.round1 {
-		position: absolute;
-		transition: 1s all;
-		right: 35%;
-		top: 40vh;
-	}
 
-	.round2 {
-		transition: 1s all;
-		position: absolute;
-		right: 50%;
-		top: 60vh;
-		padding: 4rem;
-	}
+		.round2 {
+			transition: 1s all;
+			position: absolute;
+			right: 50%;
+			top: 60vh;
+			padding: 4rem;
+		}
 
-	.round3 {
-		position: absolute;
-		transition: 1s all;
-		left: 15%;
-		top: 69vh;
-	}
+		.round3 {
+			position: absolute;
+			transition: 1s all;
+			left: 15%;
+			top: 69vh;
+		}
 
-	.round4 {
-		position: absolute;
-		transition: 1s all;
-		margin-left: 8rem;
-		right: 30%;
-		top: 57vh;
+		.round4 {
+			position: absolute;
+			transition: 1s all;
+			margin-left: 8rem;
+			right: 30%;
+			top: 57vh;
+		}
 	}
 }

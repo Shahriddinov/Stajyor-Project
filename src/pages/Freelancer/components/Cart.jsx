@@ -11,19 +11,19 @@ import Context from 'components/Context/Context';
 
 const Cart = () => {
 
-    const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
+    // const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
 
-    const HeartClickFunc = () => {
-        setHeartClick(!heartClick)
-    }
+    // const HeartClickFunc = () => {
+    //     setHeartClick(!heartClick)
+    // }
 
-    const cursorHandle = () => {
-        setIsActive(!isActive)
-    }
+    // const cursorHandle = () => {
+    //     setIsActive(!isActive)
+    // }
 
     return (
         <div className='freelancer_cart' >
-            <ul  onClick={()=> cursorHandle() } className="freelancer_cart_list">
+            <ul   className="freelancer_cart_list">
                 <li className="freelancer_cart_list_item freelancer_cart_list_item1">
                     <img src={user_img} alt="" />
                     <div>
@@ -58,9 +58,9 @@ const Cart = () => {
                 </li>
 
             </ul>
-                <div  className='freelancer_cart_list_wrapper' onClick={() => HeartClickFunc()} > <Heart className={`${ heartClick ? 'freelancer_cart_list_wrapper_svg' : null}`}   /> </div>
+                <div  className='freelancer_cart_list_wrapper' > <Heart className={`${ '' }`}   /> </div>
             <Colasible  text={'qwertyuioplkjhgfdsazxcvbnm'} />
-            <div onClick={()=> cursorHandle() } className="freelancer_cart_skill">
+            <div className="freelancer_cart_skill">
                 <div className="freelancer_cart_skill_skills">
                     <h4>Figma</h4>
                     <h4>html</h4>
@@ -73,7 +73,7 @@ const Cart = () => {
 
             </div>
 
-            <div onClick={()=> cursorHandle()} className="freelancer_cart_location">
+            <div  className="freelancer_cart_location">
                 <h4><span>3 years </span>   of experience</h4>
                 <h4> <img src={location} alt="" /> Tashkent, Uzbekistan</h4>
             </div>

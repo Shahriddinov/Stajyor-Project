@@ -94,9 +94,12 @@
 	&__button {
 		display: flex;
 		justify-content: flex-end;
+		align-items: center;
+		gap: 20px;
 	}
 
 	&__next {
+		cursor: pointer;
 		border: 1px solid #1d71b8 !important;
 		border: none;
 		border-radius: 8px;
@@ -106,6 +109,12 @@
 		color: #323232;
 		background: #ffffff;
 		padding: 1rem 2rem;
+
+		&:hover {
+			background-color: #1d71b8;
+			color: white;
+			transition: 0.3s;
+		}
 	}
 
 	&__back {
@@ -118,6 +127,13 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+		border: 1px solid white;
+				
+		&:hover {
+			cursor: pointer;
+			border: 1px solid #1d71b8;
+			transition: 0.3s;
+		}
 	}
 
 	&__wrapper {

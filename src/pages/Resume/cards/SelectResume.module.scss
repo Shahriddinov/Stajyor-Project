@@ -25,6 +25,7 @@
 .socialForm {
 	display: flex;
 	align-items: center;
+	gap: 20px;
 }
 
 .nextButton,
@@ -38,10 +39,23 @@
 	color: #323232;
 	background: #ffffff;
 	padding: 1rem 2rem;
+	border: 1px solid white;
+	&:hover {
+		border: 1px solid #1d718b;
+		cursor: pointer;
+		transition: 0.3s;
+	}
 }
 
 .nextButton {
 	border: 1px solid #1d71b8 !important;
+
+	&:hover {
+		cursor: pointer;
+		background-color: #1d71b8;
+		color: #ffffff;
+		transition: 0.3s;
+	}
 }
 
 .resume__footer {

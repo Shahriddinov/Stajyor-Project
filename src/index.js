@@ -25,10 +25,23 @@ import i18 from "./services/i18";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
+// const [ isActive, setIsActive ] = useState(false)
+// const [ isAvialable, setIsAvialable ] = useState(false)
+// const [ isPortfolio, setIsPortfolio ] = useState(false)
+// const [ isAddPortfolio, setAddIsPortfolio ] = useState(false)
+// const [ isAddLanguage, setAddIsLanguage ] = useState(false)
+// const [ heartClick, setHeartClick ] = useState(false)
+// const [ isAddEducation, setAddIsEducation ] = useState(false)
+
+// const obj = {  isActive, setIsActive, isAvialable, setIsAvialable , isPortfolio, setIsPortfolio,
+// 				isAddPortfolio, setAddIsPortfolio, heartClick, setHeartClick, isAddLanguage, setAddIsLanguage,
+// 			isAddEducation, setAddIsEducation  }
+
 root.render(
 	<Provider store={store}>
 		<BrowserRouter>
 			<App/>
 		</BrowserRouter>
 	</Provider>
+
 );

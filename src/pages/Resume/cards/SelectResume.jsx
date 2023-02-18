@@ -86,7 +86,7 @@ function SelectResume() {
 					className={`${classes.slide} ${activeDot === (i + 1) ? classes.slide__active : ""}`}
 					onClick={() => handleDotClick(eachResume.id)}
 					>
-						<img src={eachResume.img} alt="Resume image" />
+						<img src={eachResume.img} alt="Resume images" />
 					</div>
 				))}
 			</div>

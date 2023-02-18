@@ -75,7 +75,7 @@ function Educations() {
 							</div>
 		
 							<div className="educations__wrapper">
-								<button type="click" className="educations__buttonAdd" onClick={handleClick}>+ Add new</button>
+								<button style={{'cursor':'pointer'}} type="click" className="educations__buttonAdd" onClick={handleClick}>+ Add new</button>
 							</div>
 		
 							<div className="educations__button">

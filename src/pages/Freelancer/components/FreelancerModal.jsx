@@ -9,19 +9,19 @@ import Fvideo from './Fvideo';
 import location from '../../../assets/images/Freelancer/location.svg'
 import PortfolioCard from './PortfolioCard';
 import CompanyCard from 'pages/Company/components/CompanyCard';
-import { useContext } from 'react';
-import Context from 'components/Context/Context';
+// import { useContext } from 'react';
+// import Context from 'components/Context/Context';
 
 
 
 
 const FreelancerModal = () => {
 
-    const { isActive, setIsActive } = useContext(Context)
+    // const { isActive, setIsActive } = useContext(Context)
 
-        const cursorHandle = () => {
-        setIsActive(!isActive)
-    }
+    //     const cursorHandle = () => {
+    //     setIsActive(!isActive)
+    // }
 
 
     const path = window.location.pathname.split('/')[1] // uz or ru or en
@@ -30,7 +30,7 @@ const FreelancerModal = () => {
 
     return (
         <div className='freelancermodal' >
-            <div onClick={()=> cursorHandle()} className="freelancermodal_img">
+            <div  className="freelancermodal_img">
                 <Minus />
             </div>
 

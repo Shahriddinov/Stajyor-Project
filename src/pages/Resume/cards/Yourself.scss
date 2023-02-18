@@ -1,0 +1,182 @@
+.yourselfCard {
+	background: white;
+	width: 712px;
+	padding: 3rem;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	border-radius: 10px;
+
+	&_label {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #323232;
+		padding-bottom: 8px  !important; 
+	}
+
+	&_title {
+		font-family: 'Montserrat';
+		font-weight: 700;
+		font-size: 30px;
+		line-height: 37px;
+		color: #323232;
+		margin-bottom: 30px;
+	}
+
+	&_textarea {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 15px 20px;
+		border: 1px solid #CDCDCD;
+		border-radius: 8px;
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 24px;
+		color: #808080;
+		resize: none;
+		height: 126px;
+	}
+
+	&_btn {
+		margin-top: 30px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		justify-content: flex-end;
+	}
+
+	&_form {
+
+
+		&_wrapper {
+			display: flex;
+			align-items: flex-start;
+			gap: 30px;
+			margin-bottom: 20px;
+
+
+			&_bottom {
+				display: flex;
+				flex-direction: column;
+
+			input {
+				padding: 15px 20px;
+				font-family: 'Montserrat';
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 24px;
+				color: #808080;
+				background: #FFFFFF;
+				border: 1px solid #CDCDCD;
+				border-radius: 8px;
+				width: 320px !important;
+
+			}
+			} 
+		}
+	}
+
+
+
+
+
+
+
+
+
+	& .mySelect__control, .css-13cymwt-control {
+		margin-top: 10px !important;
+		width: 320px !important;
+	}
+
+}
+
+
+.nextButton {
+	border-radius: 8px !important;
+	padding: 10px 20px !important;
+	border: 1px solid #1d71b8 !important;
+	cursor: pointer;
+	background-color: #fff;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	color: #323232;
+	&:hover {
+		transition: 0.3s;
+		color: white;
+		background-color: #1d71b8;
+	}
+}
+
+.backButton {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+	color: #323232;
+	border-radius: 8px !important;
+	padding: 10px 20px !important;
+	border: 1px solid white !important;
+	// margin-left: 32.123rem;
+	background-color: #fff;
+	cursor: pointer;
+
+	&:hover {
+	transition: 0.3s;
+	border: 1px solid #1d71b8 !important;
+	}
+}
+
+
+.yourselfCard {
+
+	
+	.mantine-MultiSelect-input   {
+		box-sizing: border-box;
+		padding: 10px 15px !important;
+		
+	}
+
+	.mantine-MultiSelect-searchInput {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #FFFFFF;
+	}
+	
+	
+	
+	.mantine-MultiSelect-defaultValue , .mantine-MultiSelect-value , .mantine-fqghar {
+		
+		padding: 6px 10px !important;
+		color: white !important;
+		background-color: #1D71B8 !important;
+	}
+	
+	
+.mantine-rsiguj, .mantine-MultiSelect-defaultValueLabel  {
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
+		color: #FFFFFF;
+}
+
+.mantine-UnstyledButton-root, .mantine-ActionIcon-root , .mantine-MultiSelect-defaultValueRemove , .mantine-zo2naa {
+	& svg path{
+		fill: white;
+	}
+}
+
+}

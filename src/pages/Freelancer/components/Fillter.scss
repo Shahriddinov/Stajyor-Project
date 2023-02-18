@@ -1,11 +1,10 @@
 @import "../../../assets/styles/ui.scss";
 .filter{
     padding: 30px;
-    // width: 450px;
-    // height: 960px;
     background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+   
 
       &_title {
           font-family: $font-family-montosserat;
@@ -304,4 +303,76 @@ input::-webkit-inner-spin-button {
       }
 
     }
+}
+
+
+
+.apply_filter {
+  text-align: center;
+  margin-top: 20px;
+
+  & button {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #1D71B8;
+    border: 1px solid #1D71B8;
+    border-radius: 8px;
+    background: transparent ;
+
+    &:hover {
+      transition: 0.3s;
+      background-color: #1D71B8;
+      color: white;
+    }
+  }
+}
+
+.filter {
+  & .mantine-MultiSelect-input   {
+  box-sizing: border-box;
+  padding: 10px 15px;
+
+}
+
+ & .mantine-MultiSelect-searchInput {
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+}
+
+
+
+
+ & .mantine-MultiSelect-defaultValue , .mantine-MultiSelect-value , .mantine-fqghar {
+
+  padding: 6px 10px;
+  color: white;
+  background-color: #1D71B8;
+}
+
+
+
+
+& .mantine-rsiguj, .mantine-MultiSelect-defaultValueLabel  {
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 22px;
+color: #FFFFFF;
+}
+
+ & .mantine-UnstyledButton-root, .mantine-ActionIcon-root , .mantine-MultiSelect-defaultValueRemove , .mantine-zo2naa {
+   & svg path{
+    fill: white;
+   }
+}
+
 }

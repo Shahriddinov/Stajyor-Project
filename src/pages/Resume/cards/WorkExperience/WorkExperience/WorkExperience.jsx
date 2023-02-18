@@ -70,8 +70,8 @@ function WorkExperience() {
 					</div>
 					
 
-					<div className="experience__wrapper">
-						<button className="experience__buttonAdd" onClick={handleClick}>+ Add new</button>
+					<div className="experience__wrapper" >
+						<button style={{'cursor':'pointer'}} className="experience__buttonAdd" onClick={handleClick}>+ Add new</button>
 					</div>
 
 					<div className="experience__button">

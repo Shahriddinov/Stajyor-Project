@@ -1,7 +1,7 @@
 .jobsDesc {
-	width: 46vw;
+	width: 60%;
 	height: 100%;
-	border-radius: 12px;
+	overflow: hidden;
 
 	.jobsSearch {
 		width: 100%;
@@ -42,6 +42,7 @@
 	.jobsCard {
 		width: 100%;
 		position: relative;
+
 		.jobsCardItem {
 			width: 100%;
 			height: auto;

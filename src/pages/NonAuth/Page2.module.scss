@@ -1,78 +1,85 @@
 .page2Box {
-	width: 76%;
-	height: 70vh;
-	top: 18vh;
-	left: 200px;
-	z-index: 10;
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	width: 80%;
+	margin: 0 auto;
 
-	.busines2Img {
-		width: 38%;
-
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	.searchTalants {
-		width: 55%;
-		height: 100%;
-		display: block;
-		align-items: center;
-
-		.page2Search {
-			width: 100%;
-			height: 54px;
-			margin-top: 4rem;
+	.page2BoxContainer {
+		width: 100%;
+		max-width: 1450px;
+		margin: 0 auto;
+		.page2BoxInner {
 			display: flex;
-			position: relative;
+			justify-content: space-between;
+			align-items: center;
+			gap: 20px;
 
-			input {
-				background: #ffffff;
-				border: 1px solid #1d71b8;
-				border-radius: 8px;
-				padding: 16px;
-				font-size: 18px;
-				padding-top: 18px;
-				width: 100%;
+			.busines2Img {
+				width: 50%;
+				img {
+					width: 100%;
+					height: 100%;
+				}
 			}
 
-			button {
-				position: absolute;
-				right: 0;
-				border: none;
-				height: 54px;
-				background-color: #1d71b8;
-				border-radius: 8px;
-				padding: 14px 32px 18px 32px;
-				margin-left: -8px;
-			}
-		}
-		h2 {
-			font-family: "Montserrat";
-			font-style: normal;
-			font-weight: 700;
-			font-size: 40px;
-			line-height: 51px;
-			color: #323232;
-			margin-top: 7rem;
-		}
+			.searchTalants {
+				width: 60%;
+				height: 90%;
+				display: block;
+				padding-top: 4rem;
+				align-items: center;
 
-		p {
-			width: 90%;
-			font-family: "Montserrat";
-			font-style: normal;
-			font-weight: 400;
-			font-size: 18px;
-			line-height: 25px;
-			letter-spacing: 0.01em;
-			color: #000000;
-			letter-spacing: 2px;
-			margin-top: 2rem;
+				.page2Search {
+					width: 90%;
+					height: 45px;
+					margin-top: 1rem;
+					display: flex;
+					position: relative;
+
+					input {
+						background: #ffffff;
+						border: 1px solid #1d71b8;
+						border-radius: 8px;
+						padding: 16px;
+						font-size: 18px;
+						padding-top: 18px;
+						width: 90%;
+						margin-left: 5rem;
+					}
+
+					button {
+						position: absolute;
+						right: 0;
+						border: none;
+						height: 45px;
+						background-color: #1d71b8;
+						border-radius: 8px;
+						padding: 14px 28px 20px 28px;
+						margin-left: -8px;
+					}
+				}
+				h2 {
+					font-family: "Montserrat";
+					font-style: normal;
+					font-weight: 700;
+					font-size: 35px;
+					line-height: 51px;
+					color: #323232;
+					padding-left: 5rem;
+				}
+
+				p {
+					width: 70%;
+					font-family: "Montserrat";
+					font-style: normal;
+					font-weight: 400;
+					font-size: 18px;
+					line-height: 25px;
+					letter-spacing: 0.01em;
+					color: #000000;
+					letter-spacing: 2px;
+					margin-top: 1rem;
+					padding-left: 5rem;
+				}
+			}
 		}
 	}
 }

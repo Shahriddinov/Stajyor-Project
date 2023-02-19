@@ -1,77 +1,83 @@
 .aboutus {
-	position: absolute;
-	width: 74vw;
+	width: 90%;
 	height: 70vh;
-	left: 13%;
-	top: 20vh;
-	z-index: 7;
+	margin: 20px auto;
+	z-index: 10;
 	background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #ffffff;
 	box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1);
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	padding: 0;
-}
-.mainAbout {
-	display: flex;
-	justify-content: space-around;
-	padding: 0;
-	width: 95%;
-	height: 95%;
-	margin: 0 auto;
 
-	.videoBlock {
-		width: 65%;
+	.about__container {
+		width: 100%;
 		height: 100%;
-
-		video {
-			width: 100%;
-			height: 100%;
-			border-radius: 12px;
-		}
-	}
-	.TextsMain {
-		width: 35%;
-		height: 100%;
-		margin-left: 40px;
-		padding-left: 1rem;
-		overflow: hidden;
-		border-left: 1px solid #808080;
-
-		.IconsMain {
-			width: 100%;
-			margin-right: 34px;
+		max-width: 1450px;
+		.mainAbout {
 			display: flex;
 			align-items: center;
 			justify-content: space-around;
-			height: 45px;
+			padding: 10px 20px;
 
-			p {
-				width: 50%;
+			.videoBlock {
+				width: 65%;
 				height: 100%;
-				display: flex;
-				align-items: center;
+
+				video {
+					width: 100%;
+					height: 100%;
+					border-radius: 12px;
+				}
+			}
+			.TextsMain {
+				width: 30%;
+				height: 100%;
+				margin-left: 40px;
+				padding-left: 1rem;
+				overflow: hidden;
+				border-left: 1px solid #808080;
+
+				.IconsMain {
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: space-around;
+					height: 45px;
+
+					p {
+						width: 60%;
+						height: 100%;
+						display: flex;
+						align-items: center;
+						font-family: "Montserrat";
+						font-style: normal;
+						font-weight: 700;
+						font-size: 25px;
+						line-height: 0px;
+						color: #323232;
+					}
+					.iconsBlock {
+						width: 40%;
+						height: 100%;
+						display: flex;
+						justify-content: space-between;
+						img {
+							width: 50px;
+							height: 50px;
+						}
+					}
+				}
+			}
+			.text {
 				font-family: "Montserrat";
 				font-style: normal;
-				font-weight: 700;
-				font-size: 25px;
-				line-height: 0px;
+				font-weight: 500;
+				font-size: 18px;
+				line-height: 24px;
+				text-align: justify;
 				color: #323232;
 			}
-			.iconsBlock {
-				width: 50%;
-				display: flex;
-			}
 		}
-	}
-	.text {
-		font-family: "Montserrat";
-		font-style: normal;
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 24px;
-		text-align: justify;
-		color: #323232;
 	}
 }

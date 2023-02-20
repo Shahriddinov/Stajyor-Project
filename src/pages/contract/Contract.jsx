@@ -4,9 +4,9 @@ import employerProfil from "../../assets/images/emloyer_img.svg"
 import employeeProfil from "../../assets/images/employee-img.svg"
 import { useFormik } from 'formik'
 import { validate } from './validateMatch'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { contractCreate } from 'reduxToolkit/extraReducers'
-import { useSelector } from 'react-redux'
+
 const initialValues = {
     pasportSeriyaNumber: "",
     cardNumber: "",

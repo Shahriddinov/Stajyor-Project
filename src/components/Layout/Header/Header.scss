@@ -1,19 +1,22 @@
 @import "../../../assets//styles/ui.scss";
 
 .header {
+	padding: 50px 0;
+
 	&_wrapper {
 		padding-top: 8px;
 		display: flex;
 		align-items: center;
 		gap: 30px;
+
 	}
 	&_container {
 		box-sizing: border-box;
 		position: relative;
-		width: 1920px;
+		width: 100%;
+		max-width: 1450px;
 		margin: 0 auto;
-		padding: 0 255px;
-		padding-top: 90px;
+		padding: 0 20px;
 		display: flex;
 		align-items: flex-start;
 		justify-content: space-between;
@@ -79,16 +82,7 @@
 			gap: 30px;
 		}
 		&_container {
-			box-sizing: border-box;
-			position: relative;
-			width: 1700px;
-			margin: 0 auto;
-			padding: 0 255px;
-			padding-left: 200px;
-			padding-top: 50px;
-			display: flex;
-			align-items: flex-start;
-			justify-content: space-between;
+
 
 			&_bg_img {
 				position: absolute;
@@ -157,16 +151,6 @@
 			gap: 30px;
 		}
 		&_container {
-			box-sizing: border-box;
-			position: relative;
-			width: 1440px;
-			margin: 0 auto;
-			padding: 0 150px;
-			padding-left: 150px;
-			padding-top: 50px;
-			display: flex;
-			align-items: flex-start;
-			justify-content: space-between;
 
 			&_bg_img {
 				position: absolute;

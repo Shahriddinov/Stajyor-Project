@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import classes from './Company.module.scss'
 import classesNav from './Navigation.module.scss'
 import { Link } from 'react-router-dom'
@@ -8,6 +9,7 @@ const Nav = () => {
 
     const [count, setCount] = useState(0);
     const [clientJobs, setClientJobs] = useState('active')
+    const len = useSelector(state => state.lenguage.lenguage)
 
 	let step1 = false,
 		step2 = false,
@@ -52,14 +54,14 @@ const Nav = () => {
     return (
         <div className={classes.background}>
             <div className={classesNav.menu}>
-                <a href=''><img src={Logo} alt="" /></a>
+                <Link to={`/${len}/`}><img src={Logo} alt="" /></Link>
                 <div className={classesNav.right__side}>
                     <ul className={classesNav.menu__links}>
                         <li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
                             Home
                         </li>
                         <li className={step5 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(5)}>
-                            Talants
+                            <Link to={`/${len}/talents`}>Talents</Link>
                         </li>
                         <li className={step6 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(6)}>
                             Jobs

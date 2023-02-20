@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import classes from './JobAd.module.scss'
 import ProfilePhoto from './assets/profilePhoto.png'
 import Video from './assets/vid.png'
 import FreelancerProfile from './assets/freelancerProfilePhoto.png'
+import Circle from './assets/Ellipse 16.png'
+import Nav from './Nav'
 import { MdVerified } from 'react-icons/md'
 import { BsChevronDown} from 'react-icons/bs'
 import { HiOutlinePencil, HiOutlineLocationMarker } from 'react-icons/hi'
@@ -10,7 +14,19 @@ import { Link } from 'react-router-dom'
 
 const JobAd = () => {
 
+    const len = useSelector(state => state.lenguage.lenguage)
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
+        <>
+            <div className={classes.circleBg}>
+                <img src={Circle} alt="" />
+            </div>
+            <Nav />
             <div className={classes.jobAdContainer}>
                 <div className={classes.jobAd}>
                     <div className={classes.jobTitle}>
@@ -29,13 +45,15 @@ const JobAd = () => {
                             <div className={classes.proposalRow}>
                                 <div className={classes.proposalLeft}>
                                     <img src={FreelancerProfile} alt="" className={classes.freelancerProfilePhoto}/>
-                                    <div className={classes.freelancerInfo}>
-                                        <div className={classes.verified}>
-                                            <h4>Michel R</h4>
-                                            <MdVerified color='#1F57C3'/>
+                                    <Link to={`/${len}/freelancerPage`}>
+                                        <div className={classes.freelancerInfo}>
+                                            <div className={classes.verified}>
+                                                <h4>Michel R</h4>
+                                                <MdVerified color='#1F57C3'/>
+                                            </div>
+                                            <p>Web Design UI/UX</p>
                                         </div>
-                                        <p>Web Design UI/UX</p>
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className={classes.proposalLeft}>
                                 <div className={classes.freelancerStats}>
@@ -176,7 +194,7 @@ const JobAd = () => {
                         <div className={classes.repInfo}>
                             <h3>Umid Abdusattorov</h3>
                             <p>CEO</p>
-                            <Link to={"/company"}>Napa Automotive</Link>
+                            <Link to={`/${len}/company`}>Napa Automotive</Link>
                         </div>
                     </div>
                     <div className={classes.horizontalLineBreak}/>
@@ -202,6 +220,7 @@ const JobAd = () => {
                     <div className={classes.horizontalLineBreak}/>
                 </div>
             </div>
+        </>
     )
 }
 

@@ -30,40 +30,47 @@ function App() {
 
 	const pathName = window.location.pathname;
 
-	return (
-		<div className="App" style={{ height: "100vh" }}>
-			{!auth ? (
-				<Routes>
-					<Route path={`/${len}/`} element={<PageBackground />} />
-					<Route path={`/${len}/login`} element={<Login />} />
-					<Route path={`/${len}/sign-up`} element={<Signup />} />
-					<Route path="*" element={<Navigate to={`/${len}/`} />} />
-				</Routes>
-			) : !resume ? (
-				<Routes>
-					<Route path={`/${len}/company`} element={<Login />} />
-					<Route path={`/${len}/resume`} element={<Background />} />
-					<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish />} />
-					<Route path="*" element={<Navigate to={`/${len}/company`} />} />
-				</Routes>
-			) : (
-				<>
-					<Header />
+	return(
+		<div className="App">
+			{
+				!auth
+				?(
 					<Routes>
-						<Route path={`/${len}/jobs`} element={<Jobs />} />
-						<Route path={`/${len}/about`} element={<Aboutus />} />
-						<Route path={`/${len}/talants`} element={<Talants />} />
-						<Route path={`/${len}/contact`} element={<Contactus />} />
-						<Route path={`/${len}/contracts`} element={<Contract />} />
-						<Route path={`/${len}/freelancer`} element={<Freelancer />} />
-						<Route path={`/${len}/profile`} element={<Profile />} />
-						<Route path={`/${len}/freelancer-user`} element={<UserFreelancer />} />
-						<Route path={pathName.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
-						<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
-						<Route path={`/${len}/*`} element={<NotFound />} />
+						<Route path={`/${len}/`} element={<PageBackground/>}/>
+						<Route path={`/${len}/login`} element={<Login/>}/>
+						<Route path={`/${len}/sign-up`} element={<Signup/>}/>
+						<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
 					</Routes>
-				</>
-			)}
+				)
+				:
+				!resume
+				?(
+					<Routes>
+						<Route path={`/${len}/company`} element={<Login/>}/>
+						<Route path={`/${len}/resume`} element={<Background/>}/>
+						<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish/>}/>
+						<Route path="*" element={<Navigate to={`/${len}/company`}/>}/>
+					</Routes>
+				)
+				:(
+					<>
+						<Header/>
+						<Routes>
+							<Route path={`/${len}/jobs`} element={<Jobs/>}/>
+							<Route path= {`/${len}/about`} element={<Aboutus/>}/>
+							<Route path={`/${len}/talants`} element={<Talants/>}/>
+							<Route path={`/${len}/contact`} element={<Contactus/>}/>
+							<Route path={`/${len}/contracts`} element={<Contract/>}/>
+							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
+							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
+							<Route path={`/${len}/freelancer`} element={<Freelancer/>}/>
+							<Route path={`/${len}/profil`} element={<Profile/>}/>
+							<Route path={`/${len}/freelancer-user`} element={<UserFreelancer/>}/>
+							<Route path={`/${len}/*`} element={<NotFound/>}/>
+						</Routes>
+					</>
+				  )
+			 }
 		</div>
 	)
 }

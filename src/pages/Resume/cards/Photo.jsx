@@ -72,7 +72,7 @@ function Photo() {
 						<input ref={phoneNumber} type="number" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
-				<button>Next</button>
+				<button  className="next_btn_photoCart">Next</button>
 			</form>
 		</div>
 	);

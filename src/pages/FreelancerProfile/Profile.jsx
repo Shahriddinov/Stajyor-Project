@@ -14,58 +14,57 @@ import { ReactComponent as Github } from '../../assets/images/FreelancerPortfoli
 import { ReactComponent as Whatsapp } from '../../assets/images/FreelancerPortfolio/whatsapp.svg'
 import React from 'react';
 import './Profile.scss'
-import Available from './components/Available';
-import { useContext } from 'react';
-import Context from 'components/Context/Context';
-import AddProject from './components/AddProject';
-import AddProfilePhoto from './components/AddProfilePhoto';
-import AddLanguage from './components/AddLanguage';
-import Educations from 'pages/Resume/cards/Educations/Educations/Educations';
-import AddEducation from './components/AddEducation';
+// import Available from './components/Available';
+// import { useContext } from 'react';
+// import Context from 'components/Context/Context';
+// import AddProject from './components/AddProject';
+// import AddProfilePhoto from './components/AddProfilePhoto';
+// import AddLanguage from './components/AddLanguage';
+// import AddEducation from './components/AddEducation';
 // import Country from 'pages/Resume/cards/Country';
 // import Language from 'pages/Resume/cards/Language';
 // import SocialMedia from 'pages/Resume/cards/SocialMedia';
 
 const Profile = () => {
 
-    const { isAvialable, setIsAvialable, isPortfolio, setIsPortfolio , isAddPortfolio, setAddIsPortfolio,
-    isAddLanguage, setAddIsLanguage , isAddEducation, setAddIsEducation
-    } = useContext(Context)
+    // const { isAvialable, setIsAvialable, isPortfolio, setIsPortfolio , isAddPortfolio, setAddIsPortfolio,
+    // isAddLanguage, setAddIsLanguage , isAddEducation, setAddIsEducation
+    // } = useContext(Context)
 
-    const AviableFunc = (bol) => {
-        setIsAvialable(bol)
-    }
+    // const AviableFunc = (bol) => {
+    //     setIsAvialable(bol)
+    // }
 
-    const PortfolioFunc = (bol) => {
-        setIsPortfolio(bol)
-    }
+    // const PortfolioFunc = (bol) => {
+    //     setIsPortfolio(bol)
+    // }
 
-    const AddPortfolioFunc = (bol) => { 
-        setAddIsPortfolio(bol)
-    }
+    // const AddPortfolioFunc = (bol) => { 
+    //     setAddIsPortfolio(bol)
+    // }
 
-    const AddIsLanguageFunc = (bol) => {
-        setAddIsLanguage(bol)
-    }
+    // const AddIsLanguageFunc = (bol) => {
+    //     setAddIsLanguage(bol)
+    // }
 
-    const AddIsEducationFunc = (bol) => {
-        setAddIsEducation(bol)
-    }
+    // const AddIsEducationFunc = (bol) => {
+    //     setAddIsEducation(bol)
+    // }
 
     
 
 
 
     return (<>
-            {
+            {/* {
                isAddEducation || isAddLanguage || isAvialable || isPortfolio || isAddPortfolio ? <div className="freelancer_black"  > </div> : null
-            }
+            } */}
    <div className="freelancer_container">
-        { isAvialable ? <Available /> : null}
+        {/* { isAvialable ? <Available /> : null}
         { isPortfolio ? <AddProject /> : null }
         { isAddPortfolio ?   <AddProfilePhoto /> : null}
         { isAddLanguage ? <AddLanguage /> : null}
-        { isAddEducation ? <AddEducation /> : null} 
+        { isAddEducation ? <AddEducation /> : null}  */}
              <div className='freelancer_container_round'>
                     <Round />
                 </div>
@@ -94,7 +93,7 @@ const Profile = () => {
                         <p className="userfreelancermodal_left_list_item_info"> Hourly </p>
                     </li>
                     <li className="userfreelancermodal_left_list_item">
-                        <div className="userfreelancermodal_left_list_item_wrapper" onClick={() => AddPortfolioFunc(true)}  >
+                        <div className="userfreelancermodal_left_list_item_wrapper"  >
 
                         </div>
                     </li>
@@ -109,7 +108,7 @@ const Profile = () => {
                 <Fvideo />
 
                 <h3 className='userfreelancermodal_left_title' >Portfolio (13)
-                 <div className="userfreelancermodal_left_title_wrapper"  onClick={() => PortfolioFunc(true)}  ></div> </h3>
+                 <div className="userfreelancermodal_left_title_wrapper"  ></div> </h3>
                 
                 <PortfolioCard />
 
@@ -153,7 +152,7 @@ const Profile = () => {
 
                     <ul className="userfreelancermodal_right_mainlist">
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Available <div className="userfreelancermodal_right_mainlist_item_wrapper" onClick={() => AviableFunc(true)} ></div> </h4>
+                            <h4> Available <div className="userfreelancermodal_right_mainlist_item_wrapper" ></div> </h4>
                             <span>More than 40 hrs/week</span>
                         </li>
 
@@ -163,14 +162,14 @@ const Profile = () => {
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Languages <div className="userfreelancermodal_right_mainlist_item_wrapper" onClick={()=>AddIsLanguageFunc(true)} ></div> </h4>
+                            <h4> Languages <div className="userfreelancermodal_right_mainlist_item_wrapper"  ></div> </h4>
                             <div>
                                 <h5>English: <h6>C2 -</h6> <span>Native Speaker</span></h5>
                                 <h5 className='userfreelancermodal_right_mainlist_item_h5'>Russian: <h6>B1 -</h6> <span>Upper intermedite</span></h5>
                             </div>
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Educations <div className="userfreelancermodal_right_mainlist_item_wrapper" onClick={()=>AddIsEducationFunc(true)} > </div> </h4>
+                            <h4> Educations <div className="userfreelancermodal_right_mainlist_item_wrapper"  > </div> </h4>
                            <div>
                              <h5>Skans School of Accountancy Other, ACCA (Association of Chartered Certified Accountant) </h5>
                             <h6>2012-2018</h6>

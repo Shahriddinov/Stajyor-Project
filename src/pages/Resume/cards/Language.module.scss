@@ -2,9 +2,17 @@
 	background: white;
 	width: 750px;
 	padding: 3rem;
-	padding-right: 4.5rem;
+	// padding-right: 4.5rem;
+	box-sizing: border-box;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	border-radius: 10px;
+}
+
+.languageCard_btn {
+	width: 102%;
+	display: flex;align-items: center;
+	justify-content: flex-end;
+	gap: 20px;
 }
 
 .languageCard p {
@@ -29,19 +37,31 @@
 	color: #323232;
 	background: #ffffff;
 	padding: 1rem 2rem;
-	margin-top: 3rem;
+	// margin-top: 3rem;
 }
 
 .nextButton {
 	border: 1px solid #1d71b8 !important;
+	&:hover {
+		transition: 0.3s;
+		background-color: #1d71b8 !important;
+		cursor:pointer;
+		color: white;
+	}
 }
 
 .backButton {
-	margin-left: 32rem;
+		border: 1px solid white !important;
+
+		&:hover {
+			transition: 0.3s;
+			cursor: pointer;
+			border: 1px solid #1d71b8 !important;
+		}
 }
 
 .addLanguage {
-	width: 100%;
+	width: 97%;
 	padding: 1rem;
 	border-radius: 5px;
 	border: 1px solid #1d71b8;

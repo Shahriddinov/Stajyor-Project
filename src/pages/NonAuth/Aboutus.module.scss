@@ -2,7 +2,7 @@
 	width: 80%;
 	height: 500px;
 	max-width: 1450px;
-	margin: 50px auto;
+	margin: 30px auto 0;
 
 	.about__container {
 		width: 100%;
@@ -27,6 +27,7 @@
 				border-radius: 12px;
 			}
 		}
+
 		.TextsMain {
 			width: 35%;
 			height: 90%;
@@ -53,19 +54,24 @@
 					color: #323232;
 					margin-left: 1rem;
 				}
+
 				.iconsBlock {
 					width: 40%;
 					height: 100%;
 					display: flex;
 					justify-content: space-between;
+
 					img {
 						width: 50px;
 						height: 50px;
+						object-fit: cover;
 					}
 				}
 			}
 		}
+
 		.text {
+			height: 506px;
 			font-family: "Montserrat";
 			font-style: normal;
 			font-weight: 500;
@@ -75,6 +81,11 @@
 			color: #323232;
 			padding-top: 0.5rem;
 			padding-left: 1rem;
+			overflow: scroll;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
 		}
 	}
 }

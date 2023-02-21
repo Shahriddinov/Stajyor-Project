@@ -1,5 +1,5 @@
 .menu {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 
 	&__container {
@@ -23,10 +23,8 @@
 			align-items: center;
 			list-style-type: none;
 			justify-content: space-between;
-			width: 35%;
-			margin: 0;
-			padding-left: 0;
 			border-bottom: 5px solid #fff;
+			gap: 30px;
 			cursor: pointer;
 
 			.menu__link,
@@ -67,8 +65,7 @@
 		.menu__buttons {
 			display: flex;
 			align-items: center;
-			justify-content: space-around;
-			width: 20%;
+			gap: 20px;
 			height: 100%;
 
 			.menu__login {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useLayoutEffect} from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
 import Home from "pages/Home";
@@ -14,7 +14,6 @@ import Background from "pages/Resume/Background/Background";
 import ResumeFinish from "pages/Resume/ResumeFinish";
 import Contract from "pages/contract";
 import Contactus from "pages/NonAuth/Contactus";
-import { useEffect } from "react";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";

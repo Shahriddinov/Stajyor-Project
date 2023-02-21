@@ -49,15 +49,15 @@ function TalantsDesc(props) {
 
 	return (
 		<div className={classes.talantsDesc}>
-			<div className={classes.talantsSearch}>
-				<div className={classes.talantsSearchForm}>
-					<input type="search" placeholder="Title, keywords..." onChange={onSearchChange} />
-					<button type="submit">
-						<img src={searchIcon} alt="Search Icnon" />
-					</button>
-				</div>
-			</div>
 			<div className={classes.talantsCard}>
+				<div className={classes.talantsSearch}>
+					<div className={classes.talantsSearchForm}>
+						<input type="search" placeholder="Title, keywords..." onChange={onSearchChange} />
+						<button type="submit">
+							<img src={searchIcon} alt="Search Icnon" />
+						</button>
+					</div>
+				</div>
 				{filteredTalants.map((item, index) => (
 					<div className={classes.talantsDescItem} key={index} id={index}>
 						<div className={classes.talantsDescItemHeader}>
@@ -109,7 +109,7 @@ function TalantsDesc(props) {
 								</>
 							) : (
 								<>
-									<p className={classes.descContent}>{item.description.substring(0, 100)}</p>
+									<p className={classes.descContent}>{item.description.substring(0, 165)}</p>
 									<span className={classes.faChevronDown}>
 										<FaChevronDown />
 									</span>

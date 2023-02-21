@@ -7,7 +7,7 @@ import InstagramIcon from "../../assets/images/icons/InstagramIcon.svg";
 function Aboutus(props) {
 	return (
 		<div className={classes.aboutus}>
-			<div className={classes.mainAbout}>
+			<div className={classes.about__container}>
 				<div className={classes.videoBlock}>
 					<video className={classes.Video} controls src="https://youtu.be/sUbR1uZ9G3A" type="video/mp4"></video>
 				</div>
@@ -15,9 +15,9 @@ function Aboutus(props) {
 					<div className={classes.IconsMain}>
 						<p>About us</p>
 						<div className={classes.iconsBlock}>
-							<img src={TelegramIcon} alt="Telegram Icon" />
-							<img src={FacebookIcon} alt="Facebook Icon" />
-							<img src={InstagramIcon} alt="Instagram Icon" />
+							<img src={TelegramIcon} alt="Telegram " />
+							<img src={FacebookIcon} alt="Facebook " />
+							<img src={InstagramIcon} alt="Instagram " />
 						</div>
 					</div>
 					<p className={classes.text}>

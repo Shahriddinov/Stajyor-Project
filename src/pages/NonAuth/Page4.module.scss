@@ -1,72 +1,76 @@
 .page4Box {
-	width: 76%;
-	height: 75vh;
-	top: 18vh;
-	left: 200px;
-	z-index: 10;
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+	width: 80%;
 
-	.businessIcons {
-		width: 40%;
-		height: 90%;
+	margin: 0 auto;
 
-		.page4BoxBigImg img {
-			margin-top: 3.5rem;
-			width: 75%;
-		}
-		.icons {
+	.page4Box__container {
+		width: 100%;
+
+		max-width: 1450px;
+		margin: 0 auto;
+		.page4Box__inner {
 			display: flex;
-			gap: 3rem;
-			margin-top: 3.5rem;
-			img {
-				width: 35px;
-				height: 35px;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+			.businessIcons {
+				width: 40%;
+				height: 90%;
+				.page4BoxBigImg img {
+					margin-top: 3.5rem;
+					width: 75%;
+				}
+				.icons {
+					display: flex;
+					gap: 3rem;
+					margin-top: 3.5rem;
+					img {
+						width: 35px;
+						height: 35px;
+					}
+				}
 			}
-		}
-	}
-	.thousandWorkers {
-		width: 55%;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
+			.thousandWorkers {
+				width: 55%;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				h2 {
+					font-family: "Montserrat";
+					font-style: italic;
+					font-weight: 700;
+					font-size: 45px;
+					line-height: 61px;
+					color: #323232;
+					margin-left: 3rem;
+					margin-top: 4rem;
+				}
 
-		h2 {
-			font-family: "Montserrat";
-			font-style: italic;
-			font-weight: 700;
-			font-size: 40px;
-			line-height: 61px;
-			color: #323232;
-			margin-left: 3rem;
-			margin-top: 10rem;
-		}
+				p {
+					font-family: "Montserrat";
+					font-weight: 400;
+					font-size: 25px;
+					line-height: 33px;
+					letter-spacing: 0.01em;
+					color: #323232;
+					margin-left: 3rem;
+				}
 
-		p {
-			font-family: "Montserrat";
-			font-weight: 400;
-			font-size: 20px;
-			line-height: 33px;
-			letter-spacing: 0.01em;
-			color: #323232;
-			margin-left: 3rem;
-		}
-
-		button {
-			width: 40%;
-			height: 50px;
-			color: white;
-			font-family: "Montserrat";
-			font-weight: 400;
-			font-size: 20px;
-			line-height: 20px;
-			border: none;
-			background-color: #1d71b8;
-			border-radius: 8px;
-			padding: 0;
+				button {
+					width: 50%;
+					height: 50px;
+					color: white;
+					font-family: "Montserrat";
+					font-weight: 400;
+					font-size: 20px;
+					line-height: 20px;
+					border: none;
+					background-color: #1d71b8;
+					border-radius: 8px;
+					padding: 0;
+				}
+			}
 		}
 	}
 }

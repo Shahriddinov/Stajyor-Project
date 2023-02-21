@@ -149,9 +149,3 @@ function TalantsDesc(props) {
 }
 
 export default TalantsDesc;
-
-// {<p className={classes.descContent}>{item.description.substring(0,100)}</p>}
-// 							{isActive && <p className={classes.descContent}>{item.description}</p>}
-// 							<span className={classes.faChevronDown} onClick={() => setIsActive(!isActive)}>
-// 								{isActive ? <FaChevronUp /> : <FaChevronDown />}
-// 							</span>

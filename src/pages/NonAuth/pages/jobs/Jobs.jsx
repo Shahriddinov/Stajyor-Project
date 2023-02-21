@@ -4,9 +4,11 @@ import classes from "./Jobs.module.scss";
 import JobsDesc from "./JobsDesc";
 function Jobs(props) {
 	return (
-		<div className={classes.jobsContainer}>
-			<JobsDesc />
-			<LoginDesc />
+		<div className={classes.jobs}>
+			<div className={classes.jobs__container}>
+				<JobsDesc />
+				<LoginDesc />
+			</div>
 		</div>
 	);
 }

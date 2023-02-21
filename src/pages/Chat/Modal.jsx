@@ -86,7 +86,7 @@ function ChatModal({ setIsOpen }) {
 									</button>
 								</form>
 							</div>
-							
+
 							<div className={classes.modalChatUsersList}>
 								{filteredTalants.map((user, index) => (
 									<div className={classes.userBlock} key={index} id={index}>

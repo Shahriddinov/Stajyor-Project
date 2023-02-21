@@ -18,6 +18,8 @@ import { useEffect } from "react";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import ChatForCompany from "pages/Chat/ChatForCompany";
+import ChatModal from "pages/Chat/Modal";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
@@ -32,12 +34,14 @@ function App() {
 	const pathName = window.location.pathname;
 
 	return (
-		<div className="App" style={{ height: "100vh" }}>
+		<div className="App">
 			{!auth ? (
 				<Routes>
+					{/* <Route path={`/${len}/`} element={<ChatForCompany />} /> */}
 					<Route path={`/${len}/`} element={<PageBackground />} />
 					<Route path={`/${len}/login`} element={<Login />} />
 					<Route path={`/${len}/sign-up`} element={<Signup />} />
+
 					<Route path="*" element={<Navigate to={`/${len}/`} />} />
 				</Routes>
 			) : !resume ? (

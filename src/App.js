@@ -1,9 +1,9 @@
-import React, { useLayoutEffect } from "react";
+import React, {useLayoutEffect} from "react";
 import { useSelector } from "react-redux";
 import { Route, Routes, Navigate,useNavigate,useLocation} from "react-router-dom";
 import Home from "pages/Home";
 import Aboutus from "pages/NonAuth/Aboutus";
-import Talants from "pages/talants/Talants";
+import Talants from "pages/NonAuth/pages/talants/Talants";
 import Jobs from "pages/NonAuth/pages/jobs/Jobs";
 import Signup from "pages/Sign/Signup/Signup";
 import Login from "pages/Sign/Login/Login";
@@ -29,8 +29,6 @@ function App() {
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)
 	},[len])
-
-
 
 	const pathName = window.location.pathname;
 

@@ -9,6 +9,7 @@ import { useRef } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 
+
 function Yourself() {
 	const dispatch = useDispatch();
 	const positionList = useSelector(state => state.resume.positionList);
@@ -97,7 +98,7 @@ function Yourself() {
 						placeholder="Skills*"
 						onChange={e => setUserChoice2(Array.isArray(e) ? e.map(x => x.value) : [])}
 					/> */}
-					<MultiSelect  
+					<MultiSelect 
 					required
 
 					style={{'margin-top':'8px', 'margin-bottom':'20px'}}
@@ -115,7 +116,7 @@ function Yourself() {
 					{/* <br /> */}
 					<label className="yourselfCard_label" >Hobbies*</label>
 					<br />
-					<MultiSelect  
+					<MultiSelect 
 					required
 					style={{'margin-top':'8px', 'margin-bottom':'20px'}}
                       data={hobbiesorg}

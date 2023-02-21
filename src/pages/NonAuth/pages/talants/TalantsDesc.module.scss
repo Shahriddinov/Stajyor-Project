@@ -1,68 +1,85 @@
 .talantsDesc {
-	width: 60%;
-	height: 100%;
+	box-sizing: border-box;
+	width: 890px;
 
-	overflow: hidden;
 
-	.talantsSearch {
-		width: 100%;
-		height: 50px;
-		margin-top: 20px;
-		border-radius: 12px;
+	.talantsCard {
+		// margin: 40px 30px 0 40px;
+		// width: 100%;
+		// height: auto;
+		// position: relative;
 
-		.talantsSearchForm {
-			width: 100%;
-			height: 45px;
-			font-size: 18px;
-			display: flex;
-			position: relative;
+		.talantsSearch {
+			// width: 100%;
+			// min-height: 54px;
+			// border-radius: 12px;
 
-			input {
-				background: transparent;
-				border: 1px solid #1d71b8;
-				border-radius: 8px;
-				padding-left: 18px;
-				width: 100%;
-			}
+			.talantsSearchForm {
+				max-width: 100%;
+				border-radius: 12px;
+				min-height: 54px;
+				font-size: 18px;
+				display: flex;
+				position: relative;
 
-			button {
-				position: absolute;
-				right: 0;
-				border: none;
-				background-color: #1d71b8;
-				border-radius: 8px;
-				padding: 14px 28px 18px 25px;
-				margin-left: -8px;
-				height: 45px;
-				img {
-					margin-bottom: -5px;
+				input {
+					background: transparent;
+					border: 1px solid #1d71b8;
+					border-radius: 8px;
+					padding-left: 18px;
+					width: 100%;
+				}
+
+				button {
+					position: absolute;
+					right: 0;
+					border: none;
+					background-color: #1d71b8;
+					border-radius: 8px;
+					width: 90px;
+					display: inline-block;
+					min-height: 54px;
+
+					// padding: 14px 28px 18px 25px;
+					// margin-left: -8px;
+					img {
+						// s
+					}
 				}
 			}
 		}
-	}
-	.talantsCard {
-		width: 100%;
-		height: auto;
-		position: relative;
+
+		.talantsDescCard {
+			margin-top: 22px;
+			height: 522px;
+			overflow-y: scroll;
+			display: grid;
+			gap: 10px;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
 
 		.talantsDescItem {
 			width: 100%;
-			height: auto;
+			height: 272px;
 			background: #ffffff;
 			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 			border-radius: 12px;
-			margin: 1rem auto;
+			padding: 10px 20px 20px 20px;
+			box-sizing: border-box;
 
 			.talantsLine {
-				height: 50px;
+				min-height: 54px;
 				opacity: 0.5;
 				border-left: 1px solid #cdcdcd;
 			}
+
 			.talantsDescItemHeader {
 				width: 100%;
-				height: 8vh;
+				height: 94px;
 				display: flex;
-				padding-top: 0.25rem;
 				align-items: center;
 				justify-content: space-between;
 
@@ -75,11 +92,12 @@
 					text-align: center;
 					color: #323232;
 				}
+
 				span {
 					font-family: "Montserrat", sans-serif;
 					font-style: normal;
 					font-weight: 500;
-					font-size: 11px;
+					font-size: 18px;
 					line-height: 20px;
 					text-align: center;
 					color: #808080;
@@ -88,49 +106,73 @@
 				.imgName {
 					position: relative;
 					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					padding: 0px 0.2rem;
-					margin-left: 10px;
+					gap: 15px;
+
+					// align-items: center;
+					// justify-content: space-between;
+					// padding: 0px 0.2rem;
 					.namePro {
-						font-size: 14px;
+						font-size: 23px;
 						margin-left: 0.5rem;
 					}
 				}
+
 				.liked {
 					cursor: pointer;
-					width: 30px;
-					height: 30px;
+					width: 40px;
+					height: 40px;
 					border-radius: 50%;
 					background: #fff;
 					box-shadow: 0px 0px 10px rgba(29, 113, 184, 0.5);
 					display: flex;
 					align-items: center;
-					margin-right: 1rem;
-					margin-top: -15px;
+					justify-content: center;
+					// margin-right: 1rem;
+					// margin-top: -15px;
+					align-self: flex-start;
+					justify-self: flex-end;
 
 					.bsheart {
 						cursor: pointer;
 						width: 20px;
-						height: 20px;
+						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						margin-top: 0.2rem;
-						margin-left: 0.3rem;
+						// margin-top: 0.2rem;
+						// margin-left: 0.3rem;
+						stroke: solid;
 					}
+
 					.bsheartfill {
 						cursor: pointer;
 						width: 20px;
-						height: 20px;
+						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						margin-top: 0.2rem;
-						margin-left: 0.3rem;
+						// margin-top: 0.2rem;
+						// margin-left: 0.3rem;
+						stroke: solid;
 					}
 				}
+
 				.jobSuccess {
+					&>p {
+						font-size: 20px;
+						line-height: 24px;
+					}
+
+					&>span {
+						font-size: 16px;
+						line-height: 20px;
+						display: inline-block;
+						margin-top: 4px;
+					}
+
 					.blueLine {
+						margin-top: 3px;
+						margin-bottom: 4px;
 						position: relative;
+
 						.blueLine1 {
 							position: absolute;
 							top: -1px;
@@ -139,6 +181,7 @@
 							background: #cdcdcd;
 							border-radius: 5px;
 						}
+
 						.blueLine2 {
 							position: absolute;
 							top: -1px;
@@ -150,82 +193,137 @@
 						}
 					}
 				}
+
+				.hourRate {
+					&>p {
+						font-size: 23px;
+						line-height: 28px;
+					}
+
+					&>span {
+						font-size: 16px;
+						line-height: 20px;
+						display: inline-block;
+						margin-top: 6px;
+					}
+				}
+
+				.completedJobs {
+
+					&>p {
+						font-size: 23px;
+						line-height: 28px;
+					}
+
+					&>span {
+						font-size: 16px;
+						line-height: 20px;
+						display: inline-block;
+						margin-top: 6px;
+					}
+
+				}
+
+
+
+
 			}
+
 			.blockLine {
-				width: 96%;
+				width: 100%;
 				margin: 5px 0px 0px 10px;
 				opacity: 0.5;
 				border-bottom: 2px solid #cdcdcd;
+				margin: auto;
 			}
 
 			/*---------------Description----------*/
 			.description {
 				width: 100%;
-				height: auto;
-				min-height: 5vh;
+				min-height: 44px;
 				display: flex;
-				align-items: center;
+				gap: 10px;
 				z-index: 10;
-				font-size: 14px;
-				padding: 0.5rem 0 0.5rem 0;
+				margin: 10px 10px 10px 10px;
 				cursor: pointer;
-				justify-content: space-between;
 
 				.descContent {
-					width: 95%;
-					height: 95%;
-					display: flex;
-					align-items: center;
-					padding-left: 1rem;
+					height: 44px;
+					overflow: hidden;
+					font-size: 18px;
+					line-height: 22px;
+					max-width: 800px;
+					font-weight: 400;
+					// width: 95%;
+					// height: 95%;
+					// display: flex;
+					// align-items: center;
+					// padding-left: 1rem;
 					scroll-behavior: auto;
 				}
+
 				.faChevronDown {
-					width: 5%;
-					height: 100%;
-					display: flex;
-					align-items: center;
-					padding-left: 1rem;
+					width: 11px;
+					height: 20px;
+					display: inline-block;
+					align-self: center;
+
+					// width: 5%;
+					// height: 100%;
+					// display: flex;
+					// align-items: center;
+					// padding-left: 1rem;
 					cursor: pointer;
 				}
 			}
 
 			/*---------------Description END----------*/
 			.skills {
-				width: 100%;
-				height: 48px;
+				// width: 100%;
+				height: 34px;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				margin-top: 20px;
+
 				p {
-					width: 70%;
-					height: 100%;
+					// width: 70%;
+					// height: 100%;
 					display: flex;
-					align-items: center;
+					gap: 10px;
+					padding: 6px 10px;
+					// align-items: center;
 
 					span {
 						margin: 10px;
 						cursor: pointer;
-						display: flex;
-						justify-content: center;
-						align-items: center;
+						// display: flex;
+						// justify-content: center;
+						// align-items: center;
 						padding: 4px 8px;
-						gap: 6px;
+						// gap: 6px;
 						background: #fff;
 						box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
 						border-radius: 6px;
 						font-family: "Montserrat", sans-serif;
 						font-weight: 500;
-						font-size: 12px;
+						font-size: 18px;
 						line-height: 22px;
 						color: #1d71b8;
 					}
 				}
+
 				.selectLevel {
-					width: 20%;
-					height: 100%;
-					display: flex;
-					align-items: center;
-					justify-content: space-around;
+					// width: 20%;
+					// height: 100%;
+					// display: flex;
+					// align-items: center;
+					// justify-content: space-around;
+
+					&>label {
+						font-size: 18px;
+						line-height: 22px;
+					}
 
 					select {
 						border: none;
@@ -234,48 +332,65 @@
 						font-weight: 600;
 						line-height: 24px;
 						padding: 0px 5px 0px 0px;
-						margin-right: 0.8rem;
+						margin-right: 10px;
+						// margin-right: 0.8rem;
 						font-family: "Motserrat", sans-serif;
+						font-size: 18px;
+						line-height: 22px;
 					}
 				}
 			}
+
 			.expLocation {
-				width: 100%;
-				height: 30px;
+				// width: 100%;
+				height: 20px;
+
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				margin-top: 20px;
+				margin-left: 20px;
 
 				.exp {
-					width: 50%;
-					height: 100%;
+					// width: 50%;
+					// height: 100%;
 					display: flex;
 					align-items: center;
-					padding-left: 10px;
+					// padding-left: 10px;
 					font-family: "Montserrat", sans-serif;
 					font-weight: 400;
-					font-size: 12px;
+					font-size: 16px;
 					color: #808080;
 					line-height: 20px;
+
 					span {
 						font-family: "Montserrat", sans-serif;
 						font-weight: 400;
-						font-size: 12px;
+						font-size: 16px;
 						color: #1d71b8;
 						line-height: 20px;
 					}
 				}
+
 				.location {
-					width: 22%;
-					height: 100%;
+					// width: 22%;
+					// height: 100%;
 					display: flex;
 					align-items: center;
 					margin-right: 1.5rem;
-					font-size: 12px;
+					font-size: 16px;
 					gap: 0.5rem;
 					justify-content: flex-end;
+					line-height: 20px;
+					color: #808080;
 				}
 			}
 		}
+	}
+}
+
+@media screen and (max-height: 824px) {
+	.talantsDescCard {
+		height: 422px !important;
 	}
 }

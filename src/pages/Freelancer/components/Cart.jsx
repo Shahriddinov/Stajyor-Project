@@ -8,8 +8,10 @@ import { ReactComponent as Heart} from '../../../assets/images/Freelancer/hheart
 import Colasible from './Colasible';
 import { useContext } from 'react';
 import Context from 'components/Context/Context';
+import {useLocation } from "react-router-dom";
 
 const Cart = () => {
+    const {pathname} = useLocation()
 
     // const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
 
@@ -44,22 +46,31 @@ const Cart = () => {
                         <p className="freelancer_cart_list_item_info"> Job Success </p>
                     </div>
                 </li>
+
                 <li className="freelancer_cart_list_item ">
                     <div>
                         <h4 className='freelancer_cart_list_item_title' > 5$ </h4>
                         <p className="freelancer_cart_list_item_info"> Hourly </p>
                     </div>
                 </li>
+
                 <li className="freelancer_cart_list_item ">
                     <div>
                         <h4 className='freelancer_cart_list_item_title' > 324 </h4>
                         <p className="freelancer_cart_list_item_info"> Completed jobs </p>
                     </div>
                 </li>
-
             </ul>
-                <div  className='freelancer_cart_list_wrapper' > <Heart className={`${ '' }`}   /> </div>
+            {
+                (pathname.slice(4) === "jobs") 
+                &&
+                <div  className='freelancer_cart_list_wrapper' >
+                    <Heart className={`${ '' }`}   /> 
+                </div>
+            }
+
             <Colasible  text={'qwertyuioplkjhgfdsazxcvbnm'} />
+
             <div className="freelancer_cart_skill">
                 <div className="freelancer_cart_skill_skills">
                     <h4>Figma</h4>
@@ -70,7 +81,6 @@ const Cart = () => {
                 <div className="freelancer_cart_skill_level">
                     <p>Level: <span>Middle</span> </p>
                 </div>
-
             </div>
 
             <div  className="freelancer_cart_location">

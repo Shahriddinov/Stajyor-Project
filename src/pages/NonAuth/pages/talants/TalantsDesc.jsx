@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import searchIcon from "../../../../assets/images/searchIcon.png";
-// import heartLiked from "../../../../assets/images/heartLiked.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
@@ -127,9 +126,9 @@ function TalantsDesc(props) {
 								<div className={classes.selectLevel}>
 									<label htmlFor="level">Level:</label>
 									<select name="levels" id="levels">
-										<option value="junior">Junior</option>
-										<option value="middle">Middle</option>
-										<option value="senior">Senior</option>
+										<option className={classes.options} value="junior">Junior</option>
+										<option className={classes.options} value="middle">Middle</option>
+										<option className={classes.options} value="senior">Senior</option>
 									</select>
 								</div>
 							</div>

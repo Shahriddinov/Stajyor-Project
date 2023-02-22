@@ -1,6 +1,6 @@
 .jobsDesc {
 	width: 100%;
-	max-width: 890px;
+	min-width: 750px;
 	height: 100%;
 	overflow: hidden;
 
@@ -42,6 +42,7 @@
 	}
 
 	.jobsCard {
+		padding: 0 3px;
 		margin-top: 20px;
 		width: 100%;
 		height: 524px;
@@ -49,6 +50,7 @@
 		display: grid;
 		gap: 10px;
 		overflow-y: scroll;
+		border-radius: 12px;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -77,42 +79,47 @@
 
 				.title {
 					font-family: "Montserrat", sans-serif;
-					font-size: 16px;
+					font-size: 25px;
 					font-weight: 600;
-					line-height: 25px;
+					line-height: 30px;
 					color: #1d71b8;
 				}
 
 				.paymentPerHour {
 					font-family: "Montserrat", sans-serif;
-					font-size: 12px;
+					font-size: 23px;
 					font-weight: 600;
-					line-height: 20px;
+					line-height: 28px;
 					color: #323232;
 				}
 
 				.duration {
 					font-family: "Montserrat", sans-serif;
-					font-size: 12px;
+					font-size: 23px;
 					font-weight: 600;
-					line-height: 20px;
+					line-height: 28px;
 					color: #323232;
 				}
 
 				.selectLevel {
-					font-size: 12px;
+
+					label {
+						font-weight: 500;
+						font-size: 16px;
+						line-height: 20px;
+						color: #808080;
+					}
 
 					select {
 						border: none;
 						outline: none;
-						font-size: 12px;
+						font-weight: 500;
+						font-size: 16px;
+						line-height: 20px;
+						color: #808080;
 
 						option {
 							font-family: "Montserrat", sans-serif;
-
-							font-weight: 500;
-							line-height: 20px;
-							color: #808080;
 						}
 					}
 				}
@@ -208,11 +215,17 @@
 
 			/*----------------------------cardItemBottom-----------------------*/
 			.cardItemBottom {
-				margin-top: 10px;
+				margin-top: 15px;
 				width: 100%;
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+
+				&>div:not(:first-child) {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
 
 				.bottomVerLine {
 					width: 0px;
@@ -221,20 +234,28 @@
 					border: 1px solid #cdcdcd;
 				}
 
+				.compNamecheckImg>p {
+					font-weight: 600;
+					font-size: 18px;
+					line-height: 22px;
+					color: #323232;
+
+				}
+
 				p {
 					font-family: "Montserrat", sans-serif;
 					font-weight: 600;
-					font-size: 12px;
-					line-height: 20px;
+					font-size: 20px;
+					line-height: 24px;
 					color: #323232;
 				}
 
 				span {
+					margin-top: 4px;
 					font-family: "Montserrat", sans-serif;
 					font-weight: 500;
-					font-size: 12px;
+					font-size: 16px;
 					line-height: 20px;
-					text-align: center;
 					color: #808080;
 				}
 

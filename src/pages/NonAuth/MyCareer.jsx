@@ -8,7 +8,7 @@ import apple from "../../assets/images/apple.png";
 function MyCareer() {
 	return (
 		<div className={classes.careerBox}>
-			<div className={classes.careerBoxContainer}>
+			<div className="container">
 				<div className={classes.career}>
 					{" "}
 					<img src={career} alt="My career" />

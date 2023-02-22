@@ -1,115 +1,165 @@
-.contactus{ 
-    position: absolute; 
-    width: 1520px; 
-    height: 636px; 
-    left: 220px; 
-    top: 214px; 
-    z-index: 7; 
-    background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF; 
-    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 12px; 
-    h1{ 
-        font-family: 'Montserrat'; 
-        font-style: normal; 
-        font-weight: 700; 
-        font-size: 30px; 
-        line-height: 37px; 
-        color: #323232; 
-    } 
-} 
-.telegramContact{ 
-        display: flex; 
-        flex-direction: row; 
-        justify-content: center; 
-        align-items: center; 
-        padding: 30px 135px; 
-        gap: 20px; 
-        position: absolute; 
-        width: 330px; 
-        height: 40px; 
-        left: calc(50% - 312px - 418px); 
-        top: calc(50% - 162px - 65px);     
-        background: #FFFFFF; 
-        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1); 
-        border-radius: 8px; 
-        &:hover { 
-            cursor: pointer; 
-            transform: scale(1.08); 
-            transition: 0.3s; 
-        } 
-} 
-.whatsappContact{ 
-    display: flex; 
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 30px 135px; 
-    gap: 20px; 
-    position: absolute; 
-    width: 330px; 
-    height: 40px; 
-    left: calc(50% - 310px - 420px); 
-    top: calc(50% - 163px + 65px);    
-    background: #FFFFFF; 
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1); 
-    border-radius: 8px; 
-    &:hover { 
-        cursor: pointer; 
-        transform: scale(1.08); 
-        transition: 0.3s; 
-    } 
-} 
-.contactUs{ 
-    display: block; 
-    position: absolute; 
-    padding: 50px; 
-    width: 690px; 
-    height: 520px; 
-    left: 975px; 
-    top: 230px; 
-    background: #FFFFFF; 
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1); 
-    border-radius: 12px; 
-    z-index: 9; 
-    input{ 
-        font-size: 23px; 
-        padding-left:10px; 
-        width:683px; 
-        height:50px; 
-        background: #FFFFFF; 
-        border: 1px solid #CDCDCD; 
-        border-radius: 8px; 
-        margin-top:20px; 
-    } 
-    .textMessage { 
-        padding-bottom: 70px; 
-    } 
-    p{ 
-        font-family: 'Montserrat'; 
-        font-style: normal; 
-        font-weight: 500; 
-        font-size: 17px; 
-        line-height: 21px; 
-        color: #808080; 
-    } 
-    button{  
-        cursor: pointer; 
-        margin: 20px 595px;  
-        width: 92px;  
-        height: 44px;  
-        border: 1px solid #1D71B8;  
-        background: #FFFFFF;  
-        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);  
-        border-radius: 8px;  
-        font-family: 'Montserrat', sans-serif; 
-        font-size: 20px; 
-        line-height: 24px; 
-        color: #323232; 
-        font-weight: 500; 
-    }  
-    & button:hover{  
-        background-color: #1D71B8;  
-        color: #fff; 
-    }  
-     
+.contact {
+	width: 80%;
+	margin: 0 auto;
+	z-index: 10;
+
+	&__container {
+		width: 100%;
+		max-width: 1450px;
+		margin: 0 auto;
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 20px;
+	}
+	.mainContacts {
+		display: flex;
+		flex-direction: column;
+		row-gap: 33px;
+		width: 100%;
+		max-width: 560px;
+
+		.telegramContact,
+		.whatsappContact {
+			width: 100%;
+			padding: 31.5px 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 10px;
+			background-color: #ffffff;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+
+			&__title {
+				font-weight: 700;
+				font-size: 30px;
+				line-height: 37px;
+				color: #323232;
+			}
+
+			&:hover {
+				cursor: pointer;
+				transform: scale(1.08);
+				transition: 0.3s;
+			}
+		}
+	}
+
+	.contactUs {
+		width: 100%;
+		max-width: 690px;
+		padding: 50px;
+		background-color: #ffffff;
+		box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+		border-radius: 12px;
+
+		&__title {
+			margin-bottom: 10px;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 37px;
+			color: #323232;
+		}
+
+		&__desc {
+			margin-bottom: 30px;
+			font-weight: 500;
+			font-size: 17px;
+			line-height: 21px;
+			color: #808080;
+		}
+
+		input,
+		textarea {
+			display: block;
+			width: 95%;
+			margin-bottom: 20px;
+			padding: 15px 20px;
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 24px;
+			color: #808080;
+			background: #ffffff;
+			border: 1px solid #cdcdcd;
+			border-radius: 8px;
+		}
+
+		.textMessage {
+			min-height: 126px;
+			margin-bottom: 30px;
+		}
+
+		button {
+			display: block;
+			width: 92px;
+			height: 44px;
+			margin-left: auto;
+			border: 1px solid #1d71b8;
+			background: #ffffff;
+			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
+			border-radius: 8px;
+			font-family: "Montserrat", sans-serif;
+			font-size: 20px;
+			line-height: 24px;
+			color: #323232;
+			font-weight: 500;
+			cursor: pointer;
+			transition: all 0.3s linear;
+		}
+		& button:hover {
+			background-color: #1d71b8;
+			color: #fff;
+		}
+	}
+}
+
+@media only screen and (max-width: 1750px) {
+	.contact {
+		padding: 25px 0;
+
+		.mainContacts {
+			.telegramContact,
+			.whatsappContact {
+				width: 100%;
+				padding: 25px 0;
+
+				&__title {
+					font-weight: 700;
+					font-size: 18px;
+					line-height: 19px;
+					color: #323232;
+				}
+			}
+		}
+
+		.contactUs {
+			padding: 25px;
+
+			&__title {
+				margin-bottom: 5px;
+			}
+
+			&__desc {
+				margin-bottom: 15px;
+				font-size: 17px;
+			}
+
+			input,
+			textarea {
+				margin-bottom: 15px;
+				padding: 10px 15px;
+				font-size: 17px;
+			}
+
+			.textMessage {
+				padding-top: 10px;
+				min-height: 60px;
+				margin-bottom: 20px;
+			}
+		}
+	}
 }

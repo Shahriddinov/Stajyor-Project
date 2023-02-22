@@ -84,15 +84,17 @@ function Language() {
 					</div>
 				))}
 
-				<div
+				<div style={{'cursor':'pointer'}}
 					className={classes.addLanguage}
 					onClick={() => {
 						setTheArray(oldArray => [...theArray, { test: "test", test2: "test2", id: Math.random() }]);
 					}}>
 					+ Add Language
 				</div>
-				<button className={classes.backButton}>Back</button>
-				<button className={classes.nextButton}>Next</button>
+				<div className={classes.languageCard_btn}>
+					<button className={classes.backButton}>Back</button>
+					<button className={classes.nextButton}>Next</button>
+				</div>
 			</form>
 		</div>
 	);

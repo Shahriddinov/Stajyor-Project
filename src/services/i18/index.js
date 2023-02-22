@@ -8,13 +8,12 @@ const i18 = i18n
             use(LanguageDetector)
             .init({
                 detection:{
-                  order: ['localStorage', 'htmlTag','path', 'cookie', 'navigator', 'subdomain'],
-                  caches: ["cookie"]
+                  order: ['localStorage','path', 'cookie', 'navigator', 'subdomain'],
                 },
                 resources,
-                fallbackLng: "uz",
+                fallbackLng: localStorage.getItem("lenguage") ? localStorage.getItem("lenguage") : "en",
                 interpolation: {
-                    escapeValue: false
+                  escapeValue: false
                 },
 
             })

@@ -59,10 +59,24 @@
 
 .nextButton {
 	border: 1px solid #1d71b8 !important;
+
+	&:hover {
+		background-color: #1d71b8;
+		cursor: pointer;
+		color: #ffffff;
+		transition: 0.3s;
+	}
 }
 
 .backButton {
-	margin-left: 32rem;
+	// margin-left: 32rem;
+	border: 1px solid white;
+	&:hover {
+		cursor: pointer;
+		border: 1px solid #1d71b8 !important;
+		transition: 0.3s;
+
+	}
 }
 
 .socialContainers {

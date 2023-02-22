@@ -28,7 +28,7 @@ function SocialMedia() {
 		{ icon: whatsUppIcon, name: "WatsApp" },
 		{ icon: facebookIcon, name: "Facebook" },
 		{ icon: instagramIcon, name: "Instagram" },
-		{ icon: whatsUppIcon, name: "Telegram" },
+		{ icon: telgramIcon, name: "Telegram" },
 		{ icon: githubIcon, name: "GitHub" },
 		{ icon: twitterIcon, name: "Twitter" }
 	]);
@@ -105,14 +105,16 @@ function SocialMedia() {
 				<p>Choose in which of these social networks you have an account</p>
 				<div className={classes.socialContainers}>
 					{socials.map(item => (
-						<div key={item.name} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
-							<img src={item.icon} alt={item.name} />
+						<div key={item.name} style={{'cursor':'pointer'}} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
+							<img  style={{'width':'40px'}} src={item.icon} alt={item.name} />
 							<h4>{item.name}</h4>
 						</div>
 					))}
 				</div>
-				<button className={classes.backButton}>Back</button>
+				<div style={{'display':'flex', 'width':'100%', 'align-items':'center', 'justify-content':'flex-end', 'gap':'20px'}}>
+					<button className={classes.backButton}>Back</button>
 				<button className={classes.nextButton}>Next</button>
+				</div>
 			</form>
 		</div>
 	);

@@ -31,6 +31,7 @@ function Aboutus(props) {
 						<br />
 						Eu hendrerit tellus at felis, mi, imperdiet. Porta risus odio tortor, etiam. Eu hendrerit tellus at felis, mi, imperdiet. Porta risus
 						odio tortor, etiam.
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto, nemo culpa dolorum fugiat consequuntur id quibusdam minima, dolorem asperiores maiores aspernatur consequatur nulla quia accusantium! Ut unde ad minus obcaecati saepe dolore hic, consectetur adipisci tempore? Odit explicabo recusandae est repudiandae tenetur vero mollitia aspernatur nostrum vel error. Hic amet nulla ratione exercitationem laborum excepturi ut, saepe, vero consequuntur tempore quis, non eveniet. Nobis id provident nam placeat quidem quibusdam autem tempore ex asperiores dolore sequi odit, quo nulla maxime voluptate quaerat nostrum deserunt. In iure cum laborum, molestias nihil excepturi architecto sint est fugiat dicta iste veritatis officia numquam?
 					</p>
 				</div>
 			</div>

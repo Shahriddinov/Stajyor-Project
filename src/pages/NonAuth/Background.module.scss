@@ -1,18 +1,17 @@
 .background {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	position: relative;
 	z-index: 0;
 	background-image: url("../../assets//images/home-header-bg.png");
 	background-repeat: no-repeat;
-	background-position: calc(50% - 620px) -300px;
+	background-position: calc(50% - 620px) -400px;
 	overflow: hidden;
 	margin: 0 auto;
 
 	.background__container {
 		width: 100%;
-		height: 100vh;
-		// min-height: 750px;
+		height: 100%;
 		margin: 0 auto;
 		overflow: hidden;
 		z-index: 10;

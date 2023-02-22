@@ -17,14 +17,12 @@ import Contactus from "pages/NonAuth/Contactus";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
-import ChatModal from "pages/Chat/Modal";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
 	const len = useSelector(state => state.lenguage.lenguage);
 	const resume = useSelector(state => state.login.resume);
 	const navigate = useNavigate();
-	const {pathname} = useLocation()
 
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)

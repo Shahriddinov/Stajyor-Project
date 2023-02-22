@@ -4,15 +4,18 @@
 	// box-sizing: border-box;
 	// display: flex;
 	// justify-content: center;
-	max-width: 1410px;
+	width: 90%;
 	height: 636px;
-	margin: 80px auto 0 auto;
+	margin: 30px auto 0;
 	overflow: hidden;
 
-	
-	
+
+
 	.talants__container {
 		// margin: 80px 255px 90px 255px;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 1450px;
 		padding: 40px 30px 0 40px;
 		height: 636px;
 		overflow: hidden;
@@ -27,5 +30,17 @@
 		// align-items: center;
 		// justify-content: space-around;
 		// margin: 0 auto;
+	}
+}
+
+@media only screen and (max-height: 816px) {
+	.talants {
+		margin: 0 auto;
+	}
+
+	.talants__container {
+		margin: 0 auto;
+		padding: 30px 20px 0 30px !important;
+		height: 536px !important;
 	}
 }

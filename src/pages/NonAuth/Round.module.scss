@@ -1,6 +1,8 @@
 .outerBox {
 	position: absolute;
 	z-index: -10;
+	transform: scale(1);
+	transition: 1s;
 }
 
 .roundOne {
@@ -157,5 +159,11 @@
 		-ms-transform: rotate(-360deg);
 		-o-transform: rotate(-360deg);
 		transform: rotate(-360deg);
+	}
+}
+
+@media screen and (max-width: 1424px) {
+	.outerBox {
+		transform: scale(0.9);
 	}
 }

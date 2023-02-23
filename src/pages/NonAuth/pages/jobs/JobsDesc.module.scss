@@ -1,12 +1,10 @@
 .jobsDesc {
 	width: 100%;
 	min-width: 750px;
-	height: 100%;
-	overflow: hidden;
 
 	.jobsSearch {
 		width: 100%;
-		height: 56px;
+		height: 54px;
 		border-radius: 12px;
 
 		.jobsSearchForm {
@@ -26,13 +24,13 @@
 
 			button {
 				position: absolute;
+				width: 90px;
 				right: 0;
 				border: none;
 				background-color: #1d71b8;
 				border-radius: 8px;
-				padding: 14px 28px 18px 22px;
-				margin-left: -8px;
-				height: 100%;
+				display: inline-block;
+				min-height: 54px;
 
 				img {
 					margin-bottom: -5px;
@@ -45,12 +43,11 @@
 		padding: 0 3px;
 		margin-top: 20px;
 		width: 100%;
-		height: 524px;
+		height: 522px;
 		position: relative;
 		display: grid;
 		gap: 10px;
 		overflow-y: scroll;
-		border-radius: 12px;
 
 		&::-webkit-scrollbar {
 			display: none;
@@ -58,7 +55,7 @@
 
 		.jobsCardItem {
 			width: 100%;
-			height: 272px;
+			height: auto;
 			padding: 15px 20px 20px 30px;
 			background: #ffffff;
 			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
@@ -78,7 +75,6 @@
 				}
 
 				.title {
-					font-family: "Montserrat", sans-serif;
 					font-size: 25px;
 					font-weight: 600;
 					line-height: 30px;
@@ -86,7 +82,6 @@
 				}
 
 				.paymentPerHour {
-					font-family: "Montserrat", sans-serif;
 					font-size: 23px;
 					font-weight: 600;
 					line-height: 28px;
@@ -94,7 +89,6 @@
 				}
 
 				.duration {
-					font-family: "Montserrat", sans-serif;
 					font-size: 23px;
 					font-weight: 600;
 					line-height: 28px;
@@ -113,7 +107,7 @@
 					select {
 						border: none;
 						outline: none;
-						font-weight: 500;
+						font-weight: 600;
 						font-size: 16px;
 						line-height: 20px;
 						color: #808080;
@@ -126,23 +120,24 @@
 
 				.liked {
 					cursor: pointer;
-					width: 30px;
-					height: 30px;
+					width: 40px;
+					height: 40px;
 					border-radius: 50%;
 					background: #fff;
 					box-shadow: 0px 0px 10px rgba(29, 113, 184, 0.5);
 					display: flex;
 					align-items: center;
-					margin-bottom: 5px;
+					justify-content: center;
+					justify-self: flex-end;
+
 
 					.bsheart {
 						cursor: pointer;
 						width: 20px;
-						height: 20px;
+						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						margin-top: 0.2rem;
-						margin-left: 0.3rem;
+						stroke: solid;
 					}
 
 					.bsheartfill {
@@ -166,30 +161,33 @@
 
 			/*---------------Description----------*/
 			.description {
+				position: relative;
 				width: 100%;
-				height: auto;
+				min-height: 44px;
 				display: flex;
-				align-items: center;
 				gap: 10px;
+				z-index: 10;
+				margin: 10px;
 				cursor: pointer;
 
 				.descContent {
-					width: 100%;
-					height: 100%;
-					display: flex;
-					font-weight: 400;
+					height: 44px;
+					overflow: hidden;
 					font-size: 18px;
 					line-height: 22px;
-					align-items: center;
+					max-width: 800px;
+					font-weight: 400;
+					padding-right: 30px;
 					scroll-behavior: auto;
 				}
 
 				.faChevronDown {
-					width: 5%;
-					height: 100%;
-					display: flex;
-					align-items: center;
-					padding-left: 1rem;
+					position: absolute;
+					top: 50%;
+					right: 20px;
+					transform: translateY(-50%);
+					width: 11px;
+					height: 20px;
 					cursor: pointer;
 				}
 			}
@@ -201,15 +199,17 @@
 				gap: 15px;
 
 				&>p {
-					padding-right: 15px;
 					font-weight: 400;
 					font-size: 16px;
 					line-height: 20px;
 					color: #808080;
+				}
 
-					&:not(:last-child) {
-						border-right: 1px solid #808080;
-					}
+				&-border {
+					height: 14px;
+					width: 1px;
+					opacity: 0.8;
+					background-color: #808080;
 				}
 			}
 
@@ -243,7 +243,6 @@
 				}
 
 				p {
-					font-family: "Montserrat", sans-serif;
 					font-weight: 600;
 					font-size: 20px;
 					line-height: 24px;
@@ -252,7 +251,6 @@
 
 				span {
 					margin-top: 4px;
-					font-family: "Montserrat", sans-serif;
 					font-weight: 500;
 					font-size: 16px;
 					line-height: 20px;
@@ -280,10 +278,8 @@
 				}
 
 				.postedDay {
-					width: 18%;
 					height: 100%;
 					display: flex;
-					margin-right: 1rem;
 
 					span {
 						display: flex;
@@ -303,8 +299,151 @@
 	}
 }
 
-@media screen and (max-height: 816px) {
-	.jobsCard {
-		height: 424px !important;
+
+@media only screen and (max-width: 1356px) {
+	.jobsDesc {
+		min-width: 700px;
+
+		.jobsSearch {
+			height: 40px;
+
+			.jobsSearchForm {
+				button {
+					width: 70px;
+					min-height: 40px;
+
+					img {
+						margin: 0;
+						width: 20px;
+						height: 20px;
+					}
+				}
+			}
+		}
+
+		.jobsCard {
+			margin-top: 12px;
+			height: 368px !important;
+
+			.jobsCardItem {
+				padding: 5px 10px 10px 10px;
+
+				.jobsCardItemHeader {
+					.headerVerLine {
+						height: 25px;
+					}
+
+					.title {
+						font-size: 20px;
+						line-height: 25px;
+					}
+
+					.paymentPerHour,
+					.duration {
+						font-size: 18px;
+					}
+
+					.selectLevel {
+
+						label,
+						select {
+							font-size: 12px;
+						}
+					}
+
+					.liked {
+						width: 30px;
+						height: 30px;
+
+						.bsheart {
+							margin-top: 4px;
+						}
+					}
+				}
+
+				.description {
+					min-height: 34px;
+					margin: 5px;
+
+					.descContent {
+						height: auto;
+						font-size: 12px;
+						line-height: 18px;
+					}
+				}
+
+				.skills {
+
+					&>p {
+						font-size: 12px;
+					}
+
+					&-border {
+						height: 10px;
+					}
+				}
+
+				.cardItemBottom {
+					margin-top: 10px;
+
+					.bottomVerLine {
+						height: 34px;
+					}
+
+					.compNamecheckImg {
+						&>p {
+							font-size: 16px;
+						}
+
+						&>span {
+							margin: 0;
+							font-size: 12px;
+
+							&>img {
+								width: 14px;
+								height: 14px;
+							}
+						}
+					}
+
+					p {
+						font-size: 16px;
+					}
+
+					span {
+						font-size: 12px;
+					}
+
+					.imgCompName {
+						.compImgLogo {
+							width: 35px;
+							height: 35px;
+						}
+					}
+				}
+
+				.jobsCardHorLine {
+					margin: 8px 0;
+				}
+			}
+
+		}
+	}
+
+}
+
+@media only screen and (max-width: 1756px) {
+	.jobsDesc {
+		.jobsCard {
+			height: 454px !important;
+		}
+	}
+}
+
+@media only screen and (max-width: 1456px) {
+	.jobsDesc {
+		.jobsCard {
+			height: 364px !important;
+		}
 	}
 }

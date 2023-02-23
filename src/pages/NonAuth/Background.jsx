@@ -118,7 +118,9 @@ function Background() {
 				/>
 				<div className={classes.roundContainer}>
 					<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
-						<Round />
+						<div className={classes.scale}>
+							<Round />
+						</div>
 					</div>
 				</div>
 			</div>

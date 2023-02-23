@@ -1,5 +1,4 @@
 .talantsDesc {
-	box-sizing: border-box;
 	width: 100%;
 	min-width: 750px;
 
@@ -43,7 +42,7 @@
 
 		.talantsDescCard {
 			padding: 0 3px;
-			margin-top: 22px;
+			margin-top: 20px;
 			height: 522px;
 			overflow-y: scroll;
 			overflow-x: auto;
@@ -58,12 +57,11 @@
 
 		.talantsDescItem {
 			width: 100%;
-			height: 272px;
+			height: auto;
 			background: #ffffff;
 			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 			border-radius: 12px;
 			padding: 10px 20px 20px 20px;
-			box-sizing: border-box;
 
 			.talantsLine {
 				min-height: 54px;
@@ -129,13 +127,12 @@
 					justify-self: flex-end;
 
 					.bsheart {
+						margin: 4px 0 0 2px;
 						cursor: pointer;
 						width: 20px;
 						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						// margin-top: 0.2rem;
-						// margin-left: 0.3rem;
 						stroke: solid;
 					}
 
@@ -376,7 +373,6 @@
 
 
 			.talantsDescItem {
-				height: 200px;
 				padding: 5px 10px 10px 10px;
 
 				.talantsLine {
@@ -417,6 +413,10 @@
 						width: 30px;
 						height: 30px;
 						margin-top: 6px;
+
+						.bsheart {
+							margin-left: 0;
+						}
 					}
 				}
 
@@ -486,7 +486,7 @@
 	.talantsDesc {
 		.talantsCard {
 			.talantsDescCard {
-				height: 452px;
+				height: 454px !important;
 			}
 		}
 	}
@@ -496,7 +496,7 @@
 	.talantsDesc {
 		.talantsCard {
 			.talantsDescCard {
-				height: 352px;
+				height: 368px !important;
 			}
 		}
 	}

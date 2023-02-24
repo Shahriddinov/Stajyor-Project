@@ -40,8 +40,7 @@ function App() {
 				!auth
 					? (
 						<Routes>
-							<Route path={`/${len}/`} element={<ChatForCompany />} />
-							{/* <Route path={`/${len}/`} element={<PageBackground />} /> */}
+							<Route path={`/${len}/`} element={<PageBackground />} />
 							<Route path={`/${len}/login`} element={<Login />} />
 							<Route path={`/${len}/sign-up`} element={<Signup />} />
 							<Route path={`/${len}/chat`} element={<ChatModal />} />

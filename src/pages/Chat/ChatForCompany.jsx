@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Modal from "./Modal";
 function ChatForCompany(props) {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<div>

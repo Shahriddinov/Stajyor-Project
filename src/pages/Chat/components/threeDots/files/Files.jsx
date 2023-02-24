@@ -27,7 +27,7 @@ function Files({ setCount, openDotsContent }) {
 				<BsChevronLeft />
 				Back
 			</button>
-			<>
+			<div className={classes.box}>
 				{filesData.map((item, index) => (
 					<div key={index} className={classes.filesBlock}>
 						<div className={classes.imgBlock}>
@@ -40,7 +40,7 @@ function Files({ setCount, openDotsContent }) {
 						</div>
 					</div>
 				))}
-			</>
+			</div>
 		</div>
 	);
 }

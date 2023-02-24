@@ -28,7 +28,7 @@ function Links({ setCount, openDotsContent }) {
 				<BsChevronLeft />
 				Back
 			</button>
-			<>
+			<div className={classes.box}>
 				{linksData.map((item, index) => (
 					<div key={index} className={classes.linksBlock}>
 						<div className={classes.imgBlock}>
@@ -41,7 +41,7 @@ function Links({ setCount, openDotsContent }) {
 						</div>
 					</div>
 				))}
-			</>
+			</div>
 		</div>
 	);
 }

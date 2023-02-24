@@ -15,14 +15,16 @@ function Media({ setCount, openDotsContent }) {
 				Back
 			</button>
 
-			{mediaData.map((item, index) => (
-				<div key={index}>
-					<img className={classes.Imgs} src={item.img1} alt="#" />
-					<img className={classes.Imgs} src={item.img2} alt="#" />
-					<img className={classes.Imgs} src={item.img3} alt="#" />
-					<img className={classes.Imgs} src={item.img4} alt="#" />
-				</div>
-			))}
+			<div className={classes.box}>
+				{mediaData.map((item, index) => (
+					<div key={index}>
+						<img className={classes.Imgs} src={item.img1} alt="#" />
+						<img className={classes.Imgs} src={item.img2} alt="#" />
+						<img className={classes.Imgs} src={item.img3} alt="#" />
+						<img className={classes.Imgs} src={item.img4} alt="#" />
+					</div>
+				))}
+			</div>
 		</div>
 	);
 }

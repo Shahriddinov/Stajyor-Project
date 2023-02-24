@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
+import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Home from "pages/Home";
 import Aboutus from "pages/NonAuth/Aboutus";
 import Talants from "pages/NonAuth/pages/talants/Talants";
@@ -18,6 +18,9 @@ import { useEffect } from "react";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import { useLayoutEffect } from "react";
+import ChatModal from "pages/Chat/Modal";
+import ChatForCompany from "pages/Chat/ChatForCompany";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
@@ -27,51 +30,53 @@ function App() {
 
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)
-	},[len])
+	}, [len])
 
 	const pathName = window.location.pathname;
 
-	return(
+	return (
 		<div className="App">
 			{
 				!auth
-				?(
-					<Routes>
-						<Route path={`/${len}/`} element={<PageBackground/>}/>
-						<Route path={`/${len}/login`} element={<Login/>}/>
-						<Route path={`/${len}/sign-up`} element={<Signup/>}/>
-						<Route path="*" element={<Navigate to={`/${len}/`}/>}/>
-					</Routes>
-				)
-				:
-				!resume
-				?(
-					<Routes>
-						<Route path={`/${len}/company`} element={<Login/>}/>
-						<Route path={`/${len}/resume`} element={<Background/>}/>
-						<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish/>}/>
-						<Route path="*" element={<Navigate to={`/${len}/company`}/>}/>
-					</Routes>
-				)
-				:(
-					<>
-						<Header/>
+					? (
 						<Routes>
-							<Route path={`/${len}/jobs`} element={<Jobs/>}/>
-							<Route path= {`/${len}/about`} element={<Aboutus/>}/>
-							<Route path={`/${len}/talants`} element={<Talants/>}/>
-							<Route path={`/${len}/contact`} element={<Contactus/>}/>
-							<Route path={`/${len}/contracts`} element={<Contract/>}/>
-							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
-							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
-							<Route path={`/${len}/freelancer`} element={<Freelancer/>}/>
-							<Route path={`/${len}/profil`} element={<Profile/>}/>
-							<Route path={`/${len}/freelancer-user`} element={<UserFreelancer/>}/>
-							<Route path={`/${len}/*`} element={<NotFound/>}/>
+							<Route path={`/${len}/`} element={<ChatForCompany />} />
+							{/* <Route path={`/${len}/`} element={<PageBackground />} /> */}
+							<Route path={`/${len}/login`} element={<Login />} />
+							<Route path={`/${len}/sign-up`} element={<Signup />} />
+							<Route path={`/${len}/chat`} element={<ChatModal />} />
+							<Route path="*" element={<Navigate to={`/${len}/`} />} />
 						</Routes>
-					</>
-				  )
-			 }
+					)
+					:
+					!resume
+						? (
+							<Routes>
+								<Route path={`/${len}/company`} element={<Login />} />
+								<Route path={`/${len}/resume`} element={<Background />} />
+								<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish />} />
+								<Route path="*" element={<Navigate to={`/${len}/company`} />} />
+							</Routes>
+						)
+						: (
+							<>
+								<Header />
+								<Routes>
+									<Route path={`/${len}/jobs`} element={<Jobs />} />
+									<Route path={`/${len}/about`} element={<Aboutus />} />
+									<Route path={`/${len}/talants`} element={<Talants />} />
+									<Route path={`/${len}/contact`} element={<Contactus />} />
+									<Route path={`/${len}/contracts`} element={<Contract />} />
+									<Route path={pathName.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
+									<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
+									<Route path={`/${len}/freelancer`} element={<Freelancer />} />
+									<Route path={`/${len}/profil`} element={<Profile />} />
+									<Route path={`/${len}/freelancer-user`} element={<UserFreelancer />} />
+									<Route path={`/${len}/*`} element={<NotFound />} />
+								</Routes>
+							</>
+						)
+			}
 		</div>
 	)
 }

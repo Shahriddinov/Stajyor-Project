@@ -3,9 +3,6 @@
 	height: 100vh;
 	position: relative;
 	z-index: 0;
-	background-image: url("../../assets//images/home-header-bg.png");
-	background-repeat: no-repeat;
-	background-position: calc(50% - 620px) -400px;
 	overflow: hidden;
 	margin: 0 auto;
 
@@ -20,6 +17,8 @@
 			.round1 {
 				position: absolute;
 				transition: 1s all;
+				transform: scale(1);
+				z-index: -10;
 				right: 35%;
 				top: 42vh;
 			}
@@ -27,16 +26,20 @@
 			.round2 {
 				transition: 1s all;
 				position: absolute;
-				right: 50%;
+				right: 40%;
 				top: 60vh;
 				padding: 4rem;
+				z-index: -10;
+				transform: scale(0.7);
 			}
 
 			.round3 {
 				position: absolute;
 				transition: 1s all;
-				left: 15%;
-				top: 65vh;
+				right: 75%;
+				top: 78vh;
+				z-index: -10;
+				transform: scale(0.9);
 			}
 
 			.round4 {
@@ -45,7 +48,14 @@
 				margin-left: 8rem;
 				right: 30%;
 				top: 57vh;
+				z-index: -10;
+				transform: scale(0.9);
 			}
 		}
 	}
+}
+
+.scale {
+	position: absolute;
+	z-index: -10;
 }

@@ -15,6 +15,7 @@ import Aboutus from "./Aboutus";
 import Contactus from "./Contactus";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import backgroundImg from "../../assets//images/home-header-bg.png";
 
 function Background() {
 	const [count, setCount] = useState(1);
@@ -65,9 +66,9 @@ function Background() {
 			<div className={classes.background__container}>
 				<div className={classesNav.menu}>
 					<div className={classesNav.menu__container}>
+						<img className={classesNav.backgroundImg} src={backgroundImg} alt="blue circle" />
 						<div className={classesNav.menu__inner}>
 							<img className={classesNav.automative} src={logo} alt="Automative logo" />
-
 							<ul className={classesNav.menu__links}>
 								<li className={step1 || step2 || step3 || step4 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
 									Home
@@ -117,7 +118,9 @@ function Background() {
 				/>
 				<div className={classes.roundContainer}>
 					<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
-						<Round />
+						<div className={classes.scale}>
+							<Round />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -120,12 +120,34 @@
 	}
 }
 
+
+@media only screen and (max-width: 1780px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -8%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1700px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -10%;
+			}
+		}
+	}
+}
+
 @media only screen and (max-width: 1634px) {
 	.menu {
 		&__container {
 			padding: 60px 200px 0;
 
 			.backgroundImg {
+				left: -8%;
 				width: 700px;
 				height: 700px;
 			}
@@ -139,6 +161,7 @@
 			padding: 30px 100px 0;
 
 			.backgroundImg {
+				left: -4%;
 				width: 550px;
 				height: 550px;
 			}
@@ -198,6 +221,26 @@
 			.backgroundImg {
 				width: 450px;
 				height: 450px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1170px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -10%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1060px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -14%;
 			}
 		}
 	}

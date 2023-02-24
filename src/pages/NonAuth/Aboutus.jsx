@@ -1,4 +1,5 @@
 import React from "react";
+import { Video } from "../../components";
 import classes from "./Aboutus.module.scss";
 import { TbBrandTelegram } from 'react-icons/tb';
 import { FiFacebook } from 'react-icons/fi';
@@ -9,9 +10,8 @@ function Aboutus(props) {
 		<div className={classes.aboutus}>
 			<div className="container">
 				<div className={classes.about__container}>
-					<div className={classes.videoBlock}>
-						<video className={classes.Video} controls src="https://youtu.be/sUbR1uZ9G3A" type="video/mp4"></video>
-					</div>
+					<Video />
+					{/* <video src=""></video> */}
 					<div className={classes.about__container__border}></div>
 					<div className={classes.TextsMain}>
 						<div className={classes.IconsMain}>

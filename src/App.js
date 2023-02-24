@@ -60,7 +60,8 @@ function App() {
 							<Route path={`/${len}/talants`} element={<Talants/>}/>
 							<Route path={`/${len}/profil`} element={<Profile/>}/>
 							<Route path= {`/${len}/about`} element={<Talants/>}/>
-							<Route path={`/${len}/contact`} element={<Talants/>}/>
+							<Route path={`/${len}/contact`} element={<Talants/>}/> 
+							<Route path={`/${len}/chat`} element={<ChatModal/>}/> 
 							<Route path={`/${len}/contracts`} element={<Contract/>}/>
 							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>

@@ -1,6 +1,6 @@
 import Round from "components/Round/Round.jsx";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import Photo from "../cards/Photo.jsx";
@@ -14,63 +14,80 @@ import Educations from "../cards/Educations/Educations/Educations";
 import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import MyWork from "../cards/WorkExperience/MyWork/MyWork";
 import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
-import PersonalInformation from "../company/PersonalInformation/PersonalInformation";
-import YourCompany from "../company/YourCompany/YourCompany";
-import AboutYourCompany from "../company/AboutYourCompany/AboutYourCompany";
 import { useSelector } from "react-redux";
-import { CSSTransition } from "react-transition-group";
 import "./Background.scss";
+import { useDispatch } from "react-redux";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function Background() {
- const resumeSteps = useSelector(state => state.resume);
- return (
-  <div className={classes.allBackground}>
-   <div className={classes.backSign}>
-    <Link to="./">
-     <img src={back} alt="back sign" />
-     Back
-    </Link>
-    <div className={classes.round}>
-     <Round />
-    </div>
-   </div>
-   <div className={classes.cards}>
-    <CSSTransition in={resumeSteps.photoPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <Photo />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.countryPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <Country />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.yourselfPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <Yourself />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.languagePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <Language />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.experiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <WorkExperience />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.newExperiencePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <MyWork />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.educationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <Educations />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.createEducationPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <AddEducations />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.contactsPage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <SocialMedia />
-    </CSSTransition>
-    <CSSTransition in={resumeSteps.resumePage} timeout={500} unmountOnExit={true} mountOnEnter={true} classNames="cardTransition">
-     <SelectResume />
-    </CSSTransition>
-   </div>
-   <div className={classes.career}>
-    <CareerSlider />
-   </div>
-  </div>
- );
+	const { activeCard } = useSelector(state => state.resumeControle);
+	const len = useSelector(state => state.lenguage.lenguage);
+	const {isExperienceModal,isEducationModal} = useSelector(state => state.resume);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	const cards = [
+		{ id: 1, label: <Photo />, type: "photo" },
+		{ id: 2, label: <Country />, type: "country" },
+		{ id: 3, label: <Yourself />, type: "yourself" },
+		{ id: 4, label: <Language />, type: "lenguage" },
+		{ id: 5, label: <WorkExperience />, type: "workexperience" },
+		{ id: 6, label: <Educations />, type: "education" },
+		{ id: 7, label: <SocialMedia />, type: "media" },
+		{ id: 8, label: <SelectResume />, type: "resume" }
+	];
+
+	const handleClick = () => {
+		navigate(`/${len}/company`)
+		dispatch(
+			activeDoteAction([
+				{id: 1,label: "Personal information"},
+				{id: 1,label: "photo"}
+			])
+		);
+	}
+	return (
+		<>
+			<div className={classes.allBackground}>
+				<div className="container">
+					<div className={classes.allBackground_inner}>
+						<div className={classes.backSign}>
+							<button onClick={handleClick} className={classes.backSign_btn}>
+								<img src={back} alt="back sign" />
+								Back to sign up
+							</button>
+
+							<div className={classes.round}>
+								<Round />
+							</div>
+						</div>
+
+						<div className={classes.cards}>
+							{cards.map(el => (
+								<div
+									className={`${classes.card_box} ${el.type === activeCard.type ? classes.active : ""}`}
+									key={el.id}
+									style={{ top: el.id < activeCard.id ? "-200%" : el.id === activeCard.id ? "12%" : "200%" }}>
+									{el.label}
+								</div>
+							))}
+						</div>
+
+						<div className={classes.career}>
+							<CareerSlider />
+						</div>
+					</div>
+				</div>
+			</div>
+			{
+				isExperienceModal && <MyWork/>
+			}
+			{
+				isEducationModal && <AddEducations />
+			}
+			
+		</>
+	);
 }
 
 export default Background;

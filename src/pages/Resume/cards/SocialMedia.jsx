@@ -9,9 +9,10 @@ import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
 import { useState } from "react";
-import { contactUpload, temporary10 } from "../../../reduxToolkit/ResumeSlice";
+import { contactUpload} from "../../../reduxToolkit/ResumeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function SocialMedia() {
 	// const WebSite = useRef("");
@@ -69,7 +70,6 @@ function SocialMedia() {
 	};
 
 	const handleSubmit = event => {
-		dispatch(temporary10());
 		// let formdatas = new FormData();
 		// for (let i = 0; i < icons.length; i++) {
 		// 	formdatas.append(socials[i].name);
@@ -78,42 +78,62 @@ function SocialMedia() {
 		// formdatas.append("Level", userLevel[i]);
 		// dispatch(languageUpload(formdatas));
 		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 8, label: "Resume" },
+				{ id: 8, type: "resume" }
+			])
+		);
+	};
+
+	const prevPgae = event => {
+		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 6, label: "Educations" },
+				{ id: 6, type: "education" }
+			])
+		);
 	};
 
 	return (
 		<div className={classes.socialMedia}>
 			<h2>Contacts</h2>
 			<form action="submit" className={classes.socialForm} onSubmit={handleSubmit}>
-				<input type="text" placeholder="Provide a link to your website " />
-				{icons &&
-					icons.map(item => (
-						<div key={item.name} className={classes.socialInput}>
-							<div className={classes.socialInputIn}>
-								<input type="url" placeholder={`Provide a link to your ${item.name} account`} onChange={handleChangeInput} />
+				<div className={classes.forim_content}>
+					<input className={classes.website_input}  type="text" placeholder="Provide a link to your website " />
+					{icons &&
+						icons.map(item => (
+							<div key={item.name} className={classes.socialInput}>
+								<div className={classes.socialInputIn}>
+									<input type="url" placeholder={`Provide a link to your ${item.name} account`} onChange={handleChangeInput} />
+									<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
+								</div>
+								<button
+									className={classes.cancelButton}
+									onClick={event => {
+										removeIput(item.name, item.icon);
+										handleSubmitting(event);
+									}}>
+									<img className={classes.cancelButton_img}  src={cancel} alt="cancel icon" />
+								</button>
 							</div>
-							<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
-							<button
-								className={classes.cancelButton}
-								onClick={event => {
-									removeIput(item.name, item.icon);
-									handleSubmitting(event);
-								}}>
-								<img src={cancel} alt="cancel icon" />
-							</button>
-						</div>
-					))}
-				<p>Choose in which of these social networks you have an account</p>
-				<div className={classes.socialContainers}>
-					{socials.map(item => (
-						<div key={item.name} style={{'cursor':'pointer'}} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
-							<img  style={{'width':'40px'}} src={item.icon} alt={item.name} />
-							<h4>{item.name}</h4>
-						</div>
-					))}
+						))}
+					<p>Choose in which of these social networks you have an account</p>
+					<div className={classes.socialContainers}>
+						{socials.map(item => (
+							<div key={item.name} style={{ cursor: "pointer" }} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
+								<img style={{ width: "40px" }} src={item.icon} alt={item.name} />
+								<h4 className={classes.cart_text}>{item.name}</h4>
+							</div>
+						))}
+					</div>
 				</div>
-				<div style={{'display':'flex', 'width':'100%', 'align-items':'center', 'justify-content':'flex-end', 'gap':'20px'}}>
-					<button className={classes.backButton}>Back</button>
-				<button className={classes.nextButton}>Next</button>
+				<div className={classes.button_group}>
+					<button className={classes.backButton} type="button" onClick={prevPgae}>
+						Back
+					</button>
+					<button className={classes.nextButton}>Next</button>
 				</div>
 			</form>
 		</div>

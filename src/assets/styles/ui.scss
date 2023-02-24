@@ -88,6 +88,12 @@ body {
 	padding: 20px 0;
 }
 
+.container {
+	max-width: 1450px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
 .small-container {
 	max-width: 756px;
 	margin: 0 auto;
@@ -150,7 +156,6 @@ input:focus {
 	svg {
 		transition: 0.2s;
 	}
-
 	&:hover {
 		svg {
 			transform: scale(1.1);
@@ -167,7 +172,6 @@ input:focus {
 
 .more-download-btn {
 	margin-top: 35px;
-
 	button {
 		display: flex;
 		align-items: center;
@@ -182,7 +186,6 @@ input:focus {
 		line-height: 15px;
 		text-transform: capitalize;
 		color: #323232;
-
 		img {
 			margin-right: 10px;
 		}
@@ -201,25 +204,19 @@ body {
 	&.greyscaleMode {
 		filter: grayscale(100%);
 	}
-
 	&.greyscaleInvertMode {
 		filter: grayscale(100%) invert(100%);
 	}
-
 	&.zoom1 {
 		zoom: 1;
 	}
-
 	&.zoom2 {
 		zoom: 1.1;
 	}
-
 	&.zoom3 {
 		zoom: 1.2;
 	}
-
 	&.fs-20 {
-
 		div,
 		input,
 		textarea,
@@ -233,9 +230,7 @@ body {
 			font-size: 12px !important;
 		}
 	}
-
 	&.fs-40 {
-
 		div,
 		input,
 		textarea,
@@ -249,9 +244,7 @@ body {
 			font-size: 14px !important;
 		}
 	}
-
 	&.fs-80 {
-
 		div,
 		input,
 		textarea,
@@ -265,9 +258,7 @@ body {
 			font-size: 22px !important;
 		}
 	}
-
 	&.fs-100 {
-
 		div,
 		input,
 		textarea,
@@ -281,7 +272,6 @@ body {
 			font-size: 24px !important;
 		}
 	}
-
 	// image none
 	&.no_image img {
 		visibility: hidden !important;
@@ -290,7 +280,6 @@ body {
 
 .header-blind-people-btn {
 	cursor: pointer;
-
 	img {
 		width: 49%;
 	}
@@ -310,7 +299,6 @@ body {
 		width: 0;
 		visibility: hidden;
 	}
-
 	label {
 		transform: scale(0.9);
 		cursor: pointer;
@@ -322,7 +310,6 @@ body {
 		border-radius: 100px;
 		position: relative;
 	}
-
 	label:after {
 		content: "";
 		position: absolute;
@@ -334,12 +321,10 @@ body {
 		border-radius: 90px;
 		transition: 0.3s;
 	}
-
-	input:checked+label {
+	input:checked + label {
 		background: var(--dark-blue);
 	}
-
-	input:checked+label:after {
+	input:checked + label:after {
 		left: calc(100% - 5px);
 		transform: translateX(-100%);
 	}
@@ -354,7 +339,6 @@ body {
 	align-items: center;
 	margin-left: 5px;
 	font-size: 14px;
-
 	&.active {
 		color: var(--dark-blue);
 	}
@@ -379,7 +363,6 @@ body {
 	height: 100vh;
 	overflow: hidden;
 }
-
 .swiper {
 	width: 100%;
 	height: 100%;
@@ -401,35 +384,4 @@ body {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
-
-.container {
-	width: 100%;
-	padding: 0 255px;
-	max-width: 1920px;
-	margin: 0 auto;
-}
-
-@media only screen and (max-width: 1634px) {
-	.container {
-		padding: 0 200px;
-	}
-}
-
-@media only screen and (max-width: 1516px) {
-	.container {
-		padding: 0 100px;
-	}
-}
-
-@media only screen and (max-width: 1356px) {
-	.container {
-		padding: 0 90px;
-	}
-}
-
-@media only screen and (max-width: 1228px) {
-	.container {
-		padding: 0 30px;
-	}
 }

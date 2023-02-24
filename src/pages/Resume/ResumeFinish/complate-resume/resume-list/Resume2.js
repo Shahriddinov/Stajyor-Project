@@ -2,9 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 const Resume2 = (props) => {
-    console.log(props);
-
     const {loading} = useSelector(state => state.resume)
+    
   return (
     <>
     {

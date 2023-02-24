@@ -23,12 +23,13 @@ function App() {
 	const len = useSelector(state => state.lenguage.lenguage);
 	const resume = useSelector(state => state.login.resume);
 	const navigate = useNavigate();
+	const {pathname} = useLocation()
+
+	console.log(pathname);
 
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)
 	},[len])
-
-	const pathName = window.location.pathname;
 
 	return(
 		<div className="App">
@@ -53,16 +54,16 @@ function App() {
 					</Routes>
 				)
 				:(
-					<div className={`freelanser-box  ${(pathName.slice(4) === "contact" || pathName.slice(4) === "about") ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
+					<div className={`freelanser-box  ${(pathname.slice(4) === "contact" || pathname.slice(4) === "about") ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
 						<Header/>
 						<Routes>
 							<Route path={`/${len}/jobs`} element={<Freelancer/>}/>
 							<Route path={`/${len}/talants`} element={<Talants/>}/>
 							<Route path={`/${len}/profil`} element={<Profile/>}/>
-							<Route path= {`/${len}/about`} element={<Aboutus/>}/>
+							<Route path= {`/${len}/about`} element={<Talants/>}/>
 							<Route path={`/${len}/contact`} element={<Contactus/>}/> 
 							<Route path={`/${len}/contracts`} element={<Contract/>}/>
-							<Route path={pathName.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
+							<Route path={pathname.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
 							<Route path={`/${len}/freelancer-user`} element={<UserFreelancer/>}/>
 							<Route path={`/${len}/*`} element={<NotFound/>}/>

@@ -5,8 +5,7 @@ import loc from "../img/location.svg";
 import letter from "../img/letter.svg";
 
 const Resume6 = (props) => {
-  const {phoneNumber,description,experiences,email,freelancerHobbies,freelancerContact,freelancerImage,educations,freelancerPosition,firstName,lastName,address,userLanguages}= props
-  console.log("salom");
+  const {phoneNumber,description,experiences,email,freelancerContact,freelancerImage,educations,freelancerPosition,firstName,lastName,address,userLanguages}= props
     return (
         <>
           <div className="ComplateResume">
@@ -58,7 +57,7 @@ const Resume6 = (props) => {
     
               <div className="resume2_6-bottom">
                 <div className="resume2_6-bottom-left">
-                  <div className="resume2_6-bottom-title">profile</div>
+                  <p className="resume2_6-bottom-title">profile</p>
                   <div className="resume2_6-bottom-left-text">
                     <span>
                      {description}
@@ -69,21 +68,16 @@ const Resume6 = (props) => {
                   <div className="resume2_6-bottom-left-text">
                     {educations?.map((item, i) => {
                       return (
-                        <>
-                          <div>
-                            {" "}
-                            {/* <img
-                              src={res6_rght}
-                              className="resume2_6-bottom-right__img"
-                            />{" "} */}
+                        <React.Fragment key={i}>
+                          <div >
                             <b>{item?.schoolName}</b>{" "}
                             <span>
                               {item?.startDate?.substring(0, 4)} -{" "}
                               {item?.endDate?.substring(0, 4)}
-                            </span>{" "}
+                            </span>
                           </div>
                           <p>{item?.educationDegree}</p>
-                        </>
+                        </React.Fragment>
                       );
                     })}
   
@@ -93,9 +87,9 @@ const Resume6 = (props) => {
                   <div className="resume2_6-bottom-left-text">
                     <div className="language-lvl">
                       {
-                        userLanguages?.map(item => (
-                          <>
-                            <span>{item}</span>
+                        userLanguages?.map((item, i) => (
+                          <React.Fragment key = {i + 1}>
+                            <span>{item?.language}</span>
                             <p className="resume2_6-cirlces"></p>
                             <p className="resume2_6-cirlces"></p>
                             <p className="resume2_6-cirlces"></p>
@@ -103,11 +97,10 @@ const Resume6 = (props) => {
                             <p className="resume2_6-cirlces"></p>
                             <p className="resume2_6-cirlces"></p>
                             <p className="resume2_6-cirlces"></p>
-                          </>
+                          </React.Fragment>
                         ))
                       }
                     </div>
-
                   </div>
                 </div>
     
@@ -117,10 +110,6 @@ const Resume6 = (props) => {
                     return (
                       <div className="resume2_6-bottom-left-text" key={i + 1}>
                         <div>
-                          {/* <img
-                            src={res6_rght}
-                            className="resume2_6-bottom-right__img"
-                          /> */}
                           <b>{item?.job}</b>
                           <b>
                             {item?.startDate?.substring(0, 4)} -{" "}

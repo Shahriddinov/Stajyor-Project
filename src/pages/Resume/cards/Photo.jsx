@@ -1,9 +1,10 @@
 import React from "react";
 import "./Photo.scss";
 import { useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { photoUpload, countryList } from "../../../reduxToolkit/ResumeSlice";
 import { useState } from "react";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function Photo() {
 	const [uploaded, setUploaded] = useState(false);
@@ -33,6 +34,12 @@ function Photo() {
 		formdatas.append("Image", fileUploaded);
 		dispatch(countryList());
 		dispatch(photoUpload(formdatas));
+		dispatch(
+			activeDoteAction([
+				{ id: 2, label: "Address" },
+				{ id: 2, type: "country" }
+			])
+		);
 		event.preventDefault();
 	};
 
@@ -72,7 +79,7 @@ function Photo() {
 						<input ref={phoneNumber} type="number" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
-				<button  className="next_btn_photoCart">Next</button>
+				<button className="next_btn_photoCart">Next</button>
 			</form>
 		</div>
 	);

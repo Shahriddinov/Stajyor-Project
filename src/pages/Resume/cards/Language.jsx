@@ -6,7 +6,8 @@ import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { languageUpload, temporary9 } from "../../../reduxToolkit/ResumeSlice";
+import { languageUpload} from "../../../reduxToolkit/ResumeSlice";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function Language() {
 	const dispatch = useDispatch();
@@ -48,10 +49,23 @@ function Language() {
 			formdatas.append("Level", userLevel[i]);
 		}
 		dispatch(languageUpload(formdatas));
-		dispatch(temporary9());
 		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 5, label: "Experience" },
+				{ id: 5, type: "workexperience" }
+			])
+		);
 	};
 
+	const prevPage = () => {
+		dispatch(
+			activeDoteAction([
+				{ id: 3, label: "yourself" },
+				{ id: 3, type: "About yourself and skills" }
+			])
+		);
+	};
 	return (
 		<div className={classes.languageCard}>
 			<h2>Write what languages you speak</h2>
@@ -60,31 +74,34 @@ function Language() {
 			</p>
 			<form action="submit" className={classes.languageForm} onSubmit={handleSubmit}>
 				<label htmlFor="laguages">Language*</label>
+			<div className={classes.select_box}>
 				{theArray.map(lang => (
-					<div key={lang.id} id={!singleLang ? "test" : null} className={classes.select}>
-						<Select
-							className="languageSelect"
-							classNamePrefix="mySelectLang"
-							options={options1}
-							placeholder="Language*"
-							onChange={choice => setUserLang([...userLang, choice.value])}
-						/>
-						<Select
-							className="languageSelect"
-							classNamePrefix="mySelectLang"
-							options={level}
-							placeholder="Level*"
-							onChange={choice => setUserLevel([...userLevel, choice.value])}
-						/>
-						{!singleLang && (
-							<div className={classes.cancelLang} onClick={() => removeLang(lang.id)}>
-								<img src={cancel} alt="cancel" />
-							</div>
-						)}
-					</div>
-				))}
+						<div key={lang.id} id={!singleLang ? "test" : null} className={classes.select}>
+							<Select
+								className="languageSelect"
+								classNamePrefix="mySelectLang"
+								options={options1}
+								placeholder="Language*"
+								onChange={choice => setUserLang([...userLang, choice.value])}
+							/>
+							<Select
+								className="languageSelect"
+								classNamePrefix="mySelectLang"
+								options={level}
+								placeholder="Level*"
+								onChange={choice => setUserLevel([...userLevel, choice.value])}
+							/>
+							{!singleLang && (
+								<div className={classes.cancelLang} onClick={() => removeLang(lang.id)}>
+									<img src={cancel} alt="cancel" />
+								</div>
+							)}
+						</div>
+					))}
+			</div>
 
-				<div style={{'cursor':'pointer'}}
+				<div
+					style={{ cursor: "pointer" }}
 					className={classes.addLanguage}
 					onClick={() => {
 						setTheArray(oldArray => [...theArray, { test: "test", test2: "test2", id: Math.random() }]);
@@ -92,7 +109,9 @@ function Language() {
 					+ Add Language
 				</div>
 				<div className={classes.languageCard_btn}>
-					<button className={classes.backButton}>Back</button>
+					<button className={classes.backButton} type="button" onClick={prevPage}>
+						Back
+					</button>
 					<button className={classes.nextButton}>Next</button>
 				</div>
 			</form>

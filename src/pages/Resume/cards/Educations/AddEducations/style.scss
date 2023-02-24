@@ -1,10 +1,47 @@
 .addEducations {
-	background: white;
-	height: 601px;
-	width: 750px;
-	padding: 2rem;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-	border-radius: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 20px;
+	backdrop-filter: blur(15px);
+	background-color: rgba(0, 0, 0, 0.3);
+
+	&__inner {
+		position: relative;
+		width: 100%;
+		max-width: 750px;
+		margin: 0 auto;
+		padding: 40px;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+		border-radius: 10px;
+		box-sizing: border-box;
+		transition: all .6s linear;
+		background: white;
+		overflow: hidden;
+	}
+
+	&__modal_clouce {
+		position: absolute;
+		right: 5px;
+		top: 5px;
+		display: inline-block;
+		padding: 12px 10px 8px 10px;
+		background-color: #fff;
+		border: 1px solid #cccccc;
+		border-radius: 8px;
+		transition: all .3s linear;
+		cursor: pointer;
+	}
+
+	&__modal_clouce:hover {
+		border: 1px solid #1d71b8;
+		transition: all .3s linear;
+	}
 
 	&__title {
 		margin: 0;
@@ -151,5 +188,82 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+	}
+}
+
+@media only screen and(max-width:1550px){
+	.addEducations {
+		&__inner {
+			padding: 20px;
+		}
+	
+		&__title {
+			font-size: 17px;
+			line-height: 24px;
+			margin-bottom: 15px;
+		}
+	
+		&__inputName {
+			display: inline-block;
+			font-size: 17px;
+			padding: 10px 20px;
+			margin-bottom: 10px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+
+		&__inputSelect,
+		&__inputStudy,
+		&__inputLocation {
+			font-size: 17px;
+			padding: 10px 20px;
+			margin-bottom: 10px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+	
+		&__wrapper {
+			margin-bottom: 10px;
+		}
+	
+		&__label {
+			font-size: 17px;
+		}
+	
+		&__inputDate {
+			display: inline-block;
+			font-size: 17px;
+			line-height: 24px;
+			padding: 10px 20px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+	
+		&__inputCheckbox {
+			margin-right: 10px;
+			width: 18px;
+			height: 18px;
+		}
+	
+		&__labelCheckbox {
+			font-size: 17px;
+		}
+	
+		&__next {
+			font-size: 17px;
+			padding: 8px 16px;
+		}
+	
+		&__back {
+			font-size: 17px;
+			padding: 8px 16px;
+			margin-right: 10px;
+		}
+	
+		&__checkboxWrapper {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 	}
 }

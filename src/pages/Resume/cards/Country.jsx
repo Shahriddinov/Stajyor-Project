@@ -5,6 +5,7 @@ import { useState } from "react";
 import { countryUpload, positions, hobbies } from "../../../reduxToolkit/ResumeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function Country() {
 	const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function Country() {
 		optionsRegion.push(countryList[i].regions);
 	}
 	let optionsRegionList = [];
-	for (let i = 0; i < optionsRegion[userChoice[1]].length; i++) {
+	for (let i = 0; i < optionsRegion[userChoice[1]]?.length; i++) {
 		optionsRegionList.push({ value: optionsRegion[userChoice[1]][i].id, label: optionsRegion[userChoice[1]][i].name });
 	}
 
@@ -28,12 +29,31 @@ function Country() {
 		formdatas.append("CountryId", userChoice[0]);
 		formdatas.append("RegionId", userChoice2);
 		formdatas.append("Home", street.current.value);
-		dispatch(countryUpload(formdatas));
-		dispatch(positions());
-		dispatch(hobbies());
+		if (formdatas.get("CountryId") && formdatas.get("RegionId") && formdatas.get("Home")) {
+			dispatch(countryUpload(formdatas));
+			dispatch(positions());
+			dispatch(hobbies());
+			dispatch(
+				activeDoteAction([
+					{ id: 3, label: "About yourself and skills" },
+					{ id: 3, type: "yourself" }
+				])
+			);
+
+		}
+
 		event.preventDefault();
 	};
 
+	const removePage = event => {
+		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 1, label: "Personal information" },
+				{ id: 1, type: "photo" }
+			])
+		);
+	};
 	return (
 		<div className="countryCard">
 			<div className="country">
@@ -60,8 +80,10 @@ function Country() {
 						<input ref={street} className="country__inputStreet" type="text" placeholder="Street, apartment" />
 					</div>
 					<div className="country__button">
-						<button className="country__back">Back</button>
-						<button className="country__next">Next</button>
+						<button className="country__back" type="button" onClick={removePage}>
+							Back
+						</button>
+						<button className="country__next" type="submit">Next</button>
 					</div>
 				</form>
 			</div>

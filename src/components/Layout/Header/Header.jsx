@@ -6,12 +6,13 @@ import header_logo_bg from '../../../assets/images/Freelancer/frilancer_ellipse.
 import Dropdown from "./components/Dropdown";
 import LangDrop from "./components/LangDrop";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
 	const len = useSelector(state => state.lenguage.lenguage)
-	const {t} = useTranslation()
+	const { t } = useTranslation()
+	const { pathname } = useLocation()
 
 	return (
 		<header className="header" >

@@ -1,20 +1,13 @@
 .contact {
-	width: 80%;
-	margin: 0 auto;
 	z-index: 10;
-
-	&__container {
-		width: 100%;
-		max-width: 1450px;
-		margin: 0 auto;
-	}
 
 	&__inner {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 20px;
+		gap: 60px;
 	}
+
 	.mainContacts {
 		display: flex;
 		flex-direction: column;
@@ -76,7 +69,7 @@
 		input,
 		textarea {
 			display: block;
-			width: 95%;
+			width: 100%;
 			margin-bottom: 20px;
 			padding: 15px 20px;
 			font-weight: 500;
@@ -95,14 +88,12 @@
 
 		button {
 			display: block;
-			width: 92px;
-			height: 44px;
-			margin-left: auto;
+			padding: 10px 20px;
+			margin: 0 11px 0 auto;
 			border: 1px solid #1d71b8;
 			background: #ffffff;
 			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
 			border-radius: 8px;
-			font-family: "Montserrat", sans-serif;
 			font-size: 20px;
 			line-height: 24px;
 			color: #323232;
@@ -110,6 +101,7 @@
 			cursor: pointer;
 			transition: all 0.3s linear;
 		}
+
 		& button:hover {
 			background-color: #1d71b8;
 			color: #fff;
@@ -122,6 +114,7 @@
 		padding: 25px 0;
 
 		.mainContacts {
+
 			.telegramContact,
 			.whatsappContact {
 				width: 100%;
@@ -159,6 +152,43 @@
 				padding-top: 10px;
 				min-height: 60px;
 				margin-bottom: 20px;
+			}
+
+			button {
+				font-size: 17px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+
+	.contact {
+		.mainContacts {
+
+			.telegramContact,
+			.whatsappContact {
+				padding: 20px 0;
+			}
+		}
+
+		.contactUs {
+			&__title {
+				font-size: 24px;
+			}
+
+			&__desc {
+				font-size: 14px;
+			}
+
+			input,
+			textarea {
+				font-size: 14px;
+			}
+
+			button {
+				padding: 5px 15px;
+				font-size: 14px;
 			}
 		}
 	}

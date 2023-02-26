@@ -6,7 +6,7 @@ import logosWhatsapp from "../../assets/images/icons/logos_whatsapp.png";
 function Contactus(props) {
 	return (
 		<section className={classes.contact}>
-			<div className={classes.contact__container}>
+			<div className="container">
 				<div className={classes.contact__inner}>
 					<div className={classes.mainContacts}>
 						<div className={classes.telegramContact}>

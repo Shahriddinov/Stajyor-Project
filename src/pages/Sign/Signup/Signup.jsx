@@ -17,24 +17,24 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
 
-		const [ passwordEye, setPasswordEye ] = useState('password')
-		const [ passwordEye1, setPasswordEye1 ] = useState('password')
+	const [passwordEye, setPasswordEye] = useState('password')
+	const [passwordEye1, setPasswordEye1] = useState('password')
 
 	const PasswordFunc = () => {
-		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+		setPasswordEye(passwordEye === 'password' ? 'text' : 'password')
 	}
 
-	
+
 	const PasswordFunc1 = () => {
-		setPasswordEye1( passwordEye1 === 'password' ? 'text' : 'password' )
+		setPasswordEye1(passwordEye1 === 'password' ? 'text' : 'password')
 	}
-	const [data,setData] = useState({
+	const [data, setData] = useState({
 		email: "",
-		password:"",
+		password: "",
 		confirmPassword: "",
 	})
 	const len = useSelector(state => state.lenguage.lenguage)
-	const {checkEmail, bodyErrors} = useSelector(state => state.login)
+	const { checkEmail, bodyErrors } = useSelector(state => state.login)
 	const dispatch = useDispatch()
 
 	const handlerSubmit = (e) => {
@@ -59,14 +59,14 @@ const Signup = () => {
 
 
 							<input
-							required
-							className={`login_form_inp ${bodyErrors?.EmailError?.length  ? "register-danger-input "  : bodyErrors ? "register-success" : ""}`}
-							type="email"
-							placeholder="Email"
-							name="email"
-							value={data.email}
-							onChange={e => setData(prev => ({...prev, email: e.target.value}))}
-							autoComplete="off"
+								required
+								className={`login_form_inp ${bodyErrors?.EmailError?.length ? "register-danger-input " : bodyErrors ? "register-success" : ""}`}
+								type="email"
+								placeholder="Email"
+								name="email"
+								value={data.email}
+								onChange={e => setData(prev => ({ ...prev, email: e.target.value }))}
+								autoComplete="off"
 							/>
 							{
 								bodyErrors?.EmailError
@@ -74,43 +74,43 @@ const Signup = () => {
 								<p className="register-danger-text">{bodyErrors?.EmailError}</p>
 							}
 
-							<div style={{'position':"relative"}} >
+							<div style={{ 'position': "relative" }} >
 								<input
-							required
-							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
-							type={passwordEye1}
-							placeholder="Password"
-							name="password"
-							value={data.password}
-							onChange={e => setData(prev => ({...prev, password: e.target.value}))}
-							autoComplete="off"
-							/>
-							<span className="password_span" onClick={()=> PasswordFunc1()} >
-								{
-									passwordEye1 === 'password' ? <EyeOff /> : <Eye />
-								}
-							</span>
+									required
+									className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input" : bodyErrors ? "register-success" : ""}`}
+									type={passwordEye1}
+									placeholder="Password"
+									name="password"
+									value={data.password}
+									onChange={e => setData(prev => ({ ...prev, password: e.target.value }))}
+									autoComplete="off"
+								/>
+								<span className="password_span" onClick={() => PasswordFunc1()} >
+									{
+										passwordEye1 === 'password' ? <EyeOff /> : <Eye />
+									}
+								</span>
 							</div>
 							{
 								bodyErrors?.PasswordError
 								&&
-								bodyErrors?.PasswordError?.map ((el,i) => (
+								bodyErrors?.PasswordError?.map((el, i) => (
 									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
 								))
 							}
 
-							<div style={{'position':"relative"}} >
+							<div style={{ 'position': "relative" }} >
 								<input
-							required
-							className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input"  : bodyErrors ? "register-success" : ""}`}
-							type={passwordEye}
-							placeholder="Confirm password"
-							name="confirm_password"
-							value={data.confirmPassword}
-							onChange={e => setData(prev => ({...prev, confirmPassword: e.target.value}))}
-							autoComplete="off"
-							/>
-								<span className="password_span" onClick={()=> PasswordFunc()} >
+									required
+									className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input" : bodyErrors ? "register-success" : ""}`}
+									type={passwordEye}
+									placeholder="Confirm password"
+									name="confirm_password"
+									value={data.confirmPassword}
+									onChange={e => setData(prev => ({ ...prev, confirmPassword: e.target.value }))}
+									autoComplete="off"
+								/>
+								<span className="password_span" onClick={() => PasswordFunc()} >
 									{
 										passwordEye === 'password' ? <EyeOff /> : <Eye />
 									}
@@ -119,7 +119,7 @@ const Signup = () => {
 							{
 								bodyErrors?.PasswordConfirmError
 								&&
-								bodyErrors?.PasswordConfirmError?.map ((el,i) => (
+								bodyErrors?.PasswordConfirmError?.map((el, i) => (
 									<p className="register-danger-text" key={i + 1}>{i + 1}. {el}</p>
 								))
 							}

@@ -27,7 +27,7 @@ const Dropdown = () => {
           <Link to={`/${len}/profil`}>Profile</Link>
           <Link to={`/${len}/notification`}>Notification <span>○</span></Link>
           <Link to={`/${len}/contracts`}>Contracts</Link>
-          <Link to={`/${len}/chart`}>Chats</Link>
+          <Link to={`/${len}/chat`}>Chats</Link>
           <Link to={`/${len}/resume`}>Resume</Link>
           <button onClick={handleClick}>Log out</button>
         </div>

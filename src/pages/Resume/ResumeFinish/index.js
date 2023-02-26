@@ -12,6 +12,7 @@ import Resume3 from './complate-resume/resume-list/Resume3'
 import Resume4 from './complate-resume/resume-list/Resume4'
 import Resume5 from './complate-resume/resume-list/Resume5'
 import Resume6 from './complate-resume/resume-list/Resume6'
+import { activeDoteAction } from 'reduxToolkit/resumeControls'
 
 const ReumeFinish = () => {
   const {resume} = useSelector(state => state.login)
@@ -35,11 +36,6 @@ const ReumeFinish = () => {
     dispatch(resumeSelect(data))
   },[])
 
-  // useEffect(() => {
-  //   dispatch(resumeSelect(data))
-  //   console.log("salom");
-  // },[resumeId,dispatch])
-
 
   const handleSubmit = () => {
     const data = new FormData()
@@ -49,7 +45,16 @@ const ReumeFinish = () => {
   if(resume) {
     navigate(`/${len}/jobs`)
   }
-  // console.log(resumeDetails);
+
+  const handleClick = () => {
+    navigate(`/${len}/company`)
+    dispatch(
+			activeDoteAction([
+				{id: 1,label: "Personal information"},
+				{id: 1,label: "photo"}
+			])
+		);
+  }
 
   return (
    <>
@@ -68,7 +73,7 @@ const ReumeFinish = () => {
                     <img src={logo} alt="NAPA automotive" />
                   </a> 
                 </div>
-                  <button className={classes.resume__finish_back}>
+                  <button className={classes.resume__finish_back} onClick={handleClick}>
                     <img src={arrowLeft} alt="Arrov left" />
                     <span>Back</span>
                   </button>

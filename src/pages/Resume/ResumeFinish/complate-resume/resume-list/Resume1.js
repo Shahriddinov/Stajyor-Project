@@ -49,7 +49,7 @@ const Resume1 = (props) => {
                         {userLanguages?.map((item, i) => {
                         return (
                             <span key={i}>
-                            {item?.language} - {item?.level}
+                                {item?.language} - {item?.level}
                             </span>
                         );
                         })}

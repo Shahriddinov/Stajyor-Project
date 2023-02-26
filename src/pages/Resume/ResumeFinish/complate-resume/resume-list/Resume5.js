@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const Resume5 = (props) => {
-  const {phoneNumber,description,experiences,email,freelancerHobbies,freelancerContact,freelancerImage,educations,freelancerPosition,firstName,lastName,address}= props
+  const {phoneNumber,description,experiences,email,freelancerHobbies,freelancerImage,educations,freelancerPosition,firstName,lastName,address}= props
     return (
         <>
           <div className="ComplateResume">

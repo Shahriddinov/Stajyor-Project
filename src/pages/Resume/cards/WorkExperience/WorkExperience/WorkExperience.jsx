@@ -1,39 +1,47 @@
 import React from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
-import { exsperienceDelete, exsperienceGet, temporary2, temporary3 } from "reduxToolkit/ResumeSlice";
+import { changeExperienceModal, exsperienceDelete, exsperienceGet} from "reduxToolkit/ResumeSlice";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { activeDoteAction } from "reduxToolkit/resumeControls";
 
 function WorkExperience() {
-
-	const {experienceList}  = useSelector(state => state.resume)
-	const dispatch = useDispatch()
+	const { experienceList,experiencePostData } = useSelector(state => state.resume);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log("salom");
-		dispatch(exsperienceGet())
-	}, [dispatch])
+		dispatch(exsperienceGet());
+	}, [dispatch,experiencePostData]);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = e => {
 		e.preventDefault();
-		dispatch(temporary3())
-	}
+		dispatch(
+			activeDoteAction([
+				{ id: 6, label: "Educations" },
+				{ id: 6, type: "education" }
+			])
+		);
+	};
 
 	const handleClick = () => {
-		dispatch(temporary2())
-	}
+		dispatch(changeExperienceModal(true))
+	};
 
-	const deletExperience = (id) => {
-		dispatch(exsperienceDelete(id))
-		dispatch(exsperienceGet())
-	}
+	const deletExperience = id => {
+		dispatch(exsperienceDelete(id));
+		dispatch(exsperienceGet());
+	};
 
-	const changePage = (e) => {
+	const changePage = e => {
 		e.preventDefault();
-		dispatch()
-	}
-
+		dispatch(
+			activeDoteAction([
+				{ id: 4, label: "Language" },
+				{ id: 4, type: "lenguage" }
+			])
+		);
+	};
 
 	return (
 		<div className="experience">
@@ -45,38 +53,41 @@ function WorkExperience() {
 						<span className="experience__textSpan">But if you're just starting out, you can still create a great profile.</span>
 						<span className="experience__textSpan">Just head on to the next page.</span>
 					</p>
-					
+
 					<div className="experience__box">
-						{
-							experienceList.map(el => (
-								<div className="experience__content" key={el.id}>
-									<div className="experience__texts">
-										<span className="experience__subtitle">{el.companyName}</span>
-										<span className="experience__span">{el.job}</span>
-									</div>
-
-									<div className="experience__icons">
-										<span className="experience__icon--create">
-											<ion-icon name="create-outline"></ion-icon>
-										</span>
-
-										<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
-										</span>
-									</div>
+						{experienceList.map(el => (
+							<div className="experience__content" key={el.id}>
+								<div className="experience__texts">
+									<span className="experience__subtitle">{el.companyName}</span>
+									<span className="experience__span">{el.job}</span>
 								</div>
-							))
-						}
-					</div>
-					
 
-					<div className="experience__wrapper" >
-						<button style={{'cursor':'pointer'}} className="experience__buttonAdd" onClick={handleClick}>+ Add new</button>
+								<div className="experience__icons">
+									<span className="experience__icon--create">
+										<ion-icon name="create-outline"></ion-icon>
+									</span>
+
+									<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
+										<ion-icon name="trash-outline"></ion-icon>
+									</span>
+								</div>
+							</div>
+						))}
+					</div>
+
+					<div className="experience__wrapper">
+						<button style={{ cursor: "pointer" }} className="experience__buttonAdd" onClick={handleClick}>
+							+ Add new
+						</button>
 					</div>
 
 					<div className="experience__button">
-						<button className="experience__back" type="button" onClick={changePage}>Back</button>
-						<button className="experience__next" type="submit" onClick={handleSubmit}>Next</button>
+						<button className="experience__back" type="button" onClick={changePage}>
+							Back
+						</button>
+						<button className="experience__next" type="submit" onClick={handleSubmit}>
+							Next
+						</button>
 					</div>
 				</div>
 			</div>

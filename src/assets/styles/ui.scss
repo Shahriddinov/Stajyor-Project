@@ -59,6 +59,20 @@ body {
 	background-color: #f5f5f7;
 }
 
+.freelanser-box-bg1,
+.freelanser-box-bg2{
+	background-repeat: no-repeat;
+	background-position: calc(50% - 600px) -300px;
+}
+
+.freelanser-box-bg1 {
+	background-image: url("../images/blueElip.png");
+}
+
+.freelanser-box-bg2 {
+	background-image: url("../images/blueElip2.png");
+}
+
 .page-wrapper2,
 .page-wrapper {
 	min-height: 100vh;
@@ -74,10 +88,9 @@ body {
 }
 
 .container {
-	max-width: 1580px;
+	max-width: 1450px;
 	margin: 0 auto;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding: 0 20px;
 }
 
 .small-container {

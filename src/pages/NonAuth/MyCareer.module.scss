@@ -20,11 +20,19 @@
 }
 
 .careerBox {
-	padding-top: 90px;
+	padding: 90px 0 143px;
+
+	&__wrapper {
+		height: 60vh;
+		max-height: 500px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 }
 
 .careerBox p {
-	margin: 90px 0 20px;
+	margin-bottom: 20px;
 	font-weight: 500;
 	font-size: 25px;
 	line-height: 30px;
@@ -67,7 +75,6 @@
 }
 
 .careerBox h3 {
-	margin-top: 86px;
 	margin-bottom: 15px;
 	font-weight: 700;
 	font-size: 20px;
@@ -76,8 +83,11 @@
 }
 
 .marketBox {
-	display: flex;
-	gap: 13px;
+
+	&_Wrapper {
+		display: flex;
+		gap: 13px;
+	}
 }
 
 .eachBox {
@@ -128,7 +138,7 @@
 	}
 
 	.careerBox p {
-		margin: 70px 0 10px;
+		margin-bottom: 10px;
 		font-weight: 500;
 		font-size: 18px;
 		line-height: 25px;
@@ -156,7 +166,6 @@
 	}
 
 	.careerBox h3 {
-		margin-top: 60px;
 		margin-bottom: 10px;
 		font-size: 15px;
 		line-height: 20px;
@@ -193,11 +202,5 @@
 @media only screen and (max-height: 560px) {
 	.careerBox {
 		padding-top: 40px;
-	}
-}
-
-@media only screen and (max-height: 530px) {
-	.careerBox {
-		padding-top: 10px;
 	}
 }

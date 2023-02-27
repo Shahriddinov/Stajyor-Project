@@ -2,12 +2,12 @@ import React from "react";
 import "./Photo.scss";
 import { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { photoUpload, countryList } from "../../../reduxToolkit/ResumeSlice";
 import { useState } from "react";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import { countryList, photoUpload } from "reduxToolkit/extraReducers";
 
 function Photo() {
-	const [uploaded, setUploaded] = useState(false);
+	const [uploaded, setUploaded] = useState("");
 	const hiddenFileInput = useRef(null);
 	const firstName = useRef("");
 	const lastName = useRef("");
@@ -19,19 +19,20 @@ function Photo() {
 		hiddenFileInput.current.click();
 	};
 
-	let fileUploaded;
 	const handleChange = event => {
-		fileUploaded = event.target.files[0];
+		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
+		console.log();
 	};
-
+	// console.log(uploaded);
 	const handleSubmit = event => {
+		console.log(uploaded);
 		let formdatas = new FormData();
 		formdatas.append("FirstName", firstName.current.value);
 		formdatas.append("LastName", lastName.current.value);
 		formdatas.append("Email", email.current.value);
 		formdatas.append("Phone", phoneNumber.current.value);
-		formdatas.append("Image", fileUploaded);
+		formdatas.append("Image", uploaded);
 		dispatch(countryList());
 		dispatch(photoUpload(formdatas));
 		dispatch(
@@ -59,7 +60,7 @@ function Photo() {
 					<h3 className="title">Change your profile photo</h3>
 				</div>
 			)}
-			<input type="file" ref={hiddenFileInput} onChange={handleChange} style={{ display: "none" }} />
+			<input type="file" accept=".jpg, .jpeg, .png" ref={hiddenFileInput} onChange={handleChange} style={{ display: "none" }} />
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>

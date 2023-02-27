@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { resumeSelect } from "reduxToolkit/extraReducers";
 import { useNavigate } from "react-router-dom";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
 function SelectResume() {
 	const [activeDot, setActiveDot] = useState(1);

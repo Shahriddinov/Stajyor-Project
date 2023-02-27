@@ -2,20 +2,13 @@ import React from "react";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeEducationModal, educationPost, } from "reduxToolkit/ResumeSlice";
-import { activeCardAction } from "reduxToolkit/resumeControls";
-import clouse  from "../../../../../assets/images/resume-modal-clouse.svg"
+import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
-function AddEducations() {
-	const [post, setPost] = useState({
-		schoolName: "",
-		educationDegree: "",
-		typeStudy: "",
-		location: "",
-		currentStudy: false
-	});
-
+function AddEducations({removeModal,defaultInputData}) {
+	const {schoolName,educationDegree,typeStudy,location,currentStudy,type,id} = defaultInputData
+	const [post, setPost] = useState({ schoolName,educationDegree,typeStudy,location,currentStudy});
 	const dispatch = useDispatch();
+	
 	let data = new FormData();
 	data.append("schoolName", post.schoolName);
 	data.append("educationDegree", post.educationDegree);
@@ -25,23 +18,20 @@ function AddEducations() {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		console.log(post);
-		dispatch(educationPost(data));
-		dispatch(changeEducationModal(false))
-	};
-
-	const changeEducationPage = e => {
-		e.preventDefault();
-		dispatch(changeEducationModal(false))
+		if(type === "add") {
+			dispatch(educationPost(data));
+			removeModal(prev => ({...prev, educationAdd:false}))
+		}
+		else {
+			dispatch(educationEdit({id, data}))
+			removeModal(prev => ({...prev, educationEdit:false}))
+		}
 	};
 
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
 				<h2 className="addEducations__title">Add Education History</h2>
-				<button className="addEducations__modal_clouce" onClick={() => dispatch(changeEducationModal(false))}>
-					<img src={clouse} alt="" width={16} height={16} />
-				</button>
 
 				<form onSubmit={submitHandler}>
 					<div className="addEducations__content">
@@ -119,7 +109,7 @@ function AddEducations() {
 						</div>
 
 						<div className="addEducations__button">
-							<button className="addEducations__back" type="button" onClick={changeEducationPage}>
+							<button className="addEducations__back" type="button" onClick={() => removeModal(false)}>
 								Cancel
 							</button>
 							<button className="addEducations__next" type="submit">Save</button>

@@ -1,10 +1,10 @@
 import {createSlice } from "@reduxjs/toolkit";
-import { logInRequest, registerRequest, resumeFinishPost } from "./extraReducers";
+import { logInRequest, registerRequest, resumeFinishPost } from "reduxToolkit/extraReducers";
 
 const initialState = {
 	loading: false,
 	error: "",
-	loggedIn: window.localStorage.getItem("token"),
+	loggedIn: localStorage.getItem("token"),
 	resume: JSON.parse(localStorage.getItem("resume")) ? JSON.parse(localStorage.getItem("resume")) : false,
 	checkEmail: false,
 	bodyErrors: "",
@@ -40,8 +40,8 @@ const logInSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(logInRequest.fulfilled, (state, action) => {
-			window.localStorage.setItem("token", action.payload.token);
-			state.loggedIn = true;
+			localStorage.setItem("token", action.payload.token);
+			state.loggedIn = action.payload.token;
 			state.loading = false;
 		});
 		builder.addCase(logInRequest.rejected, (state, action) => {
@@ -71,9 +71,8 @@ const logInSlice = createSlice({
 			localStorage.setItem("resume", payload.data.finish)
 			state.resume = payload.data.finish
 			state.loading = false;
-			console.log(payload.data.finish);
 		});
-		builder.addCase(resumeFinishPost.rejected, (state,{payload}) => {
+		builder.addCase(resumeFinishPost.rejected, (state,action) => {
 			state.loading = false;
 		})
 	}

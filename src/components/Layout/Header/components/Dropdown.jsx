@@ -4,7 +4,7 @@ import user_img from '../../../../assets/images/header/user.svg'
 import arrow_down from '../../../../assets/images/header/down_arrow.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
-import { profilLogout } from 'reduxToolkit/LoginSlice';
+import { profilLogout } from 'reduxToolkit/loginSlice/LoginSlice';
 const Dropdown = () => {
 
   const navigate = useNavigate()

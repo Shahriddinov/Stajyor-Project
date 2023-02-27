@@ -11,7 +11,6 @@ function Aboutus(props) {
 			<div className="container">
 				<div className={classes.about__container}>
 					<Video />
-					{/* <video src=""></video> */}
 					<div className={classes.about__container__border}></div>
 					<div className={classes.TextsMain}>
 						<div className={classes.IconsMain}>
@@ -38,7 +37,7 @@ function Aboutus(props) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 }
 

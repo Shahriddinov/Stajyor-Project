@@ -9,34 +9,38 @@ function MyCareer() {
 	return (
 		<div className={classes.careerBox}>
 			<div className="container">
-				<div className={classes.career}>
-					{" "}
-					<img src={career} alt="My career" />
-					<div className={classes.power}>Powerful platform for your career</div>
-				</div>
-				<p>Find your dream jobs in our powerful career company.</p>
-				<form action="submit">
-					<div className={classes.myCareerSearch}>
-						<input type="text" placeholder="Job title, keywords..." />
-						<button type="submit">
-							<img src={searchIcon} alt="search Icon" />
-						</button>
+				<div className={classes.careerBox__wrapper}>
+					<div className={classes.career}>
+						{" "}
+						<img src={career} alt="My career" />
+						<div className={classes.power}>Powerful platform for your career</div>
 					</div>
-				</form>
-				<h3>Download mobile App</h3>
-				<div className={classes.marketBox}>
-					<div className={classes.eachBox}>
-						<img src={googlePlay} alt="google play icon" />
-						<div>
-							<p>доступно в</p>
-							<h2>GooglePlay</h2>
+					<form action="submit">
+						<p>Find your dream jobs in our powerful career company.</p>
+						<div className={classes.myCareerSearch}>
+							<input type="text" placeholder="Job title, keywords..." />
+							<button type="submit">
+								<img src={searchIcon} alt="search Icon" />
+							</button>
 						</div>
-					</div>
-					<div className={classes.eachBox}>
-						<img className={classes.apple} src={apple} alt="apple market icon" />
-						<div>
-							<p>загрузите в</p>
-							<h2>AppStore</h2>
+					</form>
+					<div className={classes.marketBox}>
+						<h3>Download mobile App</h3>
+						<div className={classes.marketBox_Wrapper}>
+							<div className={classes.eachBox}>
+								<img src={googlePlay} alt="google play icon" />
+								<div>
+									<p>доступно в</p>
+									<h2>GooglePlay</h2>
+								</div>
+							</div>
+							<div className={classes.eachBox}>
+								<img className={classes.apple} src={apple} alt="apple market icon" />
+								<div>
+									<p>загрузите в</p>
+									<h2>AppStore</h2>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

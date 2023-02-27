@@ -1,22 +1,8 @@
 import React from "react";
 import "./style.scss";
 import MyCareerLogo from "../../../assets/images/Resume/my-career.svg";
-import { useSelector } from "react-redux";
 
-function CareerSlider() {
-	const {activeDote} = useSelector(state => state.resumeControle)
-
-	let dot = [
-		{id:1,label: "Personal information"},
-		{id:2,label: "Address"},
-		{id:3,label: "About yourself and skills"},
-		{id:4,label: "Language"},
-		{id:5,label: "Experience"},
-		{id:6,label: "Educations"},
-		{id:7,label: "Contacts"},
-		{id:8,label: "Resume"},
-	]
-
+function CareerSlider({dot, activeDote}) {
 	const mediaWidth = window.innerWidth
 
 	return (

@@ -1,41 +1,27 @@
 import Round from "components/Round/Round.jsx";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
-import Photo from "../cards/Photo.jsx";
 import CareerSlider from "../CareerSlider/CareerSlider";
-import Yourself from "../cards/Yourself";
-import Language from "../cards/Language";
-import Country from "../cards/Country";
-import SocialMedia from "../cards/SocialMedia";
-import SelectResume from "../cards/SelectResume";
-import Educations from "../cards/Educations/Educations/Educations";
 import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import MyWork from "../cards/WorkExperience/MyWork/MyWork";
-import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
 import { useSelector } from "react-redux";
 import "./Background.scss";
 import { useDispatch } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { cards, dot } from "./information";
 
 function Background() {
 	const { activeCard } = useSelector(state => state.resumeControle);
 	const len = useSelector(state => state.lenguage.lenguage);
 	const {isExperienceModal,isEducationModal} = useSelector(state => state.resume);
+	const {activeDote} = useSelector(state => state.resumeControle)
+
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const cards = [
-		{ id: 1, label: <Photo />, type: "photo" },
-		{ id: 2, label: <Country />, type: "country" },
-		{ id: 3, label: <Yourself />, type: "yourself" },
-		{ id: 4, label: <Language />, type: "lenguage" },
-		{ id: 5, label: <WorkExperience />, type: "workexperience" },
-		{ id: 6, label: <Educations />, type: "education" },
-		{ id: 7, label: <SocialMedia />, type: "media" },
-		{ id: 8, label: <SelectResume />, type: "resume" }
-	];
+
 
 	const handleClick = () => {
 		navigate(`/${len}/company`)
@@ -74,7 +60,7 @@ function Background() {
 						</div>
 
 						<div className={classes.career}>
-							<CareerSlider />
+							<CareerSlider dot = {dot} activeDote = {activeDote}/>
 						</div>
 					</div>
 				</div>

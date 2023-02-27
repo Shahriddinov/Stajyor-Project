@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classes from "./ChatForCompany.module.scss";
 
 import Modal from "./Modal";
 function ChatForCompany(props) {
@@ -7,9 +6,6 @@ function ChatForCompany(props) {
 
 	return (
 		<div>
-			<button className={classes.testBtn} onClick={() => setIsOpen(true)}>
-				OpenModal
-			</button>
 			{isOpen && <Modal setIsOpen={setIsOpen} />}
 		</div>
 	);

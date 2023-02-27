@@ -52,6 +52,18 @@ const usersData = [
 		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
 		userName: "Sima Bath Bhab",
 		description: "The company offers services to improve the..."
+	},
+	{
+		id: "dsds",
+		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674649225/compLogo_n1fn1h.png",
+		userName: "Chatur Padamarah",
+		description: "The company offers services to improve the..."
+	},
+	{
+		id: "fdsfs",
+		userImage: "https://res.cloudinary.com/kitobdokon/image/upload/v1674541785/user_xnssth.png",
+		userName: "Sima Bath Bhab",
+		description: "The company offers services to improve the..."
 	}
 ];
 

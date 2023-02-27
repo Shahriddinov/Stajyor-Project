@@ -33,18 +33,17 @@ function DefaultMessageBlock(props) {
 
 	return (
 		<div className={classes.modalMessageAndWrite}>
-			<div className={classes.messageContainer}>
-				<div className={classes.message}>
-					{arr.map(({ message, index }) => (
-						<span key={index} className={classes.sentMessage}>
-						{	/*<img src={imgData} alt="Sent" />*/}
-							{message}
-						</span>
-					))}
+			<div className={classes.box}>
+				<div className={classes.messageContainer}>
+					<div className={classes.message}>
+						{arr.map(({ message, index }) => (
+							<span key={index} className={classes.sentMessage}>
+								{message}
+							</span>
+						))}
+					</div>
 				</div>
-			</div>
-			<div className={classes.writeAndSendMessage}>
-				<form>
+				<div className={classes.writeAndSendMessage}>
 					<input
 						className={classes.writeMessage}
 						ref={inputReset}
@@ -54,10 +53,10 @@ function DefaultMessageBlock(props) {
 						placeholder="Text message..."
 					/>
 					<button onClick={submitValue}>Send</button>
-				</form>
-				<div className={classes.fileAttach} onChange={onChangePicture}>
-					<input type="file" ref={hiddenFileInput} ref={inputReset2}  multiple accept="image/*" />
-					<img type="file" src={fileAttachImg} alt="File Attach Img" />
+					<div className={classes.fileAttach} onChange={onChangePicture}>
+						<input type="file" ref={hiddenFileInput} multiple accept="image/*" />
+						<img type="file" src={fileAttachImg} alt="File Attach Img" />
+					</div>
 				</div>
 			</div>
 		</div>

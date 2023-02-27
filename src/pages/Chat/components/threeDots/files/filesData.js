@@ -22,6 +22,18 @@ const filesData = [
 		img: "https://res.cloudinary.com/kitobdokon/image/upload/v1675326087/files4_eyc2b0.png",
 		fileName: "technology-conc.ept-...mesh-text-space.zip",
 		size: "2.2"
+	},
+	{
+		id: "asd014",
+		img: "https://res.cloudinary.com/kitobdokon/image/upload/v1675326087/files3_kglrzs.png",
+		fileName: "Ut erat est vivamus turpis laoreet. Viverra.png",
+		size: "2.2"
+	},
+	{
+		id: "asd015",
+		img: "https://res.cloudinary.com/kitobdokon/image/upload/v1675326087/files4_eyc2b0.png",
+		fileName: "technology-conc.ept-...mesh-text-space.zip",
+		size: "2.2"
 	}
 ];
 

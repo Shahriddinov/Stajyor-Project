@@ -2,6 +2,9 @@ export const BASE_URL = "http://localhost:5000";
 export const LOG_IN = `${BASE_URL}/login`;
 export const REGISTER = `${BASE_URL}/register`;
 export const PHOTO = `${BASE_URL}/api/Freelancer`;
+export const GET_FREELANCER = `${BASE_URL}/api/Freelancer/Freenalcer/Get`;
+
+export const GET_ALL_FREELANCER = `${BASE_URL}/api/Freelancer`
 export const COUNTRYLIST = `${BASE_URL}/api/GetInformation/Countries`;
 export const COUNTRY_LIST_UPLOAD = `${BASE_URL}/api/Freelancer/Adress`;
 export const POSITIONS = `${BASE_URL}/api/GetInformation/Positions`;

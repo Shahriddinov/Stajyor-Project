@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './Header.scss'
 
 import header_logo from '../../../assets/images/Freelancer/Freelancer_logo.svg'
 import header_logo_bg from '../../../assets/images/Freelancer/frilancer_ellipse.png'
 import Dropdown from "./components/Dropdown";
 import LangDrop from "./components/LangDrop";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { getFreelancerData } from "reduxToolkit/FreelancerSlice";
 
 const Header = () => {
 	const len = useSelector(state => state.lenguage.lenguage)
+	const { freelancerData } = useSelector( state => state.freelance)
 	const {t} = useTranslation()
+	const dispatch = useDispatch()
+	console.log(freelancerData);
+
+	useEffect(() => {
+		dispatch(getFreelancerData())
+	}, [dispatch])
 
 	return (
 		<header className="header" >

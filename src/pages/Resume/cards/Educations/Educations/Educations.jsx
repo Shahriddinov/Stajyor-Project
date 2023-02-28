@@ -1,13 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
 import { temporary6,temporary7, educationDelete, educationGet, temporary4, temporary8 } from "reduxToolkit/ResumeSlice";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 
 function Educations() {
 	const dispatch = useDispatch()
 	const {educationList} = useSelector(state => state.resume)
+
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = (index) => {
+    setIsHovering(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+    const [isHoveringT, setIsHoveringT] = useState(false);
+
+  const handleMouseEnterT = (index) => {
+    setIsHoveringT(index);
+  };
+
+  const handleMouseLeaveT = () => {
+    setIsHoveringT(false);
+  };
+
+
+
+
 
 	useEffect(() => {
 		dispatch(educationGet())
@@ -50,7 +77,7 @@ function Educations() {
 							</p>
 							<div className="educations__box">
 								{
-									educationList.map(el => (
+									educationList.map((el, index) => (
 										<div className="educations__content" key = {el.id}>
 											<div className="educations__texts">
 												<span className="educations__subtitle">{el.schoolName}</span>
@@ -62,11 +89,19 @@ function Educations() {
 					
 											<div className="educations__icons">
 												<span className="educations__icon--create" type="button" onClick={changeEducationPage}>
-													<ion-icon name="create-outline"></ion-icon>
+													<Edit name="create-outline" 
+													className={`${ isHovering === index ? 'experience__box__hovering ' : null }`}
+											          onMouseEnter={() => handleMouseEnter(index)}
+          												onMouseLeave={handleMouseLeave}
+													/>
 												</span>
 					
 												<span className="educations__icon--delete" onClick={() => deletEducation(el.id)} >
-													<ion-icon name="trash-outline"></ion-icon>
+													<Trash name="trash-outline" 
+													className={`${ isHoveringT === index ? 'experience__box__hoveringT ' : null }`}
+											          onMouseEnter={() => handleMouseEnterT(index)}
+          												onMouseLeave={handleMouseLeaveT}
+													/>
 												</span>
 											</div>
 										</div>

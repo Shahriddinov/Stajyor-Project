@@ -115,6 +115,12 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		cursor: pointer;
+
+		&:hover {
+			background-color: #1d71b8;
+			color: white;
+			transition: 0.3s;
+		}
 	}
 
 	&__back {
@@ -127,5 +133,12 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+		cursor: pointer;
+		border: 1px solid #fff;
+
+		&:hover {
+			border: 1px solid #1d71b8;
+			transition: 0.3s;
+		}
 	}
 }

@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
 import { exsperienceDelete, exsperienceGet, temporary2, temporary3 } from "reduxToolkit/ResumeSlice";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
+
+
 function WorkExperience() {
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = (index) => {
+    setIsHovering(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+    const [isHoveringT, setIsHoveringT] = useState(false);
+
+  const handleMouseEnterT = (index) => {
+    setIsHoveringT(index);
+  };
+
+  const handleMouseLeaveT = () => {
+    setIsHoveringT(false);
+  };
+
+
+
 
 	const {experienceList}  = useSelector(state => state.resume)
 	const dispatch = useDispatch()
@@ -48,7 +75,7 @@ function WorkExperience() {
 					
 					<div className="experience__box">
 						{
-							experienceList.map(el => (
+							experienceList.map((el, index) => (
 								<div className="experience__content" key={el.id}>
 									<div className="experience__texts">
 										<span className="experience__subtitle">{el.companyName}</span>
@@ -57,11 +84,22 @@ function WorkExperience() {
 
 									<div className="experience__icons">
 										<span className="experience__icon--create">
-											<ion-icon name="create-outline"></ion-icon>
+											<Edit name="create-outline" 
+											
+											className={`${ isHovering === index ? 'experience__box__hovering ' : null }`}
+											          onMouseEnter={() => handleMouseEnter(index)}
+          												onMouseLeave={handleMouseLeave}
+											/>
 										</span>
 
 										<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
+											<Trash name="trash-outline"  
+											
+											className={`${ isHoveringT === index ? 'experience__box__hoveringT ' : null }`}
+											          onMouseEnter={() => handleMouseEnterT(index)}
+          												onMouseLeave={handleMouseLeaveT}
+
+											/>
 										</span>
 									</div>
 								</div>

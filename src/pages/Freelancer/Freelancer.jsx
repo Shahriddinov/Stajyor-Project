@@ -10,6 +10,8 @@ import serach_icon from '../../assets/images/Freelancer/serach_inp.svg'
 
 
 const Freelancer = () => {
+    
+
 
 
 

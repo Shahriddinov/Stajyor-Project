@@ -73,7 +73,7 @@ function MyWork() {
 							<label className="mywork__label" htmlFor="data">
 								Date from
 							</label>
-							<input className="mywork__inputDate" type="date" id="data" />
+							<input className="mywork__inputDate"  type="date" id="data" />
 						</div>
 
 						<div className="mywork__wrapperDate">

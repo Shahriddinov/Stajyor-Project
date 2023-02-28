@@ -133,6 +133,12 @@
 		color: #323232;
 		background: #ffffff;
 		padding: 1rem 2rem;
+		cursor: pointer;
+		&:hover {
+			background-color: #1d71b8;
+			color: white;
+			transition: 0.3s;
+		}
 	}
 
 	&__back {
@@ -145,6 +151,13 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+		border: 1px solid white;
+		cursor: pointer;
+
+		&:hover {
+			border: 1px solid #1d71b8;
+			transition: 0.3s;
+		}
 	}
 
 	&__checkboxWrapper {
@@ -152,4 +165,14 @@
 		align-items: center;
 		justify-content: space-between;
 	}
+}
+
+.experience__box__hovering path {
+	stroke: #1D71B8;
+	transition: 0.3s;
+}
+
+.experience__box__hoveringT path {
+	stroke: #FF0000;
+	transition: 0.3s;
 }

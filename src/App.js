@@ -1,5 +1,5 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useLayoutEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes,Navigate,useNavigate} from "react-router-dom";
 import Home from "pages/Home";
 import Aboutus from "pages/NonAuth/Aboutus";
@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import { getFreelancerData } from "reduxToolkit/FreelancerSlice";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
@@ -25,11 +26,15 @@ function App() {
 	const resume = useSelector(state => state.login.resume);
 	const navigate = useNavigate();
 
+
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)
 	},[len])
 
 	const pathName = window.location.pathname;
+
+
+
 
 	return(
 		<div className="App">
@@ -56,9 +61,12 @@ function App() {
 				:(
 					<>
 						<Header/>
+
 						<Routes>
 							<Route path={`/${len}/jobs`} element={<Jobs/>}/>
 							<Route path= {`/${len}/about`} element={<Aboutus/>}/>
+							<Route path= {`/${len}/freelancer-profile`} element={<Profile/>}/>
+							<Route path= {`/${len}/freelancer`} element={<Freelancer/>}/>
 							<Route path={`/${len}/talants`} element={<Talants/>}/>
 							<Route path={`/${len}/contact`} element={<Contactus/>}/>
 							<Route path={`/${len}/contracts`} element={<Contract/>}/>

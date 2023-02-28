@@ -69,18 +69,25 @@
 	}
 
 	&__icon--create {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60px;
+		height: 54px;
 		border: 1px solid #1d71b8;
 		border-radius: 6px;
-		padding: 13px 14px;
-		font-size: 30px;
-		margin-right: 10px;
+		cursor: pointer;
 	}
 
 	&__icon--delete {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 60px;
+		height: 54px;
 		border: 1px solid #1d71b8;
 		border-radius: 6px;
-		padding: 14px 16px;
-		font-size: 30px;
+		cursor: pointer;
 	}
 
 	&__button {
@@ -147,4 +154,21 @@
 		width: 750px;
 		padding: 15px 20px;
 	}
+}
+
+
+.experience__box__hovering path {
+	stroke: #1D71B8;
+	transition: 0.3s;
+}
+
+.experience__box__hoveringT path {
+	stroke: #FF0000;
+	transition: 0.3s;
+}
+
+.experience__icons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }

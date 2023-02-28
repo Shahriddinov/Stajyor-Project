@@ -111,6 +111,7 @@ function Yourself() {
                         setData((current) => [...current, item]);
                         return item;
                       }}
+					  onChange={e => setUserChoice2(Array.isArray(e) ? e.map(x => x.value) : [])}
                     />
 					{/* <br /> */}
 					<label className="yourselfCard_label" >Hobbies*</label>
@@ -128,6 +129,7 @@ function Yourself() {
                         setHobbiesorg((current) => [...current, item]);
                         return item;
                       }}
+					  onChange={e => setHobby(Array.isArray(e) ? e.map(x => x.value) : [])}
                     />
 
 					<textarea className="yourselfCard_textarea" type="textarea" required placeholder="Describe yourself to buyers" ref={description} />

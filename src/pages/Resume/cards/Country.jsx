@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Photo.scss";
 import Select from "react-select";
 import { useState } from "react";
 import { countryUpload, positions, hobbies } from "../../../reduxToolkit/ResumeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
+import { getFreelancerData } from "reduxToolkit/FreelancerSlice";
 
 function Country() {
 	const dispatch = useDispatch();
+
+
+  const { freelancerData } = useSelector(state => state.freelance )
+  
+  
+  useEffect(() => {
+	  dispatch(getFreelancerData())
+	}, [dispatch])
+	console.log(freelancerData.firstName);
+
+
 	const street = useRef("");
 	const [userChoice, setUserChoice] = useState([0, 0]);
 	const [userChoice2, setUserChoice2] = useState(0);
@@ -38,7 +50,7 @@ function Country() {
 		<div className="countryCard">
 			<div className="country">
 				<form className="country__form" onSubmit={handleSubmit}>
-					<h2 className="country__title">Welcome Dilmurod</h2>
+					<h2 className="country__title">Welcome {freelancerData.firstName}</h2>
 					<p className="country__text">
 						Complete your profile to join our global community of freelancers and start selling your services to our growing network of businesses.
 					</p>

@@ -2,10 +2,10 @@ import React from "react";
 import "./Photo.scss";
 import Select from "react-select";
 import { useState } from "react";
-import { countryUpload, positions, hobbies } from "../../../reduxToolkit/ResumeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import { countryUpload, hobbies, positions } from "../../../reduxToolkit/extraReducers";
 
 function Country() {
 	const dispatch = useDispatch();

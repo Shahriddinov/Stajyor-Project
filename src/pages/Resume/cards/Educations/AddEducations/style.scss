@@ -58,7 +58,6 @@
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 24px;
-		color: #808080;
 		padding: 15px 20px;
 		margin-bottom: 20px;
 		width: 94%;
@@ -97,7 +96,6 @@
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 24px;
-		color: #808080;
 		padding: 15px 20px;
 		margin-bottom: 20px;
 		width: 94%;
@@ -127,12 +125,16 @@
 		margin-bottom: 8px;
 	}
 
+	&__inputDate::placeholder {
+		color: #808080;
+	}
+
 	&__inputDate {
 		font-family: "Montserrat", sans-serif;
 		font-weight: 500;
 		font-size: 20px;
 		line-height: 24px;
-		color: #808080;
+		color: #323232;
 		padding: 15px 20px;
 		border: 1px solid #cdcdcd;
 		border-radius: 8px;
@@ -170,6 +172,15 @@
 		color: #323232;
 		background: #ffffff;
 		padding: 1rem 2rem;
+		transition: all .3s linear;
+		cursor: pointer;
+	}
+
+	&__next:hover,
+	&__back:hover {
+		color: #fff;
+		background: #1d71b8;
+		transition: all .3s linear;
 	}
 
 	&__back {
@@ -182,6 +193,8 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+		transition: all .3s linear;
+		cursor: pointer;
 	}
 
 	&__checkboxWrapper {

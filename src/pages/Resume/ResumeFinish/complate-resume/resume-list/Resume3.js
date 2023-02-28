@@ -12,7 +12,7 @@ const Resume3 = ({phoneNumber,description,experiences,email,freelancerContact,fr
                 <div className="resume2_3-left-top">
                   <img className="corPic1" src={corPic2} alt='img1'/>
                   <img className="corPic2" src={corPic1} alt='img1'/>
-                  <img className="userPic" src={freelancerImage} alt='img1'/>
+                  <img className="userPic" src={`http://localhost:5000/staticfiles/${freelancerImage}`} alt='img1'/>
                 </div>
                 <div className="resume2_3-left-bottom">
                   <div className="resume2_3-left-bottom-contacts">
@@ -64,7 +64,7 @@ const Resume3 = ({phoneNumber,description,experiences,email,freelancerContact,fr
                     {freelancerPosition?.freelancerSkills?.map((item, i) => {
                       return (
                         <div className="bottom-skills-item" key={i + 1}>
-                          <p className="skills-text">{item}</p>{" "}
+                          <p className="skills-text">{item.name}</p>{" "}
                           <p className="skills-level"></p>
                         </div>
                       );

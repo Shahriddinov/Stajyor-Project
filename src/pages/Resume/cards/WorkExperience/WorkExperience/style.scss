@@ -26,7 +26,6 @@
 
 	&__box{
 		max-height: 250px;
-		border: 1px soolid red;
 		overflow-y: auto;
 	}
 
@@ -113,7 +112,6 @@
 		color: #323232;
 		background: #ffffff;
 		padding: 1rem 2rem;
-		margin-right: 20px;
 		border: 1px solid white;
 
 		&:hover {
@@ -140,6 +138,13 @@
 		border-radius: 8px;
 		width: 100%;
 		padding: 15px 20px;
+		transition: all .3s linear;
+	}
+
+	&__buttonAdd:hover {
+		color: #fff;
+		background: #1d71b8;
+		transition: all .3s linear;
 	}
 }
 
@@ -211,7 +216,7 @@
 		&__next {
 			font-size: 17px;
 			line-height: 20px;
-			padding: 8px 16px;
+			padding: 15px 32px;
 	
 			&:hover {
 				background-color: #1d71b8;
@@ -230,7 +235,6 @@
 			color: #323232;
 			background: #ffffff;
 			padding: 1rem 2rem;
-			margin-right: 20px;
 			border: 1px solid white;
 	
 			&:hover {

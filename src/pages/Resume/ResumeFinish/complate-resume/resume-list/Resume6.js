@@ -18,7 +18,7 @@ const Resume6 = (props) => {
                       {firstName} {lastName}
                     </p>
                     <p className="resume2_6-top-left-user-job">
-                      Frontend developer
+                      {freelancerPosition?.name}
                     </p>
                   </div>
     
@@ -50,7 +50,7 @@ const Resume6 = (props) => {
                 <div className="resume2_6-top-right">
                   <img
                     className="resume2_6-top-right-img"
-                    src={freelancerImage}
+                    src={`http://localhost:5000/staticfiles/${freelancerImage}`}
                   />
                 </div>
               </div>
@@ -127,7 +127,7 @@ const Resume6 = (props) => {
                     {freelancerPosition?.freelancerSkills?.map((item, i) => {
                       return (
                         <div key={i + 1}>
-                          <b>{item}</b>
+                          <b>{item.name}</b>
                         </div>
                       );
                     })}

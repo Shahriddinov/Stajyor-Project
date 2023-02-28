@@ -1,31 +1,27 @@
 import React from "react";
-import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./Language.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { languageUpload} from "../../../reduxToolkit/ResumeSlice";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { languageUpload } from "reduxToolkit/extraReducers";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
 function Language() {
 	const dispatch = useDispatch();
 	const languageList = useSelector(state => state.resume.languageList);
+	const [data,setData] = useState({LanguageId: null, lavel:"",})
 	const [theArray, setTheArray] = useState([{ test: "test", test2: "test2", id: 0 }]);
 	const [userLang, setUserLang] = useState([]);
 	const [userLevel, setUserLevel] = useState([]);
-	let options1 = [];
+	
 	let level = [
 		{ value: "A1 - Beginner", label: "A1 - Beginner" },
 		{ value: "A2 - Elementary", label: "A2 - Elementary" },
 		{ value: "B1 - Intermediate", label: "B1 - Intermediate" },
 		{ value: "B2 - Advanced", label: "B2 - Advanced" }
 	];
-
-	for (let i = 0; i < languageList.length; i++) {
-		options1.push({ value: languageList[i].id, label: languageList[i].name });
-	}
 
 	let singleLang = true;
 	if (theArray.length > 1) {
@@ -44,6 +40,7 @@ function Language() {
 
 	const handleSubmit = event => {
 		let formdatas = new FormData();
+		console.log(userLang,userLevel);
 		for (let i = 0; i < theArray.length; i++) {
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);
@@ -66,6 +63,8 @@ function Language() {
 			])
 		);
 	};
+
+	console.log(languageList);
 	return (
 		<div className={classes.languageCard}>
 			<h2>Write what languages you speak</h2>
@@ -80,7 +79,7 @@ function Language() {
 							<Select
 								className="languageSelect"
 								classNamePrefix="mySelectLang"
-								options={options1}
+								options={languageList?.map(el => ({value: el.id, label: el.name}))}
 								placeholder="Language*"
 								onChange={choice => setUserLang([...userLang, choice.value])}
 							/>

@@ -40,11 +40,13 @@
 }
 
 .careerBox .myCareerSearch {
+	overflow: hidden;
 	position: relative;
 	display: flex;
 	max-width: 690px;
 	height: 54px;
 	background: #ffffff;
+	border-radius: 8px;
 }
 
 .careerBox input {

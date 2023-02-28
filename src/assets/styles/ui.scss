@@ -88,33 +88,9 @@ body {
 }
 
 .container {
-	max-width: 1950px;
+	max-width: 1450px;
 	margin: 0 auto;
-	padding: 0 255px;
-}
-
-@media only screen and (max-width: 1634px) {
-	.container {
-		padding: 0 200px;
-	}
-}
-
-@media only screen and (max-width: 1516px) {
-	.container {
-		padding: 0 100px;
-	}
-}
-
-@media only screen and (max-width: 1356px) {
-	.container {
-		padding: 0 90px;
-	}
-}
-
-@media only screen and (max-width: 1228px) {
-	.container {
-		padding: 0 30px;
-	}
+	padding: 0 20px;
 }
 
 .small-container {

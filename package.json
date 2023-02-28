@@ -5,7 +5,8 @@
 	"description": "Stajyor",
 	"author": "Murod",
 	"dependencies": {
-		"@mantine/core": "^5.10.2",
+		"@mantine/core": "^5.10.4",
+		"@mantine/hooks": "^5.10.4",
 		"@react-leaflet/core": "^1.1.1",
 		"@reduxjs/toolkit": "^1.9.1",
 		"@testing-library/jest-dom": "^5.16.3",

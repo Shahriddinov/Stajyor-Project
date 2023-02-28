@@ -2,9 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 
 const Resume2 = (props) => {
-    console.log(props);
-
     const {loading} = useSelector(state => state.resume)
+    
   return (
     <>
     {
@@ -18,7 +17,7 @@ const Resume2 = (props) => {
                     <div className="resume2_2-top">
                     <div className="resume2_2-top-left">
                         <div className="resume2_2-top-left-img">
-                            <img src={props?.freelancerImage} alt={props?.firstName}/>
+                            <img src={`http://localhost:5000/staticfiles/${props?.freelancerImage}`} alt={props?.firstName}/>
                         </div>
                     </div>
 
@@ -55,7 +54,7 @@ const Resume2 = (props) => {
                             <span className="resume2_2-contact-title">adress:</span>
                             <br />
                             <span>
-                            {props?.address?.countryName}{"  "}{props?.address?.regionName}{"  "}{props?.address?.home}
+                                {props?.address?.countryName}{"  "}{props?.address?.regionName}{"  "}{props?.address?.home}
                             </span>
                         </div>
                         </div>
@@ -67,21 +66,23 @@ const Resume2 = (props) => {
                         <div className="resume2_2-title">education</div>
                             {props?.educations?.map((item, i) => {
                             return (
-                                <div className="resume2_2-bottom-left-info">
-                                <p>
-                                    {item?.start?.substring(0, 4)} -{" "}
-                                    {item?.end?.substring(0, 4)}
-                                </p>
-                                <p>{item?.educationDegree}</p>
-                                <p>{item?.schoolName}</p>
-                                </div>
+                               <React.Fragment key={i + 1}>
+                                    <div className="resume2_2-bottom-left-info">
+                                    <p>
+                                        {item?.start?.substring(0, 4)} -{" "}
+                                        {item?.end?.substring(0, 4)}
+                                    </p>
+                                    <p>{item?.educationDegree}</p>
+                                    <p>{item?.schoolName}</p>
+                                    </div>
+                               </React.Fragment>
                             );
                             })}
                         <div>
                         <div className="resume2_2-title">hobbies</div>
                             <ul>
                                 {props?.freelancerHobbies?.map((item, i) => {
-                                    return <li key={i}>{item}</li>;
+                                    return <li key={item.id}>{item.name}</li>;
                                 })}
                             </ul>
                         </div>
@@ -91,20 +92,22 @@ const Resume2 = (props) => {
                         <div className="resume2_2-title">experience</div>
                         {props?.experiences?.map((item, i) => {
                         return (
-                            <div className="resume2_2-bottom-right-card">
-                            <div className="bottom-card-left">
-                                <p>
-                                {item?.start?.substring(0, 4)} -{" "}
-                                {item?.end?.substring(0, 4)}
-                                </p>
-                                <p>{item?.companyName}</p>
-                            </div>
+                           <React.Fragment key={i + 1}>
+                                <div className="resume2_2-bottom-right-card">
+                                <div className="bottom-card-left">
+                                    <p>
+                                    {item?.start?.substring(0, 4)} -{" "}
+                                    {item?.end?.substring(0, 4)}
+                                    </p>
+                                    <p>{item?.companyName}</p>
+                                </div>
 
-                            <div className="bottom-card-right">
-                                <b>{item?.job}</b>
-                                <p>{item?.descripeion}</p>
-                            </div>
-                            </div>
+                                <div className="bottom-card-right">
+                                    <b>{item?.job}</b>
+                                    <p>{item?.descripeion}</p>
+                                </div>
+                                </div>
+                           </React.Fragment>
                         );
                         })}
                         <div className="resume2_2-title">skills</div>
@@ -112,8 +115,8 @@ const Resume2 = (props) => {
                         <div className="resume2__card-skills">
                         {props?.freelancerPosition?.freelancerSkills?.map((item, i) => {
                             return (
-                            <div className="resume2__card-skills-item">
-                                {item}{" "}
+                            <div className="resume2__card-skills-item" key={item.id}>
+                                {item.name}{" "}
                                 <div className="resume2__card-skills-dot">
                                 <span></span>
                                 <span></span>

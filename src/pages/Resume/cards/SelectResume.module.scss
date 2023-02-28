@@ -1,12 +1,3 @@
-.selectResume {
-	background: white;
-	width: 750px;
-	padding:40px 30px;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
 .selectResume p {
 	font-style: normal;
 	font-weight: 500;
@@ -99,11 +90,146 @@
 }
 
 .slide {
+	width: 330px;
+	max-height: 450px;
 	filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
 	border-radius: 12px;
 }
 
+.slide_img {
+	width: 330px;
+	height: 100%;
+	object-fit: cover;
+}
+
 .slide__active {
 	border: 3px solid #1D71B8;
+}
+
+@media only screen and(max-width:1708px){
+	.slide {
+		max-height: 380px;
+	}
+
+	.slide_img {
+		object-fit: inherit;
+	}
+
+	.resume__footer {
+		margin-top: 25px;
+		padding-left: 50px;
+	}
+
+	.nextButton,
+	.backButton {
+		padding: 10px 20px;
+	}
+}
+
+
+
+@media only screen and(max-width:1400px){
+	.slide {
+		max-height: 330px;
+	}
+
+	.resume__footer {
+		margin-top: 20px;
+		padding-left: 0px;
+	}
+
+	.nextButton,
+	.backButton {
+		padding: 8px 16px;
+	}
+}
+
+@media only screen and(max-width:1324px){
+	.slide {
+		width: 330px;
+		max-height: 350px;
+	}
+}
+
+@media only screen and(max-width:1244px){
+	.select_title {
+		font-size: 22px;
+		margin-bottom: 10px;
+	}
+
+	.select_desc {
+		font-size: 18px;
+		margin: 0 !important;
+		margin-bottom: 10px !important;
+	}
+
+	.resume__footer {
+		margin-top: 20px;
+		padding-left: 0px;
+	}
+}
+
+
+@media only screen and(max-width:1212px){
+	.slide {
+		width: 300px;
+		max-height: 380px;
+	}
+
+	.slide_img {
+		display: inline-block;
+		width: 298px;
+		object-fit: initial;
+	}
+
+	.nextButton,
+	.backButton {
+		padding: 8px 16px;
+	}
+}
+
+@media only screen and(max-width:1166px){
+	.select_title {
+		font-size: 20px;
+		margin-bottom: 8px;
+	}
+
+	.select_desc {
+		font-size: 16px;
+		margin-bottom: 8px !important;
+	}
+
+	.slide {
+		max-height: 340px;
+	}
+
+	.slide_img {
+		display: inline-block;
+		width: 298px;
+		object-fit: initial;
+	}
+	.resume__footer {
+		margin-top: 15px;
+	}
+
+	.nextButton,
+	.backButton {
+		font-size: 18px;
+	}
+}
+
+@media only screen and(max-width:1080px){
+	.slide {
+		max-height: 300px;
+	}
+
+	.slide_img {
+		display: inline-block;
+		width: 298px;
+		object-fit: initial;
+	}
+	.resume__footer {
+		margin-top: 15px;
+	}
 }
 

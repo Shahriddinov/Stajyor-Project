@@ -95,7 +95,7 @@ function JobsDesc(props) {
 								</>
 							) : (
 								<>
-									<p className={classes.descContent}>{item.jobDescription.substring(0, 100)}</p>
+									<p className={classes.descContent}>{item.jobDescription.substring(0, 170)}</p>
 									<span className={classes.faChevronDown}>
 										<FaChevronDown />
 									</span>
@@ -105,9 +105,12 @@ function JobsDesc(props) {
 						<div className={classes.jobsCardHorLine}></div>
 						<div className={classes.skills}>
 							{item.skills.map((skilItem, index) => (
-								<p key={index} id={index}>
-									{skilItem}
-								</p>
+								<>
+									<p key={index} id={index}>
+										{skilItem}
+									</p>
+									<div className={classes["skills-border"]}></div>
+								</>
 							))}
 						</div>
 						<div className={classes.cardItemBottom}>

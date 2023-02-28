@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { countryList, photoUpload } from 'reduxToolkit/ResumeSlice';
+import { countryList, photoUpload } from 'reduxToolkit/resumeSlice/ResumeSlice';
 import Select from "react-select";
 import image from '../../../assets/images/FreelancerPortfolio/woman.svg'
 import './AddProfilePhoto.scss'

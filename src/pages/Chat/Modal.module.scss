@@ -1,248 +1,267 @@
+.modalMain {
+  top: 10px;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  padding: 0 15px;
+  position: fixed;
+}
 
-.darkBG {
-    background-color: #eeeeee;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-  }
-  
-  .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-   
-  }
-  
-  .modal {
-    width: 1410px;
-    height: 800px;
-    margin:  0 auto;
-    background: #f5f5f7;
-    z-index: 10;
-    border-radius: 12px 0px 12px 12px;
-    
-  }
-  .closeBtnCon{
-    position: absolute;
-    width: 96px;
-    height: 84px;
-    border-radius: 0px 12px 12px 0px;
-    background: #f5f5f7;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-right: -6rem;
+.modalM {
+  position: fixed;
+}
 
-  }
-  .closeBtn {
-    width: 54px;
-    height: 54px;
-    cursor: pointer;
-    border-radius: 8px;
-    border: 1px solid #1d71b8;
-    font-size: 22px;
-    color: #1d71b8;
-    background: #f5f5f7;
-    font-weight: 500;
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    padding-top: 5px;
-  }
-  
-  /*--------------Modal Content--------*/
+.circle {
+  position: absolute;
+  z-index: -1;
+  right: -20%;
+  bottom: -50%;
+}
 
-  .modalContent {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-   
+.centered {
+  background: #F5F5F7;
+  max-width: 1050px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
 
-    /*------------Left ------------*/
-    .modalChatUsers{
-      width: 40%; 
-      height:96%;
-      margin: 1rem auto;
-      
-      
-      /*--------------------Search--------------*/
-      .modalChatUsersSearch{
-       
-           
-        input {
-          background: #ffffff;
-          border: 1px solid #1d71b8;
-          border-radius: 8px;
-          padding: 16px;
-          padding-top: 18px;
-          width: 28.25rem;
-          font-size: 18px;
-          font-family: "Montserrat", sans-serif;
-          font-weight: 500;
-          color: #808080;
-        }
-        
-        
-        
-        button {
-          border: none;
-          background-color: #1d71b8;
-          border-radius: 8px;
-          padding: 16px 32px 18px 32px;
-          margin-left: -10px;
-        }
+.modal {
+  margin: 0 auto;
+  z-index: 10;
+  border-radius: 12px 0px 12px 12px;
+  background: #fcfcfc;
+  padding: 5px 5px 0 5px;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .15);
+}
 
-        button img {
-                margin-bottom: -5px;
-              }
+.closeBtnCon {
+  position: absolute;
+  padding: 18px;
+  border-radius: 0px 12px 12px 0px;
+  background: #fcfcfc;
+  right: -84px;
+  top: 0;
+
+}
+
+.closeBtn {
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 26px;
+  border: 1px solid #1d71b8;
+  color: #1d71b8;
+  background: #fcfcfc;
+  font-weight: 500;
+  padding: 10px 10px 5px 10px;
+  outline: none;
+}
+
+/*--------------Modal Content--------*/
+
+.modalContent {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+
+
+  /*------------Left ------------*/
+  .modalChatUsers {
+    margin-top: 18px;
+
+    /*--------------------Search--------------*/
+    .modalChatUsersSearch {
+      form {
+        display: flex;
       }
-      .modalChatUsersList{
-        // margin-top: 1rem;
-        width: 104%;
-        height: 90%;
-        
+
+      input {
+        background: #ffffff;
+        border: 1px solid #1d71b8;
+        border-radius: 8px;
+        padding: 10px;
+        max-width: 540px;
+        width: 100%;
+        font-size: 14px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        color: #808080;
+      }
+
+      button {
+        border: none;
+        background-color: #1d71b8;
+        border-radius: 8px;
+        padding: 10px 24px;
+        margin-left: -10px;
+        cursor: pointer;
+      }
+
+      button img {
+        margin-bottom: -5px;
+      }
+    }
+
+    .modalChatUsersList {
+      width: 100%;
+      border-top: 1px solid #cdcdcd;
+      margin-top: 20px;
+
+      .box {
+        max-height: 520px;
+        height: 100%;
         overflow-x: hidden;
-        overflow-y: scroll;
-        .userBlock{
+        margin-bottom: 10px;
+
+        .userBlock {
           width: 100%;
-          height: 80px;
+          padding: 10px 10px 10px 4px;
           display: flex;
-          margin-top: 1rem;
           align-items: center;
           justify-content: space-between;
-          border-top: 1px solid #cdcdcd;
           border-bottom: 1px solid #cdcdcd;
           cursor: pointer;
-        
-         
-          .userNameDescription{
+
+          .userNameDescription {
             display: grid;
-            height: 80%;         
-            .userName{
+            margin-left: 15px;
+
+            .userName {
               font-family: "Montserrat";
               font-weight: 700;
-              font-size: 22px;
-              line-height: 20px;
-              color: #323232;  
-              margin-top: 10px;
+              font-size: 15px;
+              line-height: 12px;
+              color: #323232;
+              margin-bottom: 3px;
             }
-            .userDescription{
+
+            .userDescription {
               font-family: "Montserrat";
               font-weight: 400;
-              font-size: 18px;
-              line-height: 18px;
+              font-size: 16px;
+              line-height: 14px;
               margin-top: 4px;
-              color: #323232; 
+              color: #323232;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 1;
+              -webkit-box-orient: vertical;
             }
           }
-          .userActiveTime{
+
+          .userActiveTime {
             width: 60px;
-            height: 100%;
+            margin-right: 10px;
             display: grid;
             align-items: center;
-           
-            .userTime{
+
+            .userTime {
               margin-left: 1rem;
+              margin-bottom: 4px;
             }
-            img{
-              margin-left: 2.8rem;  
+
+            img {
+              margin-left: 26px;
             }
           }
-          &:hover{
+
+          &:hover {
             transition: 0.3ms ease-in;
             background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+          }
         }
-        }
-      }  
+      }
     }
-    /*---------Right------------*/
-    .modalChatContent{
-      width: 55%;
-      height: 96%;
-      margin: 1rem auto;
-     
-      .modalChatContentHeader{
+  }
+
+  /*---------Right------------*/
+  .modalChatContent {
+    max-width: 795px;
+    width: 100%;
+    margin: 1rem auto;
+    overflow: hidden;
+
+    .modalChatContentHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .userInfo {
+        max-width: 340px;
         width: 100%;
-        height: 60px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        .userInfo{
-          width: 340px;
-          display: flex;
+        line-height: 18px;
+
+        .userLogo {
+          width: 60px;
+          margin-bottom: 5px;
+        }
+
+        .userNameAndStatus {
+          margin-left: 1rem;
           align-items: center;
-          line-height: 20px;
-          padding-bottom: 5px;
-          justify-content: space-between;
-          
-          .userNameAndStatus{
-            display: grid;
-            margin-left: 1rem;
-           
-            align-items: center;
-            .userName{
-              span{
-                font-weight: 700;
-                font-size: 22px;
-                line-height: 20px;
-                font-family: "Montserrat";
-                color: #323232;
-              }
-            }
-            .userStatus{
-              font-weight: 400;
-              font-size: 18px;
-                line-height: 12px;
-                font-family: "Montserrat";
-                color: #323232;
+
+          .userName {
+            span {
+              font-weight: 700;
+              font-size: 20px;
+              line-height: 16px;
+              font-family: "Montserrat";
+              color: #323232;
             }
           }
-         
-        }
-        .threeDots{
-          font-size: 30px;
-          color: #323232;
-          line-height: 20px;
-          cursor: pointer;
-          :hover{
-            color: #1d71b8;
-            font-weight: 500;
-            transition: 0.3ms ease-in-out;
+
+          .userStatus {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 12px;
+            font-family: "Montserrat";
+            color: #323232;
           }
         }
 
       }
-      .modalMessageContainer{
-        width: 100%;
-        height: 92.5%;
-        overflow: hidden;
-        scroll-behavior: smooth;
-      
+
+      .threeDots {
+        margin-bottom: 18px;
+        font-size: 26px;
+        color: #323232;
+        line-height: 18px;
+        cursor: pointer;
+
+        :hover {
+          color: #1d71b8;
+          font-weight: 500;
+          transition: 0.3ms ease-in-out;
+        }
       }
-      
+
+    }
+
+    .modalMessageContainer {
+      width: 100%;
+      height: 92.5%;
+      overflow: hidden;
+      scroll-behavior: smooth;
     }
   }
-  
+}
 
-  ::-webkit-scrollbar { 
-    width: 8px; 
-  
-  } 
-   
 
-  ::-webkit-scrollbar-track { 
-    border-radius: 5px; 
-    margin-top:12px; 
-    background-color: #fff; 
-  } 
-    
-  ::-webkit-scrollbar-thumb { 
-    background: #1d71b8;  
-    border-radius: 10px; 
-  }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+  margin-top: 6px;
+  background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d71b8;
+  border-radius: 8px;
+}

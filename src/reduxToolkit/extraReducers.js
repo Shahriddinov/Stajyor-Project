@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CREATECONTRACT, DAGAVOR, DAGAVORITEM, LOG_IN, REGISTER, RESUMEFINISH, RESUMESELECT } from "./URLS";
-const token = window.localStorage.getItem("token");
+import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT } from "./URLS";
+
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
@@ -34,6 +34,7 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 
 /////////////////////////////////////RESUME FINISH POST///////////////////////
 export const resumeFinishPost = createAsyncThunk("resume/resumeFinish", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
 		method:"PUT",
 		url: RESUMEFINISH,
@@ -49,6 +50,7 @@ export const resumeFinishPost = createAsyncThunk("resume/resumeFinish", async pa
 
 ///////////////////////////RESUMESELECT POST///////////////////////
 const resumeSelect = createAsyncThunk("freelancer/resumeSelect", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
 		method: "PUT",
 		url: RESUMESELECT,
@@ -64,6 +66,7 @@ const resumeSelect = createAsyncThunk("freelancer/resumeSelect", async payload =
 
 ///////////////////////////CONTRACT CREATE POST///////////////////
 export const contractCreate = createAsyncThunk("contract/createContract", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
 		method: "POST",
 		url: CREATECONTRACT,
@@ -77,6 +80,7 @@ export const contractCreate = createAsyncThunk("contract/createContract", async 
 
 ///////////////////////////DAGAVOR ITEM GET///////////////////
 export const dagavorItem = createAsyncThunk("contract/dagavorItem", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
 		url: DAGAVORITEM + payload,
@@ -88,6 +92,7 @@ export const dagavorItem = createAsyncThunk("contract/dagavorItem", async payloa
 
 ///////////////////////////DAGAVOR POST///////////////////
 export const dagavor = createAsyncThunk("contract/dagavor", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
 		method: "POST",
 		url: DAGAVOR,
@@ -97,4 +102,237 @@ export const dagavor = createAsyncThunk("contract/dagavor", async payload => {
 		}
 	}).then(res => res.data)
 })
+
+///////////////////////////LENGUAGE GET///////////////////
+
+export const languages = createAsyncThunk("get/languages", async () => {
+	return axios.get(LANGUAGES).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////PHOTOUPLOAD POST///////////////////
+export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: PHOTO,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////COUNTRYLIST GET///////////////////
+export const countryList = createAsyncThunk("get/countryList", async () => {
+	return axios.get(COUNTRYLIST).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////COUNTRYUPLOAD POST///////////////////
+export const countryUpload = createAsyncThunk("token/countryUpload", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: COUNTRY_LIST_UPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////POSITION GET///////////////////
+export const positions = createAsyncThunk("get/positions", async () => {
+	return axios.get(POSITIONS).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////POSITION GET///////////////////
+export const positionsUpload = createAsyncThunk("post/positions", async (payload) => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: POSITIONSUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `application/json-patch+json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+///////////////////////////HOBBIES GET///////////////////
+export const hobbies = createAsyncThunk("get/hobbies", async () => {
+	return axios.get(HOBBIES).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////LENGUAGEUPLOAD POST///////////////////
+export const languageUpload = createAsyncThunk("token/languageUpload", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "post",
+		url: LANGUAGESUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////CONTACTUPLOAD PUT///////////////////
+export const contactUpload = createAsyncThunk("token/contactUpload", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "PUT",
+		url: CONTACTSUPLOAD,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EXPERIENCEPOST POST//////////
+export const experiencePost = createAsyncThunk("post/exsperiencePost", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: EXPERIENCE,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data;`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EXPERIENCEPOST EDIT//////////
+export const experienceEdit = createAsyncThunk("freelancer/exsperienceEdit", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "PUT",
+		url: EXPERIENCE + "/" + payload.id,
+		data: payload.data,
+		headers: {
+			"Content-Type": `multipart/form-data`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+////////////////////////////EXPERIENCE GET//////////
+export const experienceGet = createAsyncThunk("post/exsperienceGet", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "GET",
+		url: EXPERIENCE,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+////////////////////////////EXPERIENCE GET//////////
+export const experienceDelete = createAsyncThunk("post/exsperienceDelete", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "DELETE",
+		url: EXPERIENCEDELETE + payload,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EDUCATION POST//////////
+export const educationPost = createAsyncThunk("freelancer/educationPost", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: EDUCATION,
+		data: payload,
+		headers: {
+			"Content-Type": `multipart/form-data`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EDUCATION EDIT//////////
+export const educationEdit = createAsyncThunk("freelancer/educationEdit", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "PUT",
+		url: EDUCATION + "/" + payload.id,
+		data: payload.data,
+		headers: {
+			"Content-Type": `multipart/form-data`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EDUCATION GET//////////
+export const educationGet = createAsyncThunk("freelancer/educationGet", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "GET",
+		url: EDUCATION,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
+
+///////////////////////////EDUCATION DELETE//////////
+export const educationDelete = createAsyncThunk("freelancer/educationDelete", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "Delete",
+		url: EDUCATIONDELETE + payload,
+		data: payload,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
 export {resumeSelect}

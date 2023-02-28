@@ -8,7 +8,7 @@ const Resume4 = (props) => {
             <div className="resume4 resume-watch">
               <div className="resume4-left">
                  <div className="resume4-left-user-pic">
-                  <img src={freelancerImage} alt={firstName} />
+                  <img src={`http://localhost:5000/staticfiles/${freelancerImage}`} alt={firstName} />
                  </div>
   
                 <div className="resume4-left-info">
@@ -114,7 +114,7 @@ const Resume4 = (props) => {
                       {freelancerPosition?.freelancerSkills?.map((item, i) => {
                         return (
                           <li key={i + 1}>
-                            <span>{item}</span>
+                            <span>{item.name}</span>
                             <p className="resume4-skill-lvl"></p>
                           </li>
                         );

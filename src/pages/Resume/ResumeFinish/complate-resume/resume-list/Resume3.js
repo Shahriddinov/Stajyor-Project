@@ -1,7 +1,6 @@
 import React from 'react'
 import corPic1 from "../img/corPic1.png";
 import corPic2 from "../img/corPic2.png";
-import backimg from "../img/backimg.png";
 import resumebg2 from "../img/resumebg2.png";
 import resume3bg2 from "../img/resume3bg2.png";
 const Resume3 = ({phoneNumber,description,experiences,email,freelancerContact,freelancerImage,educations,freelancerPosition,firstName,lastName}) => {
@@ -11,9 +10,9 @@ const Resume3 = ({phoneNumber,description,experiences,email,freelancerContact,fr
             <div className="resume2_3 resume-watch">
               <div className="resume2_3-left">
                 <div className="resume2_3-left-top">
-                  <img className="corPic1" src={corPic2} />
-                  <img className="corPic2" src={corPic1} />
-                  <img className="userPic" src={freelancerImage} />
+                  <img className="corPic1" src={corPic2} alt='img1'/>
+                  <img className="corPic2" src={corPic1} alt='img1'/>
+                  <img className="userPic" src={`http://localhost:5000/staticfiles/${freelancerImage}`} alt='img1'/>
                 </div>
                 <div className="resume2_3-left-bottom">
                   <div className="resume2_3-left-bottom-contacts">
@@ -65,7 +64,7 @@ const Resume3 = ({phoneNumber,description,experiences,email,freelancerContact,fr
                     {freelancerPosition?.freelancerSkills?.map((item, i) => {
                       return (
                         <div className="bottom-skills-item" key={i + 1}>
-                          <p className="skills-text">{item}</p>{" "}
+                          <p className="skills-text">{item.name}</p>{" "}
                           <p className="skills-level"></p>
                         </div>
                       );

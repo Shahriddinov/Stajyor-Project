@@ -17,7 +17,7 @@ const Resume1 = (props) => {
                 <div className="resume2_1-body">
                 <div className="resume2_1-left">
                     <div className="resume2_1-left-img">
-                    <img src={freelancerImage}  alt={firstName}/>
+                    <img src={`http://localhost:5000/staticfiles/${freelancerImage}`}  alt={firstName}/>
                     <span>personal info</span>
                     </div>
                     <hr />
@@ -40,7 +40,7 @@ const Resume1 = (props) => {
                     <div className="resume2_1-left-contacts__texts">
                         <p className="resume2_1-left-contacts__text">skills</p>
                         {freelancerPosition?.freelancerSkills?.map((item, i) => {
-                            return <span key={i}>{item}</span>;
+                            return <span key={item.id}>{item.name}</span>;
                         })}
                     </div>
 
@@ -49,7 +49,7 @@ const Resume1 = (props) => {
                         {userLanguages?.map((item, i) => {
                         return (
                             <span key={i}>
-                            {item?.language} - {item?.level}
+                                {item?.language} - {item?.level}
                             </span>
                         );
                         })}
@@ -58,7 +58,7 @@ const Resume1 = (props) => {
                     <div className="resume2_1-left-contacts__texts">
                         <p className="resume2_1-left-contacts__text">Hobbies</p>
                         {freelancerHobbies?.map((item, i) => {
-                            return <span key={i}>{item}</span>;
+                            return <span key={item.id}>{item.name}</span>;
                         })}
                     </div>
 

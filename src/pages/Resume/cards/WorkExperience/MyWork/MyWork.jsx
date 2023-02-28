@@ -2,34 +2,37 @@ import React from "react";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { exsperienceGet, exsperiencePost,temporary5 } from "reduxToolkit/ResumeSlice";
+import { experiencePost,experienceEdit } from "reduxToolkit/extraReducers";
 
-function MyWork() {
-	const [experience,setExperience] = useState({
-		companyName: "",
-		job: "",
-		currentWorking: false,
-		descripeion: "",
-	})
+function MyWork({removeModal,defaultData}) {
+	const {	companyName, job, currentWorking, descripeion, type, id} = defaultData
+	const [experience, setExperience] = useState({companyName, job, currentWorking, descripeion});
 
-	const dispatch = useDispatch()
-	
-	let data = new FormData()
-	data.append("companyName", experience.companyName)
-	data.append("Job", experience.job)
-	data.append("CurrentWorking", experience.currentWorking)
-	data.append("Descripeion", experience.descripeion)
-	
-	
-	const handleClick = (e) => {
+	const dispatch = useDispatch();
+
+	let data = new FormData();
+	data.append("companyName", experience.companyName);
+	data.append("Job", experience.job);
+	data.append("CurrentWorking", experience.currentWorking);
+	data.append("Descripeion", experience.descripeion);
+
+	console.log(defaultData);
+	const handleClick = e => {
 		e.preventDefault();
-		dispatch(exsperiencePost(data))
-	}
+		if(type === "add") {
+			console.log(data);
+			dispatch(experiencePost(data));
+			removeModal((prev) => ({...prev, experienceAdd: false}))
+		}else {
+			dispatch(experienceEdit({data,id}));
+			removeModal((prev) => ({...prev, experienceAdd: false}))
+		}
+	};
 
-	const changePage = (e) => {
+	const changePage = e => {
 		e.preventDefault();
-		dispatch(temporary5())
-	}
+		removeModal(false)
+	};
 
 	return (
 		<div className="mywork">
@@ -38,30 +41,32 @@ function MyWork() {
 					<h2 className="mywork__text">Work experience</h2>
 
 					<div className="mywork__content">
-						<input 
-						className="mywork__input" 
-						type="text" 
-						placeholder="Company name" 
-						value={experience.companyName}
-						onChange={(e) => setExperience(prev => ({...prev, companyName: e.target.value}))}
+						<input
+							className="mywork__input"
+							type="text"
+							placeholder="Company name"
+							value={experience.companyName}
+							onChange={e => setExperience(prev => ({ ...prev, companyName: e.target.value }))}
 						/>
 					</div>
 
 					<div className="mywork__content">
-						<input 
-						className="mywork__input" 
-						type="text" placeholder="Job" 
-						value={experience.job}
-						onChange={(e) => setExperience(prev => ({...prev, job: e.target.value}))}
+						<input
+							className="mywork__input"
+							type="text"
+							placeholder="Job"
+							value={experience.job}
+							onChange={e => setExperience(prev => ({ ...prev, job: e.target.value }))}
 						/>
 					</div>
 
 					<div className="mywork__checkbox">
-						<input 
-						className="mywork__inputCheckbox" 
-						type="checkbox" id="checkbox" 
-						checked={experience.currentWorking}
-						onChange={() => setExperience(prev => ({...prev, currentWorking: !prev.currentWorking}))}
+						<input
+							className="mywork__inputCheckbox"
+							type="checkbox"
+							id="checkbox"
+							checked={experience.currentWorking}
+							onChange={() => setExperience(prev => ({ ...prev, currentWorking: !prev.currentWorking }))}
 						/>
 						<label className="mywork__labelCheckbox" htmlFor="checkbox">
 							I am currently working in this role
@@ -85,18 +90,22 @@ function MyWork() {
 					</div>
 
 					<div className="mywork__descriptionWrapper">
-						<input 
-						className="mywork__description" 
-						type="text" 
-						placeholder="Description" 
-						value={experience.descripeion}
-						onChange={(e) => setExperience(prev => ({...prev, descripeion: e.target.value}))}
-						/>
+						<textarea
+							className="mywork__description"
+							type="text"
+							placeholder="Description"
+							value={experience.descripeion}
+							onChange={e => setExperience(prev => ({ ...prev, descripeion: e.target.value }))}
+						></textarea>
 					</div>
 
 					<div className="mywork__button">
-						<button className="mywork__back" type="button" onClick={changePage}>Cancel</button>
-						<button type="submit" className="mywork__next">Save</button>
+						<button type="button" className="mywork__back"  onClick={changePage}>
+							Cancel
+						</button>
+						<button type="submit" className="mywork__next">
+							Save
+						</button>
 					</div>
 				</form>
 			</div>

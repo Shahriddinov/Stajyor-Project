@@ -9,20 +9,22 @@ import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
 import { useState } from "react";
-import { contactUpload, temporary10 } from "../../../reduxToolkit/ResumeSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import { contactUpload } from "reduxToolkit/extraReducers";
 
 function SocialMedia() {
-	// const WebSite = useRef("");
-	// const WatsApp = useRef("");
-	// const Facebook = useRef("");
-	// const Telegram = useRef("");
-	// const GitHub = useRef("");
-	// const Twitter = useRef("");
-	// const Instagram = useRef("");
 	const dispatch = useDispatch();
-	const [website, setWebsite] = [];
+	const [data, setData] = useState({
+		website:"",
+		WatsApp: "",
+		Facebook: "",
+		Instagram: "",
+		Telegram: "",
+		GitHub: "",
+		Twitter: ""
+
+	});
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
 		{ icon: whatsUppIcon, name: "WatsApp" },
@@ -59,62 +61,88 @@ function SocialMedia() {
 		setSocials([...socials, { icon: icon, name: name }]);
 	};
 
-	const handleChangeInput = event => {
-		// for (let i = 0; i < icons.length; i++) {
-		// 	if (icons[i].name !== test) {
-		// 		filteredIcons.push(icons[i]);
-		// 	}
-		// }
-		// setMessage(event.target.value);
+	const handleChangeInput = ({label,value}) => {
+		setData(prev => ({...prev, [label]: value}))
 	};
 
 	const handleSubmit = event => {
-		dispatch(temporary10());
-		// let formdatas = new FormData();
-		// for (let i = 0; i < icons.length; i++) {
-		// 	formdatas.append(socials[i].name);
-		// }
-		// formdatas.append("WebSite", userLang[i]);
-		// formdatas.append("Level", userLevel[i]);
-		// dispatch(languageUpload(formdatas));
 		event.preventDefault();
+		let formdatas = new FormData();
+		formdatas.append("WebSite",data.website);
+		formdatas.append("Facebook",data.Facebook);
+		formdatas.append("GitHub",data.GitHub);
+		formdatas.append("Instagram",data.Instagram);
+		formdatas.append("Telegram",data.Telegram);
+		formdatas.append("Twitter",data.Twitter);
+		formdatas.append("WatsApp",data.WatsApp);
+		dispatch(contactUpload(formdatas));
+		dispatch(
+			activeDoteAction([
+				{ id: 8, label: "Resume" },
+				{ id: 8, type: "resume" }
+			])
+		);
+	};
+
+	const prevPgae = event => {
+		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 6, label: "Educations" },
+				{ id: 6, type: "education" }
+			])
+		);
 	};
 
 	return (
 		<div className={classes.socialMedia}>
 			<h2>Contacts</h2>
 			<form action="submit" className={classes.socialForm} onSubmit={handleSubmit}>
-				<input type="text" placeholder="Provide a link to your website " />
-				{icons &&
-					icons.map(item => (
-						<div key={item.name} className={classes.socialInput}>
-							<div className={classes.socialInputIn}>
-								<input type="url" placeholder={`Provide a link to your ${item.name} account`} onChange={handleChangeInput} />
+				<div className={classes.forim_content}>
+					<input 
+					className={classes.website_input}  
+					type="text" placeholder="Provide a link to your website " 
+					value={data.website}
+					onChange={(e) => setData(prev => ({...prev, website: e.target.value}))}
+					/>
+					{icons &&
+						icons.map(item => (
+							<div key={item.name} className={classes.socialInput}>
+								<div className={classes.socialInputIn}>
+									<input 
+									type="url" 
+									placeholder={`Provide a link to your ${item.name} account`} 
+									value={data[item.name]}
+									onChange={(e) =>  handleChangeInput({value:e.target.value, label: item.name})} 
+									/>
+									<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
+								</div>
+								<button
+									className={classes.cancelButton}
+									onClick={event => {
+										removeIput(item.name, item.icon);
+										handleSubmitting(event);
+									}}>
+									<img className={classes.cancelButton_img}  src={cancel} alt="cancel icon" />
+								</button>
 							</div>
-							<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
-							<button
-								className={classes.cancelButton}
-								onClick={event => {
-									removeIput(item.name, item.icon);
-									handleSubmitting(event);
-								}}>
-								<img src={cancel} alt="cancel icon" />
-							</button>
-						</div>
-					))}
-				<p>Choose in which of these social networks you have an account</p>
-				<div className={classes.socialContainers}>
-					{socials.map(item => (
-						<div key={item.name} style={{'cursor':'pointer'}} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
-							<img  style={{'width':'40px'}} src={item.icon} alt={item.name} />
-							<h4>{item.name}</h4>
-						</div>
-					))}
+						))}
+					<p>Choose in which of these social networks you have an account</p>
+					<div className={classes.socialContainers}>
+						{socials.map(item => (
+							<div key={item.name} style={{ cursor: "pointer" }} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
+								<img style={{ width: "40px" }} src={item.icon} alt={item.name} />
+								<h4 className={classes.cart_text}>{item.name}</h4>
+							</div>
+						))}
+					</div>
 				</div>
-				<div style={{'display':'flex', 'width':'100%', 'align-items':'center', 'justify-content':'flex-end', 'gap':'20px'}}>
-					<button className={classes.backButton}>Back</button>
-				<button className={classes.nextButton}>Next</button>
-				</div>
+				<div className={classes.button_group}>
+					<button className={classes.backButton} type="button" onClick={prevPgae}>
+						Back
+					</button>
+					<button type="submit" className={classes.nextButton}>Next</button>
+				</div> 
 			</form>
 		</div>
 	);

@@ -6,9 +6,11 @@ import TalantsDesc from "./TalantsDesc";
 function Talants(props) {
 	return (
 		<div className={classes.talants}>
-			<div className={classes.talants__container}>
-				<TalantsDesc />
-				<LoginDesc />
+			<div className="container">
+				<div className={classes.talants__container}>
+					<TalantsDesc />
+					<LoginDesc />
+				</div>
 			</div>
 		</div>
 	);

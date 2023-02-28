@@ -1,9 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import LoginSlice from "./LoginSlice";
-import resumeSlice from "./ResumeSlice";
-import FreelanceSlice from "./FreelancerSlice";
-import lenguage  from "./LenguageSlice"
-import contract from "./contractSlice"
+import {
+	configureStore
+} from "@reduxjs/toolkit";
+import LoginSlice from "./loginSlice/LoginSlice";
+import resumeSlice from "./resumeSlice/ResumeSlice";
+import FreelanceSlice from "./freelancerSlice/FreelancerSlice";
+import lenguage from "./lenguageSlice/LenguageSlice"
+import contract from "./contractSlice/contractSlice"
+import resumeControle from "./resumeControlsSlice/resumeControls"
 
 const store = configureStore({
 	reducer: {
@@ -12,6 +15,7 @@ const store = configureStore({
 		freelance: FreelanceSlice,
 		lenguage,
 		contract,
+		resumeControle
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({

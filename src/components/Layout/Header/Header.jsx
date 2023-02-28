@@ -1,21 +1,21 @@
 import React from "react";
 import './Header.scss'
+
 import header_logo from '../../../assets/images/Freelancer/Freelancer_logo.svg'
 import header_logo2 from '../../../assets/images/header/logo2.svg'
 import Dropdown from "./components/Dropdown";
 import LangDrop from "./components/LangDrop";
 import { useSelector } from "react-redux";
-import { Link,useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
 
 const Header = () => {
 	const len = useSelector(state => state.lenguage.lenguage)
-	const {t} = useTranslation()
-	const {pathname} = useLocation()
+	const { t } = useTranslation()
+	const { pathname } = useLocation()
 
 	return (
-		<header className="header">
+		<header className="header" >
 			<div className="header_container">
 				<Link to={`/${len}/jobs`}>
 					{

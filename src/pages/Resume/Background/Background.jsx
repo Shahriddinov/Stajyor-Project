@@ -64,6 +64,13 @@ function Background() {
 					</div>
 				</div>
 			</div>
+			{
+				isExperienceModal && <MyWork />
+			}
+			{
+				isEducationModal && <AddEducations />
+			}
+
 		</>
 	);
 }

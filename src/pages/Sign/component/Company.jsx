@@ -43,15 +43,16 @@ const  Company = () => {
 						</p>
 					</div>
 				</Link>
-				<div className="login_company_wrapper1_frilanc">
-					<h4 className="login_company_wrapper1_frilanc_title">
-						{" "}
-						<img src={comp} alt="user icon" /> Company
-					</h4>
-					<p className="login_company_wrapper1_frilanc_info">
-						Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur.
-					</p>
-				</div>
+				<Link to={`/${len}/register-company`}>
+					<div className="login_company_wrapper1_frilanc">
+						<h4 className="login_company_wrapper1_frilanc_title">
+							<img src={comp} alt="user icon" /> Company
+						</h4>
+						<p className="login_company_wrapper1_frilanc_info">
+							Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur.
+						</p>
+					</div>
+				</Link>
 				<img src={computer_img} className="computer_img" alt="comp images" />
 			</div>
 

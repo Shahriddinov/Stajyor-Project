@@ -7,6 +7,7 @@ import FreelanceSlice from "./freelancerSlice/FreelancerSlice";
 import lenguage from "./lenguageSlice/LenguageSlice"
 import contract from "./contractSlice/contractSlice"
 import resumeControle from "./resumeControlsSlice/resumeControls"
+import companyRegister from "./companyRegister";
 
 const store = configureStore({
 	reducer: {
@@ -15,7 +16,8 @@ const store = configureStore({
 		freelance: FreelanceSlice,
 		lenguage,
 		contract,
-		resumeControle
+		resumeControle,
+		companyRegister,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({

@@ -14,13 +14,43 @@ const defaultInputData = {
 	descripeion: ""
 }
 
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
+
+
 function WorkExperience() {
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = (index) => {
+    setIsHovering(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+    const [isHoveringT, setIsHoveringT] = useState(false);
+
+  const handleMouseEnterT = (index) => {
+    setIsHoveringT(index);
+  };
+
+  const handleMouseLeaveT = () => {
+    setIsHoveringT(false);
+  };
+
+
+
+
+	const {experienceList}  = useSelector(state => state.resume)
+	const dispatch = useDispatch()
 	const [isMoadalActive, setMoadalActive] = useState({experienceAdd: false, experienceEdit: false })
 	const [editData, setEditData] = useState({})
 	const { experienceList,experiencePostIsSuccess, loading} = useSelector(state => state.resume);
 	const dispatch = useDispatch();
 
-	useEffect(() => {	
+	useEffect(() => {
 		if(experiencePostIsSuccess) {
 			dispatch(experienceGet());
 		}
@@ -83,15 +113,21 @@ function WorkExperience() {
 									</div>
 
 									<div className="experience__icons">
-										<span 
-										className="experience__icon--create" 
+										<span
+										className="experience__icon--create"
 										onClick={() => editExperience({data:el, modal: true})}
 										>
 											<ion-icon name="create-outline"></ion-icon>
 										</span>
 
 										<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
+											<Trash name="trash-outline"
+
+											className={`${ isHoveringT === index ? 'experience__box__hoveringT ' : null }`}
+											          onMouseEnter={() => handleMouseEnterT(index)}
+          												onMouseLeave={handleMouseLeaveT}
+
+											/>
 										</span>
 									</div>
 								</div>
@@ -99,9 +135,9 @@ function WorkExperience() {
 						</div>
 
 						<div className="experience__wrapper">
-							<button 
-							style={{ cursor: "pointer" }} 
-							className="experience__buttonAdd" 
+							<button
+							style={{ cursor: "pointer" }}
+							className="experience__buttonAdd"
 							onClick={() => setMoadalActive(prev => ({...prev, experienceAdd:true}))}
 							>
 								+ Add new
@@ -119,7 +155,7 @@ function WorkExperience() {
 					</div>
 				</div>
 			</div>
-			
+
 			{
 				isMoadalActive.experienceAdd && <MyWork removeModal={setMoadalActive} defaultData = {{...defaultInputData,type:"add"}} />
 			}
@@ -127,7 +163,7 @@ function WorkExperience() {
 {
 				isMoadalActive.experienceEdit && <MyWork removeModal={setMoadalActive} defaultData = {{...editData,type:"edit"}} />
 			}
-			
+
 		</>
 	);
 }

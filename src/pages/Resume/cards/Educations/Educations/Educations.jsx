@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
+import { temporary6,temporary7, educationDelete, educationGet, temporary4, temporary8 } from "reduxToolkit/ResumeSlice";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
@@ -15,8 +16,38 @@ const defaultData = {
 	location: "",
 	currentStudy: false
 }
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 
 function Educations() {
+	const dispatch = useDispatch()
+	const {educationList} = useSelector(state => state.resume)
+
+
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseEnter = (index) => {
+    setIsHovering(index);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
+    const [isHoveringT, setIsHoveringT] = useState(false);
+
+  const handleMouseEnterT = (index) => {
+    setIsHoveringT(index);
+  };
+
+  const handleMouseLeaveT = () => {
+    setIsHoveringT(false);
+  };
+
+
+
+
+
 	const [isMoadalActive, setMoadalActive] = useState({educationAdd: false, educationEdit: false })
 	const [editData, setEditData] = useState({})
 	const dispatch = useDispatch();
@@ -60,6 +91,7 @@ function Educations() {
 	if(loading) {
 		return <b>Loading...</b>
 	}
+	
 	return (
 		<>
 			<div className="educations">
@@ -96,10 +128,10 @@ function Educations() {
 						</div>
 
 						<div className="educations__wrapper">
-							<button 
-							style={{ cursor: "pointer" }} 
-							type="button" 
-							className="educations__buttonAdd" 
+							<button
+							style={{ cursor: "pointer" }}
+							type="button"
+							className="educations__buttonAdd"
 							onClick={() => setMoadalActive(prev => ({...prev, educationAdd: true}))}
 							>
 								+ Add new
@@ -123,7 +155,7 @@ function Educations() {
 			{
 				isMoadalActive.educationEdit && <AddEducations removeModal={setMoadalActive} defaultInputData = {{...editData, type:"edit"}}/>
 			}
-			
+
 		</>
 	);
 }

@@ -14,6 +14,7 @@ import { ReactComponent as Github } from '../../assets/images/FreelancerPortfoli
 import { ReactComponent as Whatsapp } from '../../assets/images/FreelancerPortfolio/whatsapp.svg'
 import React from 'react';
 import './Profile.scss'
+import { useSelector } from 'react-redux';
 // import Available from './components/Available';
 // import { useContext } from 'react';
 // import Context from 'components/Context/Context';
@@ -26,6 +27,12 @@ import './Profile.scss'
 // import SocialMedia from 'pages/Resume/cards/SocialMedia';
 
 const Profile = () => {
+
+    const { freelancerData } = useSelector( state => state.freelance)
+    console.log('====================================');
+    console.log(freelancerData);
+    console.log('====================================');
+
 
     // const { isAvialable, setIsAvialable, isPortfolio, setIsPortfolio , isAddPortfolio, setAddIsPortfolio,
     // isAddLanguage, setAddIsLanguage , isAddEducation, setAddIsEducation
@@ -50,8 +57,6 @@ const Profile = () => {
     // const AddIsEducationFunc = (bol) => {
     //     setAddIsEducation(bol)
     // }
-
-    
 
 
 
@@ -79,7 +84,7 @@ const Profile = () => {
                     <li className="userfreelancermodal_left_list_item userfreelancermodal_left_list_item1">
                         <img className='userfreelancermodal_left_list_item1_img' src={user_img} alt="" />
                         <div>
-                            <h4>Michel Rodriges <img src={ticked} alt="" /> </h4>
+                            <h4>{freelancerData.firstName} <img src={ticked} alt="" /> </h4>
                             <p> Web-design UI/UX <span>Middle</span> </p>
                         </div>
                     </li>
@@ -100,10 +105,12 @@ const Profile = () => {
                 </ul>
 
                 <p className="userfreelancermodal_left_info">
-                    I have been in the IT business for more than 11 years.
-                <br />
-                <br />
-                With over 5 years of experience in the ERP consultancy. I have deployed and delivered 30+ Odoo implementations in different types of businesses. I have implemented a mixture of Enterprise and Community versions according to the cost-benefit analysis of the business and which suits best for the business.
+                    {/* I have been in the IT business for more than 11 years. */}
+                    {freelancerData.description}
+                    
+                {/* <br />
+                <br /> */}
+                {/* With over 5 years of experience in the ERP consultancy. I have deployed and delivered 30+ Odoo implementations in different types of businesses. I have implemented a mixture of Enterprise and Community versions according to the cost-benefit analysis of the business and which suits best for the business. */}
                 </p>
                 <Fvideo />
 
@@ -164,30 +171,42 @@ const Profile = () => {
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4> Languages <div className="userfreelancermodal_right_mainlist_item_wrapper"  ></div> </h4>
                             <div>
-                                <h5>English: <h6>C2 -</h6> <span>Native Speaker</span></h5>
-                                <h5 className='userfreelancermodal_right_mainlist_item_h5'>Russian: <h6>B1 -</h6> <span>Upper intermedite</span></h5>
+                                { freelancerData.userLanguages.map( e => (
+                                <>
+                                {/* <h5>English: <h6>C2 -</h6> <span>Native Speaker</span></h5> */}
+                                <h5 className='userfreelancermodal_right_mainlist_item_h5'>{e.name}: <span>{e.level}</span></h5></>
+                                ) ) }
                             </div>
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4> Educations <div className="userfreelancermodal_right_mainlist_item_wrapper"  > </div> </h4>
                            <div>
-                             <h5>Skans School of Accountancy Other, ACCA (Association of Chartered Certified Accountant) </h5>
-                            <h6>2012-2018</h6>
+                            { freelancerData.educations.map(e => (
+                                <>
+                                 <h5>{e.schoolName} ({e.educationDegree}) {e.typeStudy} </h5>
+                                 <h5>Location: <h6>{e.location}</h6></h5>
+                                 <h6>2012-2018</h6>
+                                </>
+                            )) }
                            </div>
 
-                            <div>
+                            {/* <div>
                                 <h5>Aptech Computer Education
                             Other, Software and Website Development (ASP.NET C#)
                             </h5>
                             <h6>2010-2011</h6>
-                            </div>
+                            </div> */}
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4> Experience <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
                             <div>
-                                <h5>NAPA Automotive: <span>UX UI Designer</span></h5>
-                                <h6>March 2022 - Now</h6>
+                                {freelancerData.experiences.map(e => (
+                                    <>
+                                    <h5>{e.companyName}: <span>{e.job}</span></h5>
+                                    <h6>March 2022 - Now</h6>
+                                    </>
+                                ))}
                             </div>
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
@@ -213,7 +232,7 @@ const Profile = () => {
 
                         <li className="userfreelancermodal_right_mainlist_item">
                             <h4>Living address <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
-                            <h5><img src={location} alt="" /> <h6 style={{'margin-left':"10px"}} >Tashkent, Uzbekistan</h6> </h5>
+                            <h5><img src={location} alt="" /> <h6 style={{'margin-left':"10px"}} >{freelancerData.address.regionName}, {freelancerData.address.countryName}</h6> </h5>
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">

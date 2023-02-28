@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
-import { createProfileRoute, freelancerRouter, publicRoute } from "routes";
+import { getFreelancerData } from "reduxToolkit/FreelancerSlice";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);

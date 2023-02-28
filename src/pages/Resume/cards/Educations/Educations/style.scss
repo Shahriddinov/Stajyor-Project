@@ -77,18 +77,26 @@
 	}
 
 	&__icon--create {
+		width: 60px;
+		height: 54px;
 		border: 1px solid #1d71b8;
 		border-radius: 6px;
-		padding: 13px 14px;
-		font-size: 30px;
-		margin-right: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
 	}
 
 	&__icon--delete {
+		width: 60px;
+		height: 54px;
 		border: 1px solid #1d71b8;
 		border-radius: 6px;
-		padding: 14px 16px;
-		font-size: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+
 	}
 
 	&__button {
@@ -279,4 +287,11 @@
 		}
 	}
 
+}
+
+
+.educations__icons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }

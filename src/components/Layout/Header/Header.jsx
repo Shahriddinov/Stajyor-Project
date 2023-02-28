@@ -20,11 +20,11 @@ const Header = () => {
 				<Link to={`/${len}/jobs`}>
 					{
 						(pathname.slice(4) === "contact" || pathname.slice(4) === "about")
-						? <img src={header_logo2} className='header_container_bg_logo' alt="" />
-						: <img src={header_logo} className='header_container_bg_logo' alt="" />
+							? <img src={header_logo2} className='header_container_bg_logo' alt="" />
+							: <img src={header_logo} className='header_container_bg_logo' alt="" />
 					}
 				</Link>
-				
+
 				<div className="header_wrapper">
 					<ul className="header_container_list">
 						<li className="header_container_list_item">
@@ -46,8 +46,6 @@ const Header = () => {
 					<Dropdown/>
 					<LangDrop/>
 				</div>
-
-			
 			</div>
 		</header>
 	);

@@ -14,6 +14,7 @@ const initialState = {
 	educationList: [],
 	educationPostIsSuccess:"",
  	resumeDetails: "",
+
 	positionGetLoading: false,
 };
 

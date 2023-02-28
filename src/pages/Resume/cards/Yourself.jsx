@@ -105,6 +105,7 @@ function Yourself() {
 						<input type="date" required placeholder="DD/MM/YYYY" />
 					</div>
 				</div>
+
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect
@@ -118,9 +119,9 @@ function Yourself() {
 						creatable
 						getCreateLabel={(query) => `+ Create ${query}`}
 						onCreate={(query) => {
-						  const item = { value: query, label: query };
-						  setSkills((current) => [...current, item]);
-						  return item;
+							const item = { value: query, label: query };
+							setSkills((current) => [...current, item]);
+							return item;
 						}}
 						onChange={value => changeSkill({value, type:"skills"})}
 					/>
@@ -146,11 +147,11 @@ function Yourself() {
 					/>
 
 					<textarea
-					className="yourselfCard_textarea"
-					type="textarea"
-					required
-					placeholder="Describe yourself to buyers"
-					onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
+						className="yourselfCard_textarea"
+						type="textarea"
+						required
+						placeholder="Describe yourself to buyers"
+						onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
 					></textarea>
 				</div>
 				<div className="yourselfCard_btn">

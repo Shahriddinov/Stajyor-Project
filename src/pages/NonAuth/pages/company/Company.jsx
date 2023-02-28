@@ -26,10 +26,6 @@ const Company = () => {
 
     return (
         <>
-            <div className={classes.circleBg}>
-                <img src={Circle} alt="" />
-            </div>
-            <Nav />
             <div className={classes.companyContainer}>
                 <div className={classes.companyAbout}>
                     <div className={classes.companyRep}>

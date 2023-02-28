@@ -28,10 +28,6 @@ const Freelancer = () => {
 
     return (
         <>
-            <div className={classes.circleBg}>
-                <img src={Circle} alt="" />
-            </div>
-            <Nav />
             <div className={classes.freelancerContainer}>
                 <div className={classes.freelancerIntro}>
                     <div className={classes.freelancer}>

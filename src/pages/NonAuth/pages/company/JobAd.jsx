@@ -23,10 +23,6 @@ const JobAd = () => {
 
     return (
         <>
-            <div className={classes.circleBg}>
-                <img src={Circle} alt="" />
-            </div>
-            <Nav />
             <div className={classes.jobAdContainer}>
                 <div className={classes.jobAd}>
                     <div className={classes.jobTitle}>

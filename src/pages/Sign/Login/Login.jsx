@@ -16,17 +16,17 @@ import { Eye, EyeOff } from 'tabler-icons-react';
 import { Link } from "react-router-dom";
 
 const Login = () => {
-	const [ passwordEye, setPasswordEye ] = useState('password')
+	const [passwordEye, setPasswordEye] = useState('password')
 
 	const PasswordFunc = () => {
-		setPasswordEye( passwordEye === 'password' ? 'text' : 'password' )
+		setPasswordEye(passwordEye === 'password' ? 'text' : 'password')
 	}
 
 
 	const email = useRef("");
 	const password = useRef("");
 	const dispatch = useDispatch();
-	const {loginResponseError,loggedIn} = useSelector(state => state.login);
+	const { loginResponseError, loggedIn } = useSelector(state => state.login);
 	const len = useSelector(state => state.lenguage.lenguage)
 
 	const handleSubmit = event => {
@@ -39,8 +39,8 @@ const Login = () => {
 	};
 
 	// const auth_path = window.location.pathname.split("/")[1];
-	
-return (
+
+	return (
 		<section className="login">
 			<div className="login_container">
 				{!loggedIn ? <Carusel /> : null}
@@ -55,43 +55,43 @@ return (
 									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
 								</p>
 								{/* <input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" /> */}
-									{/* <input
+								{/* <input
 									ref={password}
 									required
 									className="login_form_inp login_form_inp2"
 									type={`${passwordEye}`}/> */}
 
-									{/* <p>
+								{/* <p>
 									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
 								</p> */}
 								<input
-								ref={email}
-								required
-								className={`login_form_inp ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`}
-								type="email"
-								placeholder="Email"
-								name="email"
-								autoComplete="off"
+									ref={email}
+									required
+									className={`login_form_inp ${loginResponseError ? "register-danger-input " : loginResponseError ? "register-success" : ""}`}
+									type="email"
+									placeholder="Email"
+									name="email"
+									autoComplete="off"
 								/>
 								{
 									loginResponseError
 									&&
 									<p className="register-danger-text">{loginResponseError}</p>
 								}
-								<div style={{'position':'relative'}} >
+								<div style={{ 'position': 'relative' }} >
 
-								<input
-									ref={password}
-									required
-									className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input "  : loginResponseError ? "register-success" : ""}`}
-									type={passwordEye}
-									placeholder="Password"
-									name="password"
-									autoComplete="off"
-								/>
-								<span className="password_span" onClick={() => PasswordFunc()} >{
-								passwordEye === 'password' ? <EyeOff /> : <Eye /> 
-								}</span>
+									<input
+										ref={password}
+										required
+										className={`login_form_inp login_form_inp2 ${loginResponseError ? "register-danger-input " : loginResponseError ? "register-success" : ""}`}
+										type={passwordEye}
+										placeholder="Password"
+										name="password"
+										autoComplete="off"
+									/>
+									<span className="password_span" onClick={() => PasswordFunc()} >{
+										passwordEye === 'password' ? <EyeOff /> : <Eye />
+									}</span>
 								</div>
 								{
 									loginResponseError

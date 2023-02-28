@@ -15,8 +15,8 @@ import { cards, dot } from "./information";
 function Background() {
 	const { activeCard } = useSelector(state => state.resumeControle);
 	const len = useSelector(state => state.lenguage.lenguage);
-	const {isExperienceModal,isEducationModal} = useSelector(state => state.resume);
-	const {activeDote} = useSelector(state => state.resumeControle)
+	const { isExperienceModal, isEducationModal } = useSelector(state => state.resume);
+	const { activeDote } = useSelector(state => state.resumeControle)
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -27,8 +27,8 @@ function Background() {
 		navigate(`/${len}/company`)
 		dispatch(
 			activeDoteAction([
-				{id: 1,label: "Personal information"},
-				{id: 1,label: "photo"}
+				{ id: 1, label: "Personal information" },
+				{ id: 1, label: "photo" }
 			])
 		);
 	}
@@ -60,18 +60,18 @@ function Background() {
 						</div>
 
 						<div className={classes.career}>
-							<CareerSlider dot = {dot} activeDote = {activeDote}/>
+							<CareerSlider classNameLine='mycareer__line' dot={dot} activeDote={activeDote} />
 						</div>
 					</div>
 				</div>
 			</div>
 			{
-				isExperienceModal && <MyWork/>
+				isExperienceModal && <MyWork />
 			}
 			{
 				isEducationModal && <AddEducations />
 			}
-			
+
 		</>
 	);
 }

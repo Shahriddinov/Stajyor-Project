@@ -19,6 +19,7 @@ import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
 // import { useLayoutEffect } from "react";
 import ChatModal from "pages/Chat/Modal";
+import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
@@ -50,6 +51,7 @@ function App() {
 							<Routes>
 								<Route path={`/${len}/company`} element={<Login />} />
 								<Route path={`/${len}/resume`} element={<Background />} />
+								<Route path={`/${len}/register-company`} element={<RegisterCompany />} />
 								<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish />} />
 								<Route path="*" element={<Navigate to={`/${len}/company`} />} />
 							</Routes>

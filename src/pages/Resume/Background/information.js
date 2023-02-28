@@ -7,18 +7,18 @@ import SelectResume from "../cards/SelectResume";
 import Educations from "../cards/Educations/Educations/Educations";
 import WorkExperience from "../cards/WorkExperience/WorkExperience/WorkExperience";
 
-export 	let dot = [
-    {id:1,label: "Personal information"},
-    {id:2,label: "Address"},
-    {id:3,label: "About yourself and skills"},
-    {id:4,label: "Language"},
-    {id:5,label: "Experience"},
-    {id:6,label: "Educations"},
-    {id:7,label: "Contacts"},
-    {id:8,label: "Resume"},
+export let dot = [
+    { id: 1, label: "Personal information" },
+    { id: 2, label: "Address" },
+    { id: 3, label: "About yourself and skills" },
+    { id: 4, label: "Language" },
+    { id: 5, label: "Experience" },
+    { id: 6, label: "Educations" },
+    { id: 7, label: "Contacts" },
+    { id: 8, label: "Resume" },
 ]
 
-export 	const cards = [
+export const cards = [
     { id: 1, label: <Photo />, type: "photo" },
     { id: 2, label: <Country />, type: "country" },
     { id: 3, label: <Yourself />, type: "yourself" },

@@ -60,10 +60,10 @@ function SelectResume() {
 				setTranslate(prev => -(prev + (num - 1) * 330));
 			}
 		}
-	};
+	}; 
 
 	const handleSubmit = () => {
-		navigate(`/${len}/resume-finish/${resumeId}`);
+		navigate(`/${len}/welcome/create-profile/${resumeId}`);
 		const data = new FormData();
 		data.append("resume", resumeId);
 		dispatch(resumeSelect(data));

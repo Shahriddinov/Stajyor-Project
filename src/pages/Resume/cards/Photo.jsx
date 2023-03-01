@@ -22,11 +22,9 @@ function Photo() {
 	const handleChange = event => {
 		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
-		console.log();
 	};
 	// console.log(uploaded);
 	const handleSubmit = event => {
-		console.log(uploaded);
 		let formdatas = new FormData();
 		formdatas.append("FirstName", firstName.current.value);
 		formdatas.append("LastName", lastName.current.value);

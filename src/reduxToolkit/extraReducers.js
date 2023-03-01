@@ -1,7 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT } from "./URLS";
+import { ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
 
+/////////////////////////////////////CLAIMS GET///////////////////////
+export const claimsGet = createAsyncThunk("claims", async payload => {
+	return axios({
+		method:"GET",
+		url:CLAIMS,
+	}).then(res => res.data)
+	
+});
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
@@ -16,7 +24,7 @@ export const registerRequest = createAsyncThunk("token/register", async payload 
 	
 });
 
-/////////////////////////////////////LLOGIN POST///////////////////////
+/////////////////////////////////////LOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 	return axios({
 		method:"POST",
@@ -28,6 +36,42 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 		},
 		headers:{
 			"Content-Type": "application/json-patch+json",
+		}
+	}).then(res => res.data)
+});
+
+/////////////////////////////////////USERROLES GET///////////////////////
+export const userRoles = createAsyncThunk("token/roles", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method:"GET",
+		url:USERROLES,
+		headers:{
+			Authorization: `Bearer ${token}`
+		}
+	}).then(res => res.data)
+});
+
+/////////////////////////////////////ADDTOFREELANCER POST///////////////////////
+export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async payload => {
+	const token = localStorage.getItem("token");	
+	return axios({
+		method:"POST",
+		url:ADDTOFREELANCER,
+		headers:{
+			Authorization: `Bearer ${token}`
+		}
+	}).then(res => res.data)
+});
+
+/////////////////////////////////////ADDTOCOMPANY POST///////////////////////
+export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method:"POST",
+		url:ADDTOCOMPANY,
+		headers:{
+			Authorization: `Bearer ${token}`
 		}
 	}).then(res => res.data)
 });

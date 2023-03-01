@@ -15,7 +15,7 @@ import { logInRequest } from "../../../reduxToolkit/extraReducers.js";
 import { Eye, EyeOff } from 'tabler-icons-react';
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const 	Login = () => {
 	const [ passwordEye, setPasswordEye ] = useState('password')
 
 	const PasswordFunc = () => {

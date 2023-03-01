@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
@@ -96,11 +97,11 @@ function Educations() {
 						</div>
 
 						<div className="educations__wrapper">
-							<button 
-							style={{ cursor: "pointer" }} 
-							type="button" 
-							className="educations__buttonAdd" 
-							onClick={() => setMoadalActive(prev => ({...prev, educationAdd: true}))}
+							<button
+								style={{ cursor: "pointer" }}
+								type="button"
+								className="educations__buttonAdd"
+								onClick={() => setMoadalActive(prev => ({...prev, educationAdd: true}))}
 							>
 								+ Add new
 							</button>
@@ -123,7 +124,7 @@ function Educations() {
 			{
 				isMoadalActive.educationEdit && <AddEducations removeModal={setMoadalActive} defaultInputData = {{...editData, type:"edit"}}/>
 			}
-			
+
 		</>
 	);
 }

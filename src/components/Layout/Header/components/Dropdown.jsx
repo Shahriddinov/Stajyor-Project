@@ -15,14 +15,14 @@ const Dropdown = () => {
     dispatch(profilLogout())
     navigate(`/${len}/`)
   }
-    return (
+  return (
       <div className="dropdown">
         <button className="dropbtn">
           <img src={user_img} alt="user photos" />
           <h4 className='dropdown_title' >Dropdfown</h4>
           <img src={arrow_down} className='header_arrow_img' alt="arrow photos" />
 
-          </button>
+        </button>
         <div className="dropdown-content">
           <Link to={`/${len}/profil`}>Profile</Link>
           <Link to={`/${len}/notification`}>Notification <span>○</span></Link>
@@ -32,7 +32,7 @@ const Dropdown = () => {
           <button onClick={handleClick}>Log out</button>
         </div>
       </div>
-    );
+  );
 };
 
 export default Dropdown;

@@ -20,7 +20,7 @@ function WorkExperience() {
 	const { experienceList,experiencePostIsSuccess, loading} = useSelector(state => state.resume);
 	const dispatch = useDispatch();
 
-	useEffect(() => {	
+	useEffect(() => {
 		if(experiencePostIsSuccess) {
 			dispatch(experienceGet());
 		}
@@ -83,9 +83,9 @@ function WorkExperience() {
 									</div>
 
 									<div className="experience__icons">
-										<span 
-										className="experience__icon--create" 
-										onClick={() => editExperience({data:el, modal: true})}
+										<span
+											className="experience__icon--create"
+											onClick={() => editExperience({data:el, modal: true})}
 										>
 											<ion-icon name="create-outline"></ion-icon>
 										</span>
@@ -99,10 +99,10 @@ function WorkExperience() {
 						</div>
 
 						<div className="experience__wrapper">
-							<button 
-							style={{ cursor: "pointer" }} 
-							className="experience__buttonAdd" 
-							onClick={() => setMoadalActive(prev => ({...prev, experienceAdd:true}))}
+							<button
+								style={{ cursor: "pointer" }}
+								className="experience__buttonAdd"
+								onClick={() => setMoadalActive(prev => ({...prev, experienceAdd:true}))}
 							>
 								+ Add new
 							</button>
@@ -119,15 +119,15 @@ function WorkExperience() {
 					</div>
 				</div>
 			</div>
-			
+
 			{
 				isMoadalActive.experienceAdd && <MyWork removeModal={setMoadalActive} defaultData = {{...defaultInputData,type:"add"}} />
 			}
 
-{
+			{
 				isMoadalActive.experienceEdit && <MyWork removeModal={setMoadalActive} defaultData = {{...editData,type:"edit"}} />
 			}
-			
+
 		</>
 	);
 }

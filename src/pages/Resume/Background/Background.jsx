@@ -4,32 +4,25 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import CareerSlider from "../CareerSlider/CareerSlider";
-import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import { useSelector } from "react-redux";
 import "./Background.scss";
 import { useDispatch } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { cards, dot } from "./information";
+import { removeToken } from "reduxToolkit/loginSlice/LoginSlice";
 
 function Background() {
 	const { activeCard } = useSelector(state => state.resumeControle);
 	const len = useSelector(state => state.lenguage.lenguage);
-	const {isEducationModal} = useSelector(state => state.resume);
 	const {activeDote} = useSelector(state => state.resumeControle)
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-
-
 	const handleClick = () => {
-		navigate(`/${len}/create-profile`)
-		dispatch(
-			activeDoteAction([
-				{id: 1,label: "Personal information"},
-				{id: 1,label: "photo"}
-			])
-		);
+		dispatch(removeToken()) 
+		localStorage.clear()
+		navigate(`/${len}/`)
 	}
 	return (
 		<>
@@ -64,6 +57,13 @@ function Background() {
 					</div>
 				</div>
 			</div>
+			{
+				isExperienceModal && <MyWork />
+			}
+			{
+				isEducationModal && <AddEducations />
+			}
+
 		</>
 	);
 }

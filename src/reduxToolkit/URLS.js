@@ -1,7 +1,13 @@
 export const BASE_URL = "http://localhost:5000";
+export const CLAIMS = `${BASE_URL}/CLAIMS`;
 export const LOG_IN = `${BASE_URL}/login`;
 export const REGISTER = `${BASE_URL}/register`;
+export const USERROLES = `${BASE_URL}/UserRoles`;
+export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
+export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;
 export const PHOTO = `${BASE_URL}/api/Freelancer`;
+export const GET_FREELANCER = `${BASE_URL}/api/Freelancer/Freenalcer/Get`;
+export const GET_ALL_FREELANCER = `${BASE_URL}/api/Freelancer`
 export const COUNTRYLIST = `${BASE_URL}/api/GetInformation/Countries`;
 export const COUNTRY_LIST_UPLOAD = `${BASE_URL}/api/Freelancer/Adress`;
 export const POSITIONS = `${BASE_URL}/api/GetInformation/Positions`;

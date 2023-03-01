@@ -23,7 +23,7 @@ function Yourself() {
 	})
 	const [skills, setSkills] = useState([]);
 	const [hobbiesorg, setHobbiesorg] = useState([]);
-	
+
 	useEffect(() => {
 		setHobbiesorg(hobbiesList.map(hobbie => ({value: hobbie.id.toString().toLowerCase(), label: hobbie.name})))
 	},[hobbiesList])
@@ -67,15 +67,15 @@ function Yourself() {
 	const changeSkill = ({value,type}) => {
 		if(type === "skills") {
 			setData(prev => ({
-				...prev, 
-				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)), 
+				...prev,
+				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
 				newSkills:value.filter(el => isNaN(el * 1))
 			}))
 		}
 		else {
 			setData(prev => ({
-				...prev, 
-				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)), 
+				...prev,
+				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
 				newHobbies:value.filter(el => isNaN(el * 1))
 			}))
 		}
@@ -119,13 +119,13 @@ function Yourself() {
 						creatable
 						getCreateLabel={(query) => `+ Create ${query}`}
 						onCreate={(query) => {
-						  const item = { value: query, label: query };
-						  setSkills((current) => [...current, item]);
-						  return item;
+							const item = { value: query, label: query };
+							setSkills((current) => [...current, item]);
+							return item;
 						}}
 						onChange={value => changeSkill({value, type:"skills"})}
 					/>
-					
+
 					<label className="yourselfCard_label">Hobbies*</label>
 					<br />
 					<MultiSelect
@@ -141,17 +141,17 @@ function Yourself() {
 							const item = { value: query.toLowerCase(), label: query.toLowerCase()};
 							setHobbiesorg(current => [...current, item]);
 							return item;
-							
+
 						}}
 						onChange={value => changeSkill({value, type:"hobbies"})}
 					/>
 
-					<textarea 
-					className="yourselfCard_textarea" 
-					type="textarea" 
-					required 
-					placeholder="Describe yourself to buyers" 
-					onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
+					<textarea
+						className="yourselfCard_textarea"
+						type="textarea"
+						required
+						placeholder="Describe yourself to buyers"
+						onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
 					></textarea>
 				</div>
 				<div className="yourselfCard_btn">

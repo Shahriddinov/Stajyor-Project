@@ -14,6 +14,7 @@ const initialState = {
 	educationList: [],
 	educationPostIsSuccess:"",
  	resumeDetails: "",
+
 	positionGetLoading: false,
 };
 
@@ -33,7 +34,7 @@ const resumeSlice = createSlice({
  			state.loading = true;
  		});
  		builder.addCase(photoUpload.fulfilled, (state, action) => {
-			console.log(action.payload);
+
  		});
  		builder.addCase(photoUpload.rejected, (state, action) => {
  			state.loading = false;
@@ -90,7 +91,6 @@ const resumeSlice = createSlice({
  			state.loading = true;
  		});
  		builder.addCase(positionsUpload.fulfilled, (state, {payload}) => {
-			console.log(payload);
 		});
  		builder.addCase(positionsUpload.rejected, (state, action) => {
  			state.loading = false;
@@ -112,16 +112,13 @@ const resumeSlice = createSlice({
  		//Languages upload reducer
  		builder.addCase(languageUpload.pending, (state, action) => {
  			state.loading = true;
-			 console.log("pending");
  		});
  		builder.addCase(languageUpload.fulfilled, (state, action) => {
-			console.log(action.payload);
 			state.loading = false;
  		});
  		builder.addCase(languageUpload.rejected, (state, action) => {
  			state.loading = false;
  			state.error = action.error.message;
-			 console.log(action);
  		});
 
  		//EXPERIENCE POST REDUCER
@@ -167,7 +164,6 @@ const resumeSlice = createSlice({
  			payload
  		}) => {
  			state.experienceList = payload.data
-			console.log(payload.data);
  			state.loading = false;
  		});
  		builder.addCase(experienceGet.rejected, (state, action) => {
@@ -273,13 +269,11 @@ const resumeSlice = createSlice({
  		}) => {
  			state.loading = false;
  			state.resumeDetails = payload.data;
-			 console.log(payload);
  		});
 
  		builder.addCase(resumeSelect.rejected, (state, action) => {
  			state.loading = false;
  			state.error = action.error.message;
-			 console.log(action);
  		});
 
 		/////////////////////////CONTACT UPLOAD REDUCER/////////////////
@@ -294,7 +288,6 @@ const resumeSlice = createSlice({
 		builder.addCase(contactUpload.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
-			console.log(action.error.message);
 		});
  	}
  });

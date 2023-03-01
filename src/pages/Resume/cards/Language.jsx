@@ -40,7 +40,6 @@ function Language() {
 
 	const handleSubmit = event => {
 		let formdatas = new FormData();
-		console.log(userLang,userLevel);
 		for (let i = 0; i < theArray.length; i++) {
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);
@@ -64,7 +63,6 @@ function Language() {
 		);
 	};
 
-	console.log(languageList);
 	return (
 		<div className={classes.languageCard}>
 			<h2>Write what languages you speak</h2>

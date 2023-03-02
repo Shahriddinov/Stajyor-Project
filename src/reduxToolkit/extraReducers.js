@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT } from "./URLS";
+import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT, TALANTSDATA } from "./URLS";
 
 
 /////////////////////////////////////REGISTER POST///////////////////////
@@ -336,3 +336,20 @@ export const educationDelete = createAsyncThunk("freelancer/educationDelete", as
 	});
 });
 export {resumeSelect}
+
+
+///////////////////////////TALANTSDATA GET//////////
+
+export const talantsData = createAsyncThunk("api/Freelancer", async () => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "GET",
+		url: TALANTSDATA,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});

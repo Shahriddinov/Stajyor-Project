@@ -24,3 +24,6 @@ export const RESUMEFINISH = `${BASE_URL}/api/Freelancer/Finish`;
 export const CREATECONTRACT = `${BASE_URL}/api/Contract/Create`;
 export const DAGAVORITEM = `${BASE_URL}/api/Contract/DagavorItems?id=`;
 export const DAGAVOR = `${BASE_URL}/api/Contract/Save/Dagavor`;
+
+
+export const TALANTSDATA = `${BASE_URL}/api/Freelancer`;

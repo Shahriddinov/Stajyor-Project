@@ -3,10 +3,14 @@ import searchIcon from "../../../../assets/images/searchIcon.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import talantsData from "./talantsData";
+import talantsDatas from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
 
+import {talantsData} from "../../../../reduxToolkit/extraReducers.js";
+
 import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+
 
 function TalantsDesc(props) {
 	const [likes, setLikes] = useState([]);
@@ -16,8 +20,18 @@ function TalantsDesc(props) {
 	const [talants, setTalants] = useState([]);
 	const [filteredTalants, setFilterTalants] = useState(talants);
 
+	const data = useSelector(state => state.talant.data);
+	const loading = useSelector(state => state.talant.loading);
+
+	 
+	console.log(data)
+	const dispatch = useDispatch();
+	
+
+
 	useEffect(() => {
-		setTalants(talantsData);
+		setTalants(talantsDatas)
+		dispatch(talantsData())
 	}, []);
 
 	useEffect(() => {
@@ -45,6 +59,10 @@ function TalantsDesc(props) {
 		else isActive.push(item.id);
 		setIsActive([...isActive]);
 	};
+
+	if(loading) {
+		return <p>loading...</p>
+	}
 
 	return (
 		<div className={classes.talantsDesc}>

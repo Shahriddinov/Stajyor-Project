@@ -21,7 +21,7 @@
 		width: 10px;
 		height: 197px;
 	}
-	
+
 	&__line {
 		position: absolute;
 		display: inline-block;
@@ -63,28 +63,29 @@
 	}
 
 	&__round:nth-child(3) {
-		top:390px;
+		top: 390px;
 	}
 
 	&__round:nth-child(4) {
-		top:420px;
+		top: 420px;
 	}
 
 	&__round:nth-child(5) {
-		top:450px;
+		top: 450px;
 	}
 
 	&__round:nth-child(6) {
-		top:480px;
+		top: 480px;
 	}
 
 	&__round:nth-child(7) {
-		top:510px;
+		top: 510px;
 	}
 
 	&__round:nth-child(8) {
 		top: 540px;
 	}
+
 	.mycareer__round--active {
 		background: #f6f8fa;
 		border: 10px solid #1d71b8;
@@ -100,17 +101,28 @@
 	}
 }
 
-@media only screen and(max-width:1750px){
+.myCompany__line {
+	position: absolute;
+	display: inline-block;
+	width: 10px;
+	top: 398px;
+	height: 250px;
+	background: #ededed;
+	border-radius: 0px;
+	transition: all 1s linear;
+}
+
+@media only screen and(max-width:1750px) {
 	.mycareer {
 		&__image {
 			width: 150px;
 			height: 150px;
 		}
-	
+
 		&__content {
 			max-height: 197px;
 		}
-	
+
 		&__line {
 			top: 350px;
 			height: 255px;
@@ -119,51 +131,60 @@
 		&__text_box {
 			top: 350px;
 		}
-	
+
 		&__round {
-	
 			&:nth-child(2) {
 				top: 315px;
 			}
-	
+
 			&:nth-child(3) {
 				top: 335px;
 			}
-	
+
 			&:nth-child(4) {
 				top: 355px;
 			}
-	
+
 			&:nth-child(5) {
 				top: 375px;
 			}
-	
+
 			&:nth-child(6) {
 				top: 395px;
 			}
-	
+
 			&:nth-child(7) {
 				top: 415px;
 			}
-	
+
 			&:nth-child(8) {
 				top: 435px;
 			}
 		}
+
+		&__round--active {
+			background: #f6f8fa;
+			border: 10px solid #1d71b8;
+		}
+	}
+
+	.myCompany__line {
+		top: 290px;
+		height: 250px;
 	}
 }
 
-@media only screen and(max-width:1500px){ 
+@media only screen and(max-width:1500px) {
 	.mycareer {
 		&__image {
 			width: 130px;
 			height: 130px;
 		}
-	
+
 		&__content {
 			max-height: 150px;
 		}
-	
+
 		&__line {
 			top: 290px;
 			height: 200px;
@@ -176,49 +197,51 @@
 		&__text {
 			font-size: 16px;
 		}
-	
+
 		&__round {
 			position: absolute;
 			width: 20px;
 			height: 20px;
-	
+
 			&:nth-child(2) {
 				top: 270px;
 			}
-	
+
 			&:nth-child(3) {
 				top: 285px;
 			}
-	
+
 			&:nth-child(4) {
 				top: 300px;
 			}
-	
+
 			&:nth-child(5) {
 				top: 315px;
 			}
-	
+
 			&:nth-child(6) {
 				top: 330px;
 			}
-	
+
 			&:nth-child(7) {
 				top: 345px;
 			}
-	
+
 			&:nth-child(8) {
 				top: 360px;
 			}
 		}
+
+		&__round--active {
+			background: #f6f8fa;
+			border: 10px solid #1d71b8;
+		}
 	}
-}
 
-
-
-    .myCompany {
-        &__line {
-            top: 200px;
-            height: 250px;
-        }
-    }
+	.myCompany {
+		&__line {
+			top: 200px;
+			height: 250px;
+		}
+	}
 }

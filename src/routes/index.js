@@ -11,6 +11,7 @@ import Contactus from "pages/NonAuth/Contactus";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 
 export const publicRoute = [
     {id:1, path: "/", element: <PageBackground/>},
@@ -28,7 +29,7 @@ export const freelancerResume = [
 ]
 
 export const createCompany = [
-    {id:2, path: "/welcome/register-company", element: <Background/>}
+    {id:2, path: "/welcome/register-company", element: <RegisterCompany/>}
 ]
 
 export const freelancerRouter = [

@@ -91,6 +91,7 @@ function App() {
 								}
 								<Route path={pathname.slice(0,4) } element={<Navigate to={`/${len}/jobs`}/>}/>
 								<Route path={`/${len}/login`} element={<Navigate to={`/${len}/jobs`}/>}/>
+								<Route path={`/${len}/welcome`} element={<Navigate to={`/${len}/jobs`}/>}/>
 								<Route path={`/${len}/welcome/create-profile/:resumeId`} element={<Navigate to={`/${len}/jobs`}/>}/>
 							</Routes>
 							:
@@ -101,8 +102,9 @@ function App() {
 									))
 								}
 								<Route path={pathname.slice(0,4) } element={<Navigate to={`/${len}/talants`}/>}/>
-								<Route path={`/${len}/welcome/create-profile/:resumeId`} element={<Navigate to={`/${len}/talants`}/>}/>
 								<Route path={`/${len}/login`} element={<Navigate to={`/${len}/talants`}/>}/>
+								<Route path={`/${len}/welcome`} element={<Navigate to={`/${len}/talants`}/>}/>
+								<Route path={`/${len}/welcome/create-profile/:resumeId`} element={<Navigate to={`/${len}/talants`}/>}/>
 							</Routes>
 						}
 					</div>

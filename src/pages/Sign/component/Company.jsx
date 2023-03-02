@@ -11,10 +11,10 @@ import facebook_icon from "../../../assets/images/Sign/white-facebook.svg";
 
 import "./Company.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { removeToken } from "reduxToolkit/LoginSlice";
+import { useSelector,useDispatch } from "react-redux";
+import { removeToken } from "reduxToolkit/loginSlice/LoginSlice";
 
-const Company = () => {
+const  Company = () => {
 	const navigate = useNavigate()
 	const len = useSelector(state => state.lenguage.lenguage)
 	const dispatch = useDispatch()

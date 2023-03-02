@@ -2,16 +2,11 @@ import React from "react";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeExperienceModal, exsperiencePost } from "reduxToolkit/ResumeSlice";
-import clouse  from "../../../../../assets/images/resume-modal-clouse.svg"
+import { experiencePost,experienceEdit } from "reduxToolkit/extraReducers";
 
-function MyWork() {
-	const [experience, setExperience] = useState({
-		companyName: "",
-		job: "",
-		currentWorking: false,
-		descripeion: ""
-	});
+function MyWork({removeModal,defaultData}) {
+	const {	companyName, job, currentWorking, descripeion, type, id} = defaultData
+	const [experience, setExperience] = useState({companyName, job, currentWorking, descripeion});
 
 	const dispatch = useDispatch();
 
@@ -21,15 +16,22 @@ function MyWork() {
 	data.append("CurrentWorking", experience.currentWorking);
 	data.append("Descripeion", experience.descripeion);
 
+	console.log(defaultData);
 	const handleClick = e => {
 		e.preventDefault();
-		dispatch(exsperiencePost(data));
-		dispatch(changeExperienceModal(false))
+		if(type === "add") {
+			console.log(data);
+			dispatch(experiencePost(data));
+			removeModal((prev) => ({...prev, experienceAdd: false}))
+		}else {
+			dispatch(experienceEdit({data,id}));
+			removeModal((prev) => ({...prev, experienceAdd: false}))
+		}
 	};
 
 	const changePage = e => {
 		e.preventDefault();
-		dispatch(changeExperienceModal(false))
+		removeModal(false)
 	};
 
 	return (
@@ -37,9 +39,6 @@ function MyWork() {
 			<div className="mywork__inner">
 				<form onSubmit={handleClick}>
 					<h2 className="mywork__text">Work experience</h2>
-					<button className="addEducations__modal_clouce" onClick={() => dispatch(changeExperienceModal(false))}>
-					<img src={clouse} alt="" width={16} height={16} />
-					</button>
 
 					<div className="mywork__content">
 						<input
@@ -79,7 +78,7 @@ function MyWork() {
 							<label className="mywork__label" htmlFor="data">
 								Date from
 							</label>
-							<input className="mywork__inputDate" type="date" id="data" />
+							<input className="mywork__inputDate"  type="date" id="data" />
 						</div>
 
 						<div className="mywork__wrapperDate">
@@ -101,7 +100,7 @@ function MyWork() {
 					</div>
 
 					<div className="mywork__button">
-						<button className="mywork__back" type="button" onClick={changePage}>
+						<button type="button" className="mywork__back"  onClick={changePage}>
 							Cancel
 						</button>
 						<button type="submit" className="mywork__next">

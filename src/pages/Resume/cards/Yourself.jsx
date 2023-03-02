@@ -2,65 +2,39 @@ import React from "react";
 import downIcon from "../../../assets/images/Resume/down.png";
 import "./Yourself.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { hobbies, positions, languages } from "reduxToolkit/ResumeSlice";
 import Select from "react-select";
-import { useState } from "react";
-import { useRef } from "react";
+import { useState,useRef } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import { languages, positionsUpload } from "reduxToolkit/extraReducers";
+import { useEffect } from "react";
 
 function Yourself() {
 	const dispatch = useDispatch();
-	const positionList = useSelector(state => state.resume.positionList);
-	const hobbies = useSelector(state => state.resume.hobbiesList);
+	const {positionGetLoading,positionList,hobbiesList,loading} = useSelector(state => state.resume);
+	const [data, setData] = useState({
+		description: "",
+		positionId: null,
+		freelancerHobbies:[],
+		freelancerSkills: [],
+		newHobbies:[],
+		newSkills:[]
+	})
+	const [skills, setSkills] = useState([]);
+	const [hobbiesorg, setHobbiesorg] = useState([]);
 
-	const street = useRef("");
-	const description = useRef("");
-	const [userChoice, setUserChoice] = useState([0, 0]);
-	const [userChoice2, setUserChoice2] = useState(0);
-	const [hobby, setHobby] = useState([]);
-	let options = [];
-	let skills = [];
-	for (let i = 0; i < positionList?.length; i++) {
-		options?.push({ value: [positionList[i]?.id, positionList?.indexOf(positionList[i])], label: positionList[i]?.name });
-		skills?.push(positionList[i]?.skills);
+	useEffect(() => {
+		setHobbiesorg(hobbiesList.map(hobbie => ({value: hobbie.id.toString().toLowerCase(), label: hobbie.name})))
+	},[hobbiesList])
+
+	if(positionGetLoading && loading) {
+		return <b>Loading...</b>
 	}
-
-	let skillsList = [];
-	for (let i = 0; i < skills[userChoice[1]]?.length; i++) {
-		skillsList?.push({ value: skills[userChoice[1]][i].id, label: skills[userChoice[1]][i].name });
-	}
-	let hobbiesList = [];
-	for (let i = 0; i < hobbies?.length; i++) {
-		hobbiesList?.push({ value: hobbies[i].name, label: hobbies[i].name });
-	}
-
-	const [data, setData] = useState([
-		{ value: "react", label: "React" },
-		{ value: "angular", label: "Angular" },
-		{ value: "svelte", label: "Svelte" },
-		{ value: "vue", label: "Vue" },
-		{ value: "riot", label: "Riot" },
-		{ value: "next", label: "Next.js" },
-		{ value: "blitz", label: "Blitz.js" }
-	]);
-
-	const [hobbiesorg, setHobbiesorg] = useState([
-		{ value: "chess", label: "Chess" },
-		{ value: "table-tennis", label: "Table tennis" },
-		{ value: "football", label: "football" },
-		{ value: "reading", label: "Reading" }
-	]);
 
 	const handleSubmit = event => {
-		// let payload = {
-		// 	description: description.current.value,
-		// 	positionId: userChoice[0],
-		// 	freelancerHobbies: hobby,
-		// 	freelancerSkills: userChoice2
-		// };
-
+		console.log(data);
+		dispatch(positionsUpload(data))
 		dispatch(languages());
 		event.preventDefault();
 		dispatch(
@@ -81,6 +55,32 @@ function Yourself() {
 		);
 	};
 
+	const positionChange = (position) => {
+		setData(prev => ({...prev, positionId: position.value}))
+		positionList.forEach(el => {
+			if(el.id === position.value) {
+				setSkills(el.skills.map(value => ({ value:value.id.toString().toLowerCase(), label:value.name })))
+			}
+		})
+	}
+
+	const changeSkill = ({value,type}) => {
+		if(type === "skills") {
+			setData(prev => ({
+				...prev,
+				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
+				newSkills:value.filter(el => isNaN(el * 1))
+			}))
+		}
+		else {
+			setData(prev => ({
+				...prev,
+				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
+				newHobbies:value.filter(el => isNaN(el * 1))
+			}))
+		}
+	}
+
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -93,42 +93,39 @@ function Yourself() {
 						<Select
 							required
 							classNamePrefix="mySelect"
-							options={options}
+							options={positionList.map(el => ({value: el.id, label: el.name}))}
+							onChange={positionChange}
 							placeholder="Positions*"
-							onChange={choice => setUserChoice(choice.value)}
+							// onChange={choice => setUserChoice(choice.value)}
 						/>
 					</div>
+
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
 						<input type="date" required placeholder="DD/MM/YYYY" />
 					</div>
 				</div>
+
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
-					{/* <Select
-						isMulti
-						name="colors"
-						className="basic-multi-select"
-						classNamePrefix="mySelect"
-						options={skillsList}
-						placeholder="Skills*"
-						onChange={e => setUserChoice2(Array.isArray(e) ? e.map(x => x.value) : [])}
-					/> */}
 					<MultiSelect
 						className="yourself_select"
-						required
-						data={data}
+						label="yourself_select"
+						data={skills}
 						placeholder="Select items or create a new"
+						nothingFound="Nothing found"
+						required
 						searchable
 						creatable
-						getCreateLabel={query => `+ Create ${query}`}
-						onCreate={query => {
+						getCreateLabel={(query) => `+ Create ${query}`}
+						onCreate={(query) => {
 							const item = { value: query, label: query };
-							setData(current => [...current, item]);
+							setSkills((current) => [...current, item]);
 							return item;
 						}}
+						onChange={value => changeSkill({value, type:"skills"})}
 					/>
-					{/* <br /> */}
+
 					<label className="yourselfCard_label">Hobbies*</label>
 					<br />
 					<MultiSelect
@@ -136,17 +133,26 @@ function Yourself() {
 						required
 						data={hobbiesorg}
 						placeholder="Select hobbie or create a new"
+						nothingFound="Nothing found"
 						searchable
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
 						onCreate={query => {
-							const item = { value: query, label: query };
+							const item = { value: query.toLowerCase(), label: query.toLowerCase()};
 							setHobbiesorg(current => [...current, item]);
 							return item;
+
 						}}
+						onChange={value => changeSkill({value, type:"hobbies"})}
 					/>
 
-					<textarea className="yourselfCard_textarea" type="textarea" required placeholder="Describe yourself to buyers" ref={description} />
+					<textarea
+						className="yourselfCard_textarea"
+						type="textarea"
+						required
+						placeholder="Describe yourself to buyers"
+						onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
+					></textarea>
 				</div>
 				<div className="yourselfCard_btn">
 					<button className="backButton" type="button" onClick={prevPage}>

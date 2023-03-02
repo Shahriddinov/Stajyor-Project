@@ -5,18 +5,17 @@ import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import CareerSlider from "../CareerSlider/CareerSlider";
 import AddEducations from "../cards/Educations/AddEducations/AddEducations";
-import MyWork from "../cards/WorkExperience/MyWork/MyWork";
 import { useSelector } from "react-redux";
 import "./Background.scss";
 import { useDispatch } from "react-redux";
-import { activeDoteAction } from "reduxToolkit/resumeControls";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { cards, dot } from "./information";
 
 function Background() {
 	const { activeCard } = useSelector(state => state.resumeControle);
 	const len = useSelector(state => state.lenguage.lenguage);
-	const { isExperienceModal, isEducationModal } = useSelector(state => state.resume);
-	const { activeDote } = useSelector(state => state.resumeControle)
+	const {isEducationModal} = useSelector(state => state.resume);
+	const {activeDote} = useSelector(state => state.resumeControle)
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -24,7 +23,7 @@ function Background() {
 
 
 	const handleClick = () => {
-		navigate(`/${len}/company`)
+		navigate(`/${len}/create-profile`)
 		dispatch(
 			activeDoteAction([
 				{ id: 1, label: "Personal information" },
@@ -65,13 +64,6 @@ function Background() {
 					</div>
 				</div>
 			</div>
-			{
-				isExperienceModal && <MyWork />
-			}
-			{
-				isEducationModal && <AddEducations />
-			}
-
 		</>
 	);
 }

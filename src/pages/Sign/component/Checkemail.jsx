@@ -4,7 +4,7 @@ import email from '../../../assets/images/Sign/email.png'
 import './Checkemail.scss'
 import { useSelector, useDispatch  } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { removeCheckEmail } from 'reduxToolkit/LoginSlice';
+import { removeCheckEmail } from 'reduxToolkit/loginSlice/LoginSlice';
 
 const Checkemal = () => {
 

@@ -4,7 +4,7 @@ import user_img from '../../../../assets/images/header/user.svg'
 import arrow_down from '../../../../assets/images/header/down_arrow.svg'
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector,useDispatch } from 'react-redux';
-import { profilLogout } from 'reduxToolkit/LoginSlice';
+import { profilLogout } from 'reduxToolkit/loginSlice/LoginSlice';
 const Dropdown = () => {
 
   const navigate = useNavigate()
@@ -15,14 +15,14 @@ const Dropdown = () => {
     dispatch(profilLogout())
     navigate(`/${len}/`)
   }
-    return (
+  return (
       <div className="dropdown">
         <button className="dropbtn">
           <img src={user_img} alt="user photos" />
           <h4 className='dropdown_title' >Dropdfown</h4>
           <img src={arrow_down} className='header_arrow_img' alt="arrow photos" />
 
-          </button>
+        </button>
         <div className="dropdown-content">
           <Link to={`/${len}/profil`}>Profile</Link>
           <Link to={`/${len}/notification`}>Notification <span>○</span></Link>
@@ -32,7 +32,7 @@ const Dropdown = () => {
           <button onClick={handleClick}>Log out</button>
         </div>
       </div>
-    );
+  );
 };
 
 export default Dropdown;

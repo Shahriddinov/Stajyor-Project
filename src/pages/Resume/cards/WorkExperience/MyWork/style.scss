@@ -153,7 +153,14 @@
 		color: #323232;
 		background: #ffffff;
 		padding: 1rem 2rem;
+		transition: all .3s linear;
 		cursor: pointer;
+
+		&:hover {
+			background-color: #1d71b8;
+			color: white;
+			transition: 0.3s;
+		}
 	}
 
 	&__back {
@@ -166,22 +173,31 @@
 		background: #ffffff;
 		padding: 1rem 2rem;
 		margin-right: 20px;
+		cursor: pointer;
+		transition: all .3s linear;
+	}
+
+	&__next:hover,
+	&__back:hover {
+		color: #fff;
+		background: #1d71b8;
+		transition: all .3s linear;
 	}
 }
 
 @media only screen and(max-width:1550px){
 	.mywork {
-	
+
 		&__inner {
 			padding: 20px;
 		}
-	
+
 		&__text {
 			font-size: 25px;
 			line-height: 25px;
 			margin-bottom: 15px;
 		}
-	
+
 		&__input {
 			display: inline-block;
 			font-size: 17px;
@@ -191,32 +207,32 @@
 			margin-bottom: 10px;
 			box-sizing: border-box;
 		}
-	
+
 		&__checkbox {
 			margin-bottom: 10px;
 			display: flex;
 			align-items: center;
 		}
-	
+
 		&__inputCheckbox {
 			margin-right: 10px;
 			width: 18px;
 			height: 18px;
 		}
-	
+
 		&__labelCheckbox {
 			font-size: 17px;
 		}
-	
+
 		&__wrapper {
 			margin-bottom: 20px;
 			gap: 30px;
 		}
-	
+
 		&__label {
 			font-size: 17px;
 		}
-	
+
 		&__inputDate {
 			display: inline-block;
 			font-size: 17px;
@@ -224,11 +240,11 @@
 			width: 100%;
 			box-sizing: border-box;
 		}
-	
+
 		&__descriptionWrapper {
 			margin-bottom: 10px;
 		}
-	
+
 		&__description {
 			display: inline-block;
 			min-height: 50px;
@@ -237,12 +253,12 @@
 			width: 100%;
 			box-sizing: border-box;
 		}
-	
+
 		&__next {
 			font-size: 17px;
 			padding: 8px 16px;
 		}
-	
+
 		&__back {
 			font-size: 17px;
 			padding: 8px 16px;

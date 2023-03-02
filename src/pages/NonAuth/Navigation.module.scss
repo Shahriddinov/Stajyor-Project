@@ -5,15 +5,15 @@
 	&__container {
 		position: relative;
 		width: 100%;
-		padding: 90px 255px 0;
-		max-width: 1920px;
+		padding: 90px 20px 0;
+		max-width: 1450px;
 
 		.backgroundImg {
 			position: absolute;
 			width: 800px;
 			height: 800px;
 			top: -180%;
-			left: -5%;
+			left: -20%;
 			border-radius: 50%;
 			z-index: -1;
 		}
@@ -120,14 +120,34 @@
 	}
 }
 
+
+@media only screen and (max-width: 1780px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -20%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1700px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -20%;
+			}
+		}
+	}
+}
+
 @media only screen and (max-width: 1634px) {
 	.menu {
 		&__container {
-			padding: 60px 200px 0;
+			padding-top: 60px;
 
 			.backgroundImg {
-				width: 700px;
-				height: 700px;
+				top: -240%;
 			}
 		}
 	}
@@ -136,11 +156,11 @@
 @media only screen and (max-width: 1516px) {
 	.menu {
 		&__container {
-			padding: 30px 100px 0;
+			padding-top: 30px;
 
 			.backgroundImg {
-				width: 550px;
-				height: 550px;
+				left: -25%;
+				top: -310%;
 			}
 		}
 	}
@@ -149,16 +169,17 @@
 @media only screen and (max-width: 1356px) {
 	.menu {
 		&__container {
-			padding: 40px 90px 0;
+
+			.backgroundImg {
+				width: 600px;
+				height: 600px;
+				left: -15%;
+				top: -240%;
+			}
 
 			.automative {
 				width: 260px;
 				height: 68px;
-			}
-
-			.backgroundImg {
-				width: 455px;
-				height: 455px;
 			}
 
 			.menu__links {
@@ -196,8 +217,28 @@
 			padding: 30px 30px 0;
 
 			.backgroundImg {
-				width: 450px;
-				height: 450px;
+				left: -20%;
+			}
+
+		}
+	}
+}
+
+@media only screen and (max-width: 1170px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -24%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1060px) {
+	.menu {
+		&__container {
+			.backgroundImg {
+				left: -28%;
 			}
 		}
 	}

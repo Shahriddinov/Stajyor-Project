@@ -5,7 +5,7 @@ import MyWork from 'pages/Resume/cards/WorkExperience/MyWork/MyWork';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { activeDoteAction } from 'reduxToolkit/companyRegister';
+import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import classes from './RegisterCompany.module.scss'
 import { CompanyInformation } from './CompanyInformation/CompanyInformation';
 import { YourCompany } from './YourCompany/YourCompany';

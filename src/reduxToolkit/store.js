@@ -1,13 +1,13 @@
 import {
 	configureStore
 } from "@reduxjs/toolkit";
-import LoginSlice from "./LoginSlice";
-import resumeSlice from "./ResumeSlice";
-import FreelanceSlice from "./FreelancerSlice";
-import lenguage from "./LenguageSlice"
-import contract from "./contractSlice"
-import resumeControle from "./resumeControls"
-import companyRegister from "./companyRegister";
+import LoginSlice from "./loginSlice/LoginSlice";
+import resumeSlice from "./resumeSlice/ResumeSlice";
+import FreelanceSlice from "./freelancerSlice/FreelancerSlice";
+import lenguage from "./lenguageSlice/LenguageSlice"
+import contract from "./contractSlice/contractSlice"
+import resumeControle from "./resumeControlsSlice/resumeControls"
+import companyRegister from "./companyRegister/companyRegister";
 
 const store = configureStore({
 	reducer: {

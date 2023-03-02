@@ -12,7 +12,7 @@ import Resume3 from './complate-resume/resume-list/Resume3'
 import Resume4 from './complate-resume/resume-list/Resume4'
 import Resume5 from './complate-resume/resume-list/Resume5'
 import Resume6 from './complate-resume/resume-list/Resume6'
-import { activeDoteAction } from 'reduxToolkit/resumeControls'
+import { activeDoteAction } from 'reduxToolkit/resumeControlsSlice/resumeControls'
 
 const ReumeFinish = () => {
   const {resume} = useSelector(state => state.login)
@@ -21,6 +21,14 @@ const ReumeFinish = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const {resumeId} = useParams()
+
+  const data = new FormData()
+  data.append("resume", resumeId)
+
+  useEffect(() => {
+    dispatch(resumeSelect(data))
+  },[])
+
   const routes = [
     {id:1, resumeId: 1, element: <Resume1 {...resumeDetails}/>},
     {id:2, resumeId: 2, element: <Resume2 {...resumeDetails}/>},
@@ -29,12 +37,6 @@ const ReumeFinish = () => {
     {id:5, resumeId: 6, element: <Resume5 {...resumeDetails}/>},
     {id:6, resumeId: 5, element: <Resume6 {...resumeDetails}/>},
   ]
-  const data = new FormData()
-  data.append("resume", resumeId)
-
-  useEffect(() => {
-    dispatch(resumeSelect(data))
-  },[])
 
 
   const handleSubmit = () => {
@@ -55,6 +57,8 @@ const ReumeFinish = () => {
 			])
 		);
   }
+
+  console.log(resumeDetails);
 
   return (
    <>
@@ -81,13 +85,13 @@ const ReumeFinish = () => {
               <div className={classes.resume__finish_main}>
                 <h3 className={classes.resume__finish_title}>Your Resume is Done!</h3>
                 <div className={classes.resume__finish_box}>
-                  <div className={classes.resume}>
+                  <ul className={classes.resume}>
                     {
                       routes.map(el => (
                         (el.resumeId === (resumeId * 1)) && <li key={el.id}>{el.element}</li>
                       ))
                     }
-                  </div>
+                  </ul>
                   <div className={classes.finish__box}>
                     <button className={classes.finish} onClick={handleSubmit}> 
                       Finish

@@ -25,7 +25,7 @@ const Resume5 = (props) => {
     
                 <div className="resume2_5-top-right">
                   <div className="resume2_5-user-img">
-                    <img src={freelancerImage} alt={firstName}/>
+                    <img src={`http://localhost:5000/staticfiles/${freelancerImage}`} alt={firstName}/>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Resume5 = (props) => {
                       {freelancerPosition?.freelancerSkills?.map((item, i) => {
                         return (
                           <li className="resume2_5-bottom-circle" key={i + 1}>
-                            <span>{item}</span>
+                            <span>{item.name}</span>
                           </li>
                         );
                       })}
@@ -126,7 +126,7 @@ const Resume5 = (props) => {
                       {freelancerHobbies?.map((item, i) => {
                         return (
                           <li key={i + 1}>
-                            <p>{item}</p>
+                            <p>{item.name}</p>
                           </li>
                         );
                       })}

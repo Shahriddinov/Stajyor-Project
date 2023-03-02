@@ -1,37 +1,20 @@
 import React, { useLayoutEffect } from "react";
 import { useSelector } from "react-redux";
-import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
-import Home from "pages/Home";
-import Aboutus from "pages/NonAuth/Aboutus";
-import Talants from "pages/NonAuth/pages/talants/Talants";
-import Jobs from "pages/NonAuth/pages/jobs/Jobs";
-import Signup from "pages/Sign/Signup/Signup";
-import Login from "pages/Sign/Login/Login";
-import NotFound from "pages/404";
+import { Route, Routes, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Header from "components/Layout/Header/Header";
-import PageBackground from "pages/NonAuth/Background";
-import Background from "pages/Resume/Background/Background";
-import ResumeFinish from "pages/Resume/ResumeFinish";
-import Contract from "pages/contract";
-import Contactus from "pages/NonAuth/Contactus";
-import Freelancer from "pages/Freelancer/Freelancer";
-import Profile from "pages/FreelancerProfile/Profile";
-import UserFreelancer from "pages/Freelancer/UserFreelancer";
-// import { useLayoutEffect } from "react";
-import ChatModal from "pages/Chat/Modal";
-import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
+import { createProfileRoute, freelancerRouter, publicRoute } from "routes";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
 	const len = useSelector(state => state.lenguage.lenguage);
 	const resume = useSelector(state => state.login.resume);
 	const navigate = useNavigate();
+	const { pathname } = useLocation()
+	const user = "okdhvc"
 
 	useLayoutEffect(() => {
 		navigate(`/${len}/`)
 	}, [len])
-
-	const pathName = window.location.pathname;
 
 	return (
 		<div className="App">
@@ -39,9 +22,11 @@ function App() {
 				!auth
 					? (
 						<Routes>
-							<Route path={`/${len}/`} element={<PageBackground />} />
-							<Route path={`/${len}/login`} element={<Login />} />
-							<Route path={`/${len}/sign-up`} element={<Signup />} />
+							{
+								publicRoute.map(route => (
+									<Route path={`/${len}${route.path}`} element={route.element} key={route.id} />
+								))
+							}
 							<Route path="*" element={<Navigate to={`/${len}/`} />} />
 						</Routes>
 					)
@@ -49,29 +34,40 @@ function App() {
 					!resume
 						? (
 							<Routes>
-								<Route path={`/${len}/company`} element={<Login />} />
-								<Route path={`/${len}/resume`} element={<Background />} />
-								<Route path={`/${len}/register-company`} element={<RegisterCompany />} />
-								<Route path={`/${len}/resume-finish/:resumeId`} element={<ResumeFinish />} />
-								<Route path="*" element={<Navigate to={`/${len}/company`} />} />
+								{
+									createProfileRoute.map(route => (
+										<Route path={`/${len}${route.path}`} element={route.element} key={route.id} />
+									))
+								}
+								<Route path="*" element={<Navigate to={`/${len}/create-profile`} />} />
 							</Routes>
 						)
 						: (
-							<div className={`freelanser-box  ${(pathName.slice(4) === "contact" || pathName.slice(4) === "about") ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
+							<div className={`freelanser-box  ${(pathname.slice(4) === "contact" || pathname.slice(4) === "about") ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
 								<Header />
-								<Routes>
-									<Route path={`/${len}/jobs`} element={<Freelancer />} />
-									<Route path={`/${len}/talants`} element={<Talants />} />
-									<Route path={`/${len}/profil`} element={<Profile />} />
-									<Route path={`/${len}/about`} element={<Talants />} />
-									<Route path={`/${len}/contact`} element={<Talants />} />
-									<Route path={`/${len}/chat`} element={<ChatModal />} />
-									<Route path={`/${len}/contracts`} element={<Contract />} />
-									<Route path={pathName.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
-									<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
-									<Route path={`/${len}/freelancer-user`} element={<UserFreelancer />} />
-									<Route path={`/${len}/*`} element={<NotFound />} />
-								</Routes>
+								{
+									user !== "company"
+										?
+										<Routes>
+											{
+												freelancerRouter.map(route => (
+													<Route path={`/${len}${route.path}`} element={route.element} key={route.id} />
+												))
+											}
+											<Route path={pathname.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
+											<Route path={`${pathname.slice(0, 4)}/login`} element={<Navigate to={`/${len}/jobs`} />} />
+											<Route path={`/${len}/resume-finish/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
+										</Routes>
+										:
+										<Routes>
+											{
+												freelancerRouter.slice(0, 4).map(route => (
+													<Route path={`/${len}${route.path}`} element={route.element} key={route.id} />
+												))
+											}
+											<Route path={pathname.slice(0, 4)} element={<Navigate to={`/${len}/talants`} />} />
+										</Routes>
+								}
 							</div>
 						)
 			}

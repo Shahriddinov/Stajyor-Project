@@ -1,18 +1,11 @@
 .page3 {
-	width: 80%;
-	height: 80%;
-	margin: 0 auto;
 	.page3__container {
-		width: 100%;
-
-		max-width: 1450px;
-		margin: 0 auto;
-
 		.page3__inner {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			gap: 10px;
+
 			.container__sloy1 {
 				width: 48%;
 				height: 100%;
@@ -22,6 +15,7 @@
 					height: 100%;
 				}
 			}
+
 			.page3__text__btn {
 				width: 70%;
 				height: 100%;
@@ -38,6 +32,7 @@
 					line-height: 41px;
 					color: #323232;
 				}
+
 				.subtitle {
 					width: 70%;
 					font-family: "Montserrat", sans-serif;
@@ -47,6 +42,7 @@
 					line-height: 30px;
 					color: #323232;
 				}
+
 				.post {
 					cursor: pointer;
 					display: flex;

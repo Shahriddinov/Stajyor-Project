@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./AddEducation.scss";
 import { useDispatch } from "react-redux";
-import { temporary6,temporary7, educationDelete, educationGet, temporary8 } from "reduxToolkit/ResumeSlice";
+import { temporary6,temporary7, educationDelete, educationGet, temporary8 } from "reduxToolkit/resumeSlice/ResumeSlice";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Context from "components/Context/Context";

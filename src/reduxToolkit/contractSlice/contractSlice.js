@@ -1,5 +1,6 @@
+import { contractCreate, dagavorItem } from "reduxToolkit/extraReducers";
+
 const { createSlice } = require("@reduxjs/toolkit")
-const { contractCreate, dagavorItem } = require("./extraReducers")
 
 const initialState = {
     loading: false,

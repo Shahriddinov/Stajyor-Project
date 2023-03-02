@@ -9,8 +9,15 @@ import CompanyCard from 'pages/Company/components/CompanyCard';
 import PortfolioCard from './components/PortfolioCard';
 import './UserFreelancer.scss'
 import Round from 'pages/NonAuth/Round';
+// import { useSelector } from 'react-redux';
 
 const UserFreelancer = () => {
+
+    // const { freelancerData } = useSelector( state => state.freelance)
+    // console.log('====================================');
+    // console.log(freelancerData);
+    // console.log('====================================');
+
     return (
         <div className="freelancer_container">
              <div className='freelancer_container_round'>

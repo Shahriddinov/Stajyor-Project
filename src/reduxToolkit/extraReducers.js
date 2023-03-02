@@ -8,7 +8,7 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 		method:"GET",
 		url:CLAIMS,
 	}).then(res => res.data)
-	
+
 });
 
 /////////////////////////////////////REGISTER POST///////////////////////
@@ -24,7 +24,7 @@ export const registerRequest = createAsyncThunk("token/register", async payload 
 	
 });
 
-/////////////////////////////////////LOGIN POST///////////////////////
+/////////////////////////////////////LLOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 	return axios({
 		method:"POST",
@@ -54,7 +54,7 @@ export const userRoles = createAsyncThunk("token/roles", async payload => {
 
 /////////////////////////////////////ADDTOFREELANCER POST///////////////////////
 export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async payload => {
-	const token = localStorage.getItem("token");	
+	const token = localStorage.getItem("token");
 	return axios({
 		method:"POST",
 		url:ADDTOFREELANCER,
@@ -379,4 +379,60 @@ export const educationDelete = createAsyncThunk("freelancer/educationDelete", as
 		return response.data;
 	});
 });
-export {resumeSelect}
+export { resumeSelect }
+
+////////////////////////////////////////////////////// COMPANY //////////////////////////////////////////////////////
+
+export const createCompanyUserPost = createAsyncThunk("company/createOwner", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: COMPANY_OWNER_CREATE,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => {
+		return response.data
+	});
+});
+
+export const addCompanyInformation = createAsyncThunk("company/addCompany", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'multipart/form-data',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
+});
+
+export const addCompanyLocation = createAsyncThunk("company/addLocation", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_LOCATION_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
+});
+
+export const addCompanyContacts = createAsyncThunk("company/addContacts", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_CONTACTS_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
+});

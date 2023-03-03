@@ -1,8 +1,39 @@
 const translation = {
-    "jobs" : "Ish",
+    "jobs": "Ish",
     "talants": "Iste'dodlar",
-    "contact" : "Bog'lanish",
-    "about" : "Biz haqimizda"
+    "contact": "Bog'lanish",
+    "about": "Biz haqimizda",
+    // Company register side START
+    "backToSignUp": "Ro'yxatdan o'tish uchun orqaga",
+    "loading": "Yuklanmoqda...",
+    "welcome": "Xush kelibsiz",
+    "companyRegisterTitle": "Freelancerlarning global hamjamiyatiga qo'shilish va o'z xizmatlaringizni o'sib borayotgan biznes tarmog'imizga sotishni boshlash uchun profilingizni to'ldiring.",
+    "firstName": "Ism*",
+    "firstNameInput": "Ismingizni yozing",
+    "lastName": "Familiya*",
+    "lastNameInput": "Familiyangizni yozing",
+    "email": "Elektron pochta*",
+    "phoneNumber": "Telefon Raqamingiz*",
+    "next": "keyingi",
+    "back": "orqaga",
+    "yourCompany": "Sizning kompaniyangiz!",
+    "addCompanyPhoto": "Kompaniyangiz rasmini qo'shing",
+    "changeCompanyPhoto": "Kompaniyangizning rasmini o'zgartiring",
+    "companyName": "Kompaniya nomi",
+    "companyNameInput": "Kompaniyangiz nomi",
+    "number": "Raqam",
+    "companyPhoneNumberInput": "Kompaniyaning telefon raqami",
+    "aboutYourCompanyTitle": "Sizning kompaniyangiz haqida",
+    "aboutYourCompanyDescription": "Kompaniyangiz haqida ko'proq ma'lumot yozing",
+    "location": "Manzil*",
+    "locationInput": "Manzilni yozing",
+    "locationDescriptionTitle": "Tavsif",
+    "locationDescriptionInput": "Kompaniyangiz nima qilayotganini yozing",
+    "contactsCompany": "Aloqalar",
+    "contactsCompanyInput": "Veb-saytingizga havolani taqdim eting",
+    "contactsCompanyInput2": "Havolanigizni taqdim eting",
+    "contactsCompanyDescription": "Ushbu ijtimoiy tarmoqlardan qaysi birida hisob qaydnomangiz borligini tanlang",
+    // Company register side END
 }
 
 export default translation

@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import './CompanyInformation.scss'
 import { createCompanyUserPost } from 'reduxToolkit/extraReducers';
+import { useTranslation } from 'react-i18next';
 
 export const CompanyInformation = () => {
     const [user, setUser] = useState({ firstName: '', lastName: '', copmanyEmail: '', phoneNumber: '' })
+    const { t } = useTranslation()
 
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.companyRegister)
@@ -29,38 +31,38 @@ export const CompanyInformation = () => {
         <>
             {
                 loading
-                    ? <h2>Loding...</h2>
+                    ? <h2>{t("loading")}</h2>
                     : <div className="photoCard">
                         <div className='companyInformation__top'>
-                            <h2>Welcome</h2>
+                            <h2>{t("welcome")}</h2>
                             <p>
-                                Complete your profile to join our global community of freelancers and start selling your services to our growing network of businesses.
+                                {t("companyRegisterTitle")}
                             </p>
                         </div>
                         <form onSubmit={handleSubmit} method="post">
                             <div className="inputBox">
                                 <div>
-                                    <h5>Firstname*</h5>
+                                    <h5>{t("firstName")}</h5>
                                     <input
                                         type="text"
                                         value={user.firstName}
                                         onChange={(e) => handleValues({ type: "firstName", value: e.target.value })}
-                                        placeholder="Write in your first name"
+                                        placeholder={t("firstNameInput")}
                                         required
                                     />
                                 </div>
                                 <div>
-                                    <h5>Lastname*</h5>
+                                    <h5>{t("lastName")}</h5>
                                     <input
                                         value={user.lastName}
                                         onChange={(e) => handleValues({ type: "lastName", value: e.target.value })}
                                         type="text"
-                                        placeholder="Write in your last name"
+                                        placeholder={t("lastNameInput")}
                                         required
                                     />
                                 </div>
                                 <div>
-                                    <h5>E-mail*</h5>
+                                    <h5>{t("email")}</h5>
                                     <input
                                         value={user.copmanyEmail}
                                         onChange={(e) => handleValues({ type: "copmanyEmail", value: e.target.value })}
@@ -70,7 +72,7 @@ export const CompanyInformation = () => {
                                     />
                                 </div>
                                 <div>
-                                    <h5>Phone Number*</h5>
+                                    <h5>{t("phoneNumber")}</h5>
                                     <input
                                         value={user.phoneNumber}
                                         onChange={(e) => handleValues({ type: "phoneNumber", value: e.target.value })}
@@ -80,7 +82,7 @@ export const CompanyInformation = () => {
                                     />
                                 </div>
                             </div>
-                            <button className="next_btn_photoCart">Next</button>
+                            <button className="next_btn_photoCart">{t("next")}</button>
                         </form>
                     </div>
             }

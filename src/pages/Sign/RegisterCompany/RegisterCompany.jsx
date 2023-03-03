@@ -12,6 +12,7 @@ import { YourCompany } from './YourCompany/YourCompany';
 import back from '../../../assets/images/Resume/back.png'
 import { AboutCompany } from './AboutCompany/AboutCompany';
 import { ContactsCompany } from './ContactsCompany/ContactsCompany';
+import { removeToken } from 'reduxToolkit/loginSlice/LoginSlice';
 
 export const RegisterCompany = () => {
     const { activeCard } = useSelector(state => state.companyRegister);
@@ -32,6 +33,8 @@ export const RegisterCompany = () => {
                 { id: 1, label: "Information" }
             ])
         );
+        dispatch(removeToken()) 
+		localStorage.clear()
     }
 
     const dot = [

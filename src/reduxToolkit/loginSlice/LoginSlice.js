@@ -1,18 +1,21 @@
 import {createSlice } from "@reduxjs/toolkit";
-import { logInRequest, registerRequest, resumeFinishPost } from "reduxToolkit/extraReducers";
+import { addToCompany, addToFreelancer, claimsGet, logInRequest, registerRequest, resumeFinishPost, userRoles } from "reduxToolkit/extraReducers";
 
 const initialState = {
 	loading: false,
 	error: "",
+	loginOnSuccess : "",
 	loggedIn: localStorage.getItem("token"),
-	resume: JSON.parse(localStorage.getItem("resume")) ? JSON.parse(localStorage.getItem("resume")) : false,
+	freelancerOrCompony: localStorage.getItem("type") ? localStorage.getItem("type") : false,
 	checkEmail: false,
 	bodyErrors: "",
-	loginResponseError: null
+	loginResponseError: null,
+	resumeOnSuccess: ""
+	
 };
 
 const logInSlice = createSlice({
-	name: "image",
+	name: "loginRegister",
 	initialState,
 	reducers: {
 		removeToken: (state, {type,payload}) => {
@@ -36,13 +39,28 @@ const logInSlice = createSlice({
 	},
 
 	extraReducers: builder => {
+		///////////////////CLAIMS REDUCER/////////////////
+		builder.addCase(claimsGet.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(claimsGet.fulfilled, (state, action) => {
+			state.loading = false;
+		});
+		builder.addCase(claimsGet.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+		///////////////////LOG_IN REDUCER/////////////////
 		builder.addCase(logInRequest.pending, (state, action) => {
+			state.loginOnSuccess = false;
 			state.loading = true;
 		});
 		builder.addCase(logInRequest.fulfilled, (state, action) => {
 			localStorage.setItem("token", action.payload.token);
 			state.loggedIn = action.payload.token;
 			state.loading = false;
+			state.loginOnSuccess = true;
 		});
 		builder.addCase(logInRequest.rejected, (state, action) => {
 			state.loading = false;
@@ -63,14 +81,62 @@ const logInSlice = createSlice({
 			state.error = action.error.message;
 		});
 
+		///////////////////USERROLES REDUCER/////////////////
+		builder.addCase(userRoles.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(userRoles.fulfilled, (state, action) => {
+			if(action.payload.cLaims.length === 4) {
+				const userType = action.payload.cLaims[3].value
+				localStorage.setItem("type", userType);
+				state.freelancerOrCompony = userType
+			}
+			else {
+				const userType = action.payload.cLaims[2].value
+				localStorage.setItem("type", userType);
+				state.freelancerOrCompony = userType
+			}
+			
+			state.loading = false;
+		});
+		builder.addCase(userRoles.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+		///////////////////ADDTOFREELANCER REDUCER/////////////////
+		builder.addCase(addToFreelancer.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(addToFreelancer.fulfilled, (state, action) => { 
+			state.loading = false;
+		});
+		builder.addCase(addToFreelancer.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+		});
+
+		///////////////////ADDTOCOMPANY REDUCER/////////////////
+		builder.addCase(addToCompany.pending, (state, action) => {
+			state.loading = true;
+		});
+		builder.addCase(addToCompany.fulfilled, (state, action) => {
+			state.loading = false;
+		});
+		builder.addCase(addToCompany.rejected, (state, action) => {
+			state.loading = false;
+			state.error = action.error.message;
+			console.log(action);
+		});
+
 		///////////////////RESUMEFINISH REDUCER/////////////////
 		builder.addCase(resumeFinishPost.pending, (state, {type,payload}) => {
 			state.loading = true
+			state.resumeOnSuccess = false
 		});
-		builder.addCase(resumeFinishPost.fulfilled, (state, {type,payload}) => {
-			localStorage.setItem("resume", payload.data.finish)
-			state.resume = payload.data.finish
+		builder.addCase(resumeFinishPost.fulfilled, (state, action) => {
 			state.loading = false;
+			state.resumeOnSuccess = action.payload.isSuccess
 		});
 		builder.addCase(resumeFinishPost.rejected, (state,action) => {
 			state.loading = false;

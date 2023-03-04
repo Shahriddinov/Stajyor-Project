@@ -6,11 +6,11 @@ import ticked from '../../../assets/images/Freelancer/ticked.svg'
 import location from '../../../assets/images/Freelancer/location.svg'
 import { ReactComponent as Heart } from '../../../assets/images/Freelancer/hheart.svg'
 import Colasible from './Colasible';
-import { useContext } from 'react';
-import Context from 'components/Context/Context';
+// import { useContext } from 'react';
+// import Context from 'components/Context/Context';
 import { useLocation } from "react-router-dom";
 
-const Cart = () => {
+const Cart = ( {item}) => {
     const { pathname } = useLocation()
 
     // const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
@@ -23,25 +23,27 @@ const Cart = () => {
     //     setIsActive(!isActive)
     // }
 
+    console.log(item.freelancerImage)
+
     return (
         <div className='freelancer_cart' >
             <ul className="freelancer_cart_list">
                 <li className="freelancer_cart_list_item freelancer_cart_list_item1">
-                    <img src={user_img} alt="" />
+                    <img src={item?.freelancerImage} alt="" />
                     <div>
                         <h4 className='freelancer_cart_list_item_title' >
-                            <span>Michel R</span>
+                            <span>{item?.firstName}</span>
                             <img src={ticked} alt="" />
                         </h4>
                         <p className="freelancer_cart_list_item_info">
-                            Web-design UI/UX
+                            {item.freelancerPosition.name}
                         </p>
                     </div>
                 </li>
 
                 <li className="freelancer_cart_list_item ">
                     <div>
-                        <h4 className='freelancer_cart_list_item_title' > 80% </h4>
+                        <h4 className='freelancer_cart_list_item_title' > 11% </h4>
                         <progress id="file" max="100" value="70"> 70% </progress>
                         <p className="freelancer_cart_list_item_info"> Job Success </p>
                     </div>
@@ -49,14 +51,14 @@ const Cart = () => {
 
                 <li className="freelancer_cart_list_item ">
                     <div>
-                        <h4 className='freelancer_cart_list_item_title' > 5$ </h4>
+                        <h4 className='freelancer_cart_list_item_title' > 11$ </h4>
                         <p className="freelancer_cart_list_item_info"> Hourly </p>
                     </div>
                 </li>
 
                 <li className="freelancer_cart_list_item ">
                     <div>
-                        <h4 className='freelancer_cart_list_item_title' > 324 </h4>
+                        <h4 className='freelancer_cart_list_item_title' > 111 </h4>
                         <p className="freelancer_cart_list_item_info"> Completed jobs </p>
                     </div>
                 </li>
@@ -69,13 +71,16 @@ const Cart = () => {
                 </div>
             }
 
-            <Colasible text={'qwertyuioplkjhgfdsazxcvbnm'} />
+            <Colasible text={item.description} />
 
             <div className="freelancer_cart_skill">
                 <div className="freelancer_cart_skill_skills">
-                    <h4>Figma</h4>
+                    {item.freelancerPosition.freelancerSkills.map((skill, index) => (
+                        <h4 key={index}>{skill.name}</h4>
+                    ))}
+                    {/* <h4>Figma</h4>
                     <h4>html</h4>
-                    <h4>Adobe PhotoShop</h4>
+                    <h4>Adobe PhotoShop</h4> */}
                 </div>
 
                 <div className="freelancer_cart_skill_level">
@@ -84,8 +89,8 @@ const Cart = () => {
             </div>
 
             <div className="freelancer_cart_location">
-                <h4><span>3 years </span>   of experience</h4>
-                <h4> <img src={location} alt="" /> Tashkent, Uzbekistan</h4>
+                <h4><span>1 years </span>   of experience</h4>
+                <h4> <img src={location} alt="" /> {item.address.regionName}, {item.address.countryName}</h4>
             </div>
         </div>
     );

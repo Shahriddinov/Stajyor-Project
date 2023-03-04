@@ -4,32 +4,28 @@ import { useNavigate } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import CareerSlider from "../CareerSlider/CareerSlider";
-import AddEducations from "../cards/Educations/AddEducations/AddEducations";
 import { useSelector } from "react-redux";
 import "./Background.scss";
 import { useDispatch } from "react-redux";
-import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { cards, dot } from "./information";
+import { removeToken } from "reduxToolkit/loginSlice/LoginSlice";
+import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
 function Background() {
 	const { activeCard } = useSelector(state => state.resumeControle);
-	const len = useSelector(state => state.lenguage.lenguage);
-	const {isEducationModal} = useSelector(state => state.resume);
 	const {activeDote} = useSelector(state => state.resumeControle)
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
-
-
 
 	const handleClick = () => {
-		navigate(`/${len}/create-profile`)
 		dispatch(
-			activeDoteAction([
+			activeDoteAction ([
 				{id: 1,label: "Personal information"},
 				{id: 1,label: "photo"}
 			])
 		);
+		dispatch(removeToken()) 
+		localStorage.clear()
 	}
 	return (
 		<>
@@ -59,7 +55,7 @@ function Background() {
 						</div>
 
 						<div className={classes.career}>
-							<CareerSlider dot = {dot} activeDote = {activeDote}/>
+							<CareerSlider dot = {dot} activeDote = {activeDote} classNameLine="mycareer__line"/>
 						</div>
 					</div>
 				</div>

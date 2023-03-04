@@ -2,7 +2,7 @@
 	width: 100%;
 	min-width: 750px;
 
-	.namePro>h3 {
+	.namePro > h3 {
 		font-weight: 600;
 		font-size: 23px;
 		line-height: 28px;
@@ -57,7 +57,7 @@
 
 		.talantsDescItem {
 			width: 100%;
-			height: auto;
+			height: fit-content;
 			background: #ffffff;
 			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
 			border-radius: 12px;
@@ -101,7 +101,7 @@
 					display: flex;
 					gap: 15px;
 
-					&>img {
+					& > img {
 						width: 54px;
 						height: 54px;
 						object-fit: cover;
@@ -149,12 +149,12 @@
 				}
 
 				.jobSuccess {
-					&>p {
+					& > p {
 						font-size: 20px;
 						line-height: 24px;
 					}
 
-					&>span {
+					& > span {
 						font-size: 16px;
 						line-height: 20px;
 						display: inline-block;
@@ -188,12 +188,12 @@
 				}
 
 				.hourRate {
-					&>p {
+					& > p {
 						font-size: 23px;
 						line-height: 28px;
 					}
 
-					&>span {
+					& > span {
 						font-size: 16px;
 						line-height: 20px;
 						display: inline-block;
@@ -202,13 +202,12 @@
 				}
 
 				.completedJobs {
-
-					&>p {
+					& > p {
 						font-size: 23px;
 						line-height: 28px;
 					}
 
-					&>span {
+					& > span {
 						font-size: 16px;
 						line-height: 20px;
 						display: inline-block;
@@ -285,7 +284,7 @@
 				}
 
 				.selectLevel {
-					&>label {
+					& > label {
 						font-size: 18px;
 						line-height: 22px;
 						color: #808080;
@@ -371,7 +370,6 @@
 				height: 368px !important;
 			}
 
-
 			.talantsDescItem {
 				padding: 5px 10px 10px 10px;
 
@@ -382,10 +380,10 @@
 				.talantsDescItemHeader {
 					height: 54px;
 
-					.jobSuccess>p,
-					.hourRate>p,
-					.completedJobs>p,
-					.namePro>h3 {
+					.jobSuccess > p,
+					.hourRate > p,
+					.completedJobs > p,
+					.namePro > h3 {
 						font-size: 18px;
 						line-height: 20px;
 					}
@@ -396,15 +394,15 @@
 					}
 
 					span,
-					.jobSuccess>span,
-					.hourRate>span,
-					.completedJobs>span {
+					.jobSuccess > span,
+					.hourRate > span,
+					.completedJobs > span {
 						margin-top: 4px;
 						font-size: 14px;
 						line-height: 10px;
 					}
 
-					.imgName>img {
+					.imgName > img {
 						width: 44px;
 						height: 44px;
 					}
@@ -446,7 +444,7 @@
 					}
 
 					.selectLevel {
-						&>label {
+						& > label {
 							font-size: 14px;
 							line-height: 18px;
 						}
@@ -471,7 +469,7 @@
 					.location {
 						font-size: 12px;
 
-						&>img {
+						& > img {
 							width: 12px;
 							height: 16px;
 						}

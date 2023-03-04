@@ -5,7 +5,9 @@ import '../Freelancer/Freelancer.scss';
 import Fillter from '../Freelancer/components/Fillter'
 import serach_icon from '../../assets/images/Freelancer/serach_inp.svg'
 import "./talants.scss"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { talantsData } from '../../reduxToolkit/extraReducers.js';
 
 const Talants = () => {
     const [activeControl, setActiveControl] = useState("best-matches")
@@ -14,6 +16,20 @@ const Talants = () => {
         {id:2,type: "recent", label: "Recent"},
         {id:3,type: "saved", label: "Saved"},
     ]
+
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.talant.data)
+    const loading = useSelector( state => state.talant.loading )
+
+
+	useEffect( () => {
+		dispatch(talantsData())
+	}, [])
+
+    
+
+
+
   return (
     <section className='freelancer' >
         <div className="freelancer_container">
@@ -38,10 +54,14 @@ const Talants = () => {
                     }
                 </ul>
 
+                { data.length > 0 ? data.map( (item, index) => (
+                    <Cart item={item} key={index}/>
+                )): <p>Loading..</p> }
+
+                {/* <Cart /> */}
+                {/* <Cart />
                 <Cart />
-                <Cart />
-                <Cart />
-                <Cart />
+                <Cart /> */}
 
                 {/* <div className='freelancer_container_round'>
                     <Round />

@@ -23,7 +23,6 @@ const FreelancerModal = () => {
     //     setIsActive(!isActive)
     // }
 
-
     const path = window.location.pathname.split('/')[1] // uz or ru or en
 
 

@@ -6,9 +6,11 @@ import resumeSlice from "./resumeSlice/ResumeSlice";
 import FreelanceSlice from "./freelancerSlice/FreelancerSlice";
 import lenguage from "./lenguageSlice/LenguageSlice"
 import contract from "./contractSlice/contractSlice"
-import resumeControle from "./resumeControlsSlice/resumeControls";
 
 import talant from './talantsSlice/TalantsSlice';
+import resumeControle from "./resumeControlsSlice/resumeControls"
+import companyRegister from "./companyRegister";
+
 
 const store = configureStore({
 	reducer: {
@@ -18,7 +20,8 @@ const store = configureStore({
 		lenguage,
 		contract,
 		resumeControle,
-		talant
+		talant,
+		companyRegister,
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({

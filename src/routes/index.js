@@ -11,6 +11,7 @@ import Contactus from "pages/NonAuth/Contactus";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 
 export const publicRoute = [
     {id:1, path: "/", element: <PageBackground/>},
@@ -19,9 +20,16 @@ export const publicRoute = [
 ]
 
 export const createProfileRoute = [
-    {id:1, path: "/create-profile", element: <Login/>},
-    {id:2, path: "/resume", element: <Background/>},
-    {id:3, path: "/resume-finish/:resumeId", element: <ResumeFinish/>},
+    {id:1, path: "/welcome", element: <Login/>}
+]
+
+export const freelancerResume = [
+    {id:2, path: "/welcome/create-profile", element: <Background/>},
+    {id:3, path: "/welcome/create-profile/:resumeId", element: <ResumeFinish/>}
+]
+
+export const createCompany = [
+    {id:2, path: "/welcome/register-company", element: <RegisterCompany/>}
 ]
 
 export const freelancerRouter = [

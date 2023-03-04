@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import Round from 'pages/NonAuth/Round';
 import Cart from './components/Cart';
 // import FreelancerModal from './components/FreelancerModal';
@@ -9,7 +9,10 @@ import Fillter from './components/Fillter'
 import serach_icon from '../../assets/images/Freelancer/serach_inp.svg'
 
 
+
 const Freelancer = () => {
+
+
     
 
 
@@ -36,7 +39,7 @@ const Freelancer = () => {
 
     return (
         <section className='freelancer' >
-{/*             
+            {/*             
             {
                 isActive ? <div className='black-window' style={{"height":blackHeight}} ></div>  : null
             }
@@ -48,14 +51,15 @@ const Freelancer = () => {
                         <input type="text" placeholder='Title, keywords...' className='freelancer_container_outline_inp' />
                         <button type='submit' className='freelancer_container_outline_btn' ><img src={serach_icon} alt="search icon" /></button>
                     </form>
-                <Cart />
-                <Cart />
-                <Cart />
-                <Cart />
-    
-                <div className='freelancer_container_round'>
-                    <Round />
-                </div>
+                    {/* {data.length > 0 ? <Cart data={data}/>: 'loading..' } */}
+                    {/* <Cart />
+                    <Cart />
+                    <Cart /> */}
+                    {/* <Cart /> */}
+        
+                    <div className='freelancer_container_round'>
+                        <Round />
+                    </div>
                 </div>
                 <Fillter />
                 {/* {

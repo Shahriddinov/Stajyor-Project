@@ -3,13 +3,12 @@ import searchIcon from "../../../../assets/images/searchIcon.png";
 import locImg from "../../../../assets/images/locImg.png";
 import checkImg from "../../../../assets/images/checkImg.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import talantsDatas from "./talantsData";
+// import talantsDatas from "./talantsData";
 import classes from "./TalantsDesc.module.scss";
 
-import {talantsData} from "../../../../reduxToolkit/extraReducers.js";
 
 import { BsHeart, BsHeartFill } from "react-icons/bs";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 function TalantsDesc(props) {
@@ -17,29 +16,29 @@ function TalantsDesc(props) {
 	const [isActive, setIsActive] = useState([]);
 
 	const [searchField, setSearchField] = useState("");
-	const [talants, setTalants] = useState([]);
-	const [filteredTalants, setFilterTalants] = useState(talants);
+	// const [talants, setTalants] = useState([]);
+	const [filteredTalants, setFilterTalants] = useState(null);
 
-	const data = useSelector(state => state.talant.data);
-	const loading = useSelector(state => state.talant.loading);
-
-	 
-	console.log(data)
-	const dispatch = useDispatch();
+	const {data, loading} = useSelector(state => state.talant);
 	
+	// const loading = useSelector(state => state.talant.loading);
 
 
+	console.log(filteredTalants[0].freelancerImage)
+
+	
+	
+	
 	useEffect(() => {
-		setTalants(talantsDatas)
-		dispatch(talantsData())
-	}, []);
-
-	useEffect(() => {
-		const newFilteredTalants = talants.filter(talant => {
-			return talant.name?.toLocaleLowerCase().includes(searchField);
+		const newFilteredTalants = data?.filter(talant => {
+			return talant.firstName?.toLocaleLowerCase().includes(searchField);
 		});
 		setFilterTalants(newFilteredTalants);
-	}, [talants, searchField]);
+			// const newFilteredTalants = talants.filter(talant => {
+			// 	return talant.name?.toLocaleLowerCase().includes(searchField);
+			// });
+			// setFilterTalants(newFilteredTalants);
+	}, [searchField,loading]);
 
 	const onSearchChange = event => {
 		const searchFieldString = event.target.value?.toLocaleLowerCase();
@@ -60,9 +59,7 @@ function TalantsDesc(props) {
 		setIsActive([...isActive]);
 	};
 
-	if(loading) {
-		return <p>loading...</p>
-	}
+
 
 	return (
 		<div className={classes.talantsDesc}>
@@ -76,21 +73,21 @@ function TalantsDesc(props) {
 					</div>
 				</div>
 				<div className={classes.talantsDescCard}>
-					{filteredTalants.map((item, index) => (
+					{filteredTalants?.map((item, index) => (
 						<div className={classes.talantsDescItem} key={index} id={index}>
 							<div className={classes.talantsDescItemHeader}>
 								<div className={classes.imgName}>
-									<img src={item.userImg} alt="UserLogo" />
+									<img src={item.freelancerImage} alt="UserLogo" />
 									<div className={classes.namePro}>
 										<h3>
-											{item.name} <img src={checkImg} alt="CheckImg" />
+											{item.firstName} <img src={checkImg} alt="CheckImg" />
 										</h3>
-										<span>{item.userPro}</span>
+										<span>{item.freelancerPosition.name}</span>
 									</div>
 								</div>
 								<div className={classes.talantsLine}></div>
 								<div className={classes.jobSuccess}>
-									<p>{item.jobSuccess}</p>
+									<p>"11%"</p>
 									<div className={classes.blueLine}>
 										<div className={classes.blueLine1}></div>
 										<div className={classes.blueLine2}></div>
@@ -99,12 +96,12 @@ function TalantsDesc(props) {
 								</div>
 								<div className={classes.talantsLine}></div>
 								<div className={classes.hourRate}>
-									<p>{item.hourly}</p>
+									<p>1$</p>
 									<span>Hourly</span>
 								</div>
 								<div className={classes.talantsLine}></div>
 								<div className={classes.completedJobs}>
-									<p>{item.completedJobs}</p>
+									<p>111</p>
 									<span>Completed jobs</span>
 								</div>
 								<div className={classes.talantsLine}></div>
@@ -137,8 +134,8 @@ function TalantsDesc(props) {
 							<div className={classes.blockLine}></div>
 							<div className={classes.skills}>
 								<p>
-									{item.skills.map((skillItem, index) => (
-										<span key={index}>{skillItem}</span>
+									{item.freelancerPosition.freelancerSkills.map((skillItem, index) => (
+										<span key={index}>{skillItem.name}</span>
 									))}
 								</p>
 								<div className={classes.selectLevel}>
@@ -152,15 +149,15 @@ function TalantsDesc(props) {
 							</div>
 							<div className={classes.expLocation}>
 								<p className={classes.exp}>
-									<span>{item.experience} years &nbsp;</span> <> </> of experience{" "}
+									<span>1 years &nbsp;</span> <> </> of experience{" "}
 								</p>
 								<p className={classes.location}>
 									<img src={locImg} alt="LocationImg" />
-									<span>{item.location}</span>
+									<span>{item.address.regionName} {item.address.countryName}</span>
 								</p>
 							</div>
 						</div>
-					))}
+					)) }
 				</div>
 			</div>
 		</div>

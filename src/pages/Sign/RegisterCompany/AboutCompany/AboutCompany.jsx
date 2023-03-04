@@ -6,15 +6,16 @@ import classes from './AboutCompany.module.scss'
 import add from '../../../../assets/images/addIcon.png'
 import cancel from '../../../../assets/images/Resume/cancel.png'
 import { addCompanyLocation } from 'reduxToolkit/extraReducers';
+import { useTranslation } from 'react-i18next';
 
 
 export const AboutCompany = () => {
   const [data, setData] = useState([])
   const [count, setCount] = useState(1)
   const [aboutCompany, setAboutCompany] = useState({ compnayId: 0, locations: [], description: '' })
-  // const [location, setLocation] = useState({ id: 0, location: '' })
   const [firstLocation, setFirstLocation] = useState({ id: 0, location: '' })
-  // const loc = useRef('')
+
+  const { t } = useTranslation()
 
   const dispatch = useDispatch()
 
@@ -34,6 +35,7 @@ export const AboutCompany = () => {
       return item
     })
     setData(newData)
+    setAboutCompany(company => ({ ...company, locations: [...data, firstLocation] }))
   }
 
   const handleDeleteLocation = (id) => {
@@ -47,13 +49,15 @@ export const AboutCompany = () => {
 
   const handleClick = (event) => {
     event.preventDefault()
-    dispatch(
-      activeDoteAction([
-        { id: 4, label: "Contacts" },
-        { id: 4, type: "SocialMedia" }
-      ])
-    )
-    dispatch(addCompanyLocation(aboutCompany))
+    if (aboutCompany.description && firstLocation.location) {
+      dispatch(
+        activeDoteAction([
+          { id: 4, label: "Contacts" },
+          { id: 4, type: "SocialMedia" }
+        ])
+      )
+      dispatch(addCompanyLocation(aboutCompany))
+    }
   }
 
   const handleBack = (event) => {
@@ -69,13 +73,13 @@ export const AboutCompany = () => {
   return (
     <div className={classes.aboutCompany}>
       <h2 className={classes.aboutCompany__title}>
-        About your company
+        {t("aboutYourCompanyTitle")}
       </h2>
       <p className={classes.aboutCompany__descr}>
-        Write down some more information about your company
+        {t("aboutYourCompanyDescription")}
       </p>
       <h3 className={classes.aboutCompany__locationTitle}>
-        Location*
+        {t("location")}
       </h3>
       <div className={classes.aboutCompany__locationInput}>
         <input
@@ -94,7 +98,7 @@ export const AboutCompany = () => {
               value={el.location}
               onChange={(e) => handleInput({ id: el.id, value: e.target.value })}
               type="text"
-              placeholder='Write a location'
+              placeholder={t("locationInput")}
               required
             />
             <img src={cancel} alt="" onClick={() => handleDeleteLocation(el.id)} />
@@ -102,18 +106,18 @@ export const AboutCompany = () => {
         )
       })}
       <div className={classes.aboutCompany__descrInput}>
-        <h3>Description</h3>
+        <h3>{t("locationDescriptionTitle")}</h3>
         <textarea
           value={aboutCompany.description}
           onChange={(e) => handleTextarea({ type: 'description', value: e.target.value })}
           type="text"
-          placeholder='Write what your company do '
+          placeholder={t("locationDescriptionInput")}
           required
         />
       </div>
       <div className={classes.aboutCompany__buttons}>
-        <button className={classes.aboutCompany__buttonsPrev} onClick={handleBack} >Back</button>
-        <button className={classes.aboutCompany__buttonsNext} onClick={handleClick} >Next</button>
+        <button className={classes.aboutCompany__buttonsPrev} onClick={handleBack} >{t("back")}</button>
+        <button className={classes.aboutCompany__buttonsNext} onClick={handleClick} >{t("next")}</button>
       </div>
     </div >
   )

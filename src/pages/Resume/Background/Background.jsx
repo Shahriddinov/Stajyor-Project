@@ -1,6 +1,5 @@
 import Round from "components/Round/Round.jsx";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import classes from "./Background.module.scss";
 import back from "../../../assets/images/Resume/back.png";
 import CareerSlider from "../CareerSlider/CareerSlider";

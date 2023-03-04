@@ -113,20 +113,20 @@
 }
 
 @media only screen and(max-width:1750px) {
-    .mycareer {
-        &__image {
-            width: 150px;
-            height: 150px;
-        }
+	.mycareer {
+		&__image {
+			width: 150px;
+			height: 150px;
+		}
 
-        &__content {
-            max-height: 197px;
-        }
+		&__content {
+			max-height: 197px;
+		}
 
-        &__line {
-            top: 350px;
-            height: 255px;
-        }
+		&__line {
+			top: 350px;
+			height: 255px;
+		}
 
 		&__text_box {
 			top: 350px;
@@ -190,58 +190,58 @@
 			height: 200px;
 		}
 
-        &__text_box {
-            top: 290px;
-        }
+		&__text_box {
+			top: 290px;
+		}
 
-        &__text {
-            font-size: 16px;
-        }
+		&__text {
+			font-size: 16px;
+		}
 
-        &__round {
-            position: absolute;
-            width: 20px;
-            height: 20px;
+		&__round {
+			position: absolute;
+			width: 20px;
+			height: 20px;
 
-            &:nth-child(2) {
-                top: 270px;
-            }
+			&:nth-child(2) {
+				top: 270px;
+			}
 
-            &:nth-child(3) {
-                top: 285px;
-            }
+			&:nth-child(3) {
+				top: 285px;
+			}
 
-            &:nth-child(4) {
-                top: 300px;
-            }
+			&:nth-child(4) {
+				top: 300px;
+			}
 
-            &:nth-child(5) {
-                top: 315px;
-            }
+			&:nth-child(5) {
+				top: 315px;
+			}
 
-            &:nth-child(6) {
-                top: 330px;
-            }
+			&:nth-child(6) {
+				top: 330px;
+			}
 
-            &:nth-child(7) {
-                top: 345px;
-            }
+			&:nth-child(7) {
+				top: 345px;
+			}
 
-            &:nth-child(8) {
-                top: 360px;
-            }
-        }
+			&:nth-child(8) {
+				top: 360px;
+			}
+		}
 
-        &__round--active {
-            background: #f6f8fa;
-            border: 10px solid #1d71b8;
-        }
-    }
+		&__round--active {
+			background: #f6f8fa;
+			border: 10px solid #1d71b8;
+		}
+	}
 
-    .myCompany {
-        &__line {
-            top: 200px;
-            height: 250px;
-        }
-    }
+	.myCompany {
+		&__line {
+			top: 200px;
+			height: 250px;
+		}
+	}
 }

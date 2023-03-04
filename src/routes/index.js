@@ -14,13 +14,13 @@ import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 
 export const publicRoute = [
-    {id:1, path: "/", element: <PageBackground/>},
-    {id:2, path: "/login", element: <Login/>},
-    {id:3, path: "/sign-up", element: <Signup/>}, 
+    { id: 1, path: "/", element: <PageBackground /> },
+    { id: 2, path: "/login", element: <Login /> },
+    { id: 3, path: "/sign-up", element: <Signup /> },
 ]
 
 export const createProfileRoute = [
-    {id:1, path: "/welcome", element: <Login/>}
+    { id: 1, path: "/welcome", element: <Login /> }
 ]
 
 export const freelancerResume = [
@@ -29,29 +29,29 @@ export const freelancerResume = [
 ]
 
 export const createCompany = [
-    {id:2, path: "/welcome/register-company", element: <RegisterCompany/>}
+    { id: 2, path: "/welcome/register-company", element: <RegisterCompany /> }
 ]
 
 export const freelancerRouter = [
-    {id:1, path: "/jobs", element: <Freelancer/>},
-    {id:2, path: "/talants", element: <Talants/>},
-    {id:3, path: "/about", element: <Aboutus/>},
-    {id:4, path: "/contact", element: <Contactus/>},
-    {id:5, path: "/contracts", element: <Contract/>},
-    {id:6, path: "/freelancer", element: <Freelancer/>},
-    {id:7, path: "/profile", element: <Profile/>},
-    {id:8, path: "/freelancer-user", element: <UserFreelancer/>},
-    {id:9, path: "/*", element: <NotFound/>},
+    { id: 1, path: "/jobs", element: <Freelancer /> },
+    { id: 2, path: "/talants", element: <Talants /> },
+    { id: 3, path: "/about", element: <Aboutus /> },
+    { id: 4, path: "/contact", element: <Contactus /> },
+    { id: 5, path: "/contracts", element: <Contract /> },
+    { id: 6, path: "/freelancer", element: <Freelancer /> },
+    { id: 7, path: "/profile", element: <Profile /> },
+    { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
+    { id: 9, path: "/*", element: <NotFound /> },
 ]
 
 export const companyRouter = [
-    {id:1, path: "/talants", element: <Talants/>},
-    {id:2, path: "/jobs", element: <Freelancer/>},
-    {id:3, path: "/about", element: <Aboutus/>},
-    {id:4, path: "/contact", element: <Contactus/>},
-    {id:5, path: "/contracts", element: <Contract/>},
-    {id:6, path: "/freelancer", element: <Freelancer/>},
-    {id:7, path: "/profile", element: <Profile/>},
-    {id:8, path: "/freelancer-user", element: <UserFreelancer/>},
-    {id:9, path: "/*", element: <NotFound/>},
+    { id: 1, path: "/talants", element: <Talants /> },
+    { id: 2, path: "/jobs", element: <Freelancer /> },
+    { id: 3, path: "/about", element: <Aboutus /> },
+    { id: 4, path: "/contact", element: <Contactus /> },
+    { id: 5, path: "/contracts", element: <Contract /> },
+    { id: 6, path: "/freelancer", element: <Freelancer /> },
+    { id: 7, path: "/profile", element: <Profile /> },
+    { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
+    { id: 9, path: "/*", element: <NotFound /> },
 ]

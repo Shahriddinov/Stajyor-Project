@@ -2,7 +2,40 @@ const translation = {
     "jobs" : "Работа",
     "talants": "Таланты",
     "contact" : "Kонтакт",
-    "about" : "О нас"
+    "about" : "О нас",
+    // Company register side START
+
+    "backToSignUp": "Назад, чтобы зарегистрироваться",
+    "loading": "Загрузка...",
+    "welcome": "Добро пожаловать",
+    "companyRegisterTitle" : "Заполните свой профиль, чтобы присоединиться к нашему глобальному сообществу фрилансеров и начать продавать свои услуги нашей растущей сети предприятий.",
+    "firstName": "Имя*",
+    "firstNameInput": "Напишите свое имя",
+    "lastName": "Фамилия*",
+    "lastNameInput": "Напишите свою фамилию",
+    "email": "Электронная почта*",
+    "phoneNumber": "Номер телефона*",
+    "next": "следующий",
+    "back": "Назад",
+    "yourCompany": "Ваша компания!",
+    "addCompanyPhoto": "Добавьте фотографию вашей компании",
+    "changeCompanyPhoto": "Измените фотографию вашей компании",
+    "companyName": "Название компании",
+    "companyNameInput": "Название вашей компании",
+    "number": "Номер",
+    "companyPhoneNumberInput": "Номер телефона компании",
+    "aboutYourCompanyTitle": "О вашей компании",
+    "aboutYourCompanyDescription": "Запишите еще немного информации о вашей компании",
+    "location": "Местоположение*",
+    "locationInput": "Напишите местоположение",
+    "locationDescriptionTitle": "Описание",
+    "locationDescriptionInput": "Напишите, чем занимается ваша компания",
+    "contactsCompany": "Контакты",
+    "contactsCompanyInput": "Предоставьте ссылку на свой веб-сайт",
+    "contactsCompanyInput2": "Предоставьте ссылку на свой",
+    "account": "аккаунт",
+    "contactsCompanyDescription": "Выберите, в какой из этих социальных сетей у вас есть учетная запись",
+    // Company register side END
 }
 
 export default translation

@@ -8,6 +8,7 @@ import cancel from "../../../assets/images/Resume/cancel.png";
 import { languageUpload } from "reduxToolkit/extraReducers";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
+
 function Language() {
 	const dispatch = useDispatch();
 	const languageList = useSelector(state => state.resume.languageList);
@@ -15,6 +16,7 @@ function Language() {
 	const [theArray, setTheArray] = useState([{ test: "test", test2: "test2", id: 0 }]);
 	const [userLang, setUserLang] = useState([]);
 	const [userLevel, setUserLevel] = useState([]);
+	
 	
 	let level = [
 		{ value: "A1 - Beginner", label: "A1 - Beginner" },

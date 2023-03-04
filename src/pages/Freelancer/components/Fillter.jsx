@@ -2,11 +2,14 @@ import React , { useState } from 'react'
 import { ReactComponent as Arrow } from '../../../assets/images/Freelancer/filter_arrow.svg'
 import './Fillter.scss';
 import { MultiSelect } from '@mantine/core';
-
+import { useTranslation } from "react-i18next";
 
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 const Fillter = () => {
+
+  const { t } = useTranslation()
+
   const [data, setData] = useState([
   { value: 'react', label: 'React' },
   { value: 'ng', label: 'Angular' },
@@ -27,25 +30,25 @@ const Fillter = () => {
   return (
       <div>
             <form method='POST' className='filter'>
-                  <h2 className="filter_title"> Filter </h2>
-                  <h3 className="filter_text"> Payment amount </h3>
+                  <h2 className="filter_title">{t("filter")}</h2>
+                  <h3 className="filter_text"> {t("payment")} </h3>
                   <div className="filter_from">
                         <div className="filter_from_left">
-                              <h3>From</h3>
+                              <h3>{t("from")}</h3>
                               <input type="number" placeholder='10$' min="0"  />
                         </div>
                         <div className="filter_from_right">
-                              <h3>To</h3>
+                              <h3>{t("to")}</h3>
                               <input type="number" placeholder='20$' min="0"  />
                         </div>
                   </div>
-                  <h3 className="filter_text"> Payment amount </h3>
-                  <input type="number" className="filter_job_success" max={100} min={0} placeholder='More than 80%' />
-                  <h3 className="filter_text">Required level </h3>
+                  <h3 className="filter_text"> {t("duration")} </h3>
+                  <input type="number" className="filter_job_success" max={100} min={0} placeholder={`${t("more_than_1")}`} />
+                  <h3 className="filter_text">{t("required_level")}</h3>
 
                   <div className="filter_from">
                         <div className="filter_from_left">
-                              <h3>From</h3>
+                              <h3>{t("from")}</h3>
                               <div className='filter_from_main' >
                                     <select>
                                     <option value="junior">Junior</option>
@@ -58,7 +61,7 @@ const Fillter = () => {
                         </div>
 
                         <div className="filter_from_right">
-                              <h3>To</h3>
+                              <h3>{t("to")}</h3>
                               <div className='filter_from_main'>
                                     <select>
                                           <option value="junior">Junior</option>
@@ -73,24 +76,24 @@ const Fillter = () => {
 
                   <div className="filter_verify">
                         <input type="checkbox" />
-                        <h3 className='filter_verify_text' style={{ 'fontSize':'16px' }} >Verified employee</h3>
+                        <h3 className='filter_verify_text' style={{ 'fontSize':'16px' }} >{t("verified")}</h3>
                   </div>
 
-                  <h3 className="filter_text" >Region</h3>   
+                  <h3 className="filter_text" >{t("region")}</h3>   
                         <MultiSelect
                         data={data1}
-                        placeholder="Select Region"
+                        placeholder={`${t("select_region")}`}
                   />
 
-                  <h3 className="filter_text">Completed jobs (minimum)</h3>
+                  <h3 className="filter_text">{t("complated_jobs_minimum")}</h3>
                   
                   <input type="number" className="filter_job_success" placeholder='10' />
 
-                  <h3 className='filter_text' >Required Skills</h3>
+                  <h3 className='filter_text' >{t("required_skills")}</h3>
 
                   <MultiSelect  
                         data={data}
-                        placeholder="Select items"
+                        placeholder={`${t("select_items")}`}
                         searchable
                         creatable
                         getCreateLabel={(query) => `+ Create ${query}`}
@@ -102,7 +105,7 @@ const Fillter = () => {
                   />
 
                   <div className='apply_filter'>
-                        <button >Apply Filter</button>
+                        <button >{t("apply_filters")}</button>
                   </div>
             </form>
       </div>

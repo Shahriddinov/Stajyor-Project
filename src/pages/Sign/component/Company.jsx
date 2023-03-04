@@ -45,7 +45,6 @@ const  Company = () => {
 				</Link>
 				<div className="login_company_wrapper1_frilanc">
 					<h4 className="login_company_wrapper1_frilanc_title">
-						{" "}
 						<img src={comp} alt="user icon" /> Company
 					</h4>
 					<p className="login_company_wrapper1_frilanc_info">

@@ -46,7 +46,22 @@ const translation = {
     "total_jobs": "Hamma ishlar",
     "available": "Mavjud",
     "more_than": "Haftada",
-    "hrs/week":"soatdan ortiq"
+    "hrs/week":"soatdan ortiq",
+    "verifications":"Tekshiruvlar",
+    "language":"Tillar",
+    "educations":"Ta'lim",
+    "location":"Manzil",
+    "experience":"Tajriba",
+    "skills":"Ko'nikmalar",
+    "contacts":"Kontaktlar",
+    "living_address":"Yashash manzili",
+    "member_since":"A'zo bo'lgan vaqti"
+
+
+
+
+
+
 
 
 

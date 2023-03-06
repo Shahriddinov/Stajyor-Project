@@ -22,7 +22,7 @@ function Language() {
 		{ value: "A1 - Beginner", label: "A1 - Beginner" },
 		{ value: "A2 - Elementary", label: "A2 - Elementary" },
 		{ value: "B1 - Intermediate", label: "B1 - Intermediate" },
-		{ value: "B2 - Advanced", label: "B2 - Advanced" }
+		{ value: "B2 - Upper-Intermediate", label: "B2 - Upper-Intermediate" }
 	];
 
 	let singleLang = true;
@@ -80,14 +80,14 @@ function Language() {
 						<div key={lang.id} id={!singleLang ? "test" : null} className={classes.select}>
 							<Select
 								className="languageSelect"
-								classNamePrefix="mySelectLang"
+								// classNamePrefix="mySelectLang"
 								options={languageList?.map(el => ({value: el.id, label: el.name}))}
 								placeholder="Language*"
 								onChange={choice => setUserLang([...userLang, choice.value])}
 							/>
 							<Select
 								className="languageSelect"
-								classNamePrefix="mySelectLang"
+								// classNamePrefix="mySelectLang"
 								options={level}
 								placeholder="Level*"
 								onChange={choice => setUserLevel([...userLevel, choice.value])}

@@ -28,6 +28,12 @@ function AddEducations({removeModal,defaultInputData}) {
 		}
 	};
 
+	const [ isChecked, setIsChecked ] = useState(false)
+
+	const isCheskedFunc = () => {
+		setIsChecked(!isChecked)
+	}
+
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
@@ -90,13 +96,14 @@ function AddEducations({removeModal,defaultInputData}) {
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							<input className="addEducations__inputDate" type="date" id="time" />
+							<input className="addEducations__inputDate" type="date" id="time" disabled={isChecked} />
 						</div>
 					</div>
 
 					<div className="addEducations__checkboxWrapper">
 						<div className="addEducations__checkbox">
 							<input
+								onClick={() => isCheskedFunc()}
 								className="addEducations__inputCheckbox"
 								type="checkbox"
 								id="checkbox"

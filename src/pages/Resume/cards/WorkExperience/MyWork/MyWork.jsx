@@ -34,6 +34,13 @@ function MyWork({removeModal,defaultData}) {
 		removeModal(false)
 	};
 
+	const [ isChecked, setIsChecked ] = useState(false)
+
+	const isCheskedFunc = () => {
+		setIsChecked(!isChecked)
+	}
+
+
 	return (
 		<div className="mywork">
 			<div className="mywork__inner">
@@ -53,6 +60,7 @@ function MyWork({removeModal,defaultData}) {
 					<div className="mywork__content">
 						<input
 							className="mywork__input"
+							checked={isChecked}
 							type="text"
 							placeholder="Job"
 							value={experience.job}
@@ -62,6 +70,7 @@ function MyWork({removeModal,defaultData}) {
 
 					<div className="mywork__checkbox">
 						<input
+						onClick={()=> isCheskedFunc()}
 							className="mywork__inputCheckbox"
 							type="checkbox"
 							id="checkbox"
@@ -85,7 +94,7 @@ function MyWork({removeModal,defaultData}) {
 							<label className="mywork__label" htmlFor="time">
 								To
 							</label>
-							<input className="mywork__inputDate" type="date" id="time" />
+							<input className="mywork__inputDate" type="date" id="time" disabled={isChecked} />
 						</div>
 					</div>
 

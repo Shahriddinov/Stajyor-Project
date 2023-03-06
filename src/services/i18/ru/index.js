@@ -45,7 +45,24 @@ const translation = {
     "total_jobs": "Всего работы",
     "available": "Доступный",
     "more_than": "Более",
-    "hrs/week":" часов в неделю"
+    "hrs/week":" часов в неделю",
+    "verifications":"Проверки",
+    "language":"Языки",
+    "educations":"Образование",
+    "location":"Местоположение",
+    "experience":"Опыт",
+    "skills":"Навыки",
+    "contacts":"Контакты",
+    "living_address":"Живой адрес",
+    "member_since":"Участник с"
+
+
+
+
+
+
+
+
 
 
 

@@ -41,6 +41,14 @@ const Signup = () => {
 	const handlerSubmit = (e) => {
 		e.preventDefault()
 		dispatch(registerRequest(data))
+		var dateObj = new Date();
+		var month = dateObj.getUTCMonth() + 1; //months from 1-12
+		var day = dateObj.getUTCDate();
+		var year = dateObj.getUTCFullYear();
+
+		console.log(month , day, year);
+
+		// localStorage.setItem('member_since')
 	}
 
 	return (

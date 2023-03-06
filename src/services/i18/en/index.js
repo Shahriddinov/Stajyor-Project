@@ -38,7 +38,17 @@ const translation = {
     "total_jobs": "Total Jobs",
     "available": "Available",
     "more_than": "More than",
-    "hrs/week": "hrs/week"
+    "hrs/week": "hrs/week",
+    "verifications":"Verifications",
+    "language":"Languages",
+    "educations":"Educations",
+    "location":"Location",
+    "experience":"Experience",
+    "skills":"Skills",
+    "contacts":"Contacts",
+    "living_address":"Living address",
+    "member_since":"Member since"
+
 
     
 }

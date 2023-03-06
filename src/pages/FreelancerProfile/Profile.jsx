@@ -164,12 +164,12 @@ const Profile = () => {
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Verifications</h4>
+                            <h4>{t("verifications")}</h4>
                             <h5>ID: <span>Verified</span> <img src={ticked} alt="" /></h5>
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Languages <div className="userfreelancermodal_right_mainlist_item_wrapper"  ></div> </h4>
+                            <h4> {t("language")} <div className="userfreelancermodal_right_mainlist_item_wrapper"  ></div> </h4>
                             <div>
                                 { data?.data?.userLanguages.map( e => (
                                 <>
@@ -179,27 +179,20 @@ const Profile = () => {
                             </div>
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Educations <div className="userfreelancermodal_right_mainlist_item_wrapper"  > </div> </h4>
+                            <h4> {t("educations")} <div className="userfreelancermodal_right_mainlist_item_wrapper"  > </div> </h4>
                            <div>
                             { data?.data?.educations.map(e => (
                                 <>
                                  <h5>{e.schoolName} ({e.educationDegree}) {e.typeStudy} </h5>
-                                 <h5>Location: <h6>{e.location}</h6></h5>
-                                 <h6>2012-2018</h6>
+                                 <h5>{t("location")}: <h6>{e.location}</h6></h5>
+                                 {/* <h6>2012-2018</h6> */}
                                 </>
                             )) }
                            </div>
-
-                            {/* <div>
-                                <h5>Aptech Computer Education
-                            Other, Software and Website Development (ASP.NET C#)
-                            </h5>
-                            <h6>2010-2011</h6>
-                            </div> */}
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4> Experience <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
+                            <h4> {t("experience")} <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
                             <div>
                                 {data?.data?.experiences.map(e => (
                                     <>
@@ -210,7 +203,7 @@ const Profile = () => {
                             </div>
                         </li>
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4>Skills <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
+                            <h4>{t("skills")} <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
                             <div style={{"display":"flex", "gap":"10px", 'max-width':'350px', 'flex-wrap':'wrap'}} >
                             {
                                 data?.data?.freelancerPosition?.freelancerSkills.map((skill) => (
@@ -221,31 +214,32 @@ const Profile = () => {
                         </li>
 
                           <li className="userfreelancermodal_right_mainlist_item">
-                            <h4>Contacts <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
+                            <h4>{t("contacts")} <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
                             <div style={{"display":"flex", "flex-direction": "column" , "gap":"20px"}} >
                             
-                                {/* {data?.data?.experiences.map(e => (
-                                    <>
-                                    <h5>{e}</h5>
-                                    </>
-                                ))} */}
-                            
+                                {data?.data?.freelancerContact?.instagram  === null ? null : <a href={`${data?.data?.freelancerContact?.instagram }`} target='_blank' rel='noreferrer'> <h5><Instagram /> Instagram</h5></a>    }
+                                {data?.data?.freelancerContact?.telegram   === null ? null : <a href={`${data?.data?.freelancerContact?.telegram}`} rel='noreferrer' target='_blank' ><h5><Telegram/> Telegram</h5></a> }
+                                {data?.data?.freelancerContact?.facebook   === null ? null : <a href={`${data?.data?.freelancerContact?.facebook}`} target='_blank' rel='noreferrer'> <h5><Facebook /> Facebook</h5></a> }
+                                {data?.data?.freelancerContact?.gitHub     === null ? null : <a href={`${data?.data?.freelancerContact?.gitHub}`} target='_blank' rel='noreferrer'> <h5><Github /> Github</h5> </a> }
+                                {data?.data?.freelancerContact?.watsApp    === null ? null : <a href={`${data?.data?.freelancerContact?.watsApp }`} target='_blank' rel='noreferrer' > <h5><Whatsapp /> WhatsApp</h5>  </a>  }
+                                {data?.data?.freelancerContact?.twitter    === null ? null :  <a href={`${data?.data?.freelancerContact?.twitter}`} target='_blank' rel='noreferrer'> <h5><Twitter/> Twitter</h5> </a> }
+{/*                             
                             <a href='https://www.telegram.com/' rel='noreferrer' target='_blank' ><h5><Telegram/> Telegram</h5></a>
-                            <a href='https://www.whatsapp.com' target='_blank' rel='noreferrer' > <h5><Whatsapp /> Whatsapp</h5>     </a>    
-                            <a href='https://www.instagram.com' target='_blank' rel='noreferrer'> <h5><Instagram /> Instagram</h5>  </a>       
-                            <a href='https://www.github.com' target='_blank' rel='noreferrer'> <h5><Github /> Github</h5>        </a>         
-                            <a href='https://www.twitter.com' target='_blank' rel='noreferrer'> <h5><Twitter/> Twitter</h5>       </a>          
-                            <a href='https://www.facebook.com' target='_blank' rel='noreferrer'> <h5><Facebook /> Facebook</h5>    </a>                
+                            <a href='https://www.whatsapp.com' target='_blank' rel='noreferrer' > <h5><Whatsapp /> Whatsapp</h5>  </a>    
+                            <a href='https://www.instagram.com' target='_blank' rel='noreferrer'> <h5><Instagram /> Instagram</h5></a>       
+                            <a href='https://www.github.com' target='_blank' rel='noreferrer'> <h5><Github /> Github</h5> </a>         
+                            <a href='https://www.twitter.com' target='_blank' rel='noreferrer'> <h5><Twitter/> Twitter</h5> </a>          
+                            <a href='https://www.facebook.com' target='_blank' rel='noreferrer'> <h5><Facebook /> Facebook</h5></a>                 */}
                             </div>
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4>Living address <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
-                            {/* <h5><img src={location} alt="" /> <h6 style={{'margin-left':"10px"}} >{freelancerData.address.regionName}, {freelancerData.address.countryName}</h6> </h5> */}
+                            <h4>{t("living_address")} <div className="userfreelancermodal_right_mainlist_item_wrapper"></div> </h4>
+                            <h5><img src={location} alt="" /> <h6 style={{'margin-left':"10px"}} >{data?.data?.address?.regionName}, {data?.data?.address?.countryName}</h6> </h5>
                         </li>
 
                         <li className="userfreelancermodal_right_mainlist_item">
-                            <h4>Member since</h4>
+                            <h4>{t("member_since")}</h4>
                             <span>June 9, 2022</span>
                             <button className='userfreelancermodal_right_mainlist_item_btn' >Resume</button>
                         </li>

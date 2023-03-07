@@ -2,11 +2,11 @@ import React from "react";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { experiencePost,experienceEdit } from "reduxToolkit/extraReducers";
+import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 
-function MyWork({removeModal,defaultData}) {
-	const {	companyName, job, currentWorking, descripeion, type, id} = defaultData
-	const [experience, setExperience] = useState({companyName, job, currentWorking, descripeion});
+function MyWork({ removeModal, defaultData }) {
+	const { companyName, job, currentWorking, descripeion, type, id } = defaultData
+	const [experience, setExperience] = useState({ companyName, job, currentWorking, descripeion });
 
 	const dispatch = useDispatch();
 
@@ -16,16 +16,15 @@ function MyWork({removeModal,defaultData}) {
 	data.append("CurrentWorking", experience.currentWorking);
 	data.append("Descripeion", experience.descripeion);
 
-	console.log(defaultData);
 	const handleClick = e => {
 		e.preventDefault();
-		if(type === "add") {
+		if (type === "add") {
 			console.log(data);
 			dispatch(experiencePost(data));
-			removeModal((prev) => ({...prev, experienceAdd: false}))
-		}else {
-			dispatch(experienceEdit({data,id}));
-			removeModal((prev) => ({...prev, experienceAdd: false}))
+			removeModal((prev) => ({ ...prev, experienceAdd: false }))
+		} else {
+			dispatch(experienceEdit({ data, id }));
+			removeModal((prev) => ({ ...prev, experienceAdd: false }))
 		}
 	};
 
@@ -78,14 +77,17 @@ function MyWork({removeModal,defaultData}) {
 							<label className="mywork__label" htmlFor="data">
 								Date from
 							</label>
-							<input className="mywork__inputDate"  type="date" id="data" />
+							<input className="mywork__inputDate" type="date" id="data" />
 						</div>
 
 						<div className="mywork__wrapperDate">
 							<label className="mywork__label" htmlFor="time">
 								To
 							</label>
-							<input className="mywork__inputDate" type="date" id="time" />
+							{experience.currentWorking 
+								? <input disabled={true} className="mywork__inputDate" type="date" id="time" />
+								: <input disabled={false} className="mywork__inputDate" type="date" id="time" />
+							}
 						</div>
 					</div>
 
@@ -100,7 +102,7 @@ function MyWork({removeModal,defaultData}) {
 					</div>
 
 					<div className="mywork__button">
-						<button type="button" className="mywork__back"  onClick={changePage}>
+						<button type="button" className="mywork__back" onClick={changePage}>
 							Cancel
 						</button>
 						<button type="submit" className="mywork__next">

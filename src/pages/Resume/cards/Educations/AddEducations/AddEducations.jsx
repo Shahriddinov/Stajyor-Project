@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
-function AddEducations({removeModal,defaultInputData}) {
-	const {schoolName,educationDegree,typeStudy,location,currentStudy,type,id} = defaultInputData
-	const [post, setPost] = useState({ schoolName,educationDegree,typeStudy,location,currentStudy});
+function AddEducations({ removeModal, defaultInputData }) {
+	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData
+	const [post, setPost] = useState({ schoolName, educationDegree, typeStudy, location, currentStudy });
 	const dispatch = useDispatch();
-	
+
 	let data = new FormData();
 	data.append("schoolName", post.schoolName);
 	data.append("educationDegree", post.educationDegree);
@@ -18,13 +18,13 @@ function AddEducations({removeModal,defaultInputData}) {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		if(type === "add") {
+		if (type === "add") {
 			dispatch(educationPost(data));
-			removeModal(prev => ({...prev, educationAdd:false}))
+			removeModal(prev => ({ ...prev, educationAdd: false }))
 		}
 		else {
-			dispatch(educationEdit({id, data}))
-			removeModal(prev => ({...prev, educationEdit:false}))
+			dispatch(educationEdit({ id, data }))
+			removeModal(prev => ({ ...prev, educationEdit: false }))
 		}
 	};
 
@@ -90,7 +90,11 @@ function AddEducations({removeModal,defaultInputData}) {
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							<input className="addEducations__inputDate" type="date" id="time" />
+							{
+								post.currentStudy
+									? <input disabled={true} className="addEducations__inputDate" type="date" id="time" />
+									: <input disabled={false} className="addEducations__inputDate" type="date" id="time" />
+							}
 						</div>
 					</div>
 

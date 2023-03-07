@@ -21,15 +21,38 @@ const Dropdown = () => {
     dispatch(profilLogout())
     navigate(`/${len}/`)
   }
-
+  const info = JSON.parse(localStorage.getItem("info"))
+  
   useLayoutEffect(()=> {
-		 dispatch(getFreelancer())
-		 console.log(data?.data?.firstName);
-     console.log(data?.data?.freelancerImage);
-    },[dispatch])
+    dispatch(getFreelancer())
+    console.log(info , 'qwertyuiop');
+    console.log(data?.data?.firstName);
+    console.log(data?.data?.freelancerImage);
+  },[dispatch])
     
 
   return (
+    <>{
+      info ? <>
+
+      <div className="dropdown">
+        <button className="dropbtn">
+          { info?.freelancerImage ? <img src={`http://localhost:5000/staticfiles/${info?.freelancerImage}`} style={{'width':"36px", "border-radius":"50%"}} alt="user photos" /> : <UserCircle  size={36} strokeWidth={1.5} color={'#86332d'} /> }
+          <h4 className='dropdown_title' >{info?.firstName}</h4>
+          <img src={arrow_down} className='header_arrow_img' alt="arrow photos" />
+
+        </button>
+        <div className="dropdown-content">
+          <Link to={`/${len}/profile`}>{t("profile")}</Link>
+          <Link to={`/${len}/notification`}>{t("notification")} <span>○</span></Link>
+          <Link to={`/${len}/contracts`}>{t("contracts")}</Link>
+          <Link to={`/${len}/chat`}>{t("chats")}</Link>
+          <Link to={`/${len}/resume`}>{t("resume")}</Link>
+          <button onClick={handleClick}>{t("log_out")}</button>
+        </div>
+      </div>
+
+      </> :
       <div className="dropdown">
         <button className="dropbtn">
           { data?.data?.freelancerImage ? <img src={`http://localhost:5000/staticfiles/${data?.data?.freelancerImage}`} style={{'width':"36px", "border-radius":"50%"}} alt="user photos" /> : <UserCircle  size={36} strokeWidth={1.5} color={'#86332d'} /> }
@@ -46,6 +69,8 @@ const Dropdown = () => {
           <button onClick={handleClick}>{t("log_out")}</button>
         </div>
       </div>
+    }
+    </>
   );
 };
 

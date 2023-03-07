@@ -110,7 +110,6 @@ function Yourself() {
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect
 						className="yourself_select"
-						label="yourself_select"
 						data={skills}
 						placeholder="Select items or create a new"
 						nothingFound="Nothing found"

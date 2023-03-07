@@ -42,13 +42,14 @@ const Signup = () => {
 		e.preventDefault()
 		dispatch(registerRequest(data))
 		var dateObj = new Date();
-		var month = dateObj.getUTCMonth() + 1; //months from 1-12
+		const monthNames = ["January", "February", "March", "April", "May", "June",
+  		"July", "August", "September", "October", "November", "December"];
+		var month = dateObj.getUTCMonth(); //months from 1-12
 		var day = dateObj.getUTCDate();
 		var year = dateObj.getUTCFullYear();
 
-		console.log(month , day, year);
 
-		// localStorage.setItem('member_since')
+		localStorage.setItem('member_since', `${monthNames[month]} ${day}, ${year}`)
 	}
 
 	return (

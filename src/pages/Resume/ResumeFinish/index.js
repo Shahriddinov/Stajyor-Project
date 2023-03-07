@@ -59,6 +59,7 @@ const ReumeFinish = () => {
   }
 
   console.log(resumeDetails);
+  localStorage.setItem('info', JSON.stringify(resumeDetails));
 
   return (
    <>

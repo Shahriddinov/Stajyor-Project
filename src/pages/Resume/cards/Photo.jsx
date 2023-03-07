@@ -5,8 +5,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { countryList, photoUpload } from "reduxToolkit/extraReducers";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import InputMask from 'react-input-mask';
 
 function Photo() {
 	const [uploaded, setUploaded] = useState("");
@@ -87,9 +86,7 @@ function Photo() {
 					<div>
 						<h5>Phone Number*</h5>
 				
-						<PhoneInput country={'uz'} ref={phoneNumber} placeholder="+XXX (XX) XXX-XX-XX" required className='input_telephone' 
-						style={{'height':'50px'}}
-						/>
+						    <InputMask ref={phoneNumber}  mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
 					
 					</div>
 				</div>

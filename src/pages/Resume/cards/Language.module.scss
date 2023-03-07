@@ -1,5 +1,5 @@
 .languageCard {
-
+	// width: 700px;
 }
 
 .languageCard_btn {
@@ -92,11 +92,18 @@
 }
 
 .cancelLang {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 	border-radius: 8px;
 	border: 1px solid #cdcdcd;
 	margin-top: 1rem;
+	// width: 150px;
+	// height: 50px;
+	padding: 10px;
+	margin-right: 10px;
 	text-align: center;
-	padding: 15px 20px;
+	// padding: 10px 10px;
 }
 
 .select_box {

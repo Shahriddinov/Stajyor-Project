@@ -133,7 +133,7 @@ export const ContactsCompany = () => {
                                         <img style={{ width: "40px" }} src={item.icon} alt={item.name} />
                                         <h4 className={classes.cart_text}>{item.name}</h4>
                                     </div>
-                                ))}
+                                ))} 
                             </div>
                         </div>
                         <div className={classes.button_group}>

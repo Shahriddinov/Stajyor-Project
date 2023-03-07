@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
-function AddEducations({removeModal,defaultInputData}) {
-	const {schoolName,educationDegree,typeStudy,location,currentStudy,type,id} = defaultInputData
-	const [post, setPost] = useState({ schoolName,educationDegree,typeStudy,location,currentStudy});
+function AddEducations({ removeModal, defaultInputData }) {
+	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData
+	const [post, setPost] = useState({ schoolName, educationDegree, typeStudy, location, currentStudy });
 	const dispatch = useDispatch();
-	
+
 	let data = new FormData();
 	data.append("schoolName", post.schoolName);
 	data.append("educationDegree", post.educationDegree);
@@ -96,14 +96,17 @@ function AddEducations({removeModal,defaultInputData}) {
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							<input className="addEducations__inputDate" type="date" id="time" disabled={isChecked} />
+							{
+								post.currentStudy
+									? <input disabled={true} className="addEducations__inputDate" type="date" id="time" />
+									: <input disabled={false} className="addEducations__inputDate" type="date" id="time" />
+							}
 						</div>
 					</div>
 
 					<div className="addEducations__checkboxWrapper">
 						<div className="addEducations__checkbox">
 							<input
-								onClick={() => isCheskedFunc()}
 								className="addEducations__inputCheckbox"
 								type="checkbox"
 								id="checkbox"

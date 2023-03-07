@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, LANGUAGES, LANGUAGESUPLOAD,
-	LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, REGISTER, RESUMEFINISH, RESUMESELECT, GET_FREELANCER } from "./URLS";
+import { ADDTOCOMPANY, ADDTOFREELANCER, ADD_COMPANY, ADD_CONTACTS_COMPANY, ADD_LOCATION_COMPANY, CLAIMS, COMPANY_OWNER_CREATE, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
 
 /////////////////////////////////////CLAIMS GET///////////////////////
 export const claimsGet = createAsyncThunk("claims", async payload => {
@@ -380,14 +379,13 @@ export const educationDelete = createAsyncThunk("freelancer/educationDelete", as
 		return response.data;
 	});
 });
-export {resumeSelect}
 
-////////////////////////GET FREELANCER///////////////////
-export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async () => {
+///////////////////////////GET ALL JOBS//////////
+export const getAllJobs = createAsyncThunk("freelancer/jobsAll", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
-		method: "Get",
-		url: GET_FREELANCER ,
+		method: "GET",
+		url: payload ? `${JOBS}/Pag/${payload.page}/${payload.size}` : `${JOBS}/All`,
 		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`
@@ -395,4 +393,75 @@ export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async 
 	}).then(response => {
 		return response.data;
 	});
+});
+
+export const projectPost = createAsyncThunk("freelancer/project", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: PROJECT,
+		body: payload.formData,
+		headers: {
+			"Content-Type": `multipart/form-data`,
+			Authorization: `bearer ${token}`
+		}
+	})
+})
+
+export { resumeSelect }
+
+////////////////////////////////////////////////////// COMPANY //////////////////////////////////////////////////////
+
+export const createCompanyUserPost = createAsyncThunk("company/createOwner", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: COMPANY_OWNER_CREATE,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => {
+		return response.data
+	});
+});
+
+export const addCompanyInformation = createAsyncThunk("company/addCompany", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'multipart/form-data',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
+});
+
+export const addCompanyLocation = createAsyncThunk("company/addLocation", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_LOCATION_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
+});
+
+export const addCompanyContacts = createAsyncThunk("company/addContacts", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "POST",
+		url: ADD_CONTACTS_COMPANY,
+		data: payload,
+		headers: {
+			"Content-Type": 'application/json-patch+json',
+			Authorization: `Bearer ${token}`
+		}
+	}).then(response => response.data);
 });

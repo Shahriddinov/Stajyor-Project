@@ -1,98 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import classes from './Company.module.scss'
-import classesNav from './Navigation.module.scss'
-import ProfilePhoto from './profilePhoto.png'
-import Video from './vid.png'
-import CompanyLogo from './compLogo.png'
-import Circle from './Ellipse 16.png'
-import Playbutton from './playButton.png'
+import ProfilePhoto from './assets/profilePhoto.png'
+import Video from './assets/vid.png'
+import CompanyLogo from './assets/compLogo.png'
+import Playbutton from './assets/playButton.png'
+import Circle from './assets/Ellipse 16.png'
+import Nav from './Nav'
 import { MdVerified } from 'react-icons/md'
 import { BsChevronDown, BsFacebook, BsTelegram, BsWhatsapp, BsInstagram, BsGithub, BsTwitter } from 'react-icons/bs'
 import { FiMail, FiPhone } from 'react-icons/fi'
 import { GrLocation} from 'react-icons/gr'
 import { Link } from 'react-router-dom'
-import Logo from './logo.png'
 
 const Company = () => {
 
-    const [count, setCount] = useState(0);
     const [clientJobs, setClientJobs] = useState('active')
+    const len = useSelector(state => state.lenguage.lenguage)
+    const { pathname } = useLocation();
 
-	let step1 = false,
-		step2 = false,
-		step3 = false,
-		step4 = false,
-		step5 = false,
-		step6 = false,
-		step7 = false,
-		step8 = false;
-	switch (count) {
-		case 1:
-			step1 = true;
-			break;
-		case 2:
-			step2 = true;
-			break;
-		case 3:
-			step3 = true;
-			break;
-		case 4:
-			step4 = true;
-			break;
-		case 5:
-			step5 = true;
-			break;
-		case 6:
-			step6 = true;
-			break;
-
-		case 7:
-			step7 = true;
-			break;
-
-		case 8:
-			step8 = true;
-			break;
-
-		default:
-			step1 = true;
-	}
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     return (
-        <div className={classes.background}>
-            <div className={classes.circleBg}>
-                <img src={Circle} alt="" />
-            </div>
-            <div className={classesNav.menu}>
-                <a href=''><img src={Logo} alt="" /></a>
-                <div className={classesNav.right__side}>
-                    <ul className={classesNav.menu__links}>
-                        <li className={step1 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(1)}>
-                            Home
-                        </li>
-                        <li className={step5 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(5)}>
-                            Talants
-                        </li>
-                        <li className={step6 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(6)}>
-                            Jobs
-                        </li>
-                        <li className={step7 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(7)}>
-                            About us
-                        </li>
-                        <li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
-                            Contact us
-                        </li>
-                    </ul>
-                    <div className={classesNav.menu__buttons}>
-                        <Link to="/login">
-                            <button className={classesNav.menu__login}>Log in</button>
-                        </Link>
-                        <Link to="/signup">
-                            <button className={classesNav.menu__signup}>Sign up</button>
-                        </Link>
-                    </div>
-                </div>
-            </div>
+        <>
             <div className={classes.companyContainer}>
                 <div className={classes.companyAbout}>
                     <div className={classes.companyRep}>
@@ -217,7 +150,7 @@ const Company = () => {
                         <div className={classes.companyClientJob}>
                             <div className={classes.companyClientJobRow}>
                                 <div className={classes.companyClientJobLeft}>
-                                    <h3 className={classes.companyClientJobName}>Business Card Design</h3>
+                                    <Link to={`/${len}/jobAd`}><h3 className={classes.companyClientJobName}>Business Card Design</h3></Link>
                                     <div className={classes.verticalLineBreak} />
                                     <h3 className={classes.companyClientJobCost}>$10</h3>
                                     <div className={classes.verticalLineBreak} />
@@ -320,7 +253,7 @@ const Company = () => {
                     <div className={classes.horizontalLineBreak} />
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

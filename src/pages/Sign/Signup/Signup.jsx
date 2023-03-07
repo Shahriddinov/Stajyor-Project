@@ -14,8 +14,9 @@ import { Eye, EyeOff } from 'tabler-icons-react';
 import { registerRequest } from "reduxToolkit/extraReducers";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from "react-i18next";
 const Signup = () => {
+	const { t } = useTranslation()
 
 	const [passwordEye, setPasswordEye] = useState('password')
 	const [passwordEye1, setPasswordEye1] = useState('password')
@@ -40,6 +41,14 @@ const Signup = () => {
 	const handlerSubmit = (e) => {
 		e.preventDefault()
 		dispatch(registerRequest(data))
+		var dateObj = new Date();
+		var month = dateObj.getUTCMonth() + 1; //months from 1-12
+		var day = dateObj.getUTCDate();
+		var year = dateObj.getUTCFullYear();
+
+		console.log(month , day, year);
+
+		// localStorage.setItem('member_since')
 	}
 
 	return (
@@ -51,7 +60,7 @@ const Signup = () => {
 					<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
 					{!checkEmail ? (
 						<form className="login_form" onSubmit={handlerSubmit}>
-							<h3 className="login_form_title">Sign up</h3>
+							<h3 className="login_form_title">{t("signup")}</h3>
 
 							<p className="login_form_info">
 								Do you have an account? <Link to={`/${len}/login`}>Log in </Link>now!

@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { educationDelete, educationGet } from "reduxToolkit/extraReducers";
 import { useState } from "react";
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 import AddEducations from "../AddEducations/AddEducations";
 
 const defaultData = {
@@ -58,6 +60,17 @@ function Educations() {
 		);
 	};
 
+	const [ trashHover, setTrashHover ] = useState(false)
+	const [ editHover, setEditHover ] = useState(false)
+
+	const TrashFunc = (int) => {
+		setTrashHover(int)
+	}
+
+	const EditFunc = (int) => {
+		setEditHover(int)
+	}
+
 	if(loading) {
 		return <b>Loading...</b>
 	}
@@ -73,7 +86,7 @@ function Educations() {
 							<span className="educations__textSpan">Just head on to the next page.</span>
 						</p>
 						<div className="educations__box">
-							{educationList.map(el => (
+							{educationList.map((el, int) => (
 								<div className="educations__content" key={el.id}>
 									<div className="educations__texts">
 										<span className="educations__subtitle">{el.schoolName}</span>
@@ -85,11 +98,17 @@ function Educations() {
 
 									<div className="educations__icons">
 										<span className="educations__icon--create" type="button" onClick={() => changeEducation({data:el, modal:true})}>
-											<ion-icon name="create-outline"></ion-icon>
+											<Edit name="create-outline" className={`${ editHover === int ? "experience__box__hovering" : null }`}
+												onMouseOver={()=>EditFunc(int)} 
+      											onMouseOut={()=>EditFunc(false)}
+											/>
 										</span>
 
 										<span className="educations__icon--delete" onClick={() => deletEducation(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
+											<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
+											      onMouseOver={()=>TrashFunc(int)} 
+      											  onMouseOut={()=>TrashFunc(false)}
+											/>
 										</span>
 									</div>
 								</div>

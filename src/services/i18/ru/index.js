@@ -3,39 +3,75 @@ const translation = {
     "talants": "Таланты",
     "contact" : "Kонтакт",
     "about" : "О нас",
-    // Company register side START
 
-    "backToSignUp": "Назад, чтобы зарегистрироваться",
-    "loading": "Загрузка...",
-    "welcome": "Добро пожаловать",
-    "companyRegisterTitle" : "Заполните свой профиль, чтобы присоединиться к нашему глобальному сообществу фрилансеров и начать продавать свои услуги нашей растущей сети предприятий.",
-    "firstName": "Имя*",
-    "firstNameInput": "Напишите свое имя",
-    "lastName": "Фамилия*",
-    "lastNameInput": "Напишите свою фамилию",
-    "email": "Электронная почта*",
-    "phoneNumber": "Номер телефона*",
-    "next": "следующий",
-    "back": "Назад",
-    "yourCompany": "Ваша компания!",
-    "addCompanyPhoto": "Добавьте фотографию вашей компании",
-    "changeCompanyPhoto": "Измените фотографию вашей компании",
-    "companyName": "Название компании",
-    "companyNameInput": "Название вашей компании",
-    "number": "Номер",
-    "companyPhoneNumberInput": "Номер телефона компании",
-    "aboutYourCompanyTitle": "О вашей компании",
-    "aboutYourCompanyDescription": "Запишите еще немного информации о вашей компании",
-    "location": "Местоположение*",
-    "locationInput": "Напишите местоположение",
-    "locationDescriptionTitle": "Описание",
-    "locationDescriptionInput": "Напишите, чем занимается ваша компания",
-    "contactsCompany": "Контакты",
-    "contactsCompanyInput": "Предоставьте ссылку на свой веб-сайт",
-    "contactsCompanyInput2": "Предоставьте ссылку на свой",
-    "account": "аккаунт",
-    "contactsCompanyDescription": "Выберите, в какой из этих социальных сетей у вас есть учетная запись",
-    // Company register side END
+    "profile": "Профиль",
+    "notification": "Уведомление",
+    "contracts": "Контракты",
+    "chats": "Чаты",
+    "resume": "Резюме",
+    "log_out": "Выйти",
+
+    "filter": "Фильтр",
+    "payment": "К оплате",
+    "from":"От",
+    "to":"К",
+    "duration":"Продолжительность",
+    "more_than_1":"Больше, чем 80%",
+    "required_level":"Требуемый уровень",
+    "verified":"Проверено",
+    "region":"Область",
+    "complated_jobs_minimum":"Выполненные работы (минимум)",
+    "required_skills":"Требуемые навыки",
+    "apply_filters":"Применить фильтр",
+    "select_region":"Выберите регион",
+    "select_items":"Выберите элементы",
+
+
+
+
+
+
+
+
+
+
+    "job_success": "Успех в работе",
+    "hourly": "Ежечасно",
+    "portfolio": "Портфолио",
+    "work_history": "История работы",
+    "completed": "Завершенный",
+    "in_progress": "В ходе выполнения",
+    "total_earnings": "Общий доход",
+    "total_jobs": "Всего работы",
+    "available": "Доступный",
+    "more_than": "Более",
+    "hrs/week":" часов в неделю",
+    "verifications":"Проверки",
+    "language":"Языки",
+    "educations":"Образование",
+    "location":"Местоположение",
+    "experience":"Опыт",
+    "skills":"Навыки",
+    "contacts":"Контакты",
+    "living_address":"Живой адрес",
+    "member_since":"Участник с"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 export default translation

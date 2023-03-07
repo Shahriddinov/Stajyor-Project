@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { experienceDelete, experienceGet } from "reduxToolkit/extraReducers";
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 import MyWork from "../MyWork/MyWork";
 
 const defaultInputData = {
@@ -58,10 +60,24 @@ function WorkExperience() {
 			])
 		);
 	};
+	const [ trashHover, setTrashHover ] = useState(false)
+	const [ editHover, setEditHover ] = useState(false)
+
+	const TrashFunc = (int) => {
+		setTrashHover(int)
+	}
+
+	const EditFunc = (int) => {
+		setEditHover(int)
+	}
+
+
 
 	if(loading) {
 		return <b>Loading...</b>
 	}
+
+
 	return (
 		<>
 			<div className="experience">
@@ -75,7 +91,7 @@ function WorkExperience() {
 						</p>
 
 						<div className="experience__box">
-							{experienceList.map(el => (
+							{experienceList.map((el, int) => (
 								<div className="experience__content" key={el.id}>
 									<div className="experience__texts">
 										<span className="experience__subtitle">{el.companyName}</span>
@@ -87,11 +103,17 @@ function WorkExperience() {
 											className="experience__icon--create"
 											onClick={() => editExperience({data:el, modal: true})}
 										>
-											<ion-icon name="create-outline"></ion-icon>
+											<Edit name="create-outline" className={`${ editHover === int ? "experience__box__hovering" : null }`}
+												onMouseOver={()=>EditFunc(int)} 
+      											onMouseOut={()=>EditFunc(false)}
+											/>
 										</span>
 
 										<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
+											<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
+											      onMouseOver={()=>TrashFunc(int)} 
+      											  onMouseOut={()=>TrashFunc(false)}
+											/>
 										</span>
 									</div>
 								</div>

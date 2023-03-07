@@ -231,6 +231,7 @@
                     }
             }
         }
+
         &_wrapper {
             position: relative;
             display: flex;
@@ -263,15 +264,15 @@
 
             }
 
-            &_span {
-                position: absolute;
-                bottom: -4.5px;
-                background-color: #fff;
-                width: 419px;
-                height: 5px;
-                z-index: -1;
-                border-radius: 15px;
-            }
+            // &_span {
+            //     position: absolute;
+            //     bottom: -4.5px;
+            //     // background-color: #fff;
+            //     width: 100px;
+            //     height: 5px;
+            //     z-index: -1;
+            //     border-radius: 15px;
+            // }
         }
     }
 
@@ -687,15 +688,15 @@
 
             }
 
-            &_span {
-                position: absolute;
-                bottom: -4.5px;
-                background-color: #fff;
-                width: 352px;
-                height: 5px;
-                z-index: -1;
-                border-radius: 15px;
-            }
+            // &_span {
+            //     position: absolute;
+            //     bottom: -4.5px;
+            //     background-color: #fff;
+            //     width: 352px;
+            //     height: 5px;
+            //     z-index: -1;
+            //     border-radius: 15px;
+            // }
         }
     }
 
@@ -1083,15 +1084,15 @@
 
             }
 
-            &_span {
-                position: absolute;
-                bottom: -4.5px;
-                background-color: #fff;
-                width: 352px;
-                height: 5px;
-                z-index: -1;
-                border-radius: 15px;
-            }
+            // &_span {
+            //     position: absolute;
+            //     bottom: -4.5px;
+            //     background-color: #fff;
+            //     width: 352px;
+            //     height: 5px;
+            //     z-index: -1;
+            //     border-radius: 15px;
+            // }
         }
     }
     //////////////////////////////

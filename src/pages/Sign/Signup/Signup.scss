@@ -2,18 +2,18 @@
 
 .login {
 
-    overflow: hidden;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 
     & .login_container {
-        position: relative;
+        // position: relative;
         max-width: 1920px;
         margin: 0 auto;
         padding: 0 205px;
+        overflow:hidden;
 
         & .login_bg_img {
-            position: absolute;
             top: 0;
             left: 0;
             z-index: -10001;

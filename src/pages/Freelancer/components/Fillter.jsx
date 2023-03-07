@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React , { useState } from 'react'
 import { ReactComponent as Arrow } from '../../../assets/images/Freelancer/filter_arrow.svg'
 import './Fillter.scss';
 import { MultiSelect } from '@mantine/core';
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterData } from 'reduxToolkit/jobsSlice/JobsSlice';
 

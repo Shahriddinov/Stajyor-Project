@@ -1,6 +1,8 @@
 @import "../../../assets/styles/ui.scss";
 
 .login_company {
+    width: 1373px;
+
     & .login_company_social {
         display: flex;
         align-items: center;
@@ -16,6 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width:100%;
+
 
 
          & .login_company_wrapper_back {
@@ -41,7 +45,7 @@
 
         & .computer_img {
             position: absolute;
-            right: 115px;
+            right: 0px;
             top: 145px;
             width: 560px;
             height: 520px;

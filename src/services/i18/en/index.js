@@ -50,7 +50,7 @@ const translation = {
     "member_since":"Member since"
 
 
-    
+
 }
 
 export default translation

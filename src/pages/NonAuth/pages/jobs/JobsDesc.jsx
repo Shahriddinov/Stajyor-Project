@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import classes from "./JobsDesc.module.scss";
 import searchIcon from "../../../../assets/images/searchIcon.png";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 import checkImg from "../../../../assets/images/checkImg.png";
 import jobsData from "./jobsData";
+import { Link } from "react-router-dom";
 
 function JobsDesc(props) {
 	const [likes, setLikes] = useState([]);
@@ -12,6 +14,8 @@ function JobsDesc(props) {
 	const [searchField, setSearchField] = useState("");
 	const [jobs, setJobs] = useState([]);
 	const [filteredJobs, setFilterJobs] = useState(jobs);
+
+	const len = useSelector(state => state.lenguage.lenguage)
 
 	useEffect(() => {
 		setJobs(jobsData);
@@ -57,7 +61,7 @@ function JobsDesc(props) {
 				{filteredJobs.map((item, index) => (
 					<div className={classes.jobsCardItem} key={index} id={index}>
 						<div className={classes.jobsCardItemHeader}>
-							<p className={classes.title}>{item.title}</p>
+							<Link to={`/${len}/jobAd`}><p className={classes.title}>{item.title}</p></Link>
 							<span className={classes.headerVerLine}></span>
 							<p className={classes.paymentPerHour}>{item.paymentPerHour}</p>
 							<span className={classes.headerVerLine}></span>

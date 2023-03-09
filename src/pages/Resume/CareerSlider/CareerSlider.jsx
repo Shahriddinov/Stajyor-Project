@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import MyCareerLogo from "../../../assets/images/Resume/my-career.svg";
 
-function CareerSlider({dot, activeDote}) {
+function CareerSlider({dot, activeDote, classNameLine}) {
 	const mediaWidth = window.innerWidth
 
 	return (
@@ -15,7 +15,7 @@ function CareerSlider({dot, activeDote}) {
 					</div>
 
 					{
-						(activeDote.id !== 8 ) && <span className="mycareer__line"></span>
+						(activeDote.id !== dot.length ) && <span className={classNameLine}></span>
 					}
 
 				<div className="mycareer__content">

@@ -26,7 +26,6 @@ function Photo() {
 	};
 	// console.log(uploaded);
 	const handleSubmit = event => {
-		console.log(uploaded);
 		let formdatas = new FormData();
 		formdatas.append("FirstName", firstName.current.value);
 		formdatas.append("LastName", lastName.current.value);

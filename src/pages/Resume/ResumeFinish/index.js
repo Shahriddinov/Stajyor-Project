@@ -5,7 +5,7 @@ import arrowLeft from "../../../assets/images/arrow-left.svg"
 import logo from "../../../assets/images/Logo.svg"
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { resumeSelect,resumeFinishPost} from 'reduxToolkit/extraReducers'
+import { resumeSelect,resumeFinishPost, userRoles} from 'reduxToolkit/extraReducers'
 import Resume1 from './complate-resume/resume-list/Resume1'
 import Resume2 from './complate-resume/resume-list/Resume2'
 import Resume3 from './complate-resume/resume-list/Resume3'
@@ -15,11 +15,10 @@ import Resume6 from './complate-resume/resume-list/Resume6'
 import { activeDoteAction } from 'reduxToolkit/resumeControlsSlice/resumeControls'
 
 const ReumeFinish = () => {
-  const {resume} = useSelector(state => state.login)
-  const len = useSelector(state => state.lenguage.lenguage)
-  const {resumeDetails,loading} = useSelector(state => state.resume)
+  const resumeDetails = useSelector(state => state.resume.resumeDetails)
+  const loading = useSelector(state => state.resume.loading)
+  const resumeOnSuccess = useSelector(state => state.login.resumeOnSuccess)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const {resumeId} = useParams()
 
   const data = new FormData()
@@ -28,6 +27,18 @@ const ReumeFinish = () => {
   useEffect(() => {
     dispatch(resumeSelect(data))
   },[])
+
+  useEffect(() => {
+    if(resumeOnSuccess) {
+      dispatch(
+        activeDoteAction([
+          {id: 1,label: "Personal information"},
+          {id: 1,label: "photo"}
+        ])
+      );
+      dispatch(userRoles())
+    }
+  },[resumeOnSuccess])
 
   const routes = [
     {id:1, resumeId: 1, element: <Resume1 {...resumeDetails}/>},
@@ -43,13 +54,10 @@ const ReumeFinish = () => {
     const data = new FormData()
     data.append("finish", true)
     dispatch(resumeFinishPost(data))
-  }
-  if(resume) {
-    navigate(`/${len}/jobs`)
+
   }
 
   const handleClick = () => {
-    navigate(`/${len}/company`)
     dispatch(
 			activeDoteAction([
 				{id: 1,label: "Personal information"},
@@ -57,9 +65,6 @@ const ReumeFinish = () => {
 			])
 		);
   }
-
-  console.log(resumeDetails);
-  localStorage.setItem('info', JSON.stringify(resumeDetails));
 
   return (
    <>

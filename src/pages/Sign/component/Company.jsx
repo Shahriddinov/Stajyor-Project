@@ -13,11 +13,21 @@ import "./Company.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { removeToken } from "reduxToolkit/loginSlice/LoginSlice";
+import { addToCompany, addToFreelancer } from "reduxToolkit/extraReducers";
 
 const  Company = () => {
 	const navigate = useNavigate()
 	const len = useSelector(state => state.lenguage.lenguage)
 	const dispatch = useDispatch()
+
+	const changeRoute = (value) => {
+		localStorage.setItem("isResume", value)
+		if(value === "freelancer") {
+			dispatch(addToFreelancer())
+		}else {
+			dispatch(addToCompany())
+		}
+	}
 
 	const handleClick = () => {
 		dispatch(removeToken())

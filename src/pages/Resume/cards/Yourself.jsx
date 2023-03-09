@@ -1,9 +1,9 @@
 import React from "react";
-import downIcon from "../../../assets/images/Resume/down.png";
+// import downIcon from "../../../assets/images/Resume/down.png";
 import "./Yourself.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { useState,useRef } from "react";
+import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";

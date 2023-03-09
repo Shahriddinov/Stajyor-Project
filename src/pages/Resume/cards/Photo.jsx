@@ -44,14 +44,10 @@ function Photo() {
 			);
 		}
 
-		console.log( phoneNumber.current.state.formattedNumber.length);
-
 		event.preventDefault();
 	};
 
-	const [ validate, setValidate] = useState('')
 
-	// console.log(phoneNumber.state);
 
 	return (
 		<div className="photoCard">

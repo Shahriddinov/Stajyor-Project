@@ -5,7 +5,7 @@ import { resources } from "./resources";
 
 const i18 = i18n
             .use(initReactI18next)
-            use(LanguageDetector)
+            .use(LanguageDetector)
             .init({
                 detection:{
                   order: ['localStorage','path', 'cookie', 'navigator', 'subdomain'],

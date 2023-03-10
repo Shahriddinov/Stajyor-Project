@@ -43,7 +43,7 @@ const  Company = () => {
 				</button>
 			</div>
 			<div className="login_company_wrapper1">
-				<Link to={`/${len}/welcome/create-profile`} onClick={() => changeRoute("freelancer")}>
+				<Link to={`/${len}/welcome/create-profile`} onClick={() => changeRoute("freelancer")}> 
 					<div className="login_company_wrapper1_frilanc">
 						<h4 className="login_company_wrapper1_frilanc_title">
 							<img src={user} alt="user icon" /> Freelancer

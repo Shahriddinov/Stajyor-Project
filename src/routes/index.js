@@ -12,6 +12,7 @@ import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
+import ChatModal from "pages/Chat/Modal";
 
 export const publicRoute = [
     {id:1, path: "/", element: <PageBackground/>},
@@ -39,6 +40,7 @@ export const freelancerRouter = [
     {id:4, path: "/contact", element: <Contactus/>},
     {id:5, path: "/contracts", element: <Contract/>},
     {id:6, path: "/freelancer", element: <Freelancer/>},
+    {id:6, path: "/chat", element: <ChatModal/>},
     {id:7, path: "/profile", element: <Profile/>},
     {id:8, path: "/freelancer-user", element: <UserFreelancer/>},
     {id:9, path: "/*", element: <NotFound/>},

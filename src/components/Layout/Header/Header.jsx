@@ -28,7 +28,7 @@ const Header = () => {
 				<div className="header_wrapper">
 					<ul className="header_container_list">
 						<li className="header_container_list_item">
-							<Link to={`/${len}/jobs`} className="header_container_list_item">{t("job")}</Link>
+							<Link to={`/${len}/jobs`} className="header_container_list_item">{t("jobs")}</Link>
 						</li>
 						<li className="header_container_list_item">
 							<Link to={`/${len}/talants`} className="header_container_list_item">{t("talants")}</Link>

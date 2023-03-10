@@ -97,7 +97,7 @@ function App() {
 							:
 							<Routes>
 								{
-									freelancerRouter.slice(0,4).map(route => (
+									freelancerRouter.map(route => (
 										<Route path={`/${len}${route.path}`} element={route.element} key={route.id}/>
 									))
 								}

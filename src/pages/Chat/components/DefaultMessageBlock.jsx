@@ -1,34 +1,80 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import { useRef } from "react";
 import fileAttachImg from "../../../assets/images/chat_img/fileAttachImg.png";
 import classes from "./DefaultMessageBlock.module.scss";
+import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 function DefaultMessageBlock(props) {
 	const hiddenFileInput = useRef(null);
 	const [arr, setArr] = useState([]);
 	const [value, setValue] = useState("");
-	const inputReset = useRef(null);
-	const inputReset2 = useRef(null);
+	const [connection, setConnection] = useState()
 
-	const [picture, setPicture] = useState(null);
-	const [imgData, setImgData] = useState(null);
-	const onChangePicture = e => {
-		if (e.target.files[0]) {
-			console.log("picture: ", e.target.files);
-			setPicture(e.target.files[0]);
-			const reader = new FileReader();
-			reader.addEventListener("load", () => {
-				setImgData(reader.result);
-			});
-			reader.readAsDataURL(e.target.files[0]);
+	useEffect(() => {
+		createHubConnection()
+	},[])
+
+	useEffect(() => {
+		if(connection) {
+			connection.on("RecieveMessage", (data) => {
+				console.log(data);
+			})
 		}
+	},[connection])
+
+	const createHubConnection = async () => {
+		
+		const hubConnectionBuilder = new HubConnectionBuilder()
+			.withUrl("http://localhost:5000/chat", options =>{
+				console.log(options);
+				options.AccessTokenFactory = () => {
+					const token = localStorage.getItem("token")
+					return `Bearer ${token}`;
+				}
+			})
+			.withAutomaticReconnect()
+			.configureLogging(LogLevel.Information);
+		console.log(hubConnectionBuilder);
+		const hubConnection = hubConnectionBuilder.build();
+		let tokenFactory = () => {
+			const token = localStorage.getItem("token")
+			return `Bearer ${token}`;
+		}
+		hubConnection._accessTokenFactory = tokenFactory;
+		//hubConnection._httpClient._accessTokenFactory = tokenFactory;
+
+	    console.log(hubConnection);
+		try {
+			await hubConnection.start()
+			console.log("bog'landi");
+		}catch(e) {
+			console.log(e);
+		}
+
+		setConnection(hubConnection)
+	}
+	
+
+	const onChangePicture = e => {
+		
 	};
+
 	const submitValue = e => {
-		const userMessage = {
-			message: value
-		};
-		setArr(prevArr => [...prevArr, userMessage]);
-		inputReset.current.value = "";
+		const data = {
+			message: {
+				fromId: "string",
+				toId: "string",
+				dateTime: "datetime",
+				text: "string",
+				isRead: true,
+				hasLink:  false,
+				hasMedia: false,
+				hasFile: false,
+				chatId: 1
+			  },
+			  filePaths: [ "string" ]
+		}
+		connection.invoke("WriteMessage", JSON.stringify(data))
 	};
 
 	return (
@@ -46,7 +92,6 @@ function DefaultMessageBlock(props) {
 				<div className={classes.writeAndSendMessage}>
 					<input
 						className={classes.writeMessage}
-						ref={inputReset}
 						onChange={e => setValue(e.target.value)}
 						required
 						type="text"

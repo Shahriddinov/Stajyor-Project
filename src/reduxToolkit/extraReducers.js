@@ -465,3 +465,6 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 		}
 	}).then(response => response.data);
 });
+
+export class getFreelancer {
+}

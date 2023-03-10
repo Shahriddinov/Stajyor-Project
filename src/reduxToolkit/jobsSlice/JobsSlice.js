@@ -14,7 +14,7 @@ const jobsSlice = createSlice({
   reducers: {
     filterData: (state, { payload }) => {
       console.log(payload);
-      const { priceFrom, priceTo, paymentAmount, levelFrom, levelTo, verified, region, completedJob, skills } = payload;
+      const { priceFrom, priceTo } = payload;
       if (priceFrom || priceTo) {
         state.filteredData = state.data.filter(({ job }) => {
           console.log(job.price, job.priceRate);
@@ -22,13 +22,6 @@ const jobsSlice = createSlice({
           else return +priceFrom <= job.price && +priceTo >= job.priceRate
         })
       }
-      // if (levelFrom || levelTo) {
-      //   state.filteredData = state.data.filter(({ job }) => {
-      //     console.log(job.price, job.priceRate);
-      //     if (!levelTo) return +levelFrom <= job.price;
-      //     else return +levelFrom <= job.price && +levelTo >= job.priceRate
-      //   })
-      // }
 
 
     }

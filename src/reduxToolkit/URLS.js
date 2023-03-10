@@ -30,3 +30,7 @@ export const ADD_LOCATION_COMPANY = `${BASE_URL}/api/Company/Location/Create`;
 export const ADD_CONTACTS_COMPANY = `${BASE_URL}/api/Company/Contact/Create`;
 export const JOBS = `${BASE_URL}/api/Job`;
 export const PROJECT = `${BASE_URL}/api/Project`;
+export const USERROLES = `${BASE_URL}/UserRoles`;
+export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
+export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;
+export const CLAIMS = `${BASE_URL}/CLAIMS`;

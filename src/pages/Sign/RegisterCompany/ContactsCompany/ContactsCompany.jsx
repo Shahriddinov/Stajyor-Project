@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './ContactsCompany.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,12 +10,26 @@ import instagramIcon from "../../../../assets/images/Resume/instagramIcon.png";
 import gitHubIcon from "../../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../../assets/images/Resume/cancel.png";
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
-import { addCompanyContacts } from 'reduxToolkit/extraReducers';
+import { addCompanyContacts, userRoles } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
 
 export const ContactsCompany = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.companyRegister)
+    const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess)
+
+    useEffect(() => {
+        if (contactsIsSuccess) {
+            // dispatch(
+            //     activeDoteAction([
+            //         { id: 1, label: "Company Information" },
+            //         { id: 1, label: "Information" }
+            //     ])
+            // );
+            dispatch(userRoles())
+        }
+    }, [contactsIsSuccess, dispatch])
+
     const [data, setData] = useState({
         id: 0,
         webSite: "",
@@ -72,12 +86,6 @@ export const ContactsCompany = () => {
     const handleSubmit = event => {
         event.preventDefault();
         dispatch(addCompanyContacts(data));
-        dispatch(
-            activeDoteAction([
-                { id: 3, label: "About company" },
-                { id: 3, type: "About" }
-            ])
-        );
     };
 
     const prevPage = event => {
@@ -89,6 +97,7 @@ export const ContactsCompany = () => {
             ])
         );
     };
+
 
     return (
         <>
@@ -133,7 +142,7 @@ export const ContactsCompany = () => {
                                         <img style={{ width: "40px" }} src={item.icon} alt={item.name} />
                                         <h4 className={classes.cart_text}>{item.name}</h4>
                                     </div>
-                                ))} 
+                                ))}
                             </div>
                         </div>
                         <div className={classes.button_group}>

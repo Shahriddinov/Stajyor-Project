@@ -12,7 +12,7 @@ import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControl
 function Language() {
 	const dispatch = useDispatch();
 	const languageList = useSelector(state => state.resume.languageList);
-	const [data,setData] = useState({LanguageId: null, lavel:"",})
+	// const [data,setData] = useState({LanguageId: null, lavel:"",})
 	const [theArray, setTheArray] = useState([{ test: "test", test2: "test2", id: 0 }]);
 	const [userLang, setUserLang] = useState([]);
 	const [userLevel, setUserLevel] = useState([]);

@@ -8,19 +8,21 @@ import cancel from "../../../assets/images/Resume/cancel.png";
 import { languageUpload } from "reduxToolkit/extraReducers";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
+
 function Language() {
 	const dispatch = useDispatch();
 	const languageList = useSelector(state => state.resume.languageList);
-	const [data,setData] = useState({LanguageId: null, lavel:"",})
+	// const [data,setData] = useState({LanguageId: null, lavel:"",})
 	const [theArray, setTheArray] = useState([{ test: "test", test2: "test2", id: 0 }]);
 	const [userLang, setUserLang] = useState([]);
 	const [userLevel, setUserLevel] = useState([]);
+	
 	
 	let level = [
 		{ value: "A1 - Beginner", label: "A1 - Beginner" },
 		{ value: "A2 - Elementary", label: "A2 - Elementary" },
 		{ value: "B1 - Intermediate", label: "B1 - Intermediate" },
-		{ value: "B2 - Advanced", label: "B2 - Advanced" }
+		{ value: "B2 - Upper-Intermediate", label: "B2 - Upper-Intermediate" }
 	];
 
 	let singleLang = true;
@@ -76,14 +78,14 @@ function Language() {
 						<div key={lang.id} id={!singleLang ? "test" : null} className={classes.select}>
 							<Select
 								className="languageSelect"
-								classNamePrefix="mySelectLang"
+								// classNamePrefix="mySelectLang"
 								options={languageList?.map(el => ({value: el.id, label: el.name}))}
 								placeholder="Language*"
 								onChange={choice => setUserLang([...userLang, choice.value])}
 							/>
 							<Select
 								className="languageSelect"
-								classNamePrefix="mySelectLang"
+								// classNamePrefix="mySelectLang"
 								options={level}
 								placeholder="Level*"
 								onChange={choice => setUserLevel([...userLevel, choice.value])}

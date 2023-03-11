@@ -49,13 +49,14 @@ const ReumeFinish = () => {
     {id:6, resumeId: 5, element: <Resume6 {...resumeDetails}/>},
   ]
 
+
   const handleSubmit = () => {
     const data = new FormData()
     data.append("finish", true)
     dispatch(resumeFinishPost(data))
 
   }
-  
+
   const handleClick = () => {
     dispatch(
 			activeDoteAction([

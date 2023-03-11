@@ -43,7 +43,7 @@ const  Company = () => {
 				</button>
 			</div>
 			<div className="login_company_wrapper1">
-				<Link to={`/${len}/welcome/create-profile`} onClick={() => changeRoute("freelancer")}>
+				<Link to={`/${len}/resume`}>
 					<div className="login_company_wrapper1_frilanc">
 						<h4 className="login_company_wrapper1_frilanc_title">
 							<img src={user} alt="user icon" /> Freelancer
@@ -53,18 +53,14 @@ const  Company = () => {
 						</p>
 					</div>
 				</Link>
-				<Link to={`/${len}/welcome/register-company`} onClick={() => changeRoute("company")}>
-					<div className="login_company_wrapper1_frilanc">
-						<h4 className="login_company_wrapper1_frilanc_title">
-							{" "}
-							<img src={comp} alt="user icon" /> Company
-						</h4>
-						<p className="login_company_wrapper1_frilanc_info">
-							Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur.
-						</p>
-					</div>
-				</Link>
-
+				<div className="login_company_wrapper1_frilanc">
+					<h4 className="login_company_wrapper1_frilanc_title">
+						<img src={comp} alt="user icon" /> Company
+					</h4>
+					<p className="login_company_wrapper1_frilanc_info">
+						Ipsum harum assumenda in eum vel eveniet numquam, cumque vero vitae enim cupiditate deserunt eligendi officia modi consectetur.
+					</p>
+				</div>
 				<img src={computer_img} className="computer_img" alt="comp images" />
 			</div>
 

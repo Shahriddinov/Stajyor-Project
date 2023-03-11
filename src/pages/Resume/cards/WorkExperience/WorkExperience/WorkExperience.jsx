@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { experienceDelete, experienceGet } from "reduxToolkit/extraReducers";
+import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
+import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 import MyWork from "../MyWork/MyWork";
 
 const defaultInputData = {
@@ -15,16 +17,16 @@ const defaultInputData = {
 }
 
 function WorkExperience() {
-	const [isMoadalActive, setMoadalActive] = useState({experienceAdd: false, experienceEdit: false })
+	const [isMoadalActive, setMoadalActive] = useState({ experienceAdd: false, experienceEdit: false })
 	const [editData, setEditData] = useState({})
-	const { experienceList,experiencePostIsSuccess, loading} = useSelector(state => state.resume);
+	const { experienceList, experiencePostIsSuccess, loading } = useSelector(state => state.resume);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if(experiencePostIsSuccess) {
+		if (experiencePostIsSuccess) {
 			dispatch(experienceGet());
 		}
-	}, [dispatch,experiencePostIsSuccess]);
+	}, [dispatch, experiencePostIsSuccess]);
 
 
 	const handleSubmit = e => {
@@ -40,7 +42,7 @@ function WorkExperience() {
 	const editExperience = (value) => {
 		console.log(value);
 		setEditData(value.data)
-		setMoadalActive(prev => ({...prev, experienceEdit: value.modal}))
+		setMoadalActive(prev => ({ ...prev, experienceEdit: value.modal }))
 	};
 
 
@@ -58,10 +60,24 @@ function WorkExperience() {
 			])
 		);
 	};
+	const [ trashHover, setTrashHover ] = useState(false)
+	const [ editHover, setEditHover ] = useState(false)
 
-	if(loading) {
+	const TrashFunc = (int) => {
+		setTrashHover(int)
+	}
+
+	const EditFunc = (int) => {
+		setEditHover(int)
+	}
+
+
+
+	if (loading) {
 		return <b>Loading...</b>
 	}
+
+
 	return (
 		<>
 			<div className="experience">
@@ -75,7 +91,7 @@ function WorkExperience() {
 						</p>
 
 						<div className="experience__box">
-							{experienceList.map(el => (
+							{experienceList.map((el, int) => (
 								<div className="experience__content" key={el.id}>
 									<div className="experience__texts">
 										<span className="experience__subtitle">{el.companyName}</span>
@@ -85,13 +101,19 @@ function WorkExperience() {
 									<div className="experience__icons">
 										<span
 											className="experience__icon--create"
-											onClick={() => editExperience({data:el, modal: true})}
+											onClick={() => editExperience({ data: el, modal: true })}
 										>
-											<ion-icon name="create-outline"></ion-icon>
+											<Edit name="create-outline" className={`${ editHover === int ? "experience__box__hovering" : null }`}
+												onMouseOver={()=>EditFunc(int)} 
+      											onMouseOut={()=>EditFunc(false)}
+											/>
 										</span>
 
 										<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
-											<ion-icon name="trash-outline"></ion-icon>
+											<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
+											      onMouseOver={()=>TrashFunc(int)} 
+      											  onMouseOut={()=>TrashFunc(false)}
+											/>
 										</span>
 									</div>
 								</div>
@@ -102,7 +124,7 @@ function WorkExperience() {
 							<button
 								style={{ cursor: "pointer" }}
 								className="experience__buttonAdd"
-								onClick={() => setMoadalActive(prev => ({...prev, experienceAdd:true}))}
+								onClick={() => setMoadalActive(prev => ({ ...prev, experienceAdd: true }))}
 							>
 								+ Add new
 							</button>
@@ -121,11 +143,11 @@ function WorkExperience() {
 			</div>
 
 			{
-				isMoadalActive.experienceAdd && <MyWork removeModal={setMoadalActive} defaultData = {{...defaultInputData,type:"add"}} />
+				isMoadalActive.experienceAdd && <MyWork removeModal={setMoadalActive} defaultData={{ ...defaultInputData, type: "add" }} />
 			}
 
 			{
-				isMoadalActive.experienceEdit && <MyWork removeModal={setMoadalActive} defaultData = {{...editData,type:"edit"}} />
+				isMoadalActive.experienceEdit && <MyWork removeModal={setMoadalActive} defaultData={{ ...editData, type: "edit" }} />
 			}
 
 		</>

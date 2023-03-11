@@ -1,7 +1,5 @@
 import Round from 'components/Round/Round';
 import CareerSlider from 'pages/Resume/CareerSlider/CareerSlider';
-import AddEducations from 'pages/Resume/cards/Educations/AddEducations/AddEducations';
-import MyWork from 'pages/Resume/cards/WorkExperience/MyWork/MyWork';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
@@ -12,12 +10,15 @@ import { YourCompany } from './YourCompany/YourCompany';
 import back from '../../../assets/images/Resume/back.png'
 import { AboutCompany } from './AboutCompany/AboutCompany';
 import { ContactsCompany } from './ContactsCompany/ContactsCompany';
+import { removeToken } from 'reduxToolkit/loginSlice/LoginSlice';
+import { useTranslation } from 'react-i18next';
 
 export const RegisterCompany = () => {
     const { activeCard } = useSelector(state => state.companyRegister);
     const len = useSelector(state => state.lenguage.lenguage);
-    const { isExperienceModal, isEducationModal } = useSelector(state => state.resume);
     const { activeDote } = useSelector(state => state.companyRegister)
+
+    const { t } = useTranslation()
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -32,6 +33,8 @@ export const RegisterCompany = () => {
                 { id: 1, label: "Information" }
             ])
         );
+        dispatch(removeToken())
+        localStorage.clear()
     }
 
     const dot = [
@@ -56,7 +59,7 @@ export const RegisterCompany = () => {
                         <div className={classes.backSign}>
                             <button onClick={handleClick} className={classes.backSign_btn}>
                                 <img src={back} alt="back sign" />
-                                Back to sign up
+                                {t("backToSignUp")}
                             </button>
 
                             <div className={classes.round}>
@@ -81,13 +84,6 @@ export const RegisterCompany = () => {
                     </div>
                 </div>
             </div>
-            {
-                isExperienceModal && <MyWork />
-            }
-            {
-                isEducationModal && <AddEducations />
-            }
-
         </>
     )
 }

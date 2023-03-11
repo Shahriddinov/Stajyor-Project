@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import imgUpload from '../../../../assets/images/uploadImage.png'
 import { addCompanyInformation } from 'reduxToolkit/extraReducers';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -21,6 +22,8 @@ export const YourCompany = () => {
 
   const dispatch = useDispatch()
   const { loading } = useSelector(state => state.companyRegister)
+
+  const { t } = useTranslation()
 
   const onImageChange = (event) => {
     setImage(event.target.files[0])
@@ -56,53 +59,50 @@ export const YourCompany = () => {
   return (
     <>
       {loading
-        ? <h2>Loading...</h2>
+        ? <h2>{t("loading")}</h2>
         : <div className={classes.yourCompany}>
-          <h3>Your company!</h3>
+          <h3>{t("yourCompany")}</h3>
           <div className={classes.yourCompany__addImage} onChange={onImageChange}>
             {!isUpload && (
               <>
                 <img src={imgUpload} alt="" onClick={() => fileInput.current.click()} />
-                <h4>Add your company photo</h4>
+                <h4>{t("addCompanyPhoto")}</h4>
               </>
             )}
             {isUpload && (
               <>
                 <img className="uploadedImage" src={URL.createObjectURL(image)} alt="uploaded images" onClick={() => fileInput.current.click()} />
-                <h4 className="title">Change your company photo</h4>
+                <h4 className="title">{t("changeCompanyPhoto")}</h4>
               </>
             )}
             <input
               type="file"
               ref={fileInput}
-              // onChange={(e) => { handleChangeInput({ type: "photo", value: e.target.files[0] }) }}
               accept='.jpg, .jpeg, .png'
               style={{ display: "none" }}
             />
           </div>
           <div className={classes.yourCompany__nameInput}>
-            <h4>Company name</h4>
+            <h4>{t("companyName")}</h4>
             <input
               type="text"
-              placeholder='Name your company'
+              placeholder={t("companyNameInput")}
               ref={name}
-              // onChange={(e) => { handleChangeInput({ type: "name", value: e.target.value }) }}
               required
             />
           </div>
           <div className={classes.yourCompany__numberInput}>
-            <h4>Number</h4>
+            <h4>{t("number")}</h4>
             <input
               type="number"
-              placeholder='Company phone number'
+              placeholder={t("companyPhoneNumberInput")}
               ref={phoneNumber}
-              // onChange={(e) => { handleChangeInput({ type: "phoneNumber", value: e.target.value }) }}
               required
             />
           </div>
           <div className={classes.yourCompany__buttons}>
-            <button className={classes.yourCompany__buttonsPrev} onClick={handleBack}>Back</button>
-            <button className={classes.yourCompany__buttonsNext} onClick={handleSubmit}>Next</button>
+            <button className={classes.yourCompany__buttonsPrev} onClick={handleBack}>{t("back")}</button>
+            <button className={classes.yourCompany__buttonsNext} onClick={handleSubmit}>{t("next")}</button>
           </div>
         </div>
       }

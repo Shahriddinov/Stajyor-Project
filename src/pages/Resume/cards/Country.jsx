@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Photo.scss";
 import Select from "react-select";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { countryUpload, hobbies, positions } from "../../../reduxToolkit/extraReducers";
+import { countryUpload, hobbies, positions, getFreelancer } from "../../../reduxToolkit/extraReducers";
 
 function Country() {
 	const dispatch = useDispatch();
@@ -23,6 +23,7 @@ function Country() {
 	for (let i = 0; i < optionsRegion[userChoice[1]]?.length; i++) {
 		optionsRegionList.push({ value: optionsRegion[userChoice[1]][i].id, label: optionsRegion[userChoice[1]][i].name });
 	}
+	const {data}  = useSelector( state => state.freelance)
 
 	const handleSubmit = event => {
 		let formdatas = new FormData();
@@ -54,11 +55,16 @@ function Country() {
 			])
 		);
 	};
+	useEffect(()=> {
+		 dispatch(getFreelancer())
+		 console.log(data.data?.firstName);
+	},[])
+
 	return (
 		<div className="countryCard">
 			<div className="country">
 				<form className="country__form" onSubmit={handleSubmit}>
-					<h2 className="country__title">Welcome Dilmurod</h2>
+					<h2 className="country__title">Welcome {data?.data?.firstName}</h2>
 					<p className="country__text">
 						Complete your profile to join our global community of freelancers and start selling your services to our growing network of businesses.
 					</p>

@@ -68,7 +68,6 @@ const UserFreelancer = () => {
                     <li className="userfreelancermodal_left_wrapper_item">
                         In progress (<span>3</span>)
                     </li>
-                    <span className='userfreelancermodal_left_wrapper_span'></span>
                 </ul>
                 
 

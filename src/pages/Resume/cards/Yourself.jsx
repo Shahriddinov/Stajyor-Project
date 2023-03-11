@@ -1,11 +1,11 @@
 import React from "react";
-import downIcon from "../../../assets/images/Resume/down.png";
+// import downIcon from "../../../assets/images/Resume/down.png";
 import "./Yourself.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { useState,useRef } from "react";
+import { useState } from "react";
 import "./styles.scss";
-import { MultiSelect } from "@mantine/core";
+// import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { languages, positionsUpload } from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
@@ -108,43 +108,42 @@ function Yourself() {
 
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
-					<MultiSelect
-						className="yourself_select"
-						label="yourself_select"
-						data={skills}
-						placeholder="Select items or create a new"
-						nothingFound="Nothing found"
-						required
-						searchable
-						creatable
-						getCreateLabel={(query) => `+ Create ${query}`}
-						onCreate={(query) => {
-							const item = { value: query, label: query };
-							setSkills((current) => [...current, item]);
-							return item;
-						}}
-						onChange={value => changeSkill({value, type:"skills"})}
-					/>
+					{/*<MultiSelect*/}
+					{/*	className="yourself_select"*/}
+					{/*	data={skills}*/}
+					{/*	placeholder="Select items or create a new"*/}
+					{/*	nothingFound="Nothing found"*/}
+					{/*	required*/}
+					{/*	searchable*/}
+					{/*	creatable*/}
+					{/*	getCreateLabel={(query) => `+ Create ${query}`}*/}
+					{/*	onCreate={(query) => {*/}
+					{/*		const item = { value: query, label: query };*/}
+					{/*		setSkills((current) => [...current, item]);*/}
+					{/*		return item;*/}
+					{/*	}}*/}
+					{/*	onChange={value => changeSkill({value, type:"skills"})}*/}
+					{/*/>*/}
 
 					<label className="yourselfCard_label">Hobbies*</label>
 					<br />
-					<MultiSelect
-						className="yourself_select"
-						required
-						data={hobbiesorg}
-						placeholder="Select hobbie or create a new"
-						nothingFound="Nothing found"
-						searchable
-						creatable
-						getCreateLabel={query => `+ Create ${query}`}
-						onCreate={query => {
-							const item = { value: query.toLowerCase(), label: query.toLowerCase()};
-							setHobbiesorg(current => [...current, item]);
-							return item;
+					{/*<MultiSelect*/}
+					{/*	className="yourself_select"*/}
+					{/*	required*/}
+					{/*	data={hobbiesorg}*/}
+					{/*	placeholder="Select hobbie or create a new"*/}
+					{/*	nothingFound="Nothing found"*/}
+					{/*	searchable*/}
+					{/*	creatable*/}
+					{/*	getCreateLabel={query => `+ Create ${query}`}*/}
+					{/*	onCreate={query => {*/}
+					{/*		const item = { value: query.toLowerCase(), label: query.toLowerCase()};*/}
+					{/*		setHobbiesorg(current => [...current, item]);*/}
+					{/*		return item;*/}
 
-						}}
-						onChange={value => changeSkill({value, type:"hobbies"})}
-					/>
+					{/*	}}*/}
+					{/*	onChange={value => changeSkill({value, type:"hobbies"})}*/}
+					{/*/>*/}
 
 					<textarea
 						className="yourselfCard_textarea"

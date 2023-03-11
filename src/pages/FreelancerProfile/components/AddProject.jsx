@@ -4,10 +4,14 @@ import { ReactComponent as Arrow } from '../../../assets/images/FreelancerPortfo
 import web from '../../../assets/images/FreelancerPortfolio/web.svg'
 import './AddProject.scss'
 import { useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { projectPost } from 'reduxToolkit/extraReducers';
 
 const AddProject = () => {
     const [inputImages, setinputImages] = useState([]);
+    const dispatch = useDispatch();
+    const { response } = useSelector(state => state.project);
+
     const onselectImages = {
         "width": "100%",
         "height": "100%",
@@ -32,10 +36,12 @@ const AddProject = () => {
             formData.append("Link", link.value);
             formData.append("ProjectImages", inputImages);
 
-            let res = await axios.post("http://localhost:5000/api/Project", formData);
-            console.log(res);
-            setinputImages([])
-            e.target.reset();
+            dispatch(projectPost({ formData }))
+
+            if (response.isSuccess === true) {
+                setinputImages([])
+                e.target.reset();
+            }
         } catch (error) {
             console.log(error.message);
         }

@@ -31,3 +31,5 @@ export const COMPANY_OWNER_CREATE = `${BASE_URL}/api/Company/User/Create`;
 export const ADD_COMPANY = `${BASE_URL}/api/Company/Create`;
 export const ADD_LOCATION_COMPANY = `${BASE_URL}/api/Company/Location/Create`;
 export const ADD_CONTACTS_COMPANY = `${BASE_URL}/api/Company/Contact/Create`;
+export const JOBS = `${BASE_URL}/api/Job`;
+export const PROJECT = `${BASE_URL}/api/Project`;

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { countryList, photoUpload } from "reduxToolkit/extraReducers";
+import InputMask from 'react-input-mask';
 
 function Photo() {
 	const [uploaded, setUploaded] = useState("");
@@ -29,18 +30,23 @@ function Photo() {
 		formdatas.append("FirstName", firstName.current.value);
 		formdatas.append("LastName", lastName.current.value);
 		formdatas.append("Email", email.current.value);
-		formdatas.append("Phone", phoneNumber.current.value);
+		formdatas.append("Phone", phoneNumber.current.state.formattedNumber);
 		formdatas.append("Image", uploaded);
-		dispatch(countryList());
-		dispatch(photoUpload(formdatas));
-		dispatch(
-			activeDoteAction([
-				{ id: 2, label: "Address" },
-				{ id: 2, type: "country" }
-			])
-		);
+		if(phoneNumber.current.state.formattedNumber.length > 12){
+			dispatch(countryList());
+			dispatch(photoUpload(formdatas));
+			dispatch(
+				activeDoteAction([
+					{ id: 2, label: "Address" },
+					{ id: 2, type: "country" }
+				])
+			);
+		}
+
 		event.preventDefault();
 	};
+
+
 
 	return (
 		<div className="photoCard">
@@ -58,7 +64,7 @@ function Photo() {
 					<h3 className="title">Change your profile photo</h3>
 				</div>
 			)}
-			<input type="file" accept=".jpg, .jpeg, .png" ref={hiddenFileInput} onChange={handleChange} style={{ display: "none" }} />
+			<input type="file" accept=".png, .jpg, .jpeg" ref={hiddenFileInput} onChange={handleChange} style={{ display: "none" }} />
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>
@@ -75,10 +81,12 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<input ref={phoneNumber} type="number" placeholder="+XXX (XX) XXX-XX-XX" required />
+				
+						    <InputMask ref={phoneNumber}  mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
+					
 					</div>
 				</div>
-				<button className="next_btn_photoCart">Next</button>
+				<button className="next_btn_photoCart" >Next</button>
 			</form>
 		</div>
 	);

@@ -2,11 +2,11 @@ import React from "react";
 import "./style.scss";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { experiencePost,experienceEdit } from "reduxToolkit/extraReducers";
+import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 
-function MyWork({removeModal,defaultData}) {
-	const {	companyName, job, currentWorking, descripeion, type, id} = defaultData
-	const [experience, setExperience] = useState({companyName, job, currentWorking, descripeion});
+function MyWork({ removeModal, defaultData }) {
+	const { companyName, job, currentWorking, descripeion, type, id } = defaultData
+	const [experience, setExperience] = useState({ companyName, job, currentWorking, descripeion });
 
 	const dispatch = useDispatch();
 
@@ -19,13 +19,13 @@ function MyWork({removeModal,defaultData}) {
 	console.log(defaultData);
 	const handleClick = e => {
 		e.preventDefault();
-		if(type === "add") {
+		if (type === "add") {
 			console.log(data);
 			dispatch(experiencePost(data));
-			removeModal((prev) => ({...prev, experienceAdd: false}))
-		}else {
-			dispatch(experienceEdit({data,id}));
-			removeModal((prev) => ({...prev, experienceAdd: false}))
+			removeModal((prev) => ({ ...prev, experienceAdd: false }))
+		} else {
+			dispatch(experienceEdit({ data, id }));
+			removeModal((prev) => ({ ...prev, experienceAdd: false }))
 		}
 	};
 
@@ -85,7 +85,10 @@ function MyWork({removeModal,defaultData}) {
 							<label className="mywork__label" htmlFor="time">
 								To
 							</label>
-							<input className="mywork__inputDate" type="date" id="time" />
+							{experience.currentWorking
+								? <input disabled={true} className="mywork__inputDate" type="date" id="time" />
+								: <input disabled={false} className="mywork__inputDate" type="date" id="time" />
+							}
 						</div>
 					</div>
 

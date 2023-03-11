@@ -11,6 +11,7 @@ import gitHubIcon from "../../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../../assets/images/Resume/cancel.png";
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import { addCompanyContacts } from 'reduxToolkit/extraReducers';
+import { useTranslation } from 'react-i18next';
 
 export const ContactsCompany = () => {
     const dispatch = useDispatch();
@@ -35,6 +36,8 @@ export const ContactsCompany = () => {
         { icon: gitHubIcon, name: "gitHub" },
         { icon: twitterIcon, name: "twitter" }
     ]);
+
+    const { t } = useTranslation()
 
     const addInputContact = (i, n) => {
         setIcons([...icons, { icon: i, name: n }]);
@@ -90,14 +93,14 @@ export const ContactsCompany = () => {
     return (
         <>
             {loading
-                ? <h2>Loading...</h2>
+                ? <h2>{t("loading")}</h2>
                 : <div className={classes.socialMedia}>
-                    <h2>Contacts</h2>
+                    <h2>{t("contactsCompany")}</h2>
                     <form action="submit" className={classes.socialForm} onSubmit={handleSubmit}>
                         <div className={classes.forim_content}>
                             <input
                                 className={classes.webSite_input}
-                                type="text" placeholder="Provide a link to your webSite "
+                                type="text" placeholder={t("contactsCompanyInput")}
                                 value={data.webSite}
                                 onChange={(e) => setData(prev => ({ ...prev, webSite: e.target.value }))}
                             />
@@ -107,7 +110,7 @@ export const ContactsCompany = () => {
                                         <div className={classes.socialInputIn}>
                                             <input
                                                 type="url"
-                                                placeholder={`Provide a link to your ${item.name} account`}
+                                                placeholder={`${t("contactsCompanyInput2")} ${item.name} ${t("account")}`}
                                                 value={data[item.name]}
                                                 onChange={(e) => handleChangeInput({ value: e.target.value, label: item.name })}
                                             />
@@ -123,21 +126,21 @@ export const ContactsCompany = () => {
                                         </button>
                                     </div>
                                 ))}
-                            <p>Choose in which of these social networks you have an account</p>
+                            <p>{t("contactsCompanyDescription")}</p>
                             <div className={classes.socialContainers}>
                                 {socials.map(item => (
                                     <div key={item.name} style={{ cursor: "pointer" }} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
                                         <img style={{ width: "40px" }} src={item.icon} alt={item.name} />
                                         <h4 className={classes.cart_text}>{item.name}</h4>
                                     </div>
-                                ))}
+                                ))} 
                             </div>
                         </div>
                         <div className={classes.button_group}>
                             <button className={classes.backButton} type="button" onClick={prevPage}>
-                                Back
+                                {t("back")}
                             </button>
-                            <button type="submit" className={classes.nextButton}>Next</button>
+                            <button type="submit" className={classes.nextButton}>{t("next")}</button>
                         </div>
                     </form>
                 </div>

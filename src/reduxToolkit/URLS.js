@@ -1,12 +1,9 @@
 export const BASE_URL = "http://localhost:5000";
-export const CLAIMS = `${BASE_URL}/CLAIMS`;
 export const LOG_IN = `${BASE_URL}/login`;
 export const REGISTER = `${BASE_URL}/register`;
-export const USERROLES = `${BASE_URL}/UserRoles`;
-export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
-export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;
 export const PHOTO = `${BASE_URL}/api/Freelancer`;
 export const GET_FREELANCER = `${BASE_URL}/api/Freelancer/Freenalcer/Get`;
+
 export const GET_ALL_FREELANCER = `${BASE_URL}/api/Freelancer`
 export const COUNTRYLIST = `${BASE_URL}/api/GetInformation/Countries`;
 export const COUNTRY_LIST_UPLOAD = `${BASE_URL}/api/Freelancer/Adress`;
@@ -33,3 +30,7 @@ export const ADD_LOCATION_COMPANY = `${BASE_URL}/api/Company/Location/Create`;
 export const ADD_CONTACTS_COMPANY = `${BASE_URL}/api/Company/Contact/Create`;
 export const JOBS = `${BASE_URL}/api/Job`;
 export const PROJECT = `${BASE_URL}/api/Project`;
+export const USERROLES = `${BASE_URL}/UserRoles`;
+export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
+export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;
+export const CLAIMS = `${BASE_URL}/CLAIMS`;

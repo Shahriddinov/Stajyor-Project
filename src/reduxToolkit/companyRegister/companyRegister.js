@@ -14,7 +14,8 @@ const initialState = {
         label: "information"
     },
     loading: false,
-    error: null
+    error: null,
+    contactsIsSuccess: ''
 }
 
 
@@ -52,9 +53,11 @@ const companyRegister = createSlice({
             state.error = action.error.message;
         })
         builder.addCase(addCompanyContacts.pending, (state) => {
-            state.loading = false;
+            state.loading = true;
+            state.contactsIsSuccess = false
         }).addCase(addCompanyContacts.fulfilled, (state, action) => {
             state.loading = false;
+            state.contactsIsSuccess = true
         }).addCase(addCompanyContacts.rejected, (state, action) => {
             state.error = action.error.message;
         })

@@ -1,29 +1,29 @@
-import {createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { addToCompany, addToFreelancer, claimsGet, logInRequest, registerRequest, resumeFinishPost, userRoles } from "reduxToolkit/extraReducers";
 
 const initialState = {
 	loading: false,
 	error: "",
-	loginOnSuccess : "",
+	loginOnSuccess: "",
 	loggedIn: localStorage.getItem("token"),
 	freelancerOrCompony: localStorage.getItem("type") ? localStorage.getItem("type") : false,
 	checkEmail: false,
 	bodyErrors: "",
 	loginResponseError: null,
 	resumeOnSuccess: ""
-	
+
 };
 
 const logInSlice = createSlice({
 	name: "loginRegister",
 	initialState,
 	reducers: {
-		removeToken: (state, {type,payload}) => {
+		removeToken: (state, { type, payload }) => {
 			localStorage.removeItem("token")
 			state.loggedIn = null
 		},
-		resumeFinish: (state,{type,payload}) => {
-			localStorage.setItem("resume",payload)
+		resumeFinish: (state, { type, payload }) => {
+			localStorage.setItem("resume", payload)
 			state.resume = payload
 		},
 		removeCheckEmail: (state) => {
@@ -72,7 +72,7 @@ const logInSlice = createSlice({
 		builder.addCase(registerRequest.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(registerRequest.fulfilled, (state, {payload}) => {
+		builder.addCase(registerRequest.fulfilled, (state, { payload }) => {
 			state.checkEmail = payload.succeded;
 			state.bodyErrors = payload.errors
 		});
@@ -84,9 +84,10 @@ const logInSlice = createSlice({
 		///////////////////USERROLES REDUCER/////////////////
 		builder.addCase(userRoles.pending, (state, action) => {
 			state.loading = true;
+			console.log(action)
 		});
 		builder.addCase(userRoles.fulfilled, (state, action) => {
-			if(action.payload.cLaims.length === 4) {
+			if (action.payload.cLaims.length === 4) {
 				const userType = action.payload.cLaims[3].value
 				localStorage.setItem("type", userType);
 				state.freelancerOrCompony = userType
@@ -95,20 +96,22 @@ const logInSlice = createSlice({
 				const userType = action.payload.cLaims[2].value
 				localStorage.setItem("type", userType);
 				state.freelancerOrCompony = userType
+				console.log(userType)
 			}
-			
+			console.log(action)
 			state.loading = false;
 		});
 		builder.addCase(userRoles.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
+			console.log(action)
 		});
 
 		///////////////////ADDTOFREELANCER REDUCER/////////////////
 		builder.addCase(addToFreelancer.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(addToFreelancer.fulfilled, (state, action) => { 
+		builder.addCase(addToFreelancer.fulfilled, (state, action) => {
 			state.loading = false;
 		});
 		builder.addCase(addToFreelancer.rejected, (state, action) => {
@@ -130,7 +133,7 @@ const logInSlice = createSlice({
 		});
 
 		///////////////////RESUMEFINISH REDUCER/////////////////
-		builder.addCase(resumeFinishPost.pending, (state, {type,payload}) => {
+		builder.addCase(resumeFinishPost.pending, (state, { type, payload }) => {
 			state.loading = true
 			state.resumeOnSuccess = false
 		});
@@ -138,11 +141,11 @@ const logInSlice = createSlice({
 			state.loading = false;
 			state.resumeOnSuccess = action.payload.isSuccess
 		});
-		builder.addCase(resumeFinishPost.rejected, (state,action) => {
+		builder.addCase(resumeFinishPost.rejected, (state, action) => {
 			state.loading = false;
 		})
 	}
 });
 
-export const {removeToken,resumeFinish,removeCheckEmail,profilLogout} = logInSlice.actions
+export const { removeToken, resumeFinish, removeCheckEmail, profilLogout } = logInSlice.actions
 export default logInSlice.reducer;

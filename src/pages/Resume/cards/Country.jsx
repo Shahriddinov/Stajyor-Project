@@ -23,7 +23,7 @@ function Country() {
 	for (let i = 0; i < optionsRegion[userChoice[1]]?.length; i++) {
 		optionsRegionList.push({ value: optionsRegion[userChoice[1]][i].id, label: optionsRegion[userChoice[1]][i].name });
 	}
-	const {data}  = useSelector( state => state.freelance)
+	const { data } = useSelector(state => state.freelance)
 
 	const handleSubmit = event => {
 		let formdatas = new FormData();
@@ -55,10 +55,10 @@ function Country() {
 			])
 		);
 	};
-	useEffect(()=> {
-		 dispatch(getFreelancer())
-		 console.log(data.data?.firstName);
-	},[])
+	useEffect(() => {
+		dispatch(getFreelancer())
+		console.log(data.data?.firstName);
+	}, [])
 
 	return (
 		<div className="countryCard">

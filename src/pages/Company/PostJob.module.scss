@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    width: 560px;
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    color: 323232;
+    border-radius: 9px;
+    box-shadow: 0 15 30 0 rgba($color: #000000, $alpha: 0.1);
+    background-color: #fff;
+}

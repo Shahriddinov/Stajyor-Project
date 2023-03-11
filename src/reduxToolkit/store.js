@@ -7,7 +7,7 @@ import FreelanceSlice from "./freelancerSlice/FreelancerSlice";
 import lenguage from "./lenguageSlice/LenguageSlice"
 import contract from "./contractSlice/contractSlice"
 import resumeControle from "./resumeControlsSlice/resumeControls"
-import companyRegister from "./companyRegister";
+import companyRegister from "./companyRegister/companyRegister";
 
 const store = configureStore({
 	reducer: {

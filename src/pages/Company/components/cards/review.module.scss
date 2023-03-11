@@ -1,0 +1,61 @@
+.title {
+    font-size: 22.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22.5px;
+    font-size: 15px;
+    color: #323232;
+    height: 330px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+
+        .subtitle {
+            display: flex;
+            flex-direction: column;
+            row-gap: 7.5px;
+            p:nth-child(2) {
+                color: #808080;
+            }
+        }
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+    gap: 15px;
+
+    .nextButton {
+        padding: 7.5px 15px;
+        border: solid 1px #1D71B8;
+        border-radius: 6px;
+        background-color: transparent;
+    }
+
+    .backButton {
+        padding: 8px 15px;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.horizontalLine {
+    width: 490px;
+    height: 1px;
+    background-color: #CDCDCD;
+}

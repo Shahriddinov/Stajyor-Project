@@ -1,0 +1,58 @@
+.title {
+    font-size: 22.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6.5px;
+
+    .inputTitle {
+        font-size: 13.5px;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 11px 15px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: solid 1px #CDCDCD;
+        box-sizing: border-box;
+        height: 95px;
+    }
+
+    select {
+        width: 100%;
+        padding: 11px 15px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: solid 1px #CDCDCD;
+        box-sizing: border-box;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+    gap: 15px;
+
+    .nextButton {
+        padding: 7.5px 15px;
+        border: solid 1px #1D71B8;
+        border-radius: 6px;
+        background-color: transparent;
+    }
+
+    .backButton {
+        padding: 8px 15px;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.centeredText {
+    font-size: 13.5px;
+}

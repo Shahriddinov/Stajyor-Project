@@ -1,0 +1,144 @@
+.title {
+    font-size: 22.5px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 6.5px;
+
+    .inputTitle {
+        font-size: 13.5px;
+    }
+
+    .levels {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 15px;
+        font-size: 15px;
+        line-height: 63px;
+        
+        .level {
+            border-radius: 6px;
+            box-shadow: 0 1.5px 4.5px 0 rgba($color: #000000, $alpha: 0.25);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .active {
+            background-color: #1D71B8;
+            color: #FFF;
+        }
+    }
+
+    input {
+        width: 100%;
+        padding: 11px 15px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: solid 1px #CDCDCD;
+        box-sizing: border-box;
+    }
+
+    select {
+        width: 100%;
+        padding: 11px 15px;
+        font-size: 15px;
+        border-radius: 6px;
+        border: solid 1px #CDCDCD;
+        box-sizing: border-box;
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+    margin-top: 15px;
+    gap: 15px;
+
+    .nextButton {
+        padding: 7.5px 15px;
+        border: solid 1px #1D71B8;
+        border-radius: 6px;
+        background-color: transparent;
+    }
+
+    .backButton {
+        padding: 8px 15px;
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.centeredText {
+    font-size: 13.5px;
+}
+
+.skillsAdded {
+    width: 100%;
+    display: flex;
+    padding: 7.5px 15px;
+    border: 1px solid #CDCDCD;
+    border-radius: 6px;
+    box-sizing: border-box;
+
+    .skill {
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: row;
+        padding: 4.5px 7.5px;
+        border-radius: 4.5px;
+        align-items: center;
+        background-color: #1D71B8;
+        gap: 6px;
+    }
+}
+
+.skills {
+    display: flex;
+
+    .skill {
+        display: flex;
+        flex-direction: row;
+        background-color: #F4F8FB;
+        border: 1px solid #1D71B8;
+        color: #1D71B8;
+        padding: 4.5px 7.5px;
+        border-radius: 4.5px;
+        align-items: center;
+        margin-top: 5.5px;
+        gap: 6px;
+    }
+}
+
+.dropdown {
+    background-color: #E9F1F8;
+    height: 18px;
+    border-radius: 4.5px;
+    align-self: center;
+    justify-self: flex-end;
+}
+
+.langAdded {
+    width: 100%;
+    display: flex;
+    padding: 7.5px 15px;
+    border: 1px solid #CDCDCD;
+    border-radius: 6px;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+    .lang {
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: row;
+        padding: 4.5px 7.5px;
+        border-radius: 4.5px;
+        align-items: center;
+        background-color: #1D71B8;
+        gap: 6px;
+    }
+}

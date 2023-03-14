@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ADDTOCOMPANY, ADDTOFREELANCER, ADD_COMPANY, ADD_CONTACTS_COMPANY, ADD_LOCATION_COMPANY, CLAIMS, COMPANY_OWNER_CREATE, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
+import { GET_FREELANCER, ADDTOCOMPANY, ADDTOFREELANCER, ADD_COMPANY, ADD_CONTACTS_COMPANY, ADD_LOCATION_COMPANY, CLAIMS, COMPANY_OWNER_CREATE, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
 
 /////////////////////////////////////CLAIMS GET///////////////////////
 export const claimsGet = createAsyncThunk("claims", async payload => {
@@ -464,4 +464,18 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 			Authorization: `Bearer ${token}`
 		}
 	}).then(response => response.data);
+});
+
+export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async () => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "Get",
+		url: GET_FREELANCER ,
+		headers: {
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
 });

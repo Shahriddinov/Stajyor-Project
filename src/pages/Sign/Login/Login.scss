@@ -170,3 +170,38 @@
         color: green !important;
     }
 }
+
+@media (  max-width: 1410px ) {
+  .login {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+
+    & .login_container {
+        // position: relative;
+        max-width: 1350px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        & .login_bg_img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10001;
+            width: 748px;
+        }
+
+        & .login_container_wrapper {
+
+            & .login_container_wrapper_logo {
+                margin-top: 70px;
+                width: 290px;
+            }
+        }
+    }
+}  
+
+.computer_img {
+    right: 20px;
+}
+}

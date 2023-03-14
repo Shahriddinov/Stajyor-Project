@@ -4,7 +4,7 @@ import "./ComplateResume.scss"
 import arrowLeft from "../../../assets/images/arrow-left.svg"
 import logo from "../../../assets/images/Logo.svg"
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { resumeSelect,resumeFinishPost, userRoles} from 'reduxToolkit/extraReducers'
 import Resume1 from './complate-resume/resume-list/Resume1'
 import Resume2 from './complate-resume/resume-list/Resume2'

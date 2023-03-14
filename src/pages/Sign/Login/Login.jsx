@@ -54,16 +54,6 @@ return (
 								<p className="login_form_info">
 									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
 								</p>
-								{/* <input ref={email} required className="login_form_inp" type="email" placeholder="Email" name="email" /> */}
-									{/* <input
-									ref={password}
-									required
-									className="login_form_inp login_form_inp2"
-									type={`${passwordEye}`}/> */}
-
-									{/* <p>
-									Still don't have an account? <Link to={`/${len}/sign-up`}>Sign up</Link> now!
-								</p> */}
 								<input
 								ref={email}
 								required

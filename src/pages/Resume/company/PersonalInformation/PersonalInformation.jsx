@@ -28,7 +28,6 @@ function PersonalInformation() {
 
 					<div className="companyInformation__content">
 						<h5 className="companyInformation__subtitle">Phone Number*</h5>
-						<input className="companyInformation__input" type="text" placeholder="+XXX (XX) XXX-XX-XX" />
 					</div>
 				</form>
 				<div className="companyInformation__wrapper">

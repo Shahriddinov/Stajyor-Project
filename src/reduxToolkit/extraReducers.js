@@ -5,8 +5,8 @@ import { GET_FREELANCER, ADDTOCOMPANY, ADDTOFREELANCER, ADD_COMPANY, ADD_CONTACT
 /////////////////////////////////////CLAIMS GET///////////////////////
 export const claimsGet = createAsyncThunk("claims", async payload => {
 	return axios({
-		method:"GET",
-		url:CLAIMS,
+		method: "GET",
+		url: CLAIMS,
 	}).then(res => res.data)
 
 });
@@ -14,27 +14,27 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
 	return axios({
-		method:"POST",
-		url:REGISTER,
+		method: "POST",
+		url: REGISTER,
 		data: payload,
-		headers:{
+		headers: {
 			"Content-Type": "application/json-patch+json",
 		}
 	}).then(res => res.data)
-	
+
 });
 
 /////////////////////////////////////LLOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 	return axios({
-		method:"POST",
-		url:LOG_IN,
+		method: "POST",
+		url: LOG_IN,
 		data: {
 			email: payload.email,
 			password: payload.password,
 			confirmPassword: payload.password
 		},
-		headers:{
+		headers: {
 			"Content-Type": "application/json-patch+json",
 		}
 	}).then(res => res.data)
@@ -44,9 +44,9 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 export const userRoles = createAsyncThunk("token/roles", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
-		method:"GET",
-		url:USERROLES,
-		headers:{
+		method: "GET",
+		url: USERROLES,
+		headers: {
 			Authorization: `Bearer ${token}`
 		}
 	}).then(res => res.data)
@@ -56,9 +56,9 @@ export const userRoles = createAsyncThunk("token/roles", async payload => {
 export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
-		method:"POST",
-		url:ADDTOFREELANCER,
-		headers:{
+		method: "POST",
+		url: ADDTOFREELANCER,
+		headers: {
 			Authorization: `Bearer ${token}`
 		}
 	}).then(res => res.data)
@@ -68,9 +68,9 @@ export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async p
 export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
-		method:"POST",
-		url:ADDTOCOMPANY,
-		headers:{
+		method: "POST",
+		url: ADDTOCOMPANY,
+		headers: {
 			Authorization: `Bearer ${token}`
 		}
 	}).then(res => res.data)
@@ -80,10 +80,10 @@ export const addToCompany = createAsyncThunk("token/addToCompany", async payload
 export const resumeFinishPost = createAsyncThunk("resume/resumeFinish", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
-		method:"PUT",
+		method: "PUT",
 		url: RESUMEFINISH,
 		data: payload,
-		headers:{
+		headers: {
 			"Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}

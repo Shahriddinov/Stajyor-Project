@@ -26,13 +26,17 @@ function Photo() {
 	};
 	// console.log(uploaded);
 	const handleSubmit = event => {
+		event.preventDefault();
+
+		console.log("Number", phoneNumber);
+
 		let formdatas = new FormData();
 		formdatas.append("FirstName", firstName.current.value);
 		formdatas.append("LastName", lastName.current.value);
 		formdatas.append("Email", email.current.value);
-		formdatas.append("Phone", phoneNumber.current.state.formattedNumber);
+		formdatas.append("Phone", phoneNumber.current.value);
 		formdatas.append("Image", uploaded);
-		if(phoneNumber.current.state.formattedNumber.length > 12){
+		if(phoneNumber.current.value.length > 12){
 			dispatch(countryList());
 			dispatch(photoUpload(formdatas));
 			dispatch(
@@ -43,10 +47,8 @@ function Photo() {
 			);
 		}
 
-		event.preventDefault();
+		console.log(formdatas);
 	};
-
-
 
 	return (
 		<div className="photoCard">
@@ -86,7 +88,7 @@ function Photo() {
 					
 					</div>
 				</div>
-				<button className="next_btn_photoCart" >Next</button>
+				<button type="submit" className="next_btn_photoCart" >Next</button>
 			</form>
 		</div>
 	);

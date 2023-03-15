@@ -1,7 +1,7 @@
 import React , { useState } from 'react'
 import { ReactComponent as Arrow } from '../../../assets/images/Freelancer/filter_arrow.svg'
 import './Fillter.scss';
-import { MultiSelect } from '@mantine/core';
+// import { MultiSelect } from '@mantine/core';
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterData } from 'reduxToolkit/jobsSlice/JobsSlice';
@@ -100,11 +100,11 @@ const Fillter = () => {
                         </div>
 
                         <h3 className="filter_text" >Region</h3>
-                        <MultiSelect
-                              data={data1}
-                              placeholder="Select Region"
-                              name='region'
-                        />
+                        {/*<MultiSelect*/}
+                        {/*      data={data1}*/}
+                        {/*      placeholder="Select Region"*/}
+                        {/*      name='region'*/}
+                        {/*/>*/}
 
                         <h3 className="filter_text">Completed jobs (minimum)</h3>
 
@@ -112,19 +112,19 @@ const Fillter = () => {
 
                         <h3 className='filter_text' >Required Skills</h3>
 
-                        <MultiSelect
-                              data={data}
-                              placeholder="Select items"
-                              name='skills'
-                              searchable
-                              creatable
-                              getCreateLabel={(query) => `+ Create ${query}`}
-                              onCreate={(query) => {
-                                    const item = { value: query, label: query };
-                                    setData((current) => [...current, item]);
-                                    return item;
-                              }}
-                        />
+                        {/*<MultiSelect*/}
+                        {/*      data={data}*/}
+                        {/*      placeholder="Select items"*/}
+                        {/*      name='skills'*/}
+                        {/*      searchable*/}
+                        {/*      creatable*/}
+                        {/*      getCreateLabel={(query) => `+ Create ${query}`}*/}
+                        {/*      onCreate={(query) => {*/}
+                        {/*            const item = { value: query, label: query };*/}
+                        {/*            setData((current) => [...current, item]);*/}
+                        {/*            return item;*/}
+                        {/*      }}*/}
+                        {/*/>*/}
 
                         <div className='apply_filter'>
                               <button type='submit'>Apply Filter</button>

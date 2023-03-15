@@ -1,18 +1,21 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import './CompanyInformation.scss'
 import { createCompanyUserPost } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
+import InputMask from 'react-input-mask';
+
 
 export const CompanyInformation = () => {
     const [user, setUser] = useState({ firstName: '', lastName: '', copmanyEmail: '', phoneNumber: '' })
     const { t } = useTranslation()
-
+    const phoneNumber = useRef("");
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.companyRegister)
 
     const handleValues = ({ type, value }) => {
+        console.log(type, phoneNumber.current.value)
         setUser(prev => ({ ...prev, [type]: value }))
     }
 
@@ -73,13 +76,18 @@ export const CompanyInformation = () => {
                                 </div>
                                 <div>
                                     <h5>{t("phoneNumber")}</h5>
-                                    <input
+                                    {/* <input
                                         value={user.phoneNumber}
                                         onChange={(e) => handleValues({ type: "phoneNumber", value: e.target.value })}
                                         type="number"
                                         placeholder="+XXX (XX) XXX-XX-XX"
                                         required
-                                    />
+                                    /> */}
+                                    <InputMask  
+                                    ref={phoneNumber}        
+                                    value={user.phoneNumber}
+                                    onChange={(e) => handleValues({ type: "phoneNumber", value: phoneNumber.current.value })} 
+                                    mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
                                 </div>
                             </div>
                             <button className="next_btn_photoCart">{t("next")}</button>

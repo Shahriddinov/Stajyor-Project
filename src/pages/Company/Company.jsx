@@ -34,7 +34,7 @@ const Company = () => {
                         </div>
                         <div className={classes.repInfo}>
                             <h3>Umid Abdusattorov <MdVerified size={20} color={'#1F57C3'}/></h3>
-                            <p>CEO<a href="">Napa Automotive</a></p>
+                            <p>CEO<a href="/">Napa Automotive</a></p>
                         </div>
                     </div>
                     <div className={classes.companyAboutText}>

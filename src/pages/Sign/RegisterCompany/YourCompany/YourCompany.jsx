@@ -3,7 +3,7 @@ import classes from './YourCompany.module.scss'
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 // import { photoUpload } from 'reduxToolkit/ResumeSlice';
 import { useDispatch, useSelector } from 'react-redux';
-
+import InputMask from 'react-input-mask';
 import imgUpload from '../../../../assets/images/uploadImage.png'
 import { addCompanyInformation } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';

@@ -1,10 +1,10 @@
-export const BASE_URL = "http://localhost:5000";
-export const LOG_IN = `${BASE_URL}/login`;
-export const REGISTER = `${BASE_URL}/register`;
+export const BASE_URL = "http://185.217.131.133:7152";
+export const LOG_IN = `${BASE_URL}/auth/login`;
+export const REGISTER = `${BASE_URL}/auth/register`;
 export const PHOTO = `${BASE_URL}/api/Freelancer`;
 export const GET_FREELANCER = `${BASE_URL}/api/Freelancer/Freenalcer/Get`;
 
-export const GET_ALL_FREELANCER = `${BASE_URL}/api/Freelancer`
+export const GET_ALL_FREELANCER = `${BASE_URL}/api/Freelancer`;
 export const COUNTRYLIST = `${BASE_URL}/api/GetInformation/Countries`;
 export const COUNTRY_LIST_UPLOAD = `${BASE_URL}/api/Freelancer/Adress`;
 export const POSITIONS = `${BASE_URL}/api/GetInformation/Positions`;
@@ -12,7 +12,7 @@ export const POSITIONSUPLOAD = `${BASE_URL}/api/Freelancer/Position`;
 export const HOBBIES = `${BASE_URL}/api/GetInformation/Hobbies`;
 export const POSITION_POST = `${BASE_URL}/api/Freelancer/Position`;
 export const LANGUAGES = `${BASE_URL}/api/GetInformation/Languages`;
-export const AVIABLE_PUT = `${BASE_URL}/api/Portfolio/Available`
+export const AVIABLE_PUT = `${BASE_URL}/api/Portfolio/Available`;
 export const EXPERIENCE = `${BASE_URL}/api/FreelancerExperience`;
 export const EXPERIENCEDELETE = `${BASE_URL}/api/FreelancerExperience/`;
 export const EDUCATION = `${BASE_URL}/api/FreelancerEducation`;

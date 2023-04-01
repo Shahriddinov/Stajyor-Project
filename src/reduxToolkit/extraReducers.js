@@ -13,6 +13,7 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
+	console.log(payload)
 	return axios({
 		method: "POST",
 		url: REGISTER,

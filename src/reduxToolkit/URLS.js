@@ -1,6 +1,6 @@
 export const BASE_URL = "http://185.217.131.133:7152";
-export const LOG_IN = `${BASE_URL}/auth/login`;
-export const REGISTER = `${BASE_URL}/auth/register`;
+export const LOG_IN = `${BASE_URL}/api/auth/login`;
+export const REGISTER = `${BASE_URL}/api/auth/register`;
 export const PHOTO = `${BASE_URL}/api/Freelancer`;
 export const GET_FREELANCER = `${BASE_URL}/api/Freelancer/Freenalcer/Get`;
 
@@ -24,10 +24,10 @@ export const RESUMEFINISH = `${BASE_URL}/api/Freelancer/Finish`;
 export const CREATECONTRACT = `${BASE_URL}/api/Contract/Create`;
 export const DAGAVORITEM = `${BASE_URL}/api/Contract/DagavorItems?id=`;
 export const DAGAVOR = `${BASE_URL}/api/Contract/Save/Dagavor`;
-export const COMPANY_OWNER_CREATE = `${BASE_URL}/api/Company/User/Create`;
-export const ADD_COMPANY = `${BASE_URL}/api/Company/Create`;
-export const ADD_LOCATION_COMPANY = `${BASE_URL}/api/Company/Location/Create`;
-export const ADD_CONTACTS_COMPANY = `${BASE_URL}/api/Company/Contact/Create`;
+// export const COMPANY_OWNER_CREATE = `${BASE_URL}/api/Company/User/Create`;
+// export const ADD_COMPANY = `${BASE_URL}/api/Company/Create`;
+// export const ADD_LOCATION_COMPANY = `${BASE_URL}/api/Company/Location/Create`;
+// export const ADD_CONTACTS_COMPANY = `${BASE_URL}/api/Company/Contact/Create`;
 export const JOBS = `${BASE_URL}/api/Job`;
 export const PROJECT = `${BASE_URL}/api/Project`;
 export const USERROLES = `${BASE_URL}/UserRoles`;

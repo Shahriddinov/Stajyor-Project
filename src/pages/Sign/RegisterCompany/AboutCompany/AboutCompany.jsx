@@ -5,8 +5,8 @@ import classes from './AboutCompany.module.scss'
 
 import add from '../../../../assets/images/addIcon.png'
 import cancel from '../../../../assets/images/Resume/cancel.png'
-import { addCompanyLocation } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
+import { companyLocation } from 'reduxToolkit/companyRegister/companyRegisterActions';
 
 
 export const AboutCompany = () => {
@@ -56,7 +56,7 @@ export const AboutCompany = () => {
           { id: 4, type: "SocialMedia" }
         ])
       )
-      dispatch(addCompanyLocation(aboutCompany))
+      dispatch(companyLocation(aboutCompany))
     }
   }
 

@@ -5,8 +5,9 @@ import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import { useDispatch, useSelector } from 'react-redux';
 
 import imgUpload from '../../../../assets/images/uploadImage.png'
-import { addCompanyInformation } from 'reduxToolkit/extraReducers';
+// import { addCompanyInformation } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
+import { yourCompany } from 'reduxToolkit/companyRegister/companyRegisterActions';
 
 
 
@@ -31,11 +32,6 @@ export const YourCompany = () => {
   }
 
   const handleSubmit = (event) => {
-    let formDates = new FormData()
-    formDates.append("Id", 0)
-    formDates.append("Name", name.current.value)
-    formDates.append("PhoneNumber", phoneNumber.current.value)
-    formDates.append("File", image)
     event.preventDefault();
     dispatch(
       activeDoteAction([
@@ -43,7 +39,11 @@ export const YourCompany = () => {
         { id: 3, type: "About" }
       ])
     )
-    dispatch(addCompanyInformation(formDates))
+    dispatch(yourCompany({
+      "companyInformationName": name.current.value, 
+      "companyInformationPhoneNumber": phoneNumber.current.value,
+      "formFile": image
+    }))
   };
 
   const handleBack = (event) => {

@@ -1,46 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import request from "../utils/request";
-import {
-	ADDTOCOMPANY,
-	ADDTOFREELANCER,
-	ADD_COMPANY,
-	ADD_CONTACTS_COMPANY,
-	ADD_LOCATION_COMPANY,
-	CLAIMS,
-	COMPANY_OWNER_CREATE,
-	CONTACTSUPLOAD,
-	COUNTRYLIST,
-	COUNTRY_LIST_UPLOAD,
-	CREATECONTRACT,
-	DAGAVOR,
-	DAGAVORITEM,
-	EDUCATION,
-	EDUCATIONDELETE,
-	EXPERIENCE,
-	EXPERIENCEDELETE,
-	GET_FREELANCER,
-	HOBBIES,
-	JOBS,
-	LANGUAGES,
-	LANGUAGESUPLOAD,
-	LOG_IN,
-	PHOTO,
-	POSITIONS,
-	POSITIONSUPLOAD,
-	PROJECT,
-	REGISTER,
-	RESUMEFINISH,
-	RESUMESELECT,
-	USERROLES
-} from "./URLS";
+import { ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, GET_FREELANCER, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
 
 /////////////////////////////////////CLAIMS GET///////////////////////
 export const claimsGet = createAsyncThunk("claims", async payload => {
 	return axios({
 		method: "GET",
-		url: CLAIMS
-	}).then(res => res.data);
+		url: CLAIMS,
+	}).then(res => res.data)
+
 });
 
 /////////////////////////////////////REGISTER POST///////////////////////
@@ -428,59 +396,59 @@ export { resumeSelect };
 
 ////////////////////////////////////////////////////// COMPANY //////////////////////////////////////////////////////
 
-export const createCompanyUserPost = createAsyncThunk("company/createOwner", async payload => {
-	const token = localStorage.getItem("token");
-	return axios({
-		method: "POST",
-		url: COMPANY_OWNER_CREATE,
-		data: payload,
-		headers: {
-			"Content-Type": "application/json-patch+json",
-			Authorization: `Bearer ${token}`
-		}
-	}).then(response => {
-		return response.data;
-	});
-});
+// export const createCompanyUserPost = createAsyncThunk("company/createOwner", async payload => {
+// 	const token = localStorage.getItem("token");
+// 	return axios({
+// 		method: "POST",
+// 		url: COMPANY_OWNER_CREATE,
+// 		data: payload,
+// 		headers: {
+// 			"Content-Type": 'application/json-patch+json',
+// 			Authorization: `Bearer ${token}`
+// 		}
+// 	}).then(response => {
+// 		return response.data
+// 	});
+// });
 
-export const addCompanyInformation = createAsyncThunk("company/addCompany", async payload => {
-	const token = localStorage.getItem("token");
-	return axios({
-		method: "POST",
-		url: ADD_COMPANY,
-		data: payload,
-		headers: {
-			"Content-Type": "multipart/form-data",
-			Authorization: `Bearer ${token}`
-		}
-	}).then(response => response.data);
-});
+// export const addCompanyInformation = createAsyncThunk("company/addCompany", async payload => {
+// 	const token = localStorage.getItem("token");
+// 	return axios({
+// 		method: "POST",
+// 		url: ADD_COMPANY,
+// 		data: payload,
+// 		headers: {
+// 			"Content-Type": 'multipart/form-data',
+// 			Authorization: `Bearer ${token}`
+// 		}
+// 	}).then(response => response.data);
+// });
 
-export const addCompanyLocation = createAsyncThunk("company/addLocation", async payload => {
-	const token = localStorage.getItem("token");
-	return axios({
-		method: "POST",
-		url: ADD_LOCATION_COMPANY,
-		data: payload,
-		headers: {
-			"Content-Type": "application/json-patch+json",
-			Authorization: `Bearer ${token}`
-		}
-	}).then(response => response.data);
-});
+// export const addCompanyLocation = createAsyncThunk("company/addLocation", async payload => {
+// 	const token = localStorage.getItem("token");
+// 	return axios({
+// 		method: "POST",
+// 		url: ADD_LOCATION_COMPANY,
+// 		data: payload,
+// 		headers: {
+// 			"Content-Type": 'application/json-patch+json',
+// 			Authorization: `Bearer ${token}`
+// 		}
+// 	}).then(response => response.data);
+// });
 
-export const addCompanyContacts = createAsyncThunk("company/addContacts", async payload => {
-	const token = localStorage.getItem("token");
-	return axios({
-		method: "POST",
-		url: ADD_CONTACTS_COMPANY,
-		data: payload,
-		headers: {
-			"Content-Type": "application/json-patch+json",
-			Authorization: `Bearer ${token}`
-		}
-	}).then(response => response.data);
-});
+// export const addCompanyContacts = createAsyncThunk("company/addContacts", async payload => {
+// 	const token = localStorage.getItem("token");
+// 	return axios({
+// 		method: "POST",
+// 		url: ADD_CONTACTS_COMPANY,
+// 		data: payload,
+// 		headers: {
+// 			"Content-Type": 'application/json-patch+json',
+// 			Authorization: `Bearer ${token}`
+// 		}
+// 	}).then(response => response.data);
+// });
 
 export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async () => {
 	const token = localStorage.getItem("token");

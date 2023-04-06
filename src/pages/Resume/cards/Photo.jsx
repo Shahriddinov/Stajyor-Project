@@ -5,19 +5,21 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { countryList, photoUpload } from "reduxToolkit/extraReducers";
+import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from 'react-input-mask';
 
 function Photo() {
 	const [uploaded, setUploaded] = useState("");
-	const hiddenFileInput = useRef(null);
-	const firstName = useRef("");
-	const lastName = useRef("");
-	const email = useRef("");
-	const phoneNumber = useRef("");
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
+	const [data, setData] = useState({
+		firstName: "",
+		lastName: "",
+		email:"",
+		phoneNumber:0
+	})
 
 	const handleClick = event => {
-		hiddenFileInput.current.click();
+		// hiddenFileInput.current.click();
 	};
 
 	const handleChange = event => {
@@ -25,25 +27,18 @@ function Photo() {
 		setUploaded(event.target.files[0]);
 	};
 	// console.log(uploaded);
-	const handleSubmit = event => {
-		let formdatas = new FormData();
-		formdatas.append("FirstName", firstName.current.value);
-		formdatas.append("LastName", lastName.current.value);
-		formdatas.append("Email", email.current.value);
-		formdatas.append("Phone", phoneNumber.current.state.formattedNumber);
-		formdatas.append("Image", uploaded);
-		if(phoneNumber.current.state.formattedNumber.length > 12){
-			dispatch(countryList());
-			dispatch(photoUpload(formdatas));
+	const handleSubmit = (event) => {
+		event.preventDefault()
+		dispatch(firstStep(data))
+		console.log(data)
 			dispatch(
 				activeDoteAction([
 					{ id: 2, label: "Address" },
 					{ id: 2, type: "country" }
 				])
 			);
-		}
+		// }
 
-		event.preventDefault();
 	};
 
 
@@ -64,26 +59,24 @@ function Photo() {
 					<h3 className="title">Change your profile photo</h3>
 				</div>
 			)}
-			<input type="file" accept=".png, .jpg, .jpeg" ref={hiddenFileInput} onChange={handleChange} style={{ display: "none" }} />
+			<input type="file" accept=".png, .jpg, .jpeg"onChange={handleChange} style={{ display: "none" }} />
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>
 						<h5>Firstname*</h5>
-						<input ref={firstName} type="text" placeholder="Write in your first name" required />
+						<input onChange={(e)=>setData({...data, firstName:e.target.value})} type="text" placeholder="Write in your first name" required />
 					</div>
 					<div>
 						<h5>Lastname*</h5>
-						<input ref={lastName} type="text" placeholder="Write in your last name" required />
+						<input onChange={(e)=>setData({...data, lastName:e.target.value})} type="text" placeholder="Write in your last name" required />
 					</div>
 					<div>
 						<h5>E-mail*</h5>
-						<input ref={email} type="email" placeholder="Abcdefg1234@inbox.com" required />
+						<input onChange={(e)=>setData({...data, email:e.target.value})} type="email" placeholder="Abcdefg1234@inbox.com" required />
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-				
-						    <InputMask ref={phoneNumber}  mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
-					
+						    <InputMask  onChange={(e)=>setData({...data, phoneNumber:e.target.value})} mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
 					</div>
 				</div>
 				<button className="next_btn_photoCart" >Next</button>

@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
 import { addToCompany, addToFreelancer, claimsGet, logInRequest, registerRequest, resumeFinishPost, userRoles } from "reduxToolkit/extraReducers";
-
+import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
 	loading: false,
 	error: "",
@@ -11,7 +10,6 @@ const initialState = {
 	bodyErrors: "",
 	loginResponseError: null,
 	resumeOnSuccess: ""
-
 };
 
 const logInSlice = createSlice({
@@ -19,22 +17,22 @@ const logInSlice = createSlice({
 	initialState,
 	reducers: {
 		removeToken: (state, { type, payload }) => {
-			localStorage.removeItem("token")
-			state.loggedIn = null
+			localStorage.removeItem("token");
+			state.loggedIn = null;
 		},
 		resumeFinish: (state, { type, payload }) => {
-			localStorage.setItem("resume", payload)
-			state.resume = payload
+			localStorage.setItem("resume", payload);
+			state.resume = payload;
 		},
-		removeCheckEmail: (state) => {
-			state.checkEmail = null
+		removeCheckEmail: state => {
+			state.checkEmail = null;
 		},
-		profilLogout: (state) => {
-			localStorage.clear()
-			state.resume = null
-			state.loggedIn = null
-			state.loginResponseError = null
-			state.bodyErrors = null
+		profilLogout: state => {
+			localStorage.clear();
+			state.resume = null;
+			state.loggedIn = null;
+			state.loginResponseError = null;
+			state.bodyErrors = null;
 		}
 	},
 
@@ -65,7 +63,7 @@ const logInSlice = createSlice({
 		builder.addCase(logInRequest.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
-			state.loginResponseError = "Email or password incorrect"
+			state.loginResponseError = "Email or password incorrect";
 		});
 
 		///////////////////REGISTER REDUCER/////////////////
@@ -73,38 +71,38 @@ const logInSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(registerRequest.fulfilled, (state, { payload }) => {
-			state.checkEmail = payload.succeded;
-			state.bodyErrors = payload.errors
+			state.checkEmail = payload;
+			console.log(payload);
+			// state.bodyErrors = payload.errors;
 		});
 		builder.addCase(registerRequest.rejected, (state, action) => {
 			state.loading = false;
-			state.error = action.error.message;
+			console.log(action	);
 		});
 
 		///////////////////USERROLES REDUCER/////////////////
 		builder.addCase(userRoles.pending, (state, action) => {
 			state.loading = true;
-			console.log(action)
+			console.log(action);
 		});
 		builder.addCase(userRoles.fulfilled, (state, action) => {
 			if (action.payload.cLaims.length === 4) {
-				const userType = action.payload.cLaims[3].value
+				const userType = action.payload.cLaims[3].value;
 				localStorage.setItem("type", userType);
-				state.freelancerOrCompony = userType
-			}
-			else {
-				const userType = action.payload.cLaims[2].value
+				state.freelancerOrCompony = userType;
+			} else {
+				const userType = action.payload.cLaims[2].value;
 				localStorage.setItem("type", userType);
-				state.freelancerOrCompony = userType
-				console.log(userType)
+				state.freelancerOrCompony = userType;
+				console.log(userType);
 			}
-			console.log(action)
+			console.log(action);
 			state.loading = false;
 		});
 		builder.addCase(userRoles.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
-			console.log(action)
+			console.log(action);
 		});
 
 		///////////////////ADDTOFREELANCER REDUCER/////////////////
@@ -134,18 +132,18 @@ const logInSlice = createSlice({
 
 		///////////////////RESUMEFINISH REDUCER/////////////////
 		builder.addCase(resumeFinishPost.pending, (state, { type, payload }) => {
-			state.loading = true
-			state.resumeOnSuccess = false
+			state.loading = true;
+			state.resumeOnSuccess = false;
 		});
 		builder.addCase(resumeFinishPost.fulfilled, (state, action) => {
 			state.loading = false;
-			state.resumeOnSuccess = action.payload.isSuccess
+			state.resumeOnSuccess = action.payload.isSuccess;
 		});
 		builder.addCase(resumeFinishPost.rejected, (state, action) => {
 			state.loading = false;
-		})
+		});
 	}
 });
 
-export const { removeToken, resumeFinish, removeCheckEmail, profilLogout } = logInSlice.actions
+export const { removeToken, resumeFinish, removeCheckEmail, profilLogout } = logInSlice.actions;
 export default logInSlice.reducer;

@@ -111,7 +111,7 @@ const Signup = () => {
 
 							<div style={{ 'position': "relative" }} >
 								<input
-									required
+									requiredx
 									className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input" : bodyErrors ? "register-success" : ""}`}
 									type={passwordEye}
 									placeholder="Confirm password"

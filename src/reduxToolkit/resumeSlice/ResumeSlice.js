@@ -5,7 +5,119 @@ const initialState = {
  	loading: false,
  	error: "",
  	data: [],
- 	countryList: [],
+ 	countryList: [ {
+		"id": 1,
+		"name": "Uzbekiston",
+		"regions": [
+		  {
+			"id": 9,
+			"name": "Andijon",
+			"countryId": 1
+		  },
+		  {
+			"id": 10,
+			"name": "Bukhara",
+			"countryId": 1
+		  },
+		  {
+			"id": 11,
+			"name": "Djizzak",
+			"countryId": 1
+		  },
+		  {
+			"id": 12,
+			"name": "Fergana",
+			"countryId": 1
+		  },
+		  {
+			"id": 13,
+			"name": "Kashkadarya",
+			"countryId": 1
+		  },
+		  {
+			"id": 14,
+			"name": "Syrdarya",
+			"countryId": 1
+		  },
+		  {
+			"id": 15,
+			"name": "Khorezm",
+			"countryId": 1
+		  },
+		  {
+			"id": 16,
+			"name": "Namangan",
+			"countryId": 1
+		  },
+		  {
+			"id": 17,
+			"name": "Navoi",
+			"countryId": 1
+		  },
+		  {
+			"id": 18,
+			"name": "Tashkent",
+			"countryId": 1
+		  },
+		  {
+			"id": 19,
+			"name": "Samarkand",
+			"countryId": 1
+		  },
+		  {
+			"id": 20,
+			"name": "Surkhandarya",
+			"countryId": 1
+		  }
+		]
+	  },
+	  {
+		"id": 2,
+		"name": "Russia",
+		"regions": [
+		  {
+			"id": 6,
+			"name": "Chelyabinsk",
+			"countryId": 2
+		  },
+		  {
+			"id": 5,
+			"name": "Bryansk",
+			"countryId": 2
+		  },
+		  {
+			"id": 4,
+			"name": "Belgorod",
+			"countryId": 2
+		  },
+		  {
+			"id": 3,
+			"name": "Astrakhan",
+			"countryId": 2
+		  },
+		  {
+			"id": 2,
+			"name": "Arkhangelsk",
+			"countryId": 2
+		  },
+		  {
+			"id": 1,
+			"name": "Amur",
+			"countryId": 2
+		  },
+		  {
+			"id": 7,
+			"name": "Chuvash",
+			"countryId": 2
+		  },
+		  {
+			"id": 8,
+			"name": "Irkutsk",
+			"countryId": 2
+		  }
+		]
+		}
+		],
  	positionList: [],
  	hobbiesList: [],
  	languageList: [],
@@ -34,7 +146,7 @@ const resumeSlice = createSlice({
  			state.loading = true;
  		});
  		builder.addCase(photoUpload.fulfilled, (state, action) => {
-
+			
  		});
  		builder.addCase(photoUpload.rejected, (state, action) => {
  			state.loading = false;
@@ -46,7 +158,8 @@ const resumeSlice = createSlice({
  			state.loading = true;
  		});
  		builder.addCase(countryList.fulfilled, (state, action) => {
- 			state.countryList = action.payload.data;
+ 			state.countryList = action.payload
+		    console.log(action.payload)
  		});
  		builder.addCase(countryList.rejected, (state, action) => {
  			state.loading = false;

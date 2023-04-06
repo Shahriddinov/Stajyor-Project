@@ -10,10 +10,14 @@ import { countryUpload, hobbies, positions, getFreelancer } from "../../../redux
 function Country() {
 	const dispatch = useDispatch();
 	const street = useRef("");
+	const {firstName} = useSelector((state)=> state.frilanserCardSlice.freelancer) 
+	
 	const [userChoice, setUserChoice] = useState([0, 0]);
 	const [userChoice2, setUserChoice2] = useState(0);
+	console.log(userChoice)
 	const countryList = useSelector(state => state.resume.countryList);
 	let options = [];
+	console.log(countryList)
 	let optionsRegion = [];
 	for (let i = 0; i < countryList.length; i++) {
 		options.push({ value: [countryList[i].id, countryList.indexOf(countryList[i])], label: countryList[i].name });
@@ -56,15 +60,14 @@ function Country() {
 		);
 	};
 	useEffect(() => {
-		dispatch(getFreelancer())
-		console.log(data.data?.firstName);
-	}, [])
+	console.log("ss")
+	}, [firstName])
 
 	return (
 		<div className="countryCard">
 			<div className="country">
 				<form className="country__form" onSubmit={handleSubmit}>
-					<h2 className="country__title">Welcome {data?.data?.firstName}</h2>
+					<h2 className="country__title">Welcome {firstName}</h2>
 					<p className="country__text">
 						Complete your profile to join our global community of freelancers and start selling your services to our growing network of businesses.
 					</p>

@@ -1,44 +1,64 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ADDTOCOMPANY, ADDTOFREELANCER, ADD_COMPANY, ADD_CONTACTS_COMPANY, ADD_LOCATION_COMPANY, CLAIMS, COMPANY_OWNER_CREATE, CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, GET_FREELANCER, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, RESUMEFINISH, RESUMESELECT, USERROLES } from "./URLS";
+import request from "../utils/request";
+import {
+	ADDTOCOMPANY,
+	ADDTOFREELANCER,
+	ADD_COMPANY,
+	ADD_CONTACTS_COMPANY,
+	ADD_LOCATION_COMPANY,
+	CLAIMS,
+	COMPANY_OWNER_CREATE,
+	CONTACTSUPLOAD,
+	COUNTRYLIST,
+	COUNTRY_LIST_UPLOAD,
+	CREATECONTRACT,
+	DAGAVOR,
+	DAGAVORITEM,
+	EDUCATION,
+	EDUCATIONDELETE,
+	EXPERIENCE,
+	EXPERIENCEDELETE,
+	GET_FREELANCER,
+	HOBBIES,
+	JOBS,
+	LANGUAGES,
+	LANGUAGESUPLOAD,
+	LOG_IN,
+	PHOTO,
+	POSITIONS,
+	POSITIONSUPLOAD,
+	PROJECT,
+	REGISTER,
+	RESUMEFINISH,
+	RESUMESELECT,
+	USERROLES
+} from "./URLS";
 
 /////////////////////////////////////CLAIMS GET///////////////////////
 export const claimsGet = createAsyncThunk("claims", async payload => {
 	return axios({
 		method: "GET",
-		url: CLAIMS,
-	}).then(res => res.data)
-
+		url: CLAIMS
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////REGISTER POST///////////////////////
-export const registerRequest = createAsyncThunk("token/register", async payload => {
-	console.log(payload)
-	return axios({
-		method: "POST",
+export const registerRequest = createAsyncThunk("token/register", async data => {
+	return request({
 		url: REGISTER,
-		data: payload,
-		headers: {
-			"Content-Type": "application/json-patch+json",
-		}
-	}).then(res => res.data)
-
+		method: "POST",
+		data
+	});
 });
 
 /////////////////////////////////////LLOGIN POST///////////////////////
-export const logInRequest = createAsyncThunk("token/logIn", async payload => {
-	return axios({
-		method: "POST",
-		url: LOG_IN,
-		data: {
-			email: payload.email,
-			password: payload.password,
-			confirmPassword: payload.password
-		},
-		headers: {
-			"Content-Type": "application/json-patch+json",
-		}
-	}).then(res => res.data)
+export const logInRequest = createAsyncThunk("token/logIn", async data => {
+	return request({
+	url:LOG_IN,
+	method:"POST",
+	data
+	})
 });
 
 /////////////////////////////////////USERROLES GET///////////////////////
@@ -50,7 +70,7 @@ export const userRoles = createAsyncThunk("token/roles", async payload => {
 		headers: {
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////ADDTOFREELANCER POST///////////////////////
@@ -62,7 +82,7 @@ export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async p
 		headers: {
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
@@ -74,7 +94,7 @@ export const addToCompany = createAsyncThunk("token/addToCompany", async payload
 		headers: {
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////RESUME FINISH POST///////////////////////
@@ -88,10 +108,8 @@ export const resumeFinishPost = createAsyncThunk("resume/resumeFinish", async pa
 			"Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
-		
+	}).then(res => res.data);
 });
-
 
 ///////////////////////////RESUMESELECT POST///////////////////////
 const resumeSelect = createAsyncThunk("freelancer/resumeSelect", async payload => {
@@ -116,12 +134,12 @@ export const contractCreate = createAsyncThunk("contract/createContract", async 
 		method: "POST",
 		url: CREATECONTRACT,
 		data: payload,
-		headers:{
-			'Content-Type': 'application/json-patch+json',
+		headers: {
+			"Content-Type": "application/json-patch+json",
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
-})
+	}).then(res => res.data);
+});
 
 ///////////////////////////DAGAVOR ITEM GET///////////////////
 export const dagavorItem = createAsyncThunk("contract/dagavorItem", async payload => {
@@ -129,11 +147,11 @@ export const dagavorItem = createAsyncThunk("contract/dagavorItem", async payloa
 	return axios({
 		method: "GET",
 		url: DAGAVORITEM + payload,
-		headers:{
+		headers: {
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
-})
+	}).then(res => res.data);
+});
 
 ///////////////////////////DAGAVOR POST///////////////////
 export const dagavor = createAsyncThunk("contract/dagavor", async payload => {
@@ -142,25 +160,24 @@ export const dagavor = createAsyncThunk("contract/dagavor", async payload => {
 		method: "POST",
 		url: DAGAVOR,
 		data: payload,
-		headers:{
+		headers: {
 			Authorization: `Bearer ${token}`
 		}
-	}).then(res => res.data)
-})
+	}).then(res => res.data);
+});
 
 ///////////////////////////LENGUAGE GET///////////////////
 
 export const languages = createAsyncThunk("get/languages", async () => {
-	return axios.get(LANGUAGES).then(response => {
-		return response.data;
-	});
+	return axios.get(LANGUAGES).then(res => res.data);
 });
 
 ///////////////////////////PHOTOUPLOAD POST///////////////////
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
+	console.log(payload);
 	const token = localStorage.getItem("token");
 	return axios({
-		method: "post",
+		method: "POST",
 		url: PHOTO,
 		data: payload,
 		headers: {
@@ -174,9 +191,7 @@ export const photoUpload = createAsyncThunk("token/photoUpload", async payload =
 
 ///////////////////////////COUNTRYLIST GET///////////////////
 export const countryList = createAsyncThunk("get/countryList", async () => {
-	return axios.get(COUNTRYLIST).then(response => {
-		return response.data;
-	});
+	return axios.get(COUNTRYLIST).then(res => console.log(res.data));
 });
 
 ///////////////////////////COUNTRYUPLOAD POST///////////////////
@@ -203,7 +218,7 @@ export const positions = createAsyncThunk("get/positions", async () => {
 });
 
 ///////////////////////////POSITION GET///////////////////
-export const positionsUpload = createAsyncThunk("post/positions", async (payload) => {
+export const positionsUpload = createAsyncThunk("post/positions", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "post",
@@ -406,10 +421,10 @@ export const projectPost = createAsyncThunk("freelancer/project", async payload 
 			"Content-Type": `multipart/form-data`,
 			Authorization: `bearer ${token}`
 		}
-	})
-})
+	});
+});
 
-export { resumeSelect }
+export { resumeSelect };
 
 ////////////////////////////////////////////////////// COMPANY //////////////////////////////////////////////////////
 
@@ -420,11 +435,11 @@ export const createCompanyUserPost = createAsyncThunk("company/createOwner", asy
 		url: COMPANY_OWNER_CREATE,
 		data: payload,
 		headers: {
-			"Content-Type": 'application/json-patch+json',
+			"Content-Type": "application/json-patch+json",
 			Authorization: `Bearer ${token}`
 		}
 	}).then(response => {
-		return response.data
+		return response.data;
 	});
 });
 
@@ -435,7 +450,7 @@ export const addCompanyInformation = createAsyncThunk("company/addCompany", asyn
 		url: ADD_COMPANY,
 		data: payload,
 		headers: {
-			"Content-Type": 'multipart/form-data',
+			"Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
 	}).then(response => response.data);
@@ -448,7 +463,7 @@ export const addCompanyLocation = createAsyncThunk("company/addLocation", async 
 		url: ADD_LOCATION_COMPANY,
 		data: payload,
 		headers: {
-			"Content-Type": 'application/json-patch+json',
+			"Content-Type": "application/json-patch+json",
 			Authorization: `Bearer ${token}`
 		}
 	}).then(response => response.data);
@@ -461,7 +476,7 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 		url: ADD_CONTACTS_COMPANY,
 		data: payload,
 		headers: {
-			"Content-Type": 'application/json-patch+json',
+			"Content-Type": "application/json-patch+json",
 			Authorization: `Bearer ${token}`
 		}
 	}).then(response => response.data);

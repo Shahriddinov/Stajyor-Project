@@ -12,21 +12,33 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 });
 
 /////////////////////////////////////REGISTER POST///////////////////////
-export const registerRequest = createAsyncThunk("token/register", async data => {
-	return request({
-		url: REGISTER,
+export const registerRequest = createAsyncThunk("token/register", async payload => {
+	console.log(payload)
+	return axios({
 		method: "POST",
-		data
-	});
+		url: REGISTER,
+		data: payload,
+		headers: {
+			"Content-Type": "application/json-patch+json",
+		}
+	}).then(res => res.data)
+
 });
 
 /////////////////////////////////////LLOGIN POST///////////////////////
-export const logInRequest = createAsyncThunk("token/logIn", async data => {
-	return request({
-	url:LOG_IN,
-	method:"POST",
-	data
-	})
+export const logInRequest = createAsyncThunk("token/logIn", async payload => {
+	return axios({
+		method: "POST",
+		url: LOG_IN,
+		data: {
+			email: payload.email,
+			password: payload.password,
+			confirmPassword: payload.password
+		},
+		headers: {
+			"Content-Type": "application/json-patch+json",
+		}
+	}).then(res => res.data)
 });
 
 /////////////////////////////////////USERROLES GET///////////////////////

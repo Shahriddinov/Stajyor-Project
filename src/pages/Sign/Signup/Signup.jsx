@@ -38,6 +38,7 @@ const Signup = () => {
 	const { checkEmail, bodyErrors } = useSelector(state => state.login)
 	const dispatch = useDispatch()
 
+	console.log(checkEmail)
 	const handlerSubmit = (e) => {
 		e.preventDefault()
 		dispatch(registerRequest(data))
@@ -47,8 +48,6 @@ const Signup = () => {
 		var month = dateObj.getUTCMonth(); //months from 1-12
 		var day = dateObj.getUTCDate();
 		var year = dateObj.getUTCFullYear();
-
-
 		localStorage.setItem('member_since', `${monthNames[month]} ${day}, ${year}`)
 	}
 
@@ -59,7 +58,7 @@ const Signup = () => {
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
 					<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-					{!checkEmail ? (
+					{!checkEmail ? (    
 						<form className="login_form" onSubmit={handlerSubmit}>
 							<h3 className="login_form_title">{t("signup")}</h3>
 

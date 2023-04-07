@@ -37,9 +37,13 @@ const freelancerSlice = createSlice({
            state.freelancer.email = action.payload.email
            state.freelancer.phoneNumber = action.payload.phoneNumber
            console.log(state.freelancer.firstName)
+        },
+        secondStep:(state, action)=>{
+            console.log(action.payload)
+            state.freelancer.address.street = action.payload
         }
     }
 })
 
-export const {firstStep} =  freelancerSlice.actions
+export const {firstStep, secondStep} =  freelancerSlice.actions
 export default freelancerSlice.reducer

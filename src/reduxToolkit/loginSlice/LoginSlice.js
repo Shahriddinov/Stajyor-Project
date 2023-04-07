@@ -12,6 +12,8 @@ const initialState = {
 	resumeOnSuccess: ""
 };
 
+/////////erlan\\\\\\\\\\
+
 const logInSlice = createSlice({
 	name: "loginRegister",
 	initialState,
@@ -71,13 +73,13 @@ const logInSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(registerRequest.fulfilled, (state, { payload }) => {
-			state.checkEmail = payload;
-			console.log(payload);
-			// state.bodyErrors = payload.errors;
+			state.checkEmail = payload
+			state.bodyErrors = payload.errors
+			console.log(payload)
 		});
 		builder.addCase(registerRequest.rejected, (state, action) => {
 			state.loading = false;
-			console.log(action	);
+			state.error = action.error.message;
 		});
 
 		///////////////////USERROLES REDUCER/////////////////
@@ -89,7 +91,7 @@ const logInSlice = createSlice({
 			if (action.payload.cLaims.length === 4) {
 				const userType = action.payload.cLaims[3].value;
 				localStorage.setItem("type", userType);
-				state.freelancerOrCompony = userType;
+				state.freelancerOrCompony = userType
 			} else {
 				const userType = action.payload.cLaims[2].value;
 				localStorage.setItem("type", userType);

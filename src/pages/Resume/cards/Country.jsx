@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
+import {secondStep} from '../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice'
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { countryUpload, hobbies, positions, getFreelancer } from "../../../reduxToolkit/extraReducers";
 
@@ -35,9 +36,7 @@ function Country() {
 		formdatas.append("RegionId", userChoice2);
 		formdatas.append("Home", street.current.value);
 		if (formdatas.get("CountryId") && formdatas.get("RegionId") && formdatas.get("Home")) {
-			dispatch(countryUpload(formdatas));
-			dispatch(positions());
-			dispatch(hobbies());
+			dispatch((formdatas));
 			dispatch(
 				activeDoteAction([
 					{ id: 3, label: "About yourself and skills" },

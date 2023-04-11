@@ -7,34 +7,39 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { languages, positionsUpload } from "reduxToolkit/extraReducers";
+import { languages, positionsUpload, getSkills} from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
 
 function Yourself() {
+	// const skillsDatadd = [{name:"skncakjdn"},{name:"jkfkja"}]
 	const dispatch = useDispatch();
-	const {positionGetLoading,positionList,hobbiesList,loading} = useSelector(state => state.resume);
+	const { positionGetLoading, positionList, hobbiesList, loading,skillsData  } = useSelector(state => state.resume);
 	const [data, setData] = useState({
 		description: "",
 		positionId: null,
-		freelancerHobbies:[],
+		freelancerHobbies: [],
 		freelancerSkills: [],
-		newHobbies:[],
-		newSkills:[]
-	})
+		newHobbies: [],
+		newSkills: []
+	});
+	const [skil, setSkil] = useState()
 	const [skills, setSkills] = useState([]);
 	const [hobbiesorg, setHobbiesorg] = useState([]);
-
+    
 	useEffect(() => {
-		setHobbiesorg(hobbiesList.map(hobbie => ({value: hobbie.id.toString().toLowerCase(), label: hobbie.name})))
-	},[hobbiesList])
+		setHobbiesorg(hobbiesList.map(hobbie => ({ value: hobbie.id, label: hobbie.name })));
+	}, [hobbiesList]);
+	useEffect(()=>{
+	dispatch(getSkills(skil))
+	},[skil])
 
-	if(positionGetLoading && loading) {
-		return <b>Loading...</b>
+	if (positionGetLoading && loading) {
+		return <b>Loading...</b>;
 	}
-
+	
 	const handleSubmit = event => {
 		console.log(data);
-		dispatch(positionsUpload(data))
+		// dispatch(positionsUpload(data));
 		dispatch(languages());
 		event.preventDefault();
 		dispatch(
@@ -54,49 +59,40 @@ function Yourself() {
 			])
 		);
 	};
-
-	const positionChange = (position) => {
-		setData(prev => ({...prev, positionId: position.value}))
-		positionList.forEach(el => {
-			if(el.id === position.value) {
-				setSkills(el.skills.map(value => ({ value:value.id.toString().toLowerCase(), label:value.name })))
-			}
-		})
+	const PositionChange = (pos)=>{
+		setSkil(pos.id)
 	}
-
-	const changeSkill = ({value,type}) => {
-		if(type === "skills") {
+	
+	
+	const changeSkill = ({ value, type }) => {
+		console.log(value)
+		if (type === "skills") {
 			setData(prev => ({
 				...prev,
-				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
-				newSkills:value.filter(el => isNaN(el * 1))
-			}))
-		}
-		else {
+				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => el * 1),
+				newSkills: value.filter(el => isNaN(el * 1))
+			}));
+		} else {
 			setData(prev => ({
 				...prev,
-				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => (el * 1)),
-				newHobbies:value.filter(el => isNaN(el * 1))
-			}))
+				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => el * 1),
+				newHobbies: value.filter(el => isNaN(el * 1))
+			}));
 		}
 	}
-
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
 			<form method="post" className="yourselfCard_form" onSubmit={handleSubmit}>
 				<div className="yourselfCard_form_wrapper">
 					<div className="yourselfCard_form_wrapper_top">
-						<label className="yourselfCard_label">
-							Select your Positions*
-						</label>
+						<label className="yourselfCard_label">Select your Positions*</label>
 						<Select
 							required
 							classNamePrefix="mySelect"
-							options={positionList.map(el => ({value: el.id, label: el.name}))}
-							onChange={positionChange}
+							options={positionList.map(el => ({ id: el.id, label: el.name }))}
+							onChange={PositionChange}
 							placeholder="Positions*"
-							// onChange={choice => setUserChoice(choice.value)}
 						/>
 					</div>
 
@@ -110,20 +106,20 @@ function Yourself() {
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect
 						className="yourself_select"
-						data={skills}
+						data={skillsData.map((el)=>({id:el.id, label:el.content}))}
 						placeholder="Select items or create a new"
 						nothingFound="Nothing found"
 						required
 						searchable
 						creatable
-						getCreateLabel={(query) => `+ Create ${query}`}
-						onCreate={(query) => {
+						getCreateLabel={query => `+ Create ${query}`}
+						onCreate={query => {
 							const item = { value: query, label: query };
-							setSkills((current) => [...current, item]);
+							setSkills(current => [...current, item]);
 							return item;
 						}}
-						onChange={value => changeSkill({value, type:"skills"})}
-					/> 
+						onChange={value => changeSkill({ value, type: "skills" })}
+					/>
 
 					<label className="yourselfCard_label">Hobbies*</label>
 					<br />
@@ -137,21 +133,18 @@ function Yourself() {
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
 						onCreate={query => {
-							const item = { value: query.toLowerCase(), label: query.toLowerCase()};
+							const item = { value: query, label: query.toLowerCase() };
 							setHobbiesorg(current => [...current, item]);
 							return item;
-
 						}}
-						onChange={value => changeSkill({value, type:"hobbies"})}
+						onChange={value => changeSkill({ value, type: "hobbies" })}
 					/>
 
 					<textarea
 						className="yourselfCard_textarea"
 						type="textarea"
-						required
 						placeholder="Describe yourself to buyers"
-						onChange={(event) => setData(prev => ({...prev, description: event.target.value.trim()}))}
-					></textarea>
+						onChange={event => setData(prev => ({ ...prev, description: event.target.value.trim() }))}></textarea>
 				</div>
 				<div className="yourselfCard_btn">
 					<button className="backButton" type="button" onClick={prevPage}>

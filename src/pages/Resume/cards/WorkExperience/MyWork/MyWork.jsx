@@ -7,7 +7,7 @@ import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 function MyWork({ removeModal, defaultData }) {
 	const { companyName, job, currentWorking, descripeion, type, id } = defaultData
 	const [experience, setExperience] = useState({ companyName, job, currentWorking, descripeion });
-
+  console.log(id)
 	const dispatch = useDispatch();
 
 	let data = new FormData();
@@ -15,13 +15,20 @@ function MyWork({ removeModal, defaultData }) {
 	data.append("Job", experience.job);
 	data.append("CurrentWorking", experience.currentWorking);
 	data.append("Descripeion", experience.descripeion);
-
+     const [datas, setDatas] =useState({
+		companyName: "napa",
+  job: "frontend",
+  dateFrom: "2023-04-10T06:11:57.081Z",
+  dateTo: "2023-04-10T06:11:57.081Z",
+  description: "aaoao",
+  userId: 6
+	 })
 	console.log(defaultData);
 	const handleClick = e => {
 		e.preventDefault();
 		if (type === "add") {
 			console.log(data);
-			dispatch(experiencePost(data));
+			dispatch(experiencePost(datas));
 			removeModal((prev) => ({ ...prev, experienceAdd: false }))
 		} else {
 			dispatch(experienceEdit({ data, id }));

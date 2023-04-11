@@ -36,11 +36,11 @@ const freelancerSlice = createSlice({
            state.freelancer.lastName = action.payload.lastName
            state.freelancer.email = action.payload.email
            state.freelancer.phoneNumber = action.payload.phoneNumber
-           console.log(state.freelancer.firstName)
         },
         secondStep:(state, action)=>{
-            console.log(action.payload)
+
             state.freelancer.address.street = action.payload
+
         }
     }
 })

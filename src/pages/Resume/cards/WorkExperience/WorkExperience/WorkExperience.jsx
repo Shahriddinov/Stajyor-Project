@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import {useParams} from 'react-router-dom'
 import { useEffect } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { experienceDelete, experienceGet } from "reduxToolkit/extraReducers";
@@ -21,14 +22,12 @@ function WorkExperience() {
 	const [editData, setEditData] = useState({})
 	const { experienceList, experiencePostIsSuccess, loading } = useSelector(state => state.resume);
 	const dispatch = useDispatch();
-
+  const id = useParams()
 	useEffect(() => {
 		if (experiencePostIsSuccess) {
-			dispatch(experienceGet());
+			dispatch(experienceGet(id));
 		}
 	}, [dispatch, experiencePostIsSuccess]);
-
-
 	const handleSubmit = e => {
 		e.preventDefault();
 		dispatch(

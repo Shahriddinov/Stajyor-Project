@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import request from "../utils/request";
 import {
 	ADDTOCOMPANY,
 	ADDTOFREELANCER,
@@ -22,6 +21,7 @@ import {
 	GET_FREELANCER,
 	HOBBIES,
 	JOBS,
+	SKILLS,
 	LANGUAGES,
 	LANGUAGESUPLOAD,
 	LOG_IN,
@@ -45,16 +45,15 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
-	console.log(payload)
+	console.log(payload);
 	return axios({
 		method: "POST",
 		url: REGISTER,
 		data: payload,
 		headers: {
-			"Content-Type": "application/json-patch+json",
+			"Content-Type": "application/json-patch+json"
 		}
-	}).then(res => res.data)
-
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////LLOGIN POST///////////////////////
@@ -68,9 +67,9 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 			confirmPassword: payload.password
 		},
 		headers: {
-			"Content-Type": "application/json-patch+json",
+			"Content-Type": "application/json-patch+json"
 		}
-	}).then(res => res.data)
+	}).then(res => res.data);
 });
 
 /////////////////////////////////////USERROLES GET///////////////////////
@@ -186,7 +185,7 @@ export const languages = createAsyncThunk("get/languages", async () => {
 
 ///////////////////////////PHOTOUPLOAD POST///////////////////
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
-	console.log(payload);
+	// console.log(payload);
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "POST",
@@ -202,8 +201,12 @@ export const photoUpload = createAsyncThunk("token/photoUpload", async payload =
 });
 
 ///////////////////////////COUNTRYLIST GET///////////////////
-export const countryList = createAsyncThunk("get/countryList", async () => {
-	return axios.get(COUNTRYLIST).then(res => console.log(res.data));
+export const getCountryList = createAsyncThunk("get/countryList", async payload => {
+	return axios.get(COUNTRYLIST).then(res => res.data);
+});
+
+export const getRegionsList = createAsyncThunk("get/regionsList", async payload => {
+	return axios.get(COUNTRYLIST + payload).then(res => res.data);
 });
 
 ///////////////////////////COUNTRYUPLOAD POST///////////////////
@@ -244,13 +247,17 @@ export const positionsUpload = createAsyncThunk("post/positions", async payload 
 		return response.data;
 	});
 });
+//////////////////.skils get////////////
+export const getSkills = createAsyncThunk('get/skills', async (payload)=>{
+	 return await  axios.get(SKILLS + payload).then((res)=>res.data)
+})
 ///////////////////////////HOBBIES GET///////////////////
 export const hobbies = createAsyncThunk("get/hobbies", async () => {
 	return axios.get(HOBBIES).then(response => {
 		return response.data;
 	});
 });
-
+ 
 ///////////////////////////LENGUAGEUPLOAD POST///////////////////
 export const languageUpload = createAsyncThunk("token/languageUpload", async payload => {
 	const token = localStorage.getItem("token");
@@ -266,7 +273,7 @@ export const languageUpload = createAsyncThunk("token/languageUpload", async pay
 		return response.data;
 	});
 });
-
+ 
 ///////////////////////////CONTACTUPLOAD PUT///////////////////
 export const contactUpload = createAsyncThunk("token/contactUpload", async payload => {
 	const token = localStorage.getItem("token");
@@ -291,7 +298,7 @@ export const experiencePost = createAsyncThunk("post/exsperiencePost", async pay
 		url: EXPERIENCE,
 		data: payload,
 		headers: {
-			"Content-Type": `multipart/form-data;`,
+			"Content-Type": `application/json-patch+json`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
@@ -320,7 +327,7 @@ export const experienceGet = createAsyncThunk("post/exsperienceGet", async paylo
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
-		url: EXPERIENCE,
+		url: EXPERIENCE + payload.id,
 		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`

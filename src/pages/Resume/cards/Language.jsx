@@ -1,11 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./Language.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { languageUpload } from "reduxToolkit/extraReducers";
+import { languageUpload, languages} from "reduxToolkit/extraReducers";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
 
@@ -46,7 +46,7 @@ function Language() {
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);
 		}
-		dispatch(languageUpload(formdatas));
+		// dispatch(languageUpload(formdatas));
 		event.preventDefault();
 		dispatch(
 			activeDoteAction([
@@ -64,7 +64,9 @@ function Language() {
 			])
 		);
 	};
-
+useEffect(()=>{
+   dispatch(languages())
+}, [])
 	return (
 		<div className={classes.languageCard}>
 			<h2>Write what languages you speak</h2>

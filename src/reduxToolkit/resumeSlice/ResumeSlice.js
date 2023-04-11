@@ -29,6 +29,7 @@ const initialState = {
 	data: [],
 	regionsList: [],
 	countryList: [],
+	
 	positionList: [
 		{ name: "Web Designer", id: 0 },
 		{ name: "FrontEnd", id: 1 },

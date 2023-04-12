@@ -7,14 +7,16 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { languages, positionsUpload, getSkills} from "reduxToolkit/extraReducers";
+import { languages, positionsUpload, getPositionsSkillsWithId } from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
 
 function Yourself() {
-	// const skillsDatadd = [{name:"skncakjdn"},{name:"jkfkja"}]
 	const dispatch = useDispatch();
-	const { positionGetLoading, positionList, hobbiesList, loading,skillsData  } = useSelector(state => state.resume);
-	const [data, setData] = useState({
+	const { positionGetLoading, positionList, hobbiesList, loading, skillsData } = useSelector(state => state.resume);
+	const [skil, setSkil] = useState("");
+	const [hobbiesorg, setHobbiesorg] = useState([]);
+	const [orgSkills, setOrgSkills] = useState("");
+	const [datas, setData] = useState({
 		description: "",
 		positionId: null,
 		freelancerHobbies: [],
@@ -22,24 +24,19 @@ function Yourself() {
 		newHobbies: [],
 		newSkills: []
 	});
-	const [skil, setSkil] = useState()
-	const [skills, setSkills] = useState([]);
-	const [hobbiesorg, setHobbiesorg] = useState([]);
-    
 	useEffect(() => {
 		setHobbiesorg(hobbiesList.map(hobbie => ({ value: hobbie.id, label: hobbie.name })));
 	}, [hobbiesList]);
-	useEffect(()=>{
-	dispatch(getSkills(skil))
-	},[skil])
+	useEffect(() => {
+		dispatch(getPositionsSkillsWithId(skil));
+	}, [skil]);
 
 	if (positionGetLoading && loading) {
 		return <b>Loading...</b>;
 	}
-	
+
 	const handleSubmit = event => {
-		console.log(data);
-		// dispatch(positionsUpload(data));
+		console.log(datas);
 		dispatch(languages());
 		event.preventDefault();
 		dispatch(
@@ -59,13 +56,16 @@ function Yourself() {
 			])
 		);
 	};
-	const PositionChange = (pos)=>{
-		setSkil(pos.id)
-	}
-	
-	
+	const PositionChange = pos => {
+		setSkil(pos.id);
+		console.log(pos);
+	};
+	const options = skillsData.map(item => ({
+		value: item.content,
+		label: item.content
+	}));
 	const changeSkill = ({ value, type }) => {
-		console.log(value)
+		console.log(value);
 		if (type === "skills") {
 			setData(prev => ({
 				...prev,
@@ -79,7 +79,8 @@ function Yourself() {
 				newHobbies: value.filter(el => isNaN(el * 1))
 			}));
 		}
-	}
+	};
+
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -105,20 +106,16 @@ function Yourself() {
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect
-						className="yourself_select"
-						data={skillsData.map((el)=>({id:el.id, label:el.content}))}
-						placeholder="Select items or create a new"
-						nothingFound="Nothing found"
-						required
+						data={options}
+						// onChange={handleSelectChange}
 						searchable
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
 						onCreate={query => {
 							const item = { value: query, label: query };
-							setSkills(current => [...current, item]);
+							setOrgSkills(current => [...current, item]);
 							return item;
 						}}
-						onChange={value => changeSkill({ value, type: "skills" })}
 					/>
 
 					<label className="yourselfCard_label">Hobbies*</label>
@@ -129,15 +126,15 @@ function Yourself() {
 						data={hobbiesorg}
 						placeholder="Select hobbie or create a new"
 						nothingFound="Nothing found"
-						searchable
-						creatable
-						getCreateLabel={query => `+ Create ${query}`}
-						onCreate={query => {
-							const item = { value: query, label: query.toLowerCase() };
-							setHobbiesorg(current => [...current, item]);
-							return item;
-						}}
-						onChange={value => changeSkill({ value, type: "hobbies" })}
+						// searchable
+						// creatable
+						// getCreateLabel={query => `+ Create ${query}`}
+						// onCreate={query => {
+						// 	const item = { value: query, label: query.toLowerCase() };
+						// 	setHobbiesorg(current => [...current, item]);
+						// 	return item;
+						// }}
+						// onChange={value => changeSkill({ value, type: "hobbies" })}
 					/>
 
 					<textarea

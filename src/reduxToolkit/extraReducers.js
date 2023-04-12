@@ -248,13 +248,14 @@ export const positionsUpload = createAsyncThunk("post/positions", async payload 
 	});
 });
 //////////////////.skils get////////////
-export const getSkills = createAsyncThunk('get/skills', async (payload)=>{
-	 return await  axios.get(SKILLS + payload).then((res)=>res.data)
+export const getPositionsSkillsWithId = createAsyncThunk('getPositionWithId/skills', async (payload)=>{
+	 return await axios.get(SKILLS + payload).then((res)=>res.data)
 })
+
 ///////////////////////////HOBBIES GET///////////////////
 export const hobbies = createAsyncThunk("get/hobbies", async () => {
 	return axios.get(HOBBIES).then(response => {
-		return response.data;
+		return response.data
 	});
 });
  

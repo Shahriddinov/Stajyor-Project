@@ -20,7 +20,7 @@ import {
 	resumeSelect,
 	getRegionsList,
 	getLanguages,
-	getSkills
+	getPositionsSkillsWithId
 } from "reduxToolkit/extraReducers";
 
 const initialState = {
@@ -29,7 +29,6 @@ const initialState = {
 	data: [],
 	regionsList: [],
 	countryList: [],
-	
 	positionList: [
 		{ name: "Web Designer", id: 0 },
 		{ name: "FrontEnd", id: 1 },
@@ -44,6 +43,7 @@ const initialState = {
 	educationPostIsSuccess: "",
 	resumeDetails: "",
 	skillsLoading : false,
+	status:"idle",
 	positionGetLoading: false
 };
 
@@ -110,14 +110,15 @@ const resumeSlice = createSlice({
 			state.positionGetLoading = false;
 			state.error = action.error.message;
 		});
-		builder.addCase(getSkills.pending, (state, action)=>{
-			state.skillsLoading = true
+		///////////////////////getPositionsSkillsWithId//////////////////////
+		builder.addCase(getPositionsSkillsWithId.pending, (state, action)=>{
+			state.loading = true
 		});
-		builder.addCase(getSkills.fulfilled, (state, action)=>{
+		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action)=>{
 			state.skillsData =  action.payload
-			state.skillsLoading = false
+			state.loading = false
 		});
-		builder.addCase(getSkills.rejected, (state, action)=>{
+		builder.addCase(getPositionsSkillsWithId.rejected, (state, action)=>{
 			state.error = action.error.message
 		})
 
@@ -150,7 +151,7 @@ const resumeSlice = createSlice({
 		});
 		builder.addCase(languages.fulfilled, (state, action) => {
 			state.languageList = action.payload;
-			// console.log(action.payload);
+			state.loading = false
 		});
 		builder.addCase(languages.rejected, (state, action) => {
 			state.loading = false;

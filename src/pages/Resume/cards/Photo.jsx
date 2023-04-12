@@ -15,18 +15,20 @@ function Photo() {
 		firstName: "",
 		lastName: "",
 		email:"",
-		phoneNumber:0
+		phoneNumber:0,
+		userPhoto:uploaded,
 	})
 
 	const handleClick = event => {
-		// hiddenFileInput.current.click();
-	};
+		hiddenFileInput.current.click();
+	}
 
 	const handleChange = event => {
 		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
-	};
-	// console.log(uploaded);
+	}
+
+
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		dispatch(firstStep(data))

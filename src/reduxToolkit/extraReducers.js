@@ -248,13 +248,18 @@ export const positionsUpload = createAsyncThunk("post/positions", async payload 
 		return response.data;
 	});
 });
+//////////////////.skils get////////////
+export const getPositionsSkillsWithId = createAsyncThunk('getPositionWithId/skills', async (payload)=>{
+	 return await axios.get(SKILLS + payload).then((res)=>res.data)
+})
+
 ///////////////////////////HOBBIES GET///////////////////
 export const hobbies = createAsyncThunk("get/hobbies", async () => {
 	return axios.get(HOBBIES).then(response => {
-		return response.data;
+		return response.data
 	});
 });
-
+ 
 ///////////////////////////LENGUAGEUPLOAD POST///////////////////
 export const languageUpload = createAsyncThunk("token/languageUpload", async payload => {
 	const token = localStorage.getItem("token");
@@ -270,7 +275,7 @@ export const languageUpload = createAsyncThunk("token/languageUpload", async pay
 		return response.data;
 	});
 });
-
+ 
 ///////////////////////////CONTACTUPLOAD PUT///////////////////
 export const contactUpload = createAsyncThunk("token/contactUpload", async payload => {
 	const token = localStorage.getItem("token");
@@ -295,7 +300,7 @@ export const experiencePost = createAsyncThunk("post/exsperiencePost", async pay
 		url: EXPERIENCE,
 		data: payload,
 		headers: {
-			"Content-Type": `multipart/form-data;`,
+			"Content-Type": `application/json-patch+json`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
@@ -324,7 +329,7 @@ export const experienceGet = createAsyncThunk("post/exsperienceGet", async paylo
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
-		url: EXPERIENCE,
+		url: EXPERIENCE + payload.id,
 		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`

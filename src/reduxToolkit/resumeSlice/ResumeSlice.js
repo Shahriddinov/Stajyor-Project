@@ -39,12 +39,14 @@ const initialState = {
 	experienceList: [],
 	experiencePostIsSuccess: "",
 	educationList: [],
-	skillsData:[],
+	skillsData: [],
 	educationPostIsSuccess: "",
 	resumeDetails: "",
-	skillsLoading : false,
-	status:"idle",
-	positionGetLoading: false
+	skillsLoading: false,
+	status: "idle",
+	positionGetLoading: false,
+	userID:null,
+	testData: [],
 };
 
 const resumeSlice = createSlice({
@@ -111,16 +113,16 @@ const resumeSlice = createSlice({
 			state.error = action.error.message;
 		});
 		///////////////////////getPositionsSkillsWithId//////////////////////
-		builder.addCase(getPositionsSkillsWithId.pending, (state, action)=>{
-			state.loading = true
+		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
+			state.loading = true;
 		});
-		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action)=>{
-			state.skillsData =  action.payload
-			state.loading = false
+		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
+			state.skillsData = action.payload;
+			state.loading = false;
 		});
-		builder.addCase(getPositionsSkillsWithId.rejected, (state, action)=>{
-			state.error = action.error.message
-		})
+		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
+			state.error = action.error.message;
+		});
 
 		//Positions List reducer
 		builder.addCase(hobbies.pending, (state, action) => {
@@ -151,7 +153,7 @@ const resumeSlice = createSlice({
 		});
 		builder.addCase(languages.fulfilled, (state, action) => {
 			state.languageList = action.payload;
-			state.loading = false
+			state.loading = false;
 		});
 		builder.addCase(languages.rejected, (state, action) => {
 			state.loading = false;
@@ -173,15 +175,18 @@ const resumeSlice = createSlice({
 		//EXPERIENCE POST REDUCER
 		builder.addCase(experiencePost.pending, (state, action) => {
 			state.loading = true;
-			state.experiencePostIsSuccess = null;
+			console.log("post experence 1 step");
+			// state.experiencePostIsSuccess = null;
 		});
-		builder.addCase(experiencePost.fulfilled, (state, { type, payload }) => {
-			state.experiencePostIsSuccess = payload.isSuccess;
+		builder.addCase(experiencePost.fulfilled, (state, action) => {
+			console.log("experence 2step");
 			state.loading = false;
+			state.userID = action.payload.userId
+			console.log(state.userID)
 		});
 		builder.addCase(experiencePost.rejected, (state, action) => {
 			state.loading = false;
-			state.error = action.error.message;
+			state.error = action.error.message
 		});
 
 		////////////////////////////////////EXPERIENCE EDIT REDUCER//////////////////////
@@ -192,18 +197,20 @@ const resumeSlice = createSlice({
 		builder.addCase(experienceEdit.fulfilled, (state, { type, payload }) => {
 			state.experiencePostIsSuccess = payload.isSuccess;
 			state.loading = false;
+
 		});
 		builder.addCase(experienceEdit.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
 		});
 
-		///////////////////////////////////EXPERIENCE GET REDUCER//////////////////////
+		/////////////////////////////////EXPERIENCE GET REDUCER//////////////////////
 		builder.addCase(experienceGet.pending, (state, action) => {
 			state.loading = true;
 		});
-		builder.addCase(experienceGet.fulfilled, (state, { type, payload }) => {
-			state.experienceList = payload.data;
+		builder.addCase(experienceGet.fulfilled, (state, action) => {
+			state.testData = action.payload
+			console.log(action.payload);
 			state.loading = false;
 		});
 		builder.addCase(experienceGet.rejected, (state, action) => {

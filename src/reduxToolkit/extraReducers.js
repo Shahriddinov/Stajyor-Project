@@ -323,14 +323,14 @@ export const experienceEdit = createAsyncThunk("freelancer/exsperienceEdit", asy
 	});
 });
 
-////////////////////////////EXPERIENCE GET//////////
+//////////////////////////EXPERIENCE GET//////////
 export const experienceGet = createAsyncThunk("post/exsperienceGet", async payload => {
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
-		url: EXPERIENCE + payload.id,
+		url: EXPERIENCE,
 		headers: {
-			"Content-Type": `application/json`,
+			"Content-Type": `application/json-patch+json`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {
@@ -343,7 +343,7 @@ export const experienceDelete = createAsyncThunk("post/exsperienceDelete", async
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "DELETE",
-		url: EXPERIENCEDELETE + payload,
+		url: EXPERIENCEDELETE + '/' + payload,
 		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`

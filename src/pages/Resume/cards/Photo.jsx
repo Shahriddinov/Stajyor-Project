@@ -31,7 +31,6 @@ function Photo() {
 	}
 
 	const handleChange = event => {
-		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
 	}
 
@@ -39,7 +38,6 @@ function Photo() {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		dispatch(firstStep(data))
-		console.log(data)
 			dispatch(
 				activeDoteAction([
 					{ id: 2, label: "Address" },

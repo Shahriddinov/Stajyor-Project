@@ -23,12 +23,11 @@
 		const {userID, experienceList, experiencePostIsSuccess, loading, testData} = useSelector(state => state.resume);
 		const dispatch = useDispatch();
 	const id = useParams()
-	console.log(userID)
+	
 	
 	useEffect(() => {
 		dispatch(experienceGet())
 	}, [experiencePostIsSuccess]);
-	console.log(testData)
 	const handleSubmit = e => {
 		e.preventDefault();
 		dispatch(

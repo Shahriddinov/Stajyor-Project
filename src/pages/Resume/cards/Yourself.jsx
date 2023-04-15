@@ -37,7 +37,6 @@ function Yourself() {
 	}
 
 	const handleSubmit = event => {
-		console.log(datas);
 		dispatch(languages());
 		event.preventDefault();
 		dispatch(
@@ -70,7 +69,6 @@ function Yourself() {
 		label: item.content
 	}));
 	const changeSkill = ({ value, type }) => {
-		console.log(value);
 		if (type === "skills") {
 			setData(prev => ({
 				...prev,

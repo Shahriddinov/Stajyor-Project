@@ -135,9 +135,9 @@ const resumeSlice = createSlice({
 		});
 		builder.addCase(hobbies.fulfilled, (state, action) => {
 			state.hobbiesList = action.payload;
-			console.log(action.payload)
+	
 			state.HobbysGetLoading = "getXobbys"
-			console.log('xobbys get 2 step')
+		
 		});
 		builder.addCase(hobbies.rejected, (state, action) => {
 			state.loading = false;
@@ -183,11 +183,9 @@ const resumeSlice = createSlice({
 		//EXPERIENCE POST REDUCER
 		builder.addCase(experiencePost.pending, (state, action) => {
 			state.loading = true;
-			console.log("post experence 1 step");
 			state.experiencePostIsSuccess = "pending";
 		});
 		builder.addCase(experiencePost.fulfilled, (state, action) => {
-			console.log("experence 2step");
 			state.loading = false;
 			state.userID = action.payload.userId
 			state.experiencePostIsSuccess = 'changed'

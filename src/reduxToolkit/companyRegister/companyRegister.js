@@ -1,7 +1,8 @@
 import {
     createSlice
 } from "@reduxjs/toolkit"
-import { addUser, companyContacts, companyLocation, yourCompany } from "./companyRegisterActions"
+import { addUser, companyLocation, yourCompany } from "./companyRegisterActions"
+import { registerCompany } from "reduxToolkit/extraReducers"
 // import { addCompanyContacts, addCompanyInformation, addCompanyLocation, createCompanyUserPost } from "reduxToolkit/extraReducers"
 
 
@@ -17,7 +18,8 @@ const initialState = {
     loading: false,
     error: null,
     contactsIsSuccess: '',
-    userData: {}
+    userData: {},
+    data: null
 }
 
 const companyRegister = createSlice({
@@ -44,9 +46,18 @@ const companyRegister = createSlice({
             state.userData = { ...state.userData, ...payload }
             console.log(state.userData)
         })
-        builder.addCase(companyContacts, (state, { payload }) => {
-            state.userData = { ...state.userData, ...payload }
-            console.log(state.userData)
+        builder.addCase(registerCompany.pending, (state) => {
+            state.loading = true
+        })
+        builder.addCase(registerCompany.fulfilled, (state, action) => {
+            state.data = action.payload
+            state.loading = false
+            console.log(state.data)
+        })
+        builder.addCase(registerCompany.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+            console.log(state.error)
         })
     }
 })

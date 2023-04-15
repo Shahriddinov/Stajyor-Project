@@ -11,13 +11,13 @@ import gitHubIcon from "../../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../../assets/images/Resume/cancel.png";
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
 import { useTranslation } from 'react-i18next';
+import { registerCompany } from 'reduxToolkit/extraReducers';
 
 export const ContactsCompany = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.companyRegister)
     const userData = useSelector(state => state.companyRegister.userData)
     const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess)
-
     useEffect(() => {
         if (contactsIsSuccess) {
             // dispatch(
@@ -89,6 +89,7 @@ export const ContactsCompany = () => {
         formData.append("Email", userData.email)
         formData.append("CompanyInformation.Name", userData.companyInformationName)
         formData.append("CompanyInformation.PhoneNumber", userData.companyInformationPhoneNumber)
+        formData.append("CompanyInformation.Locations", userData.locations)
         formData.append("CompanyInformation.Description", userData.description)
         formData.append("CompanyInformation.Contact.WhatsApp", data.watsApp)
         formData.append("CompanyInformation.Contact.Facebook", data.facebook)
@@ -96,8 +97,9 @@ export const ContactsCompany = () => {
         formData.append("CompanyInformation.Contact.Instagram", data.instagram)
         formData.append("CompanyInformation.Contact.Telegram", data.telegram)
         formData.append("CompanyInformation.Contact.Github", data.gitHub)
+        formData.append("CompanyInformation.Contact.Website", data.webSite)
         formData.append("FormFile", userData.formFile)
-        console.log(...formData)
+        dispatch(registerCompany(formData))
     };
 
     const prevPage = event => {

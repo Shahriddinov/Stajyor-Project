@@ -11,17 +11,15 @@ import { companyLocation } from 'reduxToolkit/companyRegister/companyRegisterAct
 
 export const AboutCompany = () => {
   const [data, setData] = useState([])
-  const [count, setCount] = useState(1)
-  const [aboutCompany, setAboutCompany] = useState({ compnayId: 0, locations: [], description: '' })
-  const [firstLocation, setFirstLocation] = useState({ id: 0, location: '' })
+  const [aboutCompany, setAboutCompany] = useState({ locations: [], description: '' })
+  const [firstLocation, setFirstLocation] = useState({ location: '' })
 
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
 
   const handleAddLocation = () => {
-    setCount(prev => ++prev)
-    setData(prev => [...prev, { id: count, location: '' }])
+    setData(prev => [...prev, { location: '' }])
   }
 
   const handleInput = ({ id, value }) => {

@@ -40,16 +40,16 @@ const logInSlice = createSlice({
 
 	extraReducers: builder => {
 		///////////////////CLAIMS REDUCER/////////////////
-		builder.addCase(claimsGet.pending, (state, action) => {
-			state.loading = true;
-		});
-		builder.addCase(claimsGet.fulfilled, (state, action) => {
-			state.loading = false;
-		});
-		builder.addCase(claimsGet.rejected, (state, action) => {
-			state.loading = false;
-			state.error = action.error.message;
-		});
+		// builder.addCase(claimsGet.pending, (state, action) => {
+		// 	state.loading = true;
+		// });
+		// builder.addCase(claimsGet.fulfilled, (state, action) => {
+		// 	state.loading = false;
+		// });
+		// builder.addCase(claimsGet.rejected, (state, action) => {
+		// 	state.loading = false;
+		// 	state.error = action.error.message;
+		// });
 
 		///////////////////LOG_IN REDUCER/////////////////
 		builder.addCase(logInRequest.pending, (state, action) => {
@@ -83,54 +83,53 @@ const logInSlice = createSlice({
 		});
 
 		///////////////////USERROLES REDUCER/////////////////
-		builder.addCase(userRoles.pending, (state, action) => {
-			state.loading = true;
-			console.log(action);
-		});
-		builder.addCase(userRoles.fulfilled, (state, action) => {
-			if (action.payload.cLaims.length === 4) {
-				const userType = action.payload.cLaims[3].value;
-				localStorage.setItem("type", userType);
-				state.freelancerOrCompony = userType
-			} else {
-				const userType = action.payload.cLaims[2].value;
-				localStorage.setItem("type", userType);
-				state.freelancerOrCompony = userType;
-				console.log(userType);
-			}
-			console.log(action);
-			state.loading = false;
-		});
-		builder.addCase(userRoles.rejected, (state, action) => {
-			state.loading = false;
-			state.error = action.error.message;
-			console.log(action);
-		});
+		// builder.addCase(userRoles.pending, (state, action) => {
+		// 	state.loading = true;
+		// });
+		// builder.addCase(userRoles.fulfilled, (state, action) => {
+		// 	if (action.payload.cLaims.length === 4) {
+		// 		const userType = action.payload.cLaims[3].value;
+		// 		localStorage.setItem("type", userType);
+		// 		state.freelancerOrCompony = userType
+		// 	} else {
+		// 		const userType = action.payload.cLaims[2].value;
+		// 		localStorage.setItem("type", userType);
+		// 		state.freelancerOrCompony = userType;
+		// 		console.log(userType);
+		// 	}
+		// 	console.log(action);
+		// 	state.loading = false;
+		// });
+		// builder.addCase(userRoles.rejected, (state, action) => {
+		// 	state.loading = false;
+		// 	state.error = action.error.message;
+		// 	console.log(action);
+		// });
 
 		///////////////////ADDTOFREELANCER REDUCER/////////////////
-		builder.addCase(addToFreelancer.pending, (state, action) => {
-			state.loading = true;
-		});
-		builder.addCase(addToFreelancer.fulfilled, (state, action) => {
-			state.loading = false;
-		});
-		builder.addCase(addToFreelancer.rejected, (state, action) => {
-			state.loading = false;
-			state.error = action.error.message;
-		});
+		// builder.addCase(addToFreelancer.pending, (state, action) => {
+		// 	state.loading = true;
+		// });
+		// builder.addCase(addToFreelancer.fulfilled, (state, action) => {
+		// 	state.loading = false;
+		// });
+		// builder.addCase(addToFreelancer.rejected, (state, action) => {
+		// 	state.loading = false;
+		// 	state.error = action.error.message;
+		// });
 
 		///////////////////ADDTOCOMPANY REDUCER/////////////////
-		builder.addCase(addToCompany.pending, (state, action) => {
-			state.loading = true;
-		});
-		builder.addCase(addToCompany.fulfilled, (state, action) => {
-			state.loading = false;
-		});
-		builder.addCase(addToCompany.rejected, (state, action) => {
-			state.loading = false;
-			state.error = action.error.message;
-			console.log(action);
-		});
+		// builder.addCase(addToCompany.pending, (state, action) => {
+		// 	state.loading = true;
+		// });
+		// builder.addCase(addToCompany.fulfilled, (state, action) => {
+		// 	state.loading = false;
+		// });
+		// builder.addCase(addToCompany.rejected, (state, action) => {
+		// 	state.loading = false;
+		// 	state.error = action.error.message;
+		// 	console.log(action);
+		// });
 
 		///////////////////RESUMEFINISH REDUCER/////////////////
 		builder.addCase(resumeFinishPost.pending, (state, { type, payload }) => {

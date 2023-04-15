@@ -22,11 +22,11 @@ const  Company = () => {
 
 	const changeRoute = (value) => {
 		localStorage.setItem("isResume", value)
-		if(value === "freelancer") {
-			dispatch(addToFreelancer())
-		}else {
-			dispatch(addToCompany())
-		}
+		// if(value === "freelancer") {
+			// dispatch(addToFreelancer())
+		// }else {
+			// dispatch(addToCompany())
+		// }
 	}
 
 	const handleClick = () => {

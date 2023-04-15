@@ -27,7 +27,7 @@
 	
 	useEffect(() => {
 		dispatch(experienceGet())
-	}, [loading]);
+	}, [experiencePostIsSuccess]);
 	console.log(testData)
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -106,7 +106,7 @@
 												/>
 											</span>
 
-											<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
+											<span className="experience__icon--delete" onClick={() => dispatch(experienceDelete(el.id))}>
 												<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
 													onMouseOver={()=>TrashFunc(int)} 
 													onMouseOut={()=>TrashFunc(false)}

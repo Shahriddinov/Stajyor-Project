@@ -32,7 +32,8 @@ import {
 	REGISTER,
 	RESUMEFINISH,
 	RESUMESELECT,
-	USERROLES
+	USERROLES,
+	FREELANCER
 } from "./URLS";
 
 /////////////////////////////////////CLAIMS GET///////////////////////
@@ -90,12 +91,26 @@ export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async p
 	return axios({
 		method: "POST",
 		url: ADDTOFREELANCER,
+		data: payload,
 		headers: {
+			"Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
 	}).then(res => res.data);
 });
 
+export const postFreelancerInfo = createAsyncThunk('postFreelancer/info', async(payload)=>{
+	const token = localStorage.getItem("token")
+	return axios({
+		method:"POST",
+		url:FREELANCER,
+		data:payload,
+		headers:{
+			"Content-Type": "multipart/form-data",
+			Authorization: `Bearer ${token}`,
+		}
+	})
+})
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 	const token = localStorage.getItem("token");

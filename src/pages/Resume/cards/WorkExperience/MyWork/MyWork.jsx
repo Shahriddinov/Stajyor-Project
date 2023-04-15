@@ -5,42 +5,38 @@ import { useDispatch } from "react-redux";
 import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 
 function MyWork({ removeModal, defaultData }) {
-	const { companyName, job, currentWorking, descripeion, type, id } = defaultData
+	const { companyName, job, currentWorking, descripeion, type, id } = defaultData;
 	const [experience, setExperience] = useState({ companyName, job, currentWorking, descripeion });
-  console.log(id)
-	const dispatch = useDispatch();
 
-	let data = new FormData();
-	data.append("companyName", experience.companyName);
-	data.append("Job", experience.job);
-	data.append("CurrentWorking", experience.currentWorking);
-	data.append("Descripeion", experience.descripeion);
-     const [datas, setDatas] =useState({
-		companyName: "napa",
-  job: "frontend",
-  dateFrom: "2023-04-10T06:11:57.081Z",
-  dateTo: "2023-04-10T06:11:57.081Z",
-  description: "aaoao",
-  userId: 6
-	 })
-	console.log(defaultData);
+	const dispatch = useDispatch();
+	const [selectedDateFrom, setSelectedDateFrom] = useState("2023-04-14");
+	const [selectedDateTo, setSelectedDateTo] = useState("2023-04-14");
+	const dateFromm = new Date(selectedDateFrom);
+	const dateTo = new Date(selectedDateTo);
+	const [data, setData] = useState({
+		companyName: "",
+		job: "",
+		dateFrom: dateFromm.toISOString(),
+		dateTo: dateTo.toISOString(),
+		description: ""
+	});
 	const handleClick = e => {
 		e.preventDefault();
 		if (type === "add") {
 			console.log(data);
-			dispatch(experiencePost(datas));
-			removeModal((prev) => ({ ...prev, experienceAdd: false }))
+			dispatch(experiencePost(data));
+			removeModal(prev => ({ ...prev, experienceAdd: false }));
+			console.log(data);
 		} else {
 			dispatch(experienceEdit({ data, id }));
-			removeModal((prev) => ({ ...prev, experienceAdd: false }))
+			removeModal(prev => ({ ...prev, experienceAdd: false }));
 		}
 	};
 
 	const changePage = e => {
 		e.preventDefault();
-		removeModal(false)
+		removeModal(false);
 	};
-
 	return (
 		<div className="mywork">
 			<div className="mywork__inner">
@@ -52,8 +48,8 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__input"
 							type="text"
 							placeholder="Company name"
-							value={experience.companyName}
-							onChange={e => setExperience(prev => ({ ...prev, companyName: e.target.value }))}
+							// value={data.companyName}
+							onChange={e => setData(prev => ({ ...prev, companyName: e.target.value }))}
 						/>
 					</div>
 
@@ -62,8 +58,8 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__input"
 							type="text"
 							placeholder="Job"
-							value={experience.job}
-							onChange={e => setExperience(prev => ({ ...prev, job: e.target.value }))}
+							// value={data.job}
+							onChange={e => setData(prev => ({ ...prev, job: e.target.value }))}
 						/>
 					</div>
 
@@ -72,8 +68,8 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__inputCheckbox"
 							type="checkbox"
 							id="checkbox"
-							checked={experience.currentWorking}
-							onChange={() => setExperience(prev => ({ ...prev, currentWorking: !prev.currentWorking }))}
+							// checked={data.currentWorking}
+							// onChange={() => setData(prev => ({ ...prev, currentWorking: !prev.currentWorking }))}
 						/>
 						<label className="mywork__labelCheckbox" htmlFor="checkbox">
 							I am currently working in this role
@@ -85,17 +81,18 @@ function MyWork({ removeModal, defaultData }) {
 							<label className="mywork__label" htmlFor="data">
 								Date from
 							</label>
-							<input className="mywork__inputDate"  type="date" id="data" />
+							<input className="mywork__inputDate" onChange={e => setSelectedDateFrom(e.target.value)} type="date" id="data" />
 						</div>
 
 						<div className="mywork__wrapperDate">
 							<label className="mywork__label" htmlFor="time">
 								To
 							</label>
-							{experience.currentWorking
-								? <input disabled={true} className="mywork__inputDate" type="date" id="time" />
-								: <input disabled={false} className="mywork__inputDate" type="date" id="time" />
-							}
+							{experience.currentWorking ? (
+								<input disabled={true} className="mywork__inputDate" type="date" id="time" onChange={e => setSelectedDateTo(e.target.value)} />
+							) : (
+								<input disabled={false} className="mywork__inputDate" type="date" id="time" />
+							)}
 						</div>
 					</div>
 
@@ -104,13 +101,12 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__description"
 							type="text"
 							placeholder="Description"
-							value={experience.descripeion}
-							onChange={e => setExperience(prev => ({ ...prev, descripeion: e.target.value }))}
-						></textarea>
+							// value={data.descripeion}
+							onChange={e => setData(prev => ({ ...prev, description: e.target.value }))}></textarea>
 					</div>
 
 					<div className="mywork__button">
-						<button type="button" className="mywork__back"  onClick={changePage}>
+						<button type="button" className="mywork__back" onClick={changePage}>
 							Cancel
 						</button>
 						<button type="submit" className="mywork__next">

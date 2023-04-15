@@ -80,7 +80,7 @@ function Yourself() {
 			}));
 		}
 	};
-
+// console.log(data)
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -99,7 +99,7 @@ function Yourself() {
 
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
-						<input type="date" required placeholder="DD/MM/YYYY" />
+						<input type="date" required placeholder="DD/MM/YYYY"/>
 					</div>
 				</div>
 

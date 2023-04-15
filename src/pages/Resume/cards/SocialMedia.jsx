@@ -76,6 +76,7 @@ function SocialMedia() {
 		formdatas.append("Twitter",data.Twitter);
 		formdatas.append("WatsApp",data.WatsApp);
 		dispatch(contactUpload(formdatas));
+
 		dispatch(
 			activeDoteAction([
 				{ id: 8, label: "Resume" },

@@ -38,7 +38,7 @@ const freelancerSlice = createSlice({
            state.freelancer.phoneNumber = action.payload.phoneNumber
         },
         secondStep:(state, action)=>{
-
+            state.freelancer
             state.freelancer.address.street = action.payload
 
         }

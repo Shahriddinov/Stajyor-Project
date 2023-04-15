@@ -20,7 +20,8 @@ import {
 	resumeSelect,
 	getRegionsList,
 	getLanguages,
-	getPositionsSkillsWithId
+	getPositionsSkillsWithId,
+	postFreelancerInfo
 } from "reduxToolkit/extraReducers";
 
 const initialState = {
@@ -35,6 +36,7 @@ const initialState = {
 		{ name: "Backend", id: 2 }
 	],
 	hobbiesList: [],
+	HobbysGetLoading: null,
 	languageList: [],
 	experienceList: [],
 	experiencePostIsSuccess: "",
@@ -69,7 +71,8 @@ const resumeSlice = createSlice({
 			state.loading = false;
 			state.error = action.error.message;
 		});
-
+		/////////post Freelancer//////
+		
 		//CoutryList reducer
 		builder.addCase(getCountryList.pending, (state, action) => {
 			state.loading = true;
@@ -127,9 +130,14 @@ const resumeSlice = createSlice({
 		//Positions List reducer
 		builder.addCase(hobbies.pending, (state, action) => {
 			state.loading = true;
+			state.HobbysGetLoading = "pending Xobbys"
+
 		});
 		builder.addCase(hobbies.fulfilled, (state, action) => {
-			state.hobbiesList = action.payload.data;
+			state.hobbiesList = action.payload;
+	
+			state.HobbysGetLoading = "getXobbys"
+		
 		});
 		builder.addCase(hobbies.rejected, (state, action) => {
 			state.loading = false;
@@ -175,14 +183,12 @@ const resumeSlice = createSlice({
 		//EXPERIENCE POST REDUCER
 		builder.addCase(experiencePost.pending, (state, action) => {
 			state.loading = true;
-			console.log("post experence 1 step");
-			// state.experiencePostIsSuccess = null;
+			state.experiencePostIsSuccess = "pending";
 		});
 		builder.addCase(experiencePost.fulfilled, (state, action) => {
-			console.log("experence 2step");
 			state.loading = false;
 			state.userID = action.payload.userId
-			console.log(state.userID)
+			state.experiencePostIsSuccess = 'changed'
 		});
 		builder.addCase(experiencePost.rejected, (state, action) => {
 			state.loading = false;
@@ -238,8 +244,8 @@ const resumeSlice = createSlice({
 			state.loading = true;
 			state.educationPostIsSuccess = null;
 		});
-		builder.addCase(educationPost.fulfilled, (state, { type, payload }) => {
-			state.educationPostIsSuccess = payload.isSuccess;
+		builder.addCase(educationPost.fulfilled, (state,action) => {
+			state.educationPostIsSuccess = action.payload
 			state.loading = false;
 		});
 		builder.addCase(educationPost.rejected, (state, action) => {

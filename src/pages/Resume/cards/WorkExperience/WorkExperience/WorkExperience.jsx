@@ -23,12 +23,11 @@
 		const {userID, experienceList, experiencePostIsSuccess, loading, testData} = useSelector(state => state.resume);
 		const dispatch = useDispatch();
 	const id = useParams()
-	console.log(userID)
+	
 	
 	useEffect(() => {
 		dispatch(experienceGet())
-	}, [loading]);
-	console.log(testData)
+	}, [experiencePostIsSuccess]);
 	const handleSubmit = e => {
 		e.preventDefault();
 		dispatch(
@@ -106,7 +105,7 @@
 												/>
 											</span>
 
-											<span className="experience__icon--delete" onClick={() => deletExperience(el.id)}>
+											<span className="experience__icon--delete" onClick={() => dispatch(experienceDelete(el.id))}>
 												<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
 													onMouseOver={()=>TrashFunc(int)} 
 													onMouseOut={()=>TrashFunc(false)}

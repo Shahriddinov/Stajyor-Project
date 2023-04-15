@@ -7,12 +7,12 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { languages, positionsUpload, getPositionsSkillsWithId } from "reduxToolkit/extraReducers";
+import { languages, positionsUpload, getPositionsSkillsWithId, hobbies} from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
 
 function Yourself() {
 	const dispatch = useDispatch();
-	const { positionGetLoading, positionList, hobbiesList, loading, skillsData } = useSelector(state => state.resume);
+	const { positionGetLoading, positionList, hobbiesList, loading, skillsData,HobbysGetLoading } = useSelector(state => state.resume);
 	const [skil, setSkil] = useState("");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
@@ -24,19 +24,19 @@ function Yourself() {
 		newHobbies: [],
 		newSkills: []
 	});
-	useEffect(() => {
-		setHobbiesorg(hobbiesList.map(hobbie => ({ value: hobbie.id, label: hobbie.name })));
-	}, [hobbiesList]);
+	
+	
 	useEffect(() => {
 		dispatch(getPositionsSkillsWithId(skil));
+		dispatch(hobbies())
 	}, [skil]);
-
+	
+		
 	if (positionGetLoading && loading) {
 		return <b>Loading...</b>;
 	}
 
 	const handleSubmit = event => {
-		console.log(datas);
 		dispatch(languages());
 		event.preventDefault();
 		dispatch(
@@ -60,12 +60,15 @@ function Yourself() {
 		setSkil(pos.id);
 		console.log(pos);
 	};
+	const Xobbys =hobbiesList.map(item=>({
+		value: item.content,
+		label: item.content
+	}))
 	const options = skillsData.map(item => ({
 		value: item.content,
 		label: item.content
 	}));
 	const changeSkill = ({ value, type }) => {
-		console.log(value);
 		if (type === "skills") {
 			setData(prev => ({
 				...prev,
@@ -80,7 +83,6 @@ function Yourself() {
 			}));
 		}
 	};
-// console.log(data)
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -123,18 +125,18 @@ function Yourself() {
 					<MultiSelect
 						className="yourself_select"
 						required
-						data={hobbiesorg}
+						data={Xobbys}
 						placeholder="Select hobbie or create a new"
 						nothingFound="Nothing found"
-						// searchable
-						// creatable
-						// getCreateLabel={query => `+ Create ${query}`}
-						// onCreate={query => {
-						// 	const item = { value: query, label: query.toLowerCase() };
-						// 	setHobbiesorg(current => [...current, item]);
-						// 	return item;
-						// }}
-						// onChange={value => changeSkill({ value, type: "hobbies" })}
+						searchable
+						creatable
+						getCreateLabel={query => `+ Create ${query}`}
+						onCreate={query => {
+							const item = { value: query, label: query.toLowerCase() };
+							setHobbiesorg(current => [...current, item]);
+							return item;
+						}}
+						onChange={value => changeSkill({ value, type: "hobbies" })}
 					/>
 
 					<textarea

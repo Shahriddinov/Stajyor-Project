@@ -4,27 +4,20 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { countryList, photoUpload } from "reduxToolkit/extraReducers";
+import { countryList, photoUpload , postFreelancerInfo} from "reduxToolkit/extraReducers";
 import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from 'react-input-mask';
 
 function Photo() {
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch()
-	const [data, setData] = useState({
-		firstName: "",
-		lastName: "",
-		email:"",
-		phoneNumber:0,
-		userPhoto:uploaded,
-	})
+	
 
 	const handleClick = event => {
 		hiddenFileInput.current.click();
 	}
 
 	const handleChange = event => {
-		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
 	}
 
@@ -32,7 +25,6 @@ function Photo() {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		dispatch(firstStep(data))
-		console.log(data)
 			dispatch(
 				activeDoteAction([
 					{ id: 2, label: "Address" },

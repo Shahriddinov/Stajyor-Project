@@ -11,13 +11,27 @@ import InputMask from 'react-input-mask';
 function Photo() {
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch()
-	
+	const [data, setData] = useState({
+		firstName: "test",
+		lastName: "test",
+		Email:"test@gmail.com",
+		phoneNumber:"544992921654",
+		addressId:2,
+		address:null,
+		dateOfBirth: "2006-07-09T07:00:00Z",
+        Bio: "cxcvcxvcxcxvcvx",
+        position: 2,
 
+	})
+  const testSend = ()=>{
+   dispatch(postFreelancerInfo(data))
+  }
 	const handleClick = event => {
 		hiddenFileInput.current.click();
 	}
 
 	const handleChange = event => {
+		console.log(event.target.files);
 		setUploaded(event.target.files[0]);
 	}
 
@@ -25,6 +39,7 @@ function Photo() {
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		dispatch(firstStep(data))
+		console.log(data)
 			dispatch(
 				activeDoteAction([
 					{ id: 2, label: "Address" },
@@ -73,7 +88,7 @@ function Photo() {
 						    <InputMask  onChange={(e)=>setData({...data, phoneNumber:e.target.value})} mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
 					</div>
 				</div>
-				<button className="next_btn_photoCart" >Next</button>
+				<button className="next_btn_photoCart" onClick={testSend}>Next</button>
 			</form>
 		</div>
 	);

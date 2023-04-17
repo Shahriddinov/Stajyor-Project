@@ -10,14 +10,14 @@ import instagramIcon from "../../../../assets/images/Resume/instagramIcon.png";
 import gitHubIcon from "../../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../../assets/images/Resume/cancel.png";
 import { activeDoteAction } from 'reduxToolkit/companyRegister/companyRegister';
-import { addCompanyContacts, userRoles } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
+import { registerCompany } from 'reduxToolkit/extraReducers';
 
 export const ContactsCompany = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.companyRegister)
+    const userData = useSelector(state => state.companyRegister.userData)
     const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess)
-
     useEffect(() => {
         if (contactsIsSuccess) {
             // dispatch(
@@ -26,20 +26,17 @@ export const ContactsCompany = () => {
             //         { id: 1, label: "Information" }
             //     ])
             // );
-            dispatch(userRoles())
         }
     }, [contactsIsSuccess, dispatch])
 
     const [data, setData] = useState({
-        id: 0,
-        webSite: "",
-        watsApp: "",
-        facebook: "",
-        instagram: "",
-        telegram: "",
-        gitHub: "",
-        twitter: ""
-
+        "webSite": "",
+        "watsApp": "",
+        "facebook": "",
+        "instagram": "",
+        "telegram": "",
+        "gitHub": "",
+        "twitter": ""
     });
     const [icons, setIcons] = useState([]);
     const [socials, setSocials] = useState([
@@ -85,7 +82,24 @@ export const ContactsCompany = () => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        dispatch(addCompanyContacts(data));
+        let formData = new FormData()
+        formData.append("FirstName", userData.firstName)
+        formData.append("LastName", userData.lastName)
+        formData.append("PhoneNumber", userData.phoneNumber)
+        formData.append("Email", userData.email)
+        formData.append("CompanyInformation.Name", userData.companyInformationName)
+        formData.append("CompanyInformation.PhoneNumber", userData.companyInformationPhoneNumber)
+        formData.append("CompanyInformation.Locations", userData.locations)
+        formData.append("CompanyInformation.Description", userData.description)
+        formData.append("CompanyInformation.Contact.WhatsApp", data.watsApp)
+        formData.append("CompanyInformation.Contact.Facebook", data.facebook)
+        formData.append("CompanyInformation.Contact.Twitter", data.twitter)
+        formData.append("CompanyInformation.Contact.Instagram", data.instagram)
+        formData.append("CompanyInformation.Contact.Telegram", data.telegram)
+        formData.append("CompanyInformation.Contact.Github", data.gitHub)
+        formData.append("CompanyInformation.Contact.Website", data.webSite)
+        formData.append("FormFile", userData.formFile)
+        dispatch(registerCompany(formData))
     };
 
     const prevPage = event => {

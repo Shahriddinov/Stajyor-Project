@@ -5,23 +5,21 @@ import classes from './AboutCompany.module.scss'
 
 import add from '../../../../assets/images/addIcon.png'
 import cancel from '../../../../assets/images/Resume/cancel.png'
-import { addCompanyLocation } from 'reduxToolkit/extraReducers';
 import { useTranslation } from 'react-i18next';
+import { companyLocation } from 'reduxToolkit/companyRegister/companyRegisterActions';
 
 
 export const AboutCompany = () => {
   const [data, setData] = useState([])
-  const [count, setCount] = useState(1)
-  const [aboutCompany, setAboutCompany] = useState({ compnayId: 0, locations: [], description: '' })
-  const [firstLocation, setFirstLocation] = useState({ id: 0, location: '' })
+  const [aboutCompany, setAboutCompany] = useState({ locations: [], description: '' })
+  const [firstLocation, setFirstLocation] = useState({ location: '' })
 
   const { t } = useTranslation()
 
   const dispatch = useDispatch()
 
   const handleAddLocation = () => {
-    setCount(prev => ++prev)
-    setData(prev => [...prev, { id: count, location: '' }])
+    setData(prev => [...prev, { location: '' }])
   }
 
   const handleInput = ({ id, value }) => {
@@ -56,7 +54,7 @@ export const AboutCompany = () => {
           { id: 4, type: "SocialMedia" }
         ])
       )
-      dispatch(addCompanyLocation(aboutCompany))
+      dispatch(companyLocation(aboutCompany))
     }
   }
 

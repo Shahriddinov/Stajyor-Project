@@ -1,7 +1,9 @@
 import {
     createSlice
 } from "@reduxjs/toolkit"
-import { addCompanyContacts, addCompanyInformation, addCompanyLocation, createCompanyUserPost } from "reduxToolkit/extraReducers"
+import { addUser, companyLocation, yourCompany } from "./companyRegisterActions"
+import { registerCompany } from "reduxToolkit/extraReducers"
+// import { addCompanyContacts, addCompanyInformation, addCompanyLocation, createCompanyUserPost } from "reduxToolkit/extraReducers"
 
 
 const initialState = {
@@ -15,9 +17,10 @@ const initialState = {
     },
     loading: false,
     error: null,
-    contactsIsSuccess: ''
+    contactsIsSuccess: '',
+    userData: {},
+    data: null
 }
-
 
 const companyRegister = createSlice({
     name: "companyRegister",
@@ -31,35 +34,30 @@ const companyRegister = createSlice({
         },
     },
     extraReducers: (builder) => {
-        builder.addCase(createCompanyUserPost.pending, (state) => {
-            state.loading = true;
-        }).addCase(createCompanyUserPost.fulfilled, (state, { payload }) => {
-            state.loading = false;
-        }).addCase(createCompanyUserPost.rejected, (state, action) => {
-            state.error = action.error.message;
+        builder.addCase(addUser, (state, action) => {
+            state.userData = action.payload
+            console.log(state.userData)
         })
-        builder.addCase(addCompanyInformation.pending, (state) => {
-            state.loading = false;
-        }).addCase(addCompanyInformation.fulfilled, (state, action) => {
-            state.loading = false;
-        }).addCase(addCompanyInformation.rejected, (state, action) => {
-            state.error = action.error.message;
+        builder.addCase(yourCompany, (state, { payload }) => {
+            state.userData = { ...state.userData, ...payload }
+            console.log(state.userData)
         })
-        builder.addCase(addCompanyLocation.pending, (state) => {
-            state.loading = false;
-        }).addCase(addCompanyLocation.fulfilled, (state, action) => {
-            state.loading = false;
-        }).addCase(addCompanyLocation.rejected, (state, action) => {
-            state.error = action.error.message;
+        builder.addCase(companyLocation, (state, { payload }) => {
+            state.userData = { ...state.userData, ...payload }
+            console.log(state.userData)
         })
-        builder.addCase(addCompanyContacts.pending, (state) => {
-            state.loading = true;
-            state.contactsIsSuccess = false
-        }).addCase(addCompanyContacts.fulfilled, (state, action) => {
-            state.loading = false;
-            state.contactsIsSuccess = true
-        }).addCase(addCompanyContacts.rejected, (state, action) => {
-            state.error = action.error.message;
+        builder.addCase(registerCompany.pending, (state) => {
+            state.loading = true
+        })
+        builder.addCase(registerCompany.fulfilled, (state, action) => {
+            state.data = action.payload
+            state.loading = false
+            console.log(state.data)
+        })
+        builder.addCase(registerCompany.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.error.message
+            console.log(state.error)
         })
     }
 })

@@ -224,22 +224,13 @@
 	}
 }
 
-@media only screen and (max-width: 1170px) {
-	.menu {
-		&__container {
-			.backgroundImg {
-				left: -24%;
-			}
-		}
-	}
-}
-
-@media only screen and (max-width: 1060px) {
-	.menu {
-		&__container {
-			.backgroundImg {
-				left: -28%;
-			}
-		}
-	}
+.menu__underline {
+	position: absolute;
+	top: 58px;
+	width: 30%;
+	height: 4px;
+	background: #fff;
+	border-radius: 8px;
+	margin-left: 6.5rem;
+	z-index: 0;
 }

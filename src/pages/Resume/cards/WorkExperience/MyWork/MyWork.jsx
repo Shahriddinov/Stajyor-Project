@@ -14,7 +14,7 @@ function MyWork({ removeModal, defaultData }) {
 	const dateFromm = new Date(selectedDateFrom);
 	const dateTo = new Date(selectedDateTo);
 	const [data, setData] = useState({
-		companyName: "",
+		companyName: "name",
 		job: "",
 		dateFrom: dateFromm.toISOString(),
 		dateTo: dateTo.toISOString(),
@@ -48,7 +48,7 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__input"
 							type="text"
 							placeholder="Company name"
-							// value={data.companyName}
+							value={data.companyName}
 							onChange={e => setData(prev => ({ ...prev, companyName: e.target.value }))}
 						/>
 					</div>
@@ -58,7 +58,7 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__input"
 							type="text"
 							placeholder="Job"
-							// value={data.job}
+							value={data.job}
 							onChange={e => setData(prev => ({ ...prev, job: e.target.value }))}
 						/>
 					</div>
@@ -101,7 +101,7 @@ function MyWork({ removeModal, defaultData }) {
 							className="mywork__description"
 							type="text"
 							placeholder="Description"
-							// value={data.descripeion}
+							value={data.descripeion}
 							onChange={e => setData(prev => ({ ...prev, description: e.target.value }))}></textarea>
 					</div>
 

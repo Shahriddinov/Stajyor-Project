@@ -112,19 +112,21 @@ const resumeSlice = createSlice({
 		});
 
 		builder.addCase(positions.rejected, (state, action) => {
-			state.positionGetLoading = false;
+			// state.positionGetLoading = false;
 			state.error = action.error.message;
 		});
 		///////////////////////getPositionsSkillsWithId//////////////////////
 		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
-			state.loading = true;
+			// state.loading = true;
+			console.log("pending skilss")
 		});
 		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
 			state.skillsData = action.payload;
 			state.loading = false;
+			console.log("get working")
 		});
 		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
-			state.error = action.error.message;
+			state.error = action.error.message
 		});
 
 		//Positions List reducer

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
 function AddEducations({ removeModal, defaultInputData }) {
-	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData
+	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData;
 	const [post, setPost] = useState({ schoolName, educationDegree, typeStudy, location, currentStudy });
 	const dispatch = useDispatch();
 
@@ -18,21 +18,20 @@ function AddEducations({ removeModal, defaultInputData }) {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		if(type === "add") {
+		if (type === "add") {
 			dispatch(educationPost(data));
-			removeModal(prev => ({...prev, educationAdd:false}))
-		}
-		else {
-			dispatch(educationEdit({id, data}))
-			removeModal(prev => ({...prev, educationEdit:false}))
+			removeModal(prev => ({ ...prev, educationAdd: false }));
+		} else {
+			dispatch(educationEdit({ id, data }));
+			removeModal(prev => ({ ...prev, educationEdit: false }));
 		}
 	};
 
-	const [ isChecked, setIsChecked ] = useState(false)
+	const [isChecked, setIsChecked] = useState(false);
 
 	const isCheskedFunc = () => {
-		setIsChecked(!isChecked)
-	}
+		setIsChecked(!isChecked);
+	};
 
 	return (
 		<div className="addEducations">
@@ -63,14 +62,7 @@ function AddEducations({ removeModal, defaultInputData }) {
 					</div>
 
 					<div className="addEducations__content">
-						<input
-							className="addEducations__inputStudy"
-							type="text"
-							placeholder="Type of study"
-							value={post.typeStudy}
-							onChange={e => setPost(prev => ({ ...prev, typeStudy: e.target.value }))}
-							required
-						/>
+						<select></select>
 					</div>
 
 					<div className="addEducations__content">
@@ -96,11 +88,11 @@ function AddEducations({ removeModal, defaultInputData }) {
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							{
-								post.currentStudy
-									? <input disabled={true} className="addEducations__inputDate" type="date" id="time" />
-									: <input disabled={false} className="addEducations__inputDate" type="date" id="time" />
-							}
+							{post.currentStudy ? (
+								<input disabled={true} className="addEducations__inputDate" type="date" id="time" />
+							) : (
+								<input disabled={false} className="addEducations__inputDate" type="date" id="time" />
+							)}
 						</div>
 					</div>
 
@@ -122,7 +114,9 @@ function AddEducations({ removeModal, defaultInputData }) {
 							<button className="addEducations__back" type="button" onClick={() => removeModal(false)}>
 								Cancel
 							</button>
-							<button className="addEducations__next" type="submit">Save</button>
+							<button className="addEducations__next" type="submit">
+								Save
+							</button>
 						</div>
 					</div>
 				</form>

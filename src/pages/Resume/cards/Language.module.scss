@@ -83,6 +83,7 @@
 .select {
 	display: flex !important;
 	justify-content: space-between !important;
+	align-items: center;
 	gap: 10px;
 	margin-right: 0 !important;
 	box-sizing: border-box;
@@ -92,8 +93,11 @@
 	border-radius: 8px;
 	border: 1px solid #cdcdcd;
 	margin-top: 1rem;
-	text-align: center;
-	// padding: 15px 20px;
+	// text-align: center;
+	padding: 11px 15px;
+	img{
+		margin-top: 4px;
+	}
 }
 
 .select_box {

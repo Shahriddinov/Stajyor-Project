@@ -1,10 +1,10 @@
 import React from "react";
 import "./Photo.scss";
-import { useRef } from "react";
+import { useRef, useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { countryList, photoUpload , postFreelancerInfo} from "reduxToolkit/extraReducers";
+import {getCountryList} from "reduxToolkit/extraReducers";
 import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from 'react-input-mask';
 
@@ -12,7 +12,7 @@ function Photo() {
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch()
 	const [data, setData] = useState({
-		firstName: "test",
+		firstName: "test",	
 		lastName: "test",
 		Email:"test@gmail.com",
 		phoneNumber:"544992921654",
@@ -23,9 +23,9 @@ function Photo() {
         position: 2,
 
 	})
-  const testSend = ()=>{
-   dispatch(postFreelancerInfo(data))
-  }
+	useEffect(() => {
+		dispatch(getCountryList());
+	}, [handleSubmit])
 	const handleClick = event => {
 		hiddenFileInput.current.click();
 	}
@@ -88,7 +88,7 @@ function Photo() {
 						    <InputMask  onChange={(e)=>setData({...data, phoneNumber:e.target.value})} mask='+998 (99)-999-99-99'  placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
 					</div>
 				</div>
-				<button className="next_btn_photoCart" onClick={testSend}>Next</button>
+				<button className="next_btn_photoCart" >Next</button>
 			</form>
 		</div>
 	);

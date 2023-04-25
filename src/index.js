@@ -19,7 +19,7 @@ import "./assets/styles/fonts.css";
 import store from "reduxToolkit/store";
 
 import App from "./App";
-import i18 from "./services/i18";
+// import i18 from "./services/i18";
 
 
 const container = document.getElementById("root");
@@ -31,5 +31,4 @@ root.render(
 			<App/>
 		</BrowserRouter>
 	</Provider>
-
 );

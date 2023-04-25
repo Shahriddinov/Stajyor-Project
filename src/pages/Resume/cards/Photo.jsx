@@ -9,6 +9,7 @@ import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from 'react-input-mask';
 
 function Photo() {
+	const [data, setData] = useState('')
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch()
 	

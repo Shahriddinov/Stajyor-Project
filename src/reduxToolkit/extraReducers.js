@@ -3,13 +3,13 @@ import axios from "axios";
 import { CONTACTSUPLOAD, COUNTRYLIST, COUNTRY_LIST_UPLOAD, CREATECONTRACT, DAGAVOR, DAGAVORITEM, EDUCATION, EDUCATIONDELETE, EXPERIENCE, EXPERIENCEDELETE, GET_FREELANCER, HOBBIES, JOBS, LANGUAGES, LANGUAGESUPLOAD, LOG_IN, PHOTO, POSITIONS, POSITIONSUPLOAD, PROJECT, REGISTER, REGISTER_COMPANY, RESUMEFINISH, RESUMESELECT,  } from "./URLS";
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
 /////////////////////////////////////CLAIMS GET///////////////////////
-// export const claimsGet = createAsyncThunk("claims", async payload => {
-// 	return axios({
-// 		method: "GET",
-// 		url: CLAIMS,
-// 	}).then(res => res.data)
+export const claimsGet = createAsyncThunk("claims", async payload => {
+	return axios({
+		method: "GET",
+		url: CLAIMS,
+	}).then(res => res.data)
 
-// });
+});
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {

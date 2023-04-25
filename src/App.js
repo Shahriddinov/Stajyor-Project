@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Header from "components/Layout/Header/Header";
 import { createCompany, createProfileRoute, freelancerResume, freelancerRouter, publicRoute } from "routes";
-// import { claimsGet } from "reduxToolkit/extraReducers";
+import { claimsGet } from "reduxToolkit/extraReducers";
 import jwt_decode from "jwt-decode";
 
 function App() {
 	const auth = useSelector(state => state.login.loggedIn);
 	const len = useSelector(state => state.lenguage.lenguage);
-	// const freelancerOrCompony = useSelector(state => state.login.freelancerOrCompony);
-	// const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
-	// const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess);
+	const freelancerOrCompony = useSelector(state => state.login.freelancerOrCompony);
+	const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
+	const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess);
 	const dispatch = useDispatch()
 	const navigate = useNavigate();
 	const { pathname } = useLocation()
@@ -33,9 +33,9 @@ function App() {
 		navigate(`/${len}/`)
 	}, [len, navigate])
 
-	// useEffect(() => {
-	// 	dispatch(claimsGet())
-	// }, [dispatch])
+	useEffect(() => {
+		dispatch(claimsGet())
+	}, [dispatch])
 
 	// useEffect(() => {
 	// 	if (loginOnSuccess || contactsIsSuccess) {

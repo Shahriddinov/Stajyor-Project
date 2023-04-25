@@ -13,7 +13,7 @@ import { useEffect } from "react";
 function Yourself() {
 	const dispatch = useDispatch();
 	const { positionGetLoading, positionList, hobbiesList, loading, skillsData,HobbysGetLoading } = useSelector(state => state.resume);
-	const [skil, setSkil] = useState("");
+	const [skil, setSkil] = useState("1");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
 	const [datas, setData] = useState({
@@ -25,7 +25,7 @@ function Yourself() {
 		newSkills: []
 	});
 
-	console.log(skil)
+	// console.log(skil)
 
 	useEffect(() => {
 	dispatch(getPositionsSkillsWithId(skil));
@@ -65,7 +65,7 @@ function Yourself() {
 		value: item.content,
 		label: item.content
 	}))
-	console.log(skillsData)
+	// console.log(skillsData)	
 	const options = skillsData.map(item => ({
 		value: item.content,
 		label: item.content

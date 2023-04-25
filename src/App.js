@@ -29,9 +29,9 @@ function App() {
 				: "None"
 	}
 
-	useLayoutEffect(() => {
-		navigate(`/${len}/`)
-	}, [len, navigate])
+	// useLayoutEffect(() => {
+	// 	navigate(`/${len}/`)
+	// }, [len, navigate])
 
 	// useEffect(() => {
 	// 	dispatch(claimsGet())
@@ -64,7 +64,7 @@ function App() {
 								freelancerResume.map(route => (
 									<Route path={ `/${len}${route.path}` } element={ route.element } key={ route.id } />
 								))
-							}
+							}                          
 							<Route path="*" element={ <Navigate to={ `/${len}/welcome/create-profile` } /> } />
 						</Routes>
 						:

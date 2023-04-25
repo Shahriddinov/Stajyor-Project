@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.scss";
 import { useState } from "react";
+import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
@@ -32,7 +33,22 @@ function AddEducations({ removeModal, defaultInputData }) {
 	const isCheskedFunc = () => {
 		setIsChecked(!isChecked);
 	};
-
+	const [selectedDegree, setSelectedDegree] = useState([]);
+	const selectedDegreeChange = value => {
+		setSelectedDegree(value);
+	};
+	// const [selectedTypeofChange, setSelectedTypeofChange] = useState([])
+	// const selectedTypeofChange
+	const TypeOptions = [
+		{ value: "online", label: "online", id: 1 },
+		{ value: "offline", label: "offline", id: 2 }
+	];
+	const option = [
+		{ value: "sredniy", label: "sredniy", id:1},
+		{ value: "vishiy", label: "vishiy", id:2},
+		{value: "Bachelour", label: "Bachelour", id:3}
+	];
+	console.log(option);
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
@@ -51,20 +67,14 @@ function AddEducations({ removeModal, defaultInputData }) {
 					</div>
 
 					<div className="addEducations__content">
-						<input
-							className="addEducations__inputSelect"
-							type="text"
-							placeholder="Select degree"
-							value={post.educationDegree}
-							onChange={e => setPost(prev => ({ ...prev, educationDegree: e.target.value }))}
-							required
-						/>
+						<Select options={option} value={selectedDegree} onChange={selectedDegreeChange} />
 					</div>
+					<br/>
 
 					<div className="addEducations__content">
-						<select></select>
+						<Select options={TypeOptions}/>
 					</div>
-
+					<br />
 					<div className="addEducations__content">
 						<input
 							className="addEducations__inputLocation"

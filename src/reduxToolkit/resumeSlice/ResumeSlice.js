@@ -200,10 +200,10 @@ const resumeSlice = createSlice({
 		////////////////////////////////////EXPERIENCE EDIT REDUCER//////////////////////
 		builder.addCase(experienceEdit.pending, (state, action) => {
 			state.loading = true;
-			state.experiencePostIsSuccess = null;
+			// state.experiencePostIsSuccess = null;
 		});
 		builder.addCase(experienceEdit.fulfilled, (state, { type, payload }) => {
-			state.experiencePostIsSuccess = payload.isSuccess;
+			// state.experiencePostIsSuccess = payload.isSuccess;
 			state.loading = false;
 
 		});
@@ -229,12 +229,12 @@ const resumeSlice = createSlice({
 
 		////////////////////////////////////EXPERIENCE DELETE REDUCER ////////////////
 		builder.addCase(experienceDelete.pending, (state, action) => {
-			state.experiencePostIsSuccess = null;
+			state.experiencePostIsSuccess = "pendign deleting";
 			state.loading = true;
 		});
 		builder.addCase(experienceDelete.fulfilled, (state, { type, payload }) => {
 			state.loading = false;
-			state.experiencePostIsSuccess = payload.isSuccess;
+			state.experiencePostIsSuccess = "success deledet"
 		});
 		builder.addCase(experienceDelete.rejected, (state, action) => {
 			state.loading = false;

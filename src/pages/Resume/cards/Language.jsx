@@ -64,6 +64,7 @@ function Language() {
 			])
 		);
 	};
+
 useEffect(()=>{
    dispatch(languages())
 }, [])
@@ -81,6 +82,7 @@ useEffect(()=>{
 							<Select
 								className="languageSelect"
 								// classNamePrefix="mySelectLang"
+								// isOptionDisabled = {isOptionDisabled}
 								options={languageList?.map(el => ({value: el.id, label: el.name}))}
 								placeholder="Language*"
 								onChange={choice => setUserLang([...userLang, choice.value])}

@@ -367,7 +367,7 @@ export const educationPost = createAsyncThunk("freelancer/educationPost", async 
 		url: EDUCATION,
 		data: payload,
 		headers: {
-			"Content-Type": `multipart/form-data`,
+			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {

@@ -20,13 +20,11 @@ function Country() {
 
 	useEffect(() => {
 		dispatch(getRegionsList(userChoice[0]))
+		console.log("get choised country region")
 	}, [userChoice])
 
-	useEffect(() => {
-		dispatch(getCountryList());
-	}, []);
 
-	let optionsRegion = [];
+	let optionsRegion = []
 	for (let i = 0; i < countryList.length; i++) {
 		options.push({ value: [countryList[i].id, countryList.indexOf(countryList[i])], label: countryList[i].name });
 	}
@@ -104,4 +102,4 @@ function Country() {
 	);
 }
 
-export default Country;
+export default Country

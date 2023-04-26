@@ -30,11 +30,7 @@ const initialState = {
 	data: [],
 	regionsList: [],
 	countryList: [],
-	positionList: [
-		{ name: "Web Designer", id: 0 },
-		{ name: "FrontEnd", id: 1 },
-		{ name: "Backend", id: 2 }
-	],
+	positionList: [{ name: "Web Designer", id: 0 }, { name: "FrontEnd", id: 1 }, { name: "Backend", id: 2 }],
 	hobbiesList: [],
 	HobbysGetLoading: null,
 	languageList: [],
@@ -47,8 +43,8 @@ const initialState = {
 	skillsLoading: false,
 	status: "idle",
 	positionGetLoading: false,
-	userID:null,
-	testData: [],
+	userID: null,
+	testData: []
 };
 
 const resumeSlice = createSlice({
@@ -72,7 +68,7 @@ const resumeSlice = createSlice({
 			state.error = action.error.message;
 		});
 		/////////post Freelancer//////
-		
+
 		//CoutryList reducer
 		builder.addCase(getCountryList.pending, (state, action) => {
 			state.loading = true;
@@ -112,16 +108,18 @@ const resumeSlice = createSlice({
 		});
 
 		builder.addCase(positions.rejected, (state, action) => {
-			state.positionGetLoading = false;
+			// state.positionGetLoading = false;
 			state.error = action.error.message;
 		});
 		///////////////////////getPositionsSkillsWithId//////////////////////
 		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
-			state.loading = true;
+			// state.loading = true;
+			console.log("pending skilss");
 		});
 		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
 			state.skillsData = action.payload;
 			state.loading = false;
+			console.log("get working");
 		});
 		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
 			state.error = action.error.message;
@@ -130,14 +128,12 @@ const resumeSlice = createSlice({
 		//Positions List reducer
 		builder.addCase(hobbies.pending, (state, action) => {
 			state.loading = true;
-			state.HobbysGetLoading = "pending Xobbys"
-
+			state.HobbysGetLoading = "pending Xobbys";
 		});
 		builder.addCase(hobbies.fulfilled, (state, action) => {
 			state.hobbiesList = action.payload;
-	
-			state.HobbysGetLoading = "getXobbys"
-		
+
+			state.HobbysGetLoading = "getXobbys";
 		});
 		builder.addCase(hobbies.rejected, (state, action) => {
 			state.loading = false;
@@ -187,23 +183,22 @@ const resumeSlice = createSlice({
 		});
 		builder.addCase(experiencePost.fulfilled, (state, action) => {
 			state.loading = false;
-			state.userID = action.payload.userId
-			state.experiencePostIsSuccess = 'changed'
+			state.userID = action.payload.userId;
+			state.experiencePostIsSuccess = "changed";
 		});
 		builder.addCase(experiencePost.rejected, (state, action) => {
 			state.loading = false;
-			state.error = action.error.message
+			state.error = action.error.message;
 		});
 
 		////////////////////////////////////EXPERIENCE EDIT REDUCER//////////////////////
 		builder.addCase(experienceEdit.pending, (state, action) => {
 			state.loading = true;
-			state.experiencePostIsSuccess = null;
+			state.experiencePostIsSuccess = "pending";
 		});
 		builder.addCase(experienceEdit.fulfilled, (state, { type, payload }) => {
-			state.experiencePostIsSuccess = payload.isSuccess;
+			state.experiencePostIsSuccess = "succsess";
 			state.loading = false;
-
 		});
 		builder.addCase(experienceEdit.rejected, (state, action) => {
 			state.loading = false;
@@ -215,7 +210,7 @@ const resumeSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(experienceGet.fulfilled, (state, action) => {
-			state.testData = action.payload
+			state.testData = action.payload;
 			console.log(action.payload);
 			state.loading = false;
 		});
@@ -227,12 +222,12 @@ const resumeSlice = createSlice({
 
 		////////////////////////////////////EXPERIENCE DELETE REDUCER ////////////////
 		builder.addCase(experienceDelete.pending, (state, action) => {
-			state.experiencePostIsSuccess = null;
+			state.experiencePostIsSuccess = "pendign deleting";
 			state.loading = true;
 		});
 		builder.addCase(experienceDelete.fulfilled, (state, { type, payload }) => {
 			state.loading = false;
-			state.experiencePostIsSuccess = payload.isSuccess;
+			state.experiencePostIsSuccess = "success deledet";
 		});
 		builder.addCase(experienceDelete.rejected, (state, action) => {
 			state.loading = false;
@@ -244,8 +239,8 @@ const resumeSlice = createSlice({
 			state.loading = true;
 			state.educationPostIsSuccess = null;
 		});
-		builder.addCase(educationPost.fulfilled, (state,action) => {
-			state.educationPostIsSuccess = action.payload
+		builder.addCase(educationPost.fulfilled, (state, action) => {
+			state.educationPostIsSuccess = action.payload;
 			state.loading = false;
 		});
 		builder.addCase(educationPost.rejected, (state, action) => {

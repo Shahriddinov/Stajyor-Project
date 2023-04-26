@@ -1,11 +1,11 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import classes from "./Language.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { languageUpload, languages} from "reduxToolkit/extraReducers";
+import { languageUpload, languages } from "reduxToolkit/extraReducers";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
 
@@ -31,28 +31,29 @@ function Language() {
 
 	const removeLang = id => {
 		let newLang = [];
-			for (let i = 0; i < theArray.length; i++) {
-				if (theArray[i].id !== id) {
-					newLang.push(theArray[i]);
-				}
+		for (let i = 0; i < theArray.length; i++) {
+			if (theArray[i].id !== id) {
+				newLang.push(theArray[i]);
 			}
+		}
 		setTheArray(newLang);
 	};
 
-		const handleSubmit = event => {
-			let formdatas = new FormData();
-			for (let i = 0 ; i < theArray.length; i++) {
-				formdatas.append("LanguageId", userLang[i]);
-				formdatas.append("Level", userLevel[i]);
-			}
-			// dispatch(languageUpload(formdatas));
-			event.preventDefault();
-			dispatch(
-				activeDoteAction([
-					{ id: 5, label: "Experience" },
-					{ id: 5, type: "workexperience" }
-				])
-			);
+	const handleSubmit = event => {
+		let formdatas = new FormData();
+		console.log(formdatas);
+		for (let i = 0; i < theArray.length; i++) {
+			formdatas.append("LanguageId", userLang[i]);
+			formdatas.append("Level", userLevel[i]);
+		}
+		// dispatch(languageUpload(formdatas));
+		event.preventDefault();
+		dispatch(
+			activeDoteAction([
+				{ id: 5, label: "Experience" },
+				{ id: 5, type: "workexperience" }
+			])
+		);
 	}
 
 	console.log(theArray);
@@ -65,9 +66,10 @@ function Language() {
 			])
 		);
 	};
-useEffect(()=>{
-   dispatch(languages())
-}, [])
+
+	useEffect(() => {
+		dispatch(languages())
+	}, [])
 	return (
 		<div className={classes.languageCard}>
 			<h2>Write what languages you speak</h2>
@@ -76,13 +78,14 @@ useEffect(()=>{
 			</p>
 			<form action="submit" className={classes.languageForm} onSubmit={handleSubmit}>
 				<label htmlFor="laguages">Language*</label>
-			<div className={classes.select_box}>
-				{theArray.map(lang => (
+				<div className={classes.select_box}>
+					{theArray.map(lang => (
 						<div key={lang.id} id={!singleLang ? "test" : null} className={classes.select}>
 							<Select
 								className="languageSelect"
 								// classNamePrefix="mySelectLang"
-								options={languageList?.map(el => ({value: el.id, label: el.name}))}
+								// isOptionDisabled = {isOptionDisabled}
+								options={languageList?.map(el => ({ value: el.id, label: el.name }))}
 								placeholder="Language*"
 								onChange={choice => setUserLang([...userLang, choice.value])}
 							/>
@@ -100,7 +103,7 @@ useEffect(()=>{
 							)}
 						</div>
 					))}
-			</div>
+				</div>
 
 				<div
 					style={{ cursor: "pointer" }}

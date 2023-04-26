@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.scss";
 import { useState } from "react";
+import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
 function AddEducations({ removeModal, defaultInputData }) {
-	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData
+	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData;
 	const [post, setPost] = useState({ schoolName, educationDegree, typeStudy, location, currentStudy });
 	const dispatch = useDispatch();
 
@@ -18,22 +19,36 @@ function AddEducations({ removeModal, defaultInputData }) {
 
 	const submitHandler = e => {
 		e.preventDefault();
-		if(type === "add") {
+		if (type === "add") {
 			dispatch(educationPost(data));
-			removeModal(prev => ({...prev, educationAdd:false}))
-		}
-		else {
-			dispatch(educationEdit({id, data}))
-			removeModal(prev => ({...prev, educationEdit:false}))
+			removeModal(prev => ({ ...prev, educationAdd: false }));
+		} else {
+			dispatch(educationEdit({ id, data }));
+			removeModal(prev => ({ ...prev, educationEdit: false }));
 		}
 	};
 
-	const [ isChecked, setIsChecked ] = useState(false)
+	const [isChecked, setIsChecked] = useState(false);
 
 	const isCheskedFunc = () => {
-		setIsChecked(!isChecked)
-	}
-
+		setIsChecked(!isChecked);
+	};
+	const [selectedDegree, setSelectedDegree] = useState([]);
+	const selectedDegreeChange = value => {
+		setSelectedDegree(value);
+	};
+	// const [selectedTypeofChange, setSelectedTypeofChange] = useState([])
+	// const selectedTypeofChange
+	const TypeOptions = [
+		{ value: "online", label: "online", id: 1 },
+		{ value: "offline", label: "offline", id: 2 }
+	];
+	const option = [
+		{ value: "sredniy", label: "sredniy", id: 1 },
+		{ value: "vishiy", label: "vishiy", id: 2 },
+		{ value: "Bachelour", label: "Bachelour", id: 3 }
+	];
+	console.log(option);
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
@@ -52,27 +67,14 @@ function AddEducations({ removeModal, defaultInputData }) {
 					</div>
 
 					<div className="addEducations__content">
-						<input
-							className="addEducations__inputSelect"
-							type="text"
-							placeholder="Select degree"
-							value={post.educationDegree}
-							onChange={e => setPost(prev => ({ ...prev, educationDegree: e.target.value }))}
-							required
-						/>
+						<Select options={option} value={selectedDegree} onChange={selectedDegreeChange} />
 					</div>
+					<br />
 
 					<div className="addEducations__content">
-						<input
-							className="addEducations__inputStudy"
-							type="text"
-							placeholder="Type of study"
-							value={post.typeStudy}
-							onChange={e => setPost(prev => ({ ...prev, typeStudy: e.target.value }))}
-							required
-						/>
+						<Select placeholder={'qwe'} options={TypeOptions} />
 					</div>
-
+					<br />
 					<div className="addEducations__content">
 						<input
 							className="addEducations__inputLocation"
@@ -96,11 +98,11 @@ function AddEducations({ removeModal, defaultInputData }) {
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							{
-								post.currentStudy
-									? <input disabled={true} className="addEducations__inputDate" type="date" id="time" />
-									: <input disabled={false} className="addEducations__inputDate" type="date" id="time" />
-							}
+							{post.currentStudy ? (
+								<input disabled={true} className="addEducations__inputDate" type="date" id="time" />
+							) : (
+								<input disabled={false} className="addEducations__inputDate" type="date" id="time" />
+							)}
 						</div>
 					</div>
 
@@ -122,7 +124,9 @@ function AddEducations({ removeModal, defaultInputData }) {
 							<button className="addEducations__back" type="button" onClick={() => removeModal(false)}>
 								Cancel
 							</button>
-							<button className="addEducations__next" type="submit">Save</button>
+							<button className="addEducations__next" type="submit">
+								Save
+							</button>
 						</div>
 					</div>
 				</form>

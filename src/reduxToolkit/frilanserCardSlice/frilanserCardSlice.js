@@ -3,9 +3,9 @@ import {createSlice} from '@reduxjs/toolkit'
 const initialState = {
     freelancer:{
         firstName: "",
-        lastName: "",
+        lastName: " ",
         phoneNumber: "",
-        email: "",
+        email: " ",
         address:{
             street:"",
             region: "",

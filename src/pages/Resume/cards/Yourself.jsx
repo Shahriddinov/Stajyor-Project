@@ -7,13 +7,13 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { languages, positionsUpload, getPositionsSkillsWithId, hobbies} from "reduxToolkit/extraReducers";
+import { languages, getPositionsSkillsWithId, hobbies} from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
 
 function Yourself() {
 	const dispatch = useDispatch();
 	const { positionGetLoading, positionList, hobbiesList, loading, skillsData,HobbysGetLoading } = useSelector(state => state.resume);
-	const [skil, setSkil] = useState("");
+	const [skil, setSkil] = useState("1");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
 	const [datas, setData] = useState({
@@ -24,10 +24,11 @@ function Yourself() {
 		newHobbies: [],
 		newSkills: []
 	});
-	
-	
+
+	// console.log(skil)
+
 	useEffect(() => {
-		dispatch(getPositionsSkillsWithId(skil));
+	dispatch(getPositionsSkillsWithId(skil));
 		dispatch(hobbies())
 	}, [skil]);
 	
@@ -44,8 +45,8 @@ function Yourself() {
 				{ id: 4, label: "Language" },
 				{ id: 4, type: "lenguage" }
 			])
-		);
-	};
+		)
+	}
 
 	const prevPage = event => {
 		event.preventDefault();
@@ -64,6 +65,7 @@ function Yourself() {
 		value: item.content,
 		label: item.content
 	}))
+	// console.log(skillsData)	
 	const options = skillsData.map(item => ({
 		value: item.content,
 		label: item.content
@@ -104,7 +106,6 @@ function Yourself() {
 						<input type="date" required placeholder="DD/MM/YYYY"/>
 					</div>
 				</div>
-
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect

@@ -290,12 +290,13 @@ export const experiencePost = createAsyncThunk("post/exsperiencePost", async pay
 ///////////////////////////EXPERIENCEPOST EDIT//////////
 export const experienceEdit = createAsyncThunk("freelancer/exsperienceEdit", async payload => {
 	const token = localStorage.getItem("token");
+	console.log(payload);
 	return axios({
 		method: "PUT",
 		url: EXPERIENCE + "/" + payload.id,
 		data: payload.data,
 		headers: {
-			"Content-Type": `multipart/form-data`,
+			"Content-Type": `application/json-patch+json`,
 			Authorization: `bearer ${token}`
 		}
 	}).then(response => {

@@ -25,16 +25,23 @@
 	background-repeat: no-repeat;
 	border-radius: 50%;
 	border: 1px solid #cdcdcd;
-
+	display: block;
 }
 
-.imageUpload:hover .title {
+.imageUpload__inside{
+	width: 230px;
+	margin: auto;
+}
+
+.imageUpload__inside:hover .title {
 	color: #1d71b8;
+	display: block;
 }
 
-.imageUpload:hover .imageUp {
+.imageUpload__inside:hover .imageUp {
 	background-image: url("../../../assets/images/Resume/image2.svg");
 	background-color: #dfe8f1;
+	display: block;
 }
 
 .photoCard h3 {

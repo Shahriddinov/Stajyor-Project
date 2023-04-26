@@ -1,6 +1,5 @@
 import React from "react";
 import "./Photo.scss";
-import { useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
@@ -21,8 +20,6 @@ function Photo() {
 	const handleChange = event => {
 		setUploaded(event.target.files[0]);
 	}
-
-
 	const handleSubmit = (event) => {
 		event.preventDefault()
 		dispatch(firstStep(data))
@@ -42,8 +39,10 @@ function Photo() {
 		<div className="photoCard">
 			{!uploaded && (
 				<div onClick={handleClick} className="imageUpload">
-					<div className="imageUp"></div>
-					<h3 className="title">Add your profile photo</h3>
+					<div className={'imageUpload__inside'}>
+						<div className="imageUp"></div>
+						<h3 className="title">Add your profile photo</h3>
+					</div>
 				</div>
 			)}
 			{uploaded && (

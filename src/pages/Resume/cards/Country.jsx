@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
 import { secondStep } from "../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { countryUpload, hobbies, positions, getFreelancer, getCountryList, getRegionsList} from "../../../reduxToolkit/extraReducers";
+import { countryUpload, hobbies, positions, getFreelancer, getCountryList, getRegionsList } from "../../../reduxToolkit/extraReducers";
 
 function Country() {
 	const dispatch = useDispatch();
 	const street = useRef("");
 	const { firstName } = useSelector(state => state.frilanserCardSlice.freelancer);
-
 	const [userChoice, setUserChoice] = useState([0]);
 	const [userChoice2, setUserChoice2] = useState(0);
 	const countryList = useSelector(state => state.resume.countryList);
@@ -34,7 +33,7 @@ function Country() {
 	for (let i = 0; i < regionsList.length; i++) {
 		optionsRegion.push({ value: [regionsList[i].id, regionsList.indexOf(regionsList[i])], label: regionsList[i].name });
 	}
-	
+
 	const { data } = useSelector(state => state.freelance);
 
 	const handleSubmit = event => {
@@ -55,7 +54,7 @@ function Country() {
 
 		event.preventDefault();
 	};
-// console.log(options)
+	// console.log(options)
 	const removePage = event => {
 		event.preventDefault();
 		dispatch(

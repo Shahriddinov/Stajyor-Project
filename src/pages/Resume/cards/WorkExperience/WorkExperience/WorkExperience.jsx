@@ -1,9 +1,8 @@
-	import React, { useState } from "react";
+	import React, { useState, useEffect } from "react";
 	import "./style.scss";
 	import { useDispatch } from "react-redux";
 	import { useSelector } from "react-redux";
 	import {useParams} from 'react-router-dom'
-	import { useEffect } from "react";
 	import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 	import { experienceDelete, experienceGet } from "reduxToolkit/extraReducers";
 	import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
@@ -12,19 +11,18 @@
 
 	const defaultInputData = {
 		companyName: "",
-		job: "",
+		job: '',
 		currentWorking: false,
-		descripeion: ""
+		description: "",
+		dateFrom: "",
+		dateTo: "",
 	}
-
 	function WorkExperience() {
 		const [isMoadalActive, setMoadalActive] = useState({ experienceAdd: false, experienceEdit: false })
 		const [editData, setEditData] = useState({})
 		const {userID, experienceList, experiencePostIsSuccess, loading, testData} = useSelector(state => state.resume);
 		const dispatch = useDispatch();
 	const id = useParams()
-	
-	
 	useEffect(() => {
 		dispatch(experienceGet())
 	}, [experiencePostIsSuccess]);
@@ -46,7 +44,7 @@
 
 
 		const deletExperience = id => {
-			dispatch(experienceDelete(id));
+			dispatch(experienceDelete(id))
 		};
 
 		const changePage = e => {
@@ -60,7 +58,7 @@
 		};
 		const [ trashHover, setTrashHover ] = useState(false)
 		const [ editHover, setEditHover ] = useState(false)
-		
+
 		const TrashFunc = (int) => {
 			setTrashHover(int)
 		}
@@ -68,9 +66,6 @@
 		const EditFunc = (int) => {
 			setEditHover(int)
 		}
-		
-		
-
 		if (loading) {
 			return <b>Loading...</b>
 		}
@@ -100,14 +95,14 @@
 												onClick={() => editExperience({ data: el, modal: true })}
 											>
 												<Edit name="create-outline" className={`${ editHover === int ? "experience__box__hovering" : null }`}
-													onMouseOver={()=>EditFunc(int)} 
+													onMouseOver={()=>EditFunc(int)}
 													onMouseOut={()=>EditFunc(false)}
 												/>
 											</span>
 
 											<span className="experience__icon--delete" onClick={() => dispatch(experienceDelete(el.id))}>
 												<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
-													onMouseOver={()=>TrashFunc(int)} 
+													onMouseOver={()=>TrashFunc(int)}
 													onMouseOut={()=>TrashFunc(false)}
 												/>
 											</span>

@@ -13,11 +13,10 @@ function Language() {
 	const dispatch = useDispatch();
 	const languageList = useSelector(state => state.resume.languageList);
 	// const [data,setData] = useState({LanguageId: null, lavel:"",})
-	const [theArray, setTheArray] = useState([{ test: "test", test2: "test2", id: 0 }]);
+	const [theArray, setTheArray] = useState([]);
 	const [userLang, setUserLang] = useState([]);
 	const [userLevel, setUserLevel] = useState([]);
-	
-	
+
 	let level = [
 		{ value: "A1 - Beginner", label: "A1 - Beginner" },
 		{ value: "A2 - Elementary", label: "A2 - Elementary" },
@@ -32,29 +31,31 @@ function Language() {
 
 	const removeLang = id => {
 		let newLang = [];
-		for (let i = 0; i < theArray.length; i++) {
-			if (theArray[i].id !== id) {
-				newLang.push(theArray[i]);
+			for (let i = 0; i < theArray.length; i++) {
+				if (theArray[i].id !== id) {
+					newLang.push(theArray[i]);
+				}
 			}
-		}
 		setTheArray(newLang);
 	};
 
-	const handleSubmit = event => {
-		let formdatas = new FormData();
-		for (let i = 0; i < theArray.length; i++) {
-			formdatas.append("LanguageId", userLang[i]);
-			formdatas.append("Level", userLevel[i]);
-		}
-		// dispatch(languageUpload(formdatas));
-		event.preventDefault();
-		dispatch(
-			activeDoteAction([
-				{ id: 5, label: "Experience" },
-				{ id: 5, type: "workexperience" }
-			])
-		);
-	};
+		const handleSubmit = event => {
+			let formdatas = new FormData();
+			for (let i = 0 ; i < theArray.length; i++) {
+				formdatas.append("LanguageId", userLang[i]);
+				formdatas.append("Level", userLevel[i]);
+			}
+			// dispatch(languageUpload(formdatas));
+			event.preventDefault();
+			dispatch(
+				activeDoteAction([
+					{ id: 5, label: "Experience" },
+					{ id: 5, type: "workexperience" }
+				])
+			);
+	}
+
+	console.log(theArray);
 
 	const prevPage = () => {
 		dispatch(
@@ -105,7 +106,7 @@ useEffect(()=>{
 					style={{ cursor: "pointer" }}
 					className={classes.addLanguage}
 					onClick={() => {
-						setTheArray(oldArray => [...theArray, { test: "test", test2: "test2", id: Math.random() }]);
+						setTheArray(oldArray => [...theArray, { test: "test", test2: "test2", id: Math.floor(Math.random() * 10) }]);
 					}}>
 					+ Add Language
 				</div>

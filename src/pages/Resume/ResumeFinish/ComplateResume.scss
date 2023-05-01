@@ -5,7 +5,6 @@
     filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
 }
 
-
 .resume2_title{
   font-family: 'Montserrat';
   font-style: normal;
@@ -32,37 +31,80 @@
     font-weight: 700;
 }
 
+.pad-all{
+    padding: 40px !important;
+}
+
 .resume2_1{
     max-width: 690px;
-    padding: 25px;
+    padding: 0 30px;
     background-color: white;
-    border-radius: 20px;
+    //border-radius: 20px;
 
 
     .resume2_1-head{
         width: 100%;
-
+        display: flex;
+        gap: 30px;
+        border-bottom: 1px solid #323232;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        .resume2_1-head__left{
+            width: 180px;
+            height: 180px;
+            border-radius: 8px;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 8px;
+            }
+        }
         .resume2_1-head-name{
-            font-size: 40px;
-            font-weight: 600;
+            font-size: 32px;
+            font-weight: 700;
             text-transform: capitalize;
+            margin-bottom: 5px;
+            margin-top: 10px;
         }
 
         .resume2_1-head-job{
-            font-size: 20px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 400;
             text-transform: capitalize;
+            margin-bottom: 30px;
         }
     }
 
     .resume2_1-body{
         display: flex;
         width: 100%;
+        .bor-r{
+            border-right: 1px solid #323232;
+            padding-right: 48px;
+            margin-right: 30px;
+        }
+
+        .bg-grey{
+            width: 160px !important;
+            padding: 40px 30px 90px;
+            background: rgba(116, 116, 116, 0.21);
+            margin-right: 30px;
+        }
 
         .resume2_1-left{
             width: 200px;
-    
-    
+            .resume2_1-left__block{
+                margin-bottom: 30px!important;
+                p{
+                    font-size: 22px !important;
+                    font-weight: 700;
+                }
+                span{
+                    font-size: 12px;
+                    margin-top: 5px;
+                    color: #323232;
+                }
+            }
             .resume2_1-left-img{
                 display: flex;
                 justify-content: space-around;
@@ -80,7 +122,6 @@
             }
     
             .resume2_1-left-contacts{
-    
                 p{
                     margin-top: 5px;
                     font-size: 18px;
@@ -89,23 +130,48 @@
                 }
             }
         }
-        .resume2_1-right{
-            width: 350px;
-            padding-left: 15px;
-            font-size: 13px;
-    
-            .resume2_1-right-head{
-                padding-top: 15px;
-
-                .resume2_1-right-address{
-                    display: block;
+        .resume2_1__body{
+            .resume2_1__body{
+                .resume2_1__body__title{
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: #000000;
+                    margin-bottom: 5px;
                 }
-                
+                .resume2_1__body__bio{
+                    color: #323232;
+                    font-size: 10px;
+                }
             }
-            .resume2_1-right-body{
-                
-                .resume2_1-right-body-text{
-                    margin-top: 10px;
+            .resume2_1__body__block{
+                display: flex;
+                gap: 30px;
+                margin-bottom: 10px;
+                //justify-content: space-between;
+                .resume2_1__body__block__left{
+                    width: 40%;
+                    h5{
+                        font-size: 12px;
+                        color: #323232;
+                        font-weight: 400;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 12px;
+                        color: #323232;
+                    }
+                }
+                .resume2_1__body__block__right{
+                    width: 60%;
+                    h5{
+                        font-size: 10px;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                    p{
+                        font-size: 10px;
+                        color: #323232;
+                    }
                 }
             }
         }
@@ -121,7 +187,7 @@
 
 .resume2_2{
     width: 650px;
-    height: 840px;
+    //height: 840px;
 
     .resume2_2-top{
         width: 100%;
@@ -141,7 +207,7 @@
             .resume2_2-top-left-img{
                 padding: 20px 0;
                 width: 100%;
-                height: 260px;
+                //height: 260px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -204,11 +270,9 @@
         font-size: 10px;
 
         .resume2_2-bottom-left{
-            width: 240px;
+            width: 180px;
             background-color: rgba(116, 116, 116, 0.2);
             padding: 20px 0 0 40px;
-
-
             .resume2_2-bottom-left-info{
                 margin-top: 25px;
             }
@@ -429,7 +493,6 @@
             }
         }
     }
-
 }
 
 .resume4_title-l{
@@ -874,8 +937,7 @@
 }
 
 .resume2_6-bottom-left-text{
-    padding: 20px 0 10px 20px;
-
+    padding: 10px 0 10px 20px;
     .language-lvl{
         margin-bottom: 10px;
         display: flex;
@@ -907,7 +969,7 @@
         background-image: url('./complate-resume/img/res-6-bgg.png');
         background-repeat: no-repeat;
         background-size: cover;
-
+        //clip-path: polygon(0 0, 0% 100%, 26% 49%);
         .resume2_6-top-left{
             width: 325px;
             padding: 70px 0 14px 20px;
@@ -940,14 +1002,12 @@
                 }
             }
             .resume2_6-top-left-user-contact{
-
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-around;
-                p {
-                    width: 45%;
-                    margin: 0 0 6px 0;
-                }
+                //display: flex;
+                //flex-wrap: wrap;
+                //justify-content: space-around;
+                display: grid;
+                gap: 10px;
+                grid-template-columns: 1fr 1fr;
             }
         }
 
@@ -1004,7 +1064,7 @@
 
     .resume2_2-top{
         width: 100%;
-        height: 305px;
+        //height: 305px;
         background-color: rgba(23, 27, 38, 1);
         padding: 0 30px;
         display: flex;
@@ -1075,16 +1135,16 @@
     }
     .resume2_2-bottom{
         width: 100%;
-        height: 535px;
+        //height: 535px;
         display: flex;
         padding: 0 30px;
         background-color: white;
         font-size: 10px;
 
         .resume2_2-bottom-left{
-            width: 240px;
+            width: 180px;
             background-color: rgba(116, 116, 116, 0.2);
-            padding: 20px 0 0 40px;
+            padding: 40px 20px 80px 20px;
 
             .resume2_2-bottom-left-info{
                 margin-top: 25px;
@@ -1149,12 +1209,68 @@
 .resume2_1-left-contacts__texts {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2px !important;
-    font-size: 13px !important;
+    margin-bottom: 5px !important;
+    font-size: 12px !important;
+    div{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 5px;
+        //margin-bottom: 30px;
+        p{
+            font-size: 12px !important;
+        }
+        span{
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+}
+
+.resume-6{
+    .resume-6__about{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        .about__study{
+            font-size: 10px;
+            margin-top: 10px;
+            color: #323232;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .about__name{
+            font-size: 10px;
+            color: #323232;
+            font-weight: 400;
+        }
+    }
 }
 
 .resume2_1-left-contacts__text {
-    margin-bottom: 6px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
+    margin-bottom: 5px !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+.mb-b{
+    margin-bottom: 30px;
+}
+
+.mb-t{
+    margin-top: 40px!important;
+}
+
+.subTitle{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 10px;
+}
+
+.subTitleUp{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }

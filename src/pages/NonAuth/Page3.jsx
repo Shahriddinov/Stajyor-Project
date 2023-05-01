@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Page3.module.scss";
-import sloy1 from "../../assets/images/Sloy2.png";
+import sloy1 from "../../assets/images/Sloy2.svg";
 import { Link } from "react-router-dom";
 
 function Page3() {
@@ -15,8 +15,7 @@ function Page3() {
 						<div className={classes.page3__text__btn}>
 							<h3 className={classes.title}>Search talants!</h3>
 							<p className={classes.subtitle}>
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum repudiandae obcaecati natus soluta accusamus autem reprehenderit
-								ad,
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum repudiandae obcaecati natus soluta accusamus autem reprehenderit ad,
 							</p>
 							<Link to="/auth">
 								<button className={classes.post}>Post job</button>

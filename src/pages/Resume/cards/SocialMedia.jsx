@@ -9,12 +9,16 @@ import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { contactUpload } from "reduxToolkit/extraReducers";
+import { Freelancerpost, contactUpload } from "reduxToolkit/extraReducers";
+import { socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
+
 
 function SocialMedia() {
 	const dispatch = useDispatch();
+	const {...freelancer} = useSelector((state=> state.frilanserCardSlice.freelancer))
+	console.log(freelancer)
 	const [data, setData] = useState({
 		website:"",
 		WatsApp: "",
@@ -24,7 +28,9 @@ function SocialMedia() {
 		GitHub: "",
 		Twitter: ""
 
-	});
+	})
+	console.log(data)
+	// dispatch(socialStep(data))
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
 		{ icon: whatsUppIcon, name: "WatsApp" },
@@ -66,17 +72,20 @@ function SocialMedia() {
 	};
 
 	const handleSubmit = event => {
+		
 		event.preventDefault();
-		let formdatas = new FormData();
-		formdatas.append("WebSite",data.website);
-		formdatas.append("Facebook",data.Facebook);
-		formdatas.append("GitHub",data.GitHub);
-		formdatas.append("Instagram",data.Instagram);
-		formdatas.append("Telegram",data.Telegram);
-		formdatas.append("Twitter",data.Twitter);
-		formdatas.append("WatsApp",data.WatsApp);
-		dispatch(contactUpload(formdatas));
-
+		const formdata = new FormData();
+		for (const key in freelancer) {
+			if (typeof freelancer[key] === "object" && freelancer[key] !== null) {
+				for (const nestedKey in freelancer[key]) {
+					formdata.append(`${key}.${nestedKey}`, freelancer[key][nestedKey]);
+				}
+			} else {
+				formdata.append(key, freelancer[key]);
+			}
+		}
+		dispatch(Freelancerpost(formdata));
+		dispatch(socialStep(data))
 		dispatch(
 			activeDoteAction([
 				{ id: 8, label: "Resume" },

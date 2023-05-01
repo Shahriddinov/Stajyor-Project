@@ -5,39 +5,37 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { educationDelete, educationGet } from "reduxToolkit/extraReducers";
+import { educationDelete, educationGet, educationGetIsSuccess } from "reduxToolkit/extraReducers";
 import { useState } from "react";
 import { ReactComponent as Trash } from '../../../../../assets/images/icons/trash.svg'
 import { ReactComponent as Edit } from '../../../../../assets/images/icons/edit.svg'
 import AddEducations from "../AddEducations/AddEducations";
 
 const defaultData = {
-	schoolName: "",
-	educationDegree: "",
-	typeStudy: "",
+	name: "",
+	degree: "",
+	typeOfStudy: "",
 	location: "",
-	currentStudy: false
+	currentStudy: false,
+	dateDrom: '',
+	dateTo: ''
 }
 
 function Educations() {
-	const [isMoadalActive, setMoadalActive] = useState({educationAdd: false, educationEdit: false })
+	const [isMoadalActive, setMoadalActive] = useState({ educationAdd: false, educationEdit: false })
 	const [editData, setEditData] = useState({})
 	const dispatch = useDispatch();
-	const  {educationPostIsSuccess,educationList,loading}  = useSelector(state => state.resume);
+	const { educationPostIsSuccess, educationList, educationDeleteIsSuccess, loading } = useSelector(state => state.resume);
 	useEffect(() => {
-		if(educationPostIsSuccess) {
-			dispatch(educationGet());
-		}
-	}, [dispatch,educationPostIsSuccess]);
-
-	const deletEducation = id => {
-		dispatch(educationDelete(id));
 		dispatch(educationGet());
-	};
+	}, [educationGet, educationPostIsSuccess]);
+	console.log(educationList)
+
+	const [test, setTest] = useState()
 
 	const changeEducation = (value) => {
 		setEditData(value.data);
-		setMoadalActive(prev => ({...prev, educationEdit: value.modal}));
+		setMoadalActive(prev => ({ ...prev, educationEdit: value.modal }));
 	};
 
 	const changePage = e => {
@@ -60,8 +58,8 @@ function Educations() {
 		);
 	};
 
-	const [ trashHover, setTrashHover ] = useState(false)
-	const [ editHover, setEditHover ] = useState(false)
+	const [trashHover, setTrashHover] = useState(false)
+	const [editHover, setEditHover] = useState(false)
 
 	const TrashFunc = (int) => {
 		setTrashHover(int)
@@ -71,9 +69,42 @@ function Educations() {
 		setEditHover(int)
 	}
 
-	if(loading) {
+	if (loading) {
 		return <b>Loading...</b>
 	}
+	const deleteEducation = id => {
+		dispatch(educationDelete(id))
+	}
+
+	const TypeOptions = [
+		{ value: "online", label: "online", id: 1 },
+		{ value: "offline", label: "offline", id: 2 }
+	];
+	const option = [
+		{ value: "Sredniy", label: "sredniy", id: 1 },
+		{ value: "Vishiy", label: "vishiy", id: 2 },
+		{ value: "Bachelour", label: "Bachelour", id: 3 }
+	];
+
+
+	function updateToTypeOption(type) {
+		if (type === 1) {
+			return "online"
+		} else if (type === 2) {
+			return "offline"
+		}
+	}
+
+	function updateIdToStudy(study){
+		if(study === 1){
+			return "sredniy"
+		}else if(study === 2){
+			return "vishiy"
+		}else if(study === 3){
+			return "bachelour"
+		}
+	}
+
 	return (
 		<>
 			<div className="educations">
@@ -89,25 +120,24 @@ function Educations() {
 							{educationList.map((el, int) => (
 								<div className="educations__content" key={el.id}>
 									<div className="educations__texts">
-										<span className="educations__subtitle">{el.schoolName}</span>
+										<span className="educations__subtitle">{el.name}
+										</span>
 										<div className="educations__study">
-											<span className="educations__span">{el.typeStudy}</span>
-											<span className="educations__telecommunication">{el.educationDegree}</span>
+											<span className="educations__span">{(updateIdToStudy(el.typeOfStudy))}{test}</span>
+											<span className="educations__telecommunication">{updateToTypeOption(el.degree)}</span>
 										</div>
 									</div>
 
 									<div className="educations__icons">
-										<span className="educations__icon--create" type="button" onClick={() => changeEducation({data:el, modal:true})}>
-											<Edit name="create-outline" className={`${ editHover === int ? "experience__box__hovering" : null }`}
-												onMouseOver={()=>EditFunc(int)} 
-      											onMouseOut={()=>EditFunc(false)}
+										<span className="educations__icon--create" type="button" onClick={() => changeEducation({ data: el, modal: true })}>
+											<Edit name="create-outline" className={`${editHover === int ? "experience__box__hovering" : 'updatePhoto'}`}
+												onClick={() => EditFunc(int)}
 											/>
 										</span>
 
-										<span className="educations__icon--delete" onClick={() => deletEducation(el.id)}>
-											<Trash name="trash-outline"   className={`${ trashHover === int ? "experience__box__hoveringT" : null }`}
-											      onMouseOver={()=>TrashFunc(int)} 
-      											  onMouseOut={()=>TrashFunc(false)}
+										<span className="educations__icon--delete" onClick={() => deleteEducation(el.id)}>
+											<Trash name="trash-outline" className={`${trashHover === int ? "experience__box__hoveringT" : "updatePhoto"}`}
+												onClick={() => TrashFunc(int)}
 											/>
 										</span>
 									</div>
@@ -120,7 +150,7 @@ function Educations() {
 								style={{ cursor: "pointer" }}
 								type="button"
 								className="educations__buttonAdd"
-								onClick={() => setMoadalActive(prev => ({...prev, educationAdd: true}))}
+								onClick={() => setMoadalActive(prev => ({ ...prev, educationAdd: true }))}
 							>
 								+ Add new
 							</button>
@@ -138,10 +168,10 @@ function Educations() {
 				</div>
 			</div>
 			{
-				isMoadalActive.educationAdd && <AddEducations removeModal={setMoadalActive} defaultInputData = {{...defaultData, type:"add"}}/>
+				isMoadalActive.educationAdd && <AddEducations updateIdToStudy={updateIdToStudy} updateToTypeOption={updateToTypeOption} TypeOptions={TypeOptions} option={option} removeModal={setMoadalActive} defaultInputData={{ ...defaultData, type: "add" }} />
 			}
 			{
-				isMoadalActive.educationEdit && <AddEducations removeModal={setMoadalActive} defaultInputData = {{...editData, type:"edit"}}/>
+				isMoadalActive.educationEdit && <AddEducations updateIdToStudy={updateIdToStudy} updateToTypeOption={updateToTypeOption} TypeOptions={TypeOptions} option={option} removeModal={setMoadalActive} defaultInputData={{ ...editData, type: "edit" }} />
 			}
 
 		</>

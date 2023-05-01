@@ -3,37 +3,35 @@ import "./Photo.scss";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { getCountryList } from "reduxToolkit/extraReducers";
+import { getCountryList, Freelancerpost } from "reduxToolkit/extraReducers";
 import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from "react-input-mask";
 
 function Photo() {
-	const [data, setData] = useState('')
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch();
-	// const [data, setData] = useState({
-	// 	firstName: "",
-	// 	lastName: "",
-	// 	Email: "",
-	// 	phoneNumber: "",
-	// 	address: null,
-	// 	dateOfBirth: "2006-07-09T07:00:00Z"
-	// });
+	const [data, setData] = useState({
+		firstName: "",
+		lastName: "",
+		phoneNumber: "",
+		email: "",
+	});
+
 	useEffect(() => {
 		dispatch(getCountryList());
 	}, [handleSubmit]);
+
 	const handleClick = event => {
-		hiddenFileInput.current.click();
-	}
+		// hiddenFileInput.current.click();
+	};
 
 	const handleChange = event => {
 		setUploaded(event.target.files[0]);
-	}
+	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		dispatch(firstStep(data));
-		console.log(data);
+		dispatch(firstStep(data))
 		dispatch(
 			activeDoteAction([
 				{ id: 2, label: "Address" },
@@ -46,7 +44,7 @@ function Photo() {
 		<div className="photoCard">
 			{!uploaded && (
 				<div onClick={handleClick} className="imageUpload">
-					<div className={'imageUpload__inside'}>
+					<div className={"imageUpload__inside"}>
 						<div className="imageUp"></div>
 						<h3 className="title">Add your profile photo</h3>
 					</div>
@@ -88,6 +86,5 @@ function Photo() {
 		</div>
 	);
 }
-
 
 export default Photo;

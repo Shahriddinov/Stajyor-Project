@@ -20,7 +20,6 @@ function Country() {
 
 	useEffect(() => {
 		dispatch(getRegionsList(userChoice[0]))
-		console.log("get choised country region")
 	}, [userChoice])
 
 
@@ -31,24 +30,22 @@ function Country() {
 	for (let i = 0; i < regionsList.length; i++) {
 		optionsRegion.push({ value: [regionsList[i].id, regionsList.indexOf(regionsList[i])], label: regionsList[i].name });
 	}
-
-	const { data } = useSelector(state => state.freelance);
+    const [data, setData]= useState({
+		countryId:1,
+		country:2,
+		street:""
+	})
 
 	const handleSubmit = event => {
-		let formdatas = new FormData();
-		formdatas.append("CountryId", userChoice[0]);
-		formdatas.append("RegionId", userChoice2);
-		formdatas.append("Home", street.current.value);
-		if (formdatas.get("CountryId") && formdatas.get("RegionId") && formdatas.get("Home")) {
 			console.log("step1");
-			dispatch(secondStep(formdatas));
+			dispatch(secondStep(data));
 			dispatch(
 				activeDoteAction([
 					{ id: 3, label: "About yourself and skills" },
 					{ id: 3, type: "yourself" }
 				])
 			);
-		}
+		
 
 		event.preventDefault();
 	};
@@ -86,7 +83,7 @@ function Country() {
 								/>
 							</div>
 						</div>
-						<input ref={street} className="country__inputStreet" type="text" placeholder="Street, apartment" />
+						<input onChange={e=>setData(e.target.value)} className="country__inputStreet" type="text" placeholder="Street, apartment" />
 					</div>
 					<div className="country__button">
 						<button className="country__back" type="button" onClick={removePage}>

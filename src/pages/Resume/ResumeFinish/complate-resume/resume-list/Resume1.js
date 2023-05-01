@@ -5,11 +5,11 @@ const Resume1 = props => {
 	const {
 		firstName,
 		phoneNumber,
-		description,
+		bio,
 		experiences,
 		email,
 		freelancerHobbies,
-		freelancerImage,
+		defaultuserImage,
 		educations,
 		freelancerPosition,
 		lastName,
@@ -33,7 +33,7 @@ const Resume1 = props => {
 					<div className="resume2_1-body">
 						<div className="resume2_1-left">
 							<div className="resume2_1-left-img">
-								<img src={`http://localhost:5000/staticfiles/${freelancerImage}`} alt={firstName} />
+								<img src={defaultuserImage}alt={firstName} />
 								<span>personal info</span>
 							</div>
 							<hr />
@@ -51,8 +51,8 @@ const Resume1 = props => {
 
 								<div className="resume2_1-left-contacts__texts">
 									<p className="resume2_1-left-contacts__text">skills</p>
-									{freelancerPosition?.freelancerSkills?.map((item, i) => {
-										return <span key={item.id}>{item.name}</span>;
+									{freelancerPosition?.map((item, i) => {
+										return <span key={i+1}>{item}</span>;
 									})}
 								</div>
 
@@ -70,7 +70,7 @@ const Resume1 = props => {
 								<div className="resume2_1-left-contacts__texts">
 									<p className="resume2_1-left-contacts__text">Hobbies</p>
 									{freelancerHobbies?.map((item, i) => {
-										return <span key={item.id}>{item.name}</span>;
+										return<span key={i+1}>{item}</span>;
 									})}
 								</div>
 
@@ -84,7 +84,7 @@ const Resume1 = props => {
 								<div className="resume2_1-left-contacts__texts">
 									<p className="resume2_1-left-contacts__text">Education</p>
 									{educations?.map((item, i) => {
-										return <span key={i}>{item?.schoolName}</span>;
+										return <span key={i}>{item?.name}</span>;
 									})}
 								</div>
 							</div>
@@ -100,7 +100,7 @@ const Resume1 = props => {
 							</div>
 
 							<div className="resume2_1-right-body">
-								<div className="resume2_1-right-body-text">{description}</div>
+								<div className="resume2_1-right-body-text">{bio}</div>
 							</div>
 						</div>
 					</div>

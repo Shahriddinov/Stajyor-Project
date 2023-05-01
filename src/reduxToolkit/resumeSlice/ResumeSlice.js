@@ -21,7 +21,8 @@ import {
 	getRegionsList,
 	getLanguages,
 	getPositionsSkillsWithId,
-	postFreelancerInfo
+	postFreelancerInfo,
+	Freelancerpost
 } from "reduxToolkit/extraReducers";
 
 const initialState = {
@@ -68,7 +69,16 @@ const resumeSlice = createSlice({
 			state.error = action.error.message;
 		});
 		/////////post Freelancer//////
-
+		builder.addCase(Freelancerpost.pending, (state)=>{
+			state.loading = true
+		})
+		builder.addCase(Freelancerpost.fulfilled, (state, action)=>{
+			state.loading = false
+			state.userID = action.payload.id
+		})
+		builder.addCase(Freelancerpost.rejected, (state, action)=>{
+			state.error = action.error.message
+		})
 		//CoutryList reducer
 		builder.addCase(getCountryList.pending, (state, action) => {
 			state.loading = true;
@@ -88,7 +98,6 @@ const resumeSlice = createSlice({
 		});
 		builder.addCase(getRegionsList.fulfilled, (state, action) => {
 			state.regionsList = action.payload.regions;
-			console.log(action);
 		});
 		builder.addCase(getRegionsList.rejected, (state, action) => {
 			state.loading = false;
@@ -114,12 +123,12 @@ const resumeSlice = createSlice({
 		///////////////////////getPositionsSkillsWithId//////////////////////
 		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
 			// state.loading = true;
-			console.log("pending skilss");
+
 		});
 		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
 			state.skillsData = action.payload;
 			state.loading = false;
-			console.log("get working");
+
 		});
 		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
 			state.error = action.error.message;
@@ -210,8 +219,8 @@ const resumeSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(experienceGet.fulfilled, (state, action) => {
-			state.testData = action.payload;
-			console.log(action.payload);
+			state.experienceList = action.payload;
+
 			state.loading = false;
 		});
 		builder.addCase(experienceGet.rejected, (state, action) => {
@@ -267,8 +276,8 @@ const resumeSlice = createSlice({
 			state.loading = true;
 		});
 
-		builder.addCase(educationGet.fulfilled, (state, { type, payload }) => {
-			state.educationList = payload.data;
+		builder.addCase(educationGet.fulfilled, (state, action) => {
+			state.educationList = action.payload;
 			state.loading = false;
 		});
 		builder.addCase(educationGet.rejected, (state, action) => {

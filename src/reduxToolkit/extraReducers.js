@@ -11,6 +11,7 @@ import {
 	EDUCATIONDELETE,
 	EXPERIENCE,
 	EXPERIENCEDELETE,
+	FREELANCER,
 	GET_FREELANCER,
 	HOBBIES,
 	JOBS,
@@ -88,19 +89,18 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 // 		}
 // 	}).then(res => res.data);
 // });
-
-export const postFreelancerInfo = createAsyncThunk("postFreelancer/info", async payload => {
-	const token = localStorage.getItem("token");
+   export const Freelancerpost = createAsyncThunk('freelancer/post', async(payload)=>{
+	const token = localStorage.getItem("token")
 	return axios({
-		method: "POST",
+		method:"POST",
 		url: FREELANCER,
-		data: payload,
-		headers: {
-			"Content-Type": "multipart/form-data",
+		data:payload,
+		headers:{
+			// "Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
-	});
-});
+	})
+   })
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 // 	const token = localStorage.getItem("token");

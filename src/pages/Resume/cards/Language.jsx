@@ -56,7 +56,6 @@ function Language() {
 		);
 	}
 
-	console.log(theArray);
 
 	const prevPage = () => {
 		dispatch(

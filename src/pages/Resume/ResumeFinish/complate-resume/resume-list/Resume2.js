@@ -17,7 +17,7 @@ const Resume2 = (props) => {
                     <div className="resume2_2-top">
                     <div className="resume2_2-top-left">
                         <div className="resume2_2-top-left-img">
-                            <img src={`http://localhost:5000/staticfiles/${props?.freelancerImage}`} alt={props?.firstName}/>
+                            <img src={props?.defaultuserImage} alt={props?.firstName}/>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@ const Resume2 = (props) => {
                             <span className="resume2_2-contact-title">adress:</span>
                             <br />
                             <span>
-                                {props?.address?.countryName}{"  "}{props?.address?.regionName}{"  "}{props?.address?.home}
+                                {props?.address?.countryName}{"  "}{props?.address?.regionName}{"  "}{props?.address?.home}{props?.address.street}
                             </span>
                         </div>
                         </div>
@@ -69,11 +69,11 @@ const Resume2 = (props) => {
                                <React.Fragment key={i + 1}>
                                     <div className="resume2_2-bottom-left-info">
                                     <p>
-                                        {item?.start?.substring(0, 4)} -{" "}
-                                        {item?.end?.substring(0, 4)}
+                                        {item?.dateFrom} -{" "}
+                                        {item?.dateTo}
                                     </p>
-                                    <p>{item?.educationDegree}</p>
-                                    <p>{item?.schoolName}</p>
+                                    <p>{item?.degree}</p>
+                                    <p>{item?.name}</p>
                                     </div>
                                </React.Fragment>
                             );
@@ -82,7 +82,7 @@ const Resume2 = (props) => {
                         <div className="resume2_2-title">hobbies</div>
                             <ul>
                                 {props?.freelancerHobbies?.map((item, i) => {
-                                    return <li key={item.id}>{item.name}</li>;
+                                    return <span key={i+1}>{item}</span>;
                                 })}
                             </ul>
                         </div>
@@ -96,15 +96,15 @@ const Resume2 = (props) => {
                                 <div className="resume2_2-bottom-right-card">
                                 <div className="bottom-card-left">
                                     <p>
-                                    {item?.start?.substring(0, 4)} -{" "}
-                                    {item?.end?.substring(0, 4)}
+                                    {item?.dateFrom?.substring(0, 4)} -{" "}
+                                    {item?.dateTo?.substring(0, 4)}
                                     </p>
                                     <p>{item?.companyName}</p>
                                 </div>
 
                                 <div className="bottom-card-right">
                                     <b>{item?.job}</b>
-                                    <p>{item?.descripeion}</p>
+                                    <p>{item?.description}</p>
                                 </div>
                                 </div>
                            </React.Fragment>
@@ -113,10 +113,10 @@ const Resume2 = (props) => {
                         <div className="resume2_2-title">skills</div>
 
                         <div className="resume2__card-skills">
-                        {props?.freelancerPosition?.freelancerSkills?.map((item, i) => {
+                        {props?.freelancerPosition?.map((item, i) => {
                             return (
-                            <div className="resume2__card-skills-item" key={item.id}>
-                                {item.name}{" "}
+                            <div className="resume2__card-skills-item" key={i+1}>
+                                {item}{" "}
                                 <div className="resume2__card-skills-dot">
                                 <span></span>
                                 <span></span>

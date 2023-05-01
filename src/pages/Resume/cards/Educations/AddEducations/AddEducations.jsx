@@ -5,17 +5,29 @@ import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
-function AddEducations({ removeModal, defaultInputData }) {
-	const { schoolName, educationDegree, typeStudy, location, currentStudy, type, id } = defaultInputData;
-	const [post, setPost] = useState({ schoolName, educationDegree, typeStudy, location, currentStudy });
+function AddEducations({ removeModal, defaultInputData, TypeOptions, option, updateIdToStudy, updateToTypeOption }) {
+	const { name, degree, typeOfStudy, location, currentStudy, dateFrom, dateTo, type, id } = defaultInputData;
+	const [selectedDateFrom, setSelectedDateFrom] = useState("2023-04-14");
+	const [selectedDateTo, setSelectedDateTo] = useState("2023-04-14");
+
 	const dispatch = useDispatch();
 
-	let data = new FormData();
-	data.append("schoolName", post.schoolName);
-	data.append("educationDegree", post.educationDegree);
-	data.append("typeStudy", post.typeStudy);
-	data.append("location", post.location);
-	data.append("currentStudy", post.currentStudy);
+	const dateFromm = new Date(selectedDateFrom);
+	const dateToo = new Date(selectedDateTo);
+
+	console.log(dateFromm)
+
+	const [data, setData] = useState({
+		name,
+		degree,
+		typeOfStudy,
+		location,
+		dateFrom: dateFromm,
+		dateTo: dateToo,
+		currentStudy
+	})
+	console.log(data);
+	console.log(data.degree);
 
 	const submitHandler = e => {
 		e.preventDefault();
@@ -24,7 +36,7 @@ function AddEducations({ removeModal, defaultInputData }) {
 			removeModal(prev => ({ ...prev, educationAdd: false }));
 		} else {
 			dispatch(educationEdit({ id, data }));
-			removeModal(prev => ({ ...prev, educationEdit: false }));
+			removeModal(false)
 		}
 	};
 
@@ -33,22 +45,7 @@ function AddEducations({ removeModal, defaultInputData }) {
 	const isCheskedFunc = () => {
 		setIsChecked(!isChecked);
 	};
-	const [selectedDegree, setSelectedDegree] = useState([]);
-	const selectedDegreeChange = value => {
-		setSelectedDegree(value);
-	};
-	// const [selectedTypeofChange, setSelectedTypeofChange] = useState([])
-	// const selectedTypeofChange
-	const TypeOptions = [
-		{ value: "online", label: "online", id: 1 },
-		{ value: "offline", label: "offline", id: 2 }
-	];
-	const option = [
-		{ value: "sredniy", label: "sredniy", id: 1 },
-		{ value: "vishiy", label: "vishiy", id: 2 },
-		{ value: "Bachelour", label: "Bachelour", id: 3 }
-	];
-	console.log(option);
+
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
@@ -60,19 +57,19 @@ function AddEducations({ removeModal, defaultInputData }) {
 							className="addEducations__inputName"
 							type="text"
 							placeholder="School name"
-							value={post.schoolName}
-							onChange={e => setPost(prev => ({ ...prev, schoolName: e.target.value }))}
+							value={data.name}
+							onChange={e => setData(prev => ({ ...prev, name: e.target.value }))}
 							required
 						/>
 					</div>
 
 					<div className="addEducations__content">
-						<Select options={option} value={selectedDegree} onChange={selectedDegreeChange} />
+						<Select placeholder={'Select degree'} options={option} onChange={(e) => setData(prev => ({ ...prev, degree: e.id }))} />
 					</div>
 					<br />
 
 					<div className="addEducations__content">
-						<Select placeholder={'qwe'} options={TypeOptions} />
+						<Select placeholder={'Type of study'} options={TypeOptions} onChange={(e) => setData(prev => ({ ...prev, typeOfStudy: e.id }))} />
 					</div>
 					<br />
 					<div className="addEducations__content">
@@ -80,8 +77,8 @@ function AddEducations({ removeModal, defaultInputData }) {
 							className="addEducations__inputLocation"
 							type="text"
 							placeholder="Location of school"
-							value={post.location}
-							onChange={e => setPost(prev => ({ ...prev, location: e.target.value }))}
+							value={data.location}
+							onChange={e => setData(prev => ({ ...prev, location: e.target.value }))}
 							required
 						/>
 					</div>
@@ -91,15 +88,25 @@ function AddEducations({ removeModal, defaultInputData }) {
 							<label className="addEducations__label" htmlFor="data">
 								Date from
 							</label>
-							<input className="addEducations__inputDate" type="date" id="data" />
+							<input
+								value={data.dateFrom} className="addEducations__inputDate"
+								type="date" id="data"
+								onChange={e => setSelectedDateFrom(e.target.value)}
+							// onChange={e => setData(prev => ({ ...prev, dateFrom: e.target.value }))}
+							/>
 						</div>
 
 						<div className="addEducations__wrapperDate">
 							<label className="addEducations__label" htmlFor="time">
 								To
 							</label>
-							{post.currentStudy ? (
-								<input disabled={true} className="addEducations__inputDate" type="date" id="time" />
+							{data.dateTo ? (
+								<input value={data.dateTo}
+									disabled={true} className="addEducations__inputDate"
+									type="date" id="time"
+									onChange={e => setSelectedDateTo(e.target.value)}
+								// onChange={e => setData(prev => ({ ...prev, dateTo: e.target.value }))}
+								/>
 							) : (
 								<input disabled={false} className="addEducations__inputDate" type="date" id="time" />
 							)}
@@ -112,8 +119,9 @@ function AddEducations({ removeModal, defaultInputData }) {
 								className="addEducations__inputCheckbox"
 								type="checkbox"
 								id="checkbox"
-								checked={post.currentStudy}
-								onChange={e => setPost(prev => ({ ...prev, currentStudy: !prev.currentStudy }))}
+								checked={data.currentStudy}
+								onClick={isCheskedFunc}
+								onChange={e => setData(prev => ({ ...prev, currentStudy: e.target.value }))}
 							/>
 							<label className="addEducations__labelCheckbox" htmlFor="checkbox">
 								I currently attend here

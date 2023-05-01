@@ -3,25 +3,26 @@ import "./style.scss";
 import { useDispatch } from "react-redux";
 import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 function MyWork({ removeModal, defaultData }) {
-    const { companyName, job, currentWorking, description, type, id } = defaultData;
-    const [experience, setExperience] = useState({ companyName, job, currentWorking, description });
+    const { companyName, job, currentWorking, description, dateFrom, dateTo, type, id } = defaultData;
 
     const dispatch = useDispatch();
     const [selectedDateFrom, setSelectedDateFrom] = useState("2023-04-14");
     const [selectedDateTo, setSelectedDateTo] = useState("2023-04-14");
-    const dateFrom = new Date(selectedDateFrom);
-    const dateTo = new Date(selectedDateTo);
+    const dateFromm = new Date(selectedDateFrom);
+    const dateToo = new Date(selectedDateTo);
     const [data, setData] = useState({
         companyName,
         job,
-        dateFrom: dateFrom,
-        dateTo: dateTo,
-        description
+        dateFrom: dateFromm.toISOString(),
+        dateTo: dateToo.toISOString(),
+        description,
+        currentWorking
     });
+
+
     const handleClick = e => {
         e.preventDefault();
         if (type === "add") {
-            console.log(data);
             dispatch(experiencePost(data));
             removeModal(prev => ({ ...prev, experienceAdd: false }));
         } else {
@@ -34,12 +35,12 @@ function MyWork({ removeModal, defaultData }) {
         e.preventDefault();
         removeModal(false);
     };
+
     return (
         <div className="mywork">
             <div className="mywork__inner">
                 <form onSubmit={handleClick}>
                     <h2 className="mywork__text">Work experience</h2>
-
                     <div className="mywork__content">
                         <input
                             className="mywork__input"
@@ -85,7 +86,7 @@ function MyWork({ removeModal, defaultData }) {
                             <label className="mywork__label" htmlFor="time">
                                 To
                             </label>
-                            {experience.currentWorking ? (
+                            {data.currentWorking ? (
                                 <input value={data.dateTo} disabled={true} className="mywork__inputDate" type="date" id="time" onChange={e => setSelectedDateTo(e.target.value)} />
                             ) : (
                                 <input disabled={false} className="mywork__inputDate" type="date" id="time" />

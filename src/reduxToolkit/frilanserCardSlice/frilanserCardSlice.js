@@ -1,21 +1,26 @@
 import {createSlice} from '@reduxjs/toolkit'
-
+import { getFreelancer } from 'reduxToolkit/extraReducers'
+import defaultuserImage from '../../assets/images/Freelancer/defaultUserImage.png'
 const initialState = {
+    loading:"",
+    freelancerData:[],
+    skillsData:[],
+    hobbiesData:[],
+    error: null,
     freelancer:{
         firstName: "",
         lastName: " ",
         phoneNumber: "",
-        email: " ",
+        email: "",
+        DateOfBirthString:"",
         address:{
-            street:"",
-            region: "",
-            country:""
+            countryId:1,
+            country: null,
+            street:""
         },
-        position: "",
-        bio:"",
-        skiils:[],
-        hobbies:[],
-        language:[],
+        position: 0,
+        bio:"",  
+        defaultuserImage:defaultuserImage,      
         contacts:{
             whatsapp:"",
             facebook:"",
@@ -38,12 +43,38 @@ const freelancerSlice = createSlice({
            state.freelancer.phoneNumber = action.payload.phoneNumber
         },
         secondStep:(state, action)=>{
-            state.freelancer
             state.freelancer.address.street = action.payload
-
-        }
+        },
+        yourSelfStep:(state, action)=>{
+            state.freelancer.position = action.payload.position
+            state.freelancer.DateOfBirthString = action.payload.DateOfBirthString
+            state.freelancer.bio = action.payload.description
+        },
+        socialStep:(state, action)=>{
+            state.freelancer.contacts = ({...action.payload})
+        },
+        getSkills: (state, action) => {
+            state.skillsData = action.payload;
+          },
+          getHobbies: (state, { payload }) => {
+            state.hobbiesData = payload;
+          }
+        
+    },
+    extraReducers:(builder)=>{
+        builder
+        .addCase(getFreelancer.pending, (state)=>{
+            state.loading = true
+        })
+        .addCase(getFreelancer.fulfilled, (state, action)=>{
+            state.loading = false
+            state.freelancerData = action.payload
+        })
+        .addCase(getFreelancer.rejected, (state, action)=>{
+            state.error = action.error.message
+        })
     }
 })
 
-export const {firstStep, secondStep} =  freelancerSlice.actions
+export const {firstStep, secondStep, yourSelfStep,socialStep, getSkills, getHobbies} =  freelancerSlice.actions
 export default freelancerSlice.reducer

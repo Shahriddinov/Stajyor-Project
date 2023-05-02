@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getFreelancer } from "reduxToolkit/extraReducers";
-import defaultuserImage from "../../assets/images/Freelancer/defaultUserImage.png";
 const initialState = {
 	loading: "",
 	freelancerData: [],
 	skillsData: [],
 	hobbiesData: [],
 	error: null,
+	freelancerId:0,
 	freelancer: {
 		firstName: "",
 		lastName: "",
@@ -19,7 +19,7 @@ const initialState = {
 			street: ""
 		},
 		position: 0,
-		bio: "",
+		bio: " ",
 		contacts: {
 			whatsApp: "",
 			facebook: "",
@@ -48,10 +48,10 @@ const freelancerSlice = createSlice({
 		yourSelfStep: (state, action) => {
 			state.freelancer.position = action.payload.position;
 			state.freelancer.DateOfBirthString = action.payload.DateOfBirthString;
-			state.freelancer.bio = action.payload.description;
+			state.freelancer.bio = action.payload.bio;
 		},
 		socialStep: (state, action) => {
-			state.freelancer.contacts = { ...action.payload };
+			// state.freelancer.contacts = { ...action.payload };
 		},
 		getSkills: (state, action) => {
 			state.skillsData = action.payload;

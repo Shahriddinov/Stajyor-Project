@@ -29,7 +29,7 @@ function Yourself() {
 		newSkills: []
 	});
 	const [data, setData] = useState({
-	 description:"",
+	 bio:"",
 	 position:'',
 	 DateOfBirthString:""
 	})
@@ -164,11 +164,11 @@ function Yourself() {
 						onChange={value => changeSkill({ value, type: "hobbies" })}
 					/>
 
-					<textarea
+					<input
 						className="yourselfCard_textarea"
-						type="textarea"
+						type="text"
 						placeholder="Describe yourself to buyers"
-						onChange={event => setData(prev => ({ ...prev, description: event.target.value.trim() }))}></textarea>
+						onChange={event => setData(prev => ({ ...prev, bio: event.target.value}))}></input>
 				</div>
 				<div className="yourselfCard_btn">
 					<button className="backButton" type="button" onClick={prevPage}>

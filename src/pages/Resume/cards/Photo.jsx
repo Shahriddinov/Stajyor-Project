@@ -16,9 +16,7 @@ function Photo() {
 		phoneNumber: "",
 		email: ""
 	});
-	const { ...freelancer } = useSelector(state => state.frilanserCardSlice.freelancer);
-
-	console.log(freelancer);
+	
 	useEffect(
 		() => {
 			dispatch(getCountryList());
@@ -75,7 +73,7 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value })} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" />
+						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("")})} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" />
 					</div>
 				</div>
 				<button className="next_btn_photoCart">Next</button>

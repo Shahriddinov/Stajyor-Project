@@ -877,16 +877,22 @@
 						width: 30px;
 						height: 30px;
 						padding: 15px;
+						position: relative;
 						border-radius: 50%;
-						background-color: rgba(43, 48, 54, 1);
-						border: 5px solid rgba(255, 201, 5, 1);
-						border-top: 5px solid #ffffff;
 						display: flex;
 						align-items: center;
 						justify-content: center;
+						&::before {
+							content: "";
+							position: absolute;
+							border-radius: 50%;
+							background-color: rgb(43, 48, 54);
+							width: 25px;
+							padding: 11px;
+							height: 25px;
+						}
 						span {
-							color: #ffffff;
-							font-size: 8px;
+							position: relative;
 						}
 					}
 				}

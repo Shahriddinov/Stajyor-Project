@@ -4,6 +4,7 @@ import instagramIcon from "../img/instagram.svg";
 
 const Resume5 = props => {
 	const { phoneNumber, bio, experiences, email, freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName, address } = props;
+
 	return (
 		<>
 			<div className="ComplateResume">
@@ -98,23 +99,19 @@ const Resume5 = props => {
 
 								<div className="resume2_5-bottom-title res2_5_color1">Languages</div>
 								<ul className="resume2_5-bottom-circles">
-									{freelancerPosition?.map((item, i) => {
-										return (
-											<li className="resume2_5-bottom-circle" key={i + 1}>
-												<span>{item.name}</span>
-											</li>
-										);
-									})}
-									<li className="resume2_5-bottom-circle">
+									{/*  */}
+									<li
+										className="resume2_5-bottom-circle"
+										style={{ background: ` conic-gradient(rgb(255, 201, 5) ${"can you change % there"} 50%, #ededed 0deg)` }}>
 										<span>French</span>
 									</li>
-									<li className="resume2_5-bottom-circle">
-										<span>English</span>
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 70%, #ededed 0deg)" }}>
+										<span>English</span>8
 									</li>
-									<li className="resume2_5-bottom-circle">
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 40%, #ededed 0deg)" }}>
 										<span>Russia</span>
 									</li>
-									<li className="resume2_5-bottom-circle">
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 10%, #ededed 0deg)" }}>
 										<span>Uzbek</span>
 									</li>
 								</ul>

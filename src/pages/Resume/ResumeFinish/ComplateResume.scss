@@ -846,7 +846,7 @@
 				color: #ffffff;
 
 				.resume2_5-bottom-text-div {
-					padding: 15px 5px 20px 37px;
+					padding: 12px 5px 20px 37px;
 					font-weight: 400;
 					font-size: 10px;
 					line-height: 12px;
@@ -860,10 +860,15 @@
 						.resume2_5-year {
 							border-radius: 3px;
 							padding: 2px;
-							background-color: #ffc905;
 							margin-right: 10px;
-							color: #000000;
+							color: #fff;
 							font-weight: 600;
+						}
+						h4 {
+							margin: 5px 0;
+						}
+						p {
+							margin-top: 9px;
 						}
 					}
 				}

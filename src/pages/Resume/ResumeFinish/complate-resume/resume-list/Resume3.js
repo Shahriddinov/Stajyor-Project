@@ -58,19 +58,7 @@ const Resume3 = ({ phoneNumber, bio, experiences, email, freelancerContact, defa
 							{/* languages start */}
 
 							<div className="resume2_3-bottom-title title-bg-cl1">Languages</div>
-							{/* {educations?.map((item, i) => {
-								return (
-									<div className="resume2_3-left-bottom-degree" key={i + 1}>
-										<b>{item?.degree}</b>
-										<br />
-										<span>{item?.name}</span>
-										<br />
-										<span>
-											{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
-										</span>
-									</div>
-								);
-							})} */}
+
 							<div className="resume2_3-left-bottom-languages">
 								<div className="bottom-languages-item">
 									<p className="languages-text">English - A1 level</p>
@@ -90,19 +78,7 @@ const Resume3 = ({ phoneNumber, bio, experiences, email, freelancerContact, defa
 							</div>
 							{/* Hobbies start */}
 							<div className="resume2_3-bottom-title title-bg-cl1">Hobbies</div>
-							{/* {educations?.map((item, i) => {
-								return (
-									<div className="resume2_3-left-bottom-degree" key={i + 1}>
-										<b>{item?.degree}</b>
-										<br />
-										<span>{item?.name}</span>
-										<br />
-										<span>
-											{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
-										</span>
-									</div>
-								);
-							})} */}
+
 							<div className="resume2_3-left-bottom-hobbies">
 								<div className="bottom-hobbies-item">
 									<p className="hobbies-text">Footbal</p>
@@ -123,20 +99,7 @@ const Resume3 = ({ phoneNumber, bio, experiences, email, freelancerContact, defa
 
 							{/* Contact start */}
 							<div className="resume2_3-bottom-title title-bg-cl1">Contact</div>
-							{/* <div className="resume2_3-left-bottom-contacts">
-								<div>
-									{" "}
-									<span className="bottom-contacts-icon"> p </span> <span>{phoneNumber}</span>
-								</div>
-								<div>
-									{" "}
-									<span className="bottom-contacts-icon"> m </span> <span>{email}</span>
-								</div>
-								<div>
-									{" "}
-									<span className="bottom-contacts-icon"> w </span> <span>{freelancerContact?.webSite}</span>
-								</div>
-							</div> */}
+
 							<div className="resume2_3-left-bottom-contacts-2">
 								<div>
 									<span className="bottom-contacts-icon"> W </span> <span>Abdurashid7008</span>
@@ -176,75 +139,50 @@ const Resume3 = ({ phoneNumber, bio, experiences, email, freelancerContact, defa
 							<div className="resume2_3-bottom-title title-bg-cl2">Education </div>
 							{educations?.map((item, i) => {
 								return (
-									// <div className="resume2_3-right-bottom-cd" key={i + 1}>
-									// 	<div className="bottom-cd-1">
-									// 		<b>{item.job}</b>{" "}
-									// 		<span>
-									// 			{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
-									// 		</span>
-									// 	</div>
+									<>
+										<div className="resume2_3-right-bottom-cd" key={i + 1}>
+											<img className="resume2_3-right-bottom-five-side-icon" src={fiveSidedIcon} alt="fiveSidedIcon" />
+											<div className="bottom-cd-1">
+												{/* <b>{item.degree}</b>{" "} */}
+												<b>Bakalavr</b>
+												<span>
+													{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+												</span>
+											</div>
+											<div className="resume2_3-right-bottom-content">
+												<div className="bottom-cd-2">{item?.name}</div>
 
-									// 	<div className="bottom-cd-2">{item?.companyName}</div>
-
-									// 	<div className="bottom-cd-3">{item?.description}</div>
-									// </div>
-									<></>
+												<div className="bottom-cd-3">{item?.location}</div>
+											</div>
+										</div>
+									</>
 								);
 							})}
-							<div className="resume2_3-right-bottom-cd">
-								<img className="resume2_3-right-bottom-five-side-icon" src={fiveSidedIcon} alt="fiveSidedIcon" />
 
-								<div className="bottom-cd-1">
-									<b>FrontEnd</b> <span>2004-2013</span>
-								</div>
-
-								<div className="resume2_3-right-bottom-content">
-									<div className="bottom-cd-2">Napa</div>
-									<div className="bottom-cd-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi?</div>
-								</div>
-							</div>
 							{/* experience */}
 							<div className="resume2_3-bottom-title title-bg-cl2">Experience </div>
-							{/* {experiences?.map((item, i) => {
+							{experiences?.map((item, i) => {
 								return (
-									<div className="resume2_3-right-bottom-cd" key={i + 1}>
-										<div className="bottom-cd-1">
-											<b>{item.job}</b>{" "}
-											<span>
-												{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
-											</span>
+									<>
+										<div className="resume2_3-right-bottom-cd" key={i + 1}>
+											<img className="resume2_3-right-bottom-five-side-icon" src={fiveSidedIcon} alt="fiveSidedIcon" />
+
+											<div className="bottom-cd-1">
+												<b>{item.job}</b>{" "}
+												<span>
+													{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+												</span>
+											</div>
+
+											<div className="resume2_3-right-bottom-content">
+												<div className="bottom-cd-2">{item?.companyName}</div>
+
+												<div className="bottom-cd-3">{item?.description}</div>
+											</div>
 										</div>
-
-										<div className="bottom-cd-2">{item?.companyName}</div>
-
-										<div className="bottom-cd-3">{item?.description}</div>
-									</div>
+									</>
 								);
-							})} */}
-							<div className="resume2_3-right-bottom-cd">
-								<img className="resume2_3-right-bottom-five-side-icon" src={fiveSidedIcon} alt="fiveSidedIcon" />
-
-								<div className="bottom-cd-1">
-									<b>FrontEnd</b> <span>2004-2013</span>
-								</div>
-
-								<div className="resume2_3-right-bottom-content">
-									<div className="bottom-cd-2">Napa</div>
-									<div className="bottom-cd-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi?</div>
-								</div>
-							</div>
-							<div className="resume2_3-right-bottom-cd">
-								<img className="resume2_3-right-bottom-five-side-icon" src={fiveSidedIcon} alt="fiveSidedIcon" />
-
-								<div className="bottom-cd-1">
-									<b>FrontEnd</b> <span>2004-2013</span>
-								</div>
-
-								<div className="resume2_3-right-bottom-content">
-									<div className="bottom-cd-2">Napa</div>
-									<div className="bottom-cd-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi?</div>
-								</div>
-							</div>
+							})}
 						</div>
 					</div>
 				</div>

@@ -11,7 +11,7 @@ const Resume4 = props => {
 							<img src={defaultuserImage} alt={firstName} />
 						</div>
 
-						<div className="resume4-left-info">
+							<div className="resume4-left-info">
 							<div className="resume4_title-l r4lt">education</div>
 							{educations?.map((item, i) => {
 								return (

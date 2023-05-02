@@ -22,17 +22,15 @@ const defaultData = {
 }
 
 function Educations() {
+	const [test, setTest] = useState()
 	const [isMoadalActive, setMoadalActive] = useState({ educationAdd: false, educationEdit: false })
 	const [editData, setEditData] = useState({})
 	const dispatch = useDispatch();
 	const { educationPostIsSuccess, educationList, educationDeleteIsSuccess, loading } = useSelector(state => state.resume);
 	useEffect(() => {
 		dispatch(educationGet());
-	}, [educationGet, educationPostIsSuccess]);
+	}, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
 	console.log(educationList)
-
-	const [test, setTest] = useState()
-
 	const changeEducation = (value) => {
 		setEditData(value.data);
 		setMoadalActive(prev => ({ ...prev, educationEdit: value.modal }));
@@ -104,6 +102,7 @@ function Educations() {
 			return "bachelour"
 		}
 	}
+
 
 	return (
 		<>

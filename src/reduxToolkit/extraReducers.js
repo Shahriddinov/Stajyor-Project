@@ -104,7 +104,11 @@ export const Freelancerpost = createAsyncThunk("freelancer/post", async payload 
 			// "Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
-	});
+	})
+		.then(res => console.log(res))
+		.catch(e => {
+			console.log(e);
+		});
 });
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {

@@ -70,6 +70,7 @@ const Resume2 = (props) => {
                     </div>
                     </div>
 
+<<<<<<< HEAD
                     {/*<div className="resume2_2-bottom">*/}
                     {/*<div className="resume2_2-bottom-left">*/}
                     {/*    <div className="resume2_2-title">education</div>*/}
@@ -168,14 +169,74 @@ const Resume2 = (props) => {
                                         return<li key={i+1}>{item}</li>;
                                     })}
                                     <li>Fooball</li>
+=======
+                    <div className="resume2_2-bottom">
+                    <div className="resume2_2-bottom-left">
+                        <div className="resume2_2-title">education</div>
+                            {props?.educations?.map((item, i) => {
+                            return (
+                               <React.Fragment key={i + 1}>
+                                    <div className="resume2_2-bottom-left-info">
+                                    <p>
+                                        {item?.dateFrom} -{" "}
+                                        {item?.dateTo}
+                                    </p>
+                                    <p>{item?.degree}</p>
+                                    <p>{item?.name}</p>
+                                    </div>
+                               </React.Fragment>
+                            );
+                            })}
+                        <div>
+                        <div className="resume2_2-title">hobbies</div>
+                            <ul>
+                                {props?.freelancerHobbies?.map((item, i) => {
+                                    return <span key={i+1}>{item}</span>;
+                                })}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="resume2_2-bottom-right">
+                        <div className="resume2_2-title">experience</div>
+                        {props?.experiences?.map((item, i) => {
+                        return (
+                           <React.Fragment key={i + 1}>
+                                <div className="resume2_2-bottom-right-card">
+                                <div className="bottom-card-left">
+                                    <p>
+                                    {item?.dateFrom?.substring(0, 4)} -{" "}
+                                    {item?.dateTo?.substring(0, 4)}
+                                    </p>
+                                    <p>{item?.companyName}</p>
                                 </div>
 
+                                <div className="bottom-card-right">
+                                    <b>{item?.job}</b>
+                                    <p>{item?.description}</p>
+>>>>>>> origin/Abdurashid
+                                </div>
+
+<<<<<<< HEAD
                                 <div className="resume2_1-left-contacts__texts resume2_1-left__block">
                                     <p className="resume2_1-left-contacts__text">Contacts</p>
                                     {freelancerHobbies?.map((item, i) => {
                                         return<span key={i+1}>{item}</span>;
                                     })}
                                     <span>Murphy_design</span>
+=======
+                        <div className="resume2__card-skills">
+                        {props?.freelancerPosition?.map((item, i) => {
+                            return (
+                            <div className="resume2__card-skills-item" key={i+1}>
+                                {item}{" "}
+                                <div className="resume2__card-skills-dot">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+>>>>>>> origin/Abdurashid
                                 </div>
                             </div>
                         </div>

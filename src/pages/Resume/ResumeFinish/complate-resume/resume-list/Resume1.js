@@ -36,9 +36,21 @@ const Resume1 = props => {
 								Marketing Specialist
 							</p>
 
+<<<<<<< HEAD
 							<div className="resume2_1-left-contacts__texts">
 								{/*<div><img src={resumePhone}/><p>{phoneNumber}</p></div>*/}
 								<div><img src={resumePhone}/><p>+99890 000 00 00</p></div>
+=======
+							{/* {lastName} */}
+						</p>
+						<p className="resume2_1-head-job">Frontend developer</p>
+					</div>
+					<div className="resume2_1-body">
+						<div className="resume2_1-left">
+							<div className="resume2_1-left-img">
+								<img src={defaultuserImage}alt={firstName} />
+								<span>personal info</span>
+>>>>>>> origin/Abdurashid
 							</div>
 
 							<div className="resume2_1-left-contacts__texts">
@@ -53,6 +65,7 @@ const Resume1 = props => {
 						</div>
 					</div>
 
+<<<<<<< HEAD
 					<div className="resume2_1-body">
 						<div className="resume2_1-left bor-r">
 							<div className="resume2_1-left__block resume2_1-left-contacts__texts">
@@ -64,6 +77,16 @@ const Resume1 = props => {
 							</div>
 							<div className="resume2_1-left-contacts ">
 								<div className="resume2_1-left-contacts__texts resume2_1-left__block">
+=======
+								<div className="resume2_1-left-contacts__texts">
+									<p className="resume2_1-left-contacts__text">skills</p>
+									{freelancerPosition?.map((item, i) => {
+										return <span key={i+1}>{item}</span>;
+									})}
+								</div>
+
+								<div className="resume2_1-left-contacts__texts">
+>>>>>>> origin/Abdurashid
 									<p className="resume2_1-left-contacts__text">languages</p>
 									{userLanguages?.map((item, i) => {
 										return (
@@ -78,15 +101,33 @@ const Resume1 = props => {
 								<div className="resume2_1-left-contacts__texts resume2_1-left__block">
 									<p className="resume2_1-left-contacts__text">Hobbies</p>
 									{freelancerHobbies?.map((item, i) => {
+<<<<<<< HEAD
 										return<li key={i+1}>{item}</li>;
+=======
+										return<span key={i+1}>{item}</span>;
+>>>>>>> origin/Abdurashid
 									})}
 									<li>Fooball</li>
 								</div>
 
+<<<<<<< HEAD
 								<div className="resume2_1-left-contacts__texts resume2_1-left__block">
 									<p className="resume2_1-left-contacts__text">Contacts</p>
 									{freelancerHobbies?.map((item, i) => {
 										return<span key={i+1}>{item}</span>;
+=======
+								<div className="resume2_1-left-contacts__texts">
+									<p className="resume2_1-left-contacts__text">Work experience</p>
+									{experiences?.map((item, i) => {
+										return <span key={i + 1}>{item?.companyName}</span>;
+									})}
+								</div>
+
+								<div className="resume2_1-left-contacts__texts">
+									<p className="resume2_1-left-contacts__text">Education</p>
+									{educations?.map((item, i) => {
+										return <span key={i}>{item?.name}</span>;
+>>>>>>> origin/Abdurashid
 									})}
 									<span>Murphy_design</span>
 								</div>
@@ -102,6 +143,7 @@ const Resume1 = props => {
 								<span className={'resume2_1__body__bio'}>lorem5</span>
 							</div>
 
+<<<<<<< HEAD
 							<div className="resume2_1__body mb-b">
 								<p className="resume2_1__body__title">Education</p>
 								{educations?.map((item, i) => {
@@ -152,6 +194,10 @@ const Resume1 = props => {
 										<p>lorem5</p>
 									</div>
 								</div>
+=======
+							<div className="resume2_1-right-body">
+								<div className="resume2_1-right-body-text">{bio}</div>
+>>>>>>> origin/Abdurashid
 							</div>
 						</div>
 					</div>

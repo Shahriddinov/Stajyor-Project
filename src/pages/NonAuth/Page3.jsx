@@ -1,6 +1,10 @@
 import React from "react";
 import classes from "./Page3.module.scss";
+<<<<<<< HEAD
 import sloy1 from "../../assets/images/Sloy2.svg";
+=======
+import sloy1 from "../../assets/images/Sloy2.png";
+>>>>>>> origin/Abdurashid
 import { Link } from "react-router-dom";
 
 function Page3() {

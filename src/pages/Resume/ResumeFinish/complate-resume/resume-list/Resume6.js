@@ -15,7 +15,10 @@ const Resume6 = props => {
 		defaultuserImage,
 		educations,
 		freelancerPosition,
+<<<<<<< HEAD
 		freelancerHobbies,
+=======
+>>>>>>> origin/Abdurashid
 		firstName,
 		lastName,
 		address,
@@ -29,12 +32,17 @@ const Resume6 = props => {
 						<div className="resume2_6-top-left">
 							<div className="resume2_6-top-left-name">
 								<p className="resume2_6-top-left-user-name">
+<<<<<<< HEAD
+=======
+									Lorem ipsum dolor
+>>>>>>> origin/Abdurashid
 									{firstName} {lastName}
 								</p>
 								<p className="resume2_6-top-left-user-job">{freelancerPosition?.name}</p>
 							</div>
 
 							<div className="resume2_6-top-left-user-contact">
+<<<<<<< HEAD
 								<p className={'subTitle'}>
 									<img src={phone} alt={phone}/>
 									{phoneNumber}
@@ -47,6 +55,28 @@ const Resume6 = props => {
 									<img src={loc} alt={loc}/>
 									{address?.countryName} {address?.regionName} {address?.home}
 								</p>
+=======
+								<p>
+									{" "}
+									<img src={phone} />
+									{phoneNumber}
+								</p>
+								<p>
+									{" "}
+									<img src={letter} />
+									{email}
+								</p>
+								<p>
+									{" "}
+									<img src={loc} />
+									{address?.countryName} {address?.regionName} {address?.home}
+								</p>
+								<p>
+									{" "}
+									<img src={loc} />
+									{freelancerContact?.webSite}
+								</p>
+>>>>>>> origin/Abdurashid
 							</div>
 						</div>
 
@@ -57,9 +87,32 @@ const Resume6 = props => {
 
 					<div className="resume2_6-bottom">
 						<div className="resume2_6-bottom-left">
+<<<<<<< HEAD
 							<p className="resume2_6-bottom-title">about me</p>
 							<div className="resume2_6-bottom-left-text">
 								<span className={'subTitle'}>{bio}</span>
+=======
+							<p className="resume2_6-bottom-title">profile</p>
+							<div className="resume2_6-bottom-left-text">
+								<span>{bio}</span>
+							</div>
+
+							<div className="resume2_6-bottom-title">education</div>
+							<div className="resume2_6-bottom-left-text">
+								{educations?.map((item, i) => {
+									return (
+										<React.Fragment key={i}>
+											<div>
+												<b>{item?.name}</b>{" "}
+												<span>
+													{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+												</span>
+											</div>
+											<p>{item?.degree}</p>
+										</React.Fragment>
+									);
+								})}
+>>>>>>> origin/Abdurashid
 							</div>
 
 							<div className="resume2_6-bottom-title">language</div>
@@ -67,6 +120,7 @@ const Resume6 = props => {
 								<div className="language-lvl">
 									{userLanguages?.map((item, i) => (
 										<React.Fragment key={i + 1}>
+<<<<<<< HEAD
 											<p className={'subTitleUp'}>{item?.language}</p>
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
@@ -75,21 +129,57 @@ const Resume6 = props => {
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
+=======
+											<span>{item?.language}</span>
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+											<p className="resume2_6-cirlces" />
+>>>>>>> origin/Abdurashid
 										</React.Fragment>
 									))}
 								</div>
 							</div>
+<<<<<<< HEAD
+=======
+						</div>
+
+						<div className="resume2_6-bottom-right">
+							<div className="resume2_6-bottom-title">work experience</div>
+							{experiences?.map((item, i) => {
+								return (
+									<div className="resume2_6-bottom-left-text" key={i + 1}>
+										<div>
+											<b>{item?.job}</b>
+											<b>
+												{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+											</b>
+											<p>{item?.companyName}</p>
+										</div>
+										<div>{item?.description}</div>
+									</div>
+								);
+							})}
+>>>>>>> origin/Abdurashid
 
 							<div className="resume2_6-bottom-title">skills</div>
 							<div className="resume2_6-bottom-left-text">
 								{freelancerPosition?.map((item, i) => {
 									return (
 										<div key={i + 1}>
+<<<<<<< HEAD
 											<p className={'subTitleUp'}>{item.name}</p>
+=======
+											<b>{item.name}</b>
+>>>>>>> origin/Abdurashid
 										</div>
 									);
 								})}
 							</div>
+<<<<<<< HEAD
 
 							<div className="resume2_6-bottom-title">hobbies</div>
 							<div className="resume2_6-bottom-left-text">
@@ -156,6 +246,8 @@ const Resume6 = props => {
 									);
 								})}
 							</div>
+=======
+>>>>>>> origin/Abdurashid
 						</div>
 					</div>
 				</div>

@@ -28,7 +28,7 @@ function WorkExperience() {
 
 	useEffect(
 		() => {
-			dispatch(experienceGet());
+				dispatch(experienceGet())
 		},
 		[experiencePostIsSuccess]
 	);

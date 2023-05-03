@@ -125,7 +125,7 @@ function Yourself() {
               type="date"
               required
               placeholder="DD/MM/YYYY"
-              data-date-format=" YYYY:MMMM:DD "
+              data-date-format="YYYY:MMMM:DD"
               onChange={e => setData({...data,DateOfBirthString:e.target.value.split("-").join(":") })}
             />
 					</div>

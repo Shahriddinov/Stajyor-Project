@@ -16,7 +16,6 @@ function Photo() {
 		phoneNumber: "",
 		email: "",
 	});
-
 	useEffect(() => {
 		dispatch(getCountryList());
 	}, [handleSubmit]);
@@ -39,7 +38,6 @@ function Photo() {
 			])
 		);
 	};
-
 	return (
 		<div className="photoCard">
 			{!uploaded && (
@@ -62,7 +60,7 @@ function Photo() {
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>
-						<h5>Firstname*</h5>
+						<h5 >Firstname*</h5>
 						<input onChange={e => setData({ ...data, firstName: e.target.value })} type="text" placeholder="Write in your first name" required />
 					</div>
 					<div>

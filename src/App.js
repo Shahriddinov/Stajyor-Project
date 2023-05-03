@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useEffect } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Header from "components/Layout/Header/Header";
@@ -16,7 +16,6 @@ function App() {
 	const navigate = useNavigate();
 	const { pathname } = useLocation()
 	const freelancer = localStorage.getItem("isResume") ? localStorage.getItem("isResume") : "welcome"
-
 
 	let freelanceOrCompany
 
@@ -44,7 +43,7 @@ function App() {
 	// }, [loginOnSuccess, contactsIsSuccess, dispatch])
 
 	return (
-		<div className="App">
+<div>
 			{ auth === false
 				&& <Routes>
 					{

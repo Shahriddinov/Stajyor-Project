@@ -3,28 +3,24 @@ import "./style.scss";
 import { useDispatch } from "react-redux";
 import { experiencePost, experienceEdit } from "reduxToolkit/extraReducers";
 function MyWork({ removeModal, defaultData }) {
-    const { companyName, job, currentWorking, description, dateFrom, dateTo, type, id } = defaultData;
+    const { companyName, job, currentWorking, description, dateFrom,dateTo, type, id } = defaultData;
 
     const dispatch = useDispatch();
-    const [selectedDateFrom, setSelectedDateFrom] = useState("2023-04-14");
-    const [selectedDateTo, setSelectedDateTo] = useState("2023-04-14");
-    const dateFromm = new Date(selectedDateFrom);
-    const dateToo = new Date(selectedDateTo);
+
     const [data, setData] = useState({
         companyName,
         job,
-        dateFrom: dateFromm.toISOString(),
-        dateTo: dateToo.toISOString(),
+        dateFrom,
+        dateTo,
         description,
         currentWorking
     });
 
-
     const handleClick = e => {
         e.preventDefault();
         if (type === "add") {
-            dispatch(experiencePost(data));
-            removeModal(prev => ({ ...prev, experienceAdd: false }));
+                dispatch(experiencePost(data));
+                removeModal(prev => ({ ...prev, experienceAdd: false }))
         } else {
             dispatch(experienceEdit({ data, id }));
             removeModal(false);
@@ -36,6 +32,9 @@ function MyWork({ removeModal, defaultData }) {
         removeModal(false);
     };
 
+    const handleTest = (data) => {
+        console.log('date to');
+    }
     return (
         <div className="mywork">
             <div className="mywork__inner">
@@ -79,7 +78,12 @@ function MyWork({ removeModal, defaultData }) {
                             <label className="mywork__label" htmlFor="data">
                                 Date from
                             </label>
-                            <input value={data.dateFrom} className="mywork__inputDate" onChange={e => setSelectedDateFrom(e.target.value)} type="date" id="data" />
+                            <input
+                                   className="mywork__inputDate"
+                                   type="date" id="data"
+                                   data-date-format="YYYY:MMMM:DD"
+                                   onChange={e => setData(prev => ({ ...prev, dateFrom: new Date(e.target.value).toISOString()}))}
+                            />
                         </div>
 
                         <div className="mywork__wrapperDate">
@@ -87,9 +91,19 @@ function MyWork({ removeModal, defaultData }) {
                                 To
                             </label>
                             {data.currentWorking ? (
-                                <input value={data.dateTo} disabled={true} className="mywork__inputDate" type="date" id="time" onChange={e => setSelectedDateTo(e.target.value)} />
+                                <input
+                                       disabled={true} className="mywork__inputDate"
+                                       type="date" id="time"
+                                       data-date-format="YYYY:MMMM:DD"
+                                       onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
+                                />
+
                             ) : (
-                                <input disabled={false} className="mywork__inputDate" type="date" id="time" />
+                                <input disabled={false}
+                                       className="mywork__inputDate"
+                                       data-date-format="YYYY:MMMM:DD"
+                                       onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
+                                       type="date" id="time" />
                             )}
                         </div>
                     </div>
@@ -97,7 +111,6 @@ function MyWork({ removeModal, defaultData }) {
                     <div className="mywork__descriptionWrapper">
                         <textarea
                             className="mywork__description"
-                            type="text"
                             placeholder="Description"
                             value={data.description}
                             onChange={e => setData(prev => ({ ...prev, description: e.target.value }))}></textarea>

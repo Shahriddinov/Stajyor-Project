@@ -93,12 +93,12 @@ function Educations() {
 		}
 	}
 
-	function updateIdToStudy(study){
-		if(study === 1){
+	function updateIdToStudy(study) {
+		if (study === 1) {
 			return "sredniy"
-		}else if(study === 2){
+		} else if (study === 2) {
 			return "vishiy"
-		}else if(study === 3){
+		} else if (study === 3) {
 			return "bachelour"
 		}
 	}

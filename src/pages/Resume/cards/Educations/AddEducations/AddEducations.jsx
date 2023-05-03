@@ -7,24 +7,18 @@ import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
 function AddEducations({ removeModal, defaultInputData, TypeOptions, option, updateIdToStudy, updateToTypeOption }) {
 	const { name, degree, typeOfStudy, location, currentStudy, dateFrom, dateTo, type, id } = defaultInputData;
-	const [selectedDateFrom, setSelectedDateFrom] = useState("2023-04-14");
-	const [selectedDateTo, setSelectedDateTo] = useState("2023-04-14");
 
 	const dispatch = useDispatch();
 
-	const dateFromm = new Date(selectedDateFrom);
-	const dateToo = new Date(selectedDateTo);
-
-	console.log(dateFromm)
 
 	const [data, setData] = useState({
 		name,
 		degree,
 		typeOfStudy,
 		location,
-		dateFrom: dateFromm,
-		dateTo: dateToo,
-		currentStudy
+		dateFrom,
+		dateTo,
+		// currentStudy
 	})
 	console.log(data);
 	console.log(data.degree);
@@ -89,10 +83,10 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 								Date from
 							</label>
 							<input
-								value={data.dateFrom} className="addEducations__inputDate"
+								className="addEducations__inputDate"
 								type="date" id="data"
-								onChange={e => setSelectedDateFrom(e.target.value)}
-							// onChange={e => setData(prev => ({ ...prev, dateFrom: e.target.value }))}
+								data-date-format="YYYY:MMMM:DD"
+								onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
 							/>
 						</div>
 
@@ -101,14 +95,17 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 								To
 							</label>
 							{data.dateTo ? (
-								<input value={data.dateTo}
+								<input
 									disabled={true} className="addEducations__inputDate"
 									type="date" id="time"
-									onChange={e => setSelectedDateTo(e.target.value)}
+									// onChange={e => setSelectedDateTo(e.target.value)}
+									   onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
 								// onChange={e => setData(prev => ({ ...prev, dateTo: e.target.value }))}
 								/>
 							) : (
-								<input disabled={false} className="addEducations__inputDate" type="date" id="time" />
+								<input disabled={false}
+									   onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
+									   className="addEducations__inputDate" type="date" id="time" />
 							)}
 						</div>
 					</div>
@@ -119,7 +116,7 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 								className="addEducations__inputCheckbox"
 								type="checkbox"
 								id="checkbox"
-								checked={data.currentStudy}
+								// checked={data.currentStudy}
 								onClick={isCheskedFunc}
 								onChange={e => setData(prev => ({ ...prev, currentStudy: e.target.value }))}
 							/>

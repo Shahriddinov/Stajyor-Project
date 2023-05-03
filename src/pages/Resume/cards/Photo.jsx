@@ -6,8 +6,10 @@ import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControl
 import { getCountryList } from "reduxToolkit/extraReducers";
 import { firstStep, socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from "react-input-mask";
+import { useRef } from "react";
 
 function Photo() {
+	const hiddenFileInput = useRef();
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch();
 	const [data, setData] = useState({
@@ -16,7 +18,7 @@ function Photo() {
 		phoneNumber: "",
 		email: ""
 	});
-	
+
 	useEffect(
 		() => {
 			dispatch(getCountryList());
@@ -24,8 +26,8 @@ function Photo() {
 		[handleSubmit]
 	);
 
-	const handleClick = event => {
-		// hiddenFileInput.current.click();
+	const handleClick = () => {
+		hiddenFileInput.current.click();
 	};
 
 	const handleChange = event => {
@@ -56,7 +58,7 @@ function Photo() {
 					<h3 className="title">Change your profile photo</h3>
 				</div>
 			)}
-			<input type="file" accept=".png, .jpg, .jpeg" onChange={handleChange} style={{ display: "none" }} />
+			<input type="file" accept=".png, .jpg, .jpeg" onChange={handleChange} style={{ display: "none" }} ref={hiddenFileInput} />
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>
@@ -73,7 +75,11 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("")})} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" />
+						<InputMask
+							onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("") })}
+							mask="+998 (99)-999-99-99"
+							placeholder="+XXX (XX) XXX-XX-XX"
+						/>
 					</div>
 				</div>
 				<button className="next_btn_photoCart">Next</button>

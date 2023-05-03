@@ -21,6 +21,7 @@ const initialState = {
 		position: 0,
 		bio: "",
 		defaultuserImage: defaultuserImage,
+		
 		contacts: {
 			whatsapp: "",
 			facebook: "",

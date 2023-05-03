@@ -26,7 +26,12 @@ import {
 	REGISTER_COMPANY,
 	RESUMEFINISH,
 	RESUMESELECT,
-	SKILLS
+	SKILLS,
+	CLAIMS,
+	COMPANY_OWNER_CREATE,
+	ADD_COMPANY,
+	ADD_LOCATION_COMPANY,
+	ADD_CONTACTS_COMPANY
 } from "./URLS";
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
 /////////////////////////////////////CLAIMS GET///////////////////////
@@ -89,18 +94,22 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 // 		}
 // 	}).then(res => res.data);
 // });
-   export const Freelancerpost = createAsyncThunk('freelancer/post', async(payload)=>{
-	const token = localStorage.getItem("token")
+export const Freelancerpost = createAsyncThunk("freelancer/post", async payload => {
+	const token = localStorage.getItem("token");
 	return axios({
-		method:"POST",
+		method: "POST",
 		url: FREELANCER,
-		data:payload,
-		headers:{
+		data: payload,
+		headers: {
 			// "Content-Type": "multipart/form-data",
 			Authorization: `Bearer ${token}`
 		}
 	})
-   })
+		.then(res => console.log(res))
+		.catch(e => {
+			console.log(e);
+		});
+});
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 // 	const token = localStorage.getItem("token");

@@ -6,6 +6,7 @@
 	"author": "Murod",
 	"dependencies": {
 		"@mantine/core": "^6.0.6",
+		"@mantine/hooks": "^6.0.8",
 		"@react-leaflet/core": "^1.1.1",
 		"@reduxjs/toolkit": "^1.9.1",
 		"@testing-library/jest-dom": "^5.16.3",

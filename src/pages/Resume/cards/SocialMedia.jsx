@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./SocialMedia.module.scss";
 import telgramIcon from "../../../assets/images/Resume/telegramIcon.png";
@@ -8,23 +8,22 @@ import facebookIcon from "../../../assets/images/Resume/faceBookIcon.png";
 import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { contactUpload } from "reduxToolkit/extraReducers";
+import { socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 
 function SocialMedia() {
 	const dispatch = useDispatch();
 	const [data, setData] = useState({
-		website:"",
+		website: "",
 		WatsApp: "",
 		Facebook: "",
 		Instagram: "",
 		Telegram: "",
 		GitHub: "",
 		Twitter: ""
-
 	});
+
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
 		{ icon: whatsUppIcon, name: "WatsApp" },
@@ -61,38 +60,19 @@ function SocialMedia() {
 		setSocials([...socials, { icon: icon, name: name }]);
 	};
 
-	const handleChangeInput = ({label,value}) => {
-		setData(prev => ({...prev, [label]: value}))
+	const handleChangeInput = ({ label, value }) => {
+		setData(prev => ({ ...prev, [label]: value }));
 	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		let formdatas = new FormData();
-		formdatas.append("WebSite",data.website);
-		formdatas.append("Facebook",data.Facebook);
-		formdatas.append("GitHub",data.GitHub);
-		formdatas.append("Instagram",data.Instagram);
-		formdatas.append("Telegram",data.Telegram);
-		formdatas.append("Twitter",data.Twitter);
-		formdatas.append("WatsApp",data.WatsApp);
-		dispatch(contactUpload(formdatas));
-
-		dispatch(
-			activeDoteAction([
-				{ id: 8, label: "Resume" },
-				{ id: 8, type: "resume" }
-			])
-		);
+		dispatch(socialStep(data));
+		dispatch(activeDoteAction([{ id: 8, label: "Resume" }, { id: 8, type: "resume" }]));
 	};
 
 	const prevPgae = event => {
 		event.preventDefault();
-		dispatch(
-			activeDoteAction([
-				{ id: 6, label: "Educations" },
-				{ id: 6, type: "education" }
-			])
-		);
+		dispatch(activeDoteAction([{ id: 6, label: "Educations" }, { id: 6, type: "education" }]));
 	};
 
 	return (
@@ -100,21 +80,22 @@ function SocialMedia() {
 			<h2>Contacts</h2>
 			<form action="submit" className={classes.socialForm} onSubmit={handleSubmit}>
 				<div className={classes.forim_content}>
-					<input 
-					className={classes.website_input}  
-					type="text" placeholder="Provide a link to your website " 
-					value={data.website}
-					onChange={(e) => setData(prev => ({...prev, website: e.target.value}))}
+					<input
+						className={classes.website_input}
+						type="text"
+						placeholder="Provide a link to your website "
+						value={data.website}
+						onChange={e => setData(prev => ({ ...prev, website: e.target.value }))}
 					/>
 					{icons &&
 						icons.map(item => (
 							<div key={item.name} className={classes.socialInput}>
 								<div className={classes.socialInputIn}>
-									<input 
-									type="url" 
-									placeholder={`Provide a link to your ${item.name} account`} 
-									value={data[item.name]}
-									onChange={(e) =>  handleChangeInput({value:e.target.value, label: item.name})} 
+									<input
+										type="url"
+										placeholder={`Provide a link to your ${item.name} account`}
+										value={data[item.name]}
+										onChange={e => handleChangeInput({ value: e.target.value, label: item.name })}
 									/>
 									<img className={classes.insideIconImage} src={item.icon} alt="Whats app icon" />
 								</div>
@@ -124,7 +105,7 @@ function SocialMedia() {
 										removeIput(item.name, item.icon);
 										handleSubmitting(event);
 									}}>
-									<img className={classes.cancelButton_img}  src={cancel} alt="cancel icon" />
+									<img className={classes.cancelButton_img} src={cancel} alt="cancel icon" />
 								</button>
 							</div>
 						))}
@@ -142,8 +123,10 @@ function SocialMedia() {
 					<button className={classes.backButton} type="button" onClick={prevPgae}>
 						Back
 					</button>
-					<button type="submit" className={classes.nextButton}>Next</button>
-				</div> 
+					<button type="submit" className={classes.nextButton}>
+						Next
+					</button>
+				</div>
 			</form>
 		</div>
 	);

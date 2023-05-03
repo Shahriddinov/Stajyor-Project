@@ -1,53 +1,49 @@
 import React, { useEffect } from "react";
 import "./Photo.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { getCountryList } from "reduxToolkit/extraReducers";
-import { firstStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
+import { firstStep, socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 import InputMask from "react-input-mask";
 
 function Photo() {
-	const [data, setData] = useState('')
 	const [uploaded, setUploaded] = useState("");
 	const dispatch = useDispatch();
-	// const [data, setData] = useState({
-	// 	firstName: "",
-	// 	lastName: "",
-	// 	Email: "",
-	// 	phoneNumber: "",
-	// 	address: null,
-	// 	dateOfBirth: "2006-07-09T07:00:00Z"
-	// });
-	useEffect(() => {
-		dispatch(getCountryList());
-	}, [handleSubmit]);
+	const [data, setData] = useState({
+		firstName: "",
+		lastName: "",
+		phoneNumber: "",
+		email: ""
+	});
+	
+	useEffect(
+		() => {
+			dispatch(getCountryList());
+		},
+		[handleSubmit]
+	);
+
 	const handleClick = event => {
-		hiddenFileInput.current.click();
-	}
+		// hiddenFileInput.current.click();
+	};
 
 	const handleChange = event => {
 		setUploaded(event.target.files[0]);
-	}
+	};
 
 	const handleSubmit = event => {
 		event.preventDefault();
 		dispatch(firstStep(data));
-		console.log(data);
-		dispatch(
-			activeDoteAction([
-				{ id: 2, label: "Address" },
-				{ id: 2, type: "country" }
-			])
-		);
+		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
 	};
 
 	return (
 		<div className="photoCard">
 			{!uploaded && (
 				<div onClick={handleClick} className="imageUpload">
-					<div className={'imageUpload__inside'}>
-						<div className="imageUp"></div>
+					<div className={"imageUpload__inside"}>
+						<div className="imageUp" />
 						<h3 className="title">Add your profile photo</h3>
 					</div>
 				</div>
@@ -77,10 +73,7 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<InputMask
-							onChange={e => setData({ ...data, phoneNumber: e.target.value })}
-							mask="+998 (99)-999-99-99"
-							placeholder="+XXX (XX) XXX-XX-XX"></InputMask>
+						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("")})} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
 				<button className="next_btn_photoCart">Next</button>
@@ -88,6 +81,5 @@ function Photo() {
 		</div>
 	);
 }
-
 
 export default Photo;

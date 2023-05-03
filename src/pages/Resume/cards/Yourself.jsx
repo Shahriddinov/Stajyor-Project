@@ -7,8 +7,10 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import {yourSelfStep} from '../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice'
 import { languages, getPositionsSkillsWithId, hobbies} from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
+import { getHobbies, getSkills } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 
 function Yourself() {
 	const dispatch = useDispatch();
@@ -16,7 +18,9 @@ function Yourself() {
 	const [skil, setSkil] = useState("1");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
-	const [datas, setData] = useState({
+	const [downSkills, setDownSkills] = useState([]);
+  const [dateValue, setDateValue] = useState("");
+	const [datas, setDatas] = useState({
 		description: "",
 		positionId: null,
 		freelancerHobbies: [],
@@ -24,21 +28,28 @@ function Yourself() {
 		newHobbies: [],
 		newSkills: []
 	});
+	const [data, setData] = useState({
+	 bio:"",
+	 position:'',
+	 DateOfBirthString:""
+	})
 
 	// console.log(skil)
 
 	useEffect(() => {
-	dispatch(getPositionsSkillsWithId(skil));
+		dispatch(getPositionsSkillsWithId(skil));
 		dispatch(hobbies())
+
 	}, [skil]);
-	
 		
 	if (positionGetLoading && loading) {
 		return <b>Loading...</b>;
 	}
-
 	const handleSubmit = event => {
 		dispatch(languages());
+		dispatch(getSkills(downSkills)); 
+		   dispatch(getHobbies(hobbiesorg))
+		dispatch(yourSelfStep(data))
 		event.preventDefault();
 		dispatch(
 			activeDoteAction([
@@ -59,9 +70,10 @@ function Yourself() {
 	};
 	const PositionChange = pos => {
 		setSkil(pos.id);
+		setData({...data, position: pos.id})
 		console.log(pos);
 	};
-	const Xobbys =hobbiesList.map(item=>({
+	const Xobbys = hobbiesList.map(item=>({
 		value: item.content,
 		label: item.content
 	}))
@@ -72,19 +84,25 @@ function Yourself() {
 	}));
 	const changeSkill = ({ value, type }) => {
 		if (type === "skills") {
-			setData(prev => ({
+			setDatas(prev => ({
 				...prev,
 				freelancerSkills: value.filter(el => !isNaN(el * 1)).map(el => el * 1),
 				newSkills: value.filter(el => isNaN(el * 1))
 			}));
 		} else {
-			setData(prev => ({
+			setDatas(prev => ({
 				...prev,
 				freelancerHobbies: value.filter(el => !isNaN(el * 1)).map(el => el * 1),
 				newHobbies: value.filter(el => isNaN(el * 1))
 			}));
 		}
+		if (type === "hobbies") {
+			setHobbiesorg(value);
+		  }
 	};
+	const handleSelectChange = skill => {
+		setDownSkills(skill);
+	  };
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -103,14 +121,20 @@ function Yourself() {
 
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
-						<input type="date" required placeholder="DD/MM/YYYY"/>
+						<input
+              type="date"
+              required
+              placeholder="DD/MM/YYYY"
+              data-date-format=" YYYY:MMMM:DD "
+              onChange={e => setData({...data,DateOfBirthString:e.target.value.split("-").join(":") })}
+            />
 					</div>
 				</div>
 				<div>
 					<label className="yourselfCard_label">Write down your skills*</label>
 					<MultiSelect
 						data={options}
-						// onChange={handleSelectChange}
+						onChange={handleSelectChange}
 						searchable
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
@@ -140,11 +164,11 @@ function Yourself() {
 						onChange={value => changeSkill({ value, type: "hobbies" })}
 					/>
 
-					<textarea
+					<input
 						className="yourselfCard_textarea"
-						type="textarea"
+						type="text"
 						placeholder="Describe yourself to buyers"
-						onChange={event => setData(prev => ({ ...prev, description: event.target.value.trim() }))}></textarea>
+						onChange={event => setData(prev => ({ ...prev, bio: event.target.value}))}></input>
 				</div>
 				<div className="yourselfCard_btn">
 					<button className="backButton" type="button" onClick={prevPage}>

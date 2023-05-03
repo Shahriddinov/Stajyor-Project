@@ -12,30 +12,30 @@ function App() {
 	const freelancerOrCompony = useSelector(state => state.login.freelancerOrCompony);
 	const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
 	const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess);
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { pathname } = useLocation()
-	const freelancer = localStorage.getItem("isResume") ? localStorage.getItem("isResume") : "welcome"
+	const { pathname } = useLocation();
+	const freelancer = localStorage.getItem("isResume") ? localStorage.getItem("isResume") : "welcome";
 
-
-	let freelanceOrCompany
+	let freelanceOrCompany;
 
 	if (auth) {
-		let decode = jwt_decode(auth)
+		let decode = jwt_decode(auth);
 		freelanceOrCompany = Object.values(decode).includes("Company")
 			? "Company"
-			: freelanceOrCompany = Object.values(decode).includes("Freelancer")
-				? "Freelancer"
-				: "None"
+			: (freelanceOrCompany = Object.values(decode).includes("Freelancer") ? "Freelancer" : "None");
 	}
 
 	// useLayoutEffect(() => {
 	// 	navigate(`/${len}/`)
 	// }, [len, navigate])
 
-	useEffect(() => {
-		dispatch(claimsGet())
-	}, [dispatch])
+	useEffect(
+		() => {
+			dispatch(claimsGet());
+		},
+		[dispatch]
+	);
 
 	// useEffect(() => {
 	// 	if (loginOnSuccess || contactsIsSuccess) {
@@ -45,16 +45,12 @@ function App() {
 
 	return (
 		<div className="App">
-			{ auth === false
-				&& <Routes>
-					{
-						publicRoute.map(route => (
-							<Route path={ `/${len}${route.path}` } element={ route.element } key={ route.id } />
-						))
-					}
-					<Route path="*" element={ <Navigate to={ `/${len}/` } /> } />
+			{auth === false && (
+				<Routes>
+					{publicRoute.map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}
+					<Route path="*" element={<Navigate to={`/${len}/`} />} />
 				</Routes>
-			}
+			)}
 			{freelanceOrCompany !== "Company" && freelanceOrCompany !== "Freelancer" ? (
 				freelancer === "freelancer" ? (
 					<Routes>
@@ -75,17 +71,16 @@ function App() {
 			) : (
 				<div className={`freelanser-box  ${pathname.slice(4) === "contact" || pathname.slice(4) === "about" ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
 					<Header />
-					{freelanceOrCompany === "Freelancer" && (
+					{freelanceOrCompany === true && (
 						<Routes>
-							{
-								freelancerResume.map(route => (
-									<Route path={ `/${len}${route.path}` } element={ route.element } key={ route.id } />
-								))
-							}                          
-							<Route path="*" element={ <Navigate to={ `/${len}/welcome/create-profile` } /> } />
+							{freelancerRouter.map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}
+							<Route path={pathname.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
+							<Route path={`/${len}/login`} element={<Navigate to={`/${len}/jobs`} />} />
+							<Route path={`/${len}/welcome`} element={<Navigate to={`/${len}/jobs`} />} />
+							<Route path={`/${len}/welcome/create-profile/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
 						</Routes>
 					)}
-					{freelanceOrCompany === "Company" && (
+					{freelanceOrCompany === false && (
 						<Routes>
 							{freelancerRouter.slice(0, 4).map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}
 							<Route path={pathname.slice(0, 4)} element={<Navigate to={`/${len}/talants`} />} />
@@ -97,7 +92,7 @@ function App() {
 				</div>
 			)}
 		</div>
-	)
+	);
 }
 
 export default App;

@@ -15,8 +15,8 @@ const initialState = {
 		DateOfBirthString: "",
 		address: {
 			countryId: 1,
-			country: null,
-			street: ""
+			country: "afganistan",
+			street: "",
 		},
 		position: 0,
 		bio: " ",

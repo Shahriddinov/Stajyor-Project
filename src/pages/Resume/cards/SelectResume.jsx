@@ -11,7 +11,7 @@ import arrowright from "../../../assets/images/arrow-right.svg";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { resumeSelect } from "reduxToolkit/extraReducers";
+import { Freelancerpost, resumeSelect } from "reduxToolkit/extraReducers";
 import { useNavigate } from "react-router-dom";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 
@@ -19,8 +19,10 @@ function SelectResume() {
 	const [activeDot, setActiveDot] = useState(1);
 	const [translate, setTranslate] = useState(0);
 	const [resumeId, setResumeId] = useState(1);
-
 	const len = useSelector(state => state.lenguage.lenguage);
+
+	const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
+	console.log(freelancer);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -62,7 +64,21 @@ function SelectResume() {
 		}
 	}; 
 
-	const handleSubmit = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		const formdata = new FormData();
+		for (const key in freelancer) {
+			if (typeof freelancer[key] === "object" && freelancer[key] !== null) {
+				console.log(freelancer[key]);
+				for (const nestedKey in freelancer[key]) {
+					formdata.append(`${key}.${nestedKey}`, freelancer[key][nestedKey]);
+				}
+			} else {
+				formdata.append(key, freelancer[key]);
+				console.log(freelancer[key]);
+			}
+		}
+		dispatch(Freelancerpost(formdata));
 		navigate(`/${len}/welcome/create-profile/${resumeId}`);
 		const data = new FormData();
 		data.append("resume", resumeId);

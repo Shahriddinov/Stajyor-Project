@@ -76,7 +76,7 @@ const resumeSlice = createSlice({
 		builder.addCase(Freelancerpost.fulfilled, (state, action)=>{
 			state.loading = false
 			state.freelancerId = action.payload.id
-			localStorage.setItem("freelancerId",action.payload.id)
+			console.log(action.payload)
 		})
 		builder.addCase(Freelancerpost.rejected, (state, action)=>{
 			state.error = action.error.message

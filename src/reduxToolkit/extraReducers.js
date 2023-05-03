@@ -105,7 +105,7 @@ export const Freelancerpost = createAsyncThunk("freelancer/post", async payload 
 			Authorization: `Bearer ${token}`
 		}
 	})
-		.then(res => console.log(res))
+		.then(res => res.data)
 		.catch(e => {
 			console.log(e);
 		});

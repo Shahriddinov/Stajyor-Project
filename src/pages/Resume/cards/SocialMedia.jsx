@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./SocialMedia.module.scss";
 import telgramIcon from "../../../assets/images/Resume/telegramIcon.png";
@@ -8,16 +8,12 @@ import facebookIcon from "../../../assets/images/Resume/faceBookIcon.png";
 import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
 import githubIcon from "../../../assets/images/Resume/githubIcon.png";
 import cancel from "../../../assets/images/Resume/cancel.png";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import { Freelancerpost, contactUpload } from "reduxToolkit/extraReducers";
 import { socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 
 function SocialMedia() {
 	const dispatch = useDispatch();
-	const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
-	console.log(freelancer);
 	const [data, setData] = useState({
 		website: "",
 		WatsApp: "",
@@ -27,8 +23,7 @@ function SocialMedia() {
 		GitHub: "",
 		Twitter: ""
 	});
-	console.log(data);
-	// dispatch(socialStep(data))
+
 	const [icons, setIcons] = useState([]);
 	const [socials, setSocials] = useState([
 		{ icon: whatsUppIcon, name: "WatsApp" },
@@ -71,19 +66,6 @@ function SocialMedia() {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		const formdata = new FormData();
-		for (const key in freelancer) {
-			if (typeof freelancer[key] === "object" && freelancer[key] !== null) {
-				console.log(freelancer[key]);
-				for (const nestedKey in freelancer[key]) {
-					formdata.append(`${key}.${nestedKey}`, freelancer[key][nestedKey]);
-				}
-			} else {
-				formdata.append(key, freelancer[key]);
-				console.log(freelancer[key]);
-			}
-		}
-		dispatch(Freelancerpost(formdata));
 		dispatch(socialStep(data));
 		dispatch(activeDoteAction([{ id: 8, label: "Resume" }, { id: 8, type: "resume" }]));
 	};

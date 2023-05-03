@@ -13,7 +13,7 @@ import MyWork from "../MyWork/MyWork";
 const defaultInputData = {
 	companyName: "",
 	job: "",
-	currentWorking: false,
+	currentWorking: true,
 	description: "",
 	dateFrom: "",
 	dateTo: ""

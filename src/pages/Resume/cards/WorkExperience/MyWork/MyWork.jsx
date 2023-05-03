@@ -79,6 +79,7 @@ function MyWork({ removeModal, defaultData }) {
                                 Date from
                             </label>
                             <input
+                                value={data.dateFrom.slice(0,10)}
                                    className="mywork__inputDate"
                                    type="date" id="data"
                                    data-date-format="YYYY:MMMM:DD"
@@ -92,6 +93,7 @@ function MyWork({ removeModal, defaultData }) {
                             </label>
                             {data.currentWorking ? (
                                 <input
+                                        value={data.dateTo.slice(0,10)}
                                        disabled={true} className="mywork__inputDate"
                                        type="date" id="time"
                                        data-date-format="YYYY:MMMM:DD"
@@ -100,6 +102,7 @@ function MyWork({ removeModal, defaultData }) {
 
                             ) : (
                                 <input disabled={false}
+                                       value={data.dateTo.slice(0,10)}
                                        className="mywork__inputDate"
                                        data-date-format="YYYY:MMMM:DD"
                                        onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}

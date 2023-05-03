@@ -16,7 +16,7 @@ const defaultData = {
 	degree: "",
 	typeOfStudy: "",
 	location: "",
-	currentStudy: false,
+	currentStudy: true,
 	dateDrom: '',
 	dateTo: ''
 }

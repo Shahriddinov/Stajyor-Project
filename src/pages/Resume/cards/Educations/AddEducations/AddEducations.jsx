@@ -5,7 +5,7 @@ import Select from "react-select";
 import { useDispatch } from "react-redux";
 import { educationEdit, educationPost } from "reduxToolkit/extraReducers";
 
-function AddEducations({ removeModal, defaultInputData, TypeOptions, option, updateIdToStudy, updateToTypeOption }) {
+function AddEducations({ removeModal, 	defaultInputData, TypeOptions, option, updateIdToStudy, updateToTypeOption }) {
 	const { name, degree, typeOfStudy, location, currentStudy, dateFrom, dateTo, type, id } = defaultInputData;
 
 	const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 		location,
 		dateFrom,
 		dateTo,
-		// currentStudy
+		currentStudy
 	})
 	console.log(data);
 	console.log(data.degree);
@@ -39,7 +39,7 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 	const isCheskedFunc = () => {
 		setIsChecked(!isChecked);
 	};
-
+	console.log();
 	return (
 		<div className="addEducations">
 			<div className="addEducations__inner">
@@ -83,6 +83,7 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 								Date from
 							</label>
 							<input
+								value={data.dateTo.slice(0, 10)}
 								className="addEducations__inputDate"
 								type="date" id="data"
 								data-date-format="YYYY:MMMM:DD"
@@ -98,12 +99,14 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option, upd
 								<input
 									disabled={true} className="addEducations__inputDate"
 									type="date" id="time"
+									value={data.dateTo.slice(0,10)}
 									// onChange={e => setSelectedDateTo(e.target.value)}
 									   onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
 								// onChange={e => setData(prev => ({ ...prev, dateTo: e.target.value }))}
 								/>
 							) : (
 								<input disabled={false}
+									   value={data.dateTo.slice(0,10)}
 									   onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
 									   className="addEducations__inputDate" type="date" id="time" />
 							)}

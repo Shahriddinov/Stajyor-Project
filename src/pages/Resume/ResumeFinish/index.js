@@ -5,11 +5,7 @@ import arrowLeft from "../../../assets/images/arrow-left.svg";
 import logo from "../../../assets/images/Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-<<<<<<< HEAD
-import { resumeSelect, resumeFinishPost, getFreelancer } from "reduxToolkit/extraReducers";
-=======
-import { resumeSelect, resumeFinishPost, experienceGet, educationGet } from "reduxToolkit/extraReducers";
->>>>>>> origin/Abdurashid
+import { resumeSelect, resumeFinishPost, experienceGet, educationGet, getFreelancer } from "reduxToolkit/extraReducers";
 import Resume1 from "./complate-resume/resume-list/Resume1";
 import Resume2 from "./complate-resume/resume-list/Resume2";
 import Resume3 from "./complate-resume/resume-list/Resume3";
@@ -21,11 +17,11 @@ import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControl
 const ReumeFinish = () => {
 	// const resumeDetails = useSelector(state => state.resume.resumeDetails)
 	const { ...freelancer } = useSelector(state => state.frilanserCardSlice.freelancer);
-	const {freelancerLoading, } = useSelector(state=> state.resume)
-	console.log(freelancerLoading)
+	const { freelancerLoading } = useSelector(state => state.resume);
+	console.log(freelancerLoading);
 	const loading = useSelector(state => state.resume.loading);
 	const experiences = useSelector(state => state.resume.experienceList);
-	const {skillsData, freelancerData} = useSelector(state => state.frilanserCardSlice);
+	const { skillsData, freelancerData } = useSelector(state => state.frilanserCardSlice);
 	const hobbiesData = useSelector(state => state.frilanserCardSlice.hobbiesData);
 	const resumeOnSuccess = useSelector(state => state.login.resumeOnSuccess);
 	const educationList = useSelector(state => state.resume.educationList);
@@ -49,16 +45,19 @@ const ReumeFinish = () => {
 		},
 		[resumeOnSuccess]
 	);
-useEffect(()=>{
-if (!freelancerLoading) {
-	let id = localStorage.getItem('freelancerId')
-	dispatch(getFreelancer(id))
-}
-}, [freelancerLoading])
-if(freelancerLoading){
-	return<h2>Loading...</h2>
-}
-console.log(freelancerData)
+	useEffect(
+		() => {
+			if (!freelancerLoading) {
+				let id = localStorage.getItem("freelancerId");
+				dispatch(getFreelancer(id));
+			}
+		},
+		[freelancerLoading]
+	);
+	if (freelancerLoading) {
+		return <h2>Loading...</h2>;
+	}
+	console.log(freelancerData);
 	const routes = [
 		{
 			id: 1,

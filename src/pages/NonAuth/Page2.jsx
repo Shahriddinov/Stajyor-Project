@@ -6,7 +6,7 @@ import searchIcon from "../../assets/images/searchIcon.png";
 function Page2() {
 	return (
 		<div className={classes.page2Box}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.page2BoxContainer}>
 					<div className={classes.page2BoxInner}>
 						<div className={classes.busines2Img}>

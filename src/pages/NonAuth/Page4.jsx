@@ -8,7 +8,7 @@ import instagram from "../../assets/images/icons/icon3.png";
 function Page4() {
 	return (
 		<div className={classes.page4Box}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.page4Box__container}>
 					<div className={classes.page4Box__inner}>
 						<div className={classes.businessIcons}>

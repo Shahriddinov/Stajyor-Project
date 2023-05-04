@@ -8,7 +8,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 function Aboutus(props) {
 	return (
 		<div className={classes.aboutus}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.about__container}>
 					<Video />
 					<div className={classes.about__container__border}></div>

@@ -64,7 +64,7 @@ function Background() {
 	return (
 		<div className={classes.background}>
 			<div className={classes.background__container}>
-				<div className={classesNav.menu}>
+				<div className={`${classesNav.menu} container`}>
 					<div className={classesNav.menu__container}>
 						<img className={classesNav.backgroundImg} src={backgroundImg} alt="blue circle" />
 						<div className={classesNav.menu__inner}>
@@ -105,17 +105,7 @@ function Background() {
 				{step6 && <Jobs />}
 				{step7 && <Aboutus />}
 				{step8 && <Contactus />}
-				<CircleSlider
-					step1={step1}
-					step2={step2}
-					step3={step3}
-					step4={step4}
-					step5={step5}
-					step6={step6}
-					step7={step7}
-					step8={step8}
-					setCount={setCount}
-				/>
+				<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
 				<div className={classes.roundContainer}>
 					<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>
 						<div className={classes.scale}>

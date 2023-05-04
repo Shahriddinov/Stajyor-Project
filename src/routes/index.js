@@ -12,8 +12,6 @@ import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
-import Jobs from "pages/Company/Jobs";
-import Talents from "pages/Company/MyPostings";
 
 export const publicRoute = [
 	{ id: 1, path: "/", element: <PageBackground /> },
@@ -22,7 +20,7 @@ export const publicRoute = [
 ];
 
 export const createProfileRoute = [
-	// { id: 1, path: "/", element: <PageBackground /> },
+	{ id: 1, path: "/", element: <PageBackground /> },
 	{ id: 1, path: "/welcome", element: <Login /> },
 	{ id: 2, path: "/sign-up", element: <Signup /> }
 ];

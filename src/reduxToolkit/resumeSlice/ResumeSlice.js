@@ -27,7 +27,7 @@ import {
 
 const initialState = {
 	loading: false,
-	freelancerLoading:false,
+	freelancerLoading: false,
 	error: "",
 	data: [],
 	regionsList: [],
@@ -46,7 +46,7 @@ const initialState = {
 	status: "idle",
 	positionGetLoading: false,
 	userID: null,
-	freelancerId:0,
+	freelancerId: 0,
 	testData: []
 };
 
@@ -71,20 +71,21 @@ const resumeSlice = createSlice({
 			state.error = action.error.message;
 		});
 		/////////post Freelancer//////
-		builder.addCase(Freelancerpost.pending, (state)=>{
-			state.loading = true
-			state.freelancerLoading = true
-		})
-		builder.addCase(Freelancerpost.fulfilled, (state, action)=>{
-			state.loading = false
-			state.freelancerId = action.payload.id
-			localStorage.setItem('freelancerId', action.payload.id)
-			state.freelancerId = action.payload.id
-			state.freelancerLoading = false
-		})
-		builder.addCase(Freelancerpost.rejected, (state, action)=>{
-			state.error = action.error.message
-		})
+		builder.addCase(Freelancerpost.pending, state => {
+			state.loading = true;
+			state.freelancerLoading = true;
+		});
+		builder.addCase(Freelancerpost.fulfilled, (state, action) => {
+			state.loading = false;
+			state.freelancerId = action.payload.id;
+			localStorage.setItem("freelancerId", action.payload.id);
+			console.log(action.payload);
+			state.freelancerId = action.payload.id;
+			state.freelancerLoading = false;
+		});
+		builder.addCase(Freelancerpost.rejected, (state, action) => {
+			state.error = action.error.message;
+		});
 		//CoutryList reducer
 		builder.addCase(getCountryList.pending, (state, action) => {
 			state.loading = true;
@@ -129,12 +130,10 @@ const resumeSlice = createSlice({
 		///////////////////////getPositionsSkillsWithId//////////////////////
 		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
 			// state.loading = true;
-
 		});
 		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
 			state.skillsData = action.payload;
 			state.loading = false;
-
 		});
 		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
 			state.error = action.error.message;

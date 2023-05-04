@@ -58,32 +58,32 @@ console.log(freelancerData)
 		{
 			id: 1,
 			resumeId: 1,
-			element: <Resume1 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume1 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		},
 		{
 			id: 2,
 			resumeId: 2,
-			element: <Resume2 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume2 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		},
 		{
 			id: 3,
 			resumeId: 3,
-			element: <Resume3 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume3 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		},
 		{
 			id: 4,
 			resumeId: 4,
-			element: <Resume4 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume4 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		},
 		{
 			id: 6,
 			resumeId: 6,
-			element: <Resume5 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume5 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		},
 		{
 			id: 5,
 			resumeId: 5,
-			element: <Resume6 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: <Resume6 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
 		}
 	];
 

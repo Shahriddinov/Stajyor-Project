@@ -12,24 +12,24 @@ const Resume5 = props => {
 					<div className="resume2_5__top-contents">
 						<div className="resume2_5-top-left">
 							<div className="resume2_5-top-left-name">
-								<span className="resume2_5-firstname">{firstName} Abdurashid</span>
+								<span className="resume2_5-firstname">{firstName} </span>
 								<br />
-								<span className="resume2_5-lastname">{lastName} Agzamov</span>
+								<span className="resume2_5-lastname">{lastName} </span>
 								<p className="resume2_5-job">Frontend devoloper</p>
 								<div className="resume2_5-top-left-contact">
 									<div className="resume2_5-top-left-contact-item">
 										<p>Phone</p>
-										<span>+998 95 004 58 96</span>
+										<span>{phoneNumber}</span>
 									</div>
 
 									<div className="resume2_5-top-left-contact-item">
 										<p>E-mail</p>
-										<span>user@gmail.com</span>
+										<span>{email}</span>
 									</div>
 
 									<div className="resume2_5-top-left-contact-item">
 										<p>Address</p>
-										<span>Taskkent Uchtepa Kokcha-oqtepa pr3 344</span>
+										<span>{address?.street}</span>
 									</div>
 								</div>
 							</div>
@@ -131,10 +131,6 @@ const Resume5 = props => {
 								<div className="resume2_5-bottom-title res2_5_color2">About me</div>
 								<div className="resume2_5-bottom-right-text">
 									<p>{bio}</p>
-									<p>
-										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolor possimus explicabo natus? Inventore, eos voluptates repudiandae non
-										quia, repellendus deleniti necessitatibus, magnam perspiciatis adipisci accusamus architecto sapiente aspernatur minima.
-									</p>
 								</div>
 
 								<div className="resume2_5-bottom-title res2_5_color2">hobbies</div>

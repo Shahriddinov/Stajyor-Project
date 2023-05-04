@@ -5,7 +5,7 @@ import arrowLeft from "../../../assets/images/arrow-left.svg";
 import logo from "../../../assets/images/Logo.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { resumeSelect, resumeFinishPost, experienceGet, educationGet, getFreelancer } from "reduxToolkit/extraReducers";
+import { resumeSelect, resumeFinishPost, getFreelancer, experienceGet, educationGet } from "reduxToolkit/extraReducers";
 import Resume1 from "./complate-resume/resume-list/Resume1";
 import Resume2 from "./complate-resume/resume-list/Resume2";
 import Resume3 from "./complate-resume/resume-list/Resume3";
@@ -54,40 +54,50 @@ const ReumeFinish = () => {
 		},
 		[freelancerLoading]
 	);
-	if (freelancerLoading) {
-		return <h2>Loading...</h2>;
-	}
+
 	console.log(freelancerData);
 	const routes = [
 		{
 			id: 1,
 			resumeId: 1,
-			element: <Resume1 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume1 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 2,
 			resumeId: 2,
-			element: <Resume2 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume2 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 3,
 			resumeId: 3,
-			element: <Resume3 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume3 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 4,
 			resumeId: 4,
-			element: <Resume4 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume4 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 6,
 			resumeId: 6,
-			element: <Resume5 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume5 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 5,
 			resumeId: 5,
-			element: <Resume6 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume6 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		}
 	];
 
@@ -105,7 +115,7 @@ const ReumeFinish = () => {
 
 	return (
 		<>
-			{loading ? (
+			{loading && freelancerLoading ? (
 				<p>lading...</p>
 			) : (
 				<div className={classes.resume__finish}>

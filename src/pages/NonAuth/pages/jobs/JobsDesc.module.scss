@@ -1,6 +1,6 @@
 .jobsDesc {
 	width: 100%;
-	min-width: 750px;
+	min-width: 700px;
 
 	.jobsSearch {
 		width: 100%;
@@ -10,7 +10,7 @@
 		.jobsSearchForm {
 			width: 100%;
 			height: 100%;
-			font-size: 18px;
+			font-size: 14px;
 			display: flex;
 			position: relative;
 
@@ -68,28 +68,27 @@
 				justify-content: space-between;
 
 				.headerVerLine {
-					width: 0px;
 					height: 30px;
 					opacity: 0.5;
 					border: 1px solid #cdcdcd;
 				}
 
 				.title {
-					font-size: 25px;
+					font-size: 20px;
 					font-weight: 600;
 					line-height: 30px;
 					color: #1d71b8;
 				}
 
 				.paymentPerHour {
-					font-size: 23px;
+					font-size: 18px;
 					font-weight: 600;
 					line-height: 28px;
 					color: #323232;
 				}
 
 				.duration {
-					font-size: 23px;
+					font-size: 18px;
 					font-weight: 600;
 					line-height: 28px;
 					color: #323232;
@@ -99,7 +98,7 @@
 
 					label {
 						font-weight: 500;
-						font-size: 16px;
+						font-size: 12px;
 						line-height: 20px;
 						color: #808080;
 					}
@@ -108,7 +107,7 @@
 						border: none;
 						outline: none;
 						font-weight: 600;
-						font-size: 16px;
+						font-size: 12px;
 						line-height: 20px;
 						color: #808080;
 
@@ -137,7 +136,6 @@
 						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						stroke: solid;
 					}
 
 					.bsheartfill {
@@ -173,7 +171,7 @@
 				.descContent {
 					height: 44px;
 					overflow: hidden;
-					font-size: 18px;
+					font-size: 15px;
 					line-height: 22px;
 					max-width: 800px;
 					font-weight: 400;
@@ -200,7 +198,7 @@
 
 				&>p {
 					font-weight: 400;
-					font-size: 16px;
+					font-size: 12px;
 					line-height: 20px;
 					color: #808080;
 				}
@@ -236,7 +234,7 @@
 
 				.compNamecheckImg>p {
 					font-weight: 600;
-					font-size: 18px;
+					font-size: 15px;
 					line-height: 22px;
 					color: #323232;
 
@@ -244,21 +242,21 @@
 
 				p {
 					font-weight: 600;
-					font-size: 20px;
+					font-size: 15px;
 					line-height: 24px;
 					color: #323232;
 				}
 
 				span {
-					margin-top: 4px;
+					//margin-top: 4px;
 					font-weight: 500;
-					font-size: 16px;
+					font-size: 14px;
 					line-height: 20px;
 					color: #808080;
 				}
 
 				.imgCompName {
-					width: 230px;
+					//width: 230px;
 					display: flex;
 					align-items: center;
 					gap: 0.5rem;
@@ -334,20 +332,20 @@
 					}
 
 					.title {
-						font-size: 20px;
+						font-size: 16px;
 						line-height: 25px;
 					}
 
 					.paymentPerHour,
 					.duration {
-						font-size: 18px;
+						font-size: 14px;
 					}
 
 					.selectLevel {
 
 						label,
 						select {
-							font-size: 12px;
+							font-size: 8px;
 						}
 					}
 
@@ -367,7 +365,7 @@
 
 					.descContent {
 						height: auto;
-						font-size: 12px;
+						font-size: 8px;
 						line-height: 18px;
 					}
 				}
@@ -375,16 +373,16 @@
 				.skills {
 
 					&>p {
-						font-size: 12px;
+						font-size: 8px;
 					}
 
 					&-border {
-						height: 10px;
+						height: 8px;
 					}
 				}
 
 				.cardItemBottom {
-					margin-top: 10px;
+					margin-top: 8px;
 
 					.bottomVerLine {
 						height: 34px;
@@ -392,12 +390,12 @@
 
 					.compNamecheckImg {
 						&>p {
-							font-size: 16px;
+							font-size: 12px;
 						}
 
 						&>span {
 							margin: 0;
-							font-size: 12px;
+							font-size: 10px;
 
 							&>img {
 								width: 14px;
@@ -407,11 +405,11 @@
 					}
 
 					p {
-						font-size: 16px;
+						font-size: 12px;
 					}
 
 					span {
-						font-size: 12px;
+						font-size: 8px;
 					}
 
 					.imgCompName {

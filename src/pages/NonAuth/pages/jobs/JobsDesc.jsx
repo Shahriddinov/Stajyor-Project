@@ -85,7 +85,7 @@ function JobsDesc() {
 						</div>
 						<div className={classes.jobsCardHorLine}></div>
 
-						<div className={classes.description} onClick={onClickAccordion.bind(this, item)}>
+						<div className={classes.description} onClick={onClickAccordion.bind(item.jobDescription)}>
 							{isActive.findIndex(x => x === item.id) >= 0 ? (
 								<>
 									<p className={classes.descContent}>{item.jobDescription}</p>
@@ -95,7 +95,7 @@ function JobsDesc() {
 								</>
 							) : (
 								<>
-									<p className={classes.descContent}>{item.jobDescription.substring(0, 170)}</p>
+									<p className={classes.descContent}>{item.jobDescription.substring(0, 300)}</p>
 									<span className={classes.faChevronDown}>
 										<FaChevronDown />
 									</span>

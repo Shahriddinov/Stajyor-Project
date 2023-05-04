@@ -6,7 +6,7 @@ import TalantsDesc from "./TalantsDesc";
 function Talants(props) {
 	return (
 		<div className={classes.talants}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.talants__container}>
 					<TalantsDesc />
 					<LoginDesc />

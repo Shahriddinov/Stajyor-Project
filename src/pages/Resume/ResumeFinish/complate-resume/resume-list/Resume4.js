@@ -24,7 +24,7 @@ const Resume4 = props => {
 							<div className="resume4-left-contact-title">adsress</div>
 							<p className="resume4-left-contact-text">
 								{address?.countryName} {address?.regionName} {address?.home}
-								{address.street}
+								{address?.street}
 							</p>
 						</div>
 						<div className="resume4-left-info">
@@ -102,9 +102,7 @@ const Resume4 = props => {
 					<div className="resume4-right">
 						<div className="resume4-right-name">
 							<div className="resume4-right-user-name">
-								{" "}
 								{firstName} {lastName}
-								Abdurashid Agzamov
 							</div>
 							<div className="resume4-right-user-title">PROFFESIONAL TITLE</div>
 						</div>
@@ -113,11 +111,7 @@ const Resume4 = props => {
 							<div className="resume4-right-user-about">
 								<h3 className="resume4_title-l r4rt">about me</h3>
 
-								{/* <p>{bio}</p> */}
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi laboriosam voluptatum repellendus ratione laborum non, cupiditate a corrupti
-									voluptas sapiente sunt repudiandae nemo quasi quaerat magni alias iste fuga quisquam?
-								</p>
+								<p>{bio}</p>
 							</div>
 							{/* education */}
 							<div className="resume4-right-user-works">

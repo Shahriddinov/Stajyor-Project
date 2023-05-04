@@ -26,7 +26,7 @@ function Contactus(props) {
 						<input type="text" placeholder="Name" required />
 						<input type="email" placeholder="E-mail" required />
 						<input type="number" placeholder="+998 99 999 99 99" min="1" max="13" required />
-						<textarea className={classes.textMessage} type="text" placeholder="Text message" required></textarea>
+						<textarea style={{resize: 'none'}} className={classes.textMessage} type="text" placeholder="Text message" required></textarea>
 						<button>Send</button>
 					</div>
 				</div>

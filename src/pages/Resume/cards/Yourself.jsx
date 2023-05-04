@@ -7,19 +7,19 @@ import { useState } from "react";
 import "./styles.scss";
 import { MultiSelect } from "@mantine/core";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import {yourSelfStep} from '../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice'
-import { languages, getPositionsSkillsWithId, hobbies} from "reduxToolkit/extraReducers";
+import { yourSelfStep } from "../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice";
+import { languages, getPositionsSkillsWithId, hobbies } from "reduxToolkit/extraReducers";
 import { useEffect } from "react";
 import { getHobbies, getSkills } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
 
 function Yourself() {
 	const dispatch = useDispatch();
-	const { positionGetLoading, positionList, hobbiesList, loading, skillsData,HobbysGetLoading } = useSelector(state => state.resume);
+	const { positionGetLoading, positionList, hobbiesList, loading, skillsData, HobbysGetLoading } = useSelector(state => state.resume);
 	const [skil, setSkil] = useState("1");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
 	const [downSkills, setDownSkills] = useState([]);
-  const [dateValue, setDateValue] = useState("");
+	const [dateValue, setDateValue] = useState("");
 	const [datas, setDatas] = useState({
 		description: "",
 		positionId: null,
@@ -29,55 +29,47 @@ function Yourself() {
 		newSkills: []
 	});
 	const [data, setData] = useState({
-	 bio:"",
-	 position:'',
-	 DateOfBirthString:""
-	})
+		bio: "",
+		position: "",
+		DateOfBirthString: ""
+	});
 
 	// console.log(skil)
 
-	useEffect(() => {
-		dispatch(getPositionsSkillsWithId(skil));
-		dispatch(hobbies())
+	useEffect(
+		() => {
+			dispatch(getPositionsSkillsWithId(skil));
+			dispatch(hobbies());
+		},
+		[skil]
+	);
 
-	}, [skil]);
-		
 	if (positionGetLoading && loading) {
 		return <b>Loading...</b>;
 	}
 	const handleSubmit = event => {
 		dispatch(languages());
-		dispatch(getSkills(downSkills)); 
-		   dispatch(getHobbies(hobbiesorg))
-		dispatch(yourSelfStep(data))
+		dispatch(getSkills(downSkills));
+		dispatch(getHobbies(hobbiesorg));
+		dispatch(yourSelfStep(data));
 		event.preventDefault();
-		dispatch(
-			activeDoteAction([
-				{ id: 4, label: "Language" },
-				{ id: 4, type: "lenguage" }
-			])
-		)
-	}
+		dispatch(activeDoteAction([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]));
+	};
 
 	const prevPage = event => {
 		event.preventDefault();
-		dispatch(
-			activeDoteAction([
-				{ id: 2, label: "Address" },
-				{ id: 2, type: "country" }
-			])
-		);
+		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
 	};
 	const PositionChange = pos => {
 		setSkil(pos.id);
-		setData({...data, position: pos.id})
+		setData({ ...data, position: pos.id });
 		console.log(pos);
 	};
-	const Xobbys = hobbiesList.map(item=>({
+	const Xobbys = hobbiesList.map(item => ({
 		value: item.content,
 		label: item.content
-	}))
-	// console.log(skillsData)	
+	}));
+	// console.log(skillsData)
 	const options = skillsData.map(item => ({
 		value: item.content,
 		label: item.content
@@ -98,11 +90,11 @@ function Yourself() {
 		}
 		if (type === "hobbies") {
 			setHobbiesorg(value);
-		  }
+		}
 	};
 	const handleSelectChange = skill => {
 		setDownSkills(skill);
-	  };
+	};
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -122,12 +114,12 @@ function Yourself() {
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
 						<input
-              type="date"
-              required
-              placeholder="DD/MM/YYYY"
-              data-date-format="YYYY:MMMM:DD"
-              onChange={e => setData({...data,DateOfBirthString:e.target.value.split("-").join(":") })}
-            />
+							type="date"
+							required
+							placeholder="DD/MM/YYYY"
+							data-date-format=" YYYY:MMMM:DD "
+							onChange={e => setData({ ...data, DateOfBirthString: e.target.value.split("-").join(":") })}
+						/>
 					</div>
 				</div>
 				<div>
@@ -168,7 +160,8 @@ function Yourself() {
 						className="yourselfCard_textarea"
 						type="text"
 						placeholder="Describe yourself to buyers"
-						onChange={event => setData(prev => ({ ...prev, bio: event.target.value}))}></input>
+						onChange={event => setData(prev => ({ ...prev, bio: event.target.value }))}
+					/>
 				</div>
 				<div className="yourselfCard_btn">
 					<button className="backButton" type="button" onClick={prevPage}>

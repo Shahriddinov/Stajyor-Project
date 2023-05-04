@@ -131,10 +131,6 @@ const Resume3 = ({ phoneNumber, bio, experiences, email, freelancerContact, defa
 						<div className="resume2_3-right-bottom">
 							<div className="resume2_3-bottom-title title-bg-cl1">About Me</div>
 							<div className="resume2_3-right-bottom-profile">{bio}</div>
-							<div className="resume2_3-right-bottom-profile">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit natus nisi distinctio inventore assumenda suscipit facilis quidem reprehenderit
-								nesciunt numquam.
-							</div>
 							{/* education */}
 							<div className="resume2_3-bottom-title title-bg-cl2">Education </div>
 							{educations?.map((item, i) => {

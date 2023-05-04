@@ -49,7 +49,7 @@ const freelancerSlice = createSlice({
 		yourSelfStep: (state, action) => {
 			state.freelancer.position = action.payload.position;
 			state.freelancer.DateOfBirthString = action.payload.DateOfBirthString;
-			state.freelancer.bio = action.payload.description;
+			state.freelancer.bio = action.payload.bio;
 		},
 		socialStep: (state, action) => {
 			// state.freelancer.contacts = { ...action.payload };

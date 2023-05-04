@@ -4,6 +4,7 @@ import instagramIcon from "../img/instagram.svg";
 
 const Resume5 = props => {
 	const { phoneNumber, bio, experiences, email, freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName, address } = props;
+
 	return (
 		<>
 			<div className="ComplateResume">
@@ -60,61 +61,50 @@ const Resume5 = props => {
 								<ul className="resume2_5-bottom-text-div">
 									{educations?.map((item, i) => {
 										return (
-											<li key={i + 1}>
-												<b>{item?.degree} </b>
-												<p>{item?.name}</p>
-												<span>
+											<li className="resume2_5-bottom-text" key={i + 1}>
+												<span className="resume2_5-year">
 													{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
 												</span>
+												{/* <b>{item?.degree} </b> */}
+												<h4>Bakalavr</h4>
+
+												<span>{item?.name}</span>
 											</li>
 										);
 									})}
-
-									<li>
-										<b>Elementry</b>
-										<p>Yamato</p>
-										<span>2010 - 2018</span>
-									</li>
 								</ul>
 
 								<div className="resume2_5-bottom-title res2_5_color1">experience</div>
 
-								<div className="resume2_5-bottom-text-div">
-									<div className="resume2_5-bottom-text">
-										<b>Frontend</b>
-										<br />
-										<br />
-										<div>
-											<span className="resume2_5-year">2010-2022</span>
-											<span>Google</span>
+								{experiences.map((item, i) => (
+									<div className="resume2_5-bottom-text-div" key={i + 1}>
+										<div className="resume2_5-bottom-text">
+											<span className="resume2_5-year">
+												{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+											</span>
+											<h4>{item?.job}</h4>
+
+											<div>
+												<span>{item?.companyName}</span>
+											</div>
+											<p>{item?.description}</p>
 										</div>
-										<br />
-										<p>
-											Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque architecto nulla recusandae nesciunt fuga dolorum explicabo molestiae
-											error eaque officiis debitis distinctio vitae a, itaque aliquid accusantium tempore quas reprehenderit.
-										</p>
 									</div>
-								</div>
+								))}
 
 								<div className="resume2_5-bottom-title res2_5_color1">Languages</div>
 								<ul className="resume2_5-bottom-circles">
-									{freelancerPosition?.map((item, i) => {
-										return (
-											<li className="resume2_5-bottom-circle" key={i + 1}>
-												<span>{item.name}</span>
-											</li>
-										);
-									})}
-									<li className="resume2_5-bottom-circle">
+									{/*  */}
+									<li className="resume2_5-bottom-circle" style={{ background: ` conic-gradient(rgb(255, 201, 5) 50%, #ededed 0deg)` }}>
 										<span>French</span>
 									</li>
-									<li className="resume2_5-bottom-circle">
-										<span>English</span>
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 70%, #ededed 0deg)" }}>
+										<span>English</span>8
 									</li>
-									<li className="resume2_5-bottom-circle">
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 40%, #ededed 0deg)" }}>
 										<span>Russia</span>
 									</li>
-									<li className="resume2_5-bottom-circle">
+									<li className="resume2_5-bottom-circle" style={{ background: " conic-gradient(rgb(255, 201, 5) 10%, #ededed 0deg)" }}>
 										<span>Uzbek</span>
 									</li>
 								</ul>

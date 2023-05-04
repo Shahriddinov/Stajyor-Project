@@ -75,7 +75,7 @@ body {
 
 .page-wrapper2,
 .page-wrapper {
-	min-height: 100vh;
+	//min-height: 100vh;
 }
 
 .page-content {
@@ -88,11 +88,16 @@ body {
 }
 
 .container {
-	max-width: 75vw;
+	max-width: 1450px;
 	margin: 0 auto;
 	padding: 0 20px;
 }
 
+.container-vw {
+	max-width: 75vw;
+	margin: 0 auto;
+	padding: 0 20px;
+}
 .small-container {
 	max-width: 756px;
 	margin: 0 auto;

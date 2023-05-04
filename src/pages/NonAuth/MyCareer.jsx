@@ -8,14 +8,13 @@ import apple from "../../assets/images/apple.png";
 function MyCareer() {
 	return (
 		<div className={classes.careerBox}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.careerBox__wrapper}>
 					<div className={classes.career}>
-						{" "}
-						<img src={career} alt="My career" />
+						<div><img src={career} alt="My career" /></div>
 						<div className={classes.power}>Powerful platform for your career</div>
 					</div>
-					<form action="submit">
+					<form>
 						<p>Find your dream jobs in our powerful career company.</p>
 						<div className={classes.myCareerSearch}>
 							<input type="text" placeholder="Job title, keywords..." />

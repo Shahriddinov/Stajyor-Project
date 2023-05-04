@@ -64,7 +64,7 @@ function Background() {
 	return (
 		<div className={classes.background}>
 			<div className={classes.background__container}>
-				<div className={`${classesNav.menu} container`}>
+				<div className={`${classesNav.menu} container-vw`}>
 					<div className={classesNav.menu__container}>
 						<img className={classesNav.backgroundImg} src={backgroundImg} alt="blue circle" />
 						<div className={classesNav.menu__inner}>

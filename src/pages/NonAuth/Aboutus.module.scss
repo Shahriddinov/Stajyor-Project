@@ -4,17 +4,16 @@
 	.about__container {
 		padding: 30px;
 		width: 100%;
-		height: 636px;
 		z-index: 10;
 		background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #ffffff;
 		box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1);
 		border-radius: 12px;
 		display: flex;
-		align-items: center;
-		gap: 30px;
+		//align-items: center;
+		gap: 20px;
 
 		&__border {
-			height: 100%;
+			//height: 100%;
 			opacity: 0.3;
 			border: 1px solid #808080;
 		}
@@ -22,7 +21,7 @@
 		.TextsMain {
 			width: 100%;
 			max-width: 420px;
-			height: 100%;
+			//height: 100%;
 			overflow: hidden;
 
 			.IconsMain {
@@ -33,14 +32,16 @@
 
 				p {
 					font-weight: 700;
-					font-size: 30px;
+					font-size: 26px;
 					line-height: 37px;
 					color: #323232;
+					margin-bottom: 10px;
 				}
 
 				.iconsBlock {
 					display: flex;
-					gap: 40px;
+					align-items: center;
+					gap: 28px;
 
 					svg {
 						width: 24px;
@@ -52,15 +53,19 @@
 		}
 
 		.text {
-			margin: 15px 0 18px;
-			max-height: 502px;
+			//margin: 15px 0 18px;
+			//max-height: 502px;
 			font-weight: 500;
 			font-size: 18px;
 			line-height: 24px;
-			text-align: justify;
+			//text-align: justify;
 			color: #323232;
 			overflow: scroll;
 
+			.block{
+				display: block;
+				margin: 10px 0;
+			}
 			&::-webkit-scrollbar {
 				display: none;
 			}
@@ -74,10 +79,10 @@
 
 		.about__container {
 			padding: 20px;
-			height: 536px;
+			height: 480px;
 
 			.text {
-				max-height: 402px;
+				max-height: 400px;
 			}
 		}
 	}

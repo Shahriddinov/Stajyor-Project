@@ -5,7 +5,7 @@ import JobsDesc from "./JobsDesc";
 function Jobs(props) {
 	return (
 		<div className={classes.jobs}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.jobs__container}>
 					<JobsDesc />
 					<LoginDesc />

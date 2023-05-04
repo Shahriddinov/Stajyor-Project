@@ -26,8 +26,9 @@ export const createProfileRoute = [
 ];
 
 export const freelancerResume = [
-	{ id: 2, path: "/welcome/create-profile", element: <Background /> },
-	{ id: 3, path: "/welcome/create-profile/:resumeId", element: <ResumeFinish /> }
+	{ id: 2, path: "/", element: <PageBackground /> },
+	{ id: 3, path: "/welcome/create-profile", element: <Background /> },
+	{ id: 4, path: "/welcome/create-profile/:resumeId", element: <ResumeFinish /> }
 ];
 
 export const createCompany = [{ id: 2, path: "/welcome/register-company", element: <RegisterCompany /> }];

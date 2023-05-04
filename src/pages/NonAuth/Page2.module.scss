@@ -11,7 +11,7 @@
 			gap: 20px;
 
 			.busines2Img {
-				width: 50%;
+				width: 40%;
 
 				img {
 					width: 100%;
@@ -27,9 +27,9 @@
 				align-items: center;
 
 				.page2Search {
-					width: 90%;
+					// width: 90%;
 					height: 45px;
-					margin-top: 1rem;
+					margin-top: 2rem;
 					display: flex;
 					position: relative;
 
@@ -53,6 +53,9 @@
 						border-radius: 8px;
 						padding: 14px 28px 20px 28px;
 						margin-left: -8px;
+						img{
+							width: 18px;
+						}
 					}
 				}
 
@@ -67,11 +70,11 @@
 				}
 
 				p {
-					width: 70%;
+					width: 90%;
 					font-family: "Montserrat";
 					font-style: normal;
 					font-weight: 400;
-					font-size: 18px;
+					font-size: 17px;
 					line-height: 25px;
 					letter-spacing: 0.01em;
 					color: #000000;

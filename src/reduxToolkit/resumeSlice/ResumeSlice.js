@@ -45,6 +45,7 @@ const initialState = {
 	status: "idle",
 	positionGetLoading: false,
 	userID: null,
+	freelancerId:0,
 	testData: []
 };
 
@@ -74,7 +75,8 @@ const resumeSlice = createSlice({
 		})
 		builder.addCase(Freelancerpost.fulfilled, (state, action)=>{
 			state.loading = false
-			state.userID = action.payload.id
+			state.freelancerId = action.payload.id
+			console.log(action.payload)
 		})
 		builder.addCase(Freelancerpost.rejected, (state, action)=>{
 			state.error = action.error.message

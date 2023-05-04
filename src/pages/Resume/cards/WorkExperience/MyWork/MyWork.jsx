@@ -19,8 +19,8 @@ function MyWork({ removeModal, defaultData }) {
     const handleClick = e => {
         e.preventDefault();
         if (type === "add") {
-                dispatch(experiencePost(data));
-                removeModal(prev => ({ ...prev, experienceAdd: false }))
+                    dispatch(experiencePost(data));
+                    removeModal(prev => ({ ...prev, experienceAdd: false }))
         } else {
             dispatch(experienceEdit({ data, id }));
             removeModal(false);

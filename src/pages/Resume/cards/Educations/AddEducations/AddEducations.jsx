@@ -26,8 +26,12 @@ function AddEducations({ removeModal, 	defaultInputData, TypeOptions, option, up
 	const submitHandler = e => {
 		e.preventDefault();
 		if (type === "add") {
-			dispatch(educationPost(data));
-			removeModal(prev => ({ ...prev, educationAdd: false }));
+			if(!data.name.length === 0 && !data.degree.length === 0 && !data.dateTo.length ===0 && !data.dateFrom.length === 0){
+				dispatch(educationPost(data));
+				removeModal(prev => ({ ...prev, educationAdd: false }));
+			}else{
+				alert('')
+			}
 		} else {
 			dispatch(educationEdit({ id, data }));
 			removeModal(false)

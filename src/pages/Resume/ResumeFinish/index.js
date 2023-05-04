@@ -21,7 +21,7 @@ const ReumeFinish = () => {
 	const loading = useSelector(state => state.resume.loading);
 	const experiences = useSelector(state => state.resume.experienceList);
 	const skillsData = useSelector(state => state.frilanserCardSlice.skillsData);
-  const hobbiesData = useSelector(state => state.frilanserCardSlice.hobbiesData);
+	const hobbiesData = useSelector(state => state.frilanserCardSlice.hobbiesData);
 	const resumeOnSuccess = useSelector(state => state.login.resumeOnSuccess);
 	const dispatch = useDispatch();
 	const { resumeId } = useParams();
@@ -29,24 +29,22 @@ const ReumeFinish = () => {
 	const data = new FormData();
 	data.append("resume", resumeId);
 
-	useEffect(() => {
-		if (resumeOnSuccess) {
-			dispatch(
-				activeDoteAction([
-					{ id: 1, label: "Personal information" },
-					{ id: 1, label: "photo" }
-				])
-			);
-		}
-	}, [resumeOnSuccess]);
+	useEffect(
+		() => {
+			if (resumeOnSuccess) {
+				dispatch(activeDoteAction([{ id: 1, label: "Personal information" }, { id: 1, label: "photo" }]));
+			}
+		},
+		[resumeOnSuccess]
+	);
 
 	const routes = [
 		{ id: 1, resumeId: 1, element: <Resume1 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
 		{ id: 2, resumeId: 2, element: <Resume2 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
 		{ id: 3, resumeId: 3, element: <Resume3 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
 		{ id: 4, resumeId: 4, element: <Resume4 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
-		{ id: 5, resumeId: 6, element: <Resume5 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
-		{ id: 6, resumeId: 5, element: <Resume6 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> }
+		{ id: 5, resumeId: 5, element: <Resume5 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> },
+		{ id: 6, resumeId: 6, element: <Resume6 freelancerHobbies={hobbiesData} {...freelancer} freelancerPosition={skillsData} experiences={experiences} /> }
 	];
 
 	const handleSubmit = () => {
@@ -58,12 +56,7 @@ const ReumeFinish = () => {
 	};
 
 	const handleClick = () => {
-		dispatch(
-			activeDoteAction([
-				{ id: 1, label: "Personal information" },
-				{ id: 1, label: "photo" }
-			])
-		);
+		dispatch(activeDoteAction([{ id: 1, label: "Personal information" }, { id: 1, label: "photo" }]));
 	};
 
 	return (

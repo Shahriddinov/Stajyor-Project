@@ -1,9 +1,8 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import phone from "../img/phone.svg";
 import loc from "../img/location.svg";
 import letter from "../img/letter.svg";
-import {resumeTriple} from '../../../../../assets/images/index'
+import { resumeTriple } from "../../../../../assets/images/index";
 
 const Resume6 = props => {
 	const {
@@ -35,16 +34,16 @@ const Resume6 = props => {
 							</div>
 
 							<div className="resume2_6-top-left-user-contact">
-								<p className={'subTitle'}>
-									<img src={phone} alt={phone}/>
+								<p className={"subTitle"}>
+									<img src={phone} alt={phone} />
 									{phoneNumber}
 								</p>
-								<p className={'subTitle'}>
-									<img src={letter} alt={email}/>
+								<p className={"subTitle"}>
+									<img src={letter} alt={email} />
 									{email}
 								</p>
-								<p className={'subTitle'}>
-									<img src={loc} alt={loc}/>
+								<p className={"subTitle"}>
+									<img src={loc} alt={loc} />
 									{address?.countryName} {address?.regionName} {address?.home}
 								</p>
 							</div>
@@ -59,7 +58,7 @@ const Resume6 = props => {
 						<div className="resume2_6-bottom-left">
 							<p className="resume2_6-bottom-title">about me</p>
 							<div className="resume2_6-bottom-left-text">
-								<span className={'subTitle'}>{bio}</span>
+								<span className={"subTitle"}>{bio}</span>
 							</div>
 
 							<div className="resume2_6-bottom-title">language</div>
@@ -67,7 +66,7 @@ const Resume6 = props => {
 								<div className="language-lvl">
 									{userLanguages?.map((item, i) => (
 										<React.Fragment key={i + 1}>
-											<p className={'subTitleUp'}>{item?.language}</p>
+											<p className={"subTitleUp"}>{item?.language}</p>
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
@@ -85,7 +84,7 @@ const Resume6 = props => {
 								{freelancerPosition?.map((item, i) => {
 									return (
 										<div key={i + 1}>
-											<p className={'subTitleUp'}>{item.name}</p>
+											<p className={"subTitleUp"}>{item.name}</p>
 										</div>
 									);
 								})}
@@ -96,63 +95,61 @@ const Resume6 = props => {
 								{freelancerHobbies?.map((item, i) => {
 									return (
 										<div key={i + 1}>
-											<p className={'subTitleUp'}>{item.name}</p>
+											<p className={"subTitleUp"}>{item.name}</p>
 										</div>
 									);
 								})}
-								<div></div>
+								<div />
 							</div>
-
 						</div>
 
 						<div className="resume2_6-bottom-right">
-
 							<div className="resume2_6-bottom-title">education</div>
 							<div className="resume2_6-bottom-left-text">
 								{educations?.map((item, i) => {
-								return (
-								<div className={'resume-6'}>
-									<div className={'resume-6__about'}>
-										<div className={'about__img'}>
-											<img src={resumeTriple} alt={'triple'}/>
+									return (
+										<div className={"resume-6"}>
+											<div className={"resume-6__about"}>
+												<div className={"about__img"}>
+													<img src={resumeTriple} alt={"triple"} />
+												</div>
+												<div>
+													<p className={"about__study subTitleUp"}>{item.degree}</p>
+													<p className={"about__name subTitleUp"}>{item.degree}</p>
+												</div>
+											</div>
+											<p className={"subTitle"}>{item.bio}</p>
 										</div>
-										<div>
-											<p className={'about__study subTitleUp'}>{item.degree}</p>
-											<p className={'about__name subTitleUp'}>{item.degree}</p>
-										</div>
-									</div>
-									<p className={'subTitle'}>{item.bio}</p>
-								</div>
 									);
 								})}
 							</div>
 
 							<div className="resume2_6-bottom-title">experience</div>
 							<div className="resume2_6-bottom-left-text">
-							{experiences?.map((item, i) => {
-								return (
-									<div className={'resume-6'}>
-										<div className={'resume-6__about'}>
-											<div className={'about__img'}>
-												<img src={resumeTriple} alt={'triple'}/>
+								{experiences?.map((item, i) => {
+									return (
+										<div className={"resume-6"}>
+											<div className={"resume-6__about"}>
+												<div className={"about__img"}>
+													<img src={resumeTriple} alt={"triple"} />
+												</div>
+												<div>
+													<p className={"about__study subTitleUp"}>{item.degree}</p>
+													<p className={"about__name subTitleUp"}>{item.degree}</p>
+												</div>
 											</div>
-											<div>
-												<p className={'about__study subTitleUp'}>{item.degree}</p>
-												<p className={'about__name subTitleUp'}>{item.degree}</p>
-											</div>
+											<p className={"subTitle"}>{bio}</p>
 										</div>
-										<p className={'subTitle'}>{bio}</p>
-									</div>
-								);
-							})}
-
-
-						</div>
+									);
+								})}
+							</div>
 							<div className="resume2_6-bottom-title">contacts</div>
 							<div className="resume2_6-bottom-left-text">
 								{experiences?.map((item, i) => {
 									return (
-										<span className="subTitle resume2_6-bottom-left-text" key={i + 1}>{item.name}</span>
+										<span className="subTitle resume2_6-bottom-left-text" key={i + 1}>
+											{item.name}
+										</span>
 									);
 								})}
 							</div>

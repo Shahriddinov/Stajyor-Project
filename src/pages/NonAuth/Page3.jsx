@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Page3() {
 	return (
 		<div className={classes.page3}>
-			<div className="container">
+			<div className="container-vw">
 				<div className={classes.page3__container}>
 					<div className={classes.page3__inner}>
 						<div className={classes.container__sloy1}>

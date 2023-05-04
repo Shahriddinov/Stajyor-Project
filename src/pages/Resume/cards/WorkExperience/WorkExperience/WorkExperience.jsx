@@ -18,7 +18,6 @@ const defaultInputData = {
 	dateFrom: "",
 	dateTo: ""
 };
-
 function WorkExperience() {
 	const [isMoadalActive, setMoadalActive] = useState({ experienceAdd: false, experienceEdit: false });
 	const [editData, setEditData] = useState({});

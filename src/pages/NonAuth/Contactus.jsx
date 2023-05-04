@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Contactus.module.scss";
 import logosInstagram from "../../assets/images/icons/logos_telegram.png";
 import logosWhatsapp from "../../assets/images/icons/logos_whatsapp.png";
 
 function Contactus(props) {
+	const [data, setData] = useState({
+		name:"",
+		email:"",
+		phoneNumber:"",
+		textMessage:""
+	})
 	return (
 		<section className={classes.contact}>
 			<div className="container-vw">
@@ -23,10 +29,10 @@ function Contactus(props) {
 					<div className={classes.contactUs}>
 						<h1 className={classes.contactUs__title}>Contact us</h1>
 						<p className={classes.contactUs__desc}>Fill in the blank and we will contact you</p>
-						<input type="text" placeholder="Name" required />
-						<input type="email" placeholder="E-mail" required />
-						<input type="number" placeholder="+998 99 999 99 99" min="1" max="13" required />
-						<textarea style={{resize: 'none'}} className={classes.textMessage} type="text" placeholder="Text message" required></textarea>
+						<input onChange={(e)=>setData({...data, name:e.target.value})} type="text" placeholder="Name" required />
+						<input onChange={(e)=>setData({...data, email:e.target.value})} type="email" placeholder="E-mail" required />
+						<input onChange={(e)=> setData({...data, phoneNumber: e.target.value})} type="number" placeholder="+998 99 999 99 99" min="1" max="13" required />
+						<textarea onChange={(e)=>setData({...data, textMessage:e.target.value})} style={{resize: 'none'}} className={classes.textMessage} type="text" placeholder="Text message" required></textarea>
 						<button>Send</button>
 					</div>
 				</div>

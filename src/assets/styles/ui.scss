@@ -88,7 +88,7 @@ body {
 }
 
 .container {
-	max-width: 1450px;
+	max-width: 75vw;
 	margin: 0 auto;
 	padding: 0 20px;
 }
@@ -224,7 +224,6 @@ body {
 	}
 
 	&.fs-20 {
-
 		div,
 		input,
 		textarea,
@@ -240,7 +239,6 @@ body {
 	}
 
 	&.fs-40 {
-
 		div,
 		input,
 		textarea,
@@ -256,7 +254,6 @@ body {
 	}
 
 	&.fs-80 {
-
 		div,
 		input,
 		textarea,
@@ -272,7 +269,6 @@ body {
 	}
 
 	&.fs-100 {
-
 		div,
 		input,
 		textarea,
@@ -340,11 +336,11 @@ body {
 		transition: 0.3s;
 	}
 
-	input:checked+label {
+	input:checked + label {
 		background: var(--dark-blue);
 	}
 
-	input:checked+label:after {
+	input:checked + label:after {
 		left: calc(100% - 5px);
 		transform: translateX(-100%);
 	}

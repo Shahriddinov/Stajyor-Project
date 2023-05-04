@@ -92,7 +92,7 @@ function SocialMedia() {
 							<div key={item.name} className={classes.socialInput}>
 								<div className={classes.socialInputIn}>
 									<input
-										type="url"
+										type="text"
 										placeholder={`Provide a link to your ${item.name} account`}
 										value={data[item.name]}
 										onChange={e => handleChangeInput({ value: e.target.value, label: item.name })}

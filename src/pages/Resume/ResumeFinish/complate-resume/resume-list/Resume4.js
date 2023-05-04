@@ -119,36 +119,41 @@ const Resume4 = props => {
 									voluptas sapiente sunt repudiandae nemo quasi quaerat magni alias iste fuga quisquam?
 								</p>
 							</div>
-
+							{/* education */}
 							<div className="resume4-right-user-works">
 								<h3 className="resume4_title-l r4rt">Education</h3>
 
-								<div className="resume4-right-user-job">
-									<div className="user-experience-year">2005 - 2012</div>
-									<div className="user-experience-text">
-										<h3>Frontend</h3>
-										<span>Bakalavr</span>
-										<p>Toshkent shahar, Yangiyol tuman Mustaqilik MFY 9 uy</p>
+								{educations.map((item, i) => (
+									<div className="resume4-right-user-job">
+										<div className="user-experience-year">
+											{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
+										</div>
+										<div className="user-experience-text">
+											{/* <h3>{item.degree}</h3>  */}
+											<h3>Bakalavr</h3>
+											<span>{item.name}</span>
+											<p>{item.location}</p>
+										</div>
 									</div>
-								</div>
+								))}
 							</div>
-
+							{/* experience */}
 							<div className="resume4-right-user-works">
 								<h3 className="resume4_title-l r4rt">Experience</h3>
-								{/* {experiences?.map((item, i) => {
+								{experiences?.map((item, i) => {
 									return (
 										<div className="resume4-right-user-job" key={i + 1}>
 											<div className="user-experience-year">
-												{item?.dateFrom} - {item?.dateTo}
+												{item?.dateFrom?.substring(0, 4)} - {item?.dateTo?.substring(0, 4)}
 											</div>
-											<div>
+											<div className="user-experience-text">
 												<h3>{item?.job}</h3>
 												<span>{item?.companyName}</span>
 												<p>{item?.description}</p>
 											</div>
 										</div>
 									);
-								})} */}
+								})}
 								<div className="resume4-right-user-job">
 									<div className="user-experience-year">2012 - 2022</div>
 									<div className="user-experience-text">

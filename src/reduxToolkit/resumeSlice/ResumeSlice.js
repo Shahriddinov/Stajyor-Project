@@ -27,6 +27,7 @@ import {
 
 const initialState = {
 	loading: false,
+	freelancerLoading:false,
 	error: "",
 	data: [],
 	regionsList: [],
@@ -72,11 +73,14 @@ const resumeSlice = createSlice({
 		/////////post Freelancer//////
 		builder.addCase(Freelancerpost.pending, (state)=>{
 			state.loading = true
+			state.freelancerLoading = true
 		})
 		builder.addCase(Freelancerpost.fulfilled, (state, action)=>{
 			state.loading = false
 			state.freelancerId = action.payload.id
-			console.log(action.payload)
+			localStorage.setItem('freelancerId', action.payload.id)
+			state.freelancerId = action.payload.id
+			state.freelancerLoading = false
 		})
 		builder.addCase(Freelancerpost.rejected, (state, action)=>{
 			state.error = action.error.message

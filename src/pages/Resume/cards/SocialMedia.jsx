@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./SocialMedia.module.scss";
 import telgramIcon from "../../../assets/images/Resume/telegramIcon.png";
@@ -112,7 +112,11 @@ function SocialMedia() {
 					<p>Choose in which of these social networks you have an account</p>
 					<div className={classes.socialContainers}>
 						{socials.map(item => (
-							<div key={item.name} style={{ cursor: "pointer" }} className={classes.socialCard} onClick={() => addInputContact(item.icon, item.name)}>
+							<div
+								key={item.name}
+								style={{ cursor: "pointer" }}
+								className={classes.socialCard}
+								onClick={() => addInputContact(item.icon, item.name, item.link)}>
 								<img style={{ width: "40px" }} src={item.icon} alt={item.name} />
 								<h4 className={classes.cart_text}>{item.name}</h4>
 							</div>

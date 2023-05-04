@@ -110,6 +110,19 @@ export const Freelancerpost = createAsyncThunk("freelancer/post", async payload 
 			console.log(e);
 		});
 });
+export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async (id) => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "GET",
+		url: FREELANCER + "/"+ id,
+		headers: {	
+			"Content-Type": `application/json`,
+			Authorization: `bearer ${token}`
+		}
+	}).then(response => {
+		return response.data;
+	});
+});
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 // 	const token = localStorage.getItem("token");
@@ -519,19 +532,7 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 	}).then(response => response.data);
 });
 
-export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async () => {
-	const token = localStorage.getItem("token");
-	return axios({
-		method: "Get",
-		url: GET_FREELANCER,
-		headers: {
-			"Content-Type": `application/json`,
-			Authorization: `bearer ${token}`
-		}
-	}).then(response => {
-		return response.data;
-	});
-});
+
 
 export const registerCompany = createAsyncThunk("company/Register", async payload => {
 	const token = localStorage.getItem("token");

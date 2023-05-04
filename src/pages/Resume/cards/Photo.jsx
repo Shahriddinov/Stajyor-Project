@@ -39,7 +39,6 @@ function Photo() {
 		dispatch(firstStep(data));
 		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
 	};
-
 	return (
 		<div className="photoCard">
 			{!uploaded && (
@@ -62,7 +61,7 @@ function Photo() {
 			<form onSubmit={handleSubmit} method="post">
 				<div className="inputBox">
 					<div>
-						<h5>Firstname*</h5>
+						<h5 >Firstname*</h5>
 						<input onChange={e => setData({ ...data, firstName: e.target.value })} type="text" placeholder="Write in your first name" required />
 					</div>
 					<div>
@@ -75,7 +74,7 @@ function Photo() {
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("")})} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" required />
+						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("") })} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
 				<button className="next_btn_photoCart">Next</button>

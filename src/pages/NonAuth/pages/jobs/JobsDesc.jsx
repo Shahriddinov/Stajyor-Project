@@ -8,7 +8,7 @@ import checkImg from "../../../../assets/images/checkImg.png";
 import jobsData from "./jobsData";
 import { Link } from "react-router-dom";
 
-function JobsDesc(props) {
+function JobsDesc() {
 	const [likes, setLikes] = useState([]);
 	const [isActive, setIsActive] = useState([]);
 	const [searchField, setSearchField] = useState("");
@@ -49,11 +49,11 @@ function JobsDesc(props) {
 
 	return (
 		<div className={classes.jobsDesc}>
-			<div className={classes.jobsSearch}>
+			<div className={`${classes.jobsSearch}`}>
 				<div className={classes.jobsSearchForm}>
 					<input type="text" placeholder="Job title, keywords..." onChange={onSearchChange} />
 					<button type="submit">
-						<img src={searchIcon} alt="Search Icnon" />
+						<img src={searchIcon} alt="Search Icon" />
 					</button>
 				</div>
 			</div>

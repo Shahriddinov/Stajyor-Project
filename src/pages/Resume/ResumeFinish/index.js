@@ -17,11 +17,11 @@ import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControl
 const ReumeFinish = () => {
 	// const resumeDetails = useSelector(state => state.resume.resumeDetails)
 	const { ...freelancer } = useSelector(state => state.frilanserCardSlice.freelancer);
-	const {freelancerLoading, } = useSelector(state=> state.resume)
-	console.log(freelancerLoading)
+	const { freelancerLoading } = useSelector(state => state.resume);
+	console.log(freelancerLoading);
 	const loading = useSelector(state => state.resume.loading);
 	const experiences = useSelector(state => state.resume.experienceList);
-	const {skillsData, freelancerData} = useSelector(state => state.frilanserCardSlice);
+	const { skillsData, freelancerData } = useSelector(state => state.frilanserCardSlice);
 	const hobbiesData = useSelector(state => state.frilanserCardSlice.hobbiesData);
 	const resumeOnSuccess = useSelector(state => state.login.resumeOnSuccess);
 	const educationList = useSelector(state => state.resume.educationList);
@@ -45,45 +45,59 @@ const ReumeFinish = () => {
 		},
 		[resumeOnSuccess]
 	);
-useEffect(()=>{
-if (!freelancerLoading) {
-	let id = localStorage.getItem('freelancerId')
-	dispatch(getFreelancer(id))
-}
-}, [freelancerLoading])
+	useEffect(
+		() => {
+			if (!freelancerLoading) {
+				let id = localStorage.getItem("freelancerId");
+				dispatch(getFreelancer(id));
+			}
+		},
+		[freelancerLoading]
+	);
 
-
-console.log(freelancerData)
+	console.log(freelancerData);
 	const routes = [
 		{
 			id: 1,
 			resumeId: 1,
-			element: <Resume1 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume1 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 2,
 			resumeId: 2,
-			element: <Resume2 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume2 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 3,
 			resumeId: 3,
-			element: <Resume3 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume3 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 4,
 			resumeId: 4,
-			element: <Resume4 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume4 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 6,
 			resumeId: 6,
-			element: <Resume5 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume5 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		},
 		{
 			id: 5,
 			resumeId: 5,
-			element: <Resume6 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			element: (
+				<Resume6 freelancerHobbies={hobbiesData} {...freelancerData} freelancerPosition={skillsData} experiences={experiences} educations={educationList} />
+			)
 		}
 	];
 

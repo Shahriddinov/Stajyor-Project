@@ -15,13 +15,13 @@ const initialState = {
 		DateOfBirthString: "",
 		address: {
 			countryId: 1,
-			country: null,
+			country: "afganistan",
 			street: ""
 		},
 		position: 0,
 		bio: "",
 		defaultuserImage: defaultuserImage,
-		
+
 		contacts: {
 			whatsapp: "",
 			facebook: "",
@@ -52,7 +52,8 @@ const freelancerSlice = createSlice({
 			state.freelancer.bio = action.payload.description;
 		},
 		socialStep: (state, action) => {
-			state.freelancer.contacts = { ...action.payload };
+			// state.freelancer.contacts = { ...action.payload };
+			console.log(action.payload);
 		},
 		getSkills: (state, action) => {
 			state.skillsData = action.payload;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./Background.module.scss";
 import logo from "../../assets/images/text.png";
 import Round from "./Round";
@@ -19,6 +19,7 @@ import backgroundImg from "../../assets//images/home-header-bg.png";
 
 function Background() {
 	const [count, setCount] = useState(1);
+	const [customTransition, setCustomTransition] = useState({ transform: "translateX(0)", width: "75px" });
 	const len = useSelector(state => state.lenguage.lenguage);
 
 	let step1 = false,
@@ -29,6 +30,7 @@ function Background() {
 		step6 = false,
 		step7 = false,
 		step8 = false;
+
 	switch (count) {
 		case 1:
 			step1 = true;
@@ -61,6 +63,23 @@ function Background() {
 			step1 = true;
 	}
 
+	useEffect(
+		() => {
+			if (step1) {
+				setCustomTransition({ transform: "translateX(0)", width: "60px" });
+			} else if (step5) {
+				setCustomTransition({ transform: "translateX(80px)", width: "66px" });
+			} else if (step6) {
+				setCustomTransition({ transform: "translateX(165px)", width: "45px" });
+			} else if (step7) {
+				setCustomTransition({ transform: "translateX(228px)", width: "87px" });
+			} else if (step8) {
+				setCustomTransition({ transform: "translateX(333px)", width: "102px" });
+			}
+		},
+		[count]
+	);
+
 	return (
 		<div className={classes.background}>
 			<div className={classes.background__container}>
@@ -85,6 +104,7 @@ function Background() {
 								<li className={step8 ? classesNav.active : classesNav.menu__link} onClick={() => setCount(8)}>
 									Contact us
 								</li>
+								<div className={classesNav.active_line} style={customTransition} />
 							</ul>
 							<div className={classesNav.menu__buttons}>
 								<Link to={`/${len}/login`}>
@@ -97,14 +117,17 @@ function Background() {
 						</div>
 					</div>
 				</div>
-				{step1 && <MyCareer />}
-				{step2 && <Page2 />}
-				{step3 && <Page3 />}
-				{step4 && <Page4 />}
-				{step5 && <Talants />}
-				{step6 && <Jobs />}
-				{step7 && <Aboutus />}
-				{step8 && <Contactus />}
+				<div className={classesNav.mainSection}>
+					{step1 && <MyCareer />}
+					{step2 && <Page2 />}
+					{step3 && <Page3 />}
+					{step4 && <Page4 />}
+					{step5 && <Talants />}
+					{step6 && <Jobs />}
+					{step7 && <Aboutus />}
+					{step8 && <Contactus />}
+				</div>
+
 				<CircleSlider step1={step1} step2={step2} step3={step3} step4={step4} step5={step5} step6={step6} step7={step7} step8={step8} setCount={setCount} />
 				<div className={classes.roundContainer}>
 					<div className={step1 ? classes.round1 : step2 ? classes.round2 : step3 ? classes.round3 : step4 ? classes.round4 : classes.round1}>

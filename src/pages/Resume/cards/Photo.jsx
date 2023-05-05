@@ -39,6 +39,7 @@ function Photo() {
 		dispatch(firstStep(data));
 		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
 	};
+	
 	return (
 		<div className="photoCard">
 			{!uploaded && (

@@ -21,7 +21,8 @@ function Country() {
 	useEffect(() => {
 		dispatch(getRegionsList(userChoice[0]))
 	}, [userChoice])
-
+   console.log(userChoice2)
+   console.log(userChoice)
 
 	let optionsRegion = []
 	for (let i = 0; i < countryList.length; i++) {
@@ -31,13 +32,14 @@ function Country() {
 		optionsRegion.push({ value: [regionsList[i].id, regionsList.indexOf(regionsList[i])], label: regionsList[i].name });
 	}
     const [data, setData]= useState({
-		countryId:1,
-		country:2,
+		countryId:"",
+		country:"",
 		street:""
 	})
 
 	const handleSubmit = event => {
-			console.log("step1");
+		console.log(data)
+		localStorage.setItem('country', JSON.stringify(data))
 			dispatch(secondStep(data));
 			dispatch(
 				activeDoteAction([
@@ -59,7 +61,12 @@ function Country() {
 			])
 		);
 	};
-
+	useEffect(()=>{
+		var country = JSON.parse(localStorage.getItem("country"))
+		if(country){
+			setData(country)
+		}
+	}, [])
 	return (
 		<div className="countryCard">
 			<div className="country">
@@ -83,7 +90,7 @@ function Country() {
 								/>
 							</div>
 						</div>
-						<input onChange={e=>setData(e.target.value)} className="country__inputStreet" type="text" placeholder="Street, apartment" />
+						<input onChange={(e=>setData({...data, street:e.target.value}))} className="country__inputStreet" type="text" value={data.street} placeholder="Street, apartment" />
 					</div>
 					<div className="country__button">
 						<button className="country__back" type="button" onClick={removePage}>

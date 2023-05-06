@@ -30,6 +30,7 @@ export const REGISTER_COMPANY = `${BASE_URL}/api/company`;
 export const JOBS = `${BASE_URL}/api/Job`;
 export const PROJECT = `${BASE_URL}/api/Project`;
 export const EDUCATIONDELETE = `${BASE_URL}/api/education/`;
+export const CONTACTUS = `${BASE_URL}/api/contacts-us`
 // export const USERROLES = `${BASE_URL}/UserRoles`;
 // export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
 // export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;

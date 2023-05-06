@@ -2,14 +2,23 @@ import React, { useState } from "react";
 import classes from "./Contactus.module.scss";
 import logosInstagram from "../../assets/images/icons/logos_telegram.png";
 import logosWhatsapp from "../../assets/images/icons/logos_whatsapp.png";
+import { useDisclosure } from "@mantine/hooks";
+import { useDispatch } from "react-redux";
 
-function Contactus(props) {
+function Contactus() {
+	const dispatch = useDispatch()
 	const [data, setData] = useState({
 		name:"",
 		email:"",
 		phoneNumber:"",
 		textMessage:""
 	})
+	const handleSubmit = ()=>{
+		if(data.name !=="" && data.email !== "" && data.phoneNumber !=="" && data.textMessage !== ""){
+			dispatch(postContactsUs(data))
+		}
+setData({name:"",email:"",phoneNumber:"",textMessage:""})
+	}
 	return (
 		<section className={classes.contact}>
 			<div className="container-vw">

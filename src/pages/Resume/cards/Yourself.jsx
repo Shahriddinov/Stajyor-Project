@@ -18,6 +18,7 @@ function Yourself() {
 	const [skil, setSkil] = useState("1");
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
+	const [position, setPosition] = useState("")
 	const [downSkills, setDownSkills] = useState([]);
 	const [dateValue, setDateValue] = useState("");
 	const [datas, setDatas] = useState({
@@ -48,11 +49,13 @@ function Yourself() {
 		return <b>Loading...</b>;
 	}
 	const handleSubmit = event => {
+		event.preventDefault();
+
 		dispatch(languages());
 		dispatch(getSkills(downSkills));
 		dispatch(getHobbies(hobbiesorg));
 		dispatch(yourSelfStep(data));
-		event.preventDefault();
+		localStorage.setItem('skills', JSON.stringify(downSkills))
 		dispatch(activeDoteAction([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]));
 	};
 
@@ -62,8 +65,8 @@ function Yourself() {
 	};
 	const PositionChange = pos => {
 		setSkil(pos.id);
+		setPosition(pos.label)
 		setData({ ...data, position: pos.id });
-		console.log(pos);
 	};
 	const Xobbys = hobbiesList.map(item => ({
 		value: item.content,
@@ -95,6 +98,12 @@ function Yourself() {
 	const handleSelectChange = skill => {
 		setDownSkills(skill);
 	};
+	useEffect(()=>{
+	 var skillData = JSON.parse(localStorage.getItem('skills'))
+	 if(skillData){
+		setDownSkills(skillData)
+	 }
+	}, [])
 	return (
 		<div className="yourselfCard">
 			<h2 className="yourselfCard_title">Write little about yourself</h2>
@@ -127,6 +136,7 @@ function Yourself() {
 					<MultiSelect
 						data={options}
 						onChange={handleSelectChange}
+						value={downSkills}
 						searchable
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}

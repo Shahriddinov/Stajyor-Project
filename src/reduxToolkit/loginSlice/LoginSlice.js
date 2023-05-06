@@ -73,13 +73,14 @@ const logInSlice = createSlice({
 			state.loading = true;
 		});
 		builder.addCase(registerRequest.fulfilled, (state, { payload }) => {
-			state.checkEmail = payload
-			state.bodyErrors = payload.errors
-			console.log(payload)
+			state.checkEmail = payload;
+			state.bodyErrors = payload.errors;
+			console.log(payload.errors);
 		});
 		builder.addCase(registerRequest.rejected, (state, action) => {
 			state.loading = false;
 			state.error = action.error.message;
+			state.bodyErrors = "Passwords are different";
 		});
 
 		///////////////////USERROLES REDUCER/////////////////

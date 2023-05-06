@@ -10,46 +10,46 @@ import facebook from "../../../assets/images/Sign/facebook.svg";
 import Checkemal from "../component/Checkemail";
 import Carusel from "../component/Carusel";
 import { useSelector } from "react-redux";
-import { Eye, EyeOff } from 'tabler-icons-react';
+import { Eye, EyeOff } from "tabler-icons-react";
 import { registerRequest } from "reduxToolkit/extraReducers";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-const Signup = () => {
-	const { t } = useTranslation()
 
-	const [passwordEye, setPasswordEye] = useState('password')
-	const [passwordEye1, setPasswordEye1] = useState('password')
+const Signup = () => {
+	const { t } = useTranslation();
+	const [passwordEye, setPasswordEye] = useState("password");
+	const [passwordEye1, setPasswordEye1] = useState("password");
 
 	const PasswordFunc = () => {
-		setPasswordEye(passwordEye === 'password' ? 'text' : 'password')
-	}
+		setPasswordEye(passwordEye === "password" ? "text" : "password");
+	};
 
 
 	const PasswordFunc1 = () => {
-		setPasswordEye1(passwordEye1 === 'password' ? 'text' : 'password')
-	}
+		setPasswordEye1(passwordEye1 === "password" ? "text" : "password");
+	};
 	const [data, setData] = useState({
 		email: "",
 		password: "",
-		confirmPassword: "",
-	})
-	const len = useSelector(state => state.lenguage.lenguage)
-	const { checkEmail, bodyErrors } = useSelector(state => state.login)
-	const dispatch = useDispatch()
+		confirmPassword: ""
+	});
+	const len = useSelector(state => state.lenguage.lenguage);
+	const { checkEmail, bodyErrors } = useSelector(state => state.login);
+	const dispatch = useDispatch();
 
-	console.log(checkEmail)
+	console.log(checkEmail);
 	const handlerSubmit = (e) => {
-		e.preventDefault()
-		dispatch(registerRequest(data))
+		e.preventDefault();
+		dispatch(registerRequest(data));
 		var dateObj = new Date();
 		const monthNames = ["January", "February", "March", "April", "May", "June",
-  		"July", "August", "September", "October", "November", "December"];
+			"July", "August", "September", "October", "November", "December"];
 		var month = dateObj.getUTCMonth(); //months from 1-12
 		var day = dateObj.getUTCDate();
 		var year = dateObj.getUTCFullYear();
-		localStorage.setItem('member_since', `${monthNames[month]} ${day}, ${year}`)
-	}
+		localStorage.setItem("member_since", `${monthNames[month]} ${day}, ${year}`);
+	};
 
 	return (
 		<section className="login">
@@ -58,7 +58,7 @@ const Signup = () => {
 				<img className="login_bg_img" src={login_ellipse} alt="login background images" />
 				<div className="login_container_wrapper">
 					<img src={sign_logo} className="login_container_wrapper_logo" alt="" />
-					{!checkEmail ? (    
+					{!checkEmail ? (
 						<form className="login_form" onSubmit={handlerSubmit}>
 							<h3 className="login_form_title">{t("signup")}</h3>
 
@@ -83,7 +83,7 @@ const Signup = () => {
 								<p className="register-danger-text">{bodyErrors?.EmailError}</p>
 							}
 
-							<div style={{ 'position': "relative" }} >
+							<div style={{ "position": "relative" }}>
 								<input
 									required
 									className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordError?.length ? "register-danger-input" : bodyErrors ? "register-success" : ""}`}
@@ -94,9 +94,9 @@ const Signup = () => {
 									onChange={e => setData(prev => ({ ...prev, password: e.target.value }))}
 									autoComplete="off"
 								/>
-								<span className="password_span" onClick={() => PasswordFunc1()} >
+								<span className="password_span" onClick={() => PasswordFunc1()}>
 									{
-										passwordEye1 === 'password' ? <EyeOff /> : <Eye />
+										passwordEye1 === "password" ? <EyeOff /> : <Eye />
 									}
 								</span>
 							</div>
@@ -108,9 +108,9 @@ const Signup = () => {
 								))
 							}
 
-							<div style={{ 'position': "relative" }} >
+							<div style={{ "position": "relative" }}>
 								<input
-									requiredx
+									required
 									className={`login_form_inp login_form_inp2 ${bodyErrors?.PasswordConfirmError?.length ? "register-danger-input" : bodyErrors ? "register-success" : ""}`}
 									type={passwordEye}
 									placeholder="Confirm password"
@@ -119,9 +119,9 @@ const Signup = () => {
 									onChange={e => setData(prev => ({ ...prev, confirmPassword: e.target.value }))}
 									autoComplete="off"
 								/>
-								<span className="password_span" onClick={() => PasswordFunc()} >
+								<span className="password_span" onClick={() => PasswordFunc()}>
 									{
-										passwordEye === 'password' ? <EyeOff /> : <Eye />
+										passwordEye === "password" ? <EyeOff /> : <Eye />
 									}
 								</span>
 							</div>
@@ -140,16 +140,20 @@ const Signup = () => {
 
 								<div className="login_form_wrapper_socials">
 									<a href="/facebook.com">
-										<img className="login_form_wrapper_socials_icon" src={facebook} alt="social media icon facebook" />
+										<img className="login_form_wrapper_socials_icon" src={facebook}
+											 alt="social media icon facebook" />
 									</a>
-									<a href="/facebook.com">
-										<img className="login_form_wrapper_socials_icon" src={github} alt="social media icon github" />
+									<a href="/gtihub.com">
+										<img className="login_form_wrapper_socials_icon" src={github}
+											 alt="social media icon github" />
 									</a>
-									<a href="/facebook.com">
-										<img className="login_form_wrapper_socials_icon" src={google} alt="social media google" />
+									<a href="/google.com">
+										<img className="login_form_wrapper_socials_icon" src={google}
+											 alt="social media google" />
 									</a>
-									<a href="/facebook.com">
-										<img className="login_form_wrapper_socials_icon" src={apple} alt="social media apple" />
+									<a href="/apple.com">
+										<img className="login_form_wrapper_socials_icon" src={apple}
+											 alt="social media apple" />
 									</a>
 								</div>
 							</div>

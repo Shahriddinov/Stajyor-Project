@@ -14,6 +14,10 @@ $xl: 20px;
 $lg: 18px;
 $font-family-montosserat: "Montserrat", sans-serif;
 
+html{
+	scroll-behavior: smooth;
+}
+
 * {
 	font-family: $font-family-montosserat;
 	margin: 0;

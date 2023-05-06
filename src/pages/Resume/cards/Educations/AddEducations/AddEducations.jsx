@@ -26,12 +26,8 @@ function AddEducations({ removeModal, 	defaultInputData, TypeOptions, option, up
 	const submitHandler = e => {
 		e.preventDefault();
 		if (type === "add") {
-			if(!data.name.length === 0 && !data.degree.length === 0 && !data.dateTo.length ===0 && !data.dateFrom.length === 0){
 				dispatch(educationPost(data));
 				removeModal(prev => ({ ...prev, educationAdd: false }));
-			}else{
-				alert('')
-			}
 		} else {
 			dispatch(educationEdit({ id, data }));
 			removeModal(false)
@@ -87,11 +83,11 @@ function AddEducations({ removeModal, 	defaultInputData, TypeOptions, option, up
 								Date from
 							</label>
 							<input
-								value={data.dateTo.slice(0, 10)}
+								value={data.dateFrom ?data.dateFrom.slice(0, 10) : ''}
 								className="addEducations__inputDate"
 								type="date" id="data"
 								data-date-format="YYYY:MMMM:DD"
-								onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
+								onChange={e => setData(prev => ({ ...prev, dateFrom: new Date(e.target.value).toISOString()}))}
 							/>
 						</div>
 
@@ -104,9 +100,7 @@ function AddEducations({ removeModal, 	defaultInputData, TypeOptions, option, up
 									disabled={true} className="addEducations__inputDate"
 									type="date" id="time"
 									value={data.dateTo.slice(0,10)}
-									// onChange={e => setSelectedDateTo(e.target.value)}
-									   onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
-								// onChange={e => setData(prev => ({ ...prev, dateTo: e.target.value }))}
+									onChange={e => setData(prev => ({ ...prev, dateTo: new Date(e.target.value).toISOString()}))}
 								/>
 							) : (
 								<input disabled={false}

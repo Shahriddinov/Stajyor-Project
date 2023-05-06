@@ -22,13 +22,14 @@ function Background() {
 	const len = useSelector(state => state.lenguage.lenguage);
 
 	let step1 = false,
-		step2 = false,
+		step2 = false,	
 		step3 = false,
 		step4 = false,
 		step5 = false,
 		step6 = false,
 		step7 = false,
 		step8 = false;
+
 	switch (count) {
 		case 1:
 			step1 = true;

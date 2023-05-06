@@ -1,10 +1,9 @@
-*{
-	transition: 1s;
+html{
+	scroll-behavior: smooth;
 }
 
 .jobs {
 	padding-top: 30px;
-
 	.jobs__container {
 		width: 100%;
 		padding: 40px 30px 0 40px;

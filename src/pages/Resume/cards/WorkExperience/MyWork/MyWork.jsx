@@ -79,11 +79,11 @@ function MyWork({ removeModal, defaultData }) {
                                 Date from
                             </label>
                             <input
-                                value={data.dateFrom.slice(0,10)}
-                                   className="mywork__inputDate"
-                                   type="date" id="data"
-                                   data-date-format="YYYY:MMMM:DD"
-                                   onChange={e => setData(prev => ({ ...prev, dateFrom: new Date(e.target.value).toISOString()}))}
+                                    value={data.dateFrom.slice(0,10)}
+                                    className="mywork__inputDate"
+                                    type="date" id="data"
+                                    data-date-format="YYYY:MMMM:DD"
+                                    onChange={e => setData(prev => ({ ...prev, dateFrom: new Date(e.target.value).toISOString()}))}
                             />
                         </div>
 

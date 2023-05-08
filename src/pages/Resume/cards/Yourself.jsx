@@ -14,8 +14,9 @@ import { getHobbies, getSkills } from "reduxToolkit/frilanserCardSlice/frilanser
 
 function Yourself() {
 	const dispatch = useDispatch();
-	const { positionGetLoading, positionList, hobbiesList, loading, skillsData, HobbysGetLoading } = useSelector(state => state.resume);
-	const [skil, setSkil] = useState("1");
+	
+	const { positionGetLoading, positionList, hobbiesList, loading, loadingSkills, skillsData,  HobbysGetLoading } = useSelector(state => state.resume);	
+	const [skil, setSkil] = useState(1);
 	const [hobbiesorg, setHobbiesorg] = useState([]);
 	const [orgSkills, setOrgSkills] = useState("");
 	const [position, setPosition] = useState("")
@@ -28,17 +29,14 @@ function Yourself() {
 		freelancerSkills: [],
 		newHobbies: [],
 		newSkills: []
-	});
+	})
+	const [selectedPos, setSelectedPos] = useState([{label:"name"}])
 	const [data, setData] = useState({
 		bio: "",
 		position: "",
 		DateOfBirthString: ""
-	});
-
-	// console.log(skil)
-
-	useEffect(
-		() => {
+	})
+	useEffect(() => {
 			dispatch(getPositionsSkillsWithId(skil));
 			dispatch(hobbies());
 		},
@@ -50,33 +48,35 @@ function Yourself() {
 	}
 	const handleSubmit = event => {
 		event.preventDefault();
-
 		dispatch(languages());
 		dispatch(getSkills(downSkills));
 		dispatch(getHobbies(hobbiesorg));
 		dispatch(yourSelfStep(data));
+		localStorage.setItem('yourself', JSON.stringify(data))
+		localStorage.setItem('hobbies', JSON.stringify(hobbiesorg))
 		localStorage.setItem('skills', JSON.stringify(downSkills))
+		localStorage.setItem('activDoteAction', JSON.stringify([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]))
 		dispatch(activeDoteAction([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]));
 	};
 
 	const prevPage = event => {
 		event.preventDefault();
 		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
-	};
+	}
 	const PositionChange = pos => {
 		setSkil(pos.id);
+		console.log(pos.id)
 		setPosition(pos.label)
-		setData({ ...data, position: pos.id });
-	};
+		setData({ ...data, position: pos.id })
+	}
 	const Xobbys = hobbiesList.map(item => ({
 		value: item.content,
 		label: item.content
-	}));
-	// console.log(skillsData)
+	}))
 	const options = skillsData.map(item => ({
 		value: item.content,
 		label: item.content
-	}));
+	}))
 	const changeSkill = ({ value, type }) => {
 		if (type === "skills") {
 			setDatas(prev => ({
@@ -99,6 +99,18 @@ function Yourself() {
 		setDownSkills(skill);
 	};
 	useEffect(()=>{
+		var yourself = JSON.parse(localStorage.getItem('yourself'))
+		if(yourself){
+			setData(yourself)
+		}
+		var hobbies = JSON.parse(localStorage.getItem("hobbies"))
+		if(hobbies){
+			setHobbiesorg(hobbies)
+		 }
+	 var dotActive = JSON.parse(localStorage.getItem('activDoteAction'))
+	 if(dotActive){
+		dispatch(activeDoteAction(dotActive))
+	 }
 	 var skillData = JSON.parse(localStorage.getItem('skills'))
 	 if(skillData){
 		setDownSkills(skillData)
@@ -112,6 +124,7 @@ function Yourself() {
 					<div className="yourselfCard_form_wrapper_top">
 						<label className="yourselfCard_label">Select your Positions*</label>
 						<Select
+						    value={selectedPos}
 							required
 							classNamePrefix="mySelect"
 							options={positionList.map(el => ({ id: el.id, label: el.name }))}
@@ -125,6 +138,7 @@ function Yourself() {
 						<input
 							type="date"
 							required
+							value={data.DateOfBirthString}
 							placeholder="DD/MM/YYYY"
 							data-date-format=" YYYY:MMMM:DD "
 							onChange={e => setData({ ...data, DateOfBirthString: e.target.value.split("-").join(":") })}
@@ -152,6 +166,7 @@ function Yourself() {
 					<MultiSelect
 						className="yourself_select"
 						required
+						value={hobbiesorg}
 						data={Xobbys}
 						placeholder="Select hobbie or create a new"
 						nothingFound="Nothing found"
@@ -169,6 +184,7 @@ function Yourself() {
 					<input
 						className="yourselfCard_textarea"
 						type="text"
+						value={data.bio}
 						placeholder="Describe yourself to buyers"
 						onChange={event => setData(prev => ({ ...prev, bio: event.target.value }))}
 					/>

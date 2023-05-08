@@ -30,12 +30,12 @@ function App() {
 	// 	navigate(`/${len}/`)
 	// }, [len, navigate])
 
-	useEffect(
-		() => {
-			dispatch(claimsGet());
-		},
-		[dispatch]
-	);
+	// useEffect(
+	// 	() => {
+	// 		dispatch(claimsGet());
+	// 	},
+	// 	[dispatch]
+	// );
 
 	// useEffect(() => {
 	// 	if (loginOnSuccess || contactsIsSuccess) {
@@ -48,7 +48,7 @@ function App() {
 			{auth === false && (
 				<Routes>
 					{publicRoute.map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}
-					<Route path="*" element={<Navigate to={`/${len}/`} />} />
+					<Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
 				</Routes>
 			)}
 			{freelanceOrCompany !== "Company" && freelanceOrCompany !== "Freelancer" ? (

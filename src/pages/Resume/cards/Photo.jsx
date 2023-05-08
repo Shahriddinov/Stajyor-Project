@@ -39,12 +39,12 @@ function Photo() {
 		dispatch(firstStep(data))
 		localStorage.setItem("photo",JSON.stringify(data))
 		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
-	}
+	};
 	useEffect(()=>{
-		var photoStorage = JSON.parse(localStorage.getItem("photo"))
-		if(photoStorage){
-			setData(photoStorage)
-		}
+	var photo = JSON.parse(localStorage.getItem('photo'))
+	if(photo){
+		setData(photo)
+	}
 	}, [])
 	return (
 		<div className="photoCard">	

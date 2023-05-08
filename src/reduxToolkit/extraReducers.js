@@ -64,7 +64,6 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 		data: {
 			email: payload.email,
 			password: payload.password,
-			confirmPassword: payload.password
 		},
 		headers: {
 			"Content-Type": "application/json-patch+json"

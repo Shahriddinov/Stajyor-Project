@@ -33,6 +33,7 @@ function WorkExperience() {
 	);
 	const handleSubmit = e => {
 		e.preventDefault();
+		localStorage.setItem("activDoteAction",JSON.stringify([{ id: 6, label: "Educations" }, { id: 6, type: "education" }]))
 		dispatch(activeDoteAction([{ id: 6, label: "Educations" }, { id: 6, type: "education" }]));
 	};
 
@@ -60,7 +61,12 @@ function WorkExperience() {
 	const EditFunc = int => {
 		setEditHover(int);
 	};
-
+    useEffect(()=>{
+		var dotAction = JSON.parse(localStorage.getItem('activeDoteAction'))
+		if(dotAction){
+			dispatch(activeDoteAction(dotAction))
+		}
+	}, [])
 	if (loading) {
 		return <b>Loading...</b>;
 	}

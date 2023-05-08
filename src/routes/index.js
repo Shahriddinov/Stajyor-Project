@@ -20,8 +20,8 @@ export const publicRoute = [
 ];
 
 export const createProfileRoute = [
-	{ id: 1, path: "/", element: <PageBackground /> },
-	{ id: 1, path: "/welcome", element: <Login /> },
+	{ id: 1, path: "/welcome", element: <PageBackground /> },
+	{ id: 1, path: "/login", element: <Login /> },
 	{ id: 2, path: "/sign-up", element: <Signup /> }
 ];
 

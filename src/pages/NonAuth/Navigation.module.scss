@@ -30,20 +30,24 @@
 			width: 360px;
 			height: 94px;
 			z-index: 10;
+			margin-right: 20px;
 		}
 
 		.menu__links {
+			position: relative;
 			padding-top: 8px;
 			display: flex;
 			align-items: center;
 			list-style-type: none;
 			border-bottom: 5px solid #fff;
-			gap: 32px;
+			gap: 25px;
 			cursor: pointer;
 
 			& > li {
+				transition: color 2.3s ease-in-out;
+
 				font-weight: 500;
-				font-size: 23px;
+				font-size: 18px;
 				line-height: 28px;
 				color: #1d71b8;
 			}
@@ -70,15 +74,26 @@
 
 			.active::before {
 				position: absolute;
-				bottom: -5px;
-				width: 100%;
-				height: 5px;
+
 				background-color: #1d71b8;
 				content: "";
 				border-top-right-radius: 12px;
 				border-bottom-right-radius: 12px;
 				border-top-left-radius: 12px;
 				border-bottom-left-radius: 12px;
+			}
+			.active_line {
+				position: absolute;
+				background-color: #1d71b8;
+				border-top-right-radius: 12px;
+				border-bottom-right-radius: 12px;
+				border-top-left-radius: 12px;
+				border-bottom-left-radius: 12px;
+				bottom: -5px;
+				width: 75px;
+				height: 5px;
+				transform: translateX(0);
+				transition: ease-out 0.3s;
 			}
 		}
 
@@ -121,6 +136,22 @@
 	}
 }
 
+.mainSection {
+	animation: mainAnimation 1.5s normal;
+}
+
+@keyframes mainAnimation {
+	0% {
+		opacity: 0;
+	}
+	
+	50% {
+		opacity: .5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 @media only screen and (max-width: 1780px) {
 	.menu {
 		&__container {
@@ -159,17 +190,17 @@
 			padding-top: 50px;
 
 			.backgroundImg {
-				left: -27%;
-				top: -285%;
-				width: 700px;
-				height: 700px;
+				left: -22%;
+				top: -214%;
+				width: 620px;
+				height: 620px;
 			}
 			.menu__links {
 				.menu__link {
-					font-size: 15px;
+					// font-size: 15px;
 				}
-				.active{
-					font-size: 15px;
+				.active {
+					// font-size: 15px;
 				}
 			}
 			.automative {
@@ -186,7 +217,7 @@
 			.backgroundImg {
 				width: 650px;
 				height: 650px;
-				left: -28%;
+				left: -30%;
 				top: -260%;
 			}
 
@@ -200,12 +231,12 @@
 				cursor: pointer;
 
 				& > li {
-					font-size: 18px;
+					// font-size: 18px;
 					line-height: 22px;
 				}
 				.menu__link,
-				.active{
-					font-size: 14px;
+				.active {
+					// font-size: 14px;
 				}
 			}
 

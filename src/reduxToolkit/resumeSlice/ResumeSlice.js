@@ -47,7 +47,8 @@ const initialState = {
 	positionGetLoading: false,
 	userID: null,
 	freelancerId: 0,
-	testData: []
+	testData: [],
+	loadingSkills: false
 };
 
 const resumeSlice = createSlice({
@@ -129,11 +130,11 @@ const resumeSlice = createSlice({
 		});
 		///////////////////////getPositionsSkillsWithId//////////////////////
 		builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
-			// state.loading = true;
+			// state.loadingSkills = true
 		});
 		builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
 			state.skillsData = action.payload;
-			state.loading = false;
+			state.loadingSkills = true;
 		});
 		builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
 			state.error = action.error.message;

@@ -36,12 +36,18 @@ function Photo() {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		dispatch(firstStep(data));
+		dispatch(firstStep(data))
+		localStorage.setItem("photo",JSON.stringify(data))
 		dispatch(activeDoteAction([{ id: 2, label: "Address" }, { id: 2, type: "country" }]));
 	};
-	
+	useEffect(()=>{
+	var photo = JSON.parse(localStorage.getItem('photo'))
+	if(photo){
+		setData(photo)
+	}
+	}, [])
 	return (
-		<div className="photoCard">
+		<div className="photoCard">	
 			{!uploaded && (
 				<div onClick={handleClick} className="imageUpload">
 					<div className={"imageUpload__inside"}>
@@ -63,19 +69,19 @@ function Photo() {
 				<div className="inputBox">
 					<div>
 						<h5 >Firstname*</h5>
-						<input onChange={e => setData({ ...data, firstName: e.target.value })} type="text" placeholder="Write in your first name" required />
+						<input onChange={e => setData({ ...data, firstName: e.target.value })} type="text" value={data.firstName} placeholder="Write in your first name" required />
 					</div>
 					<div>
 						<h5>Lastname*</h5>
-						<input onChange={e => setData({ ...data, lastName: e.target.value })} type="text" placeholder="Write in your last name" required />
+						<input onChange={e => setData({ ...data, lastName: e.target.value })} type="text" value={data.lastName} placeholder="Write in your last name" required />
 					</div>
 					<div>
 						<h5>E-mail*</h5>
-						<input onChange={e => setData({ ...data, email: e.target.value })} type="email" placeholder="Abcdefg1234@inbox.com" required />
+						<input onChange={e => setData({ ...data, email: e.target.value })} type="email" value={data.email} placeholder="Abcdefg1234@inbox.com" required />
 					</div>
 					<div>
 						<h5>Phone Number*</h5>
-						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("") })} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" required />
+						<InputMask onChange={e => setData({ ...data, phoneNumber: e.target.value.match(/[0-9]/g).join("") })} value={data.phoneNumber} mask="+998 (99)-999-99-99" placeholder="+XXX (XX) XXX-XX-XX" required />
 					</div>
 				</div>
 				<button className="next_btn_photoCart">Next</button>

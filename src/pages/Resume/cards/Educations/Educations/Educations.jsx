@@ -13,7 +13,7 @@ const defaultData = {
   typeOfStudy: '',
   location: '',
   currentStudy: false,
-  dateDrom: '',
+  dateFrom: '',
   dateTo: '',
 };
 
@@ -33,7 +33,6 @@ function Educations() {
   useEffect(() => {
     dispatch(educationGet());
   }, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
-  console.log(educationList);
 
   const [test, setTest] = useState();
 
@@ -54,6 +53,13 @@ function Educations() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    localStorage.setItem(
+      'activDoteAction',
+      JSON.stringify([
+        { id: 7, label: 'Contacts' },
+        { id: 7, type: 'media' },
+      ]),
+    );
     dispatch(
       activeDoteAction([
         { id: 7, label: 'Contacts' },
@@ -61,7 +67,12 @@ function Educations() {
       ]),
     );
   };
-
+  useEffect(() => {
+    var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
+    if (dotAction) {
+      dispatch(activeDoteAction(dotAction));
+    }
+  }, []);
   const [trashHover, setTrashHover] = useState(false);
   const [editHover, setEditHover] = useState(false);
 

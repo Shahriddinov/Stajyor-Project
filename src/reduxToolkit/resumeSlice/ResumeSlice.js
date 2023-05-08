@@ -50,6 +50,33 @@ const initialState = {
   userID: null,
   freelancerId: 0,
   testData: [],
+  loading: false,
+  freelancerLoading: false,
+  error: '',
+  data: [],
+  regionsList: [],
+  countryList: [],
+  positionList: [
+    { name: 'Web Designer', id: 0 },
+    { name: 'FrontEnd', id: 1 },
+    { name: 'Backend', id: 2 },
+  ],
+  hobbiesList: [],
+  HobbysGetLoading: null,
+  languageList: [],
+  experienceList: [],
+  experiencePostIsSuccess: '',
+  educationList: [],
+  skillsData: [],
+  educationPostIsSuccess: '',
+  resumeDetails: '',
+  skillsLoading: false,
+  status: 'idle',
+  positionGetLoading: false,
+  userID: null,
+  freelancerId: 0,
+  testData: [],
+  loadingSkills: false,
 };
 
 const resumeSlice = createSlice({
@@ -131,11 +158,11 @@ const resumeSlice = createSlice({
     });
     ///////////////////////getPositionsSkillsWithId//////////////////////
     builder.addCase(getPositionsSkillsWithId.pending, (state, action) => {
-      // state.loading = true;
+      // state.loadingSkills = true
     });
     builder.addCase(getPositionsSkillsWithId.fulfilled, (state, action) => {
       state.skillsData = action.payload;
-      state.loading = false;
+      state.loadingSkills = true;
     });
     builder.addCase(getPositionsSkillsWithId.rejected, (state, action) => {
       state.error = action.error.message;

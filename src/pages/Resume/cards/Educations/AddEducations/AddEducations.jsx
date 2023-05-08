@@ -35,8 +35,6 @@ function AddEducations({
     dateTo,
     currentStudy,
   });
-  console.log(data);
-  console.log(data.degree);
 
   const submitHandler = e => {
     e.preventDefault();
@@ -49,12 +47,6 @@ function AddEducations({
     }
   };
 
-  const [isChecked, setIsChecked] = useState(false);
-
-  const isCheskedFunc = () => {
-    setIsChecked(!isChecked);
-  };
-  console.log();
   return (
     <div className='addEducations'>
       <div className='addEducations__inner'>
@@ -128,13 +120,14 @@ function AddEducations({
               <label className='addEducations__label' htmlFor='time'>
                 To
               </label>
-              {data.dateTo ? (
+              {data.currentStudy ? (
                 <input
                   disabled={true}
                   className='addEducations__inputDate'
+                  value={''}
                   type='date'
+                  data-date-format='YYYY:MMMM:DD'
                   id='time'
-                  value={data.dateTo.slice(0, 10)}
                   onChange={e =>
                     setData(prev => ({
                       ...prev,
@@ -145,16 +138,17 @@ function AddEducations({
               ) : (
                 <input
                   disabled={false}
-                  value={data.dateTo.slice(0, 10)}
+                  value={data.dateTo ? data.dateTo.slice(0, 10) : ''}
+                  className='addEducations__inputDate'
+                  type='date'
+                  id='time'
                   onChange={e =>
                     setData(prev => ({
                       ...prev,
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
                   }
-                  className='addEducations__inputDate'
-                  type='date'
-                  id='time'
+                  data-date-format='YYYY:MMMM:DD'
                 />
               )}
             </div>
@@ -166,10 +160,12 @@ function AddEducations({
                 className='addEducations__inputCheckbox'
                 type='checkbox'
                 id='checkbox'
-                // checked={data.currentStudy}
-                onClick={isCheskedFunc}
-                onChange={e =>
-                  setData(prev => ({ ...prev, currentStudy: e.target.value }))
+                checked={data.currentStudy}
+                onChange={() =>
+                  setData(prev => ({
+                    ...prev,
+                    currentStudy: !prev.currentStudy,
+                  }))
                 }
               />
               <label

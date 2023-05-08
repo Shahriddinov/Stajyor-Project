@@ -29,8 +29,8 @@ function Educations() {
 		() => {
 			dispatch(educationGet());
 		},
-		[educationGet, educationPostIsSuccess]
-	);
+		[educationGet, educationDeleteIsSuccess, educationPostIsSuccess]
+	)
 	console.log(educationList);
 
 	const [test, setTest] = useState();
@@ -47,9 +47,15 @@ function Educations() {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		dispatch(activeDoteAction([{ id: 7, label: "Contacts" }, { id: 7, type: "media" }]));
+		localStorage.setItem("activDoteAction",JSON.stringify([{ id: 7, label: "Contacts" }, { id: 7, type: "media" }]))
+		dispatch(activeDoteAction([{ id: 7, label: "Contacts" }, { id: 7, type: "media" }]))
 	};
-
+	useEffect(()=>{
+		var dotAction = JSON.parse(localStorage.getItem('activDoteAction'))
+		if(dotAction){
+			dispatch(activeDoteAction(dotAction))
+		}
+	}, [])
 	const [trashHover, setTrashHover] = useState(false);
 	const [editHover, setEditHover] = useState(false);
 

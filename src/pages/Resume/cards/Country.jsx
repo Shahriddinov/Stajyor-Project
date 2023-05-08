@@ -10,7 +10,6 @@ import { countryUpload, hobbies, positions, getFreelancer, getCountryList, getRe
 
 function Country() {
 	const dispatch = useDispatch();
-	const street = useRef("");
 	const { firstName } = useSelector(state => state.frilanserCardSlice.freelancer);
 	const [userChoice, setUserChoice] = useState([0]);
 	const [userChoice2, setUserChoice2] = useState(0);
@@ -31,13 +30,29 @@ function Country() {
 		optionsRegion.push({ value: [regionsList[i].id, regionsList.indexOf(regionsList[i])], label: regionsList[i].name });
 	}
     const [data, setData]= useState({
-		countryId:1,
-		country:2,
+		countryId:"afgan",
+		country:"",
 		street:""
 	})
 
+   const onCountryChange = (choice)=>{
+	setUserChoice(choice.value)
+	setData({...data, countryId: choice.label})
+   }
+
+   const onRegionChange = (choice)=>{
+     setUserChoice2(choice.value)
+	 setData({...data, country:choice.label })
+   }
 	const handleSubmit = event => {
-			console.log("step1");
+
+		console.log(data)
+		localStorage.setItem('country', JSON.stringify(data))
+		localStorage.setItem('activDoteAction', JSON.stringify([
+			{ id: 3, label: "About yourself and skills" },
+			{ id: 3, type: "yourself" }
+		]))
+
 			dispatch(secondStep(data));
 			dispatch(
 				activeDoteAction([
@@ -59,7 +74,16 @@ function Country() {
 			])
 		);
 	};
-
+	useEffect(()=>{
+		var dotAction = JSON.parse(localStorage.getItem("activDoteAction"))
+		if(dotAction){
+			dispatch(activeDoteAction(dotAction))
+		}
+		var country = JSON.parse(localStorage.getItem("country"))
+		if(country){
+			setData(country)
+		}
+	}, [])
 	return (
 		<div className="countryCard">
 			<div className="country">
@@ -72,18 +96,19 @@ function Country() {
 						<h5 className="country__subtitle">Living address</h5>
 						<div className="country__wrapper">
 							<div className="country__info">
-								<Select classNamePrefix="mySelect" options={options} placeholder="Country*" onChange={choice => setUserChoice(choice.value)} />
+								<Select classNamePrefix="mySelect" value={data.countryId} options={options} placeholder="Country*" onChange={onCountryChange} />
 							</div>
 							<div className="country__info">
 								<Select
 									classNamePrefix="mySelect"
 									options={optionsRegion}
 									placeholder="Region*"
-									onChange={choice => setUserChoice2(choice.value)}
+									onChange={onRegionChange}
+									value={data.country}
 								/>
 							</div>
 						</div>
-						<input onChange={e=>setData(e.target.value)} className="country__inputStreet" type="text" placeholder="Street, apartment" />
+						<input onChange={(e=>setData({...data, street:e.target.value}))} className="country__inputStreet" type="text" value={data.street} placeholder="Street, apartment" />
 					</div>
 					<div className="country__button">
 						<button className="country__back" type="button" onClick={removePage}>

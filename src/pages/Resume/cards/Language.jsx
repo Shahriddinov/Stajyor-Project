@@ -40,14 +40,17 @@ function Language() {
 	};
 
 	const handleSubmit = event => {
+		event.preventDefault();
 		let formdatas = new FormData();
 		console.log(formdatas);
 		for (let i = 0; i < theArray.length; i++) {
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);
 		}
-		// dispatch(languageUpload(formdatas));
-		event.preventDefault();
+		localStorage.setItem('activDoteAction', JSON.stringify([
+			{ id: 5, label: "Experience" },
+			{ id: 5, type: "workexperience" }
+		]))
 		dispatch(
 			activeDoteAction([
 				{ id: 5, label: "Experience" },
@@ -68,6 +71,10 @@ function Language() {
 
 	useEffect(() => {
 		dispatch(languages())
+		var dotAction = JSON.parse(localStorage.getItem('activeDoteAction'))
+		if(dotAction){
+			dispatch(activeDoteAction(dotAction))
+		}
 	}, [])
 	return (
 		<div className={classes.languageCard}>

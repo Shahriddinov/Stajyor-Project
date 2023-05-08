@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import classes from "./LoginDesc.module.scss";
 import google from "../../../assets/images/google.png";
 import facebook from "../../../assets/images/facebook.png";
 import github from "../../../assets/images/github.png";
 import macplay from "../../../assets/images/mac.png";
+import { useDispatch } from "react-redux";
+import { logInRequest } from "reduxToolkit/extraReducers";
 function LoginDesc(props) {
+	
+	const email = useRef("");
+	const password = useRef("");
+	const dispatch = useDispatch();
+
+	const handleSubmit = (e)=>{
+		e.preventDefault()
+		let payload = {
+			email: email.current.value,
+			password: password.current.value
+		};
+		dispatch(logInRequest(payload));
+	}
 	return (
 		<div className={classes.loginDesc}>
 			<div className={classes.loginDescContent}>
@@ -16,9 +31,10 @@ function LoginDesc(props) {
 						Sign up now!
 					</Link>
 				</div>
-				<form action="/signup" className={classes.formSubmit}>
-					<input type="text" name="email" placeholder="Email" required className={classes.formSubmitName} />
+				<form onSubmit={handleSubmit} className={classes.formSubmit}>
+					<input type="text" name="email" ref={email} placeholder="Email" required className={classes.formSubmitName} />
 					<input
+					    ref={password}
 						style={{ WebkitTextSecurity: "disc" }}
 						type="text"
 						name="password"

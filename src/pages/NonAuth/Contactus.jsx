@@ -6,19 +6,19 @@ import { useDisclosure } from "@mantine/hooks";
 import { useDispatch } from "react-redux";
 
 function Contactus() {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	const [data, setData] = useState({
-		name:"",
-		email:"",
-		phoneNumber:"",
-		textMessage:""
-	})
-	const handleSubmit = ()=>{
-		if(data.name !=="" && data.email !== "" && data.phoneNumber !=="" && data.textMessage !== ""){
-			dispatch(postContactsUs(data))
+		name: "",
+		email: "",
+		phoneNumber: "",
+		textMessage: ""
+	});
+	const handleSubmit = () => {
+		if (data.name !== "" && data.email !== "" && data.phoneNumber !== "" && data.textMessage !== "") {
+			// dispatch(postContactsUs(data));
 		}
-setData({name:"",email:"",phoneNumber:"",textMessage:""})
-	}
+		setData({ name: "", email: "", phoneNumber: "", textMessage: "" });
+	};
 	return (
 		<section className={classes.contact}>
 			<div className="container-vw">
@@ -38,10 +38,17 @@ setData({name:"",email:"",phoneNumber:"",textMessage:""})
 					<div className={classes.contactUs}>
 						<h1 className={classes.contactUs__title}>Contact us</h1>
 						<p className={classes.contactUs__desc}>Fill in the blank and we will contact you</p>
-						<input onChange={(e)=>setData({...data, name:e.target.value})} type="text" placeholder="Name" required />
-						<input onChange={(e)=>setData({...data, email:e.target.value})} type="email" placeholder="E-mail" required />
-						<input onChange={(e)=> setData({...data, phoneNumber: e.target.value})} type="number" placeholder="+998 99 999 99 99" min="1" max="13" required />
-						<textarea onChange={(e)=>setData({...data, textMessage:e.target.value})} style={{resize: 'none'}} className={classes.textMessage} type="text" placeholder="Text message" required></textarea>
+						<input onChange={e => setData({ ...data, name: e.target.value })} type="text" placeholder="Name" required />
+						<input onChange={e => setData({ ...data, email: e.target.value })} type="email" placeholder="E-mail" required />
+						<input onChange={e => setData({ ...data, phoneNumber: e.target.value })} type="number" placeholder="+998 99 999 99 99" min="1" max="13" required />
+						<textarea
+							onChange={e => setData({ ...data, textMessage: e.target.value })}
+							style={{ resize: "none" }}
+							className={classes.textMessage}
+							type="text"
+							placeholder="Text message"
+							required
+						/>
 						<button>Send</button>
 					</div>
 				</div>

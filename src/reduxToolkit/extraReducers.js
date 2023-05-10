@@ -58,6 +58,7 @@ export const registerRequest = createAsyncThunk("token/register", async payload 
 
 /////////////////////////////////////LLOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
+	console.log(payload);
 	return axios({
 		method: "POST",
 		url: LOG_IN,

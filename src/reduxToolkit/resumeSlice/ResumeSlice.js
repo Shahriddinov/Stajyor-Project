@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import {
   Freelancerpost,
   contactUpload,
@@ -21,57 +21,31 @@ import {
   positions,
   positionsUpload,
   resumeSelect,
-} from 'reduxToolkit/extraReducers';
+} from "reduxToolkit/extraReducers";
 
 const initialState = {
   loading: false,
   freelancerLoading: false,
-  error: '',
+  error: "",
   data: [],
   regionsList: [],
   countryList: [],
   positionList: [
-    { name: 'Web Designer', id: 0 },
-    { name: 'FrontEnd', id: 1 },
-    { name: 'Backend', id: 2 },
+    { name: "Web Designer", id: 0 },
+    { name: "FrontEnd", id: 1 },
+    { name: "Backend", id: 2 },
   ],
   hobbiesList: [],
   HobbysGetLoading: null,
   languageList: [],
   experienceList: [],
-  experiencePostIsSuccess: '',
+  experiencePostIsSuccess: "",
   educationList: [],
   skillsData: [],
-  educationPostIsSuccess: '',
-  resumeDetails: '',
+  educationPostIsSuccess: "",
+  resumeDetails: "",
   skillsLoading: false,
-  status: 'idle',
-  positionGetLoading: false,
-  userID: null,
-  freelancerId: 0,
-  testData: [],
-  loading: false,
-  freelancerLoading: false,
-  error: '',
-  data: [],
-  regionsList: [],
-  countryList: [],
-  positionList: [
-    { name: 'Web Designer', id: 0 },
-    { name: 'FrontEnd', id: 1 },
-    { name: 'Backend', id: 2 },
-  ],
-  hobbiesList: [],
-  HobbysGetLoading: null,
-  languageList: [],
-  experienceList: [],
-  experiencePostIsSuccess: '',
-  educationList: [],
-  skillsData: [],
-  educationPostIsSuccess: '',
-  resumeDetails: '',
-  skillsLoading: false,
-  status: 'idle',
+  status: "idle",
   positionGetLoading: false,
   userID: null,
   freelancerId: 0,
@@ -80,7 +54,7 @@ const initialState = {
 };
 
 const resumeSlice = createSlice({
-  name: 'resume',
+  name: "resume",
   initialState,
   reducers: {
     changeExperienceModal: (state, { payload }) => {
@@ -90,7 +64,7 @@ const resumeSlice = createSlice({
       state.isEducationModal = payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder.addCase(photoUpload.pending, (state, action) => {
       state.loading = true;
     });
@@ -100,14 +74,14 @@ const resumeSlice = createSlice({
       state.error = action.error.message;
     });
     /////////post Freelancer//////
-    builder.addCase(Freelancerpost.pending, state => {
+    builder.addCase(Freelancerpost.pending, (state) => {
       state.loading = true;
       state.freelancerLoading = true;
     });
     builder.addCase(Freelancerpost.fulfilled, (state, action) => {
       state.loading = false;
       state.freelancerId = action.payload.id;
-      localStorage.setItem('freelancerId', action.payload.id);
+      localStorage.setItem("freelancerId", action.payload.id);
       console.log(action.payload);
       state.freelancerId = action.payload.id;
       state.freelancerLoading = false;
@@ -125,7 +99,7 @@ const resumeSlice = createSlice({
     //Regions List
     builder.addCase(getCountryList.rejected, (state, action) => {
       state.loading = false;
-      console.log('erorr');
+      console.log("erorr");
       state.error = action.error.message;
     });
 
@@ -171,12 +145,12 @@ const resumeSlice = createSlice({
     //Positions List reducer
     builder.addCase(hobbies.pending, (state, action) => {
       state.loading = true;
-      state.HobbysGetLoading = 'pending Xobbys';
+      state.HobbysGetLoading = "pending Xobbys";
     });
     builder.addCase(hobbies.fulfilled, (state, action) => {
       state.hobbiesList = action.payload;
 
-      state.HobbysGetLoading = 'getXobbys';
+      state.HobbysGetLoading = "getXobbys";
     });
     builder.addCase(hobbies.rejected, (state, action) => {
       state.loading = false;
@@ -222,12 +196,12 @@ const resumeSlice = createSlice({
     //EXPERIENCE POST REDUCER
     builder.addCase(experiencePost.pending, (state, action) => {
       state.loading = true;
-      state.experiencePostIsSuccess = 'pending';
+      state.experiencePostIsSuccess = "pending";
     });
     builder.addCase(experiencePost.fulfilled, (state, action) => {
       state.loading = false;
       state.userID = action.payload.userId;
-      state.experiencePostIsSuccess = 'changed';
+      state.experiencePostIsSuccess = "changed";
     });
     builder.addCase(experiencePost.rejected, (state, action) => {
       state.loading = false;
@@ -237,10 +211,10 @@ const resumeSlice = createSlice({
     ////////////////////////////////////EXPERIENCE EDIT REDUCER//////////////////////
     builder.addCase(experienceEdit.pending, (state, action) => {
       state.loading = true;
-      state.experiencePostIsSuccess = 'pending';
+      state.experiencePostIsSuccess = "pending";
     });
     builder.addCase(experienceEdit.fulfilled, (state, { type, payload }) => {
-      state.experiencePostIsSuccess = 'succsess';
+      state.experiencePostIsSuccess = "succsess";
       state.loading = false;
     });
     builder.addCase(experienceEdit.rejected, (state, action) => {
@@ -265,12 +239,12 @@ const resumeSlice = createSlice({
 
     ////////////////////////////////////EXPERIENCE DELETE REDUCER ////////////////
     builder.addCase(experienceDelete.pending, (state, action) => {
-      state.experiencePostIsSuccess = 'pendign deleting';
+      state.experiencePostIsSuccess = "pendign deleting";
       state.loading = true;
     });
     builder.addCase(experienceDelete.fulfilled, (state, { type, payload }) => {
       state.loading = false;
-      state.experiencePostIsSuccess = 'success deleted';
+      state.experiencePostIsSuccess = "success deleted";
     });
     builder.addCase(experienceDelete.rejected, (state, action) => {
       state.loading = false;
@@ -326,7 +300,7 @@ const resumeSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(educationDelete.fulfilled, (state, { type, payload }) => {
-      state.educationPostIsSuccess = 'success deleted';
+      state.educationPostIsSuccess = "success deleted";
       state.loading = false;
     });
     builder.addCase(educationDelete.rejected, (state, action) => {

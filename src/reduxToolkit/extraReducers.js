@@ -56,7 +56,7 @@ export const registerRequest = createAsyncThunk("token/register", async payload 
 	}).then(res => res.data)
 });
 
-/////////////////////////////////////LLOGIN POST///////////////////////
+/////////////////////////////////////LOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 	console.log(payload);
 	return axios({
@@ -115,8 +115,8 @@ export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async 
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
-		url: FREELANCER + "/"+ id,
-		headers: {	
+		url: FREELANCER + "/" + id,
+		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`
 		}
@@ -543,7 +543,6 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 		}
 	}).then(response => response.data);
 });
-
 
 
 export const registerCompany = createAsyncThunk("company/Register", async payload => {

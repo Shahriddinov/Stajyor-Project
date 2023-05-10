@@ -14,7 +14,7 @@ function Aboutus(props) {
 					<div className={classes.about__container__border}></div>
 					<div className={classes.TextsMain}>
 						<div className={classes.IconsMain}>
-							<p>About us</p>
+												<p>About us</p>
 							<div className={classes.iconsBlock}>
 								<TbBrandTelegram />
 								<FiFacebook />

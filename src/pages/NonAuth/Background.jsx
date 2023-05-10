@@ -66,15 +66,15 @@ function Background() {
 	useEffect(
 		() => {
 			if (step1) {
-				setCustomTransition({ transform: "translateX(0)", width: "60px" });
+				setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
 			} else if (step5) {
-				setCustomTransition({ transform: "translateX(80px)", width: "66px" });
+				setCustomTransition({ transform: "translateX(80px)", width: "4.5vw" });
 			} else if (step6) {
-				setCustomTransition({ transform: "translateX(165px)", width: "45px" });
+				setCustomTransition({ transform: "translateX(165px)", width: "3.5vw" });
 			} else if (step7) {
-				setCustomTransition({ transform: "translateX(228px)", width: "87px" });
+				setCustomTransition({ transform: "translateX(235px)", width: "5.7vw" });
 			} else if (step8) {
-				setCustomTransition({ transform: "translateX(333px)", width: "102px" });
+				setCustomTransition({ transform: "translateX(343px)", width: "6.7vw" });
 			}
 		},
 		[count]

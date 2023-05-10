@@ -3,7 +3,7 @@ import LoginDesc from "../LoginDesc";
 import classes from "./Talants.module.scss";
 import TalantsDesc from "./TalantsDesc";
 
-function Talants(props) {
+function Talants() {
 	return (
 		<div className={classes.talants}>
 			<div className="container-vw">

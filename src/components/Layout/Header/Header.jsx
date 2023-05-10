@@ -44,7 +44,7 @@ const Header = () => {
 						<span className="header_container_list_span"></span>
 					</ul>
 					<Dropdown/>
-					<LangDrop/>
+					{/* <LangDrop/> */}
 				</div>
 			</div>
 		</header>

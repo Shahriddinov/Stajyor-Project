@@ -14,7 +14,7 @@ import { getHobbies, getSkills } from "reduxToolkit/frilanserCardSlice/frilanser
 
 function Yourself() {
 	const dispatch = useDispatch();
-	
+	const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
 	const { positionGetLoading, positionList, hobbiesList, loading, loadingSkills, skillsData,  HobbysGetLoading } = useSelector(state => state.resume);	
 	const [skil, setSkil] = useState(1);
 	const [hobbiesorg, setHobbiesorg] = useState([]);
@@ -31,7 +31,6 @@ function Yourself() {
 		newHobbies: [],
 		newSkills: []
 	})
-	const [selectedPos, setSelectedPos] = useState([{label:"name"}])
 	const [data, setData] = useState({
 		bio: "",
 		positions: "",
@@ -40,7 +39,7 @@ function Yourself() {
 	useEffect(() => {
 			dispatch(getPositionsSkillsWithId(skil));
 			dispatch(hobbies());
-		},
+		}, 
 		[skil]
 	);
 
@@ -65,7 +64,7 @@ function Yourself() {
 	}
 	const PositionChange = pos => {
 		setSkil(pos.id);
-		console.log(pos)
+		setData({...data, positions	:pos.id})
 		setPosition(pos)
 	}	
 	const Xobbys = hobbiesList.map(item => ({
@@ -98,17 +97,22 @@ function Yourself() {
 		setDownSkills(skill);
 	};
 	useEffect(()=>{ 
-
 		localStorage.setItem('hobbies', JSON.stringify(hobbiesorg))
 	}, [hobbiesorg])
 	useEffect(() => {
 		if (position) {
-			setSkil(position.id)
+		  setSkil(position.id)
 		  localStorage.setItem("position", JSON.stringify(position));
 		}
 	  }, [position]);
 	
 	useEffect(()=>{
+		if(freelancer.DateOfBirthString === ''){
+		var prevYourself = JSON.parse(localStorage.getItem('yourself'))
+		if(prevYourself){
+			dispatch(yourSelfStep(prevYourself))
+		}
+		}
 		var post = localStorage.getItem('position')
 		if(post){
 			setPosition(JSON.parse(post))
@@ -139,7 +143,7 @@ function Yourself() {
 						<label className="yourselfCard_label">Select your Positions*</label>
 						<Select
 						    value={position}	
-							required
+							// required
 							classNamePrefix="mySelect"
 							options={positionList}
 							onChange={PositionChange}
@@ -150,8 +154,7 @@ function Yourself() {
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
 						<input
-              type='date'
-              requireds	
+              type='date'	
               value={
                 data.DateOfBirthString
                   ? data.DateOfBirthString.split(':').join('-')

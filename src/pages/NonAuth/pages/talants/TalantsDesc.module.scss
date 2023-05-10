@@ -36,6 +36,9 @@
 					width: 90px;
 					display: inline-block;
 					min-height: 54px;
+					img{
+						margin-bottom: -5px;
+					}
 				}
 			}
 		}
@@ -125,15 +128,18 @@
 					justify-content: center;
 					align-self: flex-start;
 					justify-self: flex-end;
+					margin-top: 5px;
 
 					.bsheart {
-						margin: 4px 0 0 2px;
+						//margin: 6px 0 0 2px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
 						cursor: pointer;
 						width: 20px;
 						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						stroke: solid;
 					}
 
 					.bsheartfill {
@@ -142,9 +148,6 @@
 						height: 18px;
 						font-weight: 600;
 						color: #1d71b8;
-						// margin-top: 0.2rem;
-						// margin-left: 0.3rem;
-						stroke: solid;
 					}
 				}
 

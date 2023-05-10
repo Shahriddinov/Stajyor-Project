@@ -50,7 +50,7 @@
 
 			input {
 				font-size: 16px;
-				padding-left: 1rem;
+				padding: .5rem 1.5rem ;
 			}
 
 			.formSubmitName {
@@ -120,6 +120,7 @@
 				margin-top: 20px;
 				cursor: pointer;
 				display: flex;
+				align-items: center;
 				gap: 20px;
 				img{
 					width: 80%;

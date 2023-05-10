@@ -13,12 +13,13 @@ import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 import ChatForCompany from "pages/Chat/ChatForCompany";
-// export const publicRoute = [
-// 	{ id: 1, path: "/", element: <PageBackground /> },
-// 	{ id: 2, path: "/login", element: <Login /> },
-// 	{ id: 3, path: "/sign-up", element: <Signup /> },
-// 	{id:4, path: "/chat", element: <ChatForCompany/>}
-// ];
+import Jobs from "pages/Company/Jobs";
+export const publicRoute = [
+	{ id: 1, path: "/", element: <PageBackground /> },
+	{ id: 2, path: "/login", element: <Login /> },
+	{ id: 3, path: "/sign-up", element: <Signup /> },
+	{id:4, path: "/chat", element: <ChatForCompany/>}
+];
 
 export const createProfileRoute = [
 	{ id: 1, path: "/welcome", element: <PageBackground /> },
@@ -36,7 +37,7 @@ export const freelancerResume = [
 export const createCompany = [{ id: 2, path: "/welcome/register-company", element: <RegisterCompany /> }];
 
 export const freelancerRouter = [
-	{ id: 1, path: "/jobs", element: <Login /> },
+	{ id: 1, path: "/jobs", element: <Jobs/> },
 	{ id: 2, path: "/talants", element: <Talants /> },
 	{ id: 3, path: "/about", element: <Aboutus /> },
 	{ id: 4, path: "/contact", element: <Contactus /> },

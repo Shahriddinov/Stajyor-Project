@@ -94,7 +94,6 @@ function Yourself() {
   };
   const PositionChange = pos => {
     setSkil(pos.id);
-    console.log(pos);
     setPosition(pos.label);
     setData({ ...data, position: pos.label });
   };
@@ -146,9 +145,6 @@ function Yourself() {
       setDownSkills(skillData);
     }
   }, []);
-
-  console.log(data);
-  console.log(datas);
 
   return (
     <div className='yourselfCard'>

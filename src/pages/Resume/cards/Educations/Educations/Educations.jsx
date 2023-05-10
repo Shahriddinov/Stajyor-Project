@@ -1,3 +1,4 @@
+import EducationLoader from 'components/Skeleton/EducationLoader';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { educationDelete, educationGet } from 'reduxToolkit/extraReducers';
@@ -33,6 +34,8 @@ function Educations() {
   useEffect(() => {
     dispatch(educationGet());
   }, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
+
+  console.log(educationList);
 
   const [test, setTest] = useState();
 
@@ -84,9 +87,9 @@ function Educations() {
     setEditHover(int);
   };
 
-  if (loading) {
-    return <b>Loading...</b>;
-  }
+  // if (loading) {
+  //   return <b>Loading...</b>;
+  // }
   const deleteEducation = id => {
     dispatch(educationDelete(id));
   };
@@ -121,103 +124,109 @@ function Educations() {
 
   return (
     <>
-      <div className='educations'>
-        <div className='educations__inner'>
-          <form onSubmit={handleSubmit}>
-            <h2 className='educations__title'>Educations</h2>
-            <p className='educations__text'>
-              <span className='educations__textSpan'>
-                Freelancers who add their experience are twice as likely to win
-                work.
-              </span>
-              <span className='educations__textSpan'>
-                But if you're just starting out, you can still create a
-                greatprofile.
-              </span>
-              <span className='educations__textSpan'>
-                Just head on to the next page.
-              </span>
-            </p>
-            <div className='educations__box'>
-              {educationList.map((el, int) => (
-                <div className='educations__content' key={el.id}>
-                  <div className='educations__texts'>
-                    <span className='educations__subtitle'>{el.name}</span>
-                    <div className='educations__study'>
-                      <span className='educations__span'>
-                        {updateIdToStudy(el.typeOfStudy)}
-                        {test}
+      {loading ? (
+        <EducationLoader />
+      ) : (
+        <div className='educations'>
+          <div className='educations__inner'>
+            <form onSubmit={handleSubmit}>
+              <h2 className='educations__title'>Educations</h2>
+              <p className='educations__text'>
+                <span className='educations__textSpan'>
+                  Freelancers who add their experience are twice as likely to
+                  win work.
+                </span>
+                <span className='educations__textSpan'>
+                  But if you're just starting out, you can still create a
+                  greatprofile.
+                </span>
+                <span className='educations__textSpan'>
+                  Just head on to the next page.
+                </span>
+              </p>
+              <div className='educations__box'>
+                {educationList.map((el, int) => (
+                  <div className='educations__content' key={el.id}>
+                    <div className='educations__texts'>
+                      <span className='educations__subtitle'>{el.name}</span>
+                      <div className='educations__study'>
+                        <span className='educations__span'>
+                          {updateIdToStudy(el.typeOfStudy)}
+                          {test}
+                        </span>
+                        <span className='educations__telecommunication'>
+                          {updateToTypeOption(el.degree)}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className='educations__icons'>
+                      <span
+                        className='educations__icon--create'
+                        type='button'
+                        onClick={() =>
+                          changeEducation({ data: el, modal: true })
+                        }
+                      >
+                        <Edit
+                          name='create-outline'
+                          // className={`${
+                          //   editHover === int
+                          //     ? 'experience__box__hovering'
+                          //     : 'updatePhoto'
+                          // }`}
+                          onClick={() => EditFunc(int)}
+                        />
                       </span>
-                      <span className='educations__telecommunication'>
-                        {updateToTypeOption(el.degree)}
+
+                      <span
+                        className='educations__icon--delete'
+                        onClick={() => deleteEducation(el.id)}
+                      >
+                        <Trash
+                          name='trash-outline'
+                          // className={`${
+                          //   trashHover === int
+                          //     ? 'experience__box__hoveringT'
+                          //     : 'updatePhoto'
+                          // }`}
+                          onClick={() => TrashFunc(int)}
+                        />
                       </span>
                     </div>
                   </div>
+                ))}
+              </div>
 
-                  <div className='educations__icons'>
-                    <span
-                      className='educations__icon--create'
-                      type='button'
-                      onClick={() => changeEducation({ data: el, modal: true })}
-                    >
-                      <Edit
-                        name='create-outline'
-                        className={`${
-                          editHover === int
-                            ? 'experience__box__hovering'
-                            : 'updatePhoto'
-                        }`}
-                        onClick={() => EditFunc(int)}
-                      />
-                    </span>
+              <div className='educations__wrapper'>
+                <button
+                  style={{ cursor: 'pointer' }}
+                  type='button'
+                  className='educations__buttonAdd'
+                  onClick={() =>
+                    setMoadalActive(prev => ({ ...prev, educationAdd: true }))
+                  }
+                >
+                  + Add new
+                </button>
+              </div>
 
-                    <span
-                      className='educations__icon--delete'
-                      onClick={() => deleteEducation(el.id)}
-                    >
-                      <Trash
-                        name='trash-outline'
-                        className={`${
-                          trashHover === int
-                            ? 'experience__box__hoveringT'
-                            : 'updatePhoto'
-                        }`}
-                        onClick={() => TrashFunc(int)}
-                      />
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className='educations__wrapper'>
-              <button
-                style={{ cursor: 'pointer' }}
-                type='button'
-                className='educations__buttonAdd'
-                onClick={() =>
-                  setMoadalActive(prev => ({ ...prev, educationAdd: true }))
-                }
-              >
-                + Add new
-              </button>
-            </div>
-
-            <div className='educations__button'>
-              <button
-                className='educations__back'
-                type='button'
-                onClick={changePage}
-              >
-                Back
-              </button>
-              <button className='educations__next' type='submit'>
-                Next
-              </button>
-            </div>
-          </form>
+              <div className='educations__button'>
+                <button
+                  className='educations__back'
+                  type='button'
+                  onClick={changePage}
+                >
+                  Back
+                </button>
+                <button className='educations__next' type='submit'>
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
       {isMoadalActive.educationAdd && (
         <AddEducations
           updateIdToStudy={updateIdToStudy}

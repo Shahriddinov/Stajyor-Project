@@ -194,12 +194,19 @@
     }
 
     &__icon--create {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
+      display: inline-block;
+      padding: 4px 7px;
       font-size: 25px;
       cursor: pointer;
       box-sizing: border-box;
+      path {
+        transition: 0.3s;
+      }
+    }
+
+    &__icon--create:hover path {
+      stroke: #1d71b8;
+      transition: 0.3s;
     }
 
     &__icon--delete {
@@ -208,6 +215,14 @@
       font-size: 25px;
       box-sizing: border-box;
       cursor: pointer;
+      path {
+        transition: 0.3s;
+      }
+    }
+
+    &__icon--delete:hover path {
+      stroke: #ff0000;
+      transition: 0.3s;
     }
 
     &__button {
@@ -271,15 +286,15 @@
   }
 }
 
-.experience__box__hovering path {
-  stroke: #1d71b8;
-  transition: 0.3s;
-}
+// .experience__box__hovering path {
+//   stroke: #1d71b8;
+//   transition: 0.3s;
+// }
 
-.experience__box__hoveringT path {
-  stroke: #ff0000;
-  transition: 0.3s;
-}
+// .experience__box__hoveringT path {
+//   stroke: #ff0000;
+//   transition: 0.3s;
+// }
 
 .experience__icons {
   display: flex;

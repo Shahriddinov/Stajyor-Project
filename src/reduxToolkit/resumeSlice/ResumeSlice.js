@@ -32,7 +32,7 @@ const initialState = {
 	data: [],
 	regionsList: [],
 	countryList: [],
-	positionList: [{ name: "Web Designer", id: 0 }, { name: "FrontEnd", id: 1 }, { name: "Backend", id: 2 }],
+	positionList: [{ value: "Web Designer", label:"Web Designer", id: 0 }, { value: "FrontEnd", label:"FrontEnd", id: 1 }, { value:"Backend", label: "Backend", id: 2 }],
 	hobbiesList: [],
 	HobbysGetLoading: null,
 	languageList: [],

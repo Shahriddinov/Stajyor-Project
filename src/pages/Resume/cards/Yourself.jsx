@@ -18,8 +18,9 @@ function Yourself() {
 	const { positionGetLoading, positionList, hobbiesList, loading, loadingSkills, skillsData,  HobbysGetLoading } = useSelector(state => state.resume);	
 	const [skil, setSkil] = useState(1);
 	const [hobbiesorg, setHobbiesorg] = useState([]);
+	console.log(hobbiesorg)
+	const [position, setPosition] = useState(null)
 	const [orgSkills, setOrgSkills] = useState("");
-	const [position, setPosition] = useState("")
 	const [downSkills, setDownSkills] = useState([]);
 	const [dateValue, setDateValue] = useState("");
 	const [datas, setDatas] = useState({
@@ -33,7 +34,7 @@ function Yourself() {
 	const [selectedPos, setSelectedPos] = useState([{label:"name"}])
 	const [data, setData] = useState({
 		bio: "",
-		position: "",
+		positions: "",
 		DateOfBirthString: ""
 	})
 	useEffect(() => {
@@ -53,7 +54,6 @@ function Yourself() {
 		dispatch(getHobbies(hobbiesorg));
 		dispatch(yourSelfStep(data));
 		localStorage.setItem('yourself', JSON.stringify(data))
-		localStorage.setItem('hobbies', JSON.stringify(hobbiesorg))
 		localStorage.setItem('skills', JSON.stringify(downSkills))
 		localStorage.setItem('activDoteAction', JSON.stringify([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]))
 		dispatch(activeDoteAction([{ id: 4, label: "Language" }, { id: 4, type: "lenguage" }]));
@@ -65,10 +65,9 @@ function Yourself() {
 	}
 	const PositionChange = pos => {
 		setSkil(pos.id);
-		console.log(pos.id)
-		setPosition(pos.label)
-		setData({ ...data, position: pos.id })
-	}
+		console.log(pos)
+		setPosition(pos)
+	}	
 	const Xobbys = hobbiesList.map(item => ({
 		value: item.content,
 		label: item.content
@@ -98,7 +97,22 @@ function Yourself() {
 	const handleSelectChange = skill => {
 		setDownSkills(skill);
 	};
+	useEffect(()=>{ 
+
+		localStorage.setItem('hobbies', JSON.stringify(hobbiesorg))
+	}, [hobbiesorg])
+	useEffect(() => {
+		if (position) {
+			setSkil(position.id)
+		  localStorage.setItem("position", JSON.stringify(position));
+		}
+	  }, [position]);
+	
 	useEffect(()=>{
+		var post = localStorage.getItem('position')
+		if(post){
+			setPosition(JSON.parse(post))
+		}
 		var yourself = JSON.parse(localStorage.getItem('yourself'))
 		if(yourself){
 			setData(yourself)
@@ -124,10 +138,10 @@ function Yourself() {
 					<div className="yourselfCard_form_wrapper_top">
 						<label className="yourselfCard_label">Select your Positions*</label>
 						<Select
-						    value={selectedPos}
+						    value={position}	
 							required
 							classNamePrefix="mySelect"
-							options={positionList.map(el => ({ id: el.id, label: el.name }))}
+							options={positionList}
 							onChange={PositionChange}
 							placeholder="Positions*"
 						/>
@@ -136,13 +150,22 @@ function Yourself() {
 					<div className="yourselfCard_form_wrapper_bottom">
 						<label className="yourselfCard_label">Date of birth*</label>
 						<input
-							type="date"
-							required
-							value={data.DateOfBirthString}
-							placeholder="DD/MM/YYYY"
-							data-date-format=" YYYY:MMMM:DD "
-							onChange={e => setData({ ...data, DateOfBirthString: e.target.value.split("-").join(":") })}
-						/>
+              type='date'
+              requireds	
+              value={
+                data.DateOfBirthString
+                  ? data.DateOfBirthString.split(':').join('-')
+                  : ''
+              }
+              placeholder='DD/MM/YYYY'
+              data-date-format='YYYY:MMMM:DD'
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  DateOfBirthString: e.target.value.split('-').join(':'),
+                }))
+              }
+            />
 					</div>
 				</div>
 				<div>
@@ -150,7 +173,7 @@ function Yourself() {
 					<MultiSelect
 						data={options}
 						onChange={handleSelectChange}
-						value={downSkills}
+						// value={downSkills}
 						searchable
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
@@ -166,7 +189,7 @@ function Yourself() {
 					<MultiSelect
 						className="yourself_select"
 						required
-						value={hobbiesorg}
+						// value={hobbiesorg}
 						data={Xobbys}
 						placeholder="Select hobbie or create a new"
 						nothingFound="Nothing found"
@@ -174,7 +197,7 @@ function Yourself() {
 						creatable
 						getCreateLabel={query => `+ Create ${query}`}
 						onCreate={query => {
-							const item = { value: query, label: query.toLowerCase() };
+							const item = { label: query, value: query.toLowerCase() };
 							setHobbiesorg(current => [...current, item]);
 							return item;
 						}}

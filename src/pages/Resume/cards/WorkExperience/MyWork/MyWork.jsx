@@ -41,9 +41,6 @@ function MyWork({ removeModal, defaultData }) {
     removeModal(false);
   };
 
-  const handleTest = data => {
-    console.log('date to');
-  };
   return (
     <div className='mywork'>
       <div className='mywork__inner'>
@@ -137,6 +134,13 @@ function MyWork({ removeModal, defaultData }) {
                   className='mywork__inputDate'
                   type='date'
                   id='time'
+                  data-date-format='YYYY:MMMM:DD'
+                  onChange={e =>
+                    setData(prev => ({
+                      ...prev,
+                      dateTo: new Date(e.target.value).toISOString(),
+                    }))
+                  }
                 />
               )}
             </div>

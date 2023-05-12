@@ -37,7 +37,7 @@
 
 	& .login_company_wrapper1 {
 		margin-top: 80px;
-		display: flex;
+		display: inline-flex;
 		flex-direction: column;
 		gap: 20px;
 
@@ -55,6 +55,8 @@
 			box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
 			border-radius: 8px;
 			max-width: 500px;
+			transition: 0.3s;
+			
 
 			&:hover {
 				cursor: pointer;
@@ -65,9 +67,7 @@
 			& .login_company_wrapper1_frilanc_title {
 				display: flex;
 				align-items: center;
-
 				font-family: "Montserrat", sans-serif;
-
 				font-weight: 700;
 				font-size: 24px;
 				line-height: 27px;
@@ -83,7 +83,6 @@
 
 			& .login_company_wrapper1_frilanc_info {
 				max-width: 495px;
-
 				font-family: "Montserrat", sans-serif;
 				font-weight: 300;
 				font-size: 14px;

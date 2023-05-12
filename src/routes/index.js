@@ -12,18 +12,21 @@ import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
-
+import ChatForCompany from "pages/Chat/ChatForCompany";
+import Jobs from "pages/Company/Jobs";
 export const publicRoute = [
 	{ id: 1, path: "/", element: <PageBackground /> },
 	{ id: 2, path: "/login", element: <Login /> },
-	{ id: 3, path: "/sign-up", element: <Signup /> }
+	{ id: 3, path: "/sign-up", element: <Signup /> },
+	{id:4, path: "/chat", element: <ChatForCompany/>}
 ];
 
 export const createProfileRoute = [
 	{ id: 1, path: "/welcome", element: <PageBackground /> },
 	{ id: 1, path: "/login", element: <Login /> },
 	{ id: 2, path: "/sign-up", element: <Signup /> }
-];
+	
+]
 
 export const freelancerResume = [
 	{ id: 2, path: "/", element: <PageBackground /> },
@@ -34,16 +37,16 @@ export const freelancerResume = [
 export const createCompany = [{ id: 2, path: "/welcome/register-company", element: <RegisterCompany /> }];
 
 export const freelancerRouter = [
-	{ id: 1, path: "/jobs", element: <Freelancer /> },
+	{ id: 1, path: "/jobs", element: <Jobs/> },
 	{ id: 2, path: "/talants", element: <Talants /> },
 	{ id: 3, path: "/about", element: <Aboutus /> },
-	{ id: 4, path: "/contact", element: <Contactus /> },
+	{ id: 4, path: "/contacts", element: <Contactus /> },
 	{ id: 5, path: "/contracts", element: <Contract /> },
 	{ id: 6, path: "/freelancer", element: <Freelancer /> },
 	{ id: 7, path: "/profile", element: <Profile /> },
 	{ id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
 	{ id: 9, path: "/*", element: <NotFound /> }
-];
+]
 
 export const companyRouter = [
 	{ id: 1, path: "/talants", element: <Talants /> },

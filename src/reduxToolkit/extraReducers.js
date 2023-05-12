@@ -56,7 +56,7 @@ export const registerRequest = createAsyncThunk("token/register", async payload 
 	}).then(res => res.data)
 });
 
-/////////////////////////////////////LLOGIN POST///////////////////////
+/////////////////////////////////////LOGIN POST///////////////////////
 export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 	console.log(payload);
 	return axios({
@@ -115,15 +115,22 @@ export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async 
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "GET",
-		url: FREELANCER + "/"+ id,
-		headers: {	
+		url: FREELANCER + "/" + id,
+		headers: {
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`
 		}
-	}).then(response => {
-		return response.data;
-	});
+	}).then(res=>res.data);
 });
+export const getAllFreelancers = createAsyncThunk("getAll/freelancer", async()=>{
+	return axios({
+		method:"GET",
+		url:FREELANCER,
+		headers:{
+			"Content-Type": `application/json`,
+		}
+	}).then(res=>res.data)
+})
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 // 	const token = localStorage.getItem("token");
@@ -543,7 +550,6 @@ export const addCompanyContacts = createAsyncThunk("company/addContacts", async 
 		}
 	}).then(response => response.data);
 });
-
 
 
 export const registerCompany = createAsyncThunk("company/Register", async payload => {

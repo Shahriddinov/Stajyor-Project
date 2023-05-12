@@ -11,7 +11,10 @@ function Country() {
   const { firstName } = useSelector(
     state => state.frilanserCardSlice.freelancer,
   );
+	const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
   const [userChoice, setUserChoice] = useState([0]);
+  const [countryName, setCountryName] = useState(null)
+  const [regionName, setRegionName] = useState(null)
   const [userChoice2, setUserChoice2] = useState(0);
   const countryList = useSelector(state => state.resume.countryList);
   const regionsList = useSelector(state => state.resume.regionsList);
@@ -41,11 +44,13 @@ function Country() {
   });
 
   const onCountryChange = choice => {
+    setCountryName(choice)
     setUserChoice(choice.value);
     setData({ ...data, countryId: choice.label });
   };
 
   const onRegionChange = choice => {
+    setRegionName(choice)
     setUserChoice2(choice.value);
     setData({ ...data, country: choice.label });
   };
@@ -54,7 +59,7 @@ function Country() {
     console.log(data);
     localStorage.setItem('country', JSON.stringify(data));
     localStorage.setItem(
-      'activeDoteAction',
+      'activDoteAction',
       JSON.stringify([
         { id: 3, label: 'About yourself and skills' },
         { id: 3, type: 'yourself' },
@@ -81,14 +86,40 @@ function Country() {
       ]),
     );
   };
-  var country = JSON.parse(localStorage.getItem('country'));
+  useEffect(()=>{
+    
+    if(countryName){
+      setUserChoice(countryName.value[0])
+     localStorage.setItem('countryName', JSON.stringify(countryName))
+    }
+    if(regionName){
+      localStorage.setItem('regionName', JSON.stringify(regionName))
+    }
+  }, [countryName, regionName])
+
+
   useEffect(() => {
-    var dotAction = JSON.parse(localStorage.getItem('activeDoteAction'));
+    var countryName = localStorage.getItem('countryName')
+    if(countryName){
+      setCountryName(JSON.parse(countryName))
+    }
+    var regionName = JSON.parse(localStorage.getItem('regionName'))
+    if(regionName){
+      setRegionName(regionName)
+    }
+    var country = JSON.parse(localStorage.getItem('country'))
+    if(country){
+      setData(country)
+    }
+    var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
     if (dotAction) {
       dispatch(activeDoteAction(dotAction));
     }
-    if (country) {
-      setData(country);
+    if(freelancer.address.street === ''){
+    var prevCountry = JSON.parse(localStorage.getItem('country'))
+    if(prevCountry){
+      dispatch(secondStep(prevCountry));
+    }
     }
   }, []);
 
@@ -111,7 +142,7 @@ function Country() {
                   options={options}
                   placeholder='Country*'
                   onChange={onCountryChange}
-                  value={data.countryId}
+                  value={countryName}
                 />
               </div>
               <div className='country__info'>
@@ -120,7 +151,7 @@ function Country() {
                   options={optionsRegion}
                   placeholder='Region*'
                   onChange={onRegionChange}
-                  value={data.country}
+                  value={regionName}
                 />
               </div>
             </div>

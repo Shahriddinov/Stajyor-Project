@@ -42,7 +42,7 @@ const Nav = (props) => {
                             About us
                         </li>
                         <li className={activePage === 'contact' ? classesNav.active : classesNav.menu__link} onClick={() => handleLinkClick('contact')}>
-                            Contact us
+                            Contact u
                         </li>
                     </ul>
                     <div className={classesNav.menu__buttons}>

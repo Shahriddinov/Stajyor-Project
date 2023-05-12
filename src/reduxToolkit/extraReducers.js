@@ -120,10 +120,17 @@ export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async 
 			"Content-Type": `application/json`,
 			Authorization: `bearer ${token}`
 		}
-	}).then(response => {
-		return response.data;
-	});
+	}).then(res=>res.data);
 });
+export const getAllFreelancers = createAsyncThunk("getAll/freelancer", async()=>{
+	return axios({
+		method:"GET",
+		url:FREELANCER,
+		headers:{
+			"Content-Type": `application/json`,
+		}
+	}).then(res=>res.data)
+})
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
 // 	const token = localStorage.getItem("token");

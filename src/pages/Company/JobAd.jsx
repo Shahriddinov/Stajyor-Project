@@ -23,7 +23,7 @@ const JobAd = () => {
 
     return (
         <>
-            <div className={classes.jobAdContainer}>
+            <div className={`${classes.jobAdContainer}`}>
                 <div className={classes.jobAd}>
                     <div className={classes.jobTitle}>
                         <h3>Business Card Design</h3>

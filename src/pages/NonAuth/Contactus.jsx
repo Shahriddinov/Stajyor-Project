@@ -52,12 +52,14 @@ function Contactus() {
             <p className={classes.contactUs__desc}>
               Fill in the blank and we will contact you
             </p>
-            <input
-              onChange={(e) => setData({ ...data, name: e.target.value })}
-              type="text"
-              placeholder="Name"
-              required
-            />
+            <div>
+              <input
+                onChange={(e) => setData({ ...data, name: e.target.value })}
+                type="text"
+                placeholder="Name"
+                required
+              />
+            </div>
             <input
               onChange={(e) => setData({ ...data, email: e.target.value })}
               type="email"

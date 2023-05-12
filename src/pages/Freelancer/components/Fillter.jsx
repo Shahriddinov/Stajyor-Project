@@ -81,7 +81,6 @@ const Fillter = () => {
           name='paymentAmount'
         />
         <h3 className='filter_text'>Required level </h3>
-
         <div className='filter_from'>
           <div className='filter_from_left'>
             <h3>From</h3>
@@ -109,42 +108,36 @@ const Fillter = () => {
             </div>
           </div>
         </div>
-
         <div className='filter_verify'>
           <input type='checkbox' name='verified' />
           <h3 className='filter_verify_text' style={{ fontSize: '16px' }}>
             Verified employee
           </h3>
         </div>
-
         <h3 className='filter_text'>Region</h3>
         <MultiSelect data={data1} placeholder='Select Region' name='region' />
-
         <h3 className='filter_text'>Completed jobs (minimum)</h3>
-
         <input
           type='number'
           className='filter_job_success'
           placeholder='10'
           name='completedJob'
         />
-
         <h3 className='filter_text'>Required Skills</h3>
-
         <MultiSelect
           data={data}
           placeholder='Select items'
           name='skills'
           searchable
           creatable
-          getCreateLabel={query => `+ Create ${query}`}
+          getCreateLabel={query => `+  ${query}`}
           onCreate={query => {
             const item = { value: query, label: query };
             setData(current => [...current, item]);
             return item;
           }}
         />
-
+        Create
         <div className='apply_filter'>
           <button type='submit'>Apply Filter</button>
         </div>

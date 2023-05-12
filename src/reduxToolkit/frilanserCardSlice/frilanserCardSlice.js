@@ -15,13 +15,11 @@ const initialState = {
 		DateOfBirthString: "",
 		address: {
 			countryId: 1,
-			country: "afganistan",
+			country: null,
 			street: ""
 		},
 		position: 0,
 		bio: "",
-		defaultuserImage: defaultuserImage,
-
 		contacts: {
 			whatsapp: "",
 			facebook: "",
@@ -44,10 +42,11 @@ const freelancerSlice = createSlice({
 			state.freelancer.phoneNumber = action.payload.phoneNumber;
 		},
 		secondStep: (state, action) => {
-			state.freelancer.address.street = action.payload;
+			state.freelancer.address.street = action.payload.street;
 		},
 		yourSelfStep: (state, action) => {
-			state.freelancer.position = action.payload.position;
+			
+			state.freelancer.position = action.payload.positions;
 			state.freelancer.DateOfBirthString = action.payload.DateOfBirthString;
 			state.freelancer.bio = action.payload.bio;
 		},

@@ -1,32 +1,38 @@
-import { MultiSelect } from '@mantine/core';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { filterData } from 'reduxToolkit/jobsSlice/JobsSlice';
 import { ReactComponent as Arrow } from '../../../assets/images/Freelancer/filter_arrow.svg';
 import './Fillter.scss';
+// import { MultiSelect } from '@mantine/core';
+import { MultiSelect } from '@mantine/core';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCountryList } from 'reduxToolkit/extraReducers';
+import { filterData } from 'reduxToolkit/jobsSlice/JobsSlice';
 
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 const Fillter = () => {
   const products = useSelector(state => state.jobs);
   const dispatch = useDispatch();
-  console.log(products.filteredData);
+  const countryList = useSelector(state => state.resume.countryList);
+
+  var options = [];
+  for (let i = 0; i < countryList.length; i++) {
+    options.push({
+      value: [countryList[i].id, countryList.indexOf(countryList[i])],
+      label: countryList[i].name,
+    });
+  }
+
+  useEffect(() => {
+    dispatch(getCountryList());
+  }, []);
 
   const [data, setData] = useState([
     { value: 'react', label: 'React' },
-    { value: 'ng', label: 'Angular' },
-    { value: 'svelte', label: 'Svelte' },
-    { value: 'vue', label: 'Vue' },
-    { value: 'riot', label: 'Riot' },
-    { value: 'next', label: 'Next.js' },
-    { value: 'blitz', label: 'Blitz.js' },
+    { value: 'figma', label: 'Figma' },
+    { value: 'Html', label: 'Html' },
+    { value: 'Adobe PhotoShop', label: 'Adobe PhotoShop' },
   ]);
-
-  const data1 = [
-    { value: 'uz', label: 'Uzbekistan' },
-    { value: 'ru', label: 'Russia' },
-    { value: 'us', label: 'America' },
-  ];
 
   const formSubmit = e => {
     e.preventDefault();
@@ -81,6 +87,7 @@ const Fillter = () => {
           name='paymentAmount'
         />
         <h3 className='filter_text'>Required level </h3>
+
         <div className='filter_from'>
           <div className='filter_from_left'>
             <h3>From</h3>
@@ -108,36 +115,42 @@ const Fillter = () => {
             </div>
           </div>
         </div>
+
         <div className='filter_verify'>
           <input type='checkbox' name='verified' />
           <h3 className='filter_verify_text' style={{ fontSize: '16px' }}>
             Verified employee
           </h3>
         </div>
+
         <h3 className='filter_text'>Region</h3>
-        <MultiSelect data={data1} placeholder='Select Region' name='region' />
+        <MultiSelect data={options} placeholder='Select Region' name='region' />
+
         <h3 className='filter_text'>Completed jobs (minimum)</h3>
+
         <input
           type='number'
           className='filter_job_success'
           placeholder='10'
           name='completedJob'
         />
+
         <h3 className='filter_text'>Required Skills</h3>
+
         <MultiSelect
           data={data}
           placeholder='Select items'
           name='skills'
           searchable
           creatable
-          getCreateLabel={query => `+  ${query}`}
+          getCreateLabel={query => `+ Create ${query}`}
           onCreate={query => {
             const item = { value: query, label: query };
             setData(current => [...current, item]);
             return item;
           }}
         />
-        Create
+
         <div className='apply_filter'>
           <button type='submit'>Apply Filter</button>
         </div>

@@ -11,6 +11,7 @@ import {
   experienceEdit,
   experienceGet,
   experiencePost,
+  getAllFreelancers,
   getCountryList,
   getPositionsSkillsWithId,
   getRegionsList,
@@ -24,33 +25,30 @@ import {
 } from "reduxToolkit/extraReducers";
 
 const initialState = {
-  loading: false,
-  freelancerLoading: false,
-  error: "",
-  data: [],
-  regionsList: [],
-  countryList: [],
-  positionList: [
-    { name: "Web Designer", id: 0 },
-    { name: "FrontEnd", id: 1 },
-    { name: "Backend", id: 2 },
-  ],
-  hobbiesList: [],
-  HobbysGetLoading: null,
-  languageList: [],
-  experienceList: [],
-  experiencePostIsSuccess: "",
-  educationList: [],
-  skillsData: [],
-  educationPostIsSuccess: "",
-  resumeDetails: "",
-  skillsLoading: false,
-  status: "idle",
-  positionGetLoading: false,
-  userID: null,
-  freelancerId: 0,
-  testData: [],
-  loadingSkills: false,
+	loading: false,
+	freelancerLoading: false,
+	error: "",
+	data: [],
+	regionsList: [],
+	countryList: [],
+	positionList: [{ value: "Web Designer", label:"Web Designer", id: 0 }, { value: "FrontEnd", label:"FrontEnd", id: 1 }, { value:"Backend", label: "Backend", id: 2 }],
+	hobbiesList: [],
+	HobbysGetLoading: null,
+	languageList: [],
+	experienceList: [],
+	experiencePostIsSuccess: "",
+	educationList: [],
+	skillsData: [],
+	educationPostIsSuccess: "",
+	resumeDetails: "",
+	skillsLoading: false,
+	status: "idle",
+	positionGetLoading: false,
+	userID: null,
+	freelancerId: 0,
+	testData: [],
+	loadingSkills: false,
+  AllFreelancerData: []
 };
 
 const resumeSlice = createSlice({
@@ -89,6 +87,17 @@ const resumeSlice = createSlice({
     builder.addCase(Freelancerpost.rejected, (state, action) => {
       state.error = action.error.message;
     });
+/////////////////////Get AllFreelancer /////////////////
+    builder.addCase(getAllFreelancers.pending, (state, action)=>{
+      state.loading = true
+    })
+    builder.addCase(getAllFreelancers.fulfilled, (state, action)=> {
+      state.loading = false;
+      state.AllFreelancerData = action.payload
+    })
+    builder.addCase(getAllFreelancers.rejected, (state, action)=>{
+      state.error = action.error.message
+    })
     //CoutryList reducer
     builder.addCase(getCountryList.pending, (state, action) => {
       state.loading = true;

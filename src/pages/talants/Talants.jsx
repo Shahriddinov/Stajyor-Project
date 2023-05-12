@@ -1,39 +1,39 @@
-import { useState } from 'react';
-import serach_icon from '../../assets/images/Freelancer/serach_inp.svg';
-import '../Freelancer/Freelancer.scss';
-import Cart from '../Freelancer/components/Cart';
-import Fillter from '../Freelancer/components/Fillter';
-import './talants.scss';
+import { useState } from "react";
+import serach_icon from "../../assets/images/Freelancer/serach_inp.svg";
+import "../Freelancer/Freelancer.scss";
+import Cart from "../Freelancer/components/Cart";
+import Fillter from "../Freelancer/components/Fillter";
+import "./talants.scss";
 
 const Talants = () => {
-  const [activeControl, setActiveControl] = useState('best-matches');
+  const [activeControl, setActiveControl] = useState("best-matches");
   const controlsData = [
-    { id: 1, type: 'best-matches', label: 'Best matches' },
-    { id: 2, type: 'recent', label: 'Recent' },
-    { id: 3, type: 'saved', label: 'Saved' },
+    { id: 1, type: "best-matches", label: "Best matches" },
+    { id: 2, type: "recent", label: "Recent" },
+    { id: 3, type: "saved", label: "Saved" },
   ];
   return (
-    <section className='freelancer'>
-      <div className='freelancer_container'>
+    <section className="freelancer">
+      <div className="freelancer_container">
         <div>
-          <form className='freelancer_container_outline'>
+          <form className="freelancer_container_outline">
             <input
-              type='text'
-              placeholder='Title, keywords...'
-              className='freelancer_container_outline_inp'
+              type="text"
+              placeholder="Title, keywords..."
+              className="freelancer_container_outline_inp"
             />
-            <button type='submit' className='freelancer_container_outline_btn'>
-              <img src={serach_icon} alt='search icon' />
+            <button type="submit" className="freelancer_container_outline_btn">
+              <img src={serach_icon} alt="search icon" />
             </button>
           </form>
 
-          <ul className='talants__control_list'>
-            {controlsData.map(el => (
+          <ul className="talants__control_list">
+            {controlsData.map((el) => (
               <li
                 key={el.id}
                 className={`talants__control_item ${
                   el.type === activeControl
-                    ? 'talants__control_item-active'
+                    ? "talants__control_item-active"
                     : null
                 }`}
                 onClick={() => setActiveControl(el.type)}
@@ -43,9 +43,6 @@ const Talants = () => {
             ))}
           </ul>
 
-          <Cart />
-          <Cart />
-          <Cart />
           <Cart />
 
           {/* <div className='freelancer_container_round'>

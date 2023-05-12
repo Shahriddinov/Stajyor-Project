@@ -19,7 +19,7 @@ import './styles.scss';
 
 function Yourself() {
   const dispatch = useDispatch();
-
+  const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
   const {
     positionGetLoading,
     positionList,
@@ -31,25 +31,24 @@ function Yourself() {
   } = useSelector(state => state.resume);
   const [skil, setSkil] = useState(1);
   const [hobbiesorg, setHobbiesorg] = useState([]);
+  console.log(hobbiesorg);
+  const [position, setPosition] = useState(null);
   const [orgSkills, setOrgSkills] = useState('');
-  const [position, setPosition] = useState('');
   const [downSkills, setDownSkills] = useState([]);
+  const [dateValue, setDateValue] = useState('');
   const [datas, setDatas] = useState({
     description: '',
-    positionId: '',
+    positionId: null,
     freelancerHobbies: [],
     freelancerSkills: [],
     newHobbies: [],
     newSkills: [],
   });
-
-  const [selectedPos, setSelectedPos] = useState([]);
   const [data, setData] = useState({
     bio: '',
-    position: [{ id: 1, label: 'name' }],
+    positions: '',
     DateOfBirthString: '',
   });
-
   useEffect(() => {
     dispatch(getPositionsSkillsWithId(skil));
     dispatch(hobbies());
@@ -58,7 +57,6 @@ function Yourself() {
   if (positionGetLoading && loading) {
     return <b>Loading...</b>;
   }
-
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(languages());
@@ -66,7 +64,6 @@ function Yourself() {
     dispatch(getHobbies(hobbiesorg));
     dispatch(yourSelfStep(data));
     localStorage.setItem('yourself', JSON.stringify(data));
-    localStorage.setItem('hobbies', JSON.stringify(hobbiesorg));
     localStorage.setItem('skills', JSON.stringify(downSkills));
     localStorage.setItem(
       'activDoteAction',
@@ -94,10 +91,9 @@ function Yourself() {
   };
   const PositionChange = pos => {
     setSkil(pos.id);
-    setPosition(pos.label);
-    setData({ ...data, position: pos.label });
+    setData({ ...data, positions: pos.id });
+    setPosition(pos);
   };
-
   const Xobbys = hobbiesList.map(item => ({
     value: item.content,
     label: item.content,
@@ -128,6 +124,26 @@ function Yourself() {
     setDownSkills(skill);
   };
   useEffect(() => {
+    localStorage.setItem('hobbies', JSON.stringify(hobbiesorg));
+  }, [hobbiesorg]);
+  useEffect(() => {
+    if (position) {
+      setSkil(position.id);
+      localStorage.setItem('position', JSON.stringify(position));
+    }
+  }, [position]);
+
+  useEffect(() => {
+    if (freelancer.DateOfBirthString === '') {
+      var prevYourself = JSON.parse(localStorage.getItem('yourself'));
+      if (prevYourself) {
+        dispatch(yourSelfStep(prevYourself));
+      }
+    }
+    var post = localStorage.getItem('position');
+    if (post) {
+      setPosition(JSON.parse(post));
+    }
     var yourself = JSON.parse(localStorage.getItem('yourself'));
     if (yourself) {
       setData(yourself);
@@ -145,7 +161,6 @@ function Yourself() {
       setDownSkills(skillData);
     }
   }, []);
-
   return (
     <div className='yourselfCard'>
       <h2 className='yourselfCard_title'>Write little about yourself</h2>
@@ -154,16 +169,11 @@ function Yourself() {
           <div className='yourselfCard_form_wrapper_top'>
             <label className='yourselfCard_label'>Select your Positions*</label>
             <Select
-              value={data.position}
+              value={position}
               // required
               classNamePrefix='mySelect'
-              options={positionList.map(el => ({ id: el.id, label: el.name }))}
-              onChange={e =>
-                setData(prev => ({
-                  ...prev,
-                  position: e.value,
-                }))
-              }
+              options={positionList}
+              onChange={PositionChange}
               placeholder='Positions*'
             />
           </div>
@@ -172,7 +182,6 @@ function Yourself() {
             <label className='yourselfCard_label'>Date of birth*</label>
             <input
               type='date'
-              // required
               value={
                 data.DateOfBirthString
                   ? data.DateOfBirthString.split(':').join('-')
@@ -194,7 +203,7 @@ function Yourself() {
           <MultiSelect
             data={options}
             onChange={handleSelectChange}
-            value={downSkills}
+            // value={downSkills}
             searchable
             creatable
             getCreateLabel={query => `+ Create ${query}`}
@@ -210,7 +219,7 @@ function Yourself() {
           <MultiSelect
             className='yourself_select'
             required
-            value={hobbiesorg}
+            // value={hobbiesorg}
             data={Xobbys}
             placeholder='Select hobbie or create a new'
             nothingFound='Nothing found'
@@ -218,7 +227,7 @@ function Yourself() {
             creatable
             getCreateLabel={query => `+ Create ${query}`}
             onCreate={query => {
-              const item = { value: query, label: query.toLowerCase() };
+              const item = { label: query, value: query.toLowerCase() };
               setHobbiesorg(current => [...current, item]);
               return item;
             }}

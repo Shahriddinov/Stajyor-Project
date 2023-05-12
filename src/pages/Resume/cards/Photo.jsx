@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import InputMask from 'react-input-mask';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCountryList } from 'reduxToolkit/extraReducers';
 import { firstStep } from 'reduxToolkit/frilanserCardSlice/frilanserCardSlice';
 import { activeDoteAction } from 'reduxToolkit/resumeControlsSlice/resumeControls';
 import './Photo.scss';
 
 function Photo() {
+  const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
   const hiddenFileInput = useRef();
   const [uploaded, setUploaded] = useState('');
   const dispatch = useDispatch();
@@ -33,6 +34,13 @@ function Photo() {
     event.preventDefault();
     dispatch(firstStep(data));
     localStorage.setItem('photo', JSON.stringify(data));
+    localStorage.setItem(
+      'activDoteAction',
+      JSON.stringify([
+        { id: 2, label: 'Address' },
+        { id: 2, type: 'country' },
+      ]),
+    );
     dispatch(
       activeDoteAction([
         { id: 2, label: 'Address' },
@@ -40,8 +48,18 @@ function Photo() {
       ]),
     );
   };
-  var photo = JSON.parse(localStorage.getItem('photo'));
   useEffect(() => {
+    if (freelancer.firstName === '') {
+      var prevData = JSON.parse(localStorage.getItem('photo'));
+      if (prevData) {
+        dispatch(firstStep(prevData));
+      }
+    }
+    var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
+    if (dotAction) {
+      dispatch(activeDoteAction(dotAction));
+    }
+    var photo = JSON.parse(localStorage.getItem('photo'));
     if (photo) {
       setData(photo);
     }

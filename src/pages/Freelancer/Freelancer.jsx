@@ -69,6 +69,18 @@ const Freelancer = () => {
         </div>
         <Fillter />
         {/* {
+                <div>
+                    <form className='freelancer_container_outline' >
+                        <input type="text" placeholder='Title, keywords...' className='freelancer_container_outline_inp' />
+                        <button type='submit' className='freelancer_container_outline_btn' ><img src={serach_icon} alt="search icon" /></button>
+                    </form>
+                    <Cart />
+                    <div className='freelancer_container_round'>
+                        <Round />
+                    </div>
+                </div>
+                <Fillter />
+                {/* {
                     isActive ? <FreelancerModal /> : null
                 } */}
       </div>

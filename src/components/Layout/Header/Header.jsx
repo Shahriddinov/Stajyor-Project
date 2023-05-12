@@ -35,7 +35,7 @@ const Header = () => {
 						</li>
 
 						<li className="header_container_list_item">
-							<Link to={`/${len}/contact`} className="header_container_list_item">{t("contact")}</Link>
+							<Link to={`/${len}/contacts`} className="header_container_list_item">{t("contact")}</Link>
 						</li>
 
 						<li className="header_container_list_item">

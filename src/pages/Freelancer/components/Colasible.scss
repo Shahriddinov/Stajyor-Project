@@ -82,13 +82,13 @@
         align-items: center;
         justify-content: center;
         width: 30px;
-        height: 30px;
+        height: -2px;
         border-radius: 50%;
         position: absolute;
+        border: none;
+        background: none;
         right: 10px;
-        top: 15px;
-        border: 1px solid rgb(249, 231, 231);
-        background-color: #fff;
+        top: 6px;
         cursor: pointer;
         
         &:hover {

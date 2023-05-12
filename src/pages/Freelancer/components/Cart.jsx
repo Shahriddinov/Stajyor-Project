@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './Cart.scss'
 
 import user_img from '../../../assets/images/Freelancer/girl_img.svg'
@@ -6,25 +6,35 @@ import ticked from '../../../assets/images/Freelancer/ticked.svg'
 import location from '../../../assets/images/Freelancer/location.svg'
 import { ReactComponent as Heart } from '../../../assets/images/Freelancer/hheart.svg'
 import Colasible from './Colasible';
-import { useContext } from 'react';
-import Context from 'components/Context/Context';
 import { useLocation } from "react-router-dom";
+import { getAllFreelancers } from 'reduxToolkit/extraReducers';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Cart = () => {
     const { pathname } = useLocation()
-    
+    const dispatch = useDispatch()
+    const {AllFreelancerData, loading} = useSelector(state =>state.resume)
+    console.log(AllFreelancerData)
+    useEffect(()=>{
+        if(!loading){
+            dispatch(getAllFreelancers())
+        }
+    }, [])
     return (
         <div className='freelancer_cart' >
-            <ul className="freelancer_cart_list">
+        {AllFreelancerData?.map((freelancer)=>(
+            <>
+                <ul className="freelancer_cart_list">
                 <li className="freelancer_cart_list_item freelancer_cart_list_item1">
                     <img src={user_img} alt="" />
                     <div>
                         <h4 className='freelancer_cart_list_item_title' >
-                            <span></span>
+                            <span>{freelancer.firstName}</span>
                             <img src={ticked} alt="" />
                         </h4>
                         <p className="freelancer_cart_list_item_info">
-                            Web-design UI/UX
+                            Web-design UI/UX aaaaaaa
                         </p>
                     </div>
                 </li>
@@ -59,7 +69,7 @@ const Cart = () => {
                 </div>
             }
 
-            <Colasible text={'qwertyuioplkjhgfdsazxcvbnm'} />
+            <Colasible text={freelancer.bio} />
 
             <div className="freelancer_cart_skill">
                 <div className="freelancer_cart_skill_skills">
@@ -77,6 +87,8 @@ const Cart = () => {
                 <h4><span>3 years </span>   of experience</h4>
                 <h4> <img src={location} alt="" /> Tashkent, Uzbekistan</h4>
             </div>
+            </>
+        ))}
         </div>
     );
 };

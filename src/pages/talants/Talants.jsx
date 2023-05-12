@@ -39,9 +39,6 @@ const Talants = () => {
                 </ul>
 
                 <Cart />
-                <Cart />
-                <Cart />
-                <Cart />
 
                 {/* <div className='freelancer_container_round'>
                     <Round />

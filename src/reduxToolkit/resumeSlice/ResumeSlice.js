@@ -11,6 +11,7 @@ import {
   experienceEdit,
   experienceGet,
   experiencePost,
+  getAllFreelancers,
   getCountryList,
   getPositionsSkillsWithId,
   getRegionsList,
@@ -46,7 +47,8 @@ const initialState = {
 	userID: null,
 	freelancerId: 0,
 	testData: [],
-	loadingSkills: false
+	loadingSkills: false,
+  AllFreelancerData: []
 };
 
 const resumeSlice = createSlice({
@@ -85,6 +87,17 @@ const resumeSlice = createSlice({
     builder.addCase(Freelancerpost.rejected, (state, action) => {
       state.error = action.error.message;
     });
+/////////////////////Get AllFreelancer /////////////////
+    builder.addCase(getAllFreelancers.pending, (state, action)=>{
+      state.loading = true
+    })
+    builder.addCase(getAllFreelancers.fulfilled, (state, action)=> {
+      state.loading = false;
+      state.AllFreelancerData = action.payload
+    })
+    builder.addCase(getAllFreelancers.rejected, (state, action)=>{
+      state.error = action.error.message
+    })
     //CoutryList reducer
     builder.addCase(getCountryList.pending, (state, action) => {
       state.loading = true;

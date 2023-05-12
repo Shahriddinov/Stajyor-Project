@@ -60,10 +60,6 @@ const Freelancer = () => {
                         <button type='submit' className='freelancer_container_outline_btn' ><img src={serach_icon} alt="search icon" /></button>
                     </form>
                     <Cart />
-                    <Cart />
-                    <Cart />
-                    <Cart />
-
                     <div className='freelancer_container_round'>
                         <Round />
                     </div>

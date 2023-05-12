@@ -28,7 +28,7 @@
 	top: 40%;
 }
 
-.backSign {		
+.backSign {
 	width: 100%;
 	max-width: 215px;
 	padding-top: 30px;
@@ -71,7 +71,7 @@
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	border-radius: 10px;
 	box-sizing: border-box;
-	transition: all .6s linear;
+	transition: all 0.6s linear;
 	overflow: hidden;
 }
 
@@ -80,33 +80,33 @@
 	box-sizing: border-box;
 }
 
-@media only screen and(max-width:2050px){
+@media only screen and (max-width: 2050px) {
 	.card_box {
 		padding: 30px;
 	}
 }
 
-@media only screen and(max-width:1600px){
+@media only screen and (max-width: 1600px) {
 	.card_box {
 		padding: 30px;
 	}
 }
 
-@media only screen and(max-width:1464px){
+@media only screen and (max-width: 1464px) {
 	.card_box {
 		max-width: 680px;
 		padding: 20px;
 	}
 }
 
-@media only screen and(max-width:1410px){
+@media only screen and (max-width: 1410px) {
 	.card_box {
 		max-width: 650px;
 		padding: 15px;
 	}
 }
 
-@media only screen and(max-width:1212px){
+@media only screen and (max-width: 1212px) {
 	.allBackground_inner {
 		gap: 25px;
 	}
@@ -115,8 +115,8 @@
 	}
 }
 
-@media only screen and(max-width:1080px){
-	.backSign {		
+@media only screen and (max-width: 1080px) {
+	.backSign {
 		width: 100%;
 		max-width: 180px;
 		padding-top: 50px;
@@ -126,8 +126,8 @@
 	}
 }
 
-@media only screen and(max-width:1012px){
-	.backSign {		
+@media only screen and (max-width: 1012px) {
+	.backSign {
 		width: 100%;
 		max-width: 130px;
 		padding-top: 50px;
@@ -136,7 +136,3 @@
 		gap: 10px;
 	}
 }
-
-
-
-

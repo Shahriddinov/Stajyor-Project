@@ -71,6 +71,13 @@ function App() {
 			) : (
 				<div className={`freelanser-box  ${pathname.slice(4) === "contact" || pathname.slice(4) === "about" ? "freelanser-box-bg1" : "freelanser-box-bg2"}`}>
 					<Header />
+					<Routes>
+						{freelancerRouter.map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}
+						<Route path={pathname.slice(0, 4)} element={<Navigate to={`/${len}/jobs`} />} />
+						<Route path={`/${len}/login`} element={<Navigate to={`/${len}/jobs`} />} />
+						<Route path={`/${len}/welcome`} element={<Navigate to={`/${len}/jobs`} />} />
+						<Route path={`/${len}/welcome/create-profile/:resumeId`} element={<Navigate to={`/${len}/jobs`} />} />
+					</Routes>
 					{freelanceOrCompany === true && (
 						<Routes>
 							{freelancerRouter.map(route => <Route path={`/${len}${route.path}`} element={route.element} key={route.id} />)}

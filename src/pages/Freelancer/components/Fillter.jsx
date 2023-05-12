@@ -5,29 +5,41 @@ import './Fillter.scss';
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterData } from 'reduxToolkit/jobsSlice/JobsSlice';
+import { MultiSelect } from '@mantine/core';
+import { getCountryList } from 'reduxToolkit/extraReducers';
+import { useEffect } from 'react';
 
 // import "bootstrap/dist/css/bootstrap.min.css"
 
 const Fillter = () => {
       const products = useSelector(state => state.jobs);
       const dispatch = useDispatch();
-      console.log(products.filteredData);
+      const countryList = useSelector(state => state.resume.countryList);
 
-      const [data, setData] = useState([
+
+
+      var options = []
+      for (let i = 0; i < countryList.length; i++) {
+            options.push({
+              value: [countryList[i].id, countryList.indexOf(countryList[i])],
+              label: countryList[i].name,
+            });
+          }
+
+          useEffect(
+		() => {
+			dispatch(getCountryList());
+		},
+		[]
+	);
+
+
+          const [data, setData] = useState([
             { value: 'react', label: 'React' },
-            { value: 'ng', label: 'Angular' },
-            { value: 'svelte', label: 'Svelte' },
-            { value: 'vue', label: 'Vue' },
-            { value: 'riot', label: 'Riot' },
-            { value: 'next', label: 'Next.js' },
-            { value: 'blitz', label: 'Blitz.js' },
+            {value: "figma", label: "Figma"},
+            {value: "Html", label: "Html"},
+            {value: "Adobe PhotoShop", label:"Adobe PhotoShop"}
       ]);
-
-      const data1 = [
-            { value: 'uz', label: 'Uzbekistan' },
-            { value: 'ru', label: 'Russia' },
-            { value: 'us', label: 'America' }
-      ];
 
       const formSubmit = (e) => {
             e.preventDefault()
@@ -100,11 +112,11 @@ const Fillter = () => {
                         </div>
 
                         <h3 className="filter_text" >Region</h3>
-                        {/*<MultiSelect*/}
-                        {/*      data={data1}*/}
-                        {/*      placeholder="Select Region"*/}
-                        {/*      name='region'*/}
-                        {/*/>*/}
+                        <MultiSelect
+                              data={options}
+                              placeholder="Select Region"
+                              name='region'
+                        />
 
                         <h3 className="filter_text">Completed jobs (minimum)</h3>
 
@@ -112,19 +124,19 @@ const Fillter = () => {
 
                         <h3 className='filter_text' >Required Skills</h3>
 
-                        {/*<MultiSelect*/}
-                        {/*      data={data}*/}
-                        {/*      placeholder="Select items"*/}
-                        {/*      name='skills'*/}
-                        {/*      searchable*/}
-                        {/*      creatable*/}
-                        {/*      getCreateLabel={(query) => `+ Create ${query}`}*/}
-                        {/*      onCreate={(query) => {*/}
-                        {/*            const item = { value: query, label: query };*/}
-                        {/*            setData((current) => [...current, item]);*/}
-                        {/*            return item;*/}
-                        {/*      }}*/}
-                        {/*/>*/}
+                        <MultiSelect
+                              data={data}
+                              placeholder="Select items"
+                              name='skills'
+                              searchable
+                              creatable
+                              getCreateLabel={(query) => `+ Create ${query}`}
+                              onCreate={(query) => {
+                                    const item = { value: query, label: query };
+                                    setData((current) => [...current, item]);
+                                    return item;
+                              }}
+                        />
 
                         <div className='apply_filter'>
                               <button type='submit'>Apply Filter</button>

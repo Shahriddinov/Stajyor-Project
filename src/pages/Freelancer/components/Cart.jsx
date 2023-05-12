@@ -12,17 +12,7 @@ import { useLocation } from "react-router-dom";
 
 const Cart = () => {
     const { pathname } = useLocation()
-
-    // const { isActive, setIsActive , heartClick, setHeartClick } = useContext(Context)
-
-    // const HeartClickFunc = () => {
-    //     setHeartClick(!heartClick)
-    // }
-
-    // const cursorHandle = () => {
-    //     setIsActive(!isActive)
-    // }
-
+    
     return (
         <div className='freelancer_cart' >
             <ul className="freelancer_cart_list">
@@ -30,7 +20,7 @@ const Cart = () => {
                     <img src={user_img} alt="" />
                     <div>
                         <h4 className='freelancer_cart_list_item_title' >
-                            <span>Michel R</span>
+                            <span></span>
                             <img src={ticked} alt="" />
                         </h4>
                         <p className="freelancer_cart_list_item_info">
@@ -79,7 +69,7 @@ const Cart = () => {
                 </div>
 
                 <div className="freelancer_cart_skill_level">
-                    <p>Level: <span>Middle</span> </p>
+                    <p>Level: <span>Junior</span> </p>
                 </div>
             </div>
 

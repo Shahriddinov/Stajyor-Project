@@ -72,7 +72,6 @@ function Country() {
     event.preventDefault();
   };
 
-  // console.log(options)
   const removePage = event => {
     event.preventDefault();
     dispatch(

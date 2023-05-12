@@ -61,7 +61,6 @@ function TalantsDesc(props) {
             </button>
           </div>
         </div>
-        ыыыы
         <div className={classes.talantsDescCard}>
           {filteredTalants.map((item, index) => (
             <div className={classes.talantsDescItem} key={index} id={index}>

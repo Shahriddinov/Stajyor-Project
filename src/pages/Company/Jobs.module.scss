@@ -367,6 +367,7 @@
   width: 820px;
   height: 53px;
   display: grid;
+  margin-left: 5px;
   grid-template-columns: 1fr 90px;
   background-color: white;
   outline: 1px solid #1d71b8;
@@ -376,7 +377,7 @@
   input {
     border: none;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 18px;
     padding: 0 15px;
   }
 

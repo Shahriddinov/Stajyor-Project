@@ -17,7 +17,7 @@ const Talants = () => {
   return (
     <section className='freelancer'>
       <div className='freelancer_container'>
-        <div>
+        <div className='freelancer_talants_container'>
           <form className='freelancer_container_outline'>
             <input
               type='text'

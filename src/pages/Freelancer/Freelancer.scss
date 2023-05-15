@@ -80,11 +80,11 @@
 
       &_outline {
         position: relative;
-        width: 770px;
+        // width: 770px;
 
         &_inp {
           box-sizing: border-box;
-          // width: 840px;
+          width: 100%;
 
           background: #ffffff;
           border: 1px solid #1d71b8;
@@ -106,7 +106,7 @@
           //   padding: 0px 33px;
           height: 100%;
           //   right: 0;
-          right: -160px;
+          right: -50px;
           background: #1d71b8;
           border: none;
           border-radius: 8px;
@@ -145,7 +145,7 @@
   }
   .freelancer_container_outline_btn {
     position: absolute;
-    right: -29px;
+    // right: -29px;  
     top: 0;
   }
 }
@@ -164,11 +164,11 @@
       &_outline {
         position: relative;
         // width: 770px;
-        width: 930px;
+        // width: 930px;
 
         &_inp {
           box-sizing: border-box;
-          width: 840px;
+          width: 100%;
           // width: 930px;
 
           background: #ffffff;
@@ -190,7 +190,7 @@
           justify-content: center;
           //   padding: 0px 27px;
           height: 100%;
-          right: -140px;
+          right: -50px;
           background: #1d71b8;
           border: none;
           top: 0;

@@ -1,5 +1,7 @@
 import Header from "components/Layout/Header/Header";
 import jwt_decode from "jwt-decode";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Navigate,
@@ -38,16 +40,20 @@ function App() {
   let userRole = JSON.parse(localStorage.getItem("userRole"));
   let freelanceOrCompany;
 
-  if (auth) {
-    let decode = jwt_decode(auth);
-    if (freelancerData && !userRole) {
-      freelanceOrCompany = Object.values(decode).includes("Company")
-        ? "Company"
-        : (freelanceOrCompany = Object.values(decode).includes("Freelancer")
-            ? "Freelancer"
-            : "None");
+  useEffect(() => {
+    if (auth) {
+      let decode = jwt_decode(auth);
+      if (freelancerData && !userRole) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        freelanceOrCompany = Object.values(decode).includes("Company")
+          ? "Company"
+          : (freelanceOrCompany = Object.values(decode).includes("Freelancer")
+              ? "Freelancer"
+              : "None");
+      }
+    } else {
     }
-  }
+  }, [auth]);
 
   // useLayoutEffect(() => {
   // 	navigate(`/${len}/`)
@@ -65,23 +71,9 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-  console.log(auth);
 
   return (
     <div className="App">
-      {!auth && (
-        <Routes>
-          {publicRoute.map((route) => (
-            <Route
-              path={`/${len}${route.path}`}
-              element={route.element}
-              key={route.id}
-            />
-          ))}
-          <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
-        </Routes>
-      )}
-
       {freelanceOrCompany === "None" ? (
         freelancer === "freelancer" ? (
           <Routes>
@@ -190,7 +182,16 @@ function App() {
           )} */}
         </div>
       ) : (
-        ""
+        <Routes>
+          {publicRoute.map((route) => (
+            <Route
+              path={`/${len}${route.path}`}
+              element={route.element}
+              key={route.id}
+            />
+          ))}
+          <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
+        </Routes>
       )}
     </div>
   );

@@ -69,7 +69,7 @@ const Fillter = () => {
         <h3 className='filter_text'> Payment amount </h3>
         <div className='filter_from'>
           <div className='filter_from_left'>
-            <h3>From</h3>
+            <h3 style={{ fontSize: '40px' }}>From</h3>
             <input type='number' placeholder='10$' min='0' name='priceFrom' />
           </div>
           <div className='filter_from_right'>

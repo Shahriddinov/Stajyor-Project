@@ -1,17 +1,17 @@
-import Round from 'pages/NonAuth/Round';
-import Cart from './components/Cart';
+import Round from "pages/NonAuth/Round";
+import Cart from "./components/Cart";
 // import FreelancerModal from './components/FreelancerModal';
-import './Freelancer.scss';
-import Fillter from './components/Fillter';
+import "./Freelancer.scss";
+import Fillter from "./components/Fillter";
 // import { useContext } from 'react';
 // import Context from 'components/Context/Context';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs } from 'reduxToolkit/extraReducers';
-import serach_icon from '../../assets/images/Freelancer/serach_inp.svg';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllJobs } from "reduxToolkit/extraReducers";
+import serach_icon from "../../assets/images/Freelancer/serach_inp.svg";
 
 const Freelancer = () => {
-  const { data } = useSelector(state => state.jobs);
+  const { data } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
   console.log(data);
   useEffect(() => {
@@ -19,7 +19,7 @@ const Freelancer = () => {
       getAllJobs({
         page: 1,
         size: 10,
-      }),
+      })
     );
   }, []);
 
@@ -40,30 +40,27 @@ const Freelancer = () => {
   // }
 
   return (
-    <section className='freelancer'>
+    <section className="freelancer">
       {/*             
             {
                 isActive ? <div className='black-window' style={{"height":blackHeight}} ></div>  : null
             }
              */}
-      <div className='freelancer_container'>
+      <div className="freelancer_container">
         <div>
-          <form className='freelancer_container_outline'>
+          <form className="freelancer_container_outline">
             <input
-              type='text'
-              placeholder='Title, keywords...'
-              className='freelancer_container_outline_inp'
+              type="text"
+              placeholder="Title, keywords..."
+              className="freelancer_container_outline_inp"
             />
-            <button type='submit' className='freelancer_container_outline_btn'>
-              <img src={serach_icon} alt='search icon' />
+            <button type="submit" className="freelancer_container_outline_btn">
+              <img src={serach_icon} alt="search icon" />
             </button>
           </form>
           <Cart />
-          <Cart />
-          <Cart />
-          <Cart />
 
-          <div className='freelancer_container_round'>
+          <div className="freelancer_container_round">
             <Round />
           </div>
         </div>

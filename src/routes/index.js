@@ -14,6 +14,7 @@ import UserFreelancer from "pages/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 import ChatForCompany from "pages/Chat/ChatForCompany";
 import Jobs from "pages/Company/Jobs";
+import ChatModal from "pages/Chat/Modal";
 export const publicRoute = [
 	{ id: 1, path: "/", element: <PageBackground /> },
 	{ id: 2, path: "/login", element: <Login /> },
@@ -44,8 +45,9 @@ export const freelancerRouter = [
 	{ id: 5, path: "/contracts", element: <Contract /> },
 	{ id: 6, path: "/freelancer", element: <Freelancer /> },
 	{ id: 7, path: "/profile", element: <Profile /> },
-	{ id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
-	{ id: 9, path: "/*", element: <NotFound /> }
+	{id:8, path:"/chat", element: <ChatModal/>},
+	{ id: 9, path: "/freelancer-user", element: <UserFreelancer /> },
+	{ id: 10, path: "/*", element: <NotFound /> }
 ]
 
 export const companyRouter = [

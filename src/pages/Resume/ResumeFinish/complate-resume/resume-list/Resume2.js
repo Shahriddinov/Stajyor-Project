@@ -1,23 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const Resume2 = props => {
+const Resume2 = ({ phoneNumber, bio, experiences, email,address, freelancerContact, freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName }) => {
 	const { loading } = useSelector(state => state.resume);
-	const {
-		firstName,
-		phoneNumber,
-		bio,
-		experiences,
-		email,
-		freelancerHobbies,
-		defaultuserImage,
-		educations,
-		freelancerPosition,
-		lastName,
-		address,
-		userLanguages,
-		birthday
-	} = props;
 
 	return (
 		<>
@@ -26,15 +11,15 @@ const Resume2 = props => {
 					<div className="resume2_2-top">
 						<div className="resume2_2-top-left">
 							<div className="resume2_2-top-left-img">
-								<img src={props?.defaultuserImage} alt={props?.firstName} />
+								<img src={defaultuserImage} alt={firstName} />
 							</div>
 						</div>
 
 						<div className="resume2_2-top-right">
 							<div className="resume2_2-top-right-fullname">
-								<span className="top-right-fullname">{props?.firstName}</span>
+								<span className="top-right-fullname">{firstName}</span>
 								<br />
-								<span className="top-right-fullname">{props?.lastName}</span>
+								<span className="top-right-fullname">{lastName}</span>
 								<br />
 								<span className="top-right-job">
 									Frontend developer
@@ -46,25 +31,21 @@ const Resume2 = props => {
 								<div>
 									<span className="resume2_2-contact-title">phone:</span>
 									<br />
-									{props?.phoneNumber}
+									{phoneNumber}
 								</div>
 
 								<div>
 									<span className="resume2_2-contact-title">email:</span>
 									<br />
-									{props?.email}
+									{email}
 								</div>
 
 								<div>
 									<span className="resume2_2-contact-title">adress:</span>
 									<br />
 									<span>
-										{props?.address?.countryName}
 										{"  "}
-										{props?.address?.regionName}
-										{"  "}
-										{props?.address?.home}
-										{props?.address.street}
+										{address?.street}
 									</span>
 								</div>
 							</div>
@@ -153,13 +134,13 @@ const Resume2 = props => {
 								<div className="resume2_1-left-contacts">
 									<div className="resume2_1-left-contacts__texts resume2_1-left__block">
 										<p className="resume2_1-left-contacts__text">languages</p>
-										{userLanguages?.map((item, i) => {
-											return (
-												<span key={i}>
-													{item?.language} - {item?.level}
-												</span>
-											);
-										})}
+										{/* {userLanguages?.map((item, i) => {
+											return ( */}
+												{/* <span key={i}> */}
+													{/* {item?.language} - {item?.level} */}
+												{/* </span> */}
+											{/* );
+										})} */}
 										<span>English - elementary</span>
 									</div>
 

@@ -8,29 +8,33 @@ import { profilLogout } from 'reduxToolkit/loginSlice/LoginSlice';
 import { getFreelancer } from 'reduxToolkit/extraReducers';
 import { UserCircle } from 'tabler-icons-react';
 import { useTranslation } from "react-i18next";
+import { useEffect } from 'react';
 
 const Dropdown = () => {
-
+	const { ...freelancer } = useSelector(state => state.frilanserCardSlice.freelancer);
   const { t } = useTranslation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const len = useSelector(state => state.lenguage.lenguage)
   const {data} = useSelector( state => state.freelance )
-
+	const { freelancerLoading } = useSelector(state => state.resume);
   const handleClick = () => {
     dispatch(profilLogout())
     navigate(`/${len}/`)
   }
   const info = JSON.parse(localStorage.getItem("info"))
-  
-  useLayoutEffect(()=> {
-    dispatch(getFreelancer())
-    console.log(info , 'qwertyuiop');
-    console.log(data?.data?.firstName);
-    console.log(data?.data?.freelancerImage);
-  },[dispatch])
-    
 
+    
+	useEffect(
+		() => {
+			if (!freelancerLoading) {
+				let id = localStorage.getItem("freelancerId");
+				dispatch(getFreelancer(id));
+			}
+		},
+		[freelancerLoading]
+	);
+  
   return (
     <>{
       info ? <>
@@ -48,7 +52,7 @@ const Dropdown = () => {
           <Link to={`/${len}/contracts`}>{t("contracts")}</Link>
           <Link to={`/${len}/chat`}>{t("chats")}</Link>
           <Link to={`/${len}/resume`}>{t("resume")}</Link>
-          <button onClick={handleClick}>{t("log_out")}</button>
+          <button onClick={handleClick}>{t("logout")}</button>
         </div>
       </div>
 
@@ -56,7 +60,7 @@ const Dropdown = () => {
       <div className="dropdown">
         <button className="dropbtn">
           { data?.data?.freelancerImage ? <img src={`http://localhost:5000/staticfiles/${data?.data?.freelancerImage}`} style={{'width':"36px", "border-radius":"50%"}} alt="user photos" /> : <UserCircle  size={36} strokeWidth={1.5} color={'#86332d'} /> }
-          <h4 className='dropdown_title' >{data?.data?.firstName}</h4>
+          <h4 className='dropdown_title' >{}</h4>
           <img src={arrow_down} className='header_arrow_img' alt="arrow photos" />
 
         </button>

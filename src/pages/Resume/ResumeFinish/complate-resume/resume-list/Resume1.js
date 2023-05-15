@@ -17,6 +17,7 @@ const Resume1 = props => {
 		userLanguages,
 		birthday
 	} = props;
+	
 	return (
 		<>
 			<div className="ComplateResume">

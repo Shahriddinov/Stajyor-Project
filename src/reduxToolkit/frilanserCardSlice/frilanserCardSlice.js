@@ -3,6 +3,7 @@ import { getFreelancer } from "reduxToolkit/extraReducers";
 import defaultuserImage from "../../assets/images/Freelancer/defaultUserImage.png";
 const initialState = {
 	loading: "",
+	defaultuserImage:defaultuserImage,
 	freelancerData: [],
 	skillsData: [],
 	hobbiesData: [],

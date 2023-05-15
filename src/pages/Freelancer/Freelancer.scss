@@ -8,7 +8,7 @@
     box-sizing: border-box;
     position: relative;
     width: 100%;
-    max-width: 1450px;
+    max-width: 1380px;
     margin: 0 auto;
     padding: 0 20px;
     padding-top: 70px;
@@ -84,7 +84,7 @@
 
         &_inp {
           box-sizing: border-box;
-          width: 930px;
+          // width: 840px;
 
           background: #ffffff;
           border: 1px solid #1d71b8;
@@ -140,9 +140,12 @@
 }
 
 @media (max-width: 1600px) {
+  .freelancer_container_outline_inp {
+    width: 798px;
+  }
   .freelancer_container_outline_btn {
     position: absolute;
-    right: -160px;
+    right: -29px;
     top: 0;
   }
 }
@@ -165,8 +168,8 @@
 
         &_inp {
           box-sizing: border-box;
-          //   width: 750px;
-          width: 930px;
+          width: 840px;
+          // width: 930px;
 
           background: #ffffff;
           border: 1px solid #1d71b8;
@@ -187,7 +190,7 @@
           justify-content: center;
           //   padding: 0px 27px;
           height: 100%;
-          right: 0;
+          right: -140px;
           background: #1d71b8;
           border: none;
           top: 0;

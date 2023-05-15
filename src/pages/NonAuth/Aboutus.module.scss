@@ -1,141 +1,146 @@
 .aboutus {
-	padding-top: 30px;
+  padding-top: 30px;
+  .about__container {
+    margin-top: -62px;
+    padding: 30px;
+    width: 97%;
+    z-index: 10;
+    background: linear-gradient(
+        101.5deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(29, 113, 184, 0.2) 100%
+      ),
+      #ffffff;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15),
+      inset 0px -5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    //align-items: center;
+    gap: 20px;
 
-	.about__container {
-		padding: 30px;
-		width: 100%;
-		z-index: 10;
-		background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #ffffff;
-		box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.15), inset 0px -5px 10px rgba(0, 0, 0, 0.1);
-		border-radius: 12px;
-		display: flex;
-		//align-items: center;
-		gap: 20px;
+    &__border {
+      //height: 100%;
+      opacity: 0.3;
+      border: 1px solid #808080;
+    }
 
-		&__border {
-			//height: 100%;
-			opacity: 0.3;
-			border: 1px solid #808080;
-		}
+    .TextsMain {
+      width: 100%;
+      max-width: 420px;
+      //height: 100%;
+      overflow: hidden;
 
-		.TextsMain {
-			width: 100%;
-			max-width: 420px;
-			//height: 100%;
-			overflow: hidden;
+      .IconsMain {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-			.IconsMain {
-				width: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
+        p {
+          font-weight: 700;
+          font-size: 26px;
+          line-height: 37px;
+          color: #323232;
+          margin-bottom: 10px;
+        }
 
-				p {
-					font-weight: 700;
-					font-size: 26px;
-					line-height: 37px;
-					color: #323232;
-					margin-bottom: 10px;
-				}
+        .iconsBlock {
+          display: flex;
+          align-items: center;
+          gap: 28px;
 
-				.iconsBlock {
-					display: flex;
-					align-items: center;
-					gap: 28px;
+          svg {
+            width: 24px;
+            height: 24px;
+            color: #1d71b8;
+          }
+        }
+      }
+    }
 
-					svg {
-						width: 24px;
-						height: 24px;
-						color: #1D71B8;
-					}
-				}
-			}
-		}
+    .text {
+      //margin: 15px 0 18px;
+      //max-height: 502px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      //text-align: justify;
+      color: #323232;
+      overflow: scroll;
 
-		.text {
-			//margin: 15px 0 18px;
-			//max-height: 502px;
-			font-weight: 500;
-			font-size: 18px;
-			line-height: 24px;
-			//text-align: justify;
-			color: #323232;
-			overflow: scroll;
-
-			.block{
-				display: block;
-				margin: 10px 0;
-			}
-			&::-webkit-scrollbar {
-				display: none;
-			}
-		}
-	}
+      .block {
+        display: block;
+        margin: 10px 0;
+      }
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 }
 
 @media only screen and (max-height: 850px) {
-	.aboutus {
-		padding-top: 20px;
+  .aboutus {
+    padding-top: 20px;
 
-		.about__container {
-			padding: 20px;
-			height: 480px;
+    .about__container {
+      padding: 20px;
+      height: 480px;
 
-			.text {
-				max-height: 400px;
-			}
-		}
-	}
+      .text {
+        max-height: 400px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-height: 700px) {
-	.aboutus {
-		padding-top: 20px;
+  .aboutus {
+    padding-top: 20px;
 
-		.about__container {
-			height: 506px;
+    .about__container {
+      height: 506px;
 
-			.text {
-				max-height: 372px;
-			}
+      .text {
+        max-height: 372px;
+      }
 
-			.TextsMain {
-				max-width: 370px;
-			}
-		}
-	}
+      .TextsMain {
+        max-width: 370px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-height: 670px) {
-	.aboutus {
-		padding-top: 20px;
+  .aboutus {
+    padding-top: 20px;
 
-		.about__container {
-			padding: 20px 30px;
-			height: 426px;
+    .about__container {
+      padding: 20px 30px;
+      height: 426px;
 
-			.text {
-				max-height: 312px;
-				font-size: 15px;
-				line-height: 20px;
-			}
+      .text {
+        max-height: 312px;
+        font-size: 15px;
+        line-height: 20px;
+      }
 
+      .TextsMain {
+        max-width: 320px;
 
-			.TextsMain {
-				max-width: 320px;
+        .IconsMain {
+          p {
+            font-weight: 700;
+            font-size: 26px;
+          }
 
-				.IconsMain {
-					p {
-						font-weight: 700;
-						font-size: 26px;
-					}
-
-					.iconsBlock {
-						display: flex;
-						gap: 20px;
-					}
-				}
-			}
-		}
-	}
+          .iconsBlock {
+            display: flex;
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
 }

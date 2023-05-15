@@ -23,7 +23,7 @@ const Cart = () => {
   return (
     <div className='freelancer_cart'>
       {AllFreelancerData?.map(freelancer => (
-        <>
+        <div className='freelancer_cart-item'>
           <ul className='freelancer_cart_list'>
             <li className='freelancer_cart_list_item freelancer_cart_list_item1'>
               <img src={user_img} alt='' />
@@ -97,7 +97,7 @@ const Cart = () => {
               <img src={location} alt='' /> Tashkent, Uzbekistan
             </h4>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

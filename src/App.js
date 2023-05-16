@@ -36,8 +36,8 @@ function App() {
   const freelancer = localStorage.getItem("isResume")
     ? localStorage.getItem("isResume")
     : "welcome";
-
-  let userRole = JSON.parse(localStorage.getItem("userRole"));
+   let userRole = 1
+   userRole = JSON.parse(localStorage.getItem("userRole"));
   let freelanceOrCompany;
 
   useEffect(() => {

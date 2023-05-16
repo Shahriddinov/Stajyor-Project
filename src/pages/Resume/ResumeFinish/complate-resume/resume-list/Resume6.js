@@ -4,22 +4,8 @@ import loc from "../img/location.svg";
 import letter from "../img/letter.svg";
 import { resumeTriple } from "../../../../../assets/images/index";
 
-const Resume6 = props => {
-	const {
-		phoneNumber,
-		bio,
-		experiences,
-		email,
-		freelancerContact,
-		defaultuserImage,
-		educations,
-		freelancerPosition,
-		freelancerHobbies,
-		firstName,
-		lastName,
-		address,
-		userLanguages
-	} = props;
+const Resume6 = ({ phoneNumber, bio, experiences, email,address, freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName }) => {
+
 	return (
 		<>
 			<div className="ComplateResume">
@@ -92,13 +78,13 @@ const Resume6 = props => {
 
 							<div className="resume2_6-bottom-title">hobbies</div>
 							<div className="resume2_6-bottom-left-text">
-								{freelancerHobbies?.map((item, i) => {
-									return (
+								{/* {freelancerHobbies?.map((item, i) => { */}
+									{/* return ( */}
 										<div key={i + 1}>
-											<p className={"subTitleUp"}>{item.name}</p>
+											<p className={"subTitleUp"}>Footbal</p>
 										</div>
-									);
-								})}
+									{/* ); */}
+								{/* // })} */}
 								<div />
 							</div>
 						</div>

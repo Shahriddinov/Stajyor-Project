@@ -3,6 +3,7 @@ import { getFreelancer } from "reduxToolkit/extraReducers";
 import defaultuserImage from "../../assets/images/Freelancer/defaultUserImage.png";
 const initialState = {
 	loading: "",
+	defaultuserImage:defaultuserImage,
 	freelancerData: [],
 	skillsData: [],
 	hobbiesData: [],
@@ -51,7 +52,7 @@ const freelancerSlice = createSlice({
 			state.freelancer.bio = action.payload.bio;
 		},
 		socialStep: (state, action) => {
-			// state.freelancer.contacts = { ...action.payload };
+			state.freelancer.contacts = { ...action.payload };
 			console.log(action.payload);
 		},
 		getSkills: (state, action) => {

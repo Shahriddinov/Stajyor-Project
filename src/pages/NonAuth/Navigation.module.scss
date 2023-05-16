@@ -241,8 +241,8 @@
   .menu {
     &__container {
       .backgroundImg {
-		left: -33%;
-		top: -267%;
+        left: -33%;
+        top: -267%;
       }
 
       .automative {
@@ -301,26 +301,40 @@
     }
   }
 }
-@media only screen and (max-width: 1128px) {
+@media only screen and (max-width: 1260px) {
   .menu {
     &__container {
+      .backgroundImg {
+        left: -29%;
+        width: 526px;
+        height: 550px;
+        top: -233%;
+      }
       .menu__links {
-        .backgroundImg {
+        font-size: 14px;
+        & > li {
+          font-size: 14px;
         }
-        gap: 22px;
-        cursor: pointer;
-
-        .menu__link {
-          font-size: 10px;
-          &.active {
-            font-size: 12px;
-          }
+        .menu__link,
+        .active {
+          font-size: 14px;
         }
       }
     }
   }
 }
-
+@media only screen and (max-width: 1180px) {
+  .menu {
+    &__container {
+      .backgroundImg {
+        left: -34%;
+        width: 526px;
+        height: 550px;
+        top: -237%;
+      }
+    }
+  }
+}
 .menu__underline {
   position: absolute;
   top: 58px;

@@ -17,7 +17,7 @@ import ChatForCompany from "pages/Chat/ChatForCompany";
 import Jobs from "pages/Company/Jobs";
 import ChatModal from "pages/Chat/Modal";
 export const publicRoute = [
-  { id: 1, path: "/", element: <PageBackground /> },
+  { id: 1, path: "/welcome", element: <PageBackground /> },
   { id: 2, path: "/login", element: <Login /> },
   { id: 3, path: "/sign-up", element: <Signup /> },
   { id: 4, path: "/chat", element: <ChatForCompany /> },

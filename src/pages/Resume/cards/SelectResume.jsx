@@ -72,7 +72,6 @@ function SelectResume() {
         }
       } else {
         formdata.append(key, freelancer[key]);
-        console.log(freelancer[key]);
       }
     }
     dispatch(Freelancerpost(formdata));
@@ -81,6 +80,7 @@ function SelectResume() {
     const data = new FormData();
     data.append('resume', resumeId);
     console.log(resumeId)
+    localStorage.setItem("resumeId", JSON.stringify(resumeId))
     dispatch(resumeSelect(data))
   };
 

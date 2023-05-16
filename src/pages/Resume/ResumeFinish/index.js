@@ -160,6 +160,8 @@ const ReumeFinish = () => {
   };
 
   const handleClick = () => {
+    localStorage.removeItem('resumeId')
+    console.log("back")
     dispatch(
       activeDoteAction([
         { id: 1, label: "Personal information" },
@@ -187,7 +189,7 @@ const ReumeFinish = () => {
                   onClick={handleClick}
                 >
                   <img src={arrowLeft} alt="Arrov left" />
-                  <span>Back</span>
+                  <span >Back</span>
                 </button>
               </div>
               <div className={classes.resume__finish_main}>

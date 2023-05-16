@@ -37,7 +37,7 @@ function App() {
     ? localStorage.getItem("isResume")
     : "welcome";
    
-   userRole = JSON.parse(localStorage.getItem("userRole"));
+  var  userRole = JSON.parse(localStorage.getItem("userRole"));
   let freelanceOrCompany;
 
   useEffect(() => {
@@ -71,7 +71,15 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-
+  
+  const navigate = useNavigate()
+  useEffect(()=>{
+    var resumeId = JSON.parse(localStorage.getItem('resumeId'))
+     if(resumeId){
+      navigate(`/${len}/welcome/create-profile/${resumeId}`)
+     }
+     console.log(resumeId)
+  }, [])
   return (
     <div className="App">
       {freelanceOrCompany === "None" || userRole === 0 ? (
@@ -115,7 +123,7 @@ function App() {
             <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
           </Routes>
         )
-      ) : auth && !userRole === 0 ? (
+      ) : auth || !userRole === 0 ? (
         <div
           className={`freelanser-box  ${
             pathname.slice(4) === "contact" || pathname.slice(4) === "about"
@@ -124,7 +132,6 @@ function App() {
           }`}
         >
           <Header />
-
           {userRole === 1 && (
             <Routes>
               {freelancerRouter.map((route) => (
@@ -146,6 +153,7 @@ function App() {
                 path={`/${len}/welcome`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
+
               <Route
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}

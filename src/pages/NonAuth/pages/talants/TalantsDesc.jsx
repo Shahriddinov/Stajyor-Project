@@ -71,7 +71,7 @@ function TalantsDesc(props) {
                     <h3>
                       {item.name} <img src={checkImg} alt='CheckImg' />
                     </h3>
-                    <span>{item.userPro}</span>
+                    <h5 className={classes.userPro}>{item.userPro}</h5>
                   </div>
                 </div>
                 <div className={classes.talantsLine}></div>

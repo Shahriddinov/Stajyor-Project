@@ -27,6 +27,7 @@
     color: #1d71b8;
     border: 1px solid #1d71b8;
     border-radius: 6px;
+    cursor: pointer;
   }
 
   .filter {
@@ -87,6 +88,27 @@
       label {
         font-size: 14px;
         color: #323232;
+      }
+    }
+  }
+}
+@media (max-width: 1360px) {
+  .filters {
+    h2 {
+      font-size: 20px;
+    }
+    .filter {
+      h3 {
+        font-size: 15px;
+      }
+      .inputField {
+        p {
+          font-size: 12px;
+        }
+        input,
+        select{
+          padding: 7px 10px;
+        }
       }
     }
   }

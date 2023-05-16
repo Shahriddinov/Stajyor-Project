@@ -15,7 +15,7 @@
 }
 
 .companyClientJob {
-  width: 825px;
+  width: 100%;
   border-radius: 9px;
   box-shadow: 0 2px 6px 0 rgba($color: #000000, $alpha: 0.25);
   padding: 20px;
@@ -37,9 +37,10 @@
 
   .companyClientJobLeft {
     display: flex;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     gap: 15px;
     text-align: center;
+    align-items: center;
 
     .successRate {
       width: 100%;
@@ -111,7 +112,7 @@
 
   .compLogo {
     width: 40px;
-    height: auto;
+    margin: auto 0;
   }
 }
 
@@ -170,7 +171,7 @@
 
   .proposalLeft {
     display: flex;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     gap: 15px;
     text-align: center;
 
@@ -267,5 +268,74 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 3px 0 rgba($color: #1d71b8, $alpha: 0.5);
+  }
+}
+
+@media (max-width: 1370px) {
+  .companyClientJob {
+    .companyClientJobRow {
+      p {
+        font-size: 10px;
+      }
+    }
+    .companyClientJobLeft {
+      h3 {
+        font-size: 15px;
+      }
+
+      h4 {
+        font-size: 13px;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .companyClientJobName {
+        margin-right: 7px;
+        font-size: 15px;
+      }
+    }
+    .companyClientJobDescription {
+      font-size: 12px;
+    }
+    .companyClientJobRequiredSkills {
+      font-size: 10px;
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  .companyClientJob {
+    .companyClientJobRow {
+      p {
+        font-size: 8px;
+      }
+    }
+    .companyClientJobLeft {
+      h3 {
+        font-size: 12px;
+      }
+
+      h4 {
+        font-size: 10px;
+      }
+
+      p {
+        text-align: center;
+      }
+
+      .companyClientJobName {
+        margin-right: 7px;
+        font-size: 12px;
+      }
+    }
+    .companyClientJobDescription {
+      font-size: 10px;
+    }
+    .companyClientJobRequiredSkills {
+      font-size: 8px;
+    }
   }
 }

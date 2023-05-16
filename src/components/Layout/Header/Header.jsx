@@ -13,7 +13,6 @@ const Header = () => {
   const len = useSelector((state) => state.lenguage.lenguage);
   const { t } = useTranslation();
   const { pathname } = useLocation();
-
   return (
     <header className="header">
       <div className="header_container">

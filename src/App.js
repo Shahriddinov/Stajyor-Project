@@ -115,7 +115,7 @@ function App() {
             <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
           </Routes>
         )
-      ) : auth && !userRole === 0 ? (
+      ) : auth || !userRole === 0 ? (
         <div
           className={`freelanser-box  ${
             pathname.slice(4) === "contact" || pathname.slice(4) === "about"

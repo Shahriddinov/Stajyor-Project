@@ -70,6 +70,7 @@ function AddEducations({
             <Select
               placeholder={'Select degree'}
               options={option}
+              required
               onChange={e => setData(prev => ({ ...prev, degree: e.id }))}
             />
           </div>
@@ -79,6 +80,7 @@ function AddEducations({
             <Select
               placeholder={'Type of study'}
               options={TypeOptions}
+              required
               onChange={e => setData(prev => ({ ...prev, typeOfStudy: e.id }))}
             />
           </div>
@@ -107,6 +109,7 @@ function AddEducations({
                 type='date'
                 id='data'
                 data-date-format='YYYY:MMMM:DD'
+                required
                 onChange={e =>
                   setData(prev => ({
                     ...prev,
@@ -148,6 +151,7 @@ function AddEducations({
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
                   }
+                  required
                   data-date-format='YYYY:MMMM:DD'
                 />
               )}

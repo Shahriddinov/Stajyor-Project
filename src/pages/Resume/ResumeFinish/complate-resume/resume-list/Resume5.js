@@ -2,8 +2,7 @@ import React from "react";
 import whatsUpIcon from "../img/whatsap.svg";
 import instagramIcon from "../img/instagram.svg";
 
-const Resume5 = props => {
-	const { phoneNumber, bio, experiences, email, freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName, address } = props;
+const Resume5 = ({ phoneNumber, bio, experiences, email,address, freelancerContact,freelancerHobbies, defaultuserImage, educations, freelancerPosition, firstName, lastName }) => {
 
 	return (
 		<>

@@ -94,7 +94,7 @@ function MyWork({ removeModal, defaultData }) {
                 Date from
               </label>
               <input
-                value={data.dateFrom.slice(0, 10)}
+                value={data.dateFrom ? data.dateFrom.slice(0, 10) : ''}
                 className='mywork__inputDate'
                 type='date'
                 id='data'
@@ -114,7 +114,7 @@ function MyWork({ removeModal, defaultData }) {
               </label>
               {data.currentWorking ? (
                 <input
-                  value={data.dateTo.slice(0, 10)}
+                  value={''}
                   disabled={true}
                   className='mywork__inputDate'
                   type='date'

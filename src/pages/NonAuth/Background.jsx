@@ -80,23 +80,23 @@ function Background() {
   }
 
   useEffect(() => {
-    if (innerWidth < 1398) {
+    if (innerWidth < 1310) {
       if (step1) {
         setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
       } else if (step5) {
-        setCustomTransition({ transform: "translateX(65px)", width: "4.2vw" });
+        setCustomTransition({ transform: "translateX(65px)", width: "5vw" });
       } else if (step6) {
-        setCustomTransition({ transform: "translateX(138px)", width: "3.2vw" });
+        setCustomTransition({ transform: "translateX(143px)", width: "3.5vw" });
       } else if (step7) {
-        setCustomTransition({ transform: "translateX(192px)", width: "6vw" });
+        setCustomTransition({ transform: "translateX(203px)", width: "6vw" });
       } else if (step8) {
-        setCustomTransition({ transform: "translateX(280px)", width: "6.8vw" });
+        setCustomTransition({ transform: "translateX(293px)", width: "7vw" });
       }
     }
   }, [count]);
 
   useEffect(() => {
-    if (innerWidth > 1398) {
+    if (innerWidth > 1310) {
       if (step1) {
         setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
       } else if (step5) {

@@ -165,7 +165,7 @@
   .menu {
     &__container {
       .backgroundImg {
-        left: -32%;
+        left: -34%;
       }
     }
   }
@@ -246,8 +246,8 @@
       }
 
       .automative {
-        width: 220px;
-        height: 60px;
+        width: 250px;
+        height: 65px;
       }
 
       .menu__links {
@@ -255,7 +255,7 @@
         cursor: pointer;
 
         & > li {
-          font-size: 14px;
+          //   font-size: 16px;
           line-height: 24px;
         }
       }
@@ -289,13 +289,19 @@
         top: -225%;
       }
       .menu__links {
-        font-size: 14px;
         & > li {
-          font-size: 14px;
+          font-size: 15px;
         }
         .menu__link,
         .active {
-          font-size: 14px;
+          font-size: 15px;
+        }
+      }
+      .menu__buttons {
+        gap: 15px;
+        .menu__signup,
+        .menu__login {
+          font-size: 12px;
         }
       }
     }
@@ -311,13 +317,11 @@
         top: -233%;
       }
       .menu__links {
-        font-size: 14px;
         & > li {
-          font-size: 14px;
+          //   font-size: 14px;
         }
         .menu__link,
         .active {
-          font-size: 14px;
         }
       }
     }

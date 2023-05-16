@@ -1,10 +1,10 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import logosInstagram from "../../assets/images/icons/logos_telegram.png";
-import logosWhatsapp from "../../assets/images/icons/logos_whatsapp.png";
-import classes from "./Contactus.module.scss";
+import logosInstagram from "../../../assets/images/icons/logos_telegram.png";
+import logosWhatsapp from "../../../assets/images/icons/logos_whatsapp.png";
+import classes from "./Contact.module.scss";
 
-function Contactus() {
+function Contact() {
   const dispatch = useDispatch();
   const [data, setData] = useState({
     name: "",
@@ -34,7 +34,7 @@ function Contactus() {
                 src={logosInstagram}
                 alt=""
               />
-              <h1 className={classes.telegramContact__title}>Go To Telegram</h1>
+              <h1 className={classes.telegramContact__title}>Go To Telegram </h1>
             </div>
 
             <div className={classes.whatsappContact}>
@@ -94,4 +94,4 @@ function Contactus() {
   );
 }
 
-export default Contactus;
+export default Contact;

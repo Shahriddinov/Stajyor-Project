@@ -6,6 +6,7 @@ import Cart from '../Freelancer/components/Cart';
 // import Filter from './components/filter/Filter';
 import Filter from 'pages/Company/components/filter/Filter';
 import './talants.scss';
+import Round from 'components/Round/Round';
 
 const Talants = () => {
   const [activeControl, setActiveControl] = useState('best-matches');
@@ -17,7 +18,7 @@ const Talants = () => {
   return (
     <section className='freelancer'>
       <div className='freelancer_container'>
-        <div>
+        <div className='freelancer_talants_container'>
           <form className='freelancer_container_outline'>
             <input
               type='text'
@@ -47,9 +48,9 @@ const Talants = () => {
 
           <Cart />
 
-          {/* <div className='freelancer_container_round'>
+          <div className='freelancer_container_round'>
                     <Round />
-                </div> */}
+                </div>
         </div>
         <Filter />
       </div>

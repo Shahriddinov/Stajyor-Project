@@ -1,5 +1,7 @@
 import Header from "components/Layout/Header/Header";
 import jwt_decode from "jwt-decode";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Navigate,
@@ -26,23 +28,32 @@ function App() {
   const contactsIsSuccess = useSelector(
     (state) => state.companyRegister.contactsIsSuccess
   );
+  const { skillsData, freelancerData } = useSelector(
+    (state) => state.frilanserCardSlice
+  );
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   const freelancer = localStorage.getItem("isResume")
     ? localStorage.getItem("isResume")
     : "welcome";
 
+  let userRole = JSON.parse(localStorage.getItem("userRole"));
   let freelanceOrCompany;
 
-  if (auth) {
-    let decode = jwt_decode(auth);
-    freelanceOrCompany = Object.values(decode).includes("Company")
-      ? "Company"
-      : (freelanceOrCompany = Object.values(decode).includes("Freelancer")
-          ? "Freelancer"
-          : "None");
-  }
+  useEffect(() => {
+    if (auth) {
+      let decode = jwt_decode(auth);
+      if (freelancerData && !userRole) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        freelanceOrCompany = Object.values(decode).includes("Company")
+          ? "Company"
+          : (freelanceOrCompany = Object.values(decode).includes("Freelancer")
+              ? "Freelancer"
+              : "None");
+      }
+    } else {
+    }
+  }, [auth]);
 
   // useLayoutEffect(() => {
   // 	navigate(`/${len}/`)
@@ -63,20 +74,7 @@ function App() {
 
   return (
     <div className="App">
-      {auth === false && (
-        <Routes>
-          {publicRoute.map((route) => (
-            <Route
-              path={`/${len}${route.path}`}
-              element={route.element}
-              key={route.id}
-            />
-          ))}
-          <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
-        </Routes>
-      )}
-      {freelanceOrCompany !== "Company" &&
-      freelanceOrCompany !== "Freelancer" ? (
+      {freelanceOrCompany === "None" ? (
         freelancer === "freelancer" ? (
           <Routes>
             {freelancerResume.map((route) => (
@@ -117,7 +115,7 @@ function App() {
             <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
           </Routes>
         )
-      ) : (
+      ) : auth ? (
         <div
           className={`freelanser-box  ${
             pathname.slice(4) === "contact" || pathname.slice(4) === "about"
@@ -126,32 +124,8 @@ function App() {
           }`}
         >
           <Header />
-          <Routes>
-            {freelancerRouter.map((route) => (
-              <Route
-                path={`/${len}${route.path}`}
-                element={route.element}
-                key={route.id}
-              />
-            ))}
-            <Route
-              path={pathname.slice(0, 4)}
-              element={<Navigate to={`/${len}/jobs`} />}
-            />
-            <Route
-              path={`/${len}/login`}
-              element={<Navigate to={`/${len}/jobs`} />}
-            />
-            <Route
-              path={`/${len}/welcome`}
-              element={<Navigate to={`/${len}/welcome`} />}
-            />
-            <Route
-              path={`/${len}/welcome/create-profile/:resumeId`}
-              element={<Navigate to={`/${len}/jobs`} />}
-            />
-          </Routes>
-          {freelanceOrCompany === true && (
+
+          {userRole === 1 && (
             <Routes>
               {freelancerRouter.map((route) => (
                 <Route
@@ -179,18 +153,15 @@ function App() {
             </Routes>
           )}
 
-          {console.log(freelanceOrCompany)}
-          {freelanceOrCompany === false && (
+          {/* {userRole === 2 && (
             <Routes>
-              {freelancerRouter
-                .slice(0, 4)
-                .map((route) => (
-                  <Route
-                    path={`/${len}${route.path}`}
-                    element={route.element}
-                    key={route.id}
-                  />
-                ))}
+              {freelancerRouter.slice(0, 4).map((route) => (
+                <Route
+                  path={`/${len}${route.path}`}
+                  element={route.element}
+                  key={route.id}
+                />
+              ))}
               <Route
                 path={pathname.slice(0, 4)}
                 element={<Navigate to={`/${len}/talants`} />}
@@ -208,8 +179,19 @@ function App() {
                 element={<Navigate to={`/${len}/talants`} />}
               />
             </Routes>
-          )}
+          )} */}
         </div>
+      ) : (
+        <Routes>
+          {publicRoute.map((route) => (
+            <Route
+              path={`/${len}${route.path}`}
+              element={route.element}
+              key={route.id}
+            />
+          ))}
+          <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
+        </Routes>
       )}
     </div>
   );

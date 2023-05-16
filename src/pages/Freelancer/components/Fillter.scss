@@ -1,4 +1,4 @@
-@import '../../../assets/styles/ui.scss';
+@import "../../../assets/styles/ui.scss";
 .filter {
   padding: 20px;
   background: linear-gradient(
@@ -9,9 +9,10 @@
     #ffffff;
   box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  width: 30%;
 
   &_title {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 700;
     font-size: 22px;
     line-height: 37px;
@@ -22,7 +23,7 @@
   &_text {
     margin-top: 20px;
     margin-bottom: 10px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 600;
     font-size: 15px;
     line-height: 24px;
@@ -60,7 +61,7 @@
     }
 
     & h3 {
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 400;
       font-size: 18px;
       line-height: 22px;
@@ -72,7 +73,7 @@
       width: 100%;
       box-sizing: border-box;
       padding: 15px 20px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 500;
       font-size: 20px;
       line-height: 24px;
@@ -89,7 +90,7 @@
       background: #ffffff;
       border: 1px solid #cdcdcd;
       border-radius: 8px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 500;
       font-size: 20px;
       line-height: 24px;
@@ -98,7 +99,7 @@
       -moz-appearance: none;
       -webkit-appearance: none;
 
-      background-image: url('././../../../assets//images//Freelancer//filter_arrow.svg');
+      background-image: url("././../../../assets//images//Freelancer//filter_arrow.svg");
       background-repeat: no-repeat;
       background-position: 145px center;
       display: flex;
@@ -109,7 +110,7 @@
         background: #ffffff;
         border: 1px solid #cdcdcd;
         border-radius: 8px;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 500;
         font-size: 20px;
         line-height: 24px;
@@ -127,7 +128,7 @@
     background: #ffffff;
     border: 1px solid #cdcdcd;
     border-radius: 8px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 500;
     font-size: 20px;
     line-height: 24px;
@@ -169,7 +170,7 @@ input::-webkit-inner-spin-button {
     border-radius: 12px;
 
     &_title {
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 700;
       font-size: 20px;
       line-height: 30px;
@@ -180,7 +181,7 @@ input::-webkit-inner-spin-button {
     &_text {
       margin-top: 15px;
       margin-bottom: 8px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 600;
       font-size: 15px;
       line-height: 22px;
@@ -200,7 +201,7 @@ input::-webkit-inner-spin-button {
       }
 
       & h3 {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 400;
         font-size: 12px;
         line-height: 18px;
@@ -212,7 +213,7 @@ input::-webkit-inner-spin-button {
         width: 100%;
         box-sizing: border-box;
         padding: 5px 7px;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 500;
         font-size: 14px;
         line-height: 20px;
@@ -228,7 +229,7 @@ input::-webkit-inner-spin-button {
         background: #ffffff;
         border: 1px solid #cdcdcd;
         border-radius: 6px;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 500;
         font-size: 14px;
         line-height: 24px;
@@ -236,7 +237,7 @@ input::-webkit-inner-spin-button {
         padding: 10px 15px;
         -moz-appearance: none;
         -webkit-appearance: none;
-        background-image: url('././../../../assets//images//Freelancer//filter_arrow.svg');
+        background-image: url("././../../../assets//images//Freelancer//filter_arrow.svg");
         background-repeat: no-repeat;
         background-position: 127px center;
         display: flex;
@@ -252,7 +253,7 @@ input::-webkit-inner-spin-button {
       background: #ffffff;
       border: 1px solid #cdcdcd;
       border-radius: 8px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-weight: 500;
       font-size: 14px;
       line-height: 22px;
@@ -283,7 +284,7 @@ input::-webkit-inner-spin-button {
   & button {
     cursor: pointer;
     padding: 10px 20px;
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -307,7 +308,7 @@ input::-webkit-inner-spin-button {
   }
 
   & .mantine-MultiSelect-searchInput {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -325,7 +326,7 @@ input::-webkit-inner-spin-button {
 
   & .mantine-rsiguj,
   .mantine-MultiSelect-defaultValueLabel {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
     font-style: normal;
     font-weight: 500;
     font-size: 16px;

@@ -74,7 +74,7 @@ function App() {
 
   return (
     <div className="App">
-      {freelanceOrCompany === "None" ? (
+      {freelanceOrCompany === "None" || userRole === 0 ? (
         freelancer === "freelancer" ? (
           <Routes>
             {freelancerResume.map((route) => (
@@ -115,7 +115,7 @@ function App() {
             <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
           </Routes>
         )
-      ) : auth ? (
+      ) : auth && !userRole === 0 ? (
         <div
           className={`freelanser-box  ${
             pathname.slice(4) === "contact" || pathname.slice(4) === "about"

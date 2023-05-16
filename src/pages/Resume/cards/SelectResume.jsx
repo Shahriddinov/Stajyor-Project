@@ -76,10 +76,12 @@ function SelectResume() {
       }
     }
     dispatch(Freelancerpost(formdata));
+
     navigate(`/${len}/welcome/create-profile/${resumeId}`);
     const data = new FormData();
     data.append('resume', resumeId);
-    dispatch(resumeSelect(data));
+    console.log(resumeId)
+    dispatch(resumeSelect(data))
   };
 
   const prevPage = () => {

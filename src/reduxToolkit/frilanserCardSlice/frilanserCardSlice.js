@@ -52,7 +52,7 @@ const freelancerSlice = createSlice({
 			state.freelancer.bio = action.payload.bio;
 		},
 		socialStep: (state, action) => {
-			// state.freelancer.contacts = { ...action.payload };
+			state.freelancer.contacts = { ...action.payload };
 			console.log(action.payload);
 		},
 		getSkills: (state, action) => {

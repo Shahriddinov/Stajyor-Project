@@ -189,8 +189,8 @@
       padding-top: 50px;
 
       .backgroundImg {
-        left: -22%;
-        top: -214%;
+        left: -25%;
+        top: -213%;
         width: 620px;
         height: 620px;
       }
@@ -210,14 +210,14 @@
   }
 }
 
-@media only screen and (max-width: 1486px) {
+@media only screen and (max-width: 1496px) {
   .menu {
     &__container {
       padding-top: 50px;
 
       .backgroundImg {
         left: -25%;
-        top: -246%;
+        top: -213%;
         width: 600px;
         height: 600px;
       }
@@ -237,12 +237,12 @@
   }
 }
 
-@media only screen and (max-width: 1398px) {
+@media only screen and (max-width: 1438px) {
   .menu {
     &__container {
       .backgroundImg {
-        left: -33%;
-        top: -267%;
+        left: -28%;
+        top: -243%;
       }
 
       .automative {
@@ -279,14 +279,14 @@
   }
 }
 
-@media only screen and (max-width: 1310px) {
+@media only screen and (max-width: 1360px) {
   .menu {
     &__container {
       .backgroundImg {
         left: -27%;
         width: 550px;
         height: 550px;
-        top: -225%;
+        top: -205%;
       }
       .menu__links {
         & > li {

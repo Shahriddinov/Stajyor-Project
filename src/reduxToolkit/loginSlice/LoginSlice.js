@@ -46,6 +46,9 @@ const logInSlice = createSlice({
       state.loginResponseError = null;
       state.bodyErrors = null;
     },
+    changeRoleWhenFinished: (state, { payload }) => {
+      state.freelancerOrCompony = payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -90,7 +93,7 @@ const logInSlice = createSlice({
     builder.addCase(registerRequest.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error.message;
-      state.bodyErrors = "Passwords are different";
+      state.bodyErrors = "This email is already taken.";
     });
 
     ///////////////////USERROLES REDUCER/////////////////
@@ -162,5 +165,6 @@ export const {
   resumeFinish,
   removeCheckEmail,
   profilLogout,
+  changeRoleWhenFinished,
 } = logInSlice.actions;
 export default logInSlice.reducer;

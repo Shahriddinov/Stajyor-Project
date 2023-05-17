@@ -80,7 +80,7 @@ function Background() {
   }
 
   useEffect(() => {
-    if (innerWidth < 1310) {
+    if (innerWidth < 1350) {
       if (step1) {
         setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
       } else if (step5) {
@@ -96,7 +96,7 @@ function Background() {
   }, [count]);
 
   useEffect(() => {
-    if (innerWidth > 1310) {
+    if (innerWidth > 1350) {
       if (step1) {
         setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
       } else if (step5) {

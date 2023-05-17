@@ -10,6 +10,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
   createCompany,
   createProfileRoute,
@@ -19,8 +20,10 @@ import {
 } from "routes";
 
 function App() {
+  const [userType, setUserType] = useState("");
   const auth = useSelector((state) => state.login.loggedIn);
   const len = useSelector((state) => state.lenguage.lenguage);
+
   const freelancerOrCompony = useSelector(
     (state) => state.login.freelancerOrCompony
   );
@@ -36,22 +39,21 @@ function App() {
   const freelancer = localStorage.getItem("isResume")
     ? localStorage.getItem("isResume")
     : "welcome";
-   let userRole = 1
-   userRole = JSON.parse(localStorage.getItem("userRole"));
-  let freelanceOrCompany;
 
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
-      if (freelancerData && !userRole) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        freelanceOrCompany = Object.values(decode).includes("Company")
-          ? "Company"
-          : (freelanceOrCompany = Object.values(decode).includes("Freelancer")
+      if (!freelancerOrCompony) {
+        dispatch(
+          changeRoleWhenFinished(
+            Object.values(decode).includes("Company")
+              ? "Company"
+              : Object.values(decode).includes("Freelancer")
               ? "Freelancer"
-              : "None");
+              : null
+          )
+        );
       }
-    } else {
     }
   }, [auth]);
 
@@ -74,7 +76,8 @@ function App() {
 
   return (
     <div className="App">
-      {freelanceOrCompany === "None" || userRole === 0 ? (
+      {freelancerOrCompony !== "Company" &&
+      freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (
           <Routes>
             {freelancerResume.map((route) => (
@@ -112,10 +115,10 @@ function App() {
                 key={route.id}
               />
             ))}
-            <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
+            <Route path="*" element={<Navigate to={`/${len}/login`} />} />
           </Routes>
         )
-      ) : auth || !userRole === 0 ? (
+      ) : auth && freelancerOrCompony ? (
         <div
           className={`freelanser-box  ${
             pathname.slice(4) === "contact" || pathname.slice(4) === "about"
@@ -125,7 +128,7 @@ function App() {
         >
           <Header />
 
-          {userRole === 1 && (
+          {freelancerOrCompony === "Freelancer" ? (
             <Routes>
               {freelancerRouter.map((route) => (
                 <Route
@@ -150,10 +153,11 @@ function App() {
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
+              <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
             </Routes>
-          )}
+          ) : null}
 
-          {/* {userRole === 2 && (
+          {/* {freelancerOrCompony === "Company" && (
             <Routes>
               {freelancerRouter.slice(0, 4).map((route) => (
                 <Route

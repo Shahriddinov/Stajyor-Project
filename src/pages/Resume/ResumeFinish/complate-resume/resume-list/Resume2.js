@@ -63,7 +63,7 @@ const Resume2 = (props) => {
                     {props?.address?.regionName}
                     {"  "}
                     {props?.address?.home}
-                    {props?.address.street}
+                    {props?.address?.street}
                   </span>
                 </div>
               </div>

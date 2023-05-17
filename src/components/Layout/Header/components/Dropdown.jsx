@@ -1,35 +1,47 @@
+import React, { useLayoutEffect } from "react";
 import "./Dropdown.scss";
 // import user_img from '../../../../assets/images/header/user.svg'
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+
+
+import arrow_down from "../../../../assets/images/header/down_arrow.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { getFreelancer } from "reduxToolkit/extraReducers";
+import { useSelector, useDispatch } from "react-redux";
 import { profilLogout } from "reduxToolkit/loginSlice/LoginSlice";
+import { getFreelancer } from "reduxToolkit/extraReducers";
 import { UserCircle } from "tabler-icons-react";
+import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 const Dropdown = () => {
-  const { ...freelancer } = useSelector(
-    (state) => state.frilanserCardSlice.freelancer
-  );
+  const auth = useSelector((state) => state.login.loggedIn);
+
   const { t } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const len = useSelector((state) => state.lenguage.lenguage);
   const { data } = useSelector((state) => state.freelance);
-  const { freelancerLoading } = useSelector((state) => state.resume);
+
   const handleClick = () => {
     dispatch(profilLogout());
     navigate(`/${len}/`);
   };
   const info = JSON.parse(localStorage.getItem("info"));
 
+  useLayoutEffect(() => {
+    dispatch(getFreelancer());
+    console.log(info, "qwertyuiop");
+    console.log(data?.data?.firstName);
+    console.log(data?.data?.freelancerImage);
+  }, [dispatch]);
+
   useEffect(() => {
-    if (!freelancerLoading) {
-      let id = localStorage.getItem("freelancerId");
-      dispatch(getFreelancer(id));
+    let decode = jwt_decode(auth);
+    var userId = '104';
+    if (userId) {
+      dispatch(getFreelancer('104'));
     }
-  }, [freelancerLoading]);
+  }, [auth]);
 
   return (
     <>
@@ -54,25 +66,14 @@ const Dropdown = () => {
               />
             </button>
             <div className="dropdown-content">
-              <Link className="dropdown-content__link" to={`/${len}/profile`}>
-                {t("profile")}
-              </Link>
-              <Link
-                className="dropdown-content__link"
-                to={`/${len}/notification`}
-              >
+              <Link to={`/${len}/profile`}>{t("profile")}</Link>
+              <Link to={`/${len}/notification`}>
                 {t("notification")} <span>○</span>
               </Link>
-              <Link className="dropdown-content__link" to={`/${len}/contracts`}>
-                {t("contracts")}
-              </Link>
-              <Link className="dropdown-content__link" to={`/${len}/chat`}>
-                {t("chats")}
-              </Link>
-              <Link className="dropdown-content__link" to={`/${len}/resume`}>
-                {t("resume")}
-              </Link>
-              <button onClick={handleClick}>{t("log out")}</button>
+              <Link to={`/${len}/contracts`}>{t("contracts")}</Link>
+              <Link to={`/${len}/chat`}>{t("chats")}</Link>
+              <Link to={`/${len}/resume`}>{t("resume")}</Link>
+              <button onClick={handleClick}>{t("log_out")}</button>
             </div>
           </div>
         </>

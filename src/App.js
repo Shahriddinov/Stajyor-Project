@@ -2,7 +2,13 @@ import Header from 'components/Layout/Header/Header';
 import jwt_decode from 'jwt-decode';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import { changeRoleWhenFinished } from 'reduxToolkit/loginSlice/LoginSlice';
 import {
   createCompany,

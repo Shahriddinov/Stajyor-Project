@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import sign_logo from "../../../assets/images/Sign/sign_logo.svg";
 import left_arrow from "../../../assets/images/Sign/left_arrow.svg";
 import computer_img from "../../../assets/images/Sign/computer.png";
@@ -8,7 +8,7 @@ import user from "../../../assets/images/Sign/frilancer_user.svg";
 import telegram_icon from "../../../assets/images/Sign/white-telegram.svg";
 import instagram_icon from "../../../assets/images/Sign/white-instagram.svg";
 import facebook_icon from "../../../assets/images/Sign/white-facebook.svg";
-
+import jwt_decode from "jwt-decode";
 import "./Company.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
@@ -17,6 +17,7 @@ import { addToCompany, addToFreelancer } from "reduxToolkit/extraReducers";
 
 const  Company = () => {
 	const navigate = useNavigate()
+	const auth = useSelector((state) => state.login.loggedIn);
 	const len = useSelector(state => state.lenguage.lenguage)
 	const dispatch = useDispatch()
 
@@ -33,6 +34,8 @@ const  Company = () => {
 		dispatch(removeToken())
 		navigate(`/${len}/`)
 	}
+
+	
 	return (
 		<div className="login_company">
 			<div className="login_company_wrapper">

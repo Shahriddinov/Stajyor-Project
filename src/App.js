@@ -43,8 +43,12 @@ function App() {
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
+      console.log(decode)
+      // const secondEntry = Object.entries(obj)[1];
+      // const secondValue = secondEntry[1];
+      console.log( Object.values(decode)[1])
       if (freelancerData && !userRole) {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        
         freelanceOrCompany = Object.values(decode).includes("Company")
           ? "Company"
           : (freelanceOrCompany = Object.values(decode).includes("Freelancer")

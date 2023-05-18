@@ -31,7 +31,7 @@ const 	Login = () => {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-		let userRole = 1
+		let userRole = 0
 		localStorage.setItem('userRole', JSON.stringify(userRole))
 		let payload = {
 			email: email.current.value,

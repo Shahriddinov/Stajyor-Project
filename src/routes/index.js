@@ -51,8 +51,9 @@ export const freelancerRouter = [
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
   { id: 7, path: "/profile", element: <Profile /> },
-  { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
-  { id: 9, path: "/*", element: <NotFound /> },
+  { id:8,  path:"/chat", element:<ChatModal/>},
+  { id:9,  path: "/freelancer-user", element: <UserFreelancer /> },
+  { id:10, path: "/*", element: <NotFound /> },
 ];
 
 export const companyRouter = [

@@ -33,7 +33,7 @@
         gap: 1rem;
 
         h2 {
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-style: italic;
           font-weight: 700;
           font-size: 45px;
@@ -44,7 +44,7 @@
         }
 
         p {
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-weight: 400;
           font-size: 25px;
           line-height: 33px;
@@ -57,7 +57,7 @@
           width: 50%;
           height: 50px;
           color: white;
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-weight: 400;
           font-size: 20px;
           line-height: 20px;
@@ -70,7 +70,27 @@
     }
   }
 }
+@media only screen and (max-width: 1360px) {
+  .page4Box {
+    .page4Box__container {
+      .page4Box__inner {
+        .thousandWorkers {
+          h2 {
+            font-size: 42px;
+          }
 
+          p {
+            font-size: 20px;
+          }
+
+          button {
+            height: 48px;
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-height: 824px) {
   .page4Box {
     .page4Box__container {

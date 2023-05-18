@@ -38,25 +38,6 @@ function Background() {
     };
   }, []);
 
-  useEffect(() => {
-    if (innerWidth < 1398) {
-      if (step1) {
-        setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
-      } else if (step5) {
-        setCustomTransition({ transform: "translateX(65px)", width: "4vw" });
-      } else if (step6) {
-        setCustomTransition({ transform: "translateX(138px)", width: "2.7vw" });
-      } else if (step7) {
-        setCustomTransition({ transform: "translateX(235px)", width: "5.7vw" });
-      } else if (step8) {
-        setCustomTransition({ transform: "translateX(343px)", width: "6.7vw" });
-      }
-    }
-
-    return () => {};
-  }, [innerWidth]);
-
-  console.log(innerWidth);
   let step1 = false,
     step2 = false,
     step3 = false,
@@ -99,16 +80,34 @@ function Background() {
   }
 
   useEffect(() => {
-    if (step1) {
-      setCustomTransition({ transform: "translateX(0)", width: "3.8vw" });
-    } else if (step5) {
-      setCustomTransition({ transform: "translateX(80px)", width: "4.5vw" });
-    } else if (step6) {
-      setCustomTransition({ transform: "translateX(165px)", width: "3.5vw" });
-    } else if (step7) {
-      setCustomTransition({ transform: "translateX(235px)", width: "5.7vw" });
-    } else if (step8) {
-      setCustomTransition({ transform: "translateX(343px)", width: "6.7vw" });
+    if (innerWidth < 1398) {
+      if (step1) {
+        setCustomTransition({ transform: "translateX(0)", width: "50px" });
+      } else if (step5) {
+        setCustomTransition({ transform: "translateX(66px)", width: "60px" });
+      } else if (step6) {
+        setCustomTransition({ transform: "translateX(142px)", width: "44px" });
+      } else if (step7) {
+        setCustomTransition({ transform: "translateX(200px)", width: "75px" });
+      } else if (step8) {
+        setCustomTransition({ transform: "translateX(292px)", width: "88px" });
+      }
+    }
+  }, [count]);
+
+  useEffect(() => {
+    if (innerWidth > 1398) {
+      if (step1) {
+        setCustomTransition({ transform: "translateX(0)", width: "60px" });
+      } else if (step5) {
+        setCustomTransition({ transform: "translateX(80px)", width: "70px" });
+      } else if (step6) {
+        setCustomTransition({ transform: "translateX(169px)", width: "50px" });
+      } else if (step7) {
+        setCustomTransition({ transform: "translateX(235px)", width: "90px" });
+      } else if (step8) {
+        setCustomTransition({ transform: "translateX(343px)", width: "105px" });
+      }
     }
   }, [count]);
 

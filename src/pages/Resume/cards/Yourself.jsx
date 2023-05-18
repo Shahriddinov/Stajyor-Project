@@ -51,13 +51,10 @@ function Yourself() {
     positions: "",
     DateOfBirthString: "",
   });
-  useEffect(
-    () => {
-      dispatch(getPositionsSkillsWithId(skil));
-      dispatch(hobbies());
-    },
-    [skil]
-  );
+  useEffect(() => {
+    dispatch(getPositionsSkillsWithId(skil));
+    dispatch(hobbies());
+  }, [skil]);
 
   if (positionGetLoading && loading) {
     return <b>Loading...</b>;
@@ -103,10 +100,12 @@ function Yourself() {
     value: item.content,
     label: item.content,
   }));
+
   const options = skillsData.map((item) => ({
     value: item.content,
     label: item.content,
   }));
+
   const changeSkill = ({ value, type }) => {
     if (type === "skills") {
       setDatas((prev) => ({
@@ -132,21 +131,15 @@ function Yourself() {
   const handleSelectChange = (skill) => {
     setDownSkills(skill);
   };
-  useEffect(
-    () => {
-      localStorage.setItem("hobbies", JSON.stringify(hobbiesorg));
-    },
-    [hobbiesorg]
-  );
-  useEffect(
-    () => {
-      if (position) {
-        setSkil(position.id);
-        localStorage.setItem("position", JSON.stringify(position));
-      }
-    },
-    [position]
-  );
+  useEffect(() => {
+    localStorage.setItem("hobbies", JSON.stringify(hobbiesorg));
+  }, [hobbiesorg]);
+  useEffect(() => {
+    if (position) {
+      setSkil(position.id);
+      localStorage.setItem("position", JSON.stringify(position));
+    }
+  }, [position]);
 
   useEffect(() => {
     if (freelancer.DateOfBirthString === "") {
@@ -216,7 +209,7 @@ function Yourself() {
         <div>
           <label className="yourselfCard_label">Write down your skills*</label>
           <MultiSelect
-            data={options}
+            data={position ? options : []}
             onChange={handleSelectChange}
             // value={downSkills}
             searchable

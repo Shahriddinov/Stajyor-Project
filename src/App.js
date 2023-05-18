@@ -1,6 +1,6 @@
 import Header from 'components/Layout/Header/Header';
 import jwt_decode from 'jwt-decode';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { changeRoleWhenFinished } from 'reduxToolkit/loginSlice/LoginSlice';
@@ -13,11 +13,9 @@ import {
 } from 'routes';
 
 function App() {
-  const [userType, setUserType] = useState('');
   const auth = useSelector(state => state.login.loggedIn);
   const len = useSelector(state => state.lenguage.lenguage);
-  const [hello, setHello] = useState('');
-  const [hell2o, setHe2llo] = useState('');
+
   const freelancerOrCompony = useSelector(
     state => state.login.freelancerOrCompony,
   );
@@ -68,6 +66,14 @@ function App() {
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    var resumeId = JSON.parse(localStorage.getItem('resumeId'));
+    if (resumeId) {
+      navigate(`/${len}/welcome/create-profile/${resumeId}`);
+    }
+    console.log(resumeId);
+  }, []);
   return (
     <div className='App'>
       {freelancerOrCompony !== 'Company' &&
@@ -143,6 +149,7 @@ function App() {
                 path={`/${len}/welcome`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
+
               <Route
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}

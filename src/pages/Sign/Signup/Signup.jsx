@@ -20,6 +20,7 @@ const Signup = () => {
   const { t } = useTranslation();
   const [passwordEye, setPasswordEye] = useState("password");
   const [passwordEye1, setPasswordEye1] = useState("password");
+  const [passwordError, setPasswordError] = useState(false);
 
   const PasswordFunc = () => {
     setPasswordEye(passwordEye === "password" ? "text" : "password");
@@ -37,9 +38,14 @@ const Signup = () => {
   const { checkEmail, bodyErrors } = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
-  console.log(checkEmail);
+  // console.log(checkEmail);
   const handlerSubmit = (e) => {
     e.preventDefault();
+    if (!(data.password === data.confirmPassword)) {
+      return setPasswordError(true);
+    } else {
+      setPasswordError(false);
+    }
     dispatch(registerRequest(data));
     var dateObj = new Date();
     const monthNames = [
@@ -64,6 +70,7 @@ const Signup = () => {
       `${monthNames[month]} ${day}, ${year}`
     );
   };
+
   return (
     <section className="login">
       <div className="login_container">
@@ -91,11 +98,7 @@ const Signup = () => {
               <input
                 required
                 className={`login_form_inp ${
-                  bodyErrors?.EmailError?.length
-                    ? "register-danger-input "
-                    : bodyErrors
-                      ? "register-success"
-                      : ""
+                  bodyErrors ? "register-danger-input " : "register-success"
                 }`}
                 type="email"
                 placeholder="Email"
@@ -106,19 +109,17 @@ const Signup = () => {
                 }
                 autoComplete="off"
               />
-              {bodyErrors?.EmailError && (
-                <p className="register-danger-text">{bodyErrors?.EmailError}</p>
+              {bodyErrors && (
+                <p className="register-danger-text">{bodyErrors}</p>
               )}
 
               <div style={{ position: "relative" }}>
                 <input
                   required
                   className={`login_form_inp login_form_inp2 ${
-                    bodyErrors?.PasswordError?.length
-                      ? "register-danger-input"
-                      : bodyErrors
-                        ? "register-success"
-                        : ""
+                    passwordError
+                      ? "register-danger-input "
+                      : "register-success"
                   }`}
                   type={passwordEye1}
                   placeholder="Password"
@@ -129,26 +130,29 @@ const Signup = () => {
                   }
                   autoComplete="off"
                 />
+
                 <span className="password_span" onClick={() => PasswordFunc1()}>
                   {passwordEye1 === "password" ? <EyeOff /> : <Eye />}
                 </span>
               </div>
-              {bodyErrors?.PasswordError &&
+              {/* {bodyErrors?.PasswordError &&
                 bodyErrors?.PasswordError?.map((el, i) => (
                   <p className="register-danger-text" key={i + 1}>
                     {i + 1}. {el}
                   </p>
-                ))}
-
+                ))} */}
+              {passwordError ? (
+                <p className="register-danger-text">Password are diffrend</p>
+              ) : (
+                ""
+              )}
               <div style={{ position: "relative" }}>
                 <input
                   required
                   className={`login_form_inp login_form_inp2 ${
-                    bodyErrors?.PasswordConfirmError?.length
-                      ? "register-danger-input"
-                      : bodyErrors
-                        ? "register-success"
-                        : ""
+                    passwordError
+                      ? "register-danger-input "
+                      : "register-success"
                   }`}
                   type={passwordEye}
                   placeholder="Confirm password"
@@ -166,13 +170,17 @@ const Signup = () => {
                   {passwordEye === "password" ? <EyeOff /> : <Eye />}
                 </span>
               </div>
-              {bodyErrors?.PasswordConfirmError &&
+              {/* {bodyErrors?.PasswordConfirmError &&
                 bodyErrors?.PasswordConfirmError?.map((el, i) => (
                   <p className="register-danger-text" key={i + 1}>
                     {i + 1}. {el}
                   </p>
-                ))}
-
+                ))} */}
+              {passwordError ? (
+                <p className="register-danger-text">Password are diffrend</p>
+              ) : (
+                ""
+              )}
               <button className="login_form_btn" type="submit">
                 Continue
               </button>

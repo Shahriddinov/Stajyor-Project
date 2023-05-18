@@ -12,7 +12,7 @@
       position: absolute;
       width: 800px;
       height: 800px;
-      top: -180%;
+      top: -196%;
       left: -25%;
       border-radius: 50%;
       z-index: -1;
@@ -165,7 +165,7 @@
   .menu {
     &__container {
       .backgroundImg {
-        left: -32%;
+        left: -34%;
       }
     }
   }
@@ -189,8 +189,8 @@
       padding-top: 50px;
 
       .backgroundImg {
-        left: -22%;
-        top: -214%;
+        left: -25%;
+        top: -213%;
         width: 620px;
         height: 620px;
       }
@@ -210,14 +210,14 @@
   }
 }
 
-@media only screen and (max-width: 1486px) {
+@media only screen and (max-width: 1496px) {
   .menu {
     &__container {
       padding-top: 50px;
 
       .backgroundImg {
         left: -25%;
-        top: -246%;
+        top: -213%;
         width: 600px;
         height: 600px;
       }
@@ -237,17 +237,17 @@
   }
 }
 
-@media only screen and (max-width: 1398px) {
+@media only screen and (max-width: 1438px) {
   .menu {
     &__container {
       .backgroundImg {
-		left: -33%;
-		top: -267%;
+        left: -28%;
+        top: -243%;
       }
 
       .automative {
-        width: 220px;
-        height: 60px;
+        width: 250px;
+        height: 65px;
       }
 
       .menu__links {
@@ -255,7 +255,7 @@
         cursor: pointer;
 
         & > li {
-          font-size: 14px;
+          //   font-size: 16px;
           line-height: 24px;
         }
       }
@@ -279,48 +279,66 @@
   }
 }
 
-@media only screen and (max-width: 1310px) {
+@media only screen and (max-width: 1360px) {
   .menu {
     &__container {
       .backgroundImg {
         left: -27%;
         width: 550px;
         height: 550px;
-        top: -225%;
+        top: -205%;
       }
       .menu__links {
-        font-size: 14px;
         & > li {
-          font-size: 14px;
+          font-size: 15px;
         }
         .menu__link,
         .active {
-          font-size: 14px;
+          font-size: 15px;
+        }
+      }
+      .menu__buttons {
+        gap: 15px;
+        .menu__signup,
+        .menu__login {
+          font-size: 12px;
         }
       }
     }
   }
 }
-@media only screen and (max-width: 1128px) {
+@media only screen and (max-width: 1260px) {
   .menu {
     &__container {
+      .backgroundImg {
+        // left: -24%;
+        // width: 526px;
+        // height: 550px;
+        // top: -200%;
+      }
       .menu__links {
-        .backgroundImg {
+        & > li {
+          //   font-size: 14px;
         }
-        gap: 22px;
-        cursor: pointer;
-
-        .menu__link {
-          font-size: 10px;
-          &.active {
-            font-size: 12px;
-          }
+        .menu__link,
+        .active {
         }
       }
     }
   }
 }
-
+@media only screen and (max-width: 1150px) {
+  .menu {
+    &__container {
+      .backgroundImg {
+        left: -29%;
+        width: 526px;
+        height: 550px;
+        top: -200%;
+      }
+    }
+  }
+}
 .menu__underline {
   position: absolute;
   top: 58px;
@@ -330,4 +348,7 @@
   border-radius: 8px;
   margin-left: 6.5rem;
   z-index: 0;
+}
+@media only screen and (max-width: 1180px){
+
 }

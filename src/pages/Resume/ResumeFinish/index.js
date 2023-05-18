@@ -19,6 +19,7 @@ import Resume4 from "./complate-resume/resume-list/Resume4";
 import Resume5 from "./complate-resume/resume-list/Resume5";
 import Resume6 from "./complate-resume/resume-list/Resume6";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 
 const ReumeFinish = () => {
   // const resumeDetails = useSelector(state => state.resume.resumeDetails)
@@ -157,9 +158,13 @@ const ReumeFinish = () => {
     );
     localStorage.removeItem("isResume");
     navigate("/");
+    localStorage.setItem("type", "Freelancer");
+    dispatch(changeRoleWhenFinished("Freelancer"));
   };
 
   const handleClick = () => {
+    localStorage.removeItem('resumeId')
+    console.log("back")
     dispatch(
       activeDoteAction([
         { id: 1, label: "Personal information" },
@@ -187,7 +192,7 @@ const ReumeFinish = () => {
                   onClick={handleClick}
                 >
                   <img src={arrowLeft} alt="Arrov left" />
-                  <span>Back</span>
+                  <span >Back</span>
                 </button>
               </div>
               <div className={classes.resume__finish_main}>

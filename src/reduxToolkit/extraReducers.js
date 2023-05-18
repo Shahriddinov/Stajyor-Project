@@ -32,7 +32,8 @@ import {
 	ADD_COMPANY,
 	ADD_LOCATION_COMPANY,
 	ADD_CONTACTS_COMPANY,
-	CONTACTUS
+	CONTACTUS,
+	USERROLES
 } from "./URLS";
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
 /////////////////////////////////////CLAIMS GET///////////////////////
@@ -72,16 +73,16 @@ export const logInRequest = createAsyncThunk("token/logIn", async payload => {
 });
 
 /////////////////////////////////////USERROLES GET///////////////////////
-// export const userRoles = createAsyncThunk("token/roles", async payload => {
-// 	const token = localStorage.getItem("token");
-// 	return axios({
-// 		method: "GET",
-// 		url: USERROLES,
-// 		headers: {
-// 			Authorization: `Bearer ${token}`
-// 		}
-// 	}).then(res => res.data);
-// });
+export const userRoles = createAsyncThunk("token/roles", async payload => {
+	const token = localStorage.getItem("token");
+	return axios({
+		method: "GET",
+		url: USERROLES,
+		headers: {
+			Authorization: `Bearer ${token}`
+		}
+	}).then(res => res.data);
+});
 
 /////////////////////////////////////ADDTOFREELANCER POST///////////////////////
 // export const addToFreelancer = createAsyncThunk("token/addToFreelancer", async payload => {

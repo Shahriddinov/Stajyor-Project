@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getFreelancer } from 'reduxToolkit/extraReducers';
 import { profilLogout } from 'reduxToolkit/loginSlice/LoginSlice';
 import { UserCircle } from 'tabler-icons-react';
+import arrow_down from '../../../../assets/images/header/down_arrow.svg';
 
 const Dropdown = () => {
   const { ...freelancer } = useSelector(

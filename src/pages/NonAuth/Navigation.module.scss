@@ -12,7 +12,7 @@
       position: absolute;
       width: 800px;
       height: 800px;
-      top: -180%;
+      top: -196%;
       left: -25%;
       border-radius: 50%;
       z-index: -1;
@@ -311,10 +311,10 @@
   .menu {
     &__container {
       .backgroundImg {
-        left: -29%;
-        width: 526px;
-        height: 550px;
-        top: -233%;
+        // left: -24%;
+        // width: 526px;
+        // height: 550px;
+        // top: -200%;
       }
       .menu__links {
         & > li {
@@ -327,14 +327,14 @@
     }
   }
 }
-@media only screen and (max-width: 1180px) {
+@media only screen and (max-width: 1150px) {
   .menu {
     &__container {
       .backgroundImg {
-        left: -34%;
+        left: -29%;
         width: 526px;
         height: 550px;
-        top: -237%;
+        top: -200%;
       }
     }
   }
@@ -348,4 +348,7 @@
   border-radius: 8px;
   margin-left: 6.5rem;
   z-index: 0;
+}
+@media only screen and (max-width: 1180px){
+
 }

@@ -6,7 +6,6 @@
   margin: 0 auto;
   display: flex;
   gap: 30px;
-  grid-template-columns: 750px 360px;
   scroll-behavior: smooth;
 }
 
@@ -51,7 +50,7 @@
     justify-content: space-between;
 
     h3 {
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 600;
       font-size: 22px;
@@ -74,7 +73,7 @@
   }
 
   .jobDescription {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 13.5px;
@@ -96,7 +95,7 @@
 
   .jobAdProposals {
     h3 {
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 525;
       font-size: 22px;
@@ -158,7 +157,7 @@
 
       .proposalLeft {
         display: flex;
-        font-family: "Montserrat";
+        font-family: 'Montserrat';
         gap: 15px;
         text-align: center;
 
@@ -260,14 +259,14 @@
   flex-direction: column;
   row-gap: 15px;
   color: #323232;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
 
   h3 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     font-size: 18.5px;
@@ -304,7 +303,7 @@
     }
 
     h3 {
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-style: normal;
       font-weight: 400;
       font-size: 18px;
@@ -327,7 +326,7 @@
   row-gap: 11px;
 
   h3 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -336,7 +335,7 @@
   }
 
   p {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -372,6 +371,7 @@
   outline: 1px solid #1d71b8;
   border-radius: 8px;
   overflow: hidden;
+  // margin-bottom: 20px;
 
   input {
     border: none;
@@ -403,7 +403,7 @@
 
   .menu__link {
     cursor: pointer;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #1d71b8;
@@ -412,7 +412,7 @@
   }
   .active {
     cursor: pointer;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #1d71b8;
@@ -513,8 +513,9 @@
 }
 
 .companyClientJobs {
+  margin-top: 10px;
   h3 {
-    font-family: "Montserrat";
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 525;
     font-size: 22px;
@@ -546,7 +547,7 @@
 
     .companyClientJobLeft {
       display: flex;
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       gap: 15px;
       text-align: center;
 

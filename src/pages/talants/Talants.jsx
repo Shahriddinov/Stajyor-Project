@@ -1,20 +1,13 @@
-import { useState } from 'react';
 import serach_icon from '../../assets/images/Freelancer/serach_inp.svg';
 import '../Freelancer/Freelancer.scss';
 import Cart from '../Freelancer/components/Cart';
 // import Fillter from "../Freelancer/components/Fillter";
 // import Filter from './components/filter/Filter';
+import Round from 'components/Round/Round';
 import Filter from 'pages/Company/components/filter/Filter';
 import './talants.scss';
-import Round from 'components/Round/Round';
 
 const Talants = () => {
-  const [activeControl, setActiveControl] = useState('best-matches');
-  const controlsData = [
-    { id: 1, type: 'best-matches', label: 'Best matches' },
-    { id: 2, type: 'recent', label: 'Recent' },
-    { id: 3, type: 'saved', label: 'Saved' },
-  ];
   return (
     <section className='freelancer'>
       <div className='freelancer_container'>
@@ -30,27 +23,11 @@ const Talants = () => {
             </button>
           </form>
 
-          <ul className='talants__control_list'>
-            {controlsData.map(el => (
-              <li
-                key={el.id}
-                className={`talants__control_item ${
-                  el.type === activeControl
-                    ? 'talants__control_item-active'
-                    : null
-                }`}
-                onClick={() => setActiveControl(el.type)}
-              >
-                {el.label}
-              </li>
-            ))}
-          </ul>
-
           <Cart />
 
           <div className='freelancer_container_round'>
-                    <Round />
-                </div>
+            <Round />
+          </div>
         </div>
         <Filter />
       </div>

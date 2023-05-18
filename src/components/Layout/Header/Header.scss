@@ -1,4 +1,4 @@
-@import '../../../assets/styles/ui.scss';
+@import "../../../assets/styles/ui.scss";
 
 .header {
   padding-top: 80px;
@@ -45,9 +45,11 @@
       }
 
       &_item {
+        padding-bottom: 5px;
+
         & a {
           position: relative;
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-weight: 500;
           font-size: 23px;
           line-height: 28px;
@@ -55,84 +57,33 @@
           transition: 1s;
 
           &:hover:before {
-            content: '';
+            content: "";
             height: 5.5px;
             width: 100%;
             border-radius: 2.5px;
             background: #1d71b8;
             display: block;
             position: absolute;
-            bottom: -5.5px;
+            bottom: -10px;
             // transition: 1s;
           }
         }
         .active:before {
-          content: '';
-          height: 5px;
+          content: "";
+          height: 5.5px;
           width: 100%;
           border-radius: 2.5px;
           background: #1d71b8;
           display: block;
           position: absolute;
-          bottom: -4.5px;
+          bottom: -10px;
         }
       }
     }
   }
 }
 
-@media (max-width: 1700px) {
-  .header {
-    &_wrapper {
-      padding-top: 8px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    &_container {
-      &_list {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 32px;
 
-        &_span {
-          position: absolute;
-          bottom: -3.5px;
-          background-color: #fff;
-          width: 100%;
-          height: 5px;
-          z-index: -1;
-          border-radius: 15px;
-        }
-
-        &_item {
-          & a {
-            position: relative;
-            font-family: 'Montserrat';
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 28px;
-            color: #1d71b8;
-            transition: 1s;
-
-            &:hover:before {
-              content: '';
-              height: 5.5px;
-              width: 100%;
-              border-radius: 2.5px;
-              background: #1d71b8;
-              display: block;
-              position: absolute;
-              bottom: -5.5px;
-              // transition: 1s;
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 @media (max-width: 1440px) {
   .header {
@@ -163,7 +114,7 @@
 
         &_span {
           position: absolute;
-          bottom: 0.5px;
+          bottom: -4.5px;
           background-color: #fff;
           width: 100%;
           height: 5px;
@@ -172,51 +123,14 @@
         }
 
         &_item {
-          padding-bottom: 5px;
-
           & a {
-            position: relative;
-            font-family: 'Montserrat';
-            font-weight: 500;
             font-size: 20px;
-            line-height: 24px;
-            color: #1d71b8;
-            transition: 1s;
 
             &:hover:before {
-              content: '';
-              height: 5.5px;
-              width: 100%;
-              border-radius: 2.5px;
-              background: #1d71b8;
-              display: block;
-              position: absolute;
-              bottom: -5.5px;
-              transition: 1s;
             }
           }
         }
       }
-    }
-  }
-}
-
-@media (min-width: 1333px) {
-  .header_container_bg_logo {
-    width: 274px;
-  }
-  .header_container_list_item a {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 1240px) {
-  .header_container_bg_logo {
-    width: 257px;
-  }
-  .header_container_list {
-    .header_container_list_item {
-      font-size: 15px;
     }
   }
 }
@@ -226,7 +140,17 @@
     width: 257px;
   }
   .header_container_list {
-    .header_container_list_item {
+    .header_container_list_item  a {
+      font-size: 18px;
+    }
+  }
+}
+@media (max-width: 1240px) {
+  .header_container_bg_logo {
+    width: 257px;
+  }
+  .header_container_list {
+    .header_container_list_item a {
       font-size: 15px;
     }
   }

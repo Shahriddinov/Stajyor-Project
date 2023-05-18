@@ -20,7 +20,7 @@ const Jobs = props => {
       <div className={classes.jobAdContainer}>
         <div className={classes.jobAd}>
           <div className={classes.search}>
-            <input type='text' placeholder='Title, keywords' />
+            <input type='text' placeholder='Title, keywords...' />
             <button>
               <HiOutlineSearch size={27} />
             </button>

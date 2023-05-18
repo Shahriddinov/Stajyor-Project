@@ -68,7 +68,7 @@
         }
         .active:before {
           content: '';
-          height: 4px;
+          height: 5px;
           width: 100%;
           border-radius: 2.5px;
           background: #1d71b8;
@@ -173,7 +173,7 @@
         }
 
         &_item {
-          padding-bottom: 10px;
+          padding-bottom: 5px;
 
           & a {
             position: relative;

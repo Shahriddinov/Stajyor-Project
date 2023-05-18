@@ -56,7 +56,13 @@
   color: #323232;
   background: #ffffff;
 }
-
+.button_group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 20px;
+}
 .nextButton {
   border: 1px solid #1d71b8 !important;
 

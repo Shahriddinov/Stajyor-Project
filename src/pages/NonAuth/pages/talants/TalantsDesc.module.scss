@@ -401,10 +401,11 @@
     }
     .namePro {
       h3 {
-        font-size: 15px;
+        font-size: 18px;
       }
       .userPro {
-        font-size: 12px;
+        font-size: 15px;
+		margin-top: 0;
       }
     }
     .talantsCard {
@@ -414,10 +415,10 @@
           .completedJobs,
           .hourRate {
             p {
-              font-size: 12px;
+              font-size: 15px;
             }
             span {
-              font-size: 10px;
+              font-size: 12px;
             }
           }
         }
@@ -427,14 +428,70 @@
               font-size: 11px;
             }
           }
-		  .selectLevel {
-			select,
-			label{
-				font-size: 14px;
-			}
-		  }
+          .selectLevel {
+            select,
+            label {
+              font-size: 14px;
+            }
+          }
         }
       }
     }
   }
 }
+
+@media only screen and (max-width: 1236px) {
+	.talantsDesc {
+	  .talantsCard {
+		.talantsSearch {
+		  .talantsSearchForm {
+			min-height: 45px;
+  
+			button {
+			  img {
+				margin-bottom: -5px;
+			  }
+			}
+		  }
+		}
+	  }
+	  .namePro {
+		h3 {
+		  font-size: 16px;
+		}
+		.userPro {
+		  font-size: 13px;
+		}
+	  }
+	  .talantsCard {
+		.talantsDescItem {
+		  .talantsDescItemHeader {
+			.jobSuccess,
+			.completedJobs,
+			.hourRate {
+			  p {
+				font-size: 13px;
+			  }
+			  span {
+				font-size: 11px;
+			  }
+			}
+		  }
+		  .skills {
+			p {
+			  span {
+				font-size: 12px;
+			  }
+			}
+			.selectLevel {
+			  select,
+			  label {
+				font-size: 14px;
+			  }
+			}
+		  }
+		}
+	  }
+	}
+  }
+  

@@ -45,28 +45,15 @@
       }
 
       &_item {
-        padding-bottom: 3px;
-
         & a {
           position: relative;
           font-family: "Montserrat";
           font-weight: 500;
-          font-size: 20px;
+          font-size: 23px;
           line-height: 28px;
           color: #1d71b8;
           transition: 1s;
-		  text-transform: capitalize;
-          &.active:before {
-            content: "";
-            height: 4px;
-            width: 100%;
-            border-radius: 2.5px;
-            background: #1d71b8;
-            display: block;
-            position: absolute;
-            bottom: -8.5px;
-            transition: 1s;
-          }
+
           &:hover:before {
             content: "";
             height: 4px;
@@ -75,9 +62,20 @@
             background: #1d71b8;
             display: block;
             position: absolute;
-            bottom: -8.5px;
+            bottom: -4.5px;
             transition: 1s;
           }
+        }
+        .active:before {
+          content: "";
+          height: 4px;
+          width: 100%;
+          border-radius: 2.5px;
+          background: #1d71b8;
+          display: block;
+          position: absolute;
+          bottom: -4.5px;
+          transition: 1s;
         }
       }
     }
@@ -114,9 +112,22 @@
             position: relative;
             font-family: "Montserrat";
             font-weight: 500;
+            font-size: 18px;
             line-height: 28px;
             color: #1d71b8;
             transition: 1s;
+
+            &:hover:before {
+              content: "";
+              height: 4px;
+              width: 100%;
+              border-radius: 2.5px;
+              background: #1d71b8;
+              display: block;
+              position: absolute;
+              bottom: -5.5px;
+              transition: 1s;
+            }
           }
         }
       }
@@ -162,19 +173,42 @@
         }
 
         &_item {
-          padding-bottom: 5px;
+          padding-bottom: 10px;
 
           & a {
             position: relative;
             font-family: "Montserrat";
             font-weight: 500;
-            // font-size: 20px;
+            font-size: 20px;
             line-height: 24px;
             color: #1d71b8;
             transition: 1s;
+
+            &:hover:before {
+              content: "";
+              height: 4px;
+              width: 100%;
+              border-radius: 2.5px;
+              background: #1d71b8;
+              display: block;
+              position: absolute;
+              bottom: -5.5px;
+              transition: 1s;
+            }
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1240px) {
+  .header_container_bg_logo {
+    width: 254px;
+  }
+  .header_container_list {
+    .header_container_list_item {
+      font-size: 15px;
     }
   }
 }

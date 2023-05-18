@@ -38,7 +38,7 @@ const Header = () => {
               <NavLink
                 to={`/${len}/jobs`}
                 className={({ isActive, isPending }) =>
-                  isPending ? "pending" : isActive ? "active" : "aaa"
+                  isPending ? "pending" : isActive ? "active" : ""
                 }
               >
                 {t("jobs")}

@@ -69,6 +69,14 @@ body {
   background-position: calc(50% - 580px) -457px;
 }
 
+@media (max-width: 1333px) {
+  .freelanser-box-bg1,
+  .freelanser-box-bg2 {
+    background-repeat: no-repeat;
+    background-position: calc(50% - 580px) -500px;
+  }
+}
+
 .freelanser-box-bg1 {
   background-image: url('../images/blueElip.png');
 }

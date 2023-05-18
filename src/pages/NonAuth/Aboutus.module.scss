@@ -1,5 +1,5 @@
 .aboutus {
-  padding-top: 30px;
+  padding-top: 50px;
   .about__container {
     margin-top: -62px;
     padding: 30px;
@@ -81,14 +81,14 @@
 
 @media only screen and (max-height: 850px) {
   .aboutus {
-    padding-top: 20px;
+    padding-top: 40px;
 
     .about__container {
       padding: 20px;
       height: 480px;
 
       .text {
-        max-height: 400px;
+        max-height: 430px;
       }
     }
   }
@@ -96,7 +96,7 @@
 
 @media only screen and (max-height: 700px) {
   .aboutus {
-    padding-top: 20px;
+    padding-top: 35px;
 
     .about__container {
       height: 506px;
@@ -121,7 +121,7 @@
       height: 426px;
 
       .text {
-        max-height: 312px;
+        max-height: 379px;
         font-size: 15px;
         line-height: 20px;
       }

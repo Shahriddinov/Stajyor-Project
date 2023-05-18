@@ -370,20 +370,23 @@
   grid-template-columns: 1fr 90px;
   background-color: white;
   outline: 1px solid #1d71b8;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
 
   input {
     border: none;
     background-color: transparent;
     font-size: 18px;
-    padding: 0 15px;
+    padding: 0 20px;
   }
 
   button {
-    background-color: #1d71b8;
+    padding: 0px 32px;
+    height: 100%;
+    background: #1d71b8;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    cursor: pointer;
     color: #fff;
   }
 }

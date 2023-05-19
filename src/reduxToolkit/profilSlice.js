@@ -42,7 +42,6 @@ const AllFreelancerSlice = createSlice({
         })
         builder.addCase(allFreelancerData.rejected, (state, action)=> {
             state.loading = true
-            console.log(action);
         })
     }
 })

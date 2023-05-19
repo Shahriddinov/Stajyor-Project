@@ -14,7 +14,6 @@ const Cart = () => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const { AllFreelancerData, loading } = useSelector(state => state.resume);
-  console.log(AllFreelancerData);
   useEffect(() => {
     if (!loading) {
       dispatch(getAllFreelancers());

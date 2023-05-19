@@ -46,7 +46,6 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
-	console.log(payload);
 	return axios({
 		method: "POST",
 		url: REGISTER,
@@ -220,7 +219,6 @@ export const languages = createAsyncThunk("get/languages", async () => {
 
 ///////////////////////////PHOTOUPLOAD POST///////////////////
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
-	// console.log(payload);
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "POST",
@@ -345,7 +343,6 @@ export const experiencePost = createAsyncThunk("post/exsperiencePost", async pay
 ///////////////////////////EXPERIENCEPOST EDIT//////////
 export const experienceEdit = createAsyncThunk("freelancer/exsperienceEdit", async payload => {
 	const token = localStorage.getItem("token");
-	console.log(payload);
 	return axios({
 		method: "PUT",
 		url: EXPERIENCE + "/" + payload.id,
@@ -392,7 +389,6 @@ export const experienceDelete = createAsyncThunk("post/exsperienceDelete", async
 ///////////////////////////EDUCATION POST//////////
 export const educationPost = createAsyncThunk("freelancer/educationPost", async payload => {
 	const token = localStorage.getItem("token");
-	console.log(payload);
 	return axios({
 		method: "POST",
 		url: EDUCATION,

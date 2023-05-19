@@ -38,7 +38,7 @@
 
         p {
           font-weight: 700;
-          font-size: 26px;
+          font-size: 2vw;
           line-height: 37px;
           color: #323232;
           margin-bottom: 10px;
@@ -62,7 +62,7 @@
       //margin: 15px 0 18px;
       //max-height: 502px;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 1.5vw;
       line-height: 24px;
       //text-align: justify;
       color: #323232;
@@ -78,7 +78,15 @@
     }
   }
 }
-
+@media only screen and (min-width: 1500px) {
+  .aboutus {
+    .about__container {
+      .text {
+        font-size: 20px;
+      }
+    }
+  }
+}
 @media only screen and (max-height: 850px) {
   .aboutus {
     padding-top: 40px;
@@ -132,7 +140,6 @@
         .IconsMain {
           p {
             font-weight: 700;
-            font-size: 26px;
           }
 
           .iconsBlock {

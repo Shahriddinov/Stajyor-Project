@@ -53,7 +53,6 @@ const freelancerSlice = createSlice({
 		},
 		socialStep: (state, action) => {
 			state.freelancer.contacts = { ...action.payload };
-			console.log(action.payload);
 		},
 		getSkills: (state, action) => {
 			state.skillsData = action.payload;

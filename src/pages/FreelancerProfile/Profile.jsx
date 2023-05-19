@@ -28,8 +28,7 @@ const Profile = () => {
 
     useEffect(()=> {
 		 dispatch(getFreelancer())
-		 console.log(data?.data?.firstName);
-		 console.log(data?.data?.freelancerImage);
+	
 	},[])
 
     const info = JSON.parse(localStorage.getItem("info"))

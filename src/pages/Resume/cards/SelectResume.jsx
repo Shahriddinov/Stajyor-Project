@@ -66,7 +66,6 @@ function SelectResume() {
     const formdata = new FormData();
     for (const key in freelancer) {
       if (typeof freelancer[key] === 'object' && freelancer[key] !== null) {
-        console.log(freelancer[key]);
         for (const nestedKey in freelancer[key]) {
           formdata.append(`${key}.${nestedKey}`, freelancer[key][nestedKey]);
         }
@@ -79,7 +78,6 @@ function SelectResume() {
     navigate(`/${len}/welcome/create-profile/${resumeId}`);
     const data = new FormData();
     data.append('resume', resumeId);
-    console.log(resumeId)
     localStorage.setItem("resumeId", JSON.stringify(resumeId))
     dispatch(resumeSelect(data))
   };

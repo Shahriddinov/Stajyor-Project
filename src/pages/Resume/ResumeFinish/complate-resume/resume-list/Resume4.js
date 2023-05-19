@@ -2,7 +2,6 @@ import React from "react";
 import whatsUpIcon from "../img/whatsap.svg";
 import instagramIcon from "../img/instagram.svg";
 const Resume4 = ({ phoneNumber, bio, experiences, email,address, freelancerContact, defaultuserImage, educations, freelancerPosition, firstName, lastName }) => {
-	console.log(phoneNumber)
 	return (
 		<>
 			<div className="ComplateResume">

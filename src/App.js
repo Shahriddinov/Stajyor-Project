@@ -78,7 +78,6 @@ function App() {
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
-    console.log(resumeId);
   }, []);
   return (
     <div className="App">
@@ -149,14 +148,14 @@ function App() {
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/about`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
 
-              <Route
+              <Route  
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />

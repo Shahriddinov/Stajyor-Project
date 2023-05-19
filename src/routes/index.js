@@ -8,7 +8,6 @@ import Background from "pages/Resume/Background/Background";
 import ResumeFinish from "pages/Resume/ResumeFinish";
 import Contract from "pages/contract";
 import Contactus from "pages/NonAuth/Contactus";
-import Contact from "pages/Freelancer/components/Contact";
 import Freelancer from "pages/Freelancer/Freelancer";
 import Profile from "pages/FreelancerProfile/Profile";
 import UserFreelancer from "pages/Freelancer/UserFreelancer";
@@ -47,7 +46,7 @@ export const freelancerRouter = [
   { id: 1, path: "/jobs", element: <Jobs /> },
   { id: 2, path: "/talants", element: <Talants /> },
   { id: 3, path: "/about", element: <Aboutus /> },
-  { id: 4, path: "/contacts", element: <Contact /> },
+  { id: 4, path: "/contacts", element: <Contactus /> },
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
   { id: 7, path: "/profile", element: <Profile /> },

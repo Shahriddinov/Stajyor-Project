@@ -4,9 +4,9 @@ import '../Freelancer/Freelancer.scss';
 import Cart from '../Freelancer/components/Cart';
 // import Fillter from "../Freelancer/components/Fillter";
 // import Filter from './components/filter/Filter';
+import Round from 'components/Round/Round';
 import Filter from 'pages/Company/components/filter/Filter';
 import './talants.scss';
-import Round from 'components/Round/Round';
 import { useDispatch, useSelector } from 'react-redux';
 import { filter } from 'lodash';
 import { getAllFreelancers } from 'reduxToolkit/extraReducers';
@@ -75,8 +75,8 @@ const Talants = () => {
           <Cart AllFreelancerData={searchedData}/>
 
           <div className='freelancer_container_round'>
-                    <Round />
-                </div>
+            <Round />
+          </div>
         </div>
         <Filter />
       </div>

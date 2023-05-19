@@ -72,7 +72,7 @@ const Cart = ({AllFreelancerData}) => {
             </div>
           )}
 
-          <Colasible text={freelancer.bio} />
+          <Colasible text={freelancer.bio} freelance={freelancer.lastName} />
 
           <div className='freelancer_cart_skill'>
             <div className='freelancer_cart_skill_skills'>

@@ -72,30 +72,34 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-
+  var userBoolen = false
   const navigate = useNavigate();
-  let decode = jwt_decode(auth);
-  var userUid = Object.values(decode)[1]
   useEffect(() => {
     var resumeId = JSON.parse(localStorage.getItem("resumeId"));
-    var token = localStorage.getItem("token")
-    console.log(userUid)
-    if(token){
-    }
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
-    console.log(resumeId);
-  }, []);
-  const deleteUser=()=>{
-    if(userUid){
-      console.log(userUid)
-      dispatch(deleteUserWithId(userUid))
+    if(auth){
+      let decode = jwt_decode(auth)
+      if(decode){
+        userBoolen = Object.values(decode)[1]
+      }
+    }
+  }, [])
+
+  const handleDelete = ()=>{
+    if(userBoolen){
+      console.log(userBoolen)
+      localStorage.removeItem('token')
+      dispatch(deleteUserWithId(userBoolen))
+    }
+    else{
+      alert("error")
     }
   }
   return (
     <div className="App">
-      <button style={{position:"absolute"}} onClick={deleteUser}>delete user Role</button>
+      <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button>
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

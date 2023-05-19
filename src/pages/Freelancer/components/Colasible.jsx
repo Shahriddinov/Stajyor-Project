@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import arrow from '../../../assets/images/header/down_arrow.svg';
 import './Colasible.scss';
-const Colasible = ({ text }) => {
+const Colasible = ({ text , freelance}) => {
   const [anime, setAnime] = useState(false);
-  console.log(text);
 
   return (
     <div>

@@ -1,179 +1,47 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { socialStep } from "reduxToolkit/frilanserCardSlice/frilanserCardSlice";
-import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
-import cancel from "../../../assets/images/Resume/cancel.png";
-import facebookIcon from "../../../assets/images/Resume/faceBookIcon.png";
-import githubIcon from "../../../assets/images/Resume/githubIcon.png";
-import instagramIcon from "../../../assets/images/Resume/instagramIcon.png";
-import telgramIcon from "../../../assets/images/Resume/telegramIcon.png";
-import twitterIcon from "../../../assets/images/Resume/twitterIcon.png";
-import whatsUppIcon from "../../../assets/images/Resume/whatsUppIcon.png";
+import React from "react";
+import downIcon from "../../../assets/images/Resume/down.png";
 import classes from "./SocialMedia.module.scss";
-import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
-import { useNavigate } from "react-router";
+import telgramIcon from "../../../assets/images/Resume/telegramIcon.png";
+import whatsUppIcon from "../../../assets/images/Resume/whatsUppIcon.png";
+import cancel from "../../../assets/images/Resume/cancel.png";
 
 function SocialMedia() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [data, setData] = useState({
-    website: "",
-    WatsApp: "",
-    Facebook: "",
-    Instagram: "",
-    Telegram: "",
-    GitHub: "",
-    Twitter: "",
-  });
-
-  const [icons, setIcons] = useState([]);
-  const [socials, setSocials] = useState([
-    { icon: whatsUppIcon, name: "WatsApp" },
-    { icon: facebookIcon, name: "Facebook" },
-    { icon: instagramIcon, name: "Instagram" },
-    { icon: telgramIcon, name: "Telegram" },
-    { icon: githubIcon, name: "GitHub" },
-    { icon: twitterIcon, name: "Twitter" },
-  ]);
-
-  const addInputContact = (i, n) => {
-    setIcons([...icons, { icon: i, name: n }]);
-    let filteredSocial = [];
-    for (let i = 0; i < socials.length; i++) {
-      if (socials[i].name !== n) {
-        filteredSocial.push(socials[i]);
-      }
-    }
-    setSocials(filteredSocial);
-  };
-
-  const handleSubmitting = (event) => {
-    event.preventDefault();
-  };
-
-  const removeInput = (name, icon) => {
-    let filteredIcons = [];
-    for (let i = 0; i < icons.length; i++) {
-      if (icons[i].name !== name) {
-        filteredIcons.push(icons[i]);
-      }
-    }
-    setIcons(filteredIcons);
-    setSocials([...socials, { icon: icon, name: name }]);
-  };
-
-  const handleChangeInput = ({ label, value }) => {
-    setData((prev) => ({ ...prev, [label]: value }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(socialStep(data));
-
-    localStorage.removeItem("isResume");
-    navigate("/");
-    localStorage.setItem("type", "Company");
-    // dispatch(changeRoleWhenFinished("Freelancer"));
-  };
-
-  const prevPgae = (event) => {
-    event.preventDefault();
-    dispatch(
-      activeDoteAction([
-        { id: 6, label: "Educations" },
-        { id: 6, type: "education" },
-      ])
-    );
-  };
-
-  return (
-    <div className={classes.socialMedia}>
-      <h2>Contacts</h2>
-      <form
-        action="submit"
-        className={classes.socialForm}
-        onSubmit={handleSubmit}
-      >
-        <div className={classes.forim_content}>
-          <input
-            className={classes.website_input}
-            type="text"
-            placeholder="Provide a link to your website "
-            value={data.website}
-            onChange={(e) =>
-              setData((prev) => ({ ...prev, website: e.target.value }))
-            }
-          />
-          {icons &&
-            icons.map((item) => (
-              <div key={item.name} className={classes.socialInput}>
-                <div className={classes.socialInputIn}>
-                  <input
-                    type="text"
-                    placeholder={`Provide a link to your ${item.name} account`}
-                    value={data[item.name]}
-                    onChange={(e) =>
-                      handleChangeInput({
-                        value: e.target.value,
-                        label: item.name,
-                      })
-                    }
-                  />
-                  <img
-                    className={classes.insideIconImage}
-                    src={item.icon}
-                    alt="Whats app icon"
-                  />
-                </div>
-                <button
-                  className={classes.cancelButton}
-                  onClick={(event) => {
-                    removeInput(item.name, item.icon);
-                    handleSubmitting(event);
-                  }}
-                >
-                  <img
-                    className={classes.cancelButton_img}
-                    src={cancel}
-                    alt="cancel icon"
-                  />
-                </button>
-              </div>
-            ))}
-          <p>Choose in which of these social networks you have an account</p>
-          <div className={classes.socialContainers}>
-            {socials.map((item) => (
-              <div
-                key={item.name}
-                style={{ cursor: "pointer" }}
-                className={classes.socialCard}
-                onClick={() => addInputContact(item.icon, item.name, item.link)}
-              >
-                <img
-                  style={{ width: "40px" }}
-                  src={item.icon}
-                  alt={item.name}
-                />
-                <h4 className={classes.cart_text}>{item.name}</h4>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={classes.button_group}>
-          <button
-            className={classes.backButton}
-            type="button"
-            onClick={prevPgae}
-          >
-            Back
-          </button>
-          <button type="submit" className={classes.nextButton}>
-            Next
-          </button>
-        </div>
-      </form>
-    </div>
-  );
+	const social = [
+		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "Whats app" },
+		{ icon: whatsUppIcon, name: "Whats app" }
+	];
+	return (
+		<div className={classes.socialMedia}>
+			<h2>Contacts</h2>
+			<form action="submit" className={classes.socialForm}>
+				<input type="text" placeholder="Provide a link to your website " />
+				<div className={classes.socialInput}>
+					<div className={classes.socialInputIn}>
+						<p>Provide a link to your whats app account</p>
+						<img src={whatsUppIcon} alt="Whats app icon" />
+					</div>
+					<button>
+						<img src={cancel} alt="cancel icon" />
+					</button>
+				</div>
+				<p>Choose in which of these social networks you have an account</p>
+				<div className={classes.socialContainers}>
+					{social.map(item => (
+						<div className={classes.socialCard}>
+							<img src={item.icon} alt={item.name} />
+							<h4>{item.name}</h4>
+						</div>
+					))}
+				</div>
+				<button className={classes.backButton}>Back</button>
+				<button className={classes.nextButton}>Next</button>
+			</form>
+		</div>
+	);
 }
 
 export default SocialMedia;

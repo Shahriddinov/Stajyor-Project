@@ -17,7 +17,7 @@
 }
 
 .socialMedia p {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -33,7 +33,7 @@
 }
 
 .socialMedia input ::placeholder {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -129,7 +129,7 @@
 }
 
 .socialInputIn p {
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
   font-size: 15px;
@@ -152,7 +152,11 @@
 .cancelButton_img {
   display: inline-block;
 }
-
+.button_group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 @media only screen and (max-width: 1400px) {
   .socialMedia h2 {
     font-size: 24px;
@@ -182,7 +186,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: '100%';
+    width: "100%";
     gap: 20px;
   }
 

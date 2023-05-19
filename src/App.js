@@ -42,18 +42,16 @@ function App() {
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
+      let getRole = Object.values(decode).includes("Company")
+        ? "Company"
+        : Object.values(decode).includes("Freelancer")
+        ? "Freelancer"
+        : false;
+
       if (!freelancerOrCompony) {
-        dispatch(
-          changeRoleWhenFinished(
-            Object.values(decode).includes("Company")
-              ? "Company"
-              : Object.values(decode).includes("Freelancer")
-              ? "Freelancer"
-              : null
-          )
-        );
+        // localStorage.setItem("type", role);
+        dispatch(changeRoleWhenFinished(getRole));
       }
-      console.log(decode);
     }
   }, [auth]);
   // useLayoutEffect(() => {

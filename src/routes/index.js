@@ -15,6 +15,7 @@ import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 import ChatForCompany from "pages/Chat/ChatForCompany";
 import Jobs from "pages/Company/Jobs";
 import ChatModal from "pages/Chat/Modal";
+import ControlFilter from "pages/talants/ControlFilter";
 export const publicRoute = [
   { id: 1, path: "/welcome", element: <PageBackground /> },
   { id: 2, path: "/login", element: <Login /> },
@@ -43,20 +44,24 @@ export const createCompany = [
 ];
 
 export const freelancerRouter = [
-  { id: 1, path: "/jobs", element: <Jobs /> },
+  { id: 1, path: "/jobs", element: <Jobs ControlFilter={ControlFilter} /> },
   { id: 2, path: "/talants", element: <Talants /> },
   { id: 3, path: "/about", element: <Aboutus /> },
   { id: 4, path: "/contacts", element: <Contactus /> },
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
   { id: 7, path: "/profile", element: <Profile /> },
-  { id:8,  path:"/chat", element:<ChatModal/>},
-  { id:9,  path: "/freelancer-user", element: <UserFreelancer /> },
-  { id:10, path: "/*", element: <NotFound /> },
+  { id: 8, path: "/chat", element: <ChatModal /> },
+  { id: 9, path: "/freelancer-user", element: <UserFreelancer /> },
+  { id: 10, path: "/*", element: <NotFound /> },
 ];
 
 export const companyRouter = [
-  { id: 1, path: "/talants", element: <Talants /> },
+  {
+    id: 1,
+    path: "/talants",
+    element: <Talants ControlFilter={ControlFilter} />,
+  },
   { id: 2, path: "/jobs", element: <Jobs /> },
   { id: 3, path: "/about", element: <Aboutus /> },
   { id: 4, path: "/contacts", element: <Contactus /> },

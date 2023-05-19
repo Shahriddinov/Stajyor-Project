@@ -8,7 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getFreelancer } from "reduxToolkit/extraReducers";
-import { profilLogout } from "reduxToolkit/loginSlice/LoginSlice";
+import {
+  changeRoleWhenFinished,
+  profilLogout,
+} from "reduxToolkit/loginSlice/LoginSlice";
 import { UserCircle } from "tabler-icons-react";
 import arrow_down from "../../../../assets/images/header/down_arrow.svg";
 
@@ -23,12 +26,12 @@ const Dropdown = () => {
   const handleClick = () => {
     dispatch(profilLogout());
     navigate(`/${len}/`);
+    dispatch(changeRoleWhenFinished(false));
   };
   const info = JSON.parse(localStorage.getItem("info"));
 
   useLayoutEffect(() => {
     dispatch(getFreelancer());
-   
   }, [dispatch]);
 
   useEffect(() => {

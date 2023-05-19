@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
+  companyRouter,
   createCompany,
   createProfileRoute,
   freelancerResume,
@@ -52,9 +53,9 @@ function App() {
           )
         );
       }
+      console.log(decode);
     }
   }, [auth]);
-
   // useLayoutEffect(() => {
   // 	navigate(`/${len}/`)
   // }, [len, navigate])
@@ -79,6 +80,7 @@ function App() {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
   }, []);
+  console.log(freelancerOrCompony);
   return (
     <div className="App">
       {freelancerOrCompony !== "Company" &&
@@ -155,7 +157,7 @@ function App() {
                 element={<Navigate to={`/${len}/jobs`} />}
               />
 
-              <Route  
+              <Route
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
@@ -163,9 +165,9 @@ function App() {
             </Routes>
           ) : null}
 
-          {/* {freelancerOrCompony === "Company" && (
+          {freelancerOrCompony === "Company" && (
             <Routes>
-              {freelancerRouter.slice(0, 4).map((route) => (
+              {companyRouter.slice(0, 4).map((route) => (
                 <Route
                   path={`/${len}${route.path}`}
                   element={route.element}
@@ -174,22 +176,22 @@ function App() {
               ))}
               <Route
                 path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
-                path={`/${len}/welcome/create-profile/:resumeId`}
-                element={<Navigate to={`/${len}/talants`} />}
+                path={`/${len}/welcome/register-company`}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
             </Routes>
-          )} */}
+          )}
         </div>
       ) : (
         <Routes>

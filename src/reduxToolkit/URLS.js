@@ -35,6 +35,7 @@ export const USERROLES = `${BASE_URL}/UserRoles`;
 // export const ADDTOFREELANCER = `${BASE_URL}/addtofreelancer`;
 // export const ADDTOCOMPANY = `${BASE_URL}/addtocompany`;
 export const FREELANCER = `${BASE_URL}/api/freelancer`;
+export const USER = "http://185.217.131.133:7152/api/user/"
 export const CLAIMS = `${BASE_URL}/CLAIMS`;
 // export const CLAIMS = `${BASE_URL}/CLAIMS`;
 export const SKILLS = `${BASE_URL}/api/skill?position=`;

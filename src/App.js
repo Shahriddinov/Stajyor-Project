@@ -9,6 +9,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { deleteUserWithId } from "reduxToolkit/extraReducers";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
   createCompany,
@@ -73,15 +74,28 @@ function App() {
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
 
   const navigate = useNavigate();
+  let decode = jwt_decode(auth);
+  var userUid = Object.values(decode)[1]
   useEffect(() => {
     var resumeId = JSON.parse(localStorage.getItem("resumeId"));
+    var token = localStorage.getItem("token")
+    console.log(userUid)
+    if(token){
+    }
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
     console.log(resumeId);
   }, []);
+  const deleteUser=()=>{
+    if(userUid){
+      console.log(userUid)
+      dispatch(deleteUserWithId(userUid))
+    }
+  }
   return (
     <div className="App">
+      <button style={{position:"absolute"}} onClick={deleteUser}>delete user Role</button>
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

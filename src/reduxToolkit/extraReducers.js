@@ -33,7 +33,8 @@ import {
 	ADD_LOCATION_COMPANY,
 	ADD_CONTACTS_COMPANY,
 	CONTACTUS,
-	USERROLES
+	USERROLES,
+	USER
 } from "./URLS";
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
 /////////////////////////////////////CLAIMS GET///////////////////////
@@ -130,6 +131,13 @@ export const getAllFreelancers = createAsyncThunk("getAll/freelancer", async()=>
 			"Content-Type": `application/json`,
 		}
 	}).then(res=>res.data)
+})
+
+export const deleteUserWithId = createAsyncThunk("deleteUser", async(userUid)=>{
+return axios({
+	method:"DELETE",
+	url:USER + userUid
+}).then(res=>res.data)
 })
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {

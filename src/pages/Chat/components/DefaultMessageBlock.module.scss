@@ -1,6 +1,6 @@
 .modalMessageAndWrite {
   position: relative;
-  max-width: 700px;
+  // max-width: 700px;
   width: 100%;
   height: 520px;
   box-sizing: border-box;
@@ -68,6 +68,8 @@
       }
 
       button {
+        position: absolute;
+        right: 0;
         border: none;
         background-color: #1d71b8;
         border-radius: 8px 8px 12px 12px;
@@ -77,6 +79,7 @@
         line-height: 14px;
         color: #fff;
         cursor: pointer;
+        height: 100%;
       }
 
       .fileAttach {

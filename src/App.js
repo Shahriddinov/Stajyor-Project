@@ -99,7 +99,7 @@ function App() {
   }
   return (
     <div className="App">
-      <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button>
+      {/* <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button> */}
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

@@ -43,21 +43,19 @@ function App() {
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
+      let getRole = Object.values(decode).includes("Company")
+        ? "Company"
+        : Object.values(decode).includes("Freelancer")
+        ? "Freelancer"
+        : false;
+
       if (!freelancerOrCompony) {
-        dispatch(
-          changeRoleWhenFinished(
-            Object.values(decode).includes("Company")
-              ? "Company"
-              : Object.values(decode).includes("Freelancer")
-              ? "Freelancer"
-              : null
-          )
-        );
+        // localStorage.setItem("type", role);
+        dispatch(changeRoleWhenFinished(getRole));
       }
       
     }
   }, [auth]);
-
   // useLayoutEffect(() => {
   // 	navigate(`/${len}/`)
   // }, [len, navigate])
@@ -176,7 +174,7 @@ function App() {
                 element={<Navigate to={`/${len}/jobs`} />}
               />
 
-              <Route  
+              <Route
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
@@ -195,19 +193,19 @@ function App() {
               ))}
               <Route
                 path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
-                path={`/${len}/welcome/create-profile/:resumeId`}
-                element={<Navigate to={`/${len}/talants`} />}
+                path={`/${len}/welcome/register-company`}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
             </Routes>
           )}

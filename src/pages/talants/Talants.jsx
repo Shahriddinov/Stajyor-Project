@@ -40,10 +40,10 @@ const Talants = () => {
     { id: 3, type: 'saved', label: 'Saved' },
   ];
   return (
-    <section className='freelancer'>
-      <div className='freelancer_container'>
-        <div className='freelancer_talants_container'>
-          <form className='freelancer_container_outline'>
+    <section className="freelancer">
+      <div className="freelancer_container">
+        <div className="freelancer_talants_container">
+          <form className="freelancer_container_outline">
             <input
               type='text'
               placeholder='Title, keywords'
@@ -51,8 +51,9 @@ const Talants = () => {
               // onChange={(e)=> handleChange(e)}
               onChange={e=>setSearched(e.target.value)}
             />
-            <button type='submit' className='freelancer_container_outline_btn'>
-              <img src={serach_icon} alt='search icon' />
+            {ControlFilter ? <ControlFilter /> : ""}
+            <button type="submit" className="freelancer_container_outline_btn">
+              <img src={serach_icon} alt="search icon" />
             </button>
           </form>
 
@@ -74,7 +75,7 @@ const Talants = () => {
 
           <Cart AllFreelancerData={searchedData}/>
 
-          <div className='freelancer_container_round'>
+          <div className="freelancer_container_round">
             <Round />
           </div>
         </div>

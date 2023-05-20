@@ -12,6 +12,7 @@ import {
 import { deleteUserWithId } from "reduxToolkit/extraReducers";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
+  companyRouter,
   createCompany,
   createProfileRoute,
   freelancerResume,
@@ -53,6 +54,7 @@ function App() {
           )
         );
       }
+      
     }
   }, [auth]);
 
@@ -167,14 +169,14 @@ function App() {
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/about`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
 
-              <Route
+              <Route  
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
@@ -182,9 +184,9 @@ function App() {
             </Routes>
           ) : null}
 
-          {/* {freelancerOrCompony === "Company" && (
+          {freelancerOrCompony === "Company" && (
             <Routes>
-              {freelancerRouter.slice(0, 4).map((route) => (
+              {companyRouter.slice(0, 4).map((route) => (
                 <Route
                   path={`/${len}${route.path}`}
                   element={route.element}
@@ -208,7 +210,7 @@ function App() {
                 element={<Navigate to={`/${len}/talants`} />}
               />
             </Routes>
-          )} */}
+          )}
         </div>
       ) : (
         <Routes>

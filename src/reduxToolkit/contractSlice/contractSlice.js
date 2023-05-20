@@ -26,7 +26,6 @@ const contractSlice = createSlice({
         build.addCase(contractCreate.fulfilled, (state,{payload}) => {
             state.contractCreateList = payload
             state.loading = false
-            console.log(payload);
         });
         build.addCase(contractCreate.rejected, (state,action) => {
             state.loading = false

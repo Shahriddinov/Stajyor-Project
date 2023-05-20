@@ -27,7 +27,6 @@ const ReumeFinish = () => {
     (state) => state.frilanserCardSlice.freelancer
   );
   const { freelancerLoading } = useSelector((state) => state.resume);
-  console.log(freelancerLoading);
   const loading = useSelector((state) => state.resume.loading);
   const experiences = useSelector((state) => state.resume.experienceList);
   const { skillsData, freelancerData } = useSelector(
@@ -69,7 +68,6 @@ const ReumeFinish = () => {
     }
   }, [freelancerLoading]);
 
-  //   console.log(freelancerData);
   const routes = [
     {
       id: 1,
@@ -164,7 +162,6 @@ const ReumeFinish = () => {
 
   const handleClick = () => {
     localStorage.removeItem('resumeId')
-    console.log("back")
     dispatch(
       activeDoteAction([
         { id: 1, label: "Personal information" },

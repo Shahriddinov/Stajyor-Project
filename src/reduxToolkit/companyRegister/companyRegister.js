@@ -36,15 +36,12 @@ const companyRegister = createSlice({
     extraReducers: (builder) => {
         builder.addCase(addUser, (state, action) => {
             state.userData = action.payload
-            console.log(state.userData)
         })
         builder.addCase(yourCompany, (state, { payload }) => {
             state.userData = { ...state.userData, ...payload }
-            console.log(state.userData)
         })
         builder.addCase(companyLocation, (state, { payload }) => {
             state.userData = { ...state.userData, ...payload }
-            console.log(state.userData)
         })
         builder.addCase(registerCompany.pending, (state) => {
             state.loading = true
@@ -52,12 +49,10 @@ const companyRegister = createSlice({
         builder.addCase(registerCompany.fulfilled, (state, action) => {
             state.data = action.payload
             state.loading = false
-            console.log(state.data)
         })
         builder.addCase(registerCompany.rejected, (state, action) => {
             state.loading = false
             state.error = action.error.message
-            console.log(state.error)
         })
     }
 })

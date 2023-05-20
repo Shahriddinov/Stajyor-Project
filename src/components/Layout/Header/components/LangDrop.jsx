@@ -16,7 +16,6 @@ const LangDrop = () => {
   const handleClick = value => {
     dispatch(lenguageChange(value));
     i18next.changeLanguage(value);
-    console.log(value);
   };
 
   return (

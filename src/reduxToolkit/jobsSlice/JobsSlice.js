@@ -13,11 +13,9 @@ const jobsSlice = createSlice({
   initialState,
   reducers: {
     filterData: (state, { payload }) => {
-      console.log(payload);
       const { priceFrom, priceTo } = payload;
       if (priceFrom || priceTo) {
         state.filteredData = state.data.filter(({ job }) => {
-          console.log(job.price, job.priceRate);
           if (!priceTo) return +priceFrom <= job.price;
           else return +priceFrom <= job.price && +priceTo >= job.priceRate
         })

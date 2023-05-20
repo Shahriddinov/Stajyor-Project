@@ -51,11 +51,13 @@ const Login = () => {
         <div className="login_container_wrapper">
           {!loggedIn ? (
             <>
-              <img
-                src={sign_logo}
-                className="login_container_wrapper_logo"
-                alt=""
-              />
+              <Link to={`/${len}/welcome`}>
+                <img
+                  src={sign_logo}
+                  className="login_container_wrapper_logo"
+                  alt=""
+                />
+              </Link>
               <form className="login_form" onSubmit={handleSubmit}>
                 <h3 className="login_form_title">Log in</h3>
                 <p className="login_form_info">

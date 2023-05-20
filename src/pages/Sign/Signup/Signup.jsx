@@ -38,7 +38,6 @@ const Signup = () => {
   const { checkEmail, bodyErrors } = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
-  // console.log(checkEmail);
   const handlerSubmit = (e) => {
     e.preventDefault();
     if (!(data.password === data.confirmPassword)) {

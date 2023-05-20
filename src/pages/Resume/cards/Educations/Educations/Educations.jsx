@@ -35,7 +35,6 @@ function Educations() {
     dispatch(educationGet());
   }, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
 
-  console.log(educationList);
 
   const [test, setTest] = useState();
 

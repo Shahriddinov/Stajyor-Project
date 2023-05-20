@@ -56,7 +56,6 @@ function Country() {
   };
 
   const handleSubmit = event => {
-    console.log(data);
     localStorage.setItem('country', JSON.stringify(data));
     localStorage.setItem(
       'activDoteAction',

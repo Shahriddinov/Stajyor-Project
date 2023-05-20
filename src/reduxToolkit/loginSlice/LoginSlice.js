@@ -77,14 +77,13 @@ const logInSlice = createSlice({
       state.loginResponseError = 'Email or password incorrect';
     });
 
-    ///////////////////REGISTER REDUCER/////////////////
+    ///////////////////REGISTER REDUCER////////////////
     builder.addCase(registerRequest.pending, (state, action) => {
       state.loading = true;
     });
     builder.addCase(registerRequest.fulfilled, (state, { payload }) => {
       state.checkEmail = payload;
       state.bodyErrors = payload.errors;
-      console.log(payload.errors);
     });
     builder.addCase(registerRequest.rejected, (state, action) => {
       state.loading = false;

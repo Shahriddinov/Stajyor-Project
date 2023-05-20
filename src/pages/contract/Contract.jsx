@@ -26,7 +26,6 @@ const Contract = () => {
         initialValues,
         onSubmit: values => {
             dispatch(contractCreate(values))
-            console.log(contractCreateList);
         },
         validate,
     })

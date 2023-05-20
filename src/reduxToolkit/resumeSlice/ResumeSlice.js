@@ -80,7 +80,6 @@ const resumeSlice = createSlice({
       state.loading = false;
       state.freelancerId = action.payload.id;
       localStorage.setItem("freelancerId", action.payload.id);
-      console.log(action.payload);
       state.freelancerId = action.payload.id;
       state.freelancerLoading = false;
     });
@@ -108,7 +107,6 @@ const resumeSlice = createSlice({
     //Regions List
     builder.addCase(getCountryList.rejected, (state, action) => {
       state.loading = false;
-      console.log("erorr");
       state.error = action.error.message;
     });
 

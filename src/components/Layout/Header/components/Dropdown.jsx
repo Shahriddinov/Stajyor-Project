@@ -28,9 +28,7 @@ const Dropdown = () => {
 
   useLayoutEffect(() => {
     dispatch(getFreelancer());
-    console.log(info, "qwertyuiop");
-    console.log(data?.data?.firstName);
-    console.log(data?.data?.freelancerImage);
+   
   }, [dispatch]);
 
   useEffect(() => {
@@ -83,11 +81,17 @@ const Dropdown = () => {
                 src={`http://localhost:5000/staticfiles/${data?.data?.freelancerImage}`}
                 style={{ width: "36px", "border-radius": "50%" }}
                 alt="user photos"
+                className="user_photo"
               />
             ) : (
-              <UserCircle size={36} strokeWidth={1.5} color={"#86332d"} />
+              <span className="user_photo">
+                {" "}
+                <UserCircle size={36} strokeWidth={1.5} color={"#86332d"} />
+              </span>
             )}
-            <h4 className="dropdown_title">{data?.data?.firstName}</h4>
+            <h4 className="dropdown_title">
+              {data?.data?.firstName} Abdurashid
+            </h4>
             <img
               src={arrow_down}
               className="header_arrow_img"

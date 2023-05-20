@@ -38,7 +38,7 @@ const Dropdown = () => {
     let decode = jwt_decode(auth);
     var userId = "104";
     if (userId) {
-      dispatch(getFreelancer("104"));
+      // dispatch(getFreelancer("104"));
     }
   }, [auth]);
 

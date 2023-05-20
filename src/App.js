@@ -9,6 +9,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { deleteUserWithId } from "reduxToolkit/extraReducers";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
   companyRouter,
@@ -52,6 +53,7 @@ function App() {
         // localStorage.setItem("type", role);
         dispatch(changeRoleWhenFinished(getRole));
       }
+      
     }
   }, [auth]);
   // useLayoutEffect(() => {
@@ -70,17 +72,34 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-
+  var userBoolen = false
   const navigate = useNavigate();
   useEffect(() => {
     var resumeId = JSON.parse(localStorage.getItem("resumeId"));
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
-  }, []);
-  console.log(freelancerOrCompony);
+    if(auth){
+      let decode = jwt_decode(auth)
+      if(decode){
+        userBoolen = Object.values(decode)[1]
+      }
+    }
+  }, [])
+
+  const handleDelete = ()=>{
+    if(userBoolen){
+      console.log(userBoolen)
+      localStorage.removeItem('token')
+      dispatch(deleteUserWithId(userBoolen))
+    }
+    else{
+      alert("error")
+    }
+  }
   return (
     <div className="App">
+      <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button>
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

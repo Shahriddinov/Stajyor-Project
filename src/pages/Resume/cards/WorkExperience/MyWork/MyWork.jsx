@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { experienceEdit } from 'reduxToolkit/extraReducers';
-import './style.scss';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { experienceEdit, experiencePost } from "reduxToolkit/extraReducers";
+import "./style.scss";
 function MyWork({ removeModal, defaultData }) {
   const {
     companyName,
@@ -25,83 +25,84 @@ function MyWork({ removeModal, defaultData }) {
     currentWorking,
   });
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     e.preventDefault();
-    if (type === 'add') {
-      removeModal(prev => ({ ...prev, experienceAdd: false }));
+    if (type === "add") {
+      removeModal((prev) => ({ ...prev, experienceAdd: false }));
+      dispatch(experiencePost(data));
     } else {
       dispatch(experienceEdit({ data, id }));
       removeModal(false);
     }
   };
 
-  const changePage = e => {
+  const changePage = (e) => {
     e.preventDefault();
     removeModal(false);
   };
 
   return (
-    <div className='mywork'>
-      <div className='mywork__inner'>
+    <div className="mywork">
+      <div className="mywork__inner">
         <form onSubmit={handleClick}>
-          <h2 className='mywork__text'>Work experience</h2>
-          <div className='mywork__content'>
+          <h2 className="mywork__text">Work experience</h2>
+          <div className="mywork__content">
             <input
-              className='mywork__input'
-              type='text'
-              placeholder='Company name'
+              className="mywork__input"
+              type="text"
+              placeholder="Company name"
               value={data.companyName}
-              onChange={e =>
-                setData(prev => ({ ...prev, companyName: e.target.value }))
+              onChange={(e) =>
+                setData((prev) => ({ ...prev, companyName: e.target.value }))
               }
               required
             />
           </div>
 
-          <div className='mywork__content'>
+          <div className="mywork__content">
             <input
-              className='mywork__input'
-              type='text'
-              placeholder='Job'
+              className="mywork__input"
+              type="text"
+              placeholder="Job"
               value={data.job}
-              onChange={e =>
-                setData(prev => ({ ...prev, job: e.target.value }))
+              onChange={(e) =>
+                setData((prev) => ({ ...prev, job: e.target.value }))
               }
               required
             />
           </div>
 
-          <div className='mywork__checkbox'>
+          <div className="mywork__checkbox">
             <input
-              className='mywork__inputCheckbox'
-              type='checkbox'
-              id='checkbox'
+              className="mywork__inputCheckbox"
+              type="checkbox"
+              id="checkbox"
               checked={data.currentWorking}
               onChange={() =>
-                setData(prev => ({
+                setData((prev) => ({
                   ...prev,
                   currentWorking: !prev.currentWorking,
                 }))
               }
             />
-            <label className='mywork__labelCheckbox' htmlFor='checkbox'>
+            <label className="mywork__labelCheckbox" htmlFor="checkbox">
               I am currently working in this role
             </label>
           </div>
 
-          <div className='mywork__wrapper'>
-            <div className='mywork__wrapperDate'>
-              <label className='mywork__label' htmlFor='data'>
+          <div className="mywork__wrapper">
+            <div className="mywork__wrapperDate">
+              <label className="mywork__label" htmlFor="data">
                 Date from
               </label>
               <input
-                value={data.dateFrom ? data.dateFrom.slice(0, 10) : ''}
-                className='mywork__inputDate'
-                type='date'
-                id='data'
-                data-date-format='YYYY:MMMM:DD'
-                onChange={e =>
-                  setData(prev => ({
+                value={data.dateFrom ? data.dateFrom.slice(0, 10) : ""}
+                className="mywork__inputDate"
+                type="date"
+                id="data"
+                data-date-format="YYYY:MMMM:DD"
+                onChange={(e) =>
+                  setData((prev) => ({
                     ...prev,
                     dateFrom: new Date(e.target.value).toISOString(),
                   }))
@@ -110,20 +111,20 @@ function MyWork({ removeModal, defaultData }) {
               />
             </div>
 
-            <div className='mywork__wrapperDate'>
-              <label className='mywork__label' htmlFor='time'>
+            <div className="mywork__wrapperDate">
+              <label className="mywork__label" htmlFor="time">
                 To
               </label>
               {data.currentWorking ? (
                 <input
-                  value={''}
+                  value={""}
                   disabled={true}
-                  className='mywork__inputDate'
-                  type='date'
-                  id='time'
-                  data-date-format='YYYY:MMMM:DD'
-                  onChange={e =>
-                    setData(prev => ({
+                  className="mywork__inputDate"
+                  type="date"
+                  id="time"
+                  data-date-format="YYYY:MMMM:DD"
+                  onChange={(e) =>
+                    setData((prev) => ({
                       ...prev,
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
@@ -133,12 +134,12 @@ function MyWork({ removeModal, defaultData }) {
                 <input
                   disabled={false}
                   value={data.dateTo.slice(0, 10)}
-                  className='mywork__inputDate'
-                  type='date'
-                  id='time'
-                  data-date-format='YYYY:MMMM:DD'
-                  onChange={e =>
-                    setData(prev => ({
+                  className="mywork__inputDate"
+                  type="date"
+                  id="time"
+                  data-date-format="YYYY:MMMM:DD"
+                  onChange={(e) =>
+                    setData((prev) => ({
                       ...prev,
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
@@ -149,22 +150,22 @@ function MyWork({ removeModal, defaultData }) {
             </div>
           </div>
 
-          <div className='mywork__descriptionWrapper'>
+          <div className="mywork__descriptionWrapper">
             <textarea
-              className='mywork__description'
-              placeholder='Description'
+              className="mywork__description"
+              placeholder="Description"
               value={data.description}
-              onChange={e =>
-                setData(prev => ({ ...prev, description: e.target.value }))
+              onChange={(e) =>
+                setData((prev) => ({ ...prev, description: e.target.value }))
               }
             ></textarea>
           </div>
 
-          <div className='mywork__button'>
-            <button type='button' className='mywork__back' onClick={changePage}>
+          <div className="mywork__button">
+            <button type="button" className="mywork__back" onClick={changePage}>
               Cancel
             </button>
-            <button type='submit' className='mywork__next'>
+            <button type="submit" className="mywork__next">
               Save
             </button>
           </div>

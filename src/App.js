@@ -53,7 +53,6 @@ function App() {
         // localStorage.setItem("type", role);
         dispatch(changeRoleWhenFinished(getRole));
       }
-      
     }
   }, [auth]);
   // useLayoutEffect(() => {
@@ -72,34 +71,33 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-  var userBoolen = false
+  var userBoolen = false;
   const navigate = useNavigate();
   useEffect(() => {
     var resumeId = JSON.parse(localStorage.getItem("resumeId"));
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
-    if(auth){
-      let decode = jwt_decode(auth)
-      if(decode){
-        userBoolen = Object.values(decode)[1]
+    if (auth) {
+      let decode = jwt_decode(auth);
+      if (decode) {
+        userBoolen = Object.values(decode)[1];
       }
     }
-  }, [])
+  }, []);
 
-  const handleDelete = ()=>{
-    if(userBoolen){
-      console.log(userBoolen)
-      localStorage.removeItem('token')
-      dispatch(deleteUserWithId(userBoolen))
+  const handleDelete = () => {
+    if (userBoolen) {
+      console.log(userBoolen);
+      localStorage.removeItem("token");
+      dispatch(deleteUserWithId(userBoolen));
+    } else {
+      alert("error");
     }
-    else{
-      alert("error")
-    }
-  }
+  };
   return (
     <div className="App">
-      <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button>
+      {/* <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button> */}
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

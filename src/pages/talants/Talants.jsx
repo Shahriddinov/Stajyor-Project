@@ -29,17 +29,12 @@ const Talants = ({ ControlFilter }) => {
     }
   }, [AllFreelancerData, searched]);
 
-  console.log(searchedData);
   useEffect(() => {
     if (!loading) {
       dispatch(getAllFreelancers());
     }
   }, []);
-  const controlsData = [
-    { id: 1, type: "best-matches", label: "Best matches" },
-    { id: 2, type: "recent", label: "Recent" },
-    { id: 3, type: "saved", label: "Saved" },
-  ];
+
   return (
     <section className="freelancer">
       <div className="freelancer_container">

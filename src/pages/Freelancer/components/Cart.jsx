@@ -14,7 +14,6 @@ const Cart = ({AllFreelancerData}) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const {loading} = useSelector(state => state.resume);
-  console.log(AllFreelancerData)
   useEffect(() => {
     if (!loading) {
       dispatch(getAllFreelancers())
@@ -23,7 +22,7 @@ const Cart = ({AllFreelancerData}) => {
   return (
     <div className='freelancer_cart'>
       {AllFreelancerData?.map(freelancer => (
-        <div className='freelancer_cart-item'>
+        <div className='freelancer_cart-item' key={freelancer.id}>
           <ul className='freelancer_cart_list'>
             <li className='freelancer_cart_list_item freelancer_cart_list_item1'>
               <img src={user_img} alt='' />

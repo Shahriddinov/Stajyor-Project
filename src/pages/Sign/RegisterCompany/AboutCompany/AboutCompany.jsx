@@ -71,13 +71,13 @@ export const AboutCompany = () => {
   return (
     <div className={classes.aboutCompany}>
       <h2 className={classes.aboutCompany__title}>
-        {t("aboutYourCompanyTitle")}
+        {t("About your company")}
       </h2>
       <p className={classes.aboutCompany__descr}>
-        {t("aboutYourCompanyDescription")}
+        {t("Write down some more information about your company")}
       </p>
       <h3 className={classes.aboutCompany__locationTitle}>
-        {t("location")}
+        {t("Location")}
       </h3>
       <div className={classes.aboutCompany__locationInput}>
         <input
@@ -104,12 +104,12 @@ export const AboutCompany = () => {
         )
       })}
       <div className={classes.aboutCompany__descrInput}>
-        <h3>{t("locationDescriptionTitle")}</h3>
+        <h3>{t("Description")}</h3>
         <textarea
           value={aboutCompany.description}
           onChange={(e) => handleTextarea({ type: 'description', value: e.target.value })}
           type="text"
-          placeholder={t("locationDescriptionInput")}
+          placeholder={t("Write what your company do ")}
           required
         />
       </div>

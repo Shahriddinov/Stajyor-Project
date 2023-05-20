@@ -50,7 +50,6 @@ function App() {
         : false;
 
       if (!freelancerOrCompony) {
-        // localStorage.setItem("type", role);
         dispatch(changeRoleWhenFinished(getRole));
       }
     }
@@ -97,7 +96,6 @@ function App() {
   };
   return (
     <div className="App">
-      {/* <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button> */}
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (

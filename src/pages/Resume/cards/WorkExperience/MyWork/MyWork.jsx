@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { experienceEdit } from 'reduxToolkit/extraReducers';
+import { experienceEdit, experiencePost } from 'reduxToolkit/extraReducers';
 import './style.scss';
 function MyWork({ removeModal, defaultData }) {
   const {
@@ -28,6 +28,7 @@ function MyWork({ removeModal, defaultData }) {
   const handleClick = e => {
     e.preventDefault();
     if (type === 'add') {
+      dispatch(experiencePost(data));
       removeModal(prev => ({ ...prev, experienceAdd: false }));
     } else {
       dispatch(experienceEdit({ data, id }));
@@ -39,6 +40,8 @@ function MyWork({ removeModal, defaultData }) {
     e.preventDefault();
     removeModal(false);
   };
+
+  console.log(data);
 
   return (
     <div className='mywork'>

@@ -20,7 +20,7 @@
 }
 
 .centered {
-  background: #F5F5F7;
+  background: #f5f5f7;
   max-width: 80vw;
   width: 100%;
   position: relative;
@@ -32,8 +32,8 @@
   z-index: 10;
   border-radius: 12px 0px 12px 12px;
   background: #fcfcfc;
-  padding: 5px 5px 0 5px;
-  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .15);
+  padding: 10px 10px 0 15px;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.15);
 }
 
 .closeBtnCon {
@@ -43,7 +43,6 @@
   background: #fcfcfc;
   right: -84px;
   top: 0;
-
 }
 
 .closeBtn {
@@ -65,11 +64,10 @@
   justify-content: space-around;
   gap: 10px;
 
-
   /*------------Left ------------*/
   .modalChatUsers {
-    margin-top: 18px;
-
+    margin-top: 10px;
+    width: 40%;
     /*--------------------Search--------------*/
     .modalChatUsersSearch {
       form {
@@ -122,32 +120,39 @@
           justify-content: space-between;
           border-bottom: 1px solid #cdcdcd;
           cursor: pointer;
-
-          .userNameDescription {
-            display: grid;
-            margin-left: 15px;
-
-            .userName {
-              font-family: "Montserrat";
-              font-weight: 700;
-              font-size: 15px;
-              line-height: 12px;
-              color: #323232;
-              margin-bottom: 3px;
+          .userInfo {
+            display: flex;
+            align-items: center;
+            .userLogo {
+              width: 50px;
+              border-radius: 50px;
             }
+            .userNameDescription {
+              display: grid;
+              margin-left: 15px;
 
-            .userDescription {
-              font-family: "Montserrat";
-              font-weight: 400;
-              font-size: 16px;
-              line-height: 14px;
-              margin-top: 4px;
-              color: #323232;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-line-clamp: 1;
-              -webkit-box-orient: vertical;
+              .userName {
+                font-family: "Montserrat";
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 12px;
+                color: #323232;
+                margin-bottom: 3px;
+              }
+
+              .userDescription {
+                font-family: "Montserrat";
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 14px;
+                margin-top: 4px;
+                color: #323232;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+              }
             }
           }
 
@@ -169,7 +174,25 @@
 
           &:hover {
             transition: 0.3ms ease-in;
-            background: linear-gradient(101.5deg, rgba(255, 255, 255, 0.2) 0%, rgba(29, 113, 184, 0.2) 100%), #FFFFFF;
+            background: linear-gradient(
+                101.5deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(29, 113, 184, 0.2) 100%
+              ),
+              #ffffff;
+          }
+          &.active {
+            background: #1d71b8;
+            .userInfo {
+              .userName {
+                color: #fff;
+              }
+            }
+            .userActiveTime {
+              .userTime {
+                color: #fff;
+              }
+            }
           }
         }
       }
@@ -179,8 +202,8 @@
   /*---------Right------------*/
   .modalChatContent {
     max-width: 795px;
-    width: 100%;
-    margin: 1rem auto;
+    width: 90%;
+    margin: 10px auto;
     overflow: hidden;
 
     .modalChatContentHeader {
@@ -194,10 +217,10 @@
         display: flex;
         align-items: center;
         line-height: 18px;
+        margin-bottom: 5px;
 
         .userLogo {
-          width: 60px;
-          margin-bottom: 5px;
+          width: 45px;
         }
 
         .userNameAndStatus {
@@ -219,14 +242,14 @@
             font-size: 14px;
             line-height: 12px;
             font-family: "Montserrat";
+            display: block;
             color: #323232;
           }
         }
-
       }
 
       .threeDots {
-        margin-bottom: 18px;
+        margin-bottom: 10px;
         font-size: 26px;
         color: #323232;
         line-height: 18px;
@@ -238,23 +261,20 @@
           transition: 0.3ms ease-in-out;
         }
       }
-
     }
 
     .modalMessageContainer {
       width: 100%;
-      height: 92.5%;
+      height: 100%;
       overflow: hidden;
       scroll-behavior: smooth;
     }
   }
 }
 
-
 ::-webkit-scrollbar {
   width: 6px;
 }
-
 
 ::-webkit-scrollbar-track {
   border-radius: 4px;
@@ -265,4 +285,11 @@
 ::-webkit-scrollbar-thumb {
   background: #1d71b8;
   border-radius: 8px;
+}
+
+
+@media (min-width: 1600px){
+  .centered{
+    max-width: 1350px;
+  }
 }

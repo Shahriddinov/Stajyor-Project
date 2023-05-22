@@ -85,6 +85,8 @@ function App() {
     }
   }, []);
 
+  console.log(auth);
+
   const handleDelete = () => {
     if (userBoolen) {
       console.log(userBoolen);

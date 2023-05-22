@@ -1,21 +1,22 @@
 import { useSelector } from 'react-redux';
 
-const Resume2 = ({
-  firstName,
-  phoneNumber,
-  bio,
-  experiences,
-  email,
-  freelancerHobbies,
-  defaultuserImage,
-  educations,
-  freelancerPosition,
-  lastName,
-  address,
-  userLanguages,
-  birthday,
-}) => {
+const Resume2 = props => {
   const { loading } = useSelector(state => state.resume);
+  const {
+    firstName,
+    phoneNumber,
+    bio,
+    experiences,
+    email,
+    freelancerHobbies,
+    defaultuserImage,
+    educations,
+    freelancerPosition,
+    lastName,
+    address,
+    userLanguages,
+    birthday,
+  } = props;
 
   return (
     <>
@@ -24,15 +25,15 @@ const Resume2 = ({
           <div className='resume2_2-top'>
             <div className='resume2_2-top-left'>
               <div className='resume2_2-top-left-img'>
-                <img src={defaultuserImage} alt={firstName} />
+                <img src={props?.defaultuserImage} alt={props?.firstName} />
               </div>
             </div>
 
             <div className='resume2_2-top-right'>
               <div className='resume2_2-top-right-fullname'>
-                <span className='top-right-fullname'>{firstName}</span>
+                <span className='top-right-fullname'>{props?.firstName}</span>
                 <br />
-                <span className='top-right-fullname'>{lastName}</span>
+                <span className='top-right-fullname'>{props?.lastName}</span>
                 <br />
                 <span className='top-right-job'>
                   Frontend developer
@@ -44,25 +45,25 @@ const Resume2 = ({
                 <div>
                   <span className='resume2_2-contact-title'>phone:</span>
                   <br />
-                  {phoneNumber}
+                  {props?.phoneNumber}
                 </div>
 
                 <div>
                   <span className='resume2_2-contact-title'>email:</span>
                   <br />
-                  {email}
+                  {props?.email}
                 </div>
 
                 <div>
                   <span className='resume2_2-contact-title'>adress:</span>
                   <br />
                   <span>
-                    {address?.countryName}
+                    {props?.address?.countryName}
                     {'  '}
-                    {address?.regionName}
+                    {props?.address?.regionName}
                     {'  '}
-                    {address?.home}
-                    {address?.street}
+                    {props?.address?.home}
+                    {props?.address?.street}
                   </span>
                 </div>
               </div>

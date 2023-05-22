@@ -61,12 +61,12 @@ export const YourCompany = () => {
       {loading
         ? <h2>{t("loading")}</h2>
         : <div className={classes.yourCompany}>
-          <h3>{t("yourCompany")}</h3>
+          <h3>{t("Your company")}</h3>
           <div className={classes.yourCompany__addImage} onChange={onImageChange}>
             {!isUpload && (
               <>
                 <img src={imgUpload} alt="" onClick={() => fileInput.current.click()} />
-                <h4>{t("addCompanyPhoto")}</h4>
+                <h4>{t("Add your company photo")}</h4>
               </>
             )}
             {isUpload && (
@@ -83,26 +83,26 @@ export const YourCompany = () => {
             />
           </div>
           <div className={classes.yourCompany__nameInput}>
-            <h4>{t("companyName")}</h4>
+            <h4>{t("Company name")}</h4>
             <input
               type="text"
-              placeholder={t("companyNameInput")}
+              placeholder={t("Name your company")}
               ref={name}
               required
             />
           </div>
           <div className={classes.yourCompany__numberInput}>
-            <h4>{t("number")}</h4>
+            <h4>{t("Number")}</h4>
             <input
               type="number"
-              placeholder={t("companyPhoneNumberInput")}
+              placeholder={t("Company phone number")}
               ref={phoneNumber}
               required
             />
           </div>
           <div className={classes.yourCompany__buttons}>
-            <button className={classes.yourCompany__buttonsPrev} onClick={handleBack}>{t("back")}</button>
-            <button className={classes.yourCompany__buttonsNext} onClick={handleSubmit}>{t("next")}</button>
+            <button className={classes.yourCompany__buttonsPrev} onClick={handleBack}>{t("Back")}</button>
+            <button className={classes.yourCompany__buttonsNext} onClick={handleSubmit}>{t("Next")}</button>
           </div>
         </div>
       }

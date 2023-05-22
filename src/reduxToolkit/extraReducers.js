@@ -125,7 +125,7 @@ export const getFreelancer = createAsyncThunk("freelancer/freelancerGet", async 
 export const getAllFreelancers = createAsyncThunk("getAll/freelancer", async()=>{
 	return axios({
 		method:"GET",
-		url:FREELANCER,
+		url:FREELANCER,	
 		headers:{
 			"Content-Type": `application/json`,
 		}

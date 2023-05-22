@@ -106,23 +106,25 @@ function ChatModal({ setIsOpen }) {
                   <div className={classes.box}>
                     {filteredTalents.map((user, index) => (
                       <div className={classes.userBlock} key={index} id={index}>
-                        <img src={user.userImage} alt="User logo" />
-                        <div className={classes.userNameDescription}>
-                          <span className={classes.userName}>
-                            {user.userName} <img src={checkImg} alt="Check" />
-                          </span>
-                          <span className={classes.userDescription}>
-                            {user.description}
-                          </span>
-                        </div>
-                        <div className={classes.userActiveTime}>
-                          <span className={classes.userTime}>
-                            {userActiveTime}
-                          </span>
-                          <span>
-                            <img src={check} alt="Check" />
-                            {isRead && <img src={circle} alt="Check" />}
-                          </span>
+                        <div className={classes.userInfo}>
+                          <img src={user.userImage} alt="User logo" />
+                          <div className={classes.userNameDescription}>
+                            <span className={classes.userName}>
+                              {user.userName} <img src={checkImg} alt="Check" />
+                            </span>
+                            <span className={classes.userDescription}>
+                              {user.description}
+                            </span>
+                          </div>
+                          <div className={classes.userActiveTime}>
+                            <span className={classes.userTime}>
+                              {userActiveTime}
+                            </span>
+                            <span>
+                              <img src={check} alt="Check" />
+                              {isRead && <img src={circle} alt="Check" />}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     ))}

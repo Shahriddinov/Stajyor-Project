@@ -1,56 +1,35 @@
-/* eslint-disable jsx-a11y/alt-text */
-import React from 'react';
-import { resumeTriple } from '../../../../../assets/images/index';
-import letter from '../img/letter.svg';
-import loc from '../img/location.svg';
-import phone from '../img/phone.svg';
+import whatsUpIcon from "../img/whatsap.svg";
 
-const Resume6 = props => {
-  const {
-    phoneNumber,
-    bio,
-    experiences,
-    email,
-    freelancerContact,
-    defaultuserImage,
-    educations,
-    freelancerPosition,
-    freelancerHobbies,
-    firstName,
-    lastName,
-    address,
-    userLanguages,
-  } = props;
-  return (
-    <>
-      <div className='ComplateResume'>
-        <div className='resume2_6 resume-watch'>
-          <div className='resume2_6-top'>
-            <div className='resume2_6-top-left'>
-              <div className='resume2_6-top-left-name'>
-                <p className='resume2_6-top-left-user-name'>
-                  {firstName} {lastName}
-                </p>
-                <p className='resume2_6-top-left-user-job'>
-                  {freelancerPosition?.name}
-                </p>
-              </div>
-
-              <div className='resume2_6-top-left-user-contact'>
-                <p className={'subTitle'}>
-                  <img src={phone} alt={phone} />
-                  {phoneNumber}
-                </p>
-                <p className={'subTitle'}>
-                  <img src={letter} alt={email} />
-                  {email}
-                </p>
-                <p className={'subTitle'}>
-                  <img src={loc} alt={loc} />
-                  {address?.countryName} {address?.regionName} {address?.home}
-                </p>
-              </div>
-            </div>
+const Resume5 = ({
+	phoneNumber,
+	bio,
+	experiences,
+	email,
+	address,
+	freelancerContact,
+	freelancerHobbies,
+	defaultuserImage,
+	educations,
+	freelancerPosition,
+	firstName,
+	lastName
+}) => {
+	return (
+		<>
+			<div className="ComplateResume">
+				<div className="resume2_5 resume-watch">
+					<div className="resume2_5__top-contents">
+						<div className="resume2_5-top-left">
+							<div className="resume2_5-top-left-name">
+								<span className="resume2_5-firstname">{firstName} </span>
+								<br />
+								<span className="resume2_5-lastname">{lastName} </span>
+								<p className="resume2_5-job">Frontend devoloper</p>
+								<div className="resume2_5-top-left-contact">
+									<div className="resume2_5-top-left-contact-item">
+										<p>Phone</p>
+										<span>{phoneNumber}</span>
+									</div>
 
             <div className='resume2_6-top-right'>
               <img className='resume2_6-top-right-img' src={defaultuserImage} />

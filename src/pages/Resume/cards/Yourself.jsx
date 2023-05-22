@@ -135,6 +135,7 @@ function Yourself() {
   useEffect(() => {
     localStorage.setItem("hobbies", JSON.stringify(hobbiesorg));
   }, [hobbiesorg]);
+  
   useEffect(() => {
     if (position) {
       setSkil(position.id);
@@ -170,6 +171,7 @@ function Yourself() {
       setDownSkills(skillData);
     }
   }, []);
+
   return (
     <div className="yourselfCard">
       <h2 className="yourselfCard_title">Write little about yourself</h2>

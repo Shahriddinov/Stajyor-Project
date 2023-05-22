@@ -130,7 +130,7 @@ export const ContactsCompany = () => {
         <h2>{t("loading")}</h2>
       ) : (
         <div className={classes.socialMedia}>
-          <h2>{t("contactsCompany")}</h2>
+          <h2>{t("Contacts")}</h2>
           <form
             action="submit"
             className={classes.socialForm}
@@ -140,7 +140,7 @@ export const ContactsCompany = () => {
               <input
                 className={classes.webSite_input}
                 type="text"
-                placeholder={t("contactsCompanyInput")}
+                placeholder={t("Provide a link to your website ")}
                 value={data.webSite}
                 onChange={(e) =>
                   setData((prev) => ({ ...prev, webSite: e.target.value }))
@@ -152,7 +152,7 @@ export const ContactsCompany = () => {
                     <div className={classes.socialInputIn}>
                       <input
                         type="url"
-                        placeholder={`${t("contactsCompanyInput2")} ${
+                        placeholder={`${t("Provide a link to your website ")} ${
                           item.name
                         } ${t("account")}`}
                         value={data[item.name]}
@@ -184,7 +184,7 @@ export const ContactsCompany = () => {
                     </button>
                   </div>
                 ))}
-              <p>{t("contactsCompanyDescription")}</p>
+              <p>{t("Choose in which of these social networks you have a company account")}</p>
               <div className={classes.socialContainers}>
                 {socials.map((item) => (
                   <div

@@ -6,36 +6,6 @@ import loc from "../img/location.svg";
 import phone from "../img/phone.svg";
 
 const Resume6 = ({
-<<<<<<< HEAD
-  phoneNumber,
-  bio,
-  experiences,
-  email,
-  freelancerContact,
-  defaultuserImage,
-  educations,
-  freelancerPosition,
-  freelancerHobbies,
-  firstName,
-  lastName,
-  address,
-  userLanguages,
-}) => {
-  return (
-    <>
-      <div className='ComplateResume'>
-        <div className='resume2_6 resume-watch'>
-          <div className='resume2_6-top'>
-            <div className='resume2_6-top-left'>
-              <div className='resume2_6-top-left-name'>
-                <p className='resume2_6-top-left-user-name'>
-                  {firstName} {lastName}
-                </p>
-                <p className='resume2_6-top-left-user-job'>
-                  {freelancerPosition?.name}
-                </p>
-              </div>
-=======
 	phoneNumber,
 	bio,
 	experiences,
@@ -62,7 +32,6 @@ const Resume6 = ({
 								</p>
 								<p className="resume2_6-top-left-user-job">{freelancerPosition?.name} </p>
 							</div>
->>>>>>> bd1a130271880c81239ac4c5f938025c1ad6c2c0
 
 							<div className="resume2_6-top-left-user-contact">
 								<p className={"subTitle"}>

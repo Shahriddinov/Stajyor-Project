@@ -1,5 +1,7 @@
 .freelancer {
   height: 100%;
+  overflow: hidden;
+  padding-bottom: 10px;
   &_talants_container {
     width: 64%;
   }
@@ -25,7 +27,7 @@
         background: #ffffff;
         border: 1px solid #1d71b8;
         border-radius: 8px;
-        padding:0 20px;
+        padding: 0 20px;
 
         font-family: "Montserrat";
         font-weight: 500;
@@ -92,4 +94,3 @@
     }
   }
 }
-

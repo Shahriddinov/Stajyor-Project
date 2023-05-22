@@ -13,7 +13,6 @@ import serach_icon from "../../assets/images/Freelancer/serach_inp.svg";
 const Freelancer = () => {
   const { data } = useSelector((state) => state.jobs);
   const dispatch = useDispatch();
-  console.log(data);
   useEffect(() => {
     dispatch(
       getAllJobs({

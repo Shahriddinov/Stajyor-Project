@@ -9,8 +9,6 @@ import { removeCheckEmail } from 'reduxToolkit/loginSlice/LoginSlice';
 const Checkemal = () => {
 
     const auth_path = window.location.pathname.split("/")[1];
-    console.log(auth_path, 'Checkemail');
-    console.log("12345678909876");
     const len = useSelector(state => state.lenguage.lenguage)
     const dispatch = useDispatch()
 

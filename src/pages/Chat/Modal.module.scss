@@ -1,5 +1,5 @@
 .modalMain {
-  top: 10px;
+  top: 60px;
   left: 0;
   right: 0;
   bottom: 20px;
@@ -9,6 +9,7 @@
 
 .modalM {
   position: fixed;
+  z-index: 10;
 }
 
 .circle {
@@ -20,7 +21,7 @@
 
 .centered {
   background: #F5F5F7;
-  max-width: 1050px;
+  max-width: 80vw;
   width: 100%;
   position: relative;
   margin: 0 auto;

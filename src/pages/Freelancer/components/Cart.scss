@@ -2,7 +2,14 @@
   position: relative;
   margin-top: 10px;
   box-sizing: border-box;
-  width: 840px;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 10px 5px;
+  height: 575px;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+  }
   .freelancer_cart-item {
     margin: 10px 0;
     background: #ffffff;
@@ -25,7 +32,7 @@
 
       &_title {
         text-align: center;
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 600;
         font-size: 23px;
         line-height: 28px;
@@ -34,7 +41,7 @@
       }
 
       &_info {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
@@ -69,7 +76,7 @@
       }
 
       & p {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
@@ -118,7 +125,7 @@
       gap: 10px;
 
       & h4 {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         padding: 6px 10px;
         font-weight: 500;
         font-size: 18px;
@@ -132,14 +139,14 @@
 
     &_level {
       & p {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-weight: 400;
         font-size: 18px;
         line-height: 22px;
         color: #808080;
 
         & span {
-          font-family: 'Montserrat';
+          font-family: "Montserrat";
           font-style: normal;
           font-weight: 600;
           font-size: 18px;
@@ -161,7 +168,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      font-family: 'Montserrat';
+      font-family: "Montserrat";
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -169,7 +176,7 @@
       color: #808080;
 
       & span {
-        font-family: 'Montserrat';
+        font-family: "Montserrat";
         font-style: normal;
         font-weight: 600;
         font-size: 16px;

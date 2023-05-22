@@ -8,7 +8,10 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getFreelancer } from "reduxToolkit/extraReducers";
-import { profilLogout } from "reduxToolkit/loginSlice/LoginSlice";
+import {
+  changeRoleWhenFinished,
+  profilLogout,
+} from "reduxToolkit/loginSlice/LoginSlice";
 import { UserCircle } from "tabler-icons-react";
 import arrow_down from "../../../../assets/images/header/down_arrow.svg";
 
@@ -23,21 +26,19 @@ const Dropdown = () => {
   const handleClick = () => {
     dispatch(profilLogout());
     navigate(`/${len}/`);
+    dispatch(changeRoleWhenFinished(false));
   };
   const info = JSON.parse(localStorage.getItem("info"));
 
   useLayoutEffect(() => {
     dispatch(getFreelancer());
-    console.log(info, "qwertyuiop");
-    console.log(data?.data?.firstName);
-    console.log(data?.data?.freelancerImage);
   }, [dispatch]);
 
   useEffect(() => {
     let decode = jwt_decode(auth);
     var userId = "104";
     if (userId) {
-      dispatch(getFreelancer("104"));
+      // dispatch(getFreelancer("104"));
     }
   }, [auth]);
 
@@ -83,11 +84,17 @@ const Dropdown = () => {
                 src={`http://localhost:5000/staticfiles/${data?.data?.freelancerImage}`}
                 style={{ width: "36px", "border-radius": "50%" }}
                 alt="user photos"
+                className="user_photo"
               />
             ) : (
-              <UserCircle size={36} strokeWidth={1.5} color={"#86332d"} />
+              <span className="user_photo">
+                {" "}
+                <UserCircle size={36} strokeWidth={1.5} color={"#86332d"} />
+              </span>
             )}
-            <h4 className="dropdown_title">{data?.data?.firstName}</h4>
+            <h4 className="dropdown_title">
+              {data?.data?.firstName} Abdurashid
+            </h4>
             <img
               src={arrow_down}
               className="header_arrow_img"

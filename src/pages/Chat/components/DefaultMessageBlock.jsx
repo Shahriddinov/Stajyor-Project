@@ -14,7 +14,6 @@ function DefaultMessageBlock(props) {
 	const [imgData, setImgData] = useState(null);
 	const onChangePicture = e => {
 		if (e.target.files[0]) {
-			console.log("picture: ", e.target.files);
 			setPicture(e.target.files[0]);
 			const reader = new FileReader();
 			reader.addEventListener("load", () => {

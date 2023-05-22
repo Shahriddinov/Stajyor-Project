@@ -53,7 +53,6 @@ function WorkExperience() {
   };
 
   const editExperience = value => {
-    console.log(value);
     setEditData(value.data);
     setMoadalActive(prev => ({ ...prev, experienceEdit: value.modal }));
   };

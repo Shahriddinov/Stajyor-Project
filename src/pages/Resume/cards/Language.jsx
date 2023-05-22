@@ -42,7 +42,6 @@ function Language() {
 	const handleSubmit = event => {
 		event.preventDefault();
 		let formdatas = new FormData();
-		console.log(formdatas);
 		for (let i = 0; i < theArray.length; i++) {
 			formdatas.append("LanguageId", userLang[i]);
 			formdatas.append("Level", userLevel[i]);

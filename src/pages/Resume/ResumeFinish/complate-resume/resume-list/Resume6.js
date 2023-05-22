@@ -5,22 +5,21 @@ import letter from '../img/letter.svg';
 import loc from '../img/location.svg';
 import phone from '../img/phone.svg';
 
-const Resume6 = props => {
-  const {
-    phoneNumber,
-    bio,
-    experiences,
-    email,
-    freelancerContact,
-    defaultuserImage,
-    educations,
-    freelancerPosition,
-    freelancerHobbies,
-    firstName,
-    lastName,
-    address,
-    userLanguages,
-  } = props;
+const Resume6 = ({
+  phoneNumber,
+  bio,
+  experiences,
+  email,
+  freelancerContact,
+  defaultuserImage,
+  educations,
+  freelancerPosition,
+  freelancerHobbies,
+  firstName,
+  lastName,
+  address,
+  userLanguages,
+}) => {
   return (
     <>
       <div className='ComplateResume'>

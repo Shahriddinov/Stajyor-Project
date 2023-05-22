@@ -33,7 +33,8 @@ import {
 	ADD_LOCATION_COMPANY,
 	ADD_CONTACTS_COMPANY,
 	CONTACTUS,
-	USERROLES
+	USERROLES,
+	USER
 } from "./URLS";
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
 /////////////////////////////////////CLAIMS GET///////////////////////
@@ -46,7 +47,6 @@ export const claimsGet = createAsyncThunk("claims", async payload => {
 
 /////////////////////////////////////REGISTER POST///////////////////////
 export const registerRequest = createAsyncThunk("token/register", async payload => {
-	console.log(payload);
 	return axios({
 		method: "POST",
 		url: REGISTER,
@@ -130,6 +130,13 @@ export const getAllFreelancers = createAsyncThunk("getAll/freelancer", async()=>
 			"Content-Type": `application/json`,
 		}
 	}).then(res=>res.data)
+})
+
+export const deleteUserWithId = createAsyncThunk("deleteUser", async(userUid)=>{
+return axios({
+	method:"DELETE",
+	url:USER + userUid
+}).then(res=>res.data)
 })
 /////////////////////////////////////ADDTOCOMPANY POST///////////////////////
 // export const addToCompany = createAsyncThunk("token/addToCompany", async payload => {
@@ -220,7 +227,6 @@ export const languages = createAsyncThunk("get/languages", async () => {
 
 ///////////////////////////PHOTOUPLOAD POST///////////////////
 export const photoUpload = createAsyncThunk("token/photoUpload", async payload => {
-	// console.log(payload);
 	const token = localStorage.getItem("token");
 	return axios({
 		method: "POST",
@@ -345,7 +351,6 @@ export const experiencePost = createAsyncThunk("post/exsperiencePost", async pay
 ///////////////////////////EXPERIENCEPOST EDIT//////////
 export const experienceEdit = createAsyncThunk("freelancer/exsperienceEdit", async payload => {
 	const token = localStorage.getItem("token");
-	console.log(payload);
 	return axios({
 		method: "PUT",
 		url: EXPERIENCE + "/" + payload.id,
@@ -392,7 +397,6 @@ export const experienceDelete = createAsyncThunk("post/exsperienceDelete", async
 ///////////////////////////EDUCATION POST//////////
 export const educationPost = createAsyncThunk("freelancer/educationPost", async payload => {
 	const token = localStorage.getItem("token");
-	console.log(payload);
 	return axios({
 		method: "POST",
 		url: EDUCATION,

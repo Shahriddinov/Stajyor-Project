@@ -19,7 +19,6 @@ const AddLanguage = () => {
   	const [ count, setCount ] = useState(1)
 
 	const AddFunc = (num) => {
-		console.log(count);
 		setCount(count + num)
 	}
 

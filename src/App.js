@@ -9,8 +9,10 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { deleteUserWithId } from "reduxToolkit/extraReducers";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
 import {
+  companyRouter,
   createCompany,
   createProfileRoute,
   freelancerResume,
@@ -41,20 +43,19 @@ function App() {
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
+      let getRole = Object.values(decode).includes("Company")
+        ? "Company"
+        : Object.values(decode).includes("Freelancer")
+        ? "Freelancer"
+        : false;
+
       if (!freelancerOrCompony) {
-        dispatch(
-          changeRoleWhenFinished(
-            Object.values(decode).includes("Company")
-              ? "Company"
-              : Object.values(decode).includes("Freelancer")
-              ? "Freelancer"
-              : null
-          )
-        );
+        // localStorage.setItem("type", role);
+        dispatch(changeRoleWhenFinished(getRole));
       }
+      
     }
   }, [auth]);
-
   // useLayoutEffect(() => {
   // 	navigate(`/${len}/`)
   // }, [len, navigate])
@@ -71,17 +72,34 @@ function App() {
   // 		dispatch(userRoles())
   // 	}
   // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-
+  var userBoolen = false
   const navigate = useNavigate();
   useEffect(() => {
     var resumeId = JSON.parse(localStorage.getItem("resumeId"));
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
-    console.log(resumeId);
-  }, []);
+    if(auth){
+      let decode = jwt_decode(auth)
+      if(decode){
+        userBoolen = Object.values(decode)[1]
+      }
+    }
+  }, [])
+
+  const handleDelete = ()=>{
+    if(userBoolen){
+      console.log(userBoolen)
+      localStorage.removeItem('token')
+      dispatch(deleteUserWithId(userBoolen))
+    }
+    else{
+      alert("error")
+    }
+  }
   return (
     <div className="App">
+      {/* <button style={{position:"absolute"}} onClick={handleDelete}>delete user Role</button> */}
       {freelancerOrCompony !== "Company" &&
       freelancerOrCompony !== "Freelancer" ? (
         freelancer === "freelancer" ? (
@@ -149,7 +167,7 @@ function App() {
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/about`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
@@ -164,9 +182,9 @@ function App() {
             </Routes>
           ) : null}
 
-          {/* {freelancerOrCompony === "Company" && (
+          {freelancerOrCompony === "Company" && (
             <Routes>
-              {freelancerRouter.slice(0, 4).map((route) => (
+              {companyRouter.slice(0, 4).map((route) => (
                 <Route
                   path={`/${len}${route.path}`}
                   element={route.element}
@@ -175,22 +193,22 @@ function App() {
               ))}
               <Route
                 path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
                 path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/talants`} />}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
               <Route
-                path={`/${len}/welcome/create-profile/:resumeId`}
-                element={<Navigate to={`/${len}/talants`} />}
+                path={`/${len}/welcome/register-company`}
+                element={<Navigate to={`/${len}/jobs`} />}
               />
             </Routes>
-          )} */}
+          )}
         </div>
       ) : (
         <Routes>

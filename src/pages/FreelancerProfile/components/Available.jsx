@@ -9,18 +9,15 @@ const Available = () => {
     // let formData = new FormData();   
     const OnChangeFunc = (AviableValue) => {
         if(!AviableValue){
-            console.log("1234567890-=");
             return false
         } 
         // formData.append()
-        console.log(AviableValue);
         return AviableValue
     }
 
     const {  setIsAvialable } = useContext(Context)
 
     const AviableFunc = (bol) => {
-        console.log("formData");
         setIsAvialable(bol)
     }
 

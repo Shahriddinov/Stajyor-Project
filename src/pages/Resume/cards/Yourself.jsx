@@ -33,7 +33,6 @@ function Yourself() {
   } = useSelector((state) => state.resume);
   const [skil, setSkil] = useState(1);
   const [hobbiesorg, setHobbiesorg] = useState([]);
-  console.log(hobbiesorg);
   const [position, setPosition] = useState(null);
   const [orgSkills, setOrgSkills] = useState("");
   const [downSkills, setDownSkills] = useState([]);
@@ -128,6 +127,8 @@ function Yourself() {
       setHobbiesorg(value);
     }
   };
+
+  
   const handleSelectChange = (skill) => {
     setDownSkills(skill);
   };

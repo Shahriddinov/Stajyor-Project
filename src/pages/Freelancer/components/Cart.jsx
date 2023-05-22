@@ -10,20 +10,19 @@ import location from '../../../assets/images/Freelancer/location.svg';
 import ticked from '../../../assets/images/Freelancer/ticked.svg';
 import Colasible from './Colasible';
 
-const Cart = () => {
+const Cart = ({AllFreelancerData}) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const { AllFreelancerData, loading } = useSelector(state => state.resume);
-  console.log(AllFreelancerData);
+  const {loading} = useSelector(state => state.resume);
   useEffect(() => {
     if (!loading) {
-      dispatch(getAllFreelancers());
+      dispatch(getAllFreelancers())
     }
   }, []);
   return (
     <div className='freelancer_cart'>
       {AllFreelancerData?.map(freelancer => (
-        <div className='freelancer_cart-item'>
+        <div className='freelancer_cart-item' key={freelancer.id}>
           <ul className='freelancer_cart_list'>
             <li className='freelancer_cart_list_item freelancer_cart_list_item1'>
               <img src={user_img} alt='' />
@@ -72,7 +71,7 @@ const Cart = () => {
             </div>
           )}
 
-          <Colasible text={freelancer.bio} />
+          <Colasible text={freelancer.bio} freelance={freelancer.lastName} />
 
           <div className='freelancer_cart_skill'>
             <div className='freelancer_cart_skill_skills'>

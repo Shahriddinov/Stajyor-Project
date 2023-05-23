@@ -24,6 +24,8 @@ import AddEducation from "./components/AddEducation";
 import Available from "./components/Available";
 import AddLanguage from "./components/AddLanguage";
 import AddProject from "./components/AddProject";
+import AddContacts from "./components/AddContacts";
+import AddLocation from "./components/AddLocation";
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -218,9 +220,10 @@ const Profile = () => {
                 <h4>
                   {" "}
                   {t("experience")}{" "}
-                  <div className="userfreelancermodal_right_mainlist_item_wrapper"
+                  <div
+                    className="userfreelancermodal_right_mainlist_item_wrapper"
                     onClick={() => handleSetData({ modal: "addProject" })}
-                    ></div>{" "}
+                  ></div>{" "}
                 </h4>
                 <div>
                   {profileData?.experiences?.map((e) => (
@@ -256,7 +259,10 @@ const Profile = () => {
               <li className="userfreelancermodal_right_mainlist_item">
                 <h4>
                   {t("contacts")}{" "}
-                  <div className="userfreelancermodal_right_mainlist_item_wrapper"></div>{" "}
+                  <div
+                    className="userfreelancermodal_right_mainlist_item_wrapper"
+                    onClick={() => handleSetData({ modal: "addContact" })}
+                  ></div>{" "}
                 </h4>
                 <div
                   style={{
@@ -342,7 +348,10 @@ const Profile = () => {
               <li className="userfreelancermodal_right_mainlist_item">
                 <h4>
                   {t("living_address")}{" "}
-                  <div className="userfreelancermodal_right_mainlist_item_wrapper"></div>{" "}
+                  <div
+                    className="userfreelancermodal_right_mainlist_item_wrapper"
+                    onClick={() => handleSetData({ modal: "addLocation" })}
+                  ></div>{" "}
                 </h4>
                 <h5>
                   <img src={location} alt="" />{" "}
@@ -379,6 +388,10 @@ const Profile = () => {
               <AddLanguage setActiveModal={setActiveModal} />
             ) : activeModal === "addProject" ? (
               <AddProject setActiveModal={setActiveModal} />
+            ) : activeModal === "addContact" ? (
+              <AddContacts setActiveModal={setActiveModal} />
+            ) : activeModal === "addLocation" ? (
+              <AddLocation setActiveModal={setActiveModal} />
             ) : (
               ""
             )}

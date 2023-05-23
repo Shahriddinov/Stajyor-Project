@@ -23,7 +23,6 @@ import {
 function App() {
   const auth = useSelector((state) => state.login.loggedIn);
   const len = useSelector((state) => state.lenguage.lenguage);
-
   const freelancerOrCompony = useSelector(
     (state) => state.login.freelancerOrCompony
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRef } from "react";
 import InputMask from "react-input-mask";
 import { useDispatch } from "react-redux";
-import { countryList, photoUpload } from "reduxToolkit/resumeSlice/ResumeSlice";
+// import { countryList, photoUpload } from "reduxToolkit/resumeSlice/ResumeSlice";
 import Select from "react-select";
 import image from "../../../assets/images/FreelancerPortfolio/woman.svg";
 import "./AddProfilePhoto.scss";
@@ -41,8 +41,8 @@ const AddProfilePhoto = ({ setActiveModal }) => {
     formdatas.append("Email", email.current.value);
     formdatas.append("Price", price.current.value);
     formdatas.append("Image", fileUploaded);
-    dispatch(countryList());
-    dispatch(photoUpload(formdatas));
+    // dispatch(countryList());
+    // dispatch(photoUpload(formdatas));
     e.preventDefault();
   };
 

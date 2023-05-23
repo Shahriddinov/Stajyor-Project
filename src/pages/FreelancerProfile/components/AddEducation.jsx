@@ -1,21 +1,19 @@
 import React, { useContext } from "react";
 import "./AddEducation.scss";
 import { useDispatch } from "react-redux";
-import {
-  temporary6,
-  temporary7,
-  educationDelete,
-  educationGet,
-  temporary8,
-} from "reduxToolkit/resumeSlice/ResumeSlice";
+// import {
+//   temporary6,
+//   temporary7,
+//   educationDelete,
+//   educationGet,
+//   temporary8,
+// } from "reduxToolkit/resumeSlice/ResumeSlice";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 function AddEducation({ setActiveModal }) {
   const dispatch = useDispatch();
   const { educationList } = useSelector((state) => state.resume);
-
-  const AddAducationFunc = () => {};
 
   useEffect(() => {
     // dispatch(educationGet());
@@ -27,7 +25,7 @@ function AddEducation({ setActiveModal }) {
   };
 
   const deletEducation = (id) => {
-    dispatch(educationDelete(id));
+    // dispatch(educationDelete(id));
     // dispatch(educationGet());
   };
 

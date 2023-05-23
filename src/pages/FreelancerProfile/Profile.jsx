@@ -133,6 +133,7 @@ const Profile = () => {
             </ul>
             <CompanyCard />
           </div>
+          <div className="userfreelancermodal_center_border"></div>
           <div className="userfreelancermodal_right">
             <ul className="userfreelancermodal_right_list">
               <li className="userfreelancermodal_right_list_item userfreelancermodal_right_list_item1">

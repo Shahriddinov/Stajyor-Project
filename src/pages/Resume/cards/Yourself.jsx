@@ -182,6 +182,7 @@ function Yourself() {
     setInputValue(sanitizedValue);
   };
   console.log(data);
+  console.log(inputValue);
 
   return (
     <div className='yourselfCard'>

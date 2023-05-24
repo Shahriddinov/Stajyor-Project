@@ -1,16 +1,16 @@
-import Header from "components/Layout/Header/Header";
-import jwt_decode from "jwt-decode";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import Header from 'components/Layout/Header/Header';
+import jwt_decode from 'jwt-decode';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Navigate,
   Route,
   Routes,
   useLocation,
   useNavigate,
-} from "react-router-dom";
-import { deleteUserWithId } from "reduxToolkit/extraReducers";
-import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
+} from 'react-router-dom';
+import { deleteUserWithId } from 'reduxToolkit/extraReducers';
+import { changeRoleWhenFinished } from 'reduxToolkit/loginSlice/LoginSlice';
 import {
   companyRouter,
   createCompany,
@@ -18,34 +18,34 @@ import {
   freelancerResume,
   freelancerRouter,
   publicRoute,
-} from "routes";
+} from 'routes';
 
 function App() {
-  const auth = useSelector((state) => state.login.loggedIn);
-  const len = useSelector((state) => state.lenguage.lenguage);
+  const auth = useSelector(state => state.login.loggedIn);
+  const len = useSelector(state => state.lenguage.lenguage);
   const freelancerOrCompony = useSelector(
-    (state) => state.login.freelancerOrCompony
+    state => state.login.freelancerOrCompony,
   );
-  const loginOnSuccess = useSelector((state) => state.login.loginOnSuccess);
+  const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
   const contactsIsSuccess = useSelector(
-    (state) => state.companyRegister.contactsIsSuccess
+    state => state.companyRegister.contactsIsSuccess,
   );
   const { skillsData, freelancerData } = useSelector(
-    (state) => state.frilanserCardSlice
+    state => state.frilanserCardSlice,
   );
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const freelancer = localStorage.getItem("isResume")
-    ? localStorage.getItem("isResume")
-    : "welcome";
+  const freelancer = localStorage.getItem('isResume')
+    ? localStorage.getItem('isResume')
+    : 'welcome';
 
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
-      let getRole = Object.values(decode).includes("Company")
-        ? "Company"
-        : Object.values(decode).includes("Freelancer")
-        ? "Freelancer"
+      let getRole = Object.values(decode).includes('Company')
+        ? 'Company'
+        : Object.values(decode).includes('Freelancer')
+        ? 'Freelancer'
         : false;
 
       if (!freelancerOrCompony) {
@@ -72,7 +72,7 @@ function App() {
   var userBoolen = false;
   const navigate = useNavigate();
   useEffect(() => {
-    var resumeId = JSON.parse(localStorage.getItem("resumeId"));
+    var resumeId = JSON.parse(localStorage.getItem('resumeId'));
     if (resumeId) {
       navigate(`/${len}/welcome/create-profile/${resumeId}`);
     }
@@ -84,24 +84,22 @@ function App() {
     }
   }, []);
 
-  console.log(auth);
-
   const handleDelete = () => {
     if (userBoolen) {
       console.log(userBoolen);
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
       dispatch(deleteUserWithId(userBoolen));
     } else {
-      alert("error");
+      alert('error');
     }
   };
   return (
-    <div className="App">
-      {freelancerOrCompony !== "Company" &&
-      freelancerOrCompony !== "Freelancer" ? (
-        freelancer === "freelancer" ? (
+    <div className='App'>
+      {freelancerOrCompony !== 'Company' &&
+      freelancerOrCompony !== 'Freelancer' ? (
+        freelancer === 'freelancer' ? (
           <Routes>
-            {freelancerResume.map((route) => (
+            {freelancerResume.map(route => (
               <Route
                 path={`/${len}${route.path}`}
                 element={route.element}
@@ -109,13 +107,13 @@ function App() {
               />
             ))}
             <Route
-              path="*"
+              path='*'
               element={<Navigate to={`/${len}/welcome/create-profile`} />}
             />
           </Routes>
-        ) : freelancer === "company" ? (
+        ) : freelancer === 'company' ? (
           <Routes>
-            {createCompany.map((route) => (
+            {createCompany.map(route => (
               <Route
                 path={`/${len}${route.path}`}
                 element={route.element}
@@ -123,35 +121,35 @@ function App() {
               />
             ))}
             <Route
-              path="*"
+              path='*'
               element={<Navigate to={`/${len}/welcome/register-company`} />}
             />
           </Routes>
         ) : (
           <Routes>
-            {createProfileRoute.map((route) => (
+            {createProfileRoute.map(route => (
               <Route
                 path={`/${len}${route.path}`}
                 element={route.element}
                 key={route.id}
               />
             ))}
-            <Route path="*" element={<Navigate to={`/${len}/login`} />} />
+            <Route path='*' element={<Navigate to={`/${len}/login`} />} />
           </Routes>
         )
       ) : auth && freelancerOrCompony ? (
         <div
           className={`freelanser-box  ${
-            pathname.slice(4) === "contact" || pathname.slice(4) === "about"
-              ? "freelanser-box-bg1"
-              : "freelanser-box-bg2"
+            pathname.slice(4) === 'contact' || pathname.slice(4) === 'about'
+              ? 'freelanser-box-bg1'
+              : 'freelanser-box-bg2'
           }`}
         >
           <Header />
 
-          {freelancerOrCompony === "Freelancer" ? (
+          {freelancerOrCompony === 'Freelancer' ? (
             <Routes>
-              {freelancerRouter.map((route) => (
+              {freelancerRouter.map(route => (
                 <Route
                   path={`/${len}${route.path}`}
                   element={route.element}
@@ -175,13 +173,13 @@ function App() {
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
-              <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
+              <Route path='*' element={<Navigate to={`/${len}/jobs`} />} />
             </Routes>
           ) : null}
 
-          {freelancerOrCompony === "Company" && (
+          {freelancerOrCompony === 'Company' && (
             <Routes>
-              {companyRouter.slice(0, 4).map((route) => (
+              {companyRouter.slice(0, 4).map(route => (
                 <Route
                   path={`/${len}${route.path}`}
                   element={route.element}
@@ -209,14 +207,14 @@ function App() {
         </div>
       ) : (
         <Routes>
-          {publicRoute.map((route) => (
+          {publicRoute.map(route => (
             <Route
               path={`/${len}${route.path}`}
               element={route.element}
               key={route.id}
             />
           ))}
-          <Route path="*" element={<Navigate to={`/${len}/welcome`} />} />
+          <Route path='*' element={<Navigate to={`/${len}/welcome`} />} />
         </Routes>
       )}
     </div>

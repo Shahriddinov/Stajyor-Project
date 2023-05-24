@@ -6,15 +6,15 @@ import NotFound from "pages/404";
 import PageBackground from "pages/NonAuth/Background";
 import Background from "pages/Sign/RegisterFreelancer/Background/Background"; 
 import ResumeFinish from "pages/Sign/RegisterFreelancer/ResumeFinish";
-import Contract from "pages/contract";
+import Contract from "pages/AfterAuth//Components/contract";
 import Contactus from "pages/NonAuth/Contactus";
-import Freelancer from "pages/Freelancer/Freelancer";
-import Profile from "pages/FreelancerProfile/Profile";
-import UserFreelancer from "pages/Freelancer/UserFreelancer";
+import Freelancer from "pages/AfterAuth/Freelancer/Freelancer";
+import Profile from "pages/AfterAuth/Components/FreelancerProfile/Profile";
+import UserFreelancer from "pages/AfterAuth/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
-import ChatForCompany from "pages/Chat/ChatForCompany";
-import Jobs from "pages/Company/Jobs";
-import ChatModal from "pages/Chat/Modal";
+import ChatForCompany from "pages/AfterAuth/Chat/ChatForCompany";
+import Jobs from "pages/AfterAuth/Company/Jobs";
+import ChatModal from "pages/AfterAuth/Chat/Modal";
 import ControlFilter from "pages/talants/ControlFilter";
 export const publicRoute = [
   { id: 1, path: "/welcome", element: <PageBackground /> },

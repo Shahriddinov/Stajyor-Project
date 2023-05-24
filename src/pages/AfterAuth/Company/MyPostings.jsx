@@ -9,7 +9,7 @@ import { MdVerified } from 'react-icons/md'
 import { BsEyeFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
-const Talents = () => {
+const MyPostings = () => {
 
     const [activePostings, setActivePostings] = useState('active')
     const len = useSelector(state => state.lenguage.lenguage)
@@ -155,4 +155,4 @@ const Talents = () => {
     )
 }
 
-export default Talents
+export default MyPostings

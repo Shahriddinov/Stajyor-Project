@@ -21,6 +21,7 @@ import {
 } from "routes";
 import FreelancerDropdown from "pages/AfterAuth/Freelancer/components/Dropdown/Dropdown";
 import CompanyDropdown from "pages/AfterAuth/Company/components/Dropdown/Dropdown";
+import MyPostings from "pages/AfterAuth/Company/MyPostings";
 
 function App() {
   const auth = useSelector((state) => state.login.loggedIn);
@@ -86,7 +87,6 @@ function App() {
     }
   }, []);
 
-  console.log(auth);
 
   const handleDelete = () => {
     if (userBoolen) {
@@ -186,12 +186,19 @@ function App() {
             <>
               <Header Dropdown={CompanyDropdown} />
               <Routes>
-                {companyRouter.slice(0, 4).map((route) => (
-                  <Route
-                    path={`/${len}${route.path}`}
-                    element={route.element}
-                    key={route.id}
-                  />
+                {companyRouter.map((route) => (
+                  <>
+                    <Route
+                      path={`/${len}${route.path}`}
+                      element={route.element}
+                      key={route.id}
+                    />
+                    {/* <Route
+                      path={`/${len}/my-jobs`}
+                      element={<MyPostings />}
+                      key="10"
+                    /> */}
+                  </>
                 ))}
                 <Route
                   path={pathname.slice(0, 4)}

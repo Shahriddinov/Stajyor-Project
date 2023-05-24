@@ -13,7 +13,7 @@ import {
   profilLogout,
 } from "reduxToolkit/loginSlice/LoginSlice";
 import { UserCircle } from "tabler-icons-react";
-import arrow_down from "../../../../assets/images/header/down_arrow.svg";
+import arrow_down from "../../../../../assets/images/header/down_arrow.svg";
 
 const Dropdown = () => {
   const auth = useSelector((state) => state.login.loggedIn);

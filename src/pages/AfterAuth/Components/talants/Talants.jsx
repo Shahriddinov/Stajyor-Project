@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import serach_icon from "../../assets/images/Freelancer/serach_inp.svg";
-import "../AfterAuth/Freelancer/Freelancer.scss";
+import serach_icon from "../../../../assets/images/Freelancer/serach_inp.svg";
+import "../../Freelancer/Freelancer.scss";
 import Cart from "pages/AfterAuth/Freelancer/components/Cart";
 // import Fillter from "../Freelancer/components/Fillter";
 // import Filter from './components/filter/Filter';
@@ -51,7 +51,7 @@ const Talants = ({ ControlFilter }) => {
               <img src={serach_icon} alt="search icon" />
             </button>
           </form>
-            {ControlFilter ? <ControlFilter /> : ""}
+          {ControlFilter ? <ControlFilter /> : ""}
 
           <Cart AllFreelancerData={searchedData} />
 

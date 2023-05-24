@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import "../../talants/talants.scss";
+import "../Components/talants/talants.scss";
 import classes from "./Jobs.module.scss";
-import Job from "./components/cards/Job";
-import Filter from "./components/filter/Filter";
+import Job from "../../Company/components/cards/Job";
+import Filter from "../../Company/components/filter/Filter";
 
 const Jobs = (props) => {
   const { ControlFilter } = props;

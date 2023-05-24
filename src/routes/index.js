@@ -1,21 +1,21 @@
 import Aboutus from "pages/NonAuth/Aboutus";
-import Talants from "pages/talants/Talants";
+import Talants from "pages/AfterAuth/Components/talants/Talants";
 import Signup from "pages/Sign/Signup/Signup";
 import Login from "pages/Sign/Login/Login";
 import NotFound from "pages/404";
 import PageBackground from "pages/NonAuth/Background";
-import Background from "pages/Sign/RegisterFreelancer/Background/Background"; 
+import Background from "pages/Sign/RegisterFreelancer/Background/Background";
 import ResumeFinish from "pages/Sign/RegisterFreelancer/ResumeFinish";
 import Contract from "pages/AfterAuth//Components/contract";
 import Contactus from "pages/NonAuth/Contactus";
 import Freelancer from "pages/AfterAuth/Freelancer/Freelancer";
-import Profile from "pages/AfterAuth/Components/FreelancerProfile/Profile";
 import UserFreelancer from "pages/AfterAuth/Freelancer/UserFreelancer";
 import { RegisterCompany } from "pages/Sign/RegisterCompany/RegisterCompany";
 import ChatForCompany from "pages/AfterAuth/Chat/ChatForCompany";
-import Jobs from "pages/AfterAuth/Company/Jobs";
+import Jobs from "pages/AfterAuth/Components/Jobs/Jobs";
 import ChatModal from "pages/AfterAuth/Chat/Modal";
-import ControlFilter from "pages/talants/ControlFilter";
+import ControlFilter from "pages/AfterAuth/Components/talants/ControlFilter";
+import FreelancerProfile from "pages/AfterAuth/Components/FreelancerProfile/Profile";
 export const publicRoute = [
   { id: 1, path: "/welcome", element: <PageBackground /> },
   { id: 2, path: "/login", element: <Login /> },
@@ -50,7 +50,7 @@ export const freelancerRouter = [
   { id: 4, path: "/contacts", element: <Contactus /> },
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
-  { id: 7, path: "/profile", element: <Profile /> },
+  { id: 7, path: "/profile", element: <FreelancerProfile /> },
   { id: 8, path: "/chat", element: <ChatModal /> },
   { id: 9, path: "/freelancer-user", element: <UserFreelancer /> },
   { id: 10, path: "/*", element: <NotFound /> },
@@ -67,7 +67,7 @@ export const companyRouter = [
   { id: 4, path: "/contacts", element: <Contactus /> },
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
-  { id: 7, path: "/profile", element: <Profile /> },
+  { id: 7, path: "/profile", element: <FreelancerProfile /> },
   { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
   { id: 9, path: "/*", element: <NotFound /> },
 ];

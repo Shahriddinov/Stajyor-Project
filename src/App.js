@@ -19,6 +19,8 @@ import {
   freelancerRouter,
   publicRoute,
 } from "routes";
+import FreelancerDropdown from "pages/AfterAuth/Freelancer/components/Dropdown/Dropdown";
+import CompanyDropdown from "pages/AfterAuth/Company/components/Dropdown/Dropdown";
 
 function App() {
   const auth = useSelector((state) => state.login.loggedIn);
@@ -147,64 +149,68 @@ function App() {
               : "freelanser-box-bg2"
           }`}
         >
-          <Header />
-
           {freelancerOrCompony === "Freelancer" ? (
-            <Routes>
-              {freelancerRouter.map((route) => (
+            <>
+              <Header Dropdown={FreelancerDropdown} />
+              <Routes>
+                {freelancerRouter.map((route) => (
+                  <Route
+                    path={`/${len}${route.path}`}
+                    element={route.element}
+                    key={route.id}
+                  />
+                ))}
                 <Route
-                  path={`/${len}${route.path}`}
-                  element={route.element}
-                  key={route.id}
+                  path={pathname.slice(0, 4)}
+                  element={<Navigate to={`/${len}/jobs`} />}
                 />
-              ))}
-              <Route
-                path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route
-                path={`/${len}/login`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route
-                path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
+                <Route
+                  path={`/${len}/login`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
+                <Route
+                  path={`/${len}/welcome`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
 
-              <Route
-                path={`/${len}/welcome/create-profile/:resumeId`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
-            </Routes>
+                <Route
+                  path={`/${len}/welcome/create-profile/:resumeId`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
+                <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
+              </Routes>
+            </>
           ) : null}
 
           {freelancerOrCompony === "Company" && (
-            <Routes>
-              {companyRouter.slice(0, 4).map((route) => (
+            <>
+              <Header Dropdown={CompanyDropdown} />
+              <Routes>
+                {companyRouter.slice(0, 4).map((route) => (
+                  <Route
+                    path={`/${len}${route.path}`}
+                    element={route.element}
+                    key={route.id}
+                  />
+                ))}
                 <Route
-                  path={`/${len}${route.path}`}
-                  element={route.element}
-                  key={route.id}
+                  path={pathname.slice(0, 4)}
+                  element={<Navigate to={`/${len}/jobs`} />}
                 />
-              ))}
-              <Route
-                path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route
-                path={`/${len}/login`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route
-                path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-              <Route
-                path={`/${len}/welcome/register-company`}
-                element={<Navigate to={`/${len}/jobs`} />}
-              />
-            </Routes>
+                <Route
+                  path={`/${len}/login`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
+                <Route
+                  path={`/${len}/welcome`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
+                <Route
+                  path={`/${len}/welcome/register-company`}
+                  element={<Navigate to={`/${len}/jobs`} />}
+                />
+              </Routes>
+            </>
           )}
         </div>
       ) : (

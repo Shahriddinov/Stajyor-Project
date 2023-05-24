@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import "../Components/talants/talants.scss";
+import "../talants/talants.scss";
 import classes from "./Jobs.module.scss";
 import Job from "../../Company/components/cards/Job";
 import Filter from "../../Company/components/filter/Filter";

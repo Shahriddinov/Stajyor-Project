@@ -41,8 +41,6 @@ function MyWork({ removeModal, defaultData }) {
     removeModal(false);
   };
 
-  const [inputValue, setInputValue] = useState('');
-
   const sanitizeInput = value => {
     const sanitizedValue = value.replace(
       /<script.*?<\/script>|<\/?\w+[^>]*>/gi,

@@ -120,8 +120,6 @@ function Country() {
     }
   }, []);
 
-  const [inputValue, setInputValue] = useState('');
-
   const sanitizeInput = value => {
     const sanitizedValue = value.replace(
       /<script.*?<\/script>|<\/?\w+[^>]*>/gi,
@@ -130,13 +128,11 @@ function Country() {
     return sanitizedValue;
   };
 
-  const handleChange = event => {
+  const handleChange = (event, name) => {
     const sanitizedValue = sanitizeInput(event.target.value);
-    setData(prev => ({ ...prev, bio: event.target.value }));
-    console.log(data);
-    setInputValue(sanitizedValue);
+    setData(prev => ({ ...prev, name: sanitizeInput(event.target.value) }));
+    setData(sanitizedValue);
   };
-  console.log(inputValue);
 
   return (
     <div className='countryCard'>
@@ -171,10 +167,15 @@ function Country() {
               </div>
             </div>
             <input
-              onChange={e => setData({ ...data, street: e.target.value })}
+              value={data.street}
+              onChange={e =>
+                setData(prev => ({
+                  ...prev,
+                  street: sanitizeInput(e.target.value),
+                }))
+              }
               className='country__inputStreet'
               type='text'
-              value={data.street && inputValue}
               placeholder='Street, apartment'
             />
           </div>

@@ -56,6 +56,7 @@ function Yourself() {
   if (positionGetLoading && loading) {
     return <b>Loading...</b>;
   }
+
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(languages());
@@ -164,7 +165,6 @@ function Yourself() {
       setDownSkills(skillData);
     }
   }, []);
-  const [inputValue, setInputValue] = useState('');
 
   const sanitizeInput = value => {
     const sanitizedValue = value.replace(
@@ -176,11 +176,9 @@ function Yourself() {
 
   const handleChange = event => {
     const sanitizedValue = sanitizeInput(event.target.value);
-    setData(prev => ({ ...prev, bio: event.target.value }));
-    console.log(data);
-    setInputValue(sanitizedValue);
+    setData(prev => ({ ...prev, bio: sanitizeInput(event.target.value) }));
+    setData(sanitizedValue);
   };
-  console.log(inputValue);
 
   return (
     <div className='yourselfCard'>
@@ -258,9 +256,15 @@ function Yourself() {
           <input
             className='yourselfCard_textarea'
             type='text'
-            value={data.bio && inputValue}
+            value={data.bio}
             placeholder='Describe yourself to buyers'
-            onChange={event => handleChange(event)}
+            // onChange={event => handleChange(event)}
+            onChange={e =>
+              setData(prev => ({
+                ...prev,
+                bio: sanitizeInput(e.target.value),
+              }))
+            }
           />
         </div>
         <div className='yourselfCard_btn'>

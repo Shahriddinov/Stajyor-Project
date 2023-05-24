@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header/Header";
+import Header from "pages/AfterAuth/Header/Header";
 import Footer from "./Footer/Footer";
 import { useLocation } from "react-router";
 import NetworkError from "../NetworkError";

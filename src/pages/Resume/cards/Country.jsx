@@ -85,42 +85,42 @@ function Country() {
       ]),
     );
   };
-  useEffect(()=>{
-    
-    if(countryName){
-      setUserChoice(countryName.value[0])
-     localStorage.setItem('countryName', JSON.stringify(countryName))
-    }
-    if(regionName){
-      localStorage.setItem('regionName', JSON.stringify(regionName))
-    }
-  }, [countryName, regionName])
+    useEffect(()=>{
+      
+      if(countryName){
+        setUserChoice(countryName.value[0])
+      localStorage.setItem('countryName', JSON.stringify(countryName))
+      }
+      if(regionName){
+        localStorage.setItem('regionName', JSON.stringify(regionName))
+      }
+    }, [countryName, regionName])
 
 
-  useEffect(() => {
-    var countryName = localStorage.getItem('countryName')
-    if(countryName){
-      setCountryName(JSON.parse(countryName))
-    }
-    var regionName = JSON.parse(localStorage.getItem('regionName'))
-    if(regionName){
-      setRegionName(regionName)
-    }
-    var country = JSON.parse(localStorage.getItem('country'))
-    if(country){
-      setData(country)
-    }
-    var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
-    if (dotAction) {
-      dispatch(activeDoteAction(dotAction));
-    }
-    if(freelancer.address.street === ''){
-    var prevCountry = JSON.parse(localStorage.getItem('country'))
-    if(prevCountry){
-      dispatch(secondStep(prevCountry));
-    }
-    }
-  }, []);
+    useEffect(() => {
+      var countryName = localStorage.getItem('countryName')
+      if(countryName){
+        setCountryName(JSON.parse(countryName))
+      }
+      var regionName = JSON.parse(localStorage.getItem('regionName'))
+      if(regionName){
+        setRegionName(regionName)
+      }
+      var country = JSON.parse(localStorage.getItem('country'))
+      if(country){
+        setData(country)
+      }
+      var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
+      if (dotAction) {
+        dispatch(activeDoteAction(dotAction));
+      }
+      if(freelancer.address.street === ''){
+      var prevCountry = JSON.parse(localStorage.getItem('country'))
+      if(prevCountry){
+        dispatch(secondStep(prevCountry));
+      }
+      }
+    }, []);
 
   return (
     <div className='countryCard'>

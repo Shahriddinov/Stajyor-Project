@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import serach_icon from "../../assets/images/Freelancer/serach_inp.svg";
-import "../Freelancer/Freelancer.scss";
-import Cart from "../Freelancer/components/Cart";
+import "../AfterAuth/Freelancer/Freelancer.scss";
+import Cart from "pages/AfterAuth/Freelancer/components/Cart";
 // import Fillter from "../Freelancer/components/Fillter";
 // import Filter from './components/filter/Filter';
 import Round from "components/Round/Round";
-import Filter from "pages/Company/components/filter/Filter";
+import Filter from "pages/AfterAuth/Company/components/filter/Filter";
 import "./talants.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { filter } from "lodash";

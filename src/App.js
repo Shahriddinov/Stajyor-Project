@@ -1,4 +1,4 @@
-import Header from "components/Layout/Header/Header";
+import Header from "pages/AfterAuth/Header/Header";
 import jwt_decode from "jwt-decode";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";

@@ -165,25 +165,6 @@ function Yourself() {
     }
   }, []);
 
-  const [inputValue, setInputValue] = useState('');
-
-  const sanitizeInput = value => {
-    const sanitizedValue = value.replace(
-      /<script.*?<\/script>|<\/?\w+[^>]*>/gi,
-      '',
-    );
-    return sanitizedValue;
-  };
-
-  const handleChange = event => {
-    const sanitizedValue = sanitizeInput(event.target.value);
-    setData(prev => ({ ...prev, bio: event.target.value }));
-    console.log(data);
-    setInputValue(sanitizedValue);
-  };
-  console.log(data);
-  console.log(inputValue);
-
   return (
     <div className='yourselfCard'>
       <h2 className='yourselfCard_title'>Write little about yourself</h2>

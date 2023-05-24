@@ -11,10 +11,10 @@ function Country() {
   const { firstName } = useSelector(
     state => state.frilanserCardSlice.freelancer,
   );
-	const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
+  const freelancer = useSelector(state => state.frilanserCardSlice.freelancer);
   const [userChoice, setUserChoice] = useState([0]);
-  const [countryName, setCountryName] = useState(null)
-  const [regionName, setRegionName] = useState(null)
+  const [countryName, setCountryName] = useState(null);
+  const [regionName, setRegionName] = useState(null);
   const [userChoice2, setUserChoice2] = useState(0);
   const countryList = useSelector(state => state.resume.countryList);
   const regionsList = useSelector(state => state.resume.regionsList);
@@ -44,13 +44,13 @@ function Country() {
   });
 
   const onCountryChange = choice => {
-    setCountryName(choice)
+    setCountryName(choice);
     setUserChoice(choice.value);
     setData({ ...data, countryId: choice.label });
   };
 
   const onRegionChange = choice => {
-    setRegionName(choice)
+    setRegionName(choice);
     setUserChoice2(choice.value);
     setData({ ...data, country: choice.label });
   };
@@ -85,42 +85,58 @@ function Country() {
       ]),
     );
   };
-    useEffect(()=>{
-      
-      if(countryName){
-        setUserChoice(countryName.value[0])
-      localStorage.setItem('countryName', JSON.stringify(countryName))
-      }
-      if(regionName){
-        localStorage.setItem('regionName', JSON.stringify(regionName))
-      }
-    }, [countryName, regionName])
+  useEffect(() => {
+    if (countryName) {
+      setUserChoice(countryName.value[0]);
+      localStorage.setItem('countryName', JSON.stringify(countryName));
+    }
+    if (regionName) {
+      localStorage.setItem('regionName', JSON.stringify(regionName));
+    }
+  }, [countryName, regionName]);
 
-
-    useEffect(() => {
-      var countryName = localStorage.getItem('countryName')
-      if(countryName){
-        setCountryName(JSON.parse(countryName))
-      }
-      var regionName = JSON.parse(localStorage.getItem('regionName'))
-      if(regionName){
-        setRegionName(regionName)
-      }
-      var country = JSON.parse(localStorage.getItem('country'))
-      if(country){
-        setData(country)
-      }
-      var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
-      if (dotAction) {
-        dispatch(activeDoteAction(dotAction));
-      }
-      if(freelancer.address.street === ''){
-      var prevCountry = JSON.parse(localStorage.getItem('country'))
-      if(prevCountry){
+  useEffect(() => {
+    var countryName = localStorage.getItem('countryName');
+    if (countryName) {
+      setCountryName(JSON.parse(countryName));
+    }
+    var regionName = JSON.parse(localStorage.getItem('regionName'));
+    if (regionName) {
+      setRegionName(regionName);
+    }
+    var country = JSON.parse(localStorage.getItem('country'));
+    if (country) {
+      setData(country);
+    }
+    var dotAction = JSON.parse(localStorage.getItem('activDoteAction'));
+    if (dotAction) {
+      dispatch(activeDoteAction(dotAction));
+    }
+    if (freelancer.address.street === '') {
+      var prevCountry = JSON.parse(localStorage.getItem('country'));
+      if (prevCountry) {
         dispatch(secondStep(prevCountry));
       }
-      }
-    }, []);
+    }
+  }, []);
+
+  const [inputValue, setInputValue] = useState('');
+
+  const sanitizeInput = value => {
+    const sanitizedValue = value.replace(
+      /<script.*?<\/script>|<\/?\w+[^>]*>/gi,
+      '',
+    );
+    return sanitizedValue;
+  };
+
+  const handleChange = event => {
+    const sanitizedValue = sanitizeInput(event.target.value);
+    setData(prev => ({ ...prev, bio: event.target.value }));
+    console.log(data);
+    setInputValue(sanitizedValue);
+  };
+  console.log(inputValue);
 
   return (
     <div className='countryCard'>
@@ -158,7 +174,7 @@ function Country() {
               onChange={e => setData({ ...data, street: e.target.value })}
               className='country__inputStreet'
               type='text'
-              value={data.street}
+              value={data.street && inputValue}
               placeholder='Street, apartment'
             />
           </div>

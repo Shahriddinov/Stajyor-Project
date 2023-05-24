@@ -27,7 +27,7 @@ import AddProject from "./components/AddProject";
 import AddContacts from "./components/AddContacts";
 import AddLocation from "./components/AddLocation";
 
-const Profile = () => {
+const FreelancerProfile = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [activeModal, setActiveModal] = useState(null);
@@ -403,4 +403,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default FreelancerProfile;

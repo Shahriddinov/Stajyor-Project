@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import header_logo from '../../../assets/images/Freelancer/Freelancer_logo.svg';
 import header_logo2 from '../../../assets/images/header/logo2.svg';
-import Dropdown from './components/Dropdown';
 import LangDrop from './components/LangDrop';
 
-const Header = () => {
+const Header = ({ Dropdown }) => {
   const len = useSelector(state => state.lenguage.lenguage);
   const { t } = useTranslation();
   const { pathname } = useLocation();

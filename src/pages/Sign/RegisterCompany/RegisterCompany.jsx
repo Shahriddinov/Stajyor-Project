@@ -1,5 +1,5 @@
 import Round from 'components/Round/Round';
-import CareerSlider from 'pages/Resume/CareerSlider/CareerSlider';
+import CareerSlider from '../RegisterFreelancer/CareerSlider/CareerSlider';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';

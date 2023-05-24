@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { countryList, photoUpload } from "reduxToolkit/resumeSlice/ResumeSlice";
 import Select from 'react-select';
-import { countryList, photoUpload } from 'reduxToolkit/resumeSlice/ResumeSlice';
 import './AddProfilePhoto.scss';
 const AddProfilePhoto = ({ setActiveModal }) => {
   const [data, setData] = useState({
@@ -36,8 +36,8 @@ const AddProfilePhoto = ({ setActiveModal }) => {
     formdatas.append('Email', email.current.value);
     formdatas.append('Price', price.current.value);
     formdatas.append('Image', fileUploaded);
-    dispatch(countryList());
-    dispatch(photoUpload(formdatas));
+    // dispatch(countryList());
+    // dispatch(photoUpload(formdatas));
     e.preventDefault();
   };
 

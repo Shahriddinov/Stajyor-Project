@@ -515,7 +515,7 @@
 
 .companyClientJobs {
   // margin-top: 10px;
-  height: 500px;
+  height: 595px;
   overflow-y: scroll;
   padding: 10px 5px;
   &::-webkit-scrollbar {
@@ -632,4 +632,10 @@
 .compLogo {
   width: 40px;
   height: auto;
+}
+
+@media (max-width: 1350px) {
+  .companyClientJobs {
+    height: 515px;
+  }
 }

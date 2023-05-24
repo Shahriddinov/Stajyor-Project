@@ -36,6 +36,7 @@ const MyPostings = () => {
                                 In progress
                             </li>
                         </ul>
+                        <div className={classes.addPost}>Add Post</div>
                     </div>
                     {activePostings === "active" && <div className={classes.postings}>
                         <div className={classes.posting}>

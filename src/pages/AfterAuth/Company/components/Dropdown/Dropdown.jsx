@@ -109,7 +109,6 @@ const Dropdown = () => {
             <Link to={`/${len}/contracts`}>{t("contracts")}</Link>
             <Link to={`/${len}/chat`}>{t("chats")}</Link>
             <Link to={`/${len}/my-jobs`}>{t("my_jobs")}</Link>
-            <Link to={`/${len}/resume`}>{t("resume")}</Link>
             <button onClick={handleClick}>{t("log_out")}</button>
           </div>
         </div>

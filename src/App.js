@@ -174,7 +174,7 @@ function App() {
                 path={`/${len}/welcome/create-profile/:resumeId`}
                 element={<Navigate to={`/${len}/jobs`} />}
               />
-              <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
+              <Route path="*" element={<Navigate to={`/${len}/talants`} />} />
             </Routes>
           ) : null}
 
@@ -189,19 +189,19 @@ function App() {
               ))}
               <Route
                 path={pathname.slice(0, 4)}
-                element={<Navigate to={`/${len}/jobs`} />}
+                element={<Navigate to={`/${len}/talants`} />}
               />
               <Route
                 path={`/${len}/login`}
-                element={<Navigate to={`/${len}/jobs`} />}
+                element={<Navigate to={`/${len}/talants`} />}
               />
               <Route
                 path={`/${len}/welcome`}
-                element={<Navigate to={`/${len}/jobs`} />}
+                element={<Navigate to={`/${len}/talants`} />}
               />
               <Route
                 path={`/${len}/welcome/register-company`}
-                element={<Navigate to={`/${len}/jobs`} />}
+                element={<Navigate to={`/${len}/talants`} />}
               />
             </Routes>
           )}

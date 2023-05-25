@@ -13,6 +13,7 @@ export const CompanyInformation = () => {
     const dispatch = useDispatch();
 
     const handleValues = ({ type, value }) => {
+        console.log(value)
         setUser(prev => ({ ...prev, [type]: value }))
     }
 

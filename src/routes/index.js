@@ -16,6 +16,7 @@ import ChatForCompany from "pages/Chat/ChatForCompany";
 import Jobs from "pages/Company/Jobs";
 import ChatModal from "pages/Chat/Modal";
 import ControlFilter from "pages/talants/ControlFilter";
+import Company from "pages/Company/Company";
 export const publicRoute = [
   { id: 1, path: "/welcome", element: <PageBackground /> },
   { id: 2, path: "/login", element: <Login /> },
@@ -67,7 +68,7 @@ export const companyRouter = [
   { id: 4, path: "/contacts", element: <Contactus /> },
   { id: 5, path: "/contracts", element: <Contract /> },
   { id: 6, path: "/freelancer", element: <Freelancer /> },
-  { id: 7, path: "/profile", element: <Profile /> },
+  { id: 7, path: "/profile", element: <Jobs /> },
   { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
   { id: 9, path: "/*", element: <NotFound /> },
 ];

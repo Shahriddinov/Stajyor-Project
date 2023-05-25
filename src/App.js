@@ -52,7 +52,7 @@ function App() {
         : false;
 
       if (!freelancerOrCompony) {
-        // dispatch(changeRoleWhenFinished(getRole));
+        dispatch(changeRoleWhenFinished(getRole));
       }
     }
   }, [auth]);

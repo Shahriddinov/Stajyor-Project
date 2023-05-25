@@ -12,8 +12,13 @@
 .freelancer_container {
   box-sizing: border-box;
   position: relative;
+<<<<<<< HEAD
   width: 100%;
   max-width: 80vw;
+=======
+  width: 80vw;
+  max-width: 1500px;
+>>>>>>> origin/Temur
   margin: 0 auto;
 
   &_round {
@@ -35,7 +40,8 @@
     rgba(245, 245, 247, 0.3),
     rgba(245, 245, 247, 0)
   );
-  width: 1665px;
+  width: 80vw;
+  max-width: 1500px;
   z-index: 0;
   display: flex;
   gap: 50px;
@@ -80,9 +86,9 @@
         position: relative;
 
         &_title {
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 600;
-          font-size: 25px;
+          font-size: 1.6vw;
           line-height: 30px;
           text-align: center;
           color: #323232;
@@ -91,14 +97,14 @@
         & progress {
           top: 29px;
           position: absolute;
-          width: 123px;
+          width: 8vw;
         }
 
         &_info {
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-style: normal;
           font-weight: 500;
-          font-size: 20px;
+          font-size: 1.3vw;
           line-height: 24px;
           text-align: center;
           color: #808080;
@@ -110,7 +116,7 @@
           border: 1px solid #1d71b8;
           border-radius: 8px;
           background-color: #f5f5f7;
-          background-image: url("../../../../assets//images//FreelancerPortfolio//pencil.svg");
+          background-image: url('../../../../assets//images//FreelancerPortfolio//pencil.svg');
           background-size: auto;
           background-repeat: no-repeat;
           background-position: center center;
@@ -123,7 +129,7 @@
           &:hover {
             transition: 0.3s;
             background-color: #1d71b8;
-            background-image: url("../../../../assets//images//FreelancerPortfolio/ppencil.svg");
+            background-image: url('../../../../assets//images//FreelancerPortfolio/ppencil.svg');
           }
         }
       }
@@ -141,7 +147,7 @@
 
         & h4 {
           margin-bottom: 5px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 700;
           font-size: 30px;
           line-height: 37px;
@@ -155,16 +161,16 @@
           display: flex;
           align-items: center;
           gap: 15px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 400;
           font-size: 25px;
           line-height: 30px;
           color: #323232;
 
           & span {
-            font-family: "Montserrat";
+            font-family: 'Montserrat';
             font-weight: 600;
-            font-size: 20px;
+            font-size: 1.6vw;
             line-height: 24px;
             color: #323232;
           }
@@ -180,7 +186,7 @@
     &_info {
       margin-top: 30px;
       max-width: 830px;
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-weight: 400;
       font-size: 20px;
       line-height: 34px;
@@ -195,9 +201,9 @@
       gap: 15px;
       margin-top: 30px;
       margin-bottom: 20px;
-      font-family: "Montserrat";
+      font-family: 'Montserrat';
       font-weight: 700;
-      font-size: 30px;
+      font-size: 2vw;
       line-height: 37px;
       color: #323232;
 
@@ -209,14 +215,14 @@
         cursor: pointer;
         border: 1px solid #1d71b8;
         background-color: #f5f5f7;
-        background-image: url("../../../../assets//images//FreelancerPortfolio/plus_blue.svg");
+        background-image: url('../../../../assets//images//FreelancerPortfolio/plus_blue.svg');
         background-size: auto;
         background-repeat: no-repeat;
         background-position: center center;
         &:hover {
           transition: 0.3s;
           background-color: #1d71b8;
-          background-image: url("../../../../assets//images//FreelancerPortfolio/plus_white.svg");
+          background-image: url('../../../../assets//images//FreelancerPortfolio/plus_white.svg');
         }
       }
     }
@@ -231,7 +237,7 @@
 
       &_item {
         position: relative;
-        font-family: "Montserrat";
+        font-family: 'Montserrat';
         font-weight: 500;
         font-size: 23px;
         line-height: 28px;
@@ -240,7 +246,7 @@
         cursor: pointer;
 
         &:hover::before {
-          content: "";
+          content: '';
           height: 4px;
           width: 100%;
           border-radius: 2.5px;
@@ -275,9 +281,9 @@
 
       &_item {
         & h4 {
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 600;
-          font-size: 25px;
+          font-size: 1.6vw;
           line-height: 30px;
           text-align: center;
           color: #323232;
@@ -285,7 +291,7 @@
 
         & p {
           margin-top: 6px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 500;
           font-size: 16px;
           line-height: 20px;
@@ -312,7 +318,7 @@
           padding: 10px 20px;
           background: #1d71b8;
           border-radius: 8px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 500;
           font-size: 25px;
           line-height: 30px;
@@ -333,7 +339,7 @@
           border: 1px solid #1d71b8;
           border-radius: 8px;
           background-color: #f5f5f7;
-          background-image: url("../../../../assets//images//FreelancerPortfolio//small_pencil.svg");
+          background-image: url('../../../../assets//images//FreelancerPortfolio//small_pencil.svg');
           background-size: auto;
           background-repeat: no-repeat;
           background-position: center center;
@@ -346,24 +352,24 @@
           &:hover {
             transition: 0.3s;
             background-color: #1d71b8;
-            background-image: url("../../../../assets//images//FreelancerPortfolio/small_pencil_hover.svg");
+            background-image: url('../../../../assets//images//FreelancerPortfolio/small_pencil_hover.svg');
           }
         }
 
         & h4 {
           display: flex;
           align-items: center;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 600;
-          font-size: 25px;
+          font-size: 1.6vw;
           line-height: 30px;
           color: #323232;
         }
 
         & span {
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 400;
-          font-size: 20px;
+          font-size: 1.25vw;
           line-height: 24px;
           color: #323232;
         }
@@ -376,7 +382,7 @@
           display: flex;
           align-items: center;
           gap: 6px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 500;
           font-size: 20px;
           line-height: 24px;
@@ -385,7 +391,7 @@
         }
 
         & h6 {
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 400;
           font-size: 20px;
           line-height: 24px;
@@ -395,7 +401,7 @@
         & b {
           display: inline-block;
           padding: 6px 10px;
-          font-family: "Montserrat";
+          font-family: 'Montserrat';
           font-weight: 500;
           font-size: 18px;
           line-height: 22px;

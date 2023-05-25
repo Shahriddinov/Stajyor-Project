@@ -24,6 +24,8 @@ function SelectResume() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log(resumeId);
+
   const resume = [
     { id: 1, img: resume1 },
     { id: 2, img: resume2 },
@@ -78,8 +80,8 @@ function SelectResume() {
     navigate(`/${len}/welcome/create-profile/${resumeId}`);
     const data = new FormData();
     data.append('resume', resumeId);
-    localStorage.setItem("resumeId", JSON.stringify(resumeId))
-    dispatch(resumeSelect(data))
+    localStorage.setItem('resumeId', JSON.stringify(resumeId));
+    dispatch(resumeSelect(data));
   };
 
   const prevPage = () => {

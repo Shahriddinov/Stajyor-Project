@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 
 $color-32: #323232;
 $color-green: #6bd398;
@@ -12,7 +12,7 @@ $color-black: #000;
 $color-orange: #e8c512;
 $xl: 20px;
 $lg: 18px;
-$font-family-montosserat: 'Montserrat', sans-serif;
+$font-family-montosserat: "Montserrat", sans-serif;
 
 html {
   scroll-behavior: smooth;
@@ -55,7 +55,7 @@ html::-webit-scrollbar-track {
 }
 
 body {
-  font-family: 'Proxima Nova';
+  font-family: "Proxima Nova";
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
@@ -78,11 +78,11 @@ body {
 }
 
 .freelanser-box-bg1 {
-  background-image: url('../images/blueElip.png');
+  background-image: url("../images/blueElip.png");
 }
 
 .freelanser-box-bg2 {
-  background-image: url('../images/blueElip2.png');
+  background-image: url("../images/blueElip2.png");
 }
 
 .page-wrapper2,
@@ -106,7 +106,8 @@ body {
 }
 
 .container-vw {
-  max-width: 80vw;
+  max-width: 1600px;
+  width: 80vw;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -197,7 +198,7 @@ input:focus {
     border-radius: 10px;
     padding: 9px;
     margin: 0 auto;
-    font-family: 'Proxima Nova';
+    font-family: "Proxima Nova";
     font-style: normal;
     font-weight: 700;
     font-size: 12px;
@@ -323,7 +324,7 @@ body {
 }
 
 .appearance.switch {
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     height: 0;
     width: 0;
     visibility: hidden;
@@ -342,7 +343,7 @@ body {
   }
 
   label:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 3px;
     left: 2px;

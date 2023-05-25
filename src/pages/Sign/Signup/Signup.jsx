@@ -97,7 +97,7 @@ const Signup = () => {
               <input
                 required
                 className={`login_form_inp ${
-                  bodyErrors ? "register-danger-input " : "register-success"
+                  bodyErrors ? "register-danger-input " : "register-succes"
                 }`}
                 type="email"
                 placeholder="Email"
@@ -118,7 +118,7 @@ const Signup = () => {
                   className={`login_form_inp login_form_inp2 ${
                     passwordError
                       ? "register-danger-input "
-                      : "register-success"
+                      : "register-succes"
                   }`}
                   type={passwordEye1}
                   placeholder="Password"
@@ -151,7 +151,7 @@ const Signup = () => {
                   className={`login_form_inp login_form_inp2 ${
                     passwordError
                       ? "register-danger-input "
-                      : "register-success"
+                      : "register-succes"
                   }`}
                   type={passwordEye}
                   placeholder="Confirm password"

@@ -10,6 +10,7 @@ const translation = {
   chats: "Chats",
   resume: "Resume",
   log_out: "Log out",
+  my_jobs:'My Jobs',
 
   filter: "Filter",
   payment: "Payment amount",

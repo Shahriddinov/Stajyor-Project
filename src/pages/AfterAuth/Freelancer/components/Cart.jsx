@@ -1,24 +1,22 @@
-import './Cart.scss';
+import { useEffect, useState } from 'react';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { getAllFreelancers } from 'reduxToolkit/extraReducers';
 import user_img from '../../../../assets/images/Freelancer/girl_img.svg';
-import { ReactComponent as Heart } from '../../../../assets/images/Freelancer/hheart.svg';
 import location from '../../../../assets/images/Freelancer/location.svg';
 import ticked from '../../../../assets/images/Freelancer/ticked.svg';
+import classes from '../../../NonAuth/pages/jobs/JobsDesc.module.scss';
+import './Cart.scss';
 import Colasible from './Colasible';
-import { useState } from 'react';
-import classes from '../../../NonAuth/pages/jobs/JobsDesc.module.scss'
-const Cart = ({AllFreelancerData}) => {
+const Cart = ({ AllFreelancerData }) => {
   const [likes, setLikes] = useState([]);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const {loading} = useSelector(state => state.resume);
+  const { loading } = useSelector(state => state.resume);
   useEffect(() => {
     if (!loading) {
-      dispatch(getAllFreelancers())
+      dispatch(getAllFreelancers());
     }
   }, []);
 
@@ -76,7 +74,7 @@ const Cart = ({AllFreelancerData}) => {
           </ul>
           {pathname.slice(4) === 'talants' && (
             <div className='freelancer_cart_list_wrapper'>
-                 <div
+              <div
                 className={classes.liked}
                 onClick={onClickLike.bind(this, freelancer)}
               >

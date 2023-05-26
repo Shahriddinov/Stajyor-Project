@@ -17,6 +17,7 @@ import ChatModal from "pages/AfterAuth/Chat/Modal";
 import ControlFilter from "pages/AfterAuth/Components/talants/ControlFilter";
 import FreelancerProfile from "pages/AfterAuth/Components/FreelancerProfile/Profile";
 import MyPostings from "pages/AfterAuth/Company/MyPostings";
+import PostJob from "pages/AfterAuth/Company/Post job/PostJob";
 export const publicRoute = [
   { id: 1, path: "/welcome", element: <PageBackground /> },
   { id: 2, path: "/login", element: <Login /> },
@@ -72,5 +73,6 @@ export const companyRouter = [
   { id: 7, path: "/profile", element: <FreelancerProfile /> },
   { id: 8, path: "/freelancer-user", element: <UserFreelancer /> },
   { id: 9, path: "/my-jobs", element: <MyPostings /> },
-  { id: 10, path: "/*", element: <NotFound /> },
+  { id: 10, path: "/add-job", element: <PostJob /> },
+  { id: 11, path: "/*", element: <NotFound /> },
 ];

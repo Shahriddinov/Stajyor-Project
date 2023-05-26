@@ -75,7 +75,7 @@ const freelancerSlice = createSlice({
   },
 });
 
-export const {
+export const {  
   firstStep,
   secondStep,
   yourSelfStep,

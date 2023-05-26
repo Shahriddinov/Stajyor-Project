@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 
 import header_logo from "../../../assets/images/Freelancer/Freelancer_logo.svg";
@@ -9,9 +9,14 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Header = ({Dropdown}) => {
+  const freelancerOrCompony = useSelector(
+    (state) => state.login.freelancerOrCompony
+  );
+  console.log(freelancerOrCompony)
   const len = useSelector((state) => state.lenguage.lenguage);
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const [loggedIn, setLoggedIn] = useState(false)
   return (
     <header className="header">
       <div className="header_container">
@@ -33,6 +38,8 @@ const Header = ({Dropdown}) => {
 
         <div className="header_wrapper">
           <ul className="header_container_list">
+            {freelancerOrCompony==='Freelancer'?
+            <>
             <li className="header_container_list_item">
               <NavLink
                 to={`/${len}/jobs`}
@@ -54,6 +61,32 @@ const Header = ({Dropdown}) => {
                 {t("talants")}
               </NavLink>
             </li>
+            </>
+            :
+            <>
+            <li className="header_container_list_item">
+              <NavLink
+                activeclassname="active"
+                to={`/${len}/talants`}
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                {t("talants")}
+              </NavLink>
+            </li>
+           <li className="header_container_list_item">
+              <NavLink
+                to={`/${len}/jobs`}
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+              >
+                {t("jobs")}
+              </NavLink>
+            </li>
+            </>
+            }
 
             <li className="header_container_list_item">
               <NavLink

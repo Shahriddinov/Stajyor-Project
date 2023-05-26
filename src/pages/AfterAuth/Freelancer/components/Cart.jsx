@@ -1,5 +1,5 @@
 import './Cart.scss';
-
+import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
@@ -9,8 +9,10 @@ import { ReactComponent as Heart } from '../../../../assets/images/Freelancer/hh
 import location from '../../../../assets/images/Freelancer/location.svg';
 import ticked from '../../../../assets/images/Freelancer/ticked.svg';
 import Colasible from './Colasible';
-
+import { useState } from 'react';
+import classes from '../../../NonAuth/pages/jobs/JobsDesc.module.scss'
 const Cart = ({AllFreelancerData}) => {
+  const [likes, setLikes] = useState([]);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const {loading} = useSelector(state => state.resume);
@@ -19,6 +21,13 @@ const Cart = ({AllFreelancerData}) => {
       dispatch(getAllFreelancers())
     }
   }, []);
+
+  const onClickLike = item => {
+    let index = likes.findIndex(x => x === item.id);
+    if (index >= 0) likes.splice(index, 1);
+    else likes.push(item.id);
+    setLikes([...likes]);
+  };
   return (
     <div className='freelancer_cart'>
       {AllFreelancerData?.map(freelancer => (
@@ -65,9 +74,18 @@ const Cart = ({AllFreelancerData}) => {
               </div>
             </li>
           </ul>
-          {pathname.slice(4) === 'jobs' && (
+          {pathname.slice(4) === 'talants' && (
             <div className='freelancer_cart_list_wrapper'>
-              <Heart className={`${''}`} />
+                 <div
+                className={classes.liked}
+                onClick={onClickLike.bind(this, freelancer)}
+              >
+                {likes.findIndex(x => x === freelancer.id) >= 0 ? (
+                  <BsHeartFill className={classes.bsheartfill} />
+                ) : (
+                  <BsHeart className={classes.bsheart} />
+                )}
+              </div>
             </div>
           )}
 

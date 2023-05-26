@@ -11,6 +11,7 @@ import Finish from "./Finish/Finish";
 import CareerSlider from "pages/Sign/RegisterFreelancer/CareerSlider/CareerSlider";
 import Round from "components/Round/Round";
 import back from "../../../../assets/images/Resume/back.png";
+import classes from '../../../Sign/RegisterCompany/RegisterCompany.module.scss'
 
 function PostJob() {
   const { activeCard } = useSelector((state) => state.jobs);
@@ -58,23 +59,13 @@ function PostJob() {
             </div>
 
             <div className="cards">
-              {cards.map((el) => (
-                <div
-                  className={`$"card_box} ${
-                    el.type === activeCard.type ? " active" : ""
-                  }`}
-                  key={el.id}
-                  style={{
-                    top:
-                      el.id < activeCard.id
-                        ? "-200%"
-                        : el.id === activeCard.id
-                        ? "12%"
-                        : "200%",
-                  }}
-                >
-                  {el.label}
-                </div>
+            {cards.map((el) => (
+                     <div
+                        className={`${classes.card_box} ${el.type === activeCard.type ? classes.active : ""}`}
+                        key={el.id}
+                        style={{ top: el.id < activeCard.id ? "-200%" : el.id === activeCard.id ? "20%" : "200%" }}>
+                        {el.label}
+                      </div>
               ))}
             </div>
 

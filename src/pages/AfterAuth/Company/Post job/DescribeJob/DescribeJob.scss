@@ -32,20 +32,27 @@
             background-color: #1d71b8;
             color:#ffffff
         }
+        button{
+            border: 1px solid #1d71b8 ;
+            border-radius: 8px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: #323232;
+            background: #ffffff;
+            padding: 0.6rem 1.5rem;
+            margin-top: 3rem;
+            margin-left: 10px;
+        }
     }
 
-    button{
-        border: 1px solid #1d71b8 ;
-        border-radius: 8px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24px;
-        color: #323232;
-        background: #ffffff;
-        padding: 0.6rem 1.5rem;
-        margin-top: 3rem;
-        margin-left: 10px;
+    .mantine-MultiSelect-defaultValue,
+    .mantine-MultiSelect-value,
+    .mantine-fqghar {
+      padding: 6px 10px !important;
+      color: white !important;
+      background-color: #1d71b8 !important;
     }
     .inputFile{
         display: none;

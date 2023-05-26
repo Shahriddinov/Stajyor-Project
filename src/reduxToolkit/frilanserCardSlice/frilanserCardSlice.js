@@ -1,39 +1,39 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getFreelancer } from "reduxToolkit/extraReducers";
-import defaultuserImage from "../../assets/images/Freelancer/defaultUserImage.png";
+import { createSlice } from '@reduxjs/toolkit';
+import { getFreelancer } from 'reduxToolkit/extraReducers';
+import defaultuserImage from '../../assets/images/Freelancer/defaultUserImage.png';
 const initialState = {
-  loading: "",
+  loading: '',
   defaultuserImage: defaultuserImage,
   freelancerData: [],
   skillsData: [],
   hobbiesData: [],
   error: null,
   freelancer: {
-    firstName: "",
-    lastName: " ",
-    phoneNumber: "",
-    email: "",
-    DateOfBirthString: "",
+    firstName: '',
+    lastName: ' ',
+    phoneNumber: '',
+    email: '',
+    DateOfBirthString: '',
     address: {
       countryId: 1,
       country: null,
-      street: "",
+      street: '',
     },
     position: 0,
-    bio: "",
+    bio: '',
     contacts: {
-      whatsapp: "",
-      facebook: "",
-      instagram: "",
-      telegram: "",
-      github: "",
-      twitter: "",
+      whatsapp: '',
+      facebook: '',
+      instagram: '',
+      telegram: '',
+      github: '',
+      twitter: '',
     },
   },
 };
 
 const freelancerSlice = createSlice({
-  name: "freelancer",
+  name: 'freelancer',
   initialState,
   reducers: {
     firstStep: (state, action) => {
@@ -60,9 +60,9 @@ const freelancerSlice = createSlice({
       state.hobbiesData = payload;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getFreelancer.pending, (state) => {
+      .addCase(getFreelancer.pending, state => {
         state.loading = true;
       })
       .addCase(getFreelancer.fulfilled, (state, action) => {
@@ -75,7 +75,7 @@ const freelancerSlice = createSlice({
   },
 });
 
-export const {  
+export const {
   firstStep,
   secondStep,
   yourSelfStep,

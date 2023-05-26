@@ -32,7 +32,7 @@ function PostJob() {
     { id: 2, label: "Describe the job" },
     { id: 3, label: "About the talant" },
     { id: 4, label: "Terms" },
-    { id: 5, label: "Review and post" },
+    { id: 5, label: "Review" },
   ];
 
   const cards = [
@@ -40,7 +40,7 @@ function PostJob() {
     { id: 2, label: <DescribeJob />, type: "Describe the job" },
     { id: 3, label: <AboutTalant />, type: "About the talant" },
     { id: 4, label: <Terms />, type: "Terms" },
-    { id: 5, label: <Finish />, type: "Review and post" },
+    { id: 5, label: <Finish />, type: "Review" },
   ];
   return (
     <div>
@@ -63,7 +63,7 @@ function PostJob() {
                      <div
                         className={`${classes.card_box} ${el.type === activeCard.type ? classes.active : ""}`}
                         key={el.id}
-                        style={{ top: el.id < activeCard.id ? "-200%" : el.id === activeCard.id ? "20%" : "200%" }}>
+                        style={{ top: el.id < activeCard.id ? "-200%" : el.id === activeCard.id ? "15%" : "200%" }}>
                         {el.label}
                       </div>
               ))}

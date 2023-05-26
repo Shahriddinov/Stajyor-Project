@@ -13,7 +13,7 @@ import Round from "components/Round/Round";
 import back from "../../../../assets/images/Resume/back.png";
 
 function PostJob() {
-  const { activeCard } = useSelector((state) => state.companyRegister);
+  const { activeCard } = useSelector((state) => state.jobs);
   const len = useSelector((state) => state.lenguage.lenguage);
   const { activeDote } = useSelector((state) => state.jobs);
 

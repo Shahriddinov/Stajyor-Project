@@ -47,9 +47,34 @@ function Finish() {
         </div>
         <div className="select_skills">
           <p>Skills needed</p>
-          <img src={project_file} />
-          <img src={project_file} />
-          <img src={project_file} />
+          <div className="skills">
+            <div>Figma</div>
+            <div>html</div>
+            <div>UX/UI</div>
+          </div>
+        </div>
+        <div className="select_skills">
+          <p>The language a freelancer should know</p>
+          <div className="skills">
+            <div>English-C1</div>
+            <div>Russian - C2</div>
+          </div>
+        </div>
+        <hr style={{ margin: "20px 0px" }} />
+        <div>
+          <h3>Terms</h3>
+          <div className="terms">
+            <div>
+              <p>Price</p>
+              <span>5 %</span>
+            </div>
+            <div>
+              {" "}
+              <p>Dedline</p>
+              <span>1 day</span>
+            </div>
+          </div>
+          <hr style={{ margin: "20px 0px" }} />
         </div>
       </div>
     </div>

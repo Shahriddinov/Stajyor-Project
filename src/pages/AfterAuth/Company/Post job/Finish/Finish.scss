@@ -27,10 +27,28 @@
             margin: 8px 0px;
         }
         .select_skills{
+            margin-bottom:5px;
             p{
                 margin:3px 0px
             }
+            .skills{
+                display: flex;
+                div{
+                    margin-right: 10px;
+                    display: flex;
+                    background: #1D71B8;
+                        border-radius: 5px;
+                    color: #FFFFFF;
+                    padding: 5px;
+                }
+            }
         }
+                  .terms {
+                      display: flex;
+                      div:nth-child(2){
+                        margin-left:6vw;
+                      }
+                  }
         p{
             color: #323232;
             font-size: 1.2vw;
@@ -43,4 +61,23 @@
             color:#1D71B8;
         }
     }
+}
+.titles::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.titles::-webkit-scrollbar {
+    background: #f1f1f1;
+
+}
+
+/* Handle */
+.titles::-webkit-scrollbar {
+    background: #1B2330;
+}   
+
+/* Handle on hover */
+.titles::-webkit-scrollbar:hover {
+    background: #0f151f;
 }

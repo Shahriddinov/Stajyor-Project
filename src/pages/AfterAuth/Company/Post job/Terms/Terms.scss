@@ -18,6 +18,11 @@
         padding-left: 8px;
 
     }
+    .select_checkbox{
+        span{
+            margin:0 5px;
+        }
+    }
     .select_hourly{
         display: grid;
         grid-template-columns: 1fr 1fr;

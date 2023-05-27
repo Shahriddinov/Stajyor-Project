@@ -1,0 +1,46 @@
+.finish_main{
+    padding: 20px;
+    h2{
+        color: #323232;
+        font-size: 1.3vw;
+    }
+    h3{
+        font-size: 1.3vw;
+        margin-bottom: 8px;
+    }
+    .titles{
+        display: flex;
+        flex-direction: column;
+        gap:2px;
+        height: 300px;
+        overflow: scroll;
+        .description_span{
+            display: block;
+            margin:7px 0px;
+        }
+        .aditional_projects{
+            margin-bottom: 10px;
+            span{
+            }
+        }
+        .select_levels{
+            margin: 8px 0px;
+        }
+        .select_skills{
+            p{
+                margin:3px 0px
+            }
+        }
+        p{
+            color: #323232;
+            font-size: 1.2vw;
+        }
+        span{
+            color: #808080;
+            font-size: 1.2vw;
+        }
+        a{
+            color:#1D71B8;
+        }
+    }
+}

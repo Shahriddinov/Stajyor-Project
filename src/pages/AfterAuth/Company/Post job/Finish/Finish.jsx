@@ -1,7 +1,19 @@
 import React from "react";
 import "./Finish.scss";
 import project_file from "../../../../../assets/images/Company/project_file.png";
+import { useDispatch } from "react-redux";
+import { activeDoteAction } from "reduxToolkit/jobsSlice/JobsSlice";
 function Finish() {
+  var dispatch = useDispatch()
+  const backPage = (e) => {
+    e.preventDefault();
+    dispatch(
+      activeDoteAction([
+        { id: 4, label: "Terms" },
+        { id: 4, type: "Terms" },
+      ])
+    );
+  };
   return (
     <div className="finish_main">
       <h2>Review and post</h2>
@@ -76,6 +88,14 @@ function Finish() {
           </div>
           <hr style={{ margin: "20px 0px" }} />
         </div>
+      </div>
+      <div className="buttons">
+        <button className="backBtn" onClick={backPage}>
+          Edit
+        </button>
+        <button type="submit" className="nextBtn">
+          Save
+        </button>
       </div>
     </div>
   );

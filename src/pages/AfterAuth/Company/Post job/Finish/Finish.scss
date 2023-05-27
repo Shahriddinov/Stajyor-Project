@@ -13,15 +13,16 @@
     flex-direction: column;
     gap: 2px;
     height: 320px;
-    overflow: scroll;
+    padding-right:1vw;
+    overflow-y: scroll;
     .description_span {
       display: block;
       margin: 7px 0px;
     }
     .aditional_projects {
       margin-bottom: 10px;
-      img{
-        margin-top:5px
+      img {
+        margin-top: 5px;
       }
     }
     .select_levels {
@@ -102,4 +103,8 @@
 /* Track */
 .titles::-webkit-scrollbar {
   background: #f1f1f1;
+}
+.titles::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  margin-top: 0;
 }

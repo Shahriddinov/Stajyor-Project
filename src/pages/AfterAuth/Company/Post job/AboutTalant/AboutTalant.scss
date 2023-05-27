@@ -64,31 +64,31 @@
   .buttons {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
     .backBtn {
       border: none;
-      transition: 0.5s;
-      margin-right: 2px;
     }
+
     .backBtn:hover {
-      transition: 0.5s;
       border: 1px solid #1d71b8;
     }
+
     .nextBtn:hover {
-      transition: 0.5s;
       background-color: #1d71b8;
       color: #ffffff;
     }
+
     button {
-      transition: 0.5s;
       border: 1px solid #1d71b8;
       border-radius: 8px;
+      font-style: normal;
       font-weight: 500;
-        font-size: 1.3vw;
+      font-size: 1.3vw;
+      line-height: 24px;
       color: #323232;
       background: #ffffff;
       padding: 0.5vw 1vw;
-      // margin-left: 10px;
+      margin-top: 1rem;
+      margin-left: 10px;
     }
   }
 }

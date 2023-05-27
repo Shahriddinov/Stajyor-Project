@@ -10,7 +10,7 @@
         font-family: "Montserrat";
         font-weight: 500;
         font-size: 20px;
-        padding: 11px 0px;
+        padding: 16px 0px;
         line-height: 24px;
         color: #808080;
         /* margin-top: 8px; */
@@ -19,8 +19,18 @@
 
     }
     .select_checkbox{
+        display: flex;
+        input{
+            font-size: 2vw;
+            width: 1.1vw;
+            height: 1.1vw;
+        }
         span{
-            margin:0 5px;
+            margin:0 3px;
+            font-size: 1.2vw;
+        }
+        div{
+            margin-left: 10px;
         }
     }
     .select_hourly{

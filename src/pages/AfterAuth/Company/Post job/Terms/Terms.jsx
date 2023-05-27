@@ -22,16 +22,17 @@ function Terms() {
     e.preventDefault();
     dispatch(
       activeDoteAction([
-        { id: 5, label: "Review" },
-        { id: 5, type: "Review" },
+        { id: 5, label: "Review and post" },
+        { id: 5, type: "Review and post" },
       ])
     );
   };
   const backPage = (e) => {
+    e.preventDefault()
     dispatch(
       activeDoteAction([
         { id: 3, label: "About the talant" },
-        { id: 3, type: "About" },
+        { id: 3, type: "About the talant" },
       ])
     );
   };

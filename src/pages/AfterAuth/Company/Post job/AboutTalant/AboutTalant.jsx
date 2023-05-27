@@ -46,30 +46,30 @@ function AboutTalant() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className='card'>
-          <h2 className='card__title'>About the talant</h2>
-          <div className='card__select__level'>
-            <h3 className='card__select-level__title'>
+        <div className="card">
+          <h2 className="card__title">About the talant</h2>
+          <div className="card__select__level">
+            <h3 className="card__select-level__title">
               What level of experience should your freelancer have?
             </h3>
-            <ul className='card__select-level__selected'>
+            <ul className="card__select-level__selected">
               <li
                 onClick={() => setActiveLi1(!activeLI1)}
-                className={`${activeLI1 ? 'active__li' : ''}  
+                className={`${activeLI1 ? "active__li" : ""}  
                  `}
               >
                 Junior
               </li>
               <li
                 onClick={() => setActiveLi2(!activeLI2)}
-                className={`${activeLI2 ? 'active__li' : ''}  
+                className={`${activeLI2 ? "active__li" : ""}  
                  `}
               >
                 Middle
               </li>
               <li
                 onClick={() => setActiveLi3(!activeLI3)}
-                className={`${activeLI3 ? 'active__li' : ''}  
+                className={`${activeLI3 ? "active__li" : ""}  
                  `}
               >
                 Senior
@@ -77,31 +77,30 @@ function AboutTalant() {
             </ul>
           </div>
 
-          <div className='card__select-skills'>
-            <h3 className='card__select-skills__title'>
+          <div className="card__select-skills">
+            <h3 className="card__select-skills__title">
               Enter skills needed (optional)
             </h3>
             <MultiSelect
               data={skills}
-              className='card__select-skills__selected'
+              className="card__select-skills__selected"
             />
           </div>
 
-          <div className='card__select-language'>
-            <h3 className='card__select-language__title'>
+          <div className="card__select-language">
+            <h3 className="card__select-language__title">
               The language a freelancer should know (optional)
             </h3>
             <MultiSelect
               data={language}
-              className='card__select-language__selected'
+              className="card__select-language__selected"
             />
           </div>
-
-          <div className='buttons'>
-            <button className='backBtn' onClick={backPage}>
+          <div className="buttons">
+            <button className="backBtn" onClick={backPage}>
               Back
             </button>
-            <button className='nextBtn' type='submit'>
+            <button type="submit" className="nextBtn">
               Next
             </button>
           </div>

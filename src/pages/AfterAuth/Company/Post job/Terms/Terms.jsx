@@ -53,8 +53,10 @@ function Terms() {
         <div className="select_checkbox">
           <input name="radio" type="radio" />
           <span>Hourly</span>
-          <input name="radio" type="radio" />
-          <span>By Project</span>
+          <div>
+            <input name="radio" type="radio" />
+            <span>By Project</span>
+          </div>
         </div>
 
         <p>Your deadline for job</p>

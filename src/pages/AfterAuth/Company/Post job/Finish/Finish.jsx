@@ -1,10 +1,17 @@
 import React from "react";
 import "./Finish.scss";
 import project_file from "../../../../../assets/images/Company/project_file.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { activeDoteAction } from "reduxToolkit/jobsSlice/JobsSlice";
+import { useNavigate } from "react-router";
 function Finish() {
+  const len = useSelector((state) => state.lenguage.lenguage);
   var dispatch = useDispatch()
+  var navigate = useNavigate()
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    navigate(`/${len}/my-jobs`)
+  }
   const backPage = (e) => {
     e.preventDefault();
     dispatch(
@@ -18,6 +25,7 @@ function Finish() {
     <div className="finish_main">
       <h2>Review and post</h2>
       <br />
+      <form onSubmit={handleSubmit}>
       <div className="titles">
         <h3>Title</h3>
 
@@ -97,6 +105,7 @@ function Finish() {
           Save
         </button>
       </div>
+      </form>
     </div>
   );
 }

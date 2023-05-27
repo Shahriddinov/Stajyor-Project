@@ -57,24 +57,14 @@ function PostJob() {
               </div>
             </div>
 
-            <div className='cards'>
-              {cards.map(el => (
-                <div
-                  className={`${classes.card_box} ${
-                    el.type === activeCard.type ? classes.active : ''
-                  }`}
-                  key={el.id}
-                  style={{
-                    top:
-                      el.id < activeCard.id
-                        ? '-200%'
-                        : el.id === activeCard.id
-                        ? '20%'
-                        : '200%',
-                  }}
-                >
-                  {el.label}
-                </div>
+            <div className="cards">
+            {cards.map((el) => (
+                     <div
+                        className={`${classes.card_box} ${el.type === activeCard.type ? classes.active : ""}`}
+                        key={el.id}
+                        style={{ top: el.id < activeCard.id ? "-200%" : el.id === activeCard.id ? "15%" : "200%" }}>
+                        {el.label}
+                      </div>
               ))}
             </div>
 

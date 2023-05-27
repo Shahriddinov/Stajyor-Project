@@ -25,7 +25,7 @@ const Dropdown = () => {
 
   const handleClick = () => {
     dispatch(profilLogout());
-    navigate(`/${len}/`);
+    navigate(`/${len}/welcome`);
     dispatch(changeRoleWhenFinished(false));
   };
   const info = JSON.parse(localStorage.getItem("info"));

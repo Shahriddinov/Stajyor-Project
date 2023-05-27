@@ -15,10 +15,10 @@ function DescribeJob() {
  e.preventDefault();
   dispatch(
     activeDoteAction([
-      { id: 3, label: "Describe the job" },
-      { id: 3, type: "About" }
+      { id: 3, label: "About the talant" },
+      { id: 3, type: "About the talant" },
     ])
-  )
+  );
  }
 
 const backPage = (e)=>{

@@ -15,10 +15,10 @@ const handleClick = (e)=>{
   e.preventDefault()
   dispatch(
     activeDoteAction([
-      { id: 2, label: "About the talant" },
-      { id: 2, type: "Describe the job" }
+      { id: 2, label: "Describe the job" },
+      { id: 2, type: "Describe the job" },
     ])
-  )
+  );
 }
   return (
     <div className="title_main">

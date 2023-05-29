@@ -26,6 +26,9 @@ const Cart = ({ AllFreelancerData }) => {
     else likes.push(item.id);
     setLikes([...likes]);
   };
+
+  console.log(AllFreelancerData);
+
   return (
     <div className='freelancer_cart'>
       {AllFreelancerData?.map(freelancer => (
@@ -48,8 +51,7 @@ const Cart = ({ AllFreelancerData }) => {
               <div>
                 <h4 className='freelancer_cart_list_item_title'> 80% </h4>
                 <progress id='file' max='100' value='70'>
-                  {' '}
-                  70%{' '}
+                  70%
                 </progress>
                 <p className='freelancer_cart_list_item_info'> Job Success </p>
               </div>
@@ -71,21 +73,21 @@ const Cart = ({ AllFreelancerData }) => {
                 </p>
               </div>
             </li>
-          </ul>
-          {pathname.slice(4) === 'talants' && (
-            <div className='freelancer_cart_list_wrapper'>
-              <div
-                className={classes.liked}
-                onClick={onClickLike.bind(this, freelancer)}
-              >
-                {likes.findIndex(x => x === freelancer.id) >= 0 ? (
-                  <BsHeartFill className={classes.bsheartfill} />
-                ) : (
-                  <BsHeart className={classes.bsheart} />
-                )}
+            {pathname.slice(4) === 'talants' && (
+              <div className='freelancer_cart_list_wrapper'>
+                <div
+                  className={classes.liked}
+                  onClick={onClickLike.bind(this, freelancer)}
+                >
+                  {likes.findIndex(x => x === freelancer.id) >= 0 ? (
+                    <BsHeartFill className={classes.bsheartfill} />
+                  ) : (
+                    <BsHeart className={classes.bsheart} />
+                  )}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </ul>
 
           <Colasible text={freelancer.bio} freelance={freelancer.lastName} />
 

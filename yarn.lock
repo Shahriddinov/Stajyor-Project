@@ -13827,6 +13827,11 @@
     "workbox-core" "6.5.4"
     "workbox-routing" "6.5.4"
 
+"workbox-sw@^6.6.0":
+  "integrity" "sha512-R2IkwDokbtHUE4Kus8pKO5+VkPHD2oqTgl+XJwh4zbF1HyjAbgNmK/FneZHVU7p03XUt9ICfuGDYISWG9qV/CQ=="
+  "resolved" "https://registry.npmjs.org/workbox-sw/-/workbox-sw-6.6.0.tgz"
+  "version" "6.6.0"
+
 "workbox-sw@6.5.4":
   "integrity" "sha512-vo2RQo7DILVRoH5LjGqw3nphavEjK4Qk+FenXeUsknKn14eCNedHOXWbmnvP4ipKhlE35pvJ4yl4YYf6YsJArA=="
   "resolved" "https://registry.npmjs.org/workbox-sw/-/workbox-sw-6.5.4.tgz"

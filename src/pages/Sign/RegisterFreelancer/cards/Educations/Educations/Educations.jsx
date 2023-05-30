@@ -31,10 +31,10 @@ function Educations() {
     educationDeleteIsSuccess,
     loading,
   } = useSelector(state => state.resume);
+
   useEffect(() => {
     dispatch(educationGet());
   }, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
-
 
   const [test, setTest] = useState();
 
@@ -99,27 +99,9 @@ function Educations() {
   ];
   const option = [
     { value: 'Sredniy', label: 'sredniy', id: 1 },
-    { value: 'Vishiy', label: 'vishiy', id: 2 },
-    { value: 'Bachelour', label: 'Bachelour', id: 3 },
+    { value: 'Visshiy', label: 'vishiy', id: 2 },
+    { value: 'Bachelor', label: 'Bachelour', id: 3 },
   ];
-
-  function updateToTypeOption(type) {
-    if (type === 1) {
-      return 'online';
-    } else if (type === 2) {
-      return 'offline';
-    }
-  }
-
-  function updateIdToStudy(study) {
-    if (study === 1) {
-      return 'sredniy';
-    } else if (study === 2) {
-      return 'vishiy';
-    } else if (study === 3) {
-      return 'bachelour';
-    }
-  }
 
   return (
     <>
@@ -150,11 +132,11 @@ function Educations() {
                       <span className='educations__subtitle'>{el.name}</span>
                       <div className='educations__study'>
                         <span className='educations__span'>
-                          {updateIdToStudy(el.typeOfStudy)}
+                          {el.typeOfStudy}
                           {test}
                         </span>
                         <span className='educations__telecommunication'>
-                          {updateToTypeOption(el.degree)}
+                          {el.degree}
                         </span>
                       </div>
                     </div>
@@ -228,8 +210,6 @@ function Educations() {
       )}
       {isMoadalActive.educationAdd && (
         <AddEducations
-          updateIdToStudy={updateIdToStudy}
-          updateToTypeOption={updateToTypeOption}
           TypeOptions={TypeOptions}
           option={option}
           removeModal={setMoadalActive}
@@ -238,8 +218,6 @@ function Educations() {
       )}
       {isMoadalActive.educationEdit && (
         <AddEducations
-          updateIdToStudy={updateIdToStudy}
-          updateToTypeOption={updateToTypeOption}
           TypeOptions={TypeOptions}
           option={option}
           removeModal={setMoadalActive}

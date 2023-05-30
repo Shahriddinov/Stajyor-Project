@@ -1,6 +1,8 @@
 import jwt_decode from 'jwt-decode';
+import CompanyDropdown from 'pages/AfterAuth/Company/components/Dropdown/Dropdown';
+import FreelancerDropdown from 'pages/AfterAuth/Freelancer/components/Dropdown/Dropdown';
 import Header from 'pages/AfterAuth/Header/Header';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Navigate,
@@ -18,14 +20,14 @@ import {
   freelancerResume,
   freelancerRouter,
   publicRoute,
-} from "routes";
-import FreelancerDropdown from "pages/AfterAuth/Freelancer/components/Dropdown/Dropdown";
-import CompanyDropdown from "pages/AfterAuth/Company/components/Dropdown/Dropdown";
-import MyPostings from "pages/AfterAuth/Company/MyPostings";
+} from 'routes';
+
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const auth = useSelector(state => state.login.loggedIn);
   const len = useSelector(state => state.lenguage.lenguage);
+  const { t } = useTranslation();
   const freelancerOrCompony = useSelector(
     state => state.login.freelancerOrCompony,
   );
@@ -87,6 +89,23 @@ function App() {
     }
   }, []);
 
+  // ~~~~~~~~~~~~~~~~~~~~~~~~test
+
+  const [online, setOnline] = useState(navigator.onLine);
+
+  useEffect(() => {
+    const handleOnlineStatus = () => {
+      setOnline(navigator.onLine);
+    };
+
+    window.addEventListener('online', handleOnlineStatus);
+    window.addEventListener('offline', handleOnlineStatus);
+
+    return () => {
+      window.removeEventListener('online', handleOnlineStatus);
+      window.removeEventListener('offline', handleOnlineStatus);
+    };
+  }, []);
 
   const handleDelete = () => {
     if (userBoolen) {
@@ -99,6 +118,8 @@ function App() {
   };
   return (
     <div className='App'>
+      {/* {online ? (
+        <> */}
       {freelancerOrCompony !== 'Company' &&
       freelancerOrCompony !== 'Freelancer' ? (
         freelancer === 'freelancer' ? (
@@ -149,11 +170,11 @@ function App() {
               : 'freelanser-box-bg2'
           }`}
         >
-          {freelancerOrCompony === "Freelancer" ? (
+          {freelancerOrCompony === 'Freelancer' ? (
             <>
               <Header Dropdown={FreelancerDropdown} />
               <Routes>
-                {freelancerRouter.map((route) => (
+                {freelancerRouter.map(route => (
                   <Route
                     path={`/${len}${route.path}`}
                     element={route.element}
@@ -177,16 +198,16 @@ function App() {
                   path={`/${len}/welcome/create-profile/:resumeId`}
                   element={<Navigate to={`/${len}/jobs`} />}
                 />
-                <Route path="*" element={<Navigate to={`/${len}/jobs`} />} />
+                <Route path='*' element={<Navigate to={`/${len}/jobs`} />} />
               </Routes>
             </>
           ) : null}
 
-          {freelancerOrCompony === "Company" && (
+          {freelancerOrCompony === 'Company' && (
             <>
               <Header Dropdown={CompanyDropdown} />
               <Routes>
-                {companyRouter.map((route) => (
+                {companyRouter.map(route => (
                   <>
                     <Route
                       path={`/${len}${route.path}`}
@@ -232,6 +253,10 @@ function App() {
           <Route path='*' element={<Navigate to={`/${len}/welcome`} />} />
         </Routes>
       )}
+      {/* </>
+      ) : (
+        <h1>no internet</h1>
+      )} */}
     </div>
   );
 }

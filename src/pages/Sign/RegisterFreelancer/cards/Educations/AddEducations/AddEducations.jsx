@@ -48,18 +48,18 @@ function AddEducations({ removeModal, defaultInputData, TypeOptions, option }) {
     return sanitizedValue;
   };
 
-  const handleChange = (event, name) => {
-    const sanitizedValue = sanitizeInput(event.target.value);
-    if (name == 'location') {
-      setData(prev => ({
-        ...prev,
-        location: sanitizeInput(event.target.value),
-      }));
-    } else if (name == 'name') {
-      setData(prev => ({ ...prev, name: sanitizeInput(event.target.value) }));
-    }
-    setData(sanitizedValue);
-  };
+  // const handleChange = (event, name) => {
+  //   const sanitizedValue = sanitizeInput(event.target.value);
+  //   if (name == 'location') {
+  //     setData(prev => ({
+  //       ...prev,
+  //       location: sanitizeInput(event.target.value),
+  //     }));
+  //   } else if (name == 'name') {
+  //     setData(prev => ({ ...prev, name: sanitizeInput(event.target.value) }));
+  //   }
+  //   setData(sanitizedValue);
+  // };
 
   console.log(data);
 

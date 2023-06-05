@@ -5,8 +5,20 @@ import { useState } from "react";
 import Select from "react-select";
 import "./styles.scss";
 import cancel from "../../../../assets/images/Resume/cancel.png";
-import { languageUpload, languages } from "reduxToolkit/extraReducers";
+import {
+  languageUpload,
+  languages,
+  postUserLanguage,
+} from "reduxToolkit/extraReducers";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
+
+const initialState = {
+  languageId: null,
+  level: "",
+  id: Date.now(),
+  test: "test",
+  test2: "test2",
+};
 
 function Language() {
   const dispatch = useDispatch();
@@ -17,47 +29,46 @@ function Language() {
   const [disabledlanguageList, setDisabledlanguageList] = useState(
     languageList
   );
-
-  useEffect(() => {
-    if (userLang.length < 1) {
-      setDisabledlanguageList(languageList);
-    } else {
-      const filteredList = languageList.filter(
-        (lang) => !userLang.includes(lang.id)
-      );
-      setDisabledlanguageList(filteredList);
-    }
-  }, [userLang, languageList]);
+  const [langs, setLangs] = useState([initialState]);
+  const [lanId, setLanId] = useState(null);
+  const [lanLevel, setLanLevel] = useState("");
 
   let level = [
-    { value: "A1 - Beginner", label: "A1 - Beginner" },
-    { value: "A2 - Elementary", label: "A2 - Elementary" },
-    { value: "B1 - Intermediate", label: "B1 - Intermediate" },
-    { value: "B2 - Upper-Intermediate", label: "B2 - Upper-Intermediate" },
+    { value: "Beginner", label: "A1 - Beginner" },
+    { value: "Elementary", label: "A2 - Elementary" },
+    { value: "PreIntermediate", label: "B1 - PreIntermediate" },
+    { value: "UpperIntermediate", label: "B2 - Upper-Intermediate" },
+    { value: "Advanced", label: "C1 - Upper-Intermediate" },
+    { value: "Native", label: "C2 - Native" },
   ];
 
+
   let singleLang = true;
-  if (theArray.length > 1) {
+  if (langs.length > 1) {
     singleLang = false;
   }
 
   const removeLang = (id) => {
     let newLang = [];
-    for (let i = 0; i < theArray.length; i++) {
-      if (theArray[i].id !== id) {
-        newLang.push(theArray[i]);
+    for (let i = 0; i < langs.length; i++) {
+      if (langs[i].id !== id) {
+        newLang.push(langs[i]);
       }
     }
-    setTheArray(newLang);
+    setLangs(newLang);
+  };
+
+  const handleLanguage = () => {
+    setLangs((prev) => [...prev, { ...initialState, id: Date.now() }]);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    let formdatas = new FormData();
-    for (let i = 0; i < theArray.length; i++) {
-      formdatas.append("LanguageId", userLang[i]);
-      formdatas.append("Level", userLevel[i]);
-    }
+    const data = langs.map((el) => ({
+      languageId: el.languageId,
+      level: el.level,
+    }));
+    dispatch(postUserLanguage(data));
     localStorage.setItem(
       "activDoteAction",
       JSON.stringify([
@@ -90,6 +101,27 @@ function Language() {
     }
   }, []);
 
+  const addLanguage = ({ id, value, type, choice }) => {
+    const res = languageList.filter((el) => el.id !== choice?.value);
+    if (res) {
+      setUserLang(res);
+      setDisabledlanguageList(res)
+    } else {
+      setUserLang(disabledlanguageList)
+    }
+    const newLangs = langs.map((el) => {
+      if (el.id === id) {
+        return {
+          ...el,
+          [type]: value,
+        };
+      }
+      return el;
+    });
+
+    setLangs(newLangs);
+  };
+  console.log(disabledlanguageList)
   return (
     <div className={classes.languageCard}>
       <h2>Write what languages you speak</h2>
@@ -104,7 +136,7 @@ function Language() {
       >
         <label htmlFor="languages">Language*</label>
         <div className={classes.select_box}>
-          {theArray.map((lang) => (
+          {langs.map((lang) => (
             <div
               key={lang.id}
               id={!singleLang ? "test" : null}
@@ -112,20 +144,33 @@ function Language() {
             >
               <Select
                 className="languageSelect"
-                options={disabledlanguageList?.map((el) => ({
+                options={disabledlanguageList.length? disabledlanguageList :languageList.map((el) => ({
                   value: el.id,
                   label: el.name,
-                  disabled: userLang.includes(el.id),
                 }))}
                 placeholder="Language*"
-                onChange={(choice) => setUserLang([...userLang, choice.value])}
+                onChange={(choice) =>
+                  addLanguage({
+                    id: lang.id,
+                    value: choice.value,
+                    type: "languageId",
+                    choice: choice,
+                  })
+                }
+                styles={{
+                  overflowX: "scroll",
+                }}
               />
               <Select
                 className="languageSelect"
                 options={level}
                 placeholder="Level*"
                 onChange={(choice) =>
-                  setUserLevel([...userLevel, choice.value])
+                  addLanguage({
+                    id: lang.id,
+                    value: choice.value,
+                    type: "level",
+                  })
                 }
               />
               {!singleLang && (
@@ -143,16 +188,7 @@ function Language() {
         <div
           style={{ cursor: "pointer" }}
           className={classes.addLanguage}
-          onClick={() => {
-            setTheArray((oldArray) => [
-              ...theArray,
-              {
-                test: "test",
-                test2: "test2",
-                id: Math.floor(Math.random() * 10),
-              },
-            ]);
-          }}
+          onClick={() => handleLanguage()}
         >
           + Add Language
         </div>

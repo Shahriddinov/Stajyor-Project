@@ -47,6 +47,7 @@ function App() {
   useEffect(() => {
     if (auth) {
       let decode = jwt_decode(auth);
+      console.log(decode)
       let getRole = Object.values(decode).includes('Company')
         ? 'Company'
         : Object.values(decode).includes('Freelancer')

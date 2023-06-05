@@ -91,6 +91,7 @@ function Yourself() {
   };
   const PositionChange = pos => {
     setSkil(pos.id);
+    console.log(downSkills)
     setData({ ...data, positions: pos.id });
     setPosition(pos);
   };
@@ -127,7 +128,10 @@ function Yourself() {
     setDownSkills(skill);
   };
   useEffect(() => {
-    localStorage.setItem('hobbies', JSON.stringify(hobbiesorg));
+    if(hobbiesorg.length>0){
+      console.log(hobbiesorg)
+      localStorage.setItem('hobbies', JSON.stringify(hobbiesorg));
+    }
   }, [hobbiesorg]);
 
   useEffect(() => {

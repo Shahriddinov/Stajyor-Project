@@ -17,15 +17,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { getFreelancer } from "reduxToolkit/extraReducers";
 import { useTranslation } from "react-i18next";
 import { UserCircle } from "tabler-icons-react";
-import { useContext } from "react";
 import AddProfilePhoto from "./components/AddProfilePhoto";
-import Context from "components/Context/Context";
-import AddEducation from "./components/AddEducation";
 import Available from "./components/Available";
 import AddLanguage from "./components/AddLanguage";
-import AddProject from "./components/AddProject";
 import AddContacts from "./components/AddContacts";
 import AddLocation from "./components/AddLocation";
+import AddPortfolioProject from "./components/AddPortfolioProject";
+import Education from "./components/Educations/Education";
+import WorkExperience from "./components/Experience/Experience/WorkExperience";
 
 const FreelancerProfile = () => {
   const { t } = useTranslation();
@@ -117,7 +116,10 @@ const FreelancerProfile = () => {
 
             <h3 className="userfreelancermodal_left_title">
               {t("portfolio")} (13)
-              <div className="userfreelancermodal_left_title_wrapper"></div>{" "}
+              <div
+                className="userfreelancermodal_left_title_wrapper"
+                onClick={() => handleSetData({ modal: "addPortfolioProject" })}
+              ></div>{" "}
             </h3>
             <PortfolioCard />
             <h3 className="userfreelancermodal_left_title">
@@ -223,7 +225,7 @@ const FreelancerProfile = () => {
                   {t("experience")}{" "}
                   <div
                     className="userfreelancermodal_right_mainlist_item_wrapper"
-                    onClick={() => handleSetData({ modal: "addProject" })}
+                    onClick={() => handleSetData({ modal: "addExperience" })}
                   ></div>{" "}
                 </h4>
                 <div>
@@ -382,17 +384,19 @@ const FreelancerProfile = () => {
             {activeModal === "addProfilePhoto" ? (
               <AddProfilePhoto setActiveModal={setActiveModal} />
             ) : activeModal === "addEducation" ? (
-              <AddEducation setActiveModal={setActiveModal} />
+              <Education setActiveModal={setActiveModal} />
             ) : activeModal === "available" ? (
               <Available setActiveModal={setActiveModal} />
             ) : activeModal === "addLanguage" ? (
               <AddLanguage setActiveModal={setActiveModal} />
-            ) : activeModal === "addProject" ? (
-              <AddProject setActiveModal={setActiveModal} />
+            ) : activeModal === "addPortfolioProject" ? (
+              <AddPortfolioProject setActiveModal={setActiveModal} />
             ) : activeModal === "addContact" ? (
               <AddContacts setActiveModal={setActiveModal} />
             ) : activeModal === "addLocation" ? (
               <AddLocation setActiveModal={setActiveModal} />
+            ) : activeModal === "addExperience" ? (
+              <WorkExperience setActiveModal={setActiveModal} />
             ) : (
               ""
             )}

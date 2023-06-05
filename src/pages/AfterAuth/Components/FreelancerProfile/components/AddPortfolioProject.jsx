@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { projectPost } from "reduxToolkit/extraReducers";
 
-const AddProject = ({ setActiveModal }) => {
+const AddPortfolioProject = ({ setActiveModal }) => {
   const [inputImages, setinputImages] = useState([]);
   const dispatch = useDispatch();
   const { response } = useSelector((state) => state.project);
@@ -150,4 +150,4 @@ const AddProject = ({ setActiveModal }) => {
   );
 };
 
-export default AddProject;
+export default AddPortfolioProject;

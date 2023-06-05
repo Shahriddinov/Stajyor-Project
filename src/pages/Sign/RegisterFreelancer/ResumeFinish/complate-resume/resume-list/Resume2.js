@@ -14,8 +14,8 @@ const Resume2 = props => {
     freelancerPosition,
     lastName,
     address,
-    userLanguages,
     birthday,
+    freelancerLang
   } = props;
 
   return (
@@ -86,14 +86,13 @@ const Resume2 = props => {
                 <div className='resume2_1-left-contacts'>
                   <div className='resume2_1-left-contacts__texts resume2_1-left__block'>
                     <p className='resume2_1-left-contacts__text'>languages</p>
-                    {userLanguages?.map((item, i) => {
+                    {freelancerLang?.map((item, i) => {
                       return (
                         <span key={i}>
                           {item?.language} - {item?.level}
                         </span>
                       );
                     })}
-                    <span>English - elementary</span>
                   </div>
 
                   <div className='resume2_1-left-contacts__texts resume2_1-left__block'>

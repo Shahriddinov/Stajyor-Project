@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import classes from "./resume-finish.module.scss";
 import "./ComplateResume.scss";
 import arrowLeft from "../../../../assets/images/arrow-left.svg";
@@ -11,6 +11,8 @@ import {
   getFreelancer,
   experienceGet,
   educationGet,
+  getUserlang,
+  languages,
 } from "reduxToolkit/extraReducers";
 import Resume1 from "./complate-resume/resume-list/Resume1";
 import Resume2 from "./complate-resume/resume-list/Resume2";
@@ -20,16 +22,15 @@ import Resume5 from "./complate-resume/resume-list/Resume5";
 import Resume6 from "./complate-resume/resume-list/Resume6";
 import { activeDoteAction } from "reduxToolkit/resumeControlsSlice/resumeControls";
 import { changeRoleWhenFinished } from "reduxToolkit/loginSlice/LoginSlice";
+import { forEach, forEachRight } from "lodash";
 
 const ReumeFinish = () => {
   // const resumeDetails = useSelector(state => state.resume.resumeDetails)
-  const { ...freelancer } = useSelector(
-    (state) => state.frilanserCardSlice.freelancer
-  );
-  const { freelancerLoading } = useSelector((state) => state.resume);
+
+  const { freelancerLoading, languageList } = useSelector((state) => state.resume);
   const loading = useSelector((state) => state.resume.loading);
   const experiences = useSelector((state) => state.resume.experienceList);
-  const { skillsData, freelancerData } = useSelector(
+  const { skillsData, freelancerData, userLang } = useSelector(
     (state) => state.frilanserCardSlice
   );
 
@@ -42,10 +43,43 @@ const ReumeFinish = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { resumeId } = useParams();
+  const [languageNames, setLanguageNames] = useState();
+  const [levelNames, setLevelNames] = useState();
+
+  const levels = [
+    { name: "Beginner", level: 0 },
+    { name: "Elementary", level: 1 },
+    { name: "PreIntermediate", level: 2 },
+    { name: "UpperIntermediate", level: 3 },
+    { name: "Advanced", level: 4 },
+    { name: "Native", level: 5 },
+  ];
+
 
   useEffect(() => {
+    var arr = [];
+    userLang?.forEach(ulang => {
+      const lang = languageList.find((lang) => ulang.languageId == lang.id);
+      console.log(lang)
+      const level = levels.find((level) => ulang.level == level.level);
+      arr.push({
+        language: lang ? lang.name : null,
+        level: level ? level.name : null,
+      });
+    });
+    setLanguageNames(arr)
+  }, [languageList, userLang,])
+  const [freeLancerAddress, setFreelancerAddress] = useState()
+  useEffect(() => {
     dispatch(experienceGet());
-    dispatch(educationGet());
+    dispatch(educationGet())
+    dispatch(getUserlang())
+    dispatch(languages())
+
+    var countryName = JSON.parse(localStorage.getItem("country"))
+    if(countryName){
+      setFreelancerAddress(countryName)
+    }
   }, []);
 
   const data = new FormData();
@@ -64,7 +98,7 @@ const ReumeFinish = () => {
   useEffect(() => {
     if (!freelancerLoading) {
       let id = localStorage.getItem("freelancerId");
-      dispatch(getFreelancer(id));
+      dispatch(getFreelancer(187));
     }
   }, [freelancerLoading]);
 
@@ -79,6 +113,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },
@@ -92,6 +128,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },
@@ -105,6 +143,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },
@@ -118,6 +158,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },
@@ -131,6 +173,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },
@@ -144,6 +188,8 @@ const ReumeFinish = () => {
           freelancerPosition={skillsData}
           experiences={experiences}
           educations={educationList}
+          freelancerLang={languageNames}
+          freeLancerAddress={freeLancerAddress}
         />
       ),
     },

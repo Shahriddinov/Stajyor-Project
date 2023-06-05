@@ -13,6 +13,7 @@ const Resume5 = ({
   freelancerPosition,
   firstName,
   lastName,
+  languageNames
 }) => {
   return (
     <>

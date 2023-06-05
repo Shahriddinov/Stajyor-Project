@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
-import classes from "./MyPostings.module.scss";
-import FreelancerProfile from "./assets/freelancerProfilePhoto.png";
-import Circle from "./assets/Ellipse 16.png";
-import Nav from "./Nav";
-import { MdVerified } from "react-icons/md";
-import { BsEyeFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { BsEyeFill } from 'react-icons/bs';
+import { MdVerified } from 'react-icons/md';
+import { useSelector } from 'react-redux';
+import { Link, useLocation } from 'react-router-dom';
+import classes from './MyPostings.module.scss';
+import FreelancerProfile from './assets/freelancerProfilePhoto.png';
 
 const MyPostings = () => {
-  const [activePostings, setActivePostings] = useState("active");
-  const len = useSelector((state) => state.lenguage.lenguage);
+  const [activePostings, setActivePostings] = useState('active');
+  const len = useSelector(state => state.lenguage.lenguage);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -27,31 +24,31 @@ const MyPostings = () => {
             <ul className={classes.sortList}>
               <li
                 className={
-                  activePostings === "active"
+                  activePostings === 'active'
                     ? classes.active
                     : classes.sortListItem
                 }
-                onClick={() => setActivePostings("active")}
+                onClick={() => setActivePostings('active')}
               >
                 Active
               </li>
               <li
                 className={
-                  activePostings === "draft"
+                  activePostings === 'draft'
                     ? classes.active
                     : classes.sortListItem
                 }
-                onClick={() => setActivePostings("draft")}
+                onClick={() => setActivePostings('draft')}
               >
                 Draft
               </li>
               <li
                 className={
-                  activePostings === "inProgress"
+                  activePostings === 'inProgress'
                     ? classes.active
                     : classes.sortListItem
                 }
-                onClick={() => setActivePostings("inProgress")}
+                onClick={() => setActivePostings('inProgress')}
               >
                 In progress
               </li>
@@ -60,7 +57,7 @@ const MyPostings = () => {
               <div className={classes.addPost}>Add Post</div>
             </Link>
           </div>
-          {activePostings === "active" && (
+          {activePostings === 'active' && (
             <div className={classes.postings}>
               <div className={classes.posting}>
                 <div className={classes.row}>
@@ -72,7 +69,7 @@ const MyPostings = () => {
                       Created: <span> Oct 21, 10:17</span>
                     </div>
                     <div className={classes.viewCount}>
-                      <BsEyeFill size={15} color={"#1D71B8"} />
+                      <BsEyeFill size={15} color={'#1D71B8'} />
                       104
                     </div>
                   </div>
@@ -116,7 +113,7 @@ const MyPostings = () => {
               </div>
             </div>
           )}
-          {activePostings === "draft" && (
+          {activePostings === 'draft' && (
             <div className={classes.postings}>
               <div className={classes.posting}>
                 <div className={classes.row}>
@@ -150,7 +147,7 @@ const MyPostings = () => {
               </div>
             </div>
           )}
-          {activePostings === "inProgress" && (
+          {activePostings === 'inProgress' && (
             <div className={classes.postings}>
               <div className={classes.posting}>
                 <div className={classes.row}>
@@ -177,14 +174,14 @@ const MyPostings = () => {
                   <div className={classes.column}>
                     <img
                       src={FreelancerProfile}
-                      alt=""
+                      alt=''
                       className={classes.freelancerProfilePhoto}
                     />
                     <Link to={`/${len}/freelancerPage`}>
                       <div className={classes.freelancerInfo}>
                         <div className={classes.verified}>
                           <h4>Michel R</h4>
-                          <MdVerified color="#1F57C3" />
+                          <MdVerified color='#1F57C3' />
                         </div>
                         <p>Web Design UI/UX</p>
                       </div>

@@ -4,14 +4,7 @@ import Select from 'react-select';
 import { educationEdit, educationPost } from 'reduxToolkit/extraReducers';
 import './style.scss';
 
-function AddEducations({
-  removeModal,
-  defaultInputData,
-  TypeOptions,
-  option,
-  updateIdToStudy,
-  updateToTypeOption,
-}) {
+function AddEducations({ removeModal, defaultInputData, TypeOptions, option }) {
   const {
     name,
     degree,
@@ -28,8 +21,8 @@ function AddEducations({
 
   const [data, setData] = useState({
     name,
-    degree,
-    typeOfStudy,
+    degree: option,
+    typeOfStudy: TypeOptions,
     location,
     dateFrom,
     dateTo,
@@ -68,6 +61,8 @@ function AddEducations({
   //   setData(sanitizedValue);
   // };
 
+  console.log(data);
+
   return (
     <div className='addEducations'>
       <div className='addEducations__inner'>
@@ -95,7 +90,8 @@ function AddEducations({
               placeholder={'Select degree'}
               options={option}
               required
-              onChange={e => setData(prev => ({ ...prev, degree: e.id }))}
+              value={data.degree.value}
+              onChange={e => setData(prev => ({ ...prev, degree: e.value }))}
             />
           </div>
           <br />
@@ -104,8 +100,11 @@ function AddEducations({
             <Select
               placeholder={'Type of study'}
               options={TypeOptions}
+              value={data.typeOfStudy.value}
               required
-              onChange={e => setData(prev => ({ ...prev, typeOfStudy: e.id }))}
+              onChange={e =>
+                setData(prev => ({ ...prev, typeOfStudy: e.value }))
+              }
             />
           </div>
           <br />
@@ -184,7 +183,8 @@ function AddEducations({
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
                   }
-                  required
+                  // {data.currentStudy === true ? '' : require}
+                  required={data.currentStudy === true ? true : false}
                   data-date-format='YYYY:MMMM:DD'
                 />
               )}

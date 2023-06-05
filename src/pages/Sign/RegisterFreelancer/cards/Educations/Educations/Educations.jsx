@@ -227,8 +227,6 @@ function Educations() {
       )}
       {isMoadalActive.educationAdd && (
         <AddEducations
-          updateIdToStudy={updateIdToStudy}
-          updateToTypeOption={updateToTypeOption}
           TypeOptions={TypeOptions}
           option={option}
           removeModal={setMoadalActive}
@@ -237,8 +235,6 @@ function Educations() {
       )}
       {isMoadalActive.educationEdit && (
         <AddEducations
-          updateIdToStudy={updateIdToStudy}
-          updateToTypeOption={updateToTypeOption}
           TypeOptions={TypeOptions}
           option={option}
           removeModal={setMoadalActive}

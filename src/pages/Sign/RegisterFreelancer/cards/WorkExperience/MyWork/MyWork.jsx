@@ -177,7 +177,7 @@ function MyWork({ removeModal, defaultData }) {
                       dateTo: new Date(e.target.value).toISOString(),
                     }))
                   }
-                  required
+                  required={data.currentWorking === true ? true : false}
                 />
               )}
             </div>

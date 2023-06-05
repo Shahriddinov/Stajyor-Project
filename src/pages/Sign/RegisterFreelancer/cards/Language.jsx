@@ -42,14 +42,7 @@ function Language() {
     { value: "Native", label: "C2 - Native" },
   ];
 
-  const prevPage = () => {
-    dispatch(
-      activeDoteAction([
-        { id: 3, label: "yourself" },
-        { id: 3, type: "About yourself and skills" },
-      ])
-    );
-  };
+
 
   let singleLang = true;
   if (langs.length > 1) {
@@ -92,6 +85,15 @@ function Language() {
     );
   };
 
+  const prevPage = () => {
+    dispatch(
+      activeDoteAction([
+        { id: 3, label: "yourself" },
+        { id: 3, type: "About yourself and skills" },
+      ])
+    );
+  };
+
   useEffect(() => {
     dispatch(languages());
     var dotAction = JSON.parse(localStorage.getItem("activeDoteAction"));
@@ -104,9 +106,9 @@ function Language() {
     const res = languageList.filter((el) => el.id !== choice?.value);
     if (res) {
       setUserLang(res);
-      setDisabledlanguageList(res);
+      setDisabledlanguageList(res)
     } else {
-      setUserLang(disabledlanguageList);
+      setUserLang(disabledlanguageList)
     }
     const newLangs = langs.map((el) => {
       if (el.id === id) {
@@ -120,7 +122,7 @@ function Language() {
 
     setLangs(newLangs);
   };
-  console.log(disabledlanguageList);
+  console.log(disabledlanguageList)
   return (
     <div className={classes.languageCard}>
       <h2>Write what languages you speak</h2>
@@ -143,14 +145,10 @@ function Language() {
             >
               <Select
                 className="languageSelect"
-                options={
-                  disabledlanguageList.length
-                    ? disabledlanguageList
-                    : languageList.map((el) => ({
-                        value: el.id,
-                        label: el.name,
-                      }))
-                }
+                options={disabledlanguageList.length? disabledlanguageList :languageList.map((el) => ({
+                  value: el.id,
+                  label: el.name,
+                }))}
                 placeholder="Language*"
                 onChange={(choice) =>
                   addLanguage({

@@ -1,24 +1,43 @@
 import React, { useState } from "react";
 import Select from "react-select";
 import "./AddLanguage.scss";
-// import cancel from "../../../assets/images/Resume/cancel.png";
-import { useContext } from "react";
-import Context from "components/Context/Context";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import cancel from "../../../../../assets/images/Resume/cancel.png";
+import { languages } from "reduxToolkit/extraReducers";
+
 const AddLanguage = ({ setActiveModal }) => {
-  const options = [
-    { value: "blues", label: "Blues" },
-    { value: "rock", label: "Rock" },
-    { value: "jazz", label: "Jazz" },
-    { value: "orchestra", label: "Orchestra" },
+  const languageList = useSelector((state) => state.resume.languageList);
+  const dispatch = useDispatch();
+  let singleLang = true;
+
+  useEffect(() => {
+    dispatch(languages());
+  }, []);
+
+  let level = [
+    { value: "A1 - Beginner", label: "A1 - Beginner" },
+    { value: "A2 - Elementary", label: "A2 - Elementary" },
+    { value: "B1 - Intermediate", label: "B1 - Intermediate" },
+    { value: "B2 - Upper-Intermediate", label: "B2 - Upper-Intermediate" },
   ];
 
-  const [count, setCount] = useState(1);
+  const [data, setData] = useState([{ LanguageId: null, lavel: {} }]);
 
-  const AddFunc = (num) => {
-    setCount(count + num);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
   };
 
-  const RemoveFunc = (bol) => {};
+  const removeLang = (id) => {
+    let newLang = [];
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].id !== id) {
+        newLang.push(data[i]);
+      }
+    }
+    data(newLang);
+  };
 
   return (
     <div>
@@ -28,28 +47,35 @@ const AddLanguage = ({ setActiveModal }) => {
           The more languages ​​you know, <br /> the more foreign employers will
           contact you.
         </p>
-        <form method="PATCH" className="languageForm">
+        <form method="PATCH" className="languageForm" onSubmit={handleSubmit}>
           <label htmlFor="laguages">Language*</label>
-          <div className="select" style={{ "margin-top": "15px" }}>
-            <Select
-              className="languageSelect"
-              options={options}
-              placeholder="Language*"
-              styles={{ width: "300px" }}
-            />
-            <Select
-              className="languageSelect"
-              options={options}
-              placeholder="Level*"
-            />
-            {/* <div className="cancelLang">
-								<img src={cancel} alt="cancel" />
-							</div> */}
-          </div>
+          {data.map((lang) => (
+            <div className="select" style={{ marginTop: "15px" }}>
+              <Select
+                className="languageSelect"
+                options={languageList?.map((el) => ({
+                  value: el.id,
+                  label: el.name,
+                }))}
+                placeholder="Language*"
+                styles={{ width: "300px" }}
+              />
+              <Select
+                className="languageSelect"
+                options={level}
+                placeholder="Level*"
+              />
+              {!singleLang && (
+                <div className="cancelLang" onClick={() => removeLang(lang.id)}>
+                  <img src={cancel} alt="cancel" />
+                </div>
+              )}
+            </div>
+          ))}
           <div
             className="addLanguage"
             style={{ cursor: "pointer" }}
-            onClick={() => AddFunc(1)}
+            onClick={""}
           >
             + Add Language
           </div>

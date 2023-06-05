@@ -11,9 +11,10 @@ const Resume1 = ({
 	educations,
 	freelancerPosition,
 	lastName,
-	address,
+	freeLancerAddress,
 	userLanguages,
-	birthday
+	birthday,	
+	freelancerLang
 }) => {
 	return (
 		<>
@@ -52,7 +53,7 @@ const Resume1 = ({
 							<div className="resume2_1-left-contacts__texts">
 								<div>
 									<img src={resumeGeo} />
-									<p>olmazor city</p>
+									<p>{freeLancerAddress?.countryId}{freeLancerAddress?.country}{freeLancerAddress?.street}</p>
 								</div>
 								{/*<div><img src={resumeGeo}/><p>{address}</p></div>*/}
 							</div>
@@ -71,14 +72,14 @@ const Resume1 = ({
 							<div className="resume2_1-left-contacts ">
 								<div className="resume2_1-left-contacts__texts resume2_1-left__block">
 									<p className="resume2_1-left-contacts__text">languages</p>
-									{userLanguages?.map((item, i) => {
+									{freelancerLang?.map((item, i) => {
 										return (
 											<span key={i}>
 												{item?.language} - {item?.level}
 											</span>
 										);
 									})}
-									<span>English - elementary</span>
+									
 								</div>
 
 								<div className="resume2_1-left-contacts__texts resume2_1-left__block">

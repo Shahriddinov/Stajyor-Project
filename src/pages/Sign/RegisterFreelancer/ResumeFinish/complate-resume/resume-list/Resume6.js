@@ -18,7 +18,8 @@ const Resume6 = ({
 	firstName,
 	lastName,
 	address,
-	userLanguages
+	userLanguages,
+	freelancerLang
 }) => {
 	return (
 		<>
@@ -64,9 +65,9 @@ const Resume6 = ({
 							<div className="resume2_6-bottom-title">language</div>
 							<div className="resume2_6-bottom-left-text">
 								<div className="language-lvl">
-									{userLanguages?.map((item, i) => (
+									{/* {freelancerLang.names?.map((item, i) => (
 										<React.Fragment key={i + 1}>
-											<p className={"subTitleUp"}>{item?.language}</p>
+											<p className={"subTitleUp"}>{item}</p>
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
@@ -75,7 +76,7 @@ const Resume6 = ({
 											<span className="resume2_6-cirlces" />
 											<span className="resume2_6-cirlces" />
 										</React.Fragment>
-									))}
+									))} */}
 								</div>
 							</div>
 

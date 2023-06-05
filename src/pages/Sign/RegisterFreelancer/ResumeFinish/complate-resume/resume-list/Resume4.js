@@ -11,6 +11,7 @@ const Resume4 = ({
   freelancerPosition,
   firstName,
   lastName,
+  freelancerLang
 }) => {
   console.log(phoneNumber);
   return (
@@ -65,15 +66,11 @@ const Resume4 = ({
             <div className='resume4-left-info'>
               <div className='resume4_title-l r4lt'>Languages</div>
               <div className='resume4-left-info-class'>
-                <div className='resume4-left-info-class-item'>
-                  <p className='text'>English - level</p>
-                </div>
-                <div className='resume4-left-info-class-item'>
-                  <p className='text'>English - level</p>
-                </div>
-                <div className='resume4-left-info-class-item'>
-                  <p className='text'>English - level</p>
-                </div>
+                {freelancerLang?.map((lang) => (
+                  <div className='resume4-left-info-class-item'>
+                    <p className='text'>{lang.language} - {lang.level}</p>
+                  </div>
+                ))}
               </div>
             </div>
 

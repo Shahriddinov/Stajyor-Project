@@ -5,6 +5,7 @@ import { activeDoteAction } from 'reduxToolkit/resumeControlsSlice/resumeControl
 import { getRegionsList } from '../../../../reduxToolkit/extraReducers';
 import { secondStep } from '../../../../reduxToolkit/frilanserCardSlice/frilanserCardSlice';
 import './Photo.scss';
+import { createMemoryHistory } from 'history';
 
 function Country() {
   const dispatch = useDispatch();
@@ -44,12 +45,16 @@ function Country() {
   });
 
   const onCountryChange = choice => {
+    if(choice){
+     console.log(choice?.value[0])
+    }
     setCountryName(choice);
     setUserChoice(choice.value);
     setData({ ...data, countryId: choice.label });
   };
 
   const onRegionChange = choice => {
+    // console.log( 'Region', choice)
     setRegionName(choice);
     setUserChoice2(choice.value);
     setData({ ...data, country: choice.label });

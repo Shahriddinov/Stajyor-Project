@@ -33,6 +33,8 @@ import {
   RESUMESELECT,
   SKILLS,
   USER,
+  USERLANGUAGE,
+  USERLANGUAGERANGE,
   USERROLES,
 } from './URLS';
 // ADDTOCOMPANY, ADDTOFREELANCER, CLAIMS, USERROLES,
@@ -363,6 +365,22 @@ export const languageUpload = createAsyncThunk(
   },
 );
 
+export const postUserLanguage = createAsyncThunk('post/userlang', async(payload)=>{
+  const token = localStorage.getItem('token')
+  return axios({
+    method:"POST",
+    url:USERLANGUAGERANGE,
+    data:payload,
+    headers:{
+      'Content-Type': `application/json-patch+json`,
+      Authorization: `bearer ${token}`,
+    }
+  }).then(res=>res.data)
+})
+
+export const getUserlang = createAsyncThunk('get/userLang', async()=>{
+  return await axios.get(USERLANGUAGE).then(res=>res.data)
+})
 ///////////////////////////CONTACTUPLOAD PUT///////////////////
 export const contactUpload = createAsyncThunk(
   'token/contactUpload',

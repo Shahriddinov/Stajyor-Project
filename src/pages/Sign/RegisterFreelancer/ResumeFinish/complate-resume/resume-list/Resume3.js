@@ -14,6 +14,8 @@ const Resume3 = ({
   freelancerPosition,
   firstName,
   lastName,
+  freelancerLang,
+  freeLancerAddress
 }) => {
   return (
     <>
@@ -40,7 +42,7 @@ const Resume3 = ({
                 <div>
                   {' '}
                   <span className='bottom-contacts-icon'> w </span>{' '}
-                  <span>{freelancerContact?.webSite}</span>
+                  <span>{freeLancerAddress?.country} - {freeLancerAddress?.street}</span>
                 </div>
               </div>
 
@@ -75,21 +77,11 @@ const Resume3 = ({
               </div>
 
               <div className='resume2_3-left-bottom-languages'>
-                <div className='bottom-languages-item'>
-                  <p className='languages-text'>English - A1 level</p>
-                </div>
-
-                <div className='bottom-languages-item'>
-                  <p className='languages-text'>English - A1 level</p>
-                </div>
-
-                <div className='bottom-languages-item'>
-                  <p className='languages-text'>English - A1 level</p>
-                </div>
-
-                <div className='bottom-languages-item'>
-                  <p className='languages-text'>English - A1 level</p>
-                </div>
+              {freelancerLang?.map((lang)=>(
+                 <div className='bottom-languages-item'>
+                 <p className='languages-text'>{lang.language} - {lang.level}</p>
+               </div>
+             ))} 
               </div>
               {/* Hobbies start */}
               <div className='resume2_3-bottom-title title-bg-cl1'>Hobbies</div>

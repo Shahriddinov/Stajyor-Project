@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getFreelancer } from 'reduxToolkit/extraReducers';
+import { getFreelancer, getUserlang } from 'reduxToolkit/extraReducers';
 import defaultuserImage from '../../assets/images/Freelancer/defaultUserImage.png';
 const initialState = {
   loading: '',
@@ -7,6 +7,7 @@ const initialState = {
   freelancerData: [],
   skillsData: [],
   hobbiesData: [],
+  userLang:null,
   error: null,
   freelancer: {
     firstName: '',
@@ -72,6 +73,16 @@ const freelancerSlice = createSlice({
       .addCase(getFreelancer.rejected, (state, action) => {
         state.error = action.error.message;
       });
+      builder.addCase(getUserlang.pending, (state)=>{
+        state.loading = true
+      })
+      builder.addCase(getUserlang.fulfilled, (state, action)=>{
+        state.loading = false;
+        state.userLang = action.payload
+      })
+      builder.addCase(getUserlang.rejected, (state, action)=>{
+        state.error = action.error.message
+      })
   },
 });
 

@@ -30,12 +30,7 @@ function Educations() {
     educationList,
     educationDeleteIsSuccess,
     loading,
-<<<<<<< HEAD
-  } = useSelector(state => state.resume);
-
-=======
   } = useSelector((state) => state.resume);
->>>>>>> origin/Abdurashid
   useEffect(() => {
     dispatch(educationGet());
   }, [educationGet, educationPostIsSuccess, educationDeleteIsSuccess]);
@@ -102,13 +97,6 @@ function Educations() {
     { value: "offline", label: "offline", id: 2 },
   ];
   const option = [
-<<<<<<< HEAD
-    { value: 'Sredniy', label: 'sredniy', id: 1 },
-    { value: 'Visshiy', label: 'vishiy', id: 2 },
-    { value: 'Bachelor', label: 'Bachelour', id: 3 },
-  ];
-
-=======
     { value: "Sredniy", label: "sredniy", id: 1 },
     { value: "Vishiy", label: "vishiy", id: 2 },
     { value: "Bachelour", label: "Bachelour", id: 3 },
@@ -132,7 +120,6 @@ function Educations() {
     }
   }
 
->>>>>>> origin/Abdurashid
   return (
     <>
       {loading ? (
@@ -157,18 +144,6 @@ function Educations() {
               </p>
               <div className="educations__box">
                 {educationList.map((el, int) => (
-<<<<<<< HEAD
-                  <div className='educations__content' key={el.id}>
-                    <div className='educations__texts'>
-                      <span className='educations__subtitle'>{el.name}</span>
-                      <div className='educations__study'>
-                        <span className='educations__span'>
-                          {el.typeOfStudy}
-                          {test}
-                        </span>
-                        <span className='educations__telecommunication'>
-                          {el.degree}
-=======
                   <div className="educations__content" key={el.id}>
                     <div className="educations__texts">
                       <span className="educations__subtitle">{el.name}</span>
@@ -179,7 +154,6 @@ function Educations() {
                         </span>
                         <span className="educations__telecommunication">
                           {updateToTypeOption(el.degree)}
->>>>>>> origin/Abdurashid
                         </span>
                       </div>
                     </div>

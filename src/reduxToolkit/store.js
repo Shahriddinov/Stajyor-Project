@@ -12,23 +12,49 @@ import JobsSlice from "./jobsSlice/JobsSlice";
 import projectSlice from "./resumeSlice/projectSlice";
 import frilanserCardSlice from "./frilanserCardSlice/frilanserCardSlice";
 
-const store = configureStore({
-	reducer: {
-		login: LoginSlice,
-		resume: resumeSlice,
-		freelance: FreelanceSlice,
-		lenguage,
-		contract,
-		resumeControle,
-		companyRegister,
-		jobs: JobsSlice,
-		project: projectSlice,
-		frilanserCardSlice:frilanserCardSlice
-	},
-	middleware: getDefaultMiddleware =>
-		getDefaultMiddleware({
-			serializableCheck: false
-		})
-});
+import storage from 'redux-persist/lib/storage';
+import {combineReducers} from "@reduxjs/toolkit";
 
+import { 
+	persistStore,
+	 persistReducer,
+	 FLUSH,
+	 REHYDRATE,
+	 PAUSE,
+	 PERSIST,
+	 PURGE,
+	 REGISTER,
+   } from 'redux-persist'
+
+
+
+   const rootReducer = combineReducers({
+	login: LoginSlice,
+	resume: resumeSlice,
+	freelance: FreelanceSlice,
+	lenguage,
+	contract,
+	resumeControle,
+	companyRegister,
+	jobs: JobsSlice,
+	project: projectSlice,
+	frilanserCardSlice:frilanserCardSlice
+  })
+
+
+  const persistConfig = {
+	key: 'root',
+	storage,
+  }
+const persistedReducer  = persistReducer(persistConfig, rootReducer)
+const store = configureStore({
+    reducer:persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+})
+export const persistor = persistStore(store)
 export default store;

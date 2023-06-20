@@ -11,6 +11,7 @@ function Photo() {
   const hiddenFileInput = useRef();
   const [uploaded, setUploaded] = useState('');
   const dispatch = useDispatch();
+  console.log(freelancer)
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -33,7 +34,7 @@ function Photo() {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(firstStep(data));
-    localStorage.setItem('photo', JSON.stringify(data));
+    // localStorage.setItem('photo', JSON.stringify(data));
     localStorage.setItem(
       'activDoteAction',
       JSON.stringify([
@@ -49,6 +50,7 @@ function Photo() {
     );
   };
   useEffect(() => {
+    setData(freelancer)
     if (freelancer.firstName === '') {
       var prevData = JSON.parse(localStorage.getItem('photo'));
       if (prevData) {
@@ -98,7 +100,7 @@ function Photo() {
           <div>
             <h5>Firstname*</h5>
             <input
-              onChange={e => setData({ ...data, firstName: e.target.value })}
+              onChange={e =>setData(prev=>({...prev, firstName:e.target.value}))}
               type='text'
               value={data.firstName}
               placeholder='Write in your first name'

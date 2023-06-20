@@ -121,7 +121,7 @@ function Language() {
 
     setLangs(newLangs);
   };
-  console.log(disabledlanguageList)
+  // console.log(disabledlanguageList)
   return (
     <div className={classes.languageCard}>
       <h2>Write what languages you speak</h2>

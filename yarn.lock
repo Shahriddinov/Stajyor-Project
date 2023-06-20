@@ -11491,6 +11491,11 @@
   dependencies:
     "deep-diff" "^0.3.5"
 
+"redux-persist@^6.0.0":
+  "integrity" "sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ=="
+  "resolved" "https://registry.npmjs.org/redux-persist/-/redux-persist-6.0.0.tgz"
+  "version" "6.0.0"
+
 "redux-saga-routines@^3.2.3":
   "integrity" "sha512-mUaVAk8ZMXIYv28kUgtAg9p9e6A1We+GLjSnSaj+fmAzwn8+NPlxVNqQ85R7BEzc/F6d5nQDcoh72yCaxcLpZA=="
   "resolved" "https://registry.npmjs.org/redux-saga-routines/-/redux-saga-routines-3.2.3.tgz"
@@ -11508,7 +11513,7 @@
   "resolved" "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.4.2.tgz"
   "version" "2.4.2"
 
-"redux@^3.1.0 || ^4.0.0", "redux@^4", "redux@^4.0.0", "redux@^4.0.4", "redux@^4.1.2", "redux@^4.2.0":
+"redux@^3.1.0 || ^4.0.0", "redux@^4", "redux@^4.0.0", "redux@^4.0.4", "redux@^4.1.2", "redux@^4.2.0", "redux@>4.0.0":
   "version" "4.2.0"
   dependencies:
     "@babel/runtime" "^7.9.2"

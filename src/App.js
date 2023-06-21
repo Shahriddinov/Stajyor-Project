@@ -1,264 +1,91 @@
-import jwt_decode from 'jwt-decode';
-import CompanyDropdown from 'pages/AfterAuth/Company/components/Dropdown/Dropdown';
-import FreelancerDropdown from 'pages/AfterAuth/Freelancer/components/Dropdown/Dropdown';
-import Header from 'pages/AfterAuth/Header/Header';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
-import { deleteUserWithId } from 'reduxToolkit/extraReducers';
-import { changeRoleWhenFinished } from 'reduxToolkit/loginSlice/LoginSlice';
-import {
-  companyRouter,
-  createCompany,
-  createProfileRoute,
-  freelancerResume,
-  freelancerRouter,
-  publicRoute,
-} from 'routes';
-
-import { useTranslation } from 'react-i18next';
+import { useSelector } from "react-redux";
+import { Route, Routes, Navigate } from "react-router-dom";
+import WelcomeBackground from './pages/welcome/background/WelcomeBackground'
+import HomeContentSwitcher from "./pages/welcome/components/home/HomeContentSwitcher";
+import Talents from './pages/welcome/components/talents/Talents';
+import Jobs from './pages/welcome/components/jobs/Jobs';
+import Aboutus from './pages/welcome/components/about-us/Aboutus';
+import Contactus from './pages/welcome/components/contact-us/Contactus';
+import Login from "./pages/sign/login/Login";
+import Signup from "./pages/sign/signup/Signup";
+import SignBackground from "./pages/sign/background/SignBackground";
+// import { useTranslation } from "react-i18next";
+import FreelanceOrCompany from "./pages/freelancer-or-company/FreelancerOrCompany.jsx";
+import FreelancerResume from "./pages/freelancer/freelancer-resume/FreelancerResume";
+import Round from "./components/Round/Round";
+import { LOGIN_USER } from "./api/URLS";
+import { useEffect } from "react";
 
 function App() {
-  const auth = useSelector(state => state.login.loggedIn);
-  const len = useSelector(state => state.lenguage.lenguage);
-  const { t } = useTranslation();
-  const freelancerOrCompony = useSelector(
-    state => state.login.freelancerOrCompony,
-  );
-  const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
-  const contactsIsSuccess = useSelector(
-    state => state.companyRegister.contactsIsSuccess,
-  );
-  const { skillsData, freelancerData } = useSelector(
-    state => state.frilanserCardSlice,
-  );
-  const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  const freelancer = localStorage.getItem('isResume')
-    ? localStorage.getItem('isResume')
-    : 'welcome';
 
-  useEffect(() => {
-    if (auth) {
-      let decode = jwt_decode(auth);
-      console.log(decode)
-      let getRole = Object.values(decode).includes('Company')
-        ? 'Company'
-        : Object.values(decode).includes('Freelancer')
-        ? 'Freelancer'
-        : false;
-
-      if (!freelancerOrCompony) {
-        dispatch(changeRoleWhenFinished(getRole));
-      }
-    }
-  }, [auth]);
-  // useLayoutEffect(() => {
-  // 	navigate(`/${len}/`)
-  // }, [len, navigate])
-
-  // useEffect(
-  // 	() => {
-  // 		dispatch(claimsGet());
-  // 	},
-  // 	[dispatch]
-  // );
+  // const auth = useSelector(state => state.login.loggedIn);
+  const lang = useSelector(state => state.language.language);
+  const image = useSelector(state => state.freelancerResume.image);
+  const name = useSelector(state => state.freelancerResume.name);
+  const surname = useSelector(state => state.freelancerResume.surname);
+  const email = useSelector(state => state.freelancerResume.email);
+  const phone = useSelector(state => state.freelancerResume.phone);
 
   // useEffect(() => {
-  // 	if (loginOnSuccess || contactsIsSuccess) {
-  // 		dispatch(userRoles())
-  // 	}
-  // }, [loginOnSuccess, contactsIsSuccess, dispatch])
-  var userBoolen = false;
-  const navigate = useNavigate();
-  useEffect(() => {
-    var resumeId = JSON.parse(localStorage.getItem('resumeId'));
-    if (resumeId) {
-      navigate(`/${len}/welcome/create-profile/${resumeId}`);
-    }
-    if (auth) {
-      let decode = jwt_decode(auth);
-      if (decode) {
-        userBoolen = Object.values(decode)[1];
-      }
-    }
-  }, []);
+  //   fetch('https://localhost:7234/api/country')
+  //     .then(res => res.json())
+  //     .then(data => console.log(data))
+  // }, [])
 
-  // ~~~~~~~~~~~~~~~~~~~~~~~~test
+  // const { i18n } = useTranslation();
+  // const freelancerOrCompony = useSelector(state => state.login.freelancerOrCompony);
+  // const loginOnSuccess = useSelector(state => state.login.loginOnSuccess);
+  // const contactsIsSuccess = useSelector(state => state.companyRegister.contactsIsSuccess);
 
-  const [online, setOnline] = useState(navigator.onLine);
+  // const { pathname } = useLocation();
+  // const freelancer = localStorage.getItem("isResume") ? localStorage.getItem("isResume") : "welcome";
 
-  useEffect(() => {
-    const handleOnlineStatus = () => {
-      setOnline(navigator.onLine);
-    };
+  let freelanceOrCompany;
 
-    window.addEventListener('online', handleOnlineStatus);
-    window.addEventListener('offline', handleOnlineStatus);
-
-    return () => {
-      window.removeEventListener('online', handleOnlineStatus);
-      window.removeEventListener('offline', handleOnlineStatus);
-    };
-  }, []);
-
-  const handleDelete = () => {
-    if (userBoolen) {
-      console.log(userBoolen);
-      localStorage.removeItem('token');
-      dispatch(deleteUserWithId(userBoolen));
-    } else {
-      alert('error');
-    }
-  };
+  // if (auth) {
+  //   let decode = jwt_decode(auth);
+  //   freelanceOrCompany = Object.values(decode).includes("Company")
+  //     ? "Company"
+  //     : (freelanceOrCompany = Object.values(decode).includes("Freelancer") ? "Freelancer" : "None");
+  // }
+  // const handleLanguage = (lg) => {
+  //   i18n.changeLanguage(lg);
+  // };
   return (
-    <div className='App'>
-      {/* {online ? (
-        <> */}
-      {freelancerOrCompony !== 'Company' &&
-      freelancerOrCompony !== 'Freelancer' ? (
-        freelancer === 'freelancer' ? (
-          <Routes>
-            {freelancerResume.map(route => (
-              <Route
-                path={`/${len}${route.path}`}
-                element={route.element}
-                key={route.id}
-              />
-            ))}
-            <Route
-              path='*'
-              element={<Navigate to={`/${len}/welcome/create-profile`} />}
-            />
-          </Routes>
-        ) : freelancer === 'company' ? (
-          <Routes>
-            {createCompany.map(route => (
-              <Route
-                path={`/${len}${route.path}`}
-                element={route.element}
-                key={route.id}
-              />
-            ))}
-            <Route
-              path='*'
-              element={<Navigate to={`/${len}/welcome/register-company`} />}
-            />
-          </Routes>
-        ) : (
-          <Routes>
-            {createProfileRoute.map(route => (
-              <Route
-                path={`/${len}${route.path}`}
-                element={route.element}
-                key={route.id}
-              />
-            ))}
-            <Route path='*' element={<Navigate to={`/${len}/login`} />} />
-          </Routes>
-        )
-      ) : auth && freelancerOrCompony ? (
-        <div
-          className={`freelanser-box  ${
-            pathname.slice(4) === 'contact' || pathname.slice(4) === 'about'
-              ? 'freelanser-box-bg1'
-              : 'freelanser-box-bg2'
-          }`}
-        >
-          {freelancerOrCompony === 'Freelancer' ? (
-            <>
-              <Header Dropdown={FreelancerDropdown} />
-              <Routes>
-                {freelancerRouter.map(route => (
-                  <Route
-                    path={`/${len}${route.path}`}
-                    element={route.element}
-                    key={route.id}
-                  />
-                ))}
-                <Route
-                  path={pathname.slice(0, 4)}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route
-                  path={`/${len}/login`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route
-                  path={`/${len}/welcome`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-
-                <Route
-                  path={`/${len}/welcome/create-profile/:resumeId`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route path='*' element={<Navigate to={`/${len}/jobs`} />} />
-              </Routes>
-            </>
-          ) : null}
-
-          {freelancerOrCompony === 'Company' && (
-            <>
-              <Header Dropdown={CompanyDropdown} />
-              <Routes>
-                {companyRouter.map(route => (
-                  <>
-                    <Route
-                      path={`/${len}${route.path}`}
-                      element={route.element}
-                      key={route.id}
-                    />
-                    {/* <Route
-                      path={`/${len}/my-jobs`}
-                      element={<MyPostings />}
-                      key="10"
-                    /> */}
-                  </>
-                ))}
-                <Route
-                  path={pathname.slice(0, 4)}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route
-                  path={`/${len}/login`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route
-                  path={`/${len}/welcome`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-                <Route
-                  path={`/${len}/welcome/register-company`}
-                  element={<Navigate to={`/${len}/jobs`} />}
-                />
-              </Routes>
-            </>
-          )}
-        </div>
-      ) : (
-        <Routes>
-          {publicRoute.map(route => (
-            <Route
-              path={`/${len}${route.path}`}
-              element={route.element}
-              key={route.id}
-            />
-          ))}
-          <Route path='*' element={<Navigate to={`/${len}/welcome`} />} />
-        </Routes>
-      )}
-      {/* </>
-      ) : (
-        <h1>no internet</h1>
-      )} */}
-    </div>
+    <>
+      {/* <div style={{ position: 'fixed', zIndex: 999 }}>
+        {
+          ["uz", "en", "ru"].map((lg, index) => (
+            <button
+              style={{ padding: '5px 15px' }}
+              key={lg + index}
+              onClick={() => handleLanguage(lg)}
+            >
+              {lg}
+            </button>
+          ))
+        }
+      </div> */}
+      <Routes>
+        {/* <Route path="/" element={<Navigate to={`/${lang}/home`} />} />
+        <Route path={`${lang}`} element={<Navigate to={`/${lang}/home`} />} />
+        <Route path={`${lang}/`} element={<Navigate to={`/${lang}/home`} />} /> */}
+        <Route path={`${lang}/`} element={<WelcomeBackground />}>
+          <Route path="home" element={<HomeContentSwitcher />} />
+          <Route path="talents" element={<Talents />} />
+          <Route path="jobs" element={<Jobs />} />
+          <Route path="about-us" element={<Aboutus />} />
+          <Route path="contact-us" element={<Contactus />} />
+        </Route>
+        <Route path={`${lang}`} element={<SignBackground />}>
+          <Route path="login" element={<Login />} />
+          <Route path="sign-up" element={<Signup />} />
+          {/* <Route path="*" element={<Navigate to={`/${lang}/home`} />} /> */}
+        </Route>
+        <Route path={`${lang}/freelancer-or-company`} element={<FreelanceOrCompany />} />
+        <Route path={`${lang}/freelancer-resume`} element={<FreelancerResume />} />
+      </Routes>
+    </>
   );
 }
 

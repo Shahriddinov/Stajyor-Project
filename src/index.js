@@ -1,51 +1,28 @@
-import 'react-app-polyfill/ie11';
-import 'react-app-polyfill/ie9';
-
-import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-
-import 'swiper/components/navigation/navigation.scss';
-import 'swiper/components/pagination/pagination.min.css';
-import 'swiper/swiper-bundle.css';
-import 'swiper/swiper.min.css';
-
-import store from 'reduxToolkit/store';
-import './assets/styles/fonts.css';
-import './assets/styles/footer.scss';
-import './assets/styles/header.scss';
-import './assets/styles/main.css';
-import './assets/styles/ui.scss';
-
-import { I18nextProvider } from 'react-i18next';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import i18 from './services/i18';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store, { persistor } from './store/store';
+import { ToastContainer } from 'react-toastify';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+import "./assets/styles/ui.scss";
+import "./assets/styles/header.scss";
+import "./assets/styles/fonts.css";
+import './services/i18next';
+import 'react-toastify/dist/ReactToastify.css';
+import { PersistGate } from 'redux-persist/es/integration/react';
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/service-worker.js').then(
-      function(registration) {
-        console.log(
-          'ServiceWorker registration successful with scope: ',
-          registration.scope,
-        );
-      },
-      function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-      },
-    );
-  });
-}
-
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
+  <React.StrictMode>
     <BrowserRouter>
-      <I18nextProvider i18n={i18}>
-        <App />
-      </I18nextProvider>
+      <Provider store={store}>
+        <PersistGate loading={false} persistor={persistor}>
+          <App />
+          <ToastContainer />
+        </PersistGate>
+      </Provider>
     </BrowserRouter>
-  </Provider>,
+  </React.StrictMode>
 );

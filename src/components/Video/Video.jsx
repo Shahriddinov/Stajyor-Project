@@ -1,6 +1,6 @@
+import { useRef, useState } from 'react';
 import c from './Video.module.scss';
 import { BsFillPlayFill } from "react-icons/bs";
-import { useRef, useState } from 'react';
 
 
 const VideoWrapper = () => {

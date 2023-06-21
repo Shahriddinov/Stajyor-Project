@@ -1,9 +1,5 @@
-import useOutsideClick from "./outside-click";
-import useDocumentTitle from "./document-title";
-import useWindowDimensions from "./window-dimensions";
+import { useInput } from "./use-input";
 
-import useNotification from "./notification";
-
-
-
-export { useOutsideClick, useDocumentTitle, useWindowDimensions, useNotification };
+export {
+    useInput
+};
